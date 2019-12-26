@@ -1,0 +1,19 @@
+Name of admin panel
+* Project Ready
+    1. Create React App with (CRA);
+    2. Add Eslint
+    3. Add Prettier
+    4. Config Eslint & Prettier
+    5. Props Type
+    6. Coustomize CRA
+    6. Add Antd
+    7. Import Antd style with component wise
+    8. Theame Config with Antd
+    9. Hot Module Reloading (HMR) Config
+    10. Folder Structure
+    11. React-Router-Dom
+    12. Redux, React-Redux, Redux-thunk
+    
+* Theame Config
+* Components Page
+* State Management and data flow
