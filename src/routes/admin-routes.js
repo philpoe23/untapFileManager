@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Dashboard from '../container/dashboard';
+const Dashboard = lazy(() => import('../container/dashboard'));
 
 const AdminRoutes = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Dashboard} />
+        <Suspense fallback={<div>Loading....</div>}>
+          <Route exact path="/" component={Dashboard} />
+        </Suspense>
       </Switch>
     </Router>
   );
