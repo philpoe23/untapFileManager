@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../../components/header/header';
 
 const Dashbord = props => {
-  return <Header name="Hello world" />;
+  return (
+    <Fragment>
+      <Header name="Hello Aazztech" />
+    </Fragment>
+  );
 };
 
 export default Dashbord;
