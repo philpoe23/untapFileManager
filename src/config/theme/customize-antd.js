@@ -17,6 +17,23 @@ const theme = {
   'card-background': '#ffffff',
   'card-head-padding': '16px',
   'card-padding-base': '12px',
+  // Layout
+  'layout-body-background': '#F4F5F7',
+  'layout-header-background': '#ffffff',
+  'layout-footer-background': '#fafafa',
+  'layout-header-height': '64px',
+  'layout-header-padding': '0 15px',
+  'layout-footer-padding': '24px 15px',
+  'layout-sider-background': '#ffffff',
+  'layout-trigger-height': '48px',
+  'layout-trigger-background': '#002140',
+  'layout-trigger-color': '#fff',
+  'layout-zero-trigger-width': '36px',
+  'layout-zero-trigger-height': '42px',
+  // Layout light theme
+  'layout-sider-background-light': '#fff',
+  'layout-trigger-background-light': '#fff',
+  'layout-trigger-color-light': 'rgba(0, 0, 0, 0.65)',
 };
 
 module.exports = theme;

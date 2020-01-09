@@ -1,18 +1,18 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import { Switch, Route } from 'react-router-dom';
+import Layout from '../layout/layout';
 const Dashboard = lazy(() => import('../container/dashboard'));
+const Desktop = lazy(() => import('../container/desktop/desktop'));
 
 const AdminRoutes = () => {
   return (
-    <Router>
-      <Switch>
-        <Suspense fallback={<div>Loading....</div>}>
-          <Route exact path="/" component={Dashboard} />
-        </Suspense>
-      </Switch>
-    </Router>
+    <Switch>
+      <Suspense fallback={<div>Loading....</div>}>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/desktop" component={Desktop} />
+      </Suspense>
+    </Switch>
   );
 };
 
-export default AdminRoutes;
+export default Layout(AdminRoutes);
