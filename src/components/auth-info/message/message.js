@@ -1,21 +1,21 @@
 import React from 'react';
-import { Badge, Popover } from 'antd';
+import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { PopupWithIcon } from '../../popup/popup';
 
 const MessageBox = props => {
   const { message } = props;
-
   const content = (
     <div>
       {message.map(item => {
         const { id, from } = item;
         return (
-          <p key={id}>
-            <NavLink to="#">{from}</NavLink>
-          </p>
+          <NavLink key={id} to="#">
+            {from}
+          </NavLink>
         );
       })}
       <p>
@@ -28,13 +28,13 @@ const MessageBox = props => {
 
   return (
     <div className="message" style={{ marginTop: 10 }}>
-      <Popover placement="bottomLeft" title="Message List" content={content} trigger="click">
+      <PopupWithIcon placement="bottomLeft" title="Message List" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
             <FeatherIcon icon="mail" size={20} />
           </NavLink>
         </Badge>
-      </Popover>
+      </PopupWithIcon>
     </div>
   );
 };

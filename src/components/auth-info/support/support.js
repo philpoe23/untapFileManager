@@ -1,30 +1,26 @@
 import React from 'react';
-import { Popover } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
+import { PopupWithIcon } from '../../popup/popup';
 
 const Support = props => {
   const content = (
     <div>
-      <p>
-        <NavLink to="#">Support</NavLink>
-      </p>
-      <p>
-        <NavLink to="#">Help</NavLink>
-      </p>
-      <p>
-        <NavLink to="#">question</NavLink>
-      </p>
+      <NavLink to="#">Support</NavLink>
+
+      <NavLink to="#">Help</NavLink>
+
+      <NavLink to="#">question</NavLink>
     </div>
   );
 
   return (
     <div style={{ marginTop: 10 }}>
-      <Popover placement="bottomLeft" title="Support" content={content} trigger="click">
+      <PopupWithIcon placement="bottomLeft" title="Support" content={content} trigger="click">
         <NavLink to="#" className="head-example">
           <FeatherIcon icon="help-circle" size={20} />
         </NavLink>
-      </Popover>
+      </PopupWithIcon>
     </div>
   );
 };
