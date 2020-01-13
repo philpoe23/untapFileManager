@@ -18,8 +18,9 @@ const theme = {
   'border-radius-base': '4px', // major border radius
   'border-color-base': '#d9d9d9', // major border color
   'box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', // major shadow for layers
-  'card-head-background': primaryColor,
-  'card-head-color': 'rgba(255, 255, 255, 0.65)',
+  // cards
+  'card-head-background': '#ffffff',
+  'card-head-color': textColor,
   'card-background': '#ffffff',
   'card-head-padding': '16px',
   'card-padding-base': '12px',
