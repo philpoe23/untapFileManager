@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
-// import Header from '../../components/header/header';
 import PageHeader from '../../components/page-header/page-header';
-import FrameOfDashboard from '../../layout/dashboard';
+
 import { CardFreshFrame, CardTabsFrame, CardTabsBtnFrame } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
+import { SocialMediaContent } from '../../components/social-media/overview';
+
 const tabList = [
   {
     key: 'tab1',
@@ -19,7 +20,12 @@ const tabList = [
   },
 ];
 const contentList = {
-  tab1: <p>content1</p>,
+  tab1: (
+    <Fragment>
+      <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+      <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+    </Fragment>
+  ),
   tab2: <p>content2</p>,
   tab3: <p>content3</p>,
 };
@@ -31,7 +37,26 @@ const Dashbord = props => {
         <Row gutter={15}>
           <Col md={8}>
             <CardFreshFrame title="Social Media Overview" size="large" more={false}>
-              <p>This is Child</p>
+              <Row gutter={15}>
+                <Col md={8}>
+                  <SocialMediaContent icon="facebook" bgColor="#2366B8" title="5,461" subTitle="Likes" />
+                </Col>
+                <Col md={8}>
+                  <SocialMediaContent icon="twitter" bgColor="#00ABE4" title="5,461" subTitle="Followers" />
+                </Col>
+                <Col md={8}>
+                  <SocialMediaContent icon="instagram" bgColor="#9D2E98" title="5,461" subTitle="Followers" />
+                </Col>
+                <Col md={8}>
+                  <SocialMediaContent icon="youtube-play" bgColor="#E32212" title="5,461" subTitle="Subscribers" />
+                </Col>
+                <Col md={8}>
+                  <SocialMediaContent icon="pinterest-p" bgColor="#E32212" title="5,461" subTitle="Followers" />
+                </Col>
+                <Col md={8}>
+                  <SocialMediaContent icon="linkedin" bgColor="#007CBC" title="5,461" subTitle="Followers" />
+                </Col>
+              </Row>
             </CardFreshFrame>
           </Col>
           <Col md={16}>
@@ -48,4 +73,4 @@ const Dashbord = props => {
   );
 };
 
-export default FrameOfDashboard(Dashbord);
+export default Dashbord;

@@ -16,7 +16,7 @@ const { Header, Footer, Sider, Content } = Layout;
 const FrameOfTheme = WrappedComponent => {
   class LayouT extends Component {
     state = {
-      collapsed: true,
+      collapsed: false,
     };
 
     toggleCollapsed = () => {
@@ -34,7 +34,7 @@ const FrameOfTheme = WrappedComponent => {
             <Header>
               <Row>
                 <Col md={4}>
-                  <Button type="link" style={{ marginTop: 0 }}>
+                  <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
                   <NavLink to="/">
@@ -51,7 +51,7 @@ const FrameOfTheme = WrappedComponent => {
             </Header>
             <Layout>
               <Sider style={{ paddingTop: '15px', height: '100vh' }} collapsed={this.state.collapsed} theme="light">
-                {/* <p style={{ paddingLeft: '20px' }}>MAIN MENU</p> */}
+                <p style={{ paddingLeft: '20px' }}>MAIN MENU</p>
                 <SidebarItem />
               </Sider>
               <Content>

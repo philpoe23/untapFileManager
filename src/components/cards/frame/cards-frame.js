@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { CardWraper, CardTabWraper, CardTabBtnWraper } from './cards-frame-style';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
+import theme from '../../../config/theme/customize-antd';
 
 const CardFreshFrame = props => {
   const { title, more, size } = props;
@@ -84,29 +86,31 @@ const CardTabsBtnFrame = props => {
   };
 
   return (
-    <CardWraper>
-      <CardTabBtnWraper>
-        <Card
-          style={{ width: '100%' }}
-          title={title}
-          size={size}
-          tabBarExtraContent={
-            more && (
-              <NavLink to="#">
-                <FeatherIcon icon="more-horizontal" />
-              </NavLink>
-            )
-          }
-          tabList={tabList}
-          activeTabKey={key}
-          onTabChange={key => {
-            onTabChange(key, 'key');
-          }}
-        >
-          {contentList[key]}
-        </Card>
-      </CardTabBtnWraper>
-    </CardWraper>
+    <ThemeProvider theme={theme}>
+      <CardWraper>
+        <CardTabBtnWraper>
+          <Card
+            style={{ width: '100%' }}
+            title={title}
+            size={size}
+            tabBarExtraContent={
+              more && (
+                <NavLink to="#">
+                  <FeatherIcon icon="more-horizontal" />
+                </NavLink>
+              )
+            }
+            tabList={tabList}
+            activeTabKey={key}
+            onTabChange={key => {
+              onTabChange(key, 'key');
+            }}
+          >
+            {contentList[key]}
+          </Card>
+        </CardTabBtnWraper>
+      </CardWraper>
+    </ThemeProvider>
   );
 };
 

@@ -1,9 +1,10 @@
 import Styled from 'styled-components';
 const CardWraper = Styled.div`
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     .ant-card.ant-card-bordered {
-        border-radius: 15px;
+        border-radius: 10px;
         overflow: hidden;
+        border: none;
     }
 `;
 
@@ -40,8 +41,7 @@ const CardTabBtnWraper = Styled.div`
       }
       .ant-tabs.ant-tabs-top.ant-card-head-tabs.ant-tabs-large.ant-tabs-line{
         width: 100%;
-        display: block;
-        
+        display: block;        
       }
       .ant-tabs-nav-scroll {
         display: flex;
@@ -51,22 +51,21 @@ const CardTabBtnWraper = Styled.div`
         display: none !important;
       }
       .ant-tabs-nav .ant-tabs-tab {     
-        border-radius: 1px;
+        border-radius: 2px;
         height: 30px;
         margin: 0px;
         margin-left: -1px;
         display: inline-flex;
         align-items: center;
-        border: 1px solid #ddd;
+        border: 1px solid ${({ theme }) => theme['border-color-base']};
         background: #fff;
       }
-      .ant-tabs-nav .ant-tabs-tab-active {
-        color: #5F63F2;
+      .ant-tabs-nav .ant-tabs-tab-active {        
         font-weight: 500;
-        border: 1px solid #5F63F2;
-        background: #5F63F2;
+        border: 1px solid ${({ theme }) => theme['primary-color']};
+        background: ${({ theme }) => theme['primary-color']};
         color: #fff;
-        border-radius: 1px;
+        border-radius: 2px;
         height: 30px;
         margin: 0px;
         display: inline-flex;
