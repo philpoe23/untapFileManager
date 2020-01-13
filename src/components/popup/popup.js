@@ -19,9 +19,9 @@ const PopupWithIcon = props => {
 };
 
 PopupWithIcon.propTypes = {
-  placement: PropTypes.string,
-  title: PropTypes.string,
-  content: PropTypes.object,
+  placement: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.object.isRequired,
 };
 
 export { PopupWithIcon };

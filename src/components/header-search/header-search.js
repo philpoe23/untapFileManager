@@ -1,10 +1,11 @@
 import React from 'react';
-import { Icon, Input, Row, Col, Popover } from 'antd';
+import { Icon, Input, Row, Col } from 'antd';
 import { Div } from './header-search-style';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { headerSearchAction } from '../../redux/actions/header-search';
 import PropTypes from 'prop-types';
+import { PopupWithIcon } from '../popup/popup';
 
 const HeaderSearch = props => {
   const { searchData, headerSearch } = props;
@@ -19,16 +20,14 @@ const HeaderSearch = props => {
         searchData.map(group => {
           const { title, count, id } = group;
           return (
-            <p key={id}>
-              <NavLink to="#">
-                {title}
-                <span className="certain-search-item-count">{count} people</span>
-              </NavLink>
-            </p>
+            <NavLink key={id} to="#">
+              {title}
+              <span className="certain-search-item-count">{count} people</span>
+            </NavLink>
           );
         })
       ) : (
-        <p>No data found</p>
+        <NavLink to="#">Data Not found....</NavLink>
       )}
     </div>
   );
@@ -39,9 +38,9 @@ const HeaderSearch = props => {
           <Icon type="search" className="certain-category-icon" />
         </Col>
         <Col xs={22}>
-          <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
+          <PopupWithIcon placement="bottomLeft" content={content} title="Search List" trigger="focus">
             <Input placeholder="Search..." onInput={search} />
-          </Popover>
+          </PopupWithIcon>
         </Col>
       </Row>
     </Div>
