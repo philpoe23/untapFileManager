@@ -50,15 +50,15 @@ const FrameOfTheme = WrappedComponent => {
               </Row>
             </Header>
             <Layout>
-              <Sider style={{ paddingTop: '15px', height: '100vh' }} collapsed={this.state.collapsed} theme="light">
+              <Sider width={250} style={{ paddingTop: '15px' }} collapsed={this.state.collapsed} theme="light">
                 <p style={{ paddingLeft: '20px' }}>MAIN MENU</p>
                 <SidebarItem />
               </Sider>
               <Content>
                 <WrappedComponent />
+                <Footer>Footer</Footer>
               </Content>
             </Layout>
-            <Footer>Footer</Footer>
           </Layout>
         </LayOutWraper>
       );

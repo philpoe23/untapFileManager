@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
-
 import { CardFreshFrame, CardTabsFrame, CardTabsBtnFrame } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Card } from 'antd';
 import { SocialMediaContent } from '../../components/social-media/overview';
+import { Main } from '../styled';
 
 const tabList = [
   {
@@ -33,7 +33,7 @@ const Dashbord = props => {
   return (
     <Fragment>
       <PageHeader title="Social Media Dashboard" />
-      <div style={{ padding: '0px 50px', minHeight: 280 }}>
+      <Main>
         <Row gutter={15}>
           <Col md={8}>
             <CardFreshFrame title="Social Media Overview" size="large" more={false}>
@@ -68,7 +68,7 @@ const Dashbord = props => {
             <CardTabsFrame title="Facebook Overview" size="large" more={false} tabList={tabList} contentList={contentList} />
           </Col>
         </Row>
-      </div>
+      </Main>
     </Fragment>
   );
 };

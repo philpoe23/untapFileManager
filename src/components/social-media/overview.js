@@ -1,6 +1,7 @@
 import React from 'react';
 import { MainWraper, SocialIcon, Title, SubTitle } from './overview-style';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 const SocialMediaContent = props => {
   const { icon, bgColor, title, subTitle } = props;
@@ -14,5 +15,10 @@ const SocialMediaContent = props => {
     </MainWraper>
   );
 };
-
+SocialMediaContent.propTypes = {
+  icon: PropTypes.string.isRequired,
+  bgColor: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
+};
 export { SocialMediaContent };
