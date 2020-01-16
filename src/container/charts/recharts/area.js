@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import rechartdata from '../../../config/dataService/recharts.json';
-const { data, positiveAndnegetive, nullchart } = rechartdata;
+const { data, nullchart } = rechartdata;
 
 const ReChartArea = () => {
   return (
@@ -94,6 +94,49 @@ const ReChartArea = () => {
                   <YAxis />
                   <Tooltip />
                   <Area connectNulls type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                </AreaChart>
+              </div>
+            </CardFreshFrame>
+          </Col>
+          <Col md={12}>
+            <CardFreshFrame title="synchronized AreaCharts" size="large" more={false}>
+              <div>
+                <AreaChart
+                  width={750}
+                  height={300}
+                  data={data}
+                  syncId="anyId"
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 0,
+                    bottom: 0,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                </AreaChart>
+                <p>Maybe some other content</p>
+                <AreaChart
+                  width={750}
+                  height={300}
+                  data={data}
+                  syncId="anyId"
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 0,
+                    bottom: 0,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
                 </AreaChart>
               </div>
             </CardFreshFrame>

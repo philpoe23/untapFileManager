@@ -3,7 +3,7 @@ import PageHeader from '../../../components/page-header/page-header';
 import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import mapdata from '../../../config/dataService/google-maps.json';
+import mapdata from '../../../config/dataService/google-charts.json';
 
 import { GoogleBasicBarChart, GoogleMaterialBarChart, GoogleStackedChart, GoogleCustomColorChart, GoogleOrgChart, GoogleComboChart, GoogleLineChart, GoogleMultiLineChart, GoogleBasicPieChart, Google3dPieChart } from '../../../components/charts/google-chart';
 

@@ -2,9 +2,10 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 const { SubMenu } = Menu;
+
 const SidebarItem = () => {
   return (
-    <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode="inline">
+    <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
       <SubMenu
         key="sub1"
         title={
@@ -153,7 +154,7 @@ const SidebarItem = () => {
           <NavLink to="/chartjs">Chart Js</NavLink>
         </Menu.Item>
         <Menu.Item key="44">
-          <NavLink to="/google-chart">Google Chart</NavLink>
+          <NavLink to="/google-chart">Google Charts</NavLink>
         </Menu.Item>
 
         <SubMenu
@@ -166,12 +167,30 @@ const SidebarItem = () => {
           }
         >
           <Menu.Item key="45">
-            <NavLink to="/recharts/bar">Bar Chart</NavLink>
+            <NavLink to="/recharts/bar">Bar Charts</NavLink>
           </Menu.Item>
           <Menu.Item key="46">
-            <NavLink to="/recharts/area">Area Chart</NavLink>
+            <NavLink to="/recharts/area">Area Charts</NavLink>
+          </Menu.Item>
+          <Menu.Item key="47">
+            <NavLink to="/recharts/composed">Composed Charts</NavLink>
+          </Menu.Item>
+          <Menu.Item key="48">
+            <NavLink to="/recharts/line">Line Charts</NavLink>
+          </Menu.Item>
+          <Menu.Item key="49">
+            <NavLink to="/recharts/pie">Pie Charts</NavLink>
+          </Menu.Item>
+          <Menu.Item key="50">
+            <NavLink to="/recharts/radar">Radar Charts</NavLink>
+          </Menu.Item>
+          <Menu.Item key="51">
+            <NavLink to="/recharts/radial">Radial Charts</NavLink>
           </Menu.Item>
         </SubMenu>
+        <Menu.Item key="52">
+          <NavLink to="/peity">Paity Charts</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu
@@ -201,7 +220,11 @@ const SidebarItem = () => {
             <span>Maps</span>
           </span>
         }
-      ></SubMenu>
+      >
+        <Menu.Item key="53">
+          <NavLink to="/maps/google">Google Maps</NavLink>
+        </Menu.Item>
+      </SubMenu>
     </Menu>
   );
 };

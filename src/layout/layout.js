@@ -31,14 +31,21 @@ const FrameOfTheme = WrappedComponent => {
       return (
         <LayOutWraper>
           <Layout>
-            <Header>
+            <Header
+              style={{
+                position: 'fixed',
+                width: '100%',
+                top: 0,
+                left: 0,
+              }}
+            >
               <Row>
                 <Col md={4}>
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
                   <NavLink to="/">
-                    <img src={require('../static/img/aazztech_logo_v2.png')} alt="" />
+                    <img src={require(`../static/img/logo.png`)} alt="" />
                   </NavLink>
                 </Col>
                 <Col md={6}>
@@ -50,20 +57,33 @@ const FrameOfTheme = WrappedComponent => {
               </Row>
             </Header>
             <Layout>
-              <Sider width={250} style={{ paddingTop: '15px' }} collapsed={this.state.collapsed} theme="light">
-                <p style={{ paddingLeft: '20px' }}>MAIN MENU</p>
+              <Sider width={250} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
+                <p>MAIN MENU</p>
                 <SidebarItem />
               </Sider>
-              <Content>
-                <WrappedComponent />
-                <Footer>Footer</Footer>
-              </Content>
+              <Layout style={{ marginLeft: 250, marginTop: '64px' }}>
+                <Content>
+                  <WrappedComponent />
+                  <Footer>Footer</Footer>
+                </Content>
+              </Layout>
             </Layout>
           </Layout>
         </LayOutWraper>
       );
     }
   }
+
+  const SideBarStyle = {
+    marginTop: '64px',
+    paddingTop: '15px',
+    paddingBottom: '55px',
+    overflow: 'auto',
+    height: '100vh',
+    position: 'fixed',
+    left: 0,
+  };
+
   LayouT.propTypes = {
     readMessage: PropTypes.func,
     readNotification: PropTypes.func,

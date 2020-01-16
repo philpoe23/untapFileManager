@@ -12,6 +12,8 @@
     "d3-scale-chromatic": "^1.5.0",
     "date-fns": "^2.9.0",
     "feather-icons-react": "^0.3.2",
+    "google-maps-react": "^2.0.2",
+    "peity-react": "0.0.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-chartjs-2": "^2.8.0",
