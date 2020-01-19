@@ -135,7 +135,9 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="39">Feather icons (svg)</Menu.Item>
+        <Menu.Item key="39">
+          <NavLink to="/icon/feathers">Feather icons (svg)</NavLink>
+        </Menu.Item>
         <Menu.Item key="40">Font Awesome</Menu.Item>
         <Menu.Item key="41">Line Awesome</Menu.Item>
         <Menu.Item key="42">Ant Design icons</Menu.Item>
@@ -223,6 +225,12 @@ const SidebarItem = () => {
       >
         <Menu.Item key="53">
           <NavLink to="/maps/google">Google Maps</NavLink>
+        </Menu.Item>
+        <Menu.Item key="54">
+          <NavLink to="/maps/leaflet">Leaflet Maps</NavLink>
+        </Menu.Item>
+        <Menu.Item key="55">
+          <NavLink to="/maps/Vector">Vector Maps</NavLink>
         </Menu.Item>
       </SubMenu>
     </Menu>

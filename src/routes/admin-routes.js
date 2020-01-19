@@ -16,6 +16,11 @@ const Peity = lazy(() => import('../container/charts/peity/peity'));
 
 // maps
 const GoogleMaps = lazy(() => import('../container/maps/google-maps'));
+const Osm = lazy(() => import('../container/maps/leaflet'));
+const Vector = lazy(() => import('../container/maps/vector'));
+
+// Icons
+const Feathers = lazy(() => import('../container/icons/feather-icons'));
 
 const AdminRoutes = () => {
   return (
@@ -33,6 +38,9 @@ const AdminRoutes = () => {
         <Route path="/recharts/radial" component={RechartsRadial} />
         <Route path="/peity" component={Peity} />
         <Route path="/maps/google" component={GoogleMaps} />
+        <Route path="/maps/leaflet" component={Osm} />
+        <Route path="/maps/vector" component={Vector} />
+        <Route path="/icon/feathers" component={Feathers} />
       </Suspense>
     </Switch>
   );
