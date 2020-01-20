@@ -1,4 +1,5 @@
 const primaryColor = '#5F63F2',
+  secondaryColor = '#137D82',
   linkColor = '#1890ff',
   textColor = 'rgba(0, 0, 0, 0.65)',
   headingColor = 'rgba(0, 0, 0, 0.85)',
@@ -6,10 +7,13 @@ const primaryColor = '#5F63F2',
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
+  'secondary-color': secondaryColor, // secondary color for all components
   'link-color': linkColor, // link color
   'success-color': '#52c41a', // success state color
   'warning-color': '#faad14', // warning state color
   'error-color': '#f5222d', // error state color
+  'info-color': '#91d5ff', // info state color
+  'danger-color': '#ff4d4f',
   'font-size-base': '14px', // major text font size
   'heading-color': headingColor, // heading text color
   'text-color': textColor, // major text color
@@ -50,7 +54,6 @@ const theme = {
   'page-header-ghost-bg': 'inherit',
 
   // Popover body background color
-
   'popover-color': textColor,
 };
 

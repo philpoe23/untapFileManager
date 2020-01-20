@@ -124,7 +124,11 @@ const SidebarItem = () => {
             <span>UI Elements</span>
           </span>
         }
-      ></SubMenu>
+      >
+        <Menu.Item key="56">
+          <NavLink to="/components/button">Button</NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu
         key="sub8"
@@ -138,9 +142,15 @@ const SidebarItem = () => {
         <Menu.Item key="39">
           <NavLink to="/icon/feathers">Feather icons (svg)</NavLink>
         </Menu.Item>
-        <Menu.Item key="40">Font Awesome</Menu.Item>
-        <Menu.Item key="41">Line Awesome</Menu.Item>
-        <Menu.Item key="42">Ant Design icons</Menu.Item>
+        <Menu.Item key="40">
+          <NavLink to="/icon/font-awesome">Font Awesome</NavLink>
+        </Menu.Item>
+        <Menu.Item key="41">
+          <NavLink to="/icon/line-awesome">Line Awesome</NavLink>
+        </Menu.Item>
+        <Menu.Item key="42">
+          <NavLink to="/icon/antd">Ant Design icons</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu

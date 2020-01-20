@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import Layout from '../layout/layout';
 const Dashboard = lazy(() => import('../container/dashboard'));
@@ -21,12 +22,25 @@ const Vector = lazy(() => import('../container/maps/vector'));
 
 // Icons
 const Feathers = lazy(() => import('../container/icons/feather-icons'));
+const Fa = lazy(() => import('../container/icons/fa-icons'));
+const La = lazy(() => import('../container/icons/la-icons'));
+const AntdIcons = lazy(() => import('../container/icons/antd-icons'));
+
+// UI-Elements
+const Button = lazy(() => import('../container/ui-elements/button/button'));
 
 const AdminRoutes = () => {
   return (
     <Switch>
-      <Suspense fallback={<div>Loading....</div>}>
+      <Suspense
+        fallback={
+          <div className="spin">
+            <Spin />
+          </div>
+        }
+      >
         <Route exact path="/" component={Dashboard} />
+
         <Route path="/chartjs" component={ChartJs} />
         <Route path="/google-chart" component={GoogleChart} />
         <Route path="/recharts/bar" component={RechartsBarChart} />
@@ -37,10 +51,16 @@ const AdminRoutes = () => {
         <Route path="/recharts/radar" component={RechartsRadar} />
         <Route path="/recharts/radial" component={RechartsRadial} />
         <Route path="/peity" component={Peity} />
+
         <Route path="/maps/google" component={GoogleMaps} />
         <Route path="/maps/leaflet" component={Osm} />
         <Route path="/maps/vector" component={Vector} />
         <Route path="/icon/feathers" component={Feathers} />
+        <Route path="/icon/font-awesome" component={Fa} />
+        <Route path="/icon/line-awesome" component={La} />
+        <Route path="/icon/antd" component={AntdIcons} />
+
+        <Route path="/components/button" component={Button} />
       </Suspense>
     </Switch>
   );

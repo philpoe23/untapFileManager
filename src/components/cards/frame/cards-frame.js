@@ -122,4 +122,22 @@ CardTabsBtnFrame.propTypes = {
   contentList: PropTypes.object.isRequired,
 };
 
-export { CardFreshFrame, CardTabsFrame, CardTabsBtnFrame };
+const CardHeadLessFrame = props => {
+  const { title, caption, size } = props;
+  return (
+    <CardWraper>
+      <Card size={size} style={{ width: '100%' }}>
+        <h4>{title}</h4>
+        <p>{caption}</p>
+        {props.children}
+      </Card>
+    </CardWraper>
+  );
+};
+CardHeadLessFrame.propTypes = {
+  title: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
+};
+
+export { CardFreshFrame, CardTabsFrame, CardTabsBtnFrame, CardHeadLessFrame };
