@@ -128,6 +128,12 @@ const SidebarItem = () => {
         <Menu.Item key="56">
           <NavLink to="/components/button">Button</NavLink>
         </Menu.Item>
+        <Menu.Item key="57">
+          <NavLink to="/components/alerts">Alerts</NavLink>
+        </Menu.Item>
+        <Menu.Item key="58">
+          <NavLink to="/components/modals">Modals</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu

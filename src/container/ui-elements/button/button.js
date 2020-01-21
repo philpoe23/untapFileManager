@@ -4,9 +4,11 @@ import { Row, Col, Icon } from 'antd';
 import { Main } from '../../styled';
 import FeatherIcon from 'feather-icons-react';
 import { CardHeadLessFrame } from '../../../components/cards/frame/cards-frame';
-import { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup } from '../../../components/button/antd/antd-buttons';
+import { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnDropdown } from '../../../components/antd/buttons/antd-buttons';
 
-const Dashbord = props => {
+import { content } from '../../../config/dataService/button-content';
+
+const Buttons = props => {
   return (
     <Fragment>
       <PageHeader title="Button" />
@@ -242,15 +244,102 @@ const Dashbord = props => {
                   Large
                 </BtnBasic>
               </Row>
+              <p>Loading button</p>
+              <Row>
+                <BtnLoading size="large" type="primary">
+                  Loading
+                </BtnLoading>
+                <BtnLoading size="large" type="primary" event={true}>
+                  Click
+                </BtnLoading>
+              </Row>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Button Group" size="large" caption="Fancy larger or smaller buttons.">
+              <Row>
+                <BtnGroup>
+                  <BtnBasic size="small" type="primary">
+                    Left
+                  </BtnBasic>
+                  <BtnBasic size="small" type="primary">
+                    Middle
+                  </BtnBasic>
+                  <BtnBasic size="small" type="primary">
+                    Right
+                  </BtnBasic>
+                </BtnGroup>
+              </Row>
+
+              <Row>
+                <BtnGroup>
+                  <BtnBasic type="secondary">Left</BtnBasic>
+                  <BtnBasic type="secondary">Middle</BtnBasic>
+                  <BtnBasic type="secondary">Right</BtnBasic>
+                </BtnGroup>
+              </Row>
+              <Row>
+                <BtnGroup>
+                  <BtnOutline size="large" type="primary">
+                    Left
+                  </BtnOutline>
+                  <BtnOutline size="large" type="primary">
+                    Middle
+                  </BtnOutline>
+                  <BtnOutline size="large" type="primary">
+                    Right
+                  </BtnOutline>
+                </BtnGroup>
+              </Row>
+              <p>Button toolbar</p>
               <BtnGroup>
-                <BtnBasic type="primary">Small</BtnBasic>
-                <BtnBasic type="primary">Medium</BtnBasic>
-                <BtnBasic type="primary">Large</BtnBasic>
+                <BtnBasic type="primary">1</BtnBasic>
+                <BtnBasic type="primary">2</BtnBasic>
+                <BtnBasic type="primary">3</BtnBasic>
+                <BtnBasic type="primary">4</BtnBasic>
+                <BtnBasic type="primary">5</BtnBasic>
               </BtnGroup>
+              <BtnGroup>
+                <BtnBasic type="primary">6</BtnBasic>
+                <BtnBasic type="primary">7</BtnBasic>
+                <BtnBasic type="primary">8</BtnBasic>
+              </BtnGroup>
+              <BtnGroup>
+                <BtnBasic type="primary">9</BtnBasic>
+              </BtnGroup>
+            </CardHeadLessFrame>
+          </Col>
+          <Col md={12}>
+            <CardHeadLessFrame title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
+              <BtnDropdown placement="bottomLeft" type="primary" content={content}>
+                Primary
+                <Icon type="down" />
+              </BtnDropdown>
+
+              <BtnDropdown placement="bottomRight" title="with title" content={content} type="secondary">
+                Secondary
+                <Icon type="down" />
+              </BtnDropdown>
+              <BtnDropdown placement="topLeft" content={content} type="danger">
+                Danger
+                <Icon type="down" />
+              </BtnDropdown>
+              <BtnDropdown placement="topRight" content={content} type="success">
+                Success
+                <Icon type="down" />
+              </BtnDropdown>
+              <BtnDropdown placement="bottomLeft" size="small" content={content} type="error">
+                Error
+                <Icon type="down" />
+              </BtnDropdown>
+              <BtnDropdown placement="bottomLeft" size="small" content={content} type="warning">
+                Warning
+                <Icon type="down" />
+              </BtnDropdown>
+              <BtnDropdown placement="bottomLeft" size="small" content={content} type="info">
+                Info
+                <Icon type="down" />
+              </BtnDropdown>
             </CardHeadLessFrame>
           </Col>
         </Row>
@@ -259,4 +348,4 @@ const Dashbord = props => {
   );
 };
 
-export default Dashbord;
+export default Buttons;

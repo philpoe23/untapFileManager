@@ -83,6 +83,7 @@ const ButtonStyledSocial = Styled(Button)`
 `;
 
 const ButtonStyledGroup = Styled(ButtonGroup)`
+    margin: 4px;  
     button {
         margin: 0px;
     }
