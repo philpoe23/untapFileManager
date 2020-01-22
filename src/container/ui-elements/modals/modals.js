@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { CardHeadLessFrame } from '../../../components/cards/frame/cards-frame';
 import { BtnBasic } from '../../../components/antd/buttons/antd-buttons';
-import { BasicModal, ColordModal } from '../../../components/antd/modals/antd-modals';
+import { BasicModal, ColordModal, info, success, error, warning, selfDestroyed, showConfirm } from '../../../components/antd/modals/antd-modals';
 
 const Modals = props => {
   const [state, setState] = useState({ visible: false, modalType: 'primary', colorModal: false });
@@ -70,7 +70,7 @@ const Modals = props => {
               <p>Some contents...</p>
               <p>Some contents...</p>
             </ColordModal>
-            <CardHeadLessFrame title="Default Modal" size="large" caption="Default Ant Design Modal">
+            <CardHeadLessFrame title="Color Modal" size="large" caption="Color Ant Design Modal">
               <p>When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information. Additionally</p>
               <BtnBasic click={showColorModal} type="primary">
                 Primary
@@ -83,6 +83,29 @@ const Modals = props => {
               </BtnBasic>
               <BtnBasic click={showColorModal} type="warning">
                 Warning
+              </BtnBasic>
+            </CardHeadLessFrame>
+          </Col>
+          <Col md={12}>
+            <CardHeadLessFrame title="Information Modal" size="large" caption="Notification Ant Design Modal">
+              <p>When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information. Additionally</p>
+              <BtnBasic click={success} type="success">
+                Success
+              </BtnBasic>
+              <BtnBasic click={error} type="error">
+                Error
+              </BtnBasic>
+              <BtnBasic click={warning} type="warning">
+                Warning
+              </BtnBasic>
+              <BtnBasic click={info} type="info">
+                Info
+              </BtnBasic>
+              <BtnBasic click={selfDestroyed} type="primary">
+                Modal Self Destroyed
+              </BtnBasic>
+              <BtnBasic click={showConfirm} type="primary">
+                Confirm
               </BtnBasic>
             </CardHeadLessFrame>
           </Col>

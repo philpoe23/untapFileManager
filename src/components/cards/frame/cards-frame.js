@@ -135,9 +135,9 @@ const CardHeadLessFrame = props => {
   );
 };
 CardHeadLessFrame.propTypes = {
-  title: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  caption: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  size: PropTypes.string,
+  caption: PropTypes.string,
 };
 
 export { CardFreshFrame, CardTabsFrame, CardTabsBtnFrame, CardHeadLessFrame };

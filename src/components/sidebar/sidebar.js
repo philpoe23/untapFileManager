@@ -134,6 +134,9 @@ const SidebarItem = () => {
         <Menu.Item key="58">
           <NavLink to="/components/modals">Modals</NavLink>
         </Menu.Item>
+        <Menu.Item key="59">
+          <NavLink to="/components/cards">Cards</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu

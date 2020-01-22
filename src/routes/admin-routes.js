@@ -30,6 +30,7 @@ const AntdIcons = lazy(() => import('../container/icons/antd-icons'));
 const Button = lazy(() => import('../container/ui-elements/button/button'));
 const Alerts = lazy(() => import('../container/ui-elements/alerts/alerts'));
 const Modals = lazy(() => import('../container/ui-elements/modals/modals'));
+const Cards = lazy(() => import('../container/ui-elements/cards/cards'));
 
 const AdminRoutes = () => {
   return (
@@ -65,6 +66,7 @@ const AdminRoutes = () => {
         <Route path="/components/button" component={Button} />
         <Route path="/components/alerts" component={Alerts} />
         <Route path="/components/modals" component={Modals} />
+        <Route path="/components/cards" component={Cards} />
       </Suspense>
     </Switch>
   );
