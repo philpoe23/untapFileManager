@@ -4,7 +4,7 @@ import { Row, Col, Icon } from 'antd';
 import { Main } from '../../styled';
 import FeatherIcon from 'feather-icons-react';
 import { CardHeadLessFrame } from '../../../components/cards/frame/cards-frame';
-import { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnDropdown } from '../../../components/antd/buttons/antd-buttons';
+import { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnPopOver, BtnDropdown } from '../../../components/antd/buttons/antd-buttons';
 
 import { content } from '../../../config/dataService/button-content';
 
@@ -310,22 +310,55 @@ const Buttons = props => {
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
-              <BtnDropdown placement="bottomLeft" type="primary" content={content}>
+            <CardHeadLessFrame title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
+              <BtnPopOver placement="bottomLeft" type="primary" content={content} action="click">
                 Primary
+                <Icon type="down" />
+              </BtnPopOver>
+
+              <BtnPopOver placement="bottomRight" title="with title" content={content} type="secondary">
+                Secondary
+                <Icon type="down" />
+              </BtnPopOver>
+              <BtnPopOver placement="topLeft" content={content} type="danger">
+                Danger
+                <Icon type="down" />
+              </BtnPopOver>
+              <BtnPopOver placement="topRight" content={content} type="success">
+                Success
+                <Icon type="down" />
+              </BtnPopOver>
+              <BtnPopOver placement="bottomLeft" size="small" content={content} type="error">
+                Error
+                <Icon type="down" />
+              </BtnPopOver>
+              <BtnPopOver placement="bottomLeft" size="small" content={content} type="warning">
+                Warning
+                <Icon type="down" />
+              </BtnPopOver>
+              <BtnPopOver placement="bottomLeft" size="small" content={content} type="info">
+                Info
+                <Icon type="down" />
+              </BtnPopOver>
+            </CardHeadLessFrame>
+          </Col>
+          <Col md={12}>
+            <CardHeadLessFrame title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
+              <BtnDropdown placement="bottomLeft" type="primary" content={content} action={['click']}>
+                Bottom Left Click
                 <Icon type="down" />
               </BtnDropdown>
 
               <BtnDropdown placement="bottomRight" title="with title" content={content} type="secondary">
-                Secondary
+                Bottom Right hover
                 <Icon type="down" />
               </BtnDropdown>
               <BtnDropdown placement="topLeft" content={content} type="danger">
-                Danger
+                Top Left hover
                 <Icon type="down" />
               </BtnDropdown>
               <BtnDropdown placement="topRight" content={content} type="success">
-                Success
+                Top Right hover
                 <Icon type="down" />
               </BtnDropdown>
               <BtnDropdown placement="bottomLeft" size="small" content={content} type="error">

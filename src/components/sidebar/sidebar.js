@@ -137,6 +137,12 @@ const SidebarItem = () => {
         <Menu.Item key="59">
           <NavLink to="/components/cards">Cards</NavLink>
         </Menu.Item>
+        <Menu.Item key="60">
+          <NavLink to="/components/grid">Grid</NavLink>
+        </Menu.Item>
+        <Menu.Item key="61">
+          <NavLink to="/components/tabs">Tabs</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu

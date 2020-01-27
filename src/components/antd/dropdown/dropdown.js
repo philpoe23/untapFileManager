@@ -1,28 +1,27 @@
 import React from 'react';
-import { Popover } from 'antd';
-import { Content } from './popup-style';
+import { Dropdown } from 'antd';
+import { Content } from './dropdown-style';
 import PropTypes from 'prop-types';
-import './style.css';
+//import './style.css';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../config/theme/customize-antd';
-
-const PopupWithIcon = props => {
+import theme from '../../../config/theme/customize-antd';
+const DropdownWithIcon = props => {
   const { content, placement, title, action } = props;
   const content1 = <Content>{content}</Content>;
   return (
     <ThemeProvider theme={theme}>
-      <Popover placement={placement} title={title} content={content1} trigger={action !== undefined ? action : 'hover'}>
+      <Dropdown placement={placement} title={title} overlay={content1} trigger={action !== undefined ? action : ['hover']}>
         {props.children}
-      </Popover>
+      </Dropdown>
     </ThemeProvider>
   );
 };
 
-PopupWithIcon.propTypes = {
+DropdownWithIcon.propTypes = {
   placement: PropTypes.string.isRequired,
   title: PropTypes.string,
-  action: PropTypes.string,
+  action: PropTypes.array,
   content: PropTypes.object.isRequired,
 };
 
-export { PopupWithIcon };
+export { DropdownWithIcon };

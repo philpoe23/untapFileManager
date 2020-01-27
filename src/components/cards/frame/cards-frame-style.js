@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 const CardWraper = Styled.div`
     margin-bottom: 20px;
     .ant-card.ant-card-bordered {
-        border-radius: 10px;
+        border-radius: 5px;
         overflow: hidden;
         border: none;
     }

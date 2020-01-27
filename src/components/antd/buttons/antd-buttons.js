@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ButtonStyledGroup, ButtonStyled, ButtonStyledOutline, ButtonStyledSquare, ButtonStyledSquareOutline, ButtonStyledSocial } from './button-styled';
 import { PopupWithIcon } from '../../../components/popup/popup';
+import { DropdownWithIcon } from '../../../components/antd/dropdown/dropdown';
+
 import PropTypes from 'prop-types';
 
 const BtnBasic = props => {
@@ -102,14 +104,35 @@ const BtnGroup = props => {
   return <ButtonStyledGroup>{props.children}</ButtonStyledGroup>;
 };
 
-const BtnDropdown = props => {
-  const { type, shape, icon, size, content, title, placement } = props;
+const BtnPopOver = props => {
+  const { type, shape, icon, size, content, title, placement, action } = props;
   return (
-    <PopupWithIcon placement={placement} title={title} content={content} trigger="click">
+    <PopupWithIcon placement={placement} title={title} content={content} action={action}>
       <ButtonStyled size={size} shape={shape} type={type} icon={icon}>
         {props.children}
       </ButtonStyled>
     </PopupWithIcon>
+  );
+};
+BtnPopOver.propTypes = {
+  type: PropTypes.string.isRequired,
+  shape: PropTypes.string,
+  icon: PropTypes.string,
+  size: PropTypes.string,
+  content: PropTypes.object,
+  title: PropTypes.string,
+  placement: PropTypes.string,
+  action: PropTypes.string,
+};
+
+const BtnDropdown = props => {
+  const { type, shape, icon, size, content, title, placement, action } = props;
+  return (
+    <DropdownWithIcon placement={placement} title={title} content={content} action={action}>
+      <ButtonStyled size={size} shape={shape} type={type} icon={icon}>
+        {props.children}
+      </ButtonStyled>
+    </DropdownWithIcon>
   );
 };
 BtnDropdown.propTypes = {
@@ -120,6 +143,7 @@ BtnDropdown.propTypes = {
   content: PropTypes.object,
   title: PropTypes.string,
   placement: PropTypes.string,
+  action: PropTypes.array,
 };
 
-export { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnDropdown };
+export { BtnBasic, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnPopOver, BtnDropdown };

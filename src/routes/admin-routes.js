@@ -31,6 +31,8 @@ const Button = lazy(() => import('../container/ui-elements/button/button'));
 const Alerts = lazy(() => import('../container/ui-elements/alerts/alerts'));
 const Modals = lazy(() => import('../container/ui-elements/modals/modals'));
 const Cards = lazy(() => import('../container/ui-elements/cards/cards'));
+const Grid = lazy(() => import('../container/ui-elements/grid/grid'));
+const Tabs = lazy(() => import('../container/ui-elements/tabs/tabs'));
 
 const AdminRoutes = () => {
   return (
@@ -67,6 +69,8 @@ const AdminRoutes = () => {
         <Route path="/components/alerts" component={Alerts} />
         <Route path="/components/modals" component={Modals} />
         <Route path="/components/cards" component={Cards} />
+        <Route path="/components/grid" component={Grid} />
+        <Route path="/components/tabs" component={Tabs} />
       </Suspense>
     </Switch>
   );
