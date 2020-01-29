@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Content = Styled.div`
       
-    a {
+    a, .span {
         display: block;
         color: #888;
         padding: 6px 12px;

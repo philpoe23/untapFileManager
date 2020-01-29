@@ -33,6 +33,16 @@ const Modals = lazy(() => import('../container/ui-elements/modals/modals'));
 const Cards = lazy(() => import('../container/ui-elements/cards/cards'));
 const Grid = lazy(() => import('../container/ui-elements/grid/grid'));
 const Tabs = lazy(() => import('../container/ui-elements/tabs/tabs'));
+const Breadcrumb = lazy(() => import('../container/ui-elements/breadcrumb/breadcrumb'));
+const Pagination = lazy(() => import('../container/ui-elements/pagination/pagination'));
+const PageHeader = lazy(() => import('../container/ui-elements/page-headers/page-headers'));
+const Steps = lazy(() => import('../container/ui-elements/steps/steps'));
+const Comments = lazy(() => import('../container/ui-elements/comments/comments'));
+const Empty = lazy(() => import('../container/ui-elements/empty/empty'));
+const Statistic = lazy(() => import('../container/ui-elements/statistic/statistic'));
+const Rate = lazy(() => import('../container/ui-elements/rate/rate'));
+const Slider = lazy(() => import('../container/ui-elements/slider/slider'));
+const Progress = lazy(() => import('../container/ui-elements/progress/progress'));
 
 const AdminRoutes = () => {
   return (
@@ -46,16 +56,16 @@ const AdminRoutes = () => {
       >
         <Route exact path="/" component={Dashboard} />
 
-        <Route path="/chartjs" component={ChartJs} />
-        <Route path="/google-chart" component={GoogleChart} />
-        <Route path="/recharts/bar" component={RechartsBarChart} />
-        <Route path="/recharts/area" component={RechartsAreaChart} />
-        <Route path="/recharts/composed" component={RechartsComposed} />
-        <Route path="/recharts/line" component={RechartsLine} />
-        <Route path="/recharts/pie" component={RechartsPie} />
-        <Route path="/recharts/radar" component={RechartsRadar} />
-        <Route path="/recharts/radial" component={RechartsRadial} />
-        <Route path="/peity" component={Peity} />
+        <Route path="/charts/chartjs" component={ChartJs} />
+        <Route path="/charts/google-chart" component={GoogleChart} />
+        <Route path="/charts/recharts/bar" component={RechartsBarChart} />
+        <Route path="/charts/recharts/area" component={RechartsAreaChart} />
+        <Route path="/charts/recharts/composed" component={RechartsComposed} />
+        <Route path="/charts/recharts/line" component={RechartsLine} />
+        <Route path="/charts/recharts/pie" component={RechartsPie} />
+        <Route path="/charts/recharts/radar" component={RechartsRadar} />
+        <Route path="/charts/recharts/radial" component={RechartsRadial} />
+        <Route path="/charts/peity" component={Peity} />
 
         <Route path="/maps/google" component={GoogleMaps} />
         <Route path="/maps/leaflet" component={Osm} />
@@ -71,6 +81,16 @@ const AdminRoutes = () => {
         <Route path="/components/cards" component={Cards} />
         <Route path="/components/grid" component={Grid} />
         <Route path="/components/tabs" component={Tabs} />
+        <Route path="/components/breadcrumb" component={Breadcrumb} />
+        <Route path="/components/pagination" component={Pagination} />
+        <Route path="/components/page-headers" component={PageHeader} />
+        <Route path="/components/steps" component={Steps} />
+        <Route path="/components/comments" component={Comments} />
+        <Route path="/components/empty" component={Empty} />
+        <Route path="/components/statistic" component={Statistic} />
+        <Route path="/components/rate" component={Rate} />
+        <Route path="/components/slider" component={Slider} />
+        <Route path="/components/progress" component={Progress} />
       </Suspense>
     </Switch>
   );

@@ -56,8 +56,9 @@ const theme = {
   // Popover body background color
   'popover-color': textColor,
 
-  // tabs
-  //'tabs-vertical-padding': '8px 0px',
+  // slider
+  'slider-track-background-color': primaryColor + '70',
+  'slider-track-background-color-hover': primaryColor + '90',
 };
 
 module.exports = theme;

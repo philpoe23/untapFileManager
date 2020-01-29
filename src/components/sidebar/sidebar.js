@@ -3,11 +3,13 @@ import { Menu, Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 const { SubMenu } = Menu;
 
-const SidebarItem = () => {
+const SidebarItem = props => {
+  const pathArray = window.location.pathname.split('/');
+
   return (
-    <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
+    <Menu mode="inline" defaultSelectedKeys={[`${pathArray.length > 2 ? pathArray[2] : 'home'}`]} defaultOpenKeys={[`${pathArray.length > 2 ? pathArray[1] : 'dashboard'}`]}>
       <SubMenu
-        key="sub1"
+        key="dashboard"
         title={
           <span>
             <Icon type="home" />
@@ -15,7 +17,7 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="1">
+        <Menu.Item key="home">
           <NavLink to="/">Google Analytics Social Media</NavLink>
         </Menu.Item>
         <Menu.Item key="2">Fintech / Business Dashboard</Menu.Item>
@@ -117,7 +119,7 @@ const SidebarItem = () => {
       </SubMenu>
       <p>Components</p>
       <SubMenu
-        key="sub7"
+        key="components"
         title={
           <span>
             <Icon type="ant-design" />
@@ -125,28 +127,58 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="56">
+        <Menu.Item key="button">
           <NavLink to="/components/button">Button</NavLink>
         </Menu.Item>
-        <Menu.Item key="57">
+        <Menu.Item key="alerts">
           <NavLink to="/components/alerts">Alerts</NavLink>
         </Menu.Item>
-        <Menu.Item key="58">
+        <Menu.Item key="modals">
           <NavLink to="/components/modals">Modals</NavLink>
         </Menu.Item>
-        <Menu.Item key="59">
+        <Menu.Item key="cards">
           <NavLink to="/components/cards">Cards</NavLink>
         </Menu.Item>
-        <Menu.Item key="60">
+        <Menu.Item key="grid">
           <NavLink to="/components/grid">Grid</NavLink>
         </Menu.Item>
-        <Menu.Item key="61">
+        <Menu.Item key="tabs">
           <NavLink to="/components/tabs">Tabs</NavLink>
+        </Menu.Item>
+        <Menu.Item key="breadcrumb">
+          <NavLink to="/components/breadcrumb">Breadcrumb</NavLink>
+        </Menu.Item>
+        <Menu.Item key="pagination">
+          <NavLink to="/components/pagination">Paginations</NavLink>
+        </Menu.Item>
+        <Menu.Item key="page-headers">
+          <NavLink to="/components/page-headers">Page Headers</NavLink>
+        </Menu.Item>
+        <Menu.Item key="steps">
+          <NavLink to="/components/steps">Steps</NavLink>
+        </Menu.Item>
+        <Menu.Item key="comments">
+          <NavLink to="/components/comments">Comments</NavLink>
+        </Menu.Item>
+        <Menu.Item key="empty">
+          <NavLink to="/components/empty">Empty</NavLink>
+        </Menu.Item>
+        <Menu.Item key="statistic">
+          <NavLink to="/components/statistic">Statistic</NavLink>
+        </Menu.Item>
+        <Menu.Item key="rate">
+          <NavLink to="/components/rate">Rate</NavLink>
+        </Menu.Item>
+        <Menu.Item key="slider">
+          <NavLink to="/components/slider">Slider</NavLink>
+        </Menu.Item>
+        <Menu.Item key="progress">
+          <NavLink to="/components/progress">Progress</NavLink>
         </Menu.Item>
       </SubMenu>
 
       <SubMenu
-        key="sub8"
+        key="icon"
         title={
           <span>
             <Icon type="appstore" />
@@ -154,22 +186,22 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="39">
+        <Menu.Item key="feathers">
           <NavLink to="/icon/feathers">Feather icons (svg)</NavLink>
         </Menu.Item>
-        <Menu.Item key="40">
+        <Menu.Item key="font-awesome">
           <NavLink to="/icon/font-awesome">Font Awesome</NavLink>
         </Menu.Item>
-        <Menu.Item key="41">
+        <Menu.Item key="line-awesome">
           <NavLink to="/icon/line-awesome">Line Awesome</NavLink>
         </Menu.Item>
-        <Menu.Item key="42">
+        <Menu.Item key="antd">
           <NavLink to="/icon/antd">Ant Design icons</NavLink>
         </Menu.Item>
       </SubMenu>
 
       <SubMenu
-        key="sub9"
+        key="charts"
         title={
           <span>
             <Icon type="bar-chart" />
@@ -177,15 +209,15 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="43">
-          <NavLink to="/chartjs">Chart Js</NavLink>
+        <Menu.Item key="chartjs">
+          <NavLink to="/charts/chartjs">Chart Js</NavLink>
         </Menu.Item>
-        <Menu.Item key="44">
-          <NavLink to="/google-chart">Google Charts</NavLink>
+        <Menu.Item key="google-chart">
+          <NavLink to="/charts/google-chart">Google Charts</NavLink>
         </Menu.Item>
 
         <SubMenu
-          key="sub12"
+          key="recharts"
           title={
             <span>
               <Icon type="area-chart" />
@@ -193,30 +225,30 @@ const SidebarItem = () => {
             </span>
           }
         >
-          <Menu.Item key="45">
-            <NavLink to="/recharts/bar">Bar Charts</NavLink>
+          <Menu.Item key="bar">
+            <NavLink to="/charts/recharts/bar">Bar Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="46">
-            <NavLink to="/recharts/area">Area Charts</NavLink>
+          <Menu.Item key="area">
+            <NavLink to="/charts/recharts/area">Area Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="47">
-            <NavLink to="/recharts/composed">Composed Charts</NavLink>
+          <Menu.Item key="composed">
+            <NavLink to="/charts/recharts/composed">Composed Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="48">
-            <NavLink to="/recharts/line">Line Charts</NavLink>
+          <Menu.Item key="line">
+            <NavLink to="/charts/recharts/line">Line Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="49">
-            <NavLink to="/recharts/pie">Pie Charts</NavLink>
+          <Menu.Item key="pie">
+            <NavLink to="/charts/recharts/pie">Pie Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="50">
-            <NavLink to="/recharts/radar">Radar Charts</NavLink>
+          <Menu.Item key="radar">
+            <NavLink to="/charts/recharts/radar">Radar Charts</NavLink>
           </Menu.Item>
-          <Menu.Item key="51">
-            <NavLink to="/recharts/radial">Radial Charts</NavLink>
+          <Menu.Item key="radial">
+            <NavLink to="/charts/recharts/radial">Radial Charts</NavLink>
           </Menu.Item>
         </SubMenu>
-        <Menu.Item key="52">
-          <NavLink to="/peity">Paity Charts</NavLink>
+        <Menu.Item key="peity">
+          <NavLink to="/charts/peity">Paity Charts</NavLink>
         </Menu.Item>
       </SubMenu>
 
@@ -240,7 +272,7 @@ const SidebarItem = () => {
         }
       ></SubMenu>
       <SubMenu
-        key="sub12"
+        key="maps"
         title={
           <span>
             <Icon type="heat-map" />
@@ -248,13 +280,13 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="53">
+        <Menu.Item key="google">
           <NavLink to="/maps/google">Google Maps</NavLink>
         </Menu.Item>
-        <Menu.Item key="54">
+        <Menu.Item key="leaflet">
           <NavLink to="/maps/leaflet">Leaflet Maps</NavLink>
         </Menu.Item>
-        <Menu.Item key="55">
+        <Menu.Item key="Vector">
           <NavLink to="/maps/Vector">Vector Maps</NavLink>
         </Menu.Item>
       </SubMenu>
