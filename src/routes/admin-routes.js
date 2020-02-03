@@ -43,6 +43,19 @@ const Statistic = lazy(() => import('../container/ui-elements/statistic/statisti
 const Rate = lazy(() => import('../container/ui-elements/rate/rate'));
 const Slider = lazy(() => import('../container/ui-elements/slider/slider'));
 const Progress = lazy(() => import('../container/ui-elements/progress/progress'));
+const Tags = lazy(() => import('../container/ui-elements/tags/tags'));
+const Dropdown = lazy(() => import('../container/ui-elements/dropdown/dropdown'));
+const Popover = lazy(() => import('../container/ui-elements/popover/popover'));
+const Timeline = lazy(() => import('../container/ui-elements/timeline/timeline'));
+const Drawer = lazy(() => import('../container/ui-elements/drawer/drawer'));
+const Notification = lazy(() => import('../container/ui-elements/notification/notification'));
+const Result = lazy(() => import('../container/ui-elements/result/result'));
+const Spiner = lazy(() => import('../container/ui-elements/spin/spin'));
+const Carousel = lazy(() => import('../container/ui-elements/carousel/carousel'));
+const Collapse = lazy(() => import('../container/ui-elements/collapse/collapse'));
+const Avatar = lazy(() => import('../container/ui-elements/avatar/avata'));
+const Badge = lazy(() => import('../container/ui-elements/badge/badge'));
+const AutoComplete = lazy(() => import('../container/ui-elements/autoComplete/autoComplete'));
 
 const AdminRoutes = () => {
   return (
@@ -91,6 +104,19 @@ const AdminRoutes = () => {
         <Route path="/components/rate" component={Rate} />
         <Route path="/components/slider" component={Slider} />
         <Route path="/components/progress" component={Progress} />
+        <Route path="/components/tags" component={Tags} />
+        <Route path="/components/dropdown" component={Dropdown} />
+        <Route path="/components/popover" component={Popover} />
+        <Route path="/components/timeline" component={Timeline} />
+        <Route path="/components/drawer" component={Drawer} />
+        <Route path="/components/notification" component={Notification} />
+        <Route path="/components/result" component={Result} />
+        <Route path="/components/spiner" component={Spiner} />
+        <Route path="/components/carousel" component={Carousel} />
+        <Route path="/components/collapse" component={Collapse} />
+        <Route path="/components/avatar" component={Avatar} />
+        <Route path="/components/badge" component={Badge} />
+        <Route path="/components/auto-complete" component={AutoComplete} />
       </Suspense>
     </Switch>
   );

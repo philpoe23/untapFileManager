@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ButtonStyledGroup, ButtonStyled, ButtonStyledOutline, ButtonStyledSquare, ButtonStyledSquareOutline, ButtonStyledSocial } from './button-styled';
 import { PopupWithIcon } from '../../../components/popup/popup';
 import { DropdownWithIcon } from '../../../components/antd/dropdown/dropdown';
-
 import PropTypes from 'prop-types';
 
 const BtnBasic = props => {

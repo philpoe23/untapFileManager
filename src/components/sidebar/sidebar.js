@@ -127,56 +127,94 @@ const SidebarItem = props => {
           </span>
         }
       >
-        <Menu.Item key="button">
-          <NavLink to="/components/button">Button</NavLink>
-        </Menu.Item>
         <Menu.Item key="alerts">
           <NavLink to="/components/alerts">Alerts</NavLink>
         </Menu.Item>
-        <Menu.Item key="modals">
-          <NavLink to="/components/modals">Modals</NavLink>
+        <Menu.Item key="auto-complete">
+          <NavLink to="/components/auto-complete">AutoComplete</NavLink>
         </Menu.Item>
-        <Menu.Item key="cards">
-          <NavLink to="/components/cards">Cards</NavLink>
+        <Menu.Item key="avatar">
+          <NavLink to="/components/avatar">Avatar</NavLink>
         </Menu.Item>
-        <Menu.Item key="grid">
-          <NavLink to="/components/grid">Grid</NavLink>
-        </Menu.Item>
-        <Menu.Item key="tabs">
-          <NavLink to="/components/tabs">Tabs</NavLink>
+        <Menu.Item key="badge">
+          <NavLink to="/components/badge">Badge</NavLink>
         </Menu.Item>
         <Menu.Item key="breadcrumb">
           <NavLink to="/components/breadcrumb">Breadcrumb</NavLink>
         </Menu.Item>
-        <Menu.Item key="pagination">
-          <NavLink to="/components/pagination">Paginations</NavLink>
+        <Menu.Item key="button">
+          <NavLink to="/components/button">Button</NavLink>
         </Menu.Item>
-        <Menu.Item key="page-headers">
-          <NavLink to="/components/page-headers">Page Headers</NavLink>
+        <Menu.Item key="cards">
+          <NavLink to="/components/cards">Cards</NavLink>
         </Menu.Item>
-        <Menu.Item key="steps">
-          <NavLink to="/components/steps">Steps</NavLink>
+        <Menu.Item key="carousel">
+          <NavLink to="/components/carousel">Carousel</NavLink>
+        </Menu.Item>
+        <Menu.Item key="collapse">
+          <NavLink to="/components/collapse">Collapse</NavLink>
         </Menu.Item>
         <Menu.Item key="comments">
           <NavLink to="/components/comments">Comments</NavLink>
         </Menu.Item>
+        <Menu.Item key="drawer">
+          <NavLink to="/components/drawer">Drawer</NavLink>
+        </Menu.Item>
+        <Menu.Item key="dropdown">
+          <NavLink to="/components/dropdown">Dropdown</NavLink>
+        </Menu.Item>
         <Menu.Item key="empty">
           <NavLink to="/components/empty">Empty</NavLink>
         </Menu.Item>
-        <Menu.Item key="statistic">
-          <NavLink to="/components/statistic">Statistic</NavLink>
+        <Menu.Item key="grid">
+          <NavLink to="/components/grid">Grid</NavLink>
         </Menu.Item>
-        <Menu.Item key="rate">
-          <NavLink to="/components/rate">Rate</NavLink>
+        <Menu.Item key="modals">
+          <NavLink to="/components/modals">Modals</NavLink>
         </Menu.Item>
-        <Menu.Item key="slider">
-          <NavLink to="/components/slider">Slider</NavLink>
+        <Menu.Item key="notification">
+          <NavLink to="/components/notification">Notification</NavLink>
+        </Menu.Item>
+        <Menu.Item key="page-headers">
+          <NavLink to="/components/page-headers">Page Headers</NavLink>
+        </Menu.Item>
+        <Menu.Item key="pagination">
+          <NavLink to="/components/pagination">Paginations</NavLink>
+        </Menu.Item>
+        <Menu.Item key="popover">
+          <NavLink to="/components/popover">Popover</NavLink>
         </Menu.Item>
         <Menu.Item key="progress">
           <NavLink to="/components/progress">Progress</NavLink>
         </Menu.Item>
+        <Menu.Item key="rate">
+          <NavLink to="/components/rate">Rate</NavLink>
+        </Menu.Item>
+        <Menu.Item key="result">
+          <NavLink to="/components/result">Result</NavLink>
+        </Menu.Item>
+        <Menu.Item key="slider">
+          <NavLink to="/components/slider">Slider</NavLink>
+        </Menu.Item>
+        <Menu.Item key="spiner">
+          <NavLink to="/components/spiner">Spiner</NavLink>
+        </Menu.Item>
+        <Menu.Item key="statistic">
+          <NavLink to="/components/statistic">Statistic</NavLink>
+        </Menu.Item>
+        <Menu.Item key="steps">
+          <NavLink to="/components/steps">Steps</NavLink>
+        </Menu.Item>
+        <Menu.Item key="tabs">
+          <NavLink to="/components/tabs">Tabs</NavLink>
+        </Menu.Item>
+        <Menu.Item key="tags">
+          <NavLink to="/components/tags">Tags</NavLink>
+        </Menu.Item>
+        <Menu.Item key="timeline">
+          <NavLink to="/components/timeline">Timeline</NavLink>
+        </Menu.Item>
       </SubMenu>
-
       <SubMenu
         key="icon"
         title={

@@ -1,14 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { Row, Col, Steps, Icon, Button, message, Divider } from 'antd';
+import { Row, Col, Steps, Icon, Divider } from 'antd';
 import { Main } from '../../styled';
 import { CardHeadLessFrame } from '../../../components/cards/frame/cards-frame';
 import { PopupWithIcon } from '../../../components/popup/popup';
+import { SwitchStep, NavigationStep } from '../../../components/antd/steps/steps';
+
 const { Step } = Steps;
-const stepStyle = {
-  marginBottom: 60,
-  boxShadow: '0px -1px 0 0 #e8e8e8 inset',
-};
 const steps = [
   {
     title: 'First',
@@ -27,6 +25,7 @@ const steps = [
 
 const customDot = (dot, { status, index }) => (
   <PopupWithIcon
+    placement="bottomLeft"
     content={
       <span className="span">
         step {index} status: {status}
@@ -40,14 +39,7 @@ const Stepess = props => {
   const [state, setState] = useState({
     current: 0,
   });
-  const next = () => {
-    const current = state.current + 1;
-    setState({ current });
-  };
-  const prev = () => {
-    const current = state.current - 1;
-    setState({ current });
-  };
+
   const { current } = state;
 
   const onChange = current => {
@@ -81,31 +73,7 @@ const Stepess = props => {
           </Col>
           <Col md={24}>
             <CardHeadLessFrame title="Switch Step" caption="The simplest use of Steps">
-              <Steps current={current}>
-                {steps.map(item => (
-                  <Step key={item.title} title={item.title} />
-                ))}
-              </Steps>
-              <div className="steps-content" style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {steps[state.current].content}
-              </div>
-              <div className="steps-action">
-                {state.current < steps.length - 1 && (
-                  <Button type="primary" onClick={() => next()}>
-                    Next
-                  </Button>
-                )}
-                {state.current === steps.length - 1 && (
-                  <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                    Done
-                  </Button>
-                )}
-                {state.current > 0 && (
-                  <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
-                    Previous
-                  </Button>
-                )}
-              </div>
+              <SwitchStep steps={steps} />
             </CardHeadLessFrame>
           </Col>
           <Col md={24}>
@@ -155,7 +123,7 @@ const Stepess = props => {
           </Col>
           <Col md={24}>
             <CardHeadLessFrame title="Navigation Steps" caption="The simplest use of Steps">
-              <Steps type="navigation" current={current} onChange={onChange} style={stepStyle}>
+              {/* <Steps type="navigation" current={current} onChange={onChange} style={stepStyle}>
                 <Step status="finish" title="Step 1" />
                 <Step status="process" title="Step 2" />
                 <Step status="wait" title="Step 3" />
@@ -165,7 +133,19 @@ const Stepess = props => {
                 <Step status="finish" title="finish 2" />
                 <Step status="process" title="current process" />
                 <Step status="wait" title="wait" disabled />
-              </Steps>
+              </Steps> */}
+
+              <NavigationStep>
+                <Step status="finish" title="Step 1" />
+                <Step status="process" title="Step 2" />
+                <Step status="wait" title="Step 3" />
+              </NavigationStep>
+              <NavigationStep>
+                <Step status="finish" title="finish 1" />
+                <Step status="finish" title="finish 2" />
+                <Step status="process" title="current process" />
+                <Step status="wait" title="wait" disabled />
+              </NavigationStep>
             </CardHeadLessFrame>
           </Col>
         </Row>

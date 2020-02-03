@@ -2,7 +2,6 @@ import React from 'react';
 import { Dropdown } from 'antd';
 import { Content } from './dropdown-style';
 import PropTypes from 'prop-types';
-//import './style.css';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../../config/theme/customize-antd';
 const DropdownWithIcon = props => {

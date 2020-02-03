@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { Row, Col, Slider, InputNumber, Icon } from 'antd';
-import { Main, IconWrapper } from '../../styled';
+import { Row, Col, Slider } from 'antd';
+import { Main } from '../../styled';
 import { CardHeadLessFrame } from '../../../components/cards/frame/cards-frame';
+import { SliderWithInputInteger, SliderWithInputDecimal, SliderWithIcon } from '../../../components/antd/slider/slider';
 
 const Sliders = props => {
   const marks = {
@@ -31,28 +32,10 @@ const Sliders = props => {
     });
   };
 
-  const onChangeDecimal = value => {
-    if (isNaN(value)) {
-      return;
-    }
-    setState({
-      ...state,
-      inputDecimal: value,
-    });
-  };
-
-  const handleChange = value => {
-    setState({ ...state, value });
-  };
-
   const onAfterChange = value => {
     console.log('onAfterChange: ', value);
   };
 
-  const { inputValue, inputDecimal, value, min, max } = state;
-  const mid = ((max - min) / 2).toFixed(5);
-  const preColor = value >= mid ? '' : 'rgba(0, 0, 0, .45)';
-  const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
   const style = {
     display: 'inline-block',
     height: 300,
@@ -71,31 +54,15 @@ const Sliders = props => {
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="With Input" caption="The simplest use of slider">
-              <Row>
-                <Col span={20}>
-                  <Slider min={1} max={20} onChange={onChange} value={typeof inputValue === 'number' ? inputValue : 0} />
-                </Col>
-                <Col span={4}>
-                  <InputNumber min={1} max={20} style={{ marginLeft: 16 }} value={inputValue} onChange={onChange} />
-                </Col>
-              </Row>
-              <Row>
-                <Col span={20}>
-                  <Slider min={0} max={1} onChange={onChangeDecimal} value={typeof inputDecimal === 'number' ? inputDecimal : 0} step={0.01} />
-                </Col>
-                <Col span={4}>
-                  <InputNumber min={0} max={1} style={{ marginLeft: 16 }} step={0.01} value={inputDecimal} onChange={onChangeDecimal} />
-                </Col>
-              </Row>
+              <h3>With integer</h3>
+              <SliderWithInputInteger min={1} max={100} />
+              <h3>With Decimal</h3>
+              <SliderWithInputDecimal min={0} max={1} step={0.01} />
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="with Icon" caption="The simplest use of slider">
-              <IconWrapper>
-                <Icon style={{ color: preColor }} type="frown-o" />
-                <Slider min={min} max={max} onChange={handleChange} value={value} />
-                <Icon style={{ color: nextColor }} type="smile-o" />
-              </IconWrapper>
+              <SliderWithIcon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
@@ -103,6 +70,7 @@ const Sliders = props => {
               <Slider range step={10} defaultValue={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
             </CardHeadLessFrame>
           </Col>
+
           <Col md={12}>
             <CardHeadLessFrame title="Graduated slider" caption="The simplest use of slider">
               <div>
@@ -121,6 +89,7 @@ const Sliders = props => {
               </div>
             </CardHeadLessFrame>
           </Col>
+
           <Col md={12}>
             <CardHeadLessFrame title="Graduated slider vertical" caption="The simplest use of slider">
               <div>
