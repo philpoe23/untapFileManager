@@ -61,10 +61,10 @@ const FrameOfTheme = WrappedComponent => {
                 <p>MAIN MENU</p>
                 <SidebarItem />
               </Sider>
-              <Layout style={{ marginLeft: 300, marginTop: '64px' }}>
+              <Layout style={{ marginLeft: 300, marginTop: '64px', marginBottom: '70px' }}>
                 <Content>
                   <WrappedComponent />
-                  <Footer>Footer</Footer>
+                  <Footer style={footerStyle}>Footer</Footer>
                 </Content>
               </Layout>
             </Layout>
@@ -73,6 +73,17 @@ const FrameOfTheme = WrappedComponent => {
       );
     }
   }
+
+  const footerStyle = {
+    padding: '24px 15px',
+    color: 'rgba(0, 0, 0, 0.65)',
+    fontSize: '14px',
+    background: 'rgba(255, 255, 255, .90)',
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    boxShadow: '0px 0px 7px -4px #888',
+  };
 
   const SideBarStyle = {
     marginTop: '64px',

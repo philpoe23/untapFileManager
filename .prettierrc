@@ -4,7 +4,7 @@
   "singleQuote": true,
   "printWidth": 300,
   "bracketSpacing": true,
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.detectIndentation": true,
   "editor.formatOnSave": true,
   "prettier.semi": true,

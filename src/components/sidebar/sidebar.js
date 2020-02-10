@@ -145,17 +145,29 @@ const SidebarItem = props => {
         <Menu.Item key="button">
           <NavLink to="/components/button">Button</NavLink>
         </Menu.Item>
+        <Menu.Item key="calendar">
+          <NavLink to="/components/calendar">Calendar</NavLink>
+        </Menu.Item>
         <Menu.Item key="cards">
           <NavLink to="/components/cards">Cards</NavLink>
         </Menu.Item>
         <Menu.Item key="carousel">
           <NavLink to="/components/carousel">Carousel</NavLink>
         </Menu.Item>
+        <Menu.Item key="cascader">
+          <NavLink to="/components/cascader">Cascader</NavLink>
+        </Menu.Item>
+        <Menu.Item key="checkbox">
+          <NavLink to="/components/checkbox">Checkbox</NavLink>
+        </Menu.Item>
         <Menu.Item key="collapse">
           <NavLink to="/components/collapse">Collapse</NavLink>
         </Menu.Item>
         <Menu.Item key="comments">
           <NavLink to="/components/comments">Comments</NavLink>
+        </Menu.Item>
+        <Menu.Item key="date-picker">
+          <NavLink to="/components/date-picker">DatePicker</NavLink>
         </Menu.Item>
         <Menu.Item key="drawer">
           <NavLink to="/components/drawer">Drawer</NavLink>
@@ -165,6 +177,9 @@ const SidebarItem = props => {
         </Menu.Item>
         <Menu.Item key="empty">
           <NavLink to="/components/empty">Empty</NavLink>
+        </Menu.Item>
+        <Menu.Item key="form">
+          <NavLink to="/components/form">Form</NavLink>
         </Menu.Item>
         <Menu.Item key="grid">
           <NavLink to="/components/grid">Grid</NavLink>
@@ -187,11 +202,20 @@ const SidebarItem = props => {
         <Menu.Item key="progress">
           <NavLink to="/components/progress">Progress</NavLink>
         </Menu.Item>
+        <Menu.Item key="radio">
+          <NavLink to="/components/radio">Radio</NavLink>
+        </Menu.Item>
         <Menu.Item key="rate">
           <NavLink to="/components/rate">Rate</NavLink>
         </Menu.Item>
         <Menu.Item key="result">
           <NavLink to="/components/result">Result</NavLink>
+        </Menu.Item>
+        <Menu.Item key="select">
+          <NavLink to="/components/select">Select</NavLink>
+        </Menu.Item>
+        <Menu.Item key="skeleton">
+          <NavLink to="/components/skeleton">Skeleton </NavLink>
         </Menu.Item>
         <Menu.Item key="slider">
           <NavLink to="/components/slider">Slider</NavLink>
@@ -205,6 +229,9 @@ const SidebarItem = props => {
         <Menu.Item key="steps">
           <NavLink to="/components/steps">Steps</NavLink>
         </Menu.Item>
+        <Menu.Item key="switch">
+          <NavLink to="/components/switch">Switch</NavLink>
+        </Menu.Item>
         <Menu.Item key="tabs">
           <NavLink to="/components/tabs">Tabs</NavLink>
         </Menu.Item>
@@ -213,6 +240,9 @@ const SidebarItem = props => {
         </Menu.Item>
         <Menu.Item key="timeline">
           <NavLink to="/components/timeline">Timeline</NavLink>
+        </Menu.Item>
+        <Menu.Item key="timepicker">
+          <NavLink to="/components/timepicker">Timepicker</NavLink>
         </Menu.Item>
       </SubMenu>
       <SubMenu

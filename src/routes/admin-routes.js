@@ -56,6 +56,16 @@ const Collapse = lazy(() => import('../container/ui-elements/collapse/collapse')
 const Avatar = lazy(() => import('../container/ui-elements/avatar/avata'));
 const Badge = lazy(() => import('../container/ui-elements/badge/badge'));
 const AutoComplete = lazy(() => import('../container/ui-elements/autoComplete/autoComplete'));
+const Checkbox = lazy(() => import('../container/ui-elements/checkbox/checkbox'));
+const Cascader = lazy(() => import('../container/ui-elements/cascader/cascader'));
+const DatePicker = lazy(() => import('../container/ui-elements/date-picker/date-picker'));
+const Radio = lazy(() => import('../container/ui-elements/radio/radio'));
+const Switches = lazy(() => import('../container/ui-elements/switch/switch'));
+const Selects = lazy(() => import('../container/ui-elements/select/select'));
+const TimePicker = lazy(() => import('../container/ui-elements/timepicker/timepicker'));
+const Calendar = lazy(() => import('../container/ui-elements/calender/calender'));
+const Form = lazy(() => import('../container/ui-elements/form/form'));
+const Skeleton = lazy(() => import('../container/ui-elements/skeleton/skeleton'));
 
 const AdminRoutes = () => {
   return (
@@ -117,6 +127,16 @@ const AdminRoutes = () => {
         <Route path="/components/avatar" component={Avatar} />
         <Route path="/components/badge" component={Badge} />
         <Route path="/components/auto-complete" component={AutoComplete} />
+        <Route path="/components/checkbox" component={Checkbox} />
+        <Route path="/components/cascader" component={Cascader} />
+        <Route path="/components/date-picker" component={DatePicker} />
+        <Route path="/components/radio" component={Radio} />
+        <Route path="/components/switch" component={Switches} />
+        <Route path="/components/select" component={Selects} />
+        <Route path="/components/timePicker" component={TimePicker} />
+        <Route path="/components/calendar" component={Calendar} />
+        <Route path="/components/form" component={Form} />
+        <Route path="/components/skeleton" component={Skeleton} />
       </Suspense>
     </Switch>
   );
