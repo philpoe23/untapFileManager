@@ -20,7 +20,7 @@ const FeatherSvgIcons = props => {
                   return (
                     <Col md={6} key={index + 1}>
                       <Icon>
-                        <FontAwesome className="super-crazy-colors" name={icon} size="1x" style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }} />
+                        <FontAwesome className="super-crazy-colors" name={icon} size="2x" style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }} />
                         <span>{icon}</span>
                       </Icon>
                     </Col>

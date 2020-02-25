@@ -4,8 +4,7 @@ import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import rechartdata from '../../../config/dataService/recharts.json';
-const { data, nullchart } = rechartdata;
+import { data, nullchart } from '../../../config/dataService/recharts.json';
 
 const ReChartArea = () => {
   return (

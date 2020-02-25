@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { PopupWithIcon } from '../../popup/popup';
+import { readMessageList } from '../../../redux/actions/auth-info/message-list';
 
 const MessageBox = props => {
-  const { message } = props;
+  const { message, readMessage } = props;
+
+  useEffect(() => {
+    let unmount = false;
+    if (!unmount) {
+      readMessage();
+    }
+    return () => {
+      unmount = true;
+    };
+  });
+
   const content = (
     <div>
       {message.map(item => {
@@ -38,7 +50,9 @@ const MessageBox = props => {
     </div>
   );
 };
+
 MessageBox.propTypes = {
+  readMessage: PropTypes.func,
   message: PropTypes.array,
 };
 const mapSTateToProps = state => {
@@ -46,4 +60,9 @@ const mapSTateToProps = state => {
     message: state.message,
   };
 };
-export default connect(mapSTateToProps)(MessageBox);
+const mapDispatchToProps = dispatch => {
+  return {
+    readMessage: () => dispatch(readMessageList()),
+  };
+};
+export default connect(mapSTateToProps, mapDispatchToProps)(MessageBox);

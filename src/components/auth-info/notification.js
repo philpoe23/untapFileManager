@@ -4,13 +4,14 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { PopupWithIcon } from '../../popup/popup';
-import { readNotificationList } from '../../../redux/actions/auth-info/notification-list';
+import { PopupWithIcon } from '../popup/popup';
+import { readNotificationList } from '../../redux/actions/auth-info/notification-list';
 
 const NotificationBox = props => {
   const { notification, readNotification } = props;
   useEffect(() => {
     let unmount = false;
+
     if (!unmount) {
       readNotification();
     }
@@ -47,9 +48,7 @@ const NotificationBox = props => {
     </div>
   );
 };
-
 NotificationBox.propTypes = {
-  readNotification: PropTypes.func,
   notification: PropTypes.array,
 };
 const mapSTateToProps = state => {

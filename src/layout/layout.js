@@ -3,18 +3,13 @@ import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import SidebarItem from '../components/sidebar/sidebar';
 import { NavLink } from 'react-router-dom';
-import { LayOutWraper } from './layout-style';
+import { LayOutWraper } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/auth-info/info';
-import { connect } from 'react-redux';
-import { readMessageList } from '../redux/actions/auth-info/message-list';
-import { readNotificationList } from '../redux/actions/auth-info/notification-list';
-import PropTypes from 'prop-types';
 
 const { Header, Footer, Sider, Content } = Layout;
-
-const FrameOfTheme = WrappedComponent => {
-  class LayouT extends Component {
+const ThemeLayout = WrappedComponent => {
+  class LayoutComponent extends Component {
     state = {
       collapsed: false,
     };
@@ -25,9 +20,6 @@ const FrameOfTheme = WrappedComponent => {
       });
     };
     render() {
-      const { readMessage, readNotification } = this.props;
-      readMessage();
-      readNotification();
       return (
         <LayOutWraper>
           <Layout>
@@ -95,16 +87,6 @@ const FrameOfTheme = WrappedComponent => {
     left: 0,
   };
 
-  LayouT.propTypes = {
-    readMessage: PropTypes.func,
-    readNotification: PropTypes.func,
-  };
-  const mapDispatchToProps = dispatch => {
-    return {
-      readMessage: () => dispatch(readMessageList()),
-      readNotification: () => dispatch(readNotificationList()),
-    };
-  };
-  return connect(null, mapDispatchToProps)(LayouT);
+  return LayoutComponent;
 };
-export default FrameOfTheme;
+export default ThemeLayout;

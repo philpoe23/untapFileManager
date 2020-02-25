@@ -3,9 +3,11 @@ import PageHeader from '../../components/page-header/page-header';
 import { CardFreshFrame } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
+import { GoogleMaps } from '../../components/maps/google-maps';
+import { mapdata } from '../../config/map/google-maps-styles';
+const { map_one_styles, map_style_dark, map_two_styles, map_Three_styles } = mapdata;
 
-import { GoogleMapsBasic, GoogleMapsOne, GoogleMapsTwo, GoogleMapsThree, GoogleMapsFour, GoogleMapsDark } from '../../components/maps/google-maps';
-const GoogleMaps = props => {
+const GoogleMap = () => {
   return (
     <Fragment>
       <PageHeader title="Google Maps" />
@@ -13,33 +15,52 @@ const GoogleMaps = props => {
         <Row gutter={15}>
           <Col md={12}>
             <CardFreshFrame title="Google Map Basic" size="large" more={false}>
-              <GoogleMapsBasic latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={13} />
+              <GoogleMaps />
             </CardFreshFrame>
           </Col>
           <Col md={12}>
             <CardFreshFrame title="Google Map Style Light" size="large" more={false}>
-              <GoogleMapsOne latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={13} />
+              <GoogleMaps mapStyles={map_one_styles} />
             </CardFreshFrame>
           </Col>
           <Col md={12}>
             <CardFreshFrame title="Google Map Style Dark" size="large" more={false}>
-              <GoogleMapsDark latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={13} />
+              <GoogleMaps mapStyles={map_style_dark} />
             </CardFreshFrame>
           </Col>
           <Col md={12}>
             <CardFreshFrame title="Google Map Style Theame Color" size="large" more={false}>
-              <GoogleMapsThree latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={2} />
+              <GoogleMaps zoom={2} mapStyles={map_Three_styles} />
             </CardFreshFrame>
           </Col>
           <Col md={12}>
             <CardFreshFrame title="Google Map Style Color" size="large" more={false}>
-              <GoogleMapsTwo latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={13} />
+              <GoogleMaps mapStyles={map_two_styles} />
             </CardFreshFrame>
           </Col>
-
           <Col md={12}>
-            <CardFreshFrame title="Google Map Multiple Marker" size="large" more={false}>
-              <GoogleMapsFour latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={4} />
+            <CardFreshFrame title="Google Map Style Color" size="large" more={false}>
+              <GoogleMaps
+                mapStyles={map_two_styles}
+                zoom={4}
+                place={[
+                  {
+                    id: 1,
+                    latitude: '50.797897',
+                    longitude: '-1.077641',
+                  },
+                  {
+                    id: 2,
+                    latitude: '49.797897',
+                    longitude: '-25.9389312',
+                  },
+                  {
+                    id: 3,
+                    latitude: '50.2577799',
+                    longitude: '-5.077641',
+                  },
+                ]}
+              />
             </CardFreshFrame>
           </Col>
         </Row>
@@ -48,4 +69,4 @@ const GoogleMaps = props => {
   );
 };
 
-export default GoogleMaps;
+export default GoogleMap;

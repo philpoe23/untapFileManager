@@ -20,7 +20,7 @@ const place = [
   },
 ];
 
-const OsMap = props => {
+const OsMap = () => {
   return (
     <Fragment>
       <PageHeader title="Openstreet Maps (Leaflet)" />
@@ -46,7 +46,6 @@ const OsMap = props => {
               <LeafleteMarkerCluster faIcon="fa fa-thumb-tack fa-3x" data={place} latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={12} />
             </CardFreshFrame>
           </Col>
-          
         </Row>
       </Main>
     </Fragment>

@@ -3,17 +3,22 @@ const primaryColor = '#5F63F2',
   linkColor = '#1890ff',
   textColor = 'rgba(0, 0, 0, 0.65)',
   headingColor = 'rgba(0, 0, 0, 0.85)',
-  textColorSecondary = 'rgba(0, 0, 0, 0.45)';
+  textColorSecondary = 'rgba(0, 0, 0, 0.45)',
+  successColor = '#52c41a',
+  warningColor = '#faad14',
+  errorColor = '#f5222d',
+  infoColor = '#91d5ff',
+  dangerColor = '#ff4d4f';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
   'secondary-color': secondaryColor, // secondary color for all components
   'link-color': linkColor, // link color
-  'success-color': '#52c41a', // success state color
-  'warning-color': '#faad14', // warning state color
-  'error-color': '#f5222d', // error state color
-  'info-color': '#91d5ff', // info state color
-  'danger-color': '#ff4d4f',
+  'success-color': successColor, // success state color
+  'warning-color': warningColor, // warning state color
+  'error-color': errorColor, // error state color
+  'info-color': infoColor, // info state color
+  'danger-color': dangerColor,
   'font-size-base': '14px', // major text font size
   'heading-color': headingColor, // heading text color
   'text-color': textColor, // major text color
@@ -41,10 +46,12 @@ const theme = {
   'layout-trigger-color': '#fff',
   'layout-zero-trigger-width': '36px',
   'layout-zero-trigger-height': '42px',
+  'alert-success-bg-color': '#52c41a',
   // Layout light theme
   'layout-sider-background-light': '#fff',
   'layout-trigger-background-light': '#fff',
   'layout-trigger-color-light': 'rgba(0, 0, 0, 0.65)',
+
   // PageHeader
   // ---
   'page-header-padding': '24px',
