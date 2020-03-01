@@ -66,6 +66,14 @@ const theme = {
   // slider
   'slider-track-background-color': primaryColor + '70',
   'slider-track-background-color-hover': primaryColor + '90',
+
+  // alert
+
+  'alert-success-border-color': successColor,
+  'alert-success-bg-color': successColor,
+  'alert-error-bg-color': errorColor,
+  'alert-warning-bg-color': warningColor,
+  'alert-info-bg-color': infoColor,
 };
 
 module.exports = theme;
