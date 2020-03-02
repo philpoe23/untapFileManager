@@ -18,7 +18,7 @@ const Popover = () => {
           <Col md={12}>
             <CardHeadLessFrame title="Basic Popover" caption="The simplest use of Popover">
               <PopupWithIcon content={content} placement="bottomLeft">
-                <NavLink to="#">hover me</NavLink>
+                <NavLink to="#">hover me </NavLink>
               </PopupWithIcon>
             </CardHeadLessFrame>
           </Col>
