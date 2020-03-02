@@ -7,22 +7,6 @@ import { PopupWithIcon } from '../../components/popup/popup';
 import { SwitchStep, NavigationStep } from '../../components/steps/steps';
 
 const { Step } = Steps;
-const steps = [
-  {
-    title: 'First',
-    content: 'First-content',
-  },
-  {
-    title: 'Second',
-    content: 'Second-content',
-  },
-
-  {
-    title: 'Last',
-    content: 'Last-content',
-  },
-];
-
 const customDot = (dot, { status, index }) => (
   <PopupWithIcon
     placement="bottomLeft"
@@ -35,7 +19,7 @@ const customDot = (dot, { status, index }) => (
     {dot}
   </PopupWithIcon>
 );
-const Stepess = props => {
+const Stepess = () => {
   const [state, setState] = useState({
     current: 0,
   });
@@ -73,7 +57,7 @@ const Stepess = props => {
           </Col>
           <Col md={24}>
             <CardHeadLessFrame title="Switch Step" caption="The simplest use of Steps">
-              <SwitchStep steps={steps} />
+              <SwitchStep />
             </CardHeadLessFrame>
           </Col>
           <Col md={24}>

@@ -50,6 +50,26 @@ const SwitchStep = props => {
     </Fragment>
   );
 };
+SwitchStep.defaultProps = {
+  steps: [
+    {
+      title: 'First',
+      content: 'First-content',
+    },
+    {
+      title: 'Second',
+      content: 'Second-content',
+    },
+
+    {
+      title: 'Last',
+      content: 'Last-content',
+    },
+  ],
+};
+SwitchStep.propTypes = {
+  steps: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 const NavigationStep = props => {
   const [state, setState] = useState({
@@ -74,10 +94,6 @@ const NavigationStep = props => {
       </Steps>
     </Fragment>
   );
-};
-
-SwitchStep.propTypes = {
-  steps: PropTypes.array.isRequired,
 };
 
 export { SwitchStep, NavigationStep };

@@ -5,7 +5,7 @@ import { Main } from '../styled';
 import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
 import { SliderWithInputInteger, SliderWithInputDecimal, SliderWithIcon } from '../../components/slider/slider';
 
-const Sliders = props => {
+const Sliders = () => {
   const marks = {
     0: '0°C',
     26: '26°C',

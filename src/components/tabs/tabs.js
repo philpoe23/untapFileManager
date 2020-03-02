@@ -2,7 +2,7 @@ import React from 'react';
 import { TabOne, TabChildBasic, TabChildColor, TabTwo } from './tab-styled';
 import { Icon } from 'antd';
 
-const BasicTab = props => {
+const Tab = props => {
   const { data, tabPosition } = props;
 
   return (
@@ -63,4 +63,4 @@ const ColorTab = props => {
   );
 };
 
-export { BasicTab, ColorTab };
+export { Tab, ColorTab };
