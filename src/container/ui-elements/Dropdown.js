@@ -1,12 +1,12 @@
 import React from 'react';
 import PageHeader from '../../components/page-header/page-header';
-import { Row, Col, Button, Icon } from 'antd';
+import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
 import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
 import { DropdownWithIcon } from '../../components/dropdown/dropdown';
 import { content } from '../../config/dataService/button-content';
 import { DropdownStyle } from './ui-elements-styled';
-import { BtnDropdown } from '../../components/buttons/buttons';
+import { Button } from '../../components/buttons/buttons';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Dropdown = () => {
@@ -60,35 +60,49 @@ const Dropdown = () => {
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="button menu " caption="The simplest use of Dropdown">
-              <BtnDropdown placement="bottomLeft" type="primary" content={content} action={['click']}>
-                Bottom Left Click
-                <Icon type="down" />
-              </BtnDropdown>
+              <DropdownWithIcon placement="bottomLeft" content={content} action={['click']}>
+                <Button type="primary">
+                  Bottom Left Click
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
 
-              <BtnDropdown placement="bottomRight" title="with title" content={content} type="secondary">
-                Bottom Right hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="topLeft" content={content} type="danger">
-                Top Left hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="topRight" content={content} type="success">
-                Top Right hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="error">
-                Error
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="warning">
-                Warning
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="info">
-                Info
-                <Icon type="down" />
-              </BtnDropdown>
+              <DropdownWithIcon placement="bottomRight" title="with title" content={content}>
+                <Button type="secondary">
+                  Bottom Right hover
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="topLeft" content={content}>
+                <Button type="danger">
+                  Top Left hover
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="topRight" content={content}>
+                <Button type="success">
+                  Top Right hover
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="bottomLeft" size="small" content={content}>
+                <Button type="error">
+                  Error
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="bottomLeft" size="small" content={content}>
+                <Button type="warning">
+                  Warning
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="bottomLeft" size="small" content={content}>
+                <Button type="info">
+                  Info
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
             </CardHeadLessFrame>
           </Col>
         </Row>

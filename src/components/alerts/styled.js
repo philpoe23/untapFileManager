@@ -16,7 +16,7 @@ const AlertStyled = Styled(Alert)`
 
   ${({ outlined, theme, type }) => outlined && outline(theme, type)}
 
-  ${({ showIcon, theme, type }) =>
+  ${({ showIcon }) =>
     showIcon &&
     `padding-left: 60px!important;
     i.ant-alert-icon {

@@ -4,8 +4,10 @@ import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
 import FeatherIcon from 'feather-icons-react';
 import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
-import { Button, BtnOutline, BtnSquare, BtnSquareOutline, BtnSocial, BtnGroup, BtnLoading, BtnPopOver, BtnDropdown } from '../../components/buttons/buttons';
+import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { content } from '../../config/dataService/button-content';
+import { PopupWithIcon } from '../../components/popup/popup';
+import { DropdownWithIcon } from '../../components/dropdown/dropdown';
 
 const Buttons = () => {
   return (
@@ -59,72 +61,95 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Outline Buttons" size="large" caption="Buttons without background color.">
-              <BtnOutline type="primary">Primary</BtnOutline>
-              <BtnOutline type="secondary">Secondary</BtnOutline>
-              <BtnOutline type="danger">Danger</BtnOutline>
-              <BtnOutline type="success">Success</BtnOutline>
-              <BtnOutline type="error">Error</BtnOutline>
-              <BtnOutline type="warning">Warning</BtnOutline>
-              <BtnOutline type="default">Default</BtnOutline>
-              <BtnOutline type="info">Info</BtnOutline>
-              <BtnOutline type="link">Link</BtnOutline>
-            </CardHeadLessFrame>
-          </Col>
-          <Col md={12}>
-            <CardHeadLessFrame title="Outline Rounded Buttons" size="large" caption="Rounded Buttons without background color.">
-              <BtnOutline shape="circle" type="primary">
+              <Button outlined type="primary">
                 Primary
-              </BtnOutline>
-              <BtnOutline shape="circle" type="secondary">
+              </Button>
+              <Button outlined type="secondary">
                 Secondary
-              </BtnOutline>
-              <BtnOutline shape="circle" type="danger">
+              </Button>
+              <Button outlined type="danger">
                 Danger
-              </BtnOutline>
-              <BtnOutline shape="circle" type="success">
+              </Button>
+              <Button outlined type="success">
                 Success
-              </BtnOutline>
-              <BtnOutline shape="circle" type="error">
+              </Button>
+              <Button outlined type="error">
                 Error
-              </BtnOutline>
-              <BtnOutline shape="circle" type="warning">
+              </Button>
+              <Button outlined type="warning">
                 Warning
-              </BtnOutline>
-              <BtnOutline shape="circle" type="default">
+              </Button>
+              <Button outlined type="default">
                 Default
-              </BtnOutline>
-              <BtnOutline shape="circle" type="info">
+              </Button>
+              <Button outlined type="info">
                 Info
-              </BtnOutline>
-              <BtnOutline shape="circle" type="link">
+              </Button>
+              <Button outlined type="link">
                 Link
-              </BtnOutline>
+              </Button>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Square Buttons" size="large" caption="Buttons without border radius.">
-              <BtnSquare type="primary">Primary</BtnSquare>
-              <BtnSquare type="secondary">Secondary</BtnSquare>
-              <BtnSquare type="danger">Danger</BtnSquare>
-              <BtnSquare type="success">Success</BtnSquare>
-              <BtnSquare type="error">Error</BtnSquare>
-              <BtnSquare type="warning">Warning</BtnSquare>
-              <BtnSquare type="default">Default</BtnSquare>
-              <BtnSquare type="info">Info</BtnSquare>
-              <BtnSquare type="link">Link</BtnSquare>
+              <Button squared type="primary">
+                Primary
+              </Button>
+              <Button squared type="secondary">
+                Secondary
+              </Button>
+              <Button squared type="danger">
+                Danger
+              </Button>
+              <Button squared type="success">
+                Success
+              </Button>
+              <Button squared type="error">
+                Error
+              </Button>
+              <Button squared type="warning">
+                Warning
+              </Button>
+              <Button squared type="default">
+                Default
+              </Button>
+              <Button squared type="info">
+                Info
+              </Button>
+              <Button squared type="link">
+                Link
+              </Button>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Square Outline Buttons" size="large" caption="Buttons without border radius.">
-              <BtnSquareOutline type="primary">Primary</BtnSquareOutline>
-              <BtnSquareOutline type="secondary">Secondary</BtnSquareOutline>
-              <BtnSquareOutline type="danger">Danger</BtnSquareOutline>
-              <BtnSquareOutline type="success">Success</BtnSquareOutline>
-              <BtnSquareOutline type="error">Error</BtnSquareOutline>
-              <BtnSquareOutline type="warning">Warning</BtnSquareOutline>
-              <BtnSquareOutline type="default">Default</BtnSquareOutline>
-              <BtnSquareOutline type="info">Info</BtnSquareOutline>
-              <BtnSquareOutline type="link">Link</BtnSquareOutline>
+              <Button squared outlined type="primary">
+                Primary
+              </Button>
+              <Button squared outlined type="secondary">
+                Secondary
+              </Button>
+              <Button squared outlined type="danger">
+                Danger
+              </Button>
+              <Button squared outlined type="success">
+                Success
+              </Button>
+              <Button squared outlined type="error">
+                Error
+              </Button>
+              <Button squared outlined type="warning">
+                Warning
+              </Button>
+              <Button squared outlined type="default">
+                Default
+              </Button>
+              <Button squared outlined type="info">
+                Info
+              </Button>
+              <Button squared outlined type="link">
+                Link
+              </Button>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
@@ -175,48 +200,48 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
-              <BtnSocial color="#2366B8">
+              <Button social color="#2366B8">
                 <FeatherIcon size={16} icon="facebook" />
                 Facebook
-              </BtnSocial>
-              <BtnSocial color="#00ABE4">
+              </Button>
+              <Button social color="#00ABE4">
                 <FeatherIcon size={16} icon="twitter" />
                 Twitter
-              </BtnSocial>
-              <BtnSocial color="#9D2E98">
+              </Button>
+              <Button social color="#9D2E98">
                 <FeatherIcon size={16} icon="instagram" />
                 Instagram
-              </BtnSocial>
-              <BtnSocial color="#E32212">
+              </Button>
+              <Button social color="#E32212">
                 <FeatherIcon size={16} icon="youtube" />
                 Youtube
-              </BtnSocial>
-              <BtnSocial color="#007CBC">
+              </Button>
+              <Button social color="#007CBC">
                 <FeatherIcon size={16} icon="linkedin" />
                 Linkedin
-              </BtnSocial>
-              <BtnSocial color="#ED553B">
+              </Button>
+              <Button social color="#ED553B">
                 <FeatherIcon size={16} icon="rss" />
                 Feed
-              </BtnSocial>
-              <BtnSocial color="#2366B8">
+              </Button>
+              <Button social color="#2366B8">
                 <FeatherIcon size={16} icon="facebook" />
-              </BtnSocial>
-              <BtnSocial color="#00ABE4">
+              </Button>
+              <Button social color="#00ABE4">
                 <FeatherIcon size={16} icon="twitter" />
-              </BtnSocial>
-              <BtnSocial color="#9D2E98">
+              </Button>
+              <Button social color="#9D2E98">
                 <FeatherIcon size={16} icon="instagram" />
-              </BtnSocial>
-              <BtnSocial color="#E32212">
+              </Button>
+              <Button social color="#E32212">
                 <FeatherIcon size={16} icon="youtube" />
-              </BtnSocial>
-              <BtnSocial color="#007CBC">
+              </Button>
+              <Button social color="#007CBC">
                 <FeatherIcon size={16} icon="linkedin" />
-              </BtnSocial>
-              <BtnSocial color="#ED553B">
+              </Button>
+              <Button social color="#ED553B">
                 <FeatherIcon size={16} icon="rss" />
-              </BtnSocial>
+              </Button>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
@@ -245,12 +270,12 @@ const Buttons = () => {
               </Row>
               <p>Loading button</p>
               <Row>
-                <BtnLoading size="large" type="primary">
+                <Button load size="large" type="primary">
                   Loading
-                </BtnLoading>
-                <BtnLoading size="large" type="primary" event={true}>
+                </Button>
+                <Button load size="large" type="primary" event={true}>
                   Click
-                </BtnLoading>
+                </Button>
               </Row>
             </CardHeadLessFrame>
           </Col>
@@ -279,15 +304,15 @@ const Buttons = () => {
               </Row>
               <Row>
                 <BtnGroup>
-                  <BtnOutline size="large" type="primary">
+                  <Button outlined size="large" type="primary">
                     Left
-                  </BtnOutline>
-                  <BtnOutline size="large" type="primary">
+                  </Button>
+                  <Button outlined size="large" type="primary">
                     Middle
-                  </BtnOutline>
-                  <BtnOutline size="large" type="primary">
+                  </Button>
+                  <Button outlined size="large" type="primary">
                     Right
-                  </BtnOutline>
+                  </Button>
                 </BtnGroup>
               </Row>
               <p>Button toolbar</p>
@@ -310,68 +335,48 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
-              <BtnPopOver placement="bottomLeft" type="primary" content={content} action="click">
-                Primary
-                <Icon type="down" />
-              </BtnPopOver>
+              <PopupWithIcon placement="bottomLeft" content={content} action="click">
+                <Button type="primary">
+                  Primary
+                  <Icon type="down" />
+                </Button>
+              </PopupWithIcon>
+              <PopupWithIcon placement="bottomRight" title="with title" content={content}>
+                <Button type="secondary">
+                  Secondary
+                  <Icon type="down" />
+                </Button>
+              </PopupWithIcon>
 
-              <BtnPopOver placement="bottomRight" title="with title" content={content} type="secondary">
-                Secondary
-                <Icon type="down" />
-              </BtnPopOver>
-              <BtnPopOver placement="topLeft" content={content} type="danger">
-                Danger
-                <Icon type="down" />
-              </BtnPopOver>
-              <BtnPopOver placement="topRight" content={content} type="success">
-                Success
-                <Icon type="down" />
-              </BtnPopOver>
-              <BtnPopOver placement="bottomLeft" size="small" content={content} type="error">
-                Error
-                <Icon type="down" />
-              </BtnPopOver>
-              <BtnPopOver placement="bottomLeft" size="small" content={content} type="warning">
-                Warning
-                <Icon type="down" />
-              </BtnPopOver>
-              <BtnPopOver placement="bottomLeft" size="small" content={content} type="info">
-                Info
-                <Icon type="down" />
-              </BtnPopOver>
+              <PopupWithIcon placement="topLeft" content={content}>
+                <Button type="danger">
+                  Danger
+                  <Icon type="down" />
+                </Button>
+              </PopupWithIcon>
             </CardHeadLessFrame>
           </Col>
           <Col md={12}>
             <CardHeadLessFrame title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
-              <BtnDropdown placement="bottomLeft" type="primary" content={content} action={['click']}>
-                Bottom Left Click
-                <Icon type="down" />
-              </BtnDropdown>
+              <DropdownWithIcon placement="bottomLeft" content={content} action="click">
+                <Button type="primary">
+                  Primary
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
+              <DropdownWithIcon placement="bottomRight" title="with title" content={content}>
+                <Button type="secondary">
+                  Secondary
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
 
-              <BtnDropdown placement="bottomRight" title="with title" content={content} type="secondary">
-                Bottom Right hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="topLeft" content={content} type="danger">
-                Top Left hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="topRight" content={content} type="success">
-                Top Right hover
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="error">
-                Error
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="warning">
-                Warning
-                <Icon type="down" />
-              </BtnDropdown>
-              <BtnDropdown placement="bottomLeft" size="small" content={content} type="info">
-                Info
-                <Icon type="down" />
-              </BtnDropdown>
+              <DropdownWithIcon placement="topLeft" content={content}>
+                <Button type="danger">
+                  Danger
+                  <Icon type="down" />
+                </Button>
+              </DropdownWithIcon>
             </CardHeadLessFrame>
           </Col>
         </Row>

@@ -46,7 +46,6 @@ const theme = {
   'layout-trigger-color': '#fff',
   'layout-zero-trigger-width': '36px',
   'layout-zero-trigger-height': '42px',
-  'alert-success-bg-color': '#52c41a',
   // Layout light theme
   'layout-sider-background-light': '#fff',
   'layout-trigger-background-light': '#fff',

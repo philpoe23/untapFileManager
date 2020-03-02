@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertStyled, AlertStyledIcon, AlertStyledOutLine } from './styled';
+import { AlertStyled } from './styled';
 import PropTypes from 'prop-types';
 
 const Alert = props => {

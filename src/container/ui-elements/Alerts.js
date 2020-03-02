@@ -19,7 +19,6 @@ const Alerts = () => {
               <Alert showIcon message="Hello there! A simple info alert—check it out!" type="info" />
             </CardHeadLessFrame>
           </Col>
-
           <Col md={12}>
             <CardHeadLessFrame title="Icon alerts" size="large" caption="Alert with nice Icon">
               <Alert outlined showIcon message="Hello there! A simple success alert—check it out!" type="success" />
