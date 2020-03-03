@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
 
 const CheckAll = props => {
-  const { item, defaultSelect } = props;
+  const { item, defaultSelect, parentCallback } = props;
   const plainOptions = item;
   const [state, setState] = useState({
     checkedList: defaultSelect,
@@ -20,6 +20,17 @@ const CheckAll = props => {
       checkAll: checkedList.length === plainOptions.length,
     });
   };
+
+  useEffect(() => {
+    let unmount = false;
+    if (!unmount) {
+      parentCallback(state.checkedList);
+    }
+    return () => {
+      unmount = true;
+    };
+    // eslint-disable-next-line
+  }, [state]);
 
   const onCheckAllChange = e => {
     setState({

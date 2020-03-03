@@ -1,22 +1,22 @@
 import React from 'react';
-import { ModalStyled, ModalStyledColord } from './styled';
-import { Modal } from 'antd';
+import { ModalStyled } from './styled';
 import PropTypes from 'prop-types';
 import { Button } from '../buttons/buttons';
-const { confirm } = Modal;
-const BasicModal = props => {
-  const { onCancel, onOk, visible, title, type } = props;
+
+const Modal = props => {
+  const { onCancel, onOk, visible, title, type, color } = props;
   return (
     <ModalStyled
       title={title}
       visible={visible}
       onOk={onOk}
       onCancel={onCancel}
+      type={color ? type : false}
       footer={[
-        <Button type="secondary" key="back" click={onCancel}>
+        <Button type="secondary" key="back" onClick={onCancel}>
           Cancel
         </Button>,
-        <Button type={type} key="submit" click={onOk}>
+        <Button type={type} key="submit" onClick={onOk}>
           Save Change
         </Button>,
       ]}
@@ -25,7 +25,8 @@ const BasicModal = props => {
     </ModalStyled>
   );
 };
-BasicModal.propTypes = {
+
+Modal.propTypes = {
   onCancel: PropTypes.func.isRequired,
   onOk: PropTypes.func.isRequired,
   visible: PropTypes.bool,
@@ -33,38 +34,11 @@ BasicModal.propTypes = {
   type: PropTypes.string,
 };
 
-const ColordModal = props => {
-  const { onCancel, onOk, visible, title, type } = props;
-  return (
-    <ModalStyledColord
-      title={title}
-      visible={visible}
-      onOk={onOk}
-      onCancel={onCancel}
-      type={type}
-      footer={[
-        <Button type="secondary" key="back" click={onCancel}>
-          Cancel
-        </Button>,
-        <Button type={type} key="submit" click={onOk}>
-          Save Change
-        </Button>,
-      ]}
-    >
-      {props.children}
-    </ModalStyledColord>
-  );
-};
-ColordModal.propTypes = {
-  onCancel: PropTypes.func.isRequired,
-  onOk: PropTypes.func.isRequired,
-  visible: PropTypes.bool,
-  title: PropTypes.string,
-  type: PropTypes.string,
-};
+const alertModal = ModalStyled;
 
+/*
 const info = () => {
-  Modal.info({
+  ModalStyled.info({
     title: 'This is a notification message',
     content: (
       <div>
@@ -77,19 +51,19 @@ const info = () => {
 };
 
 const success = () => {
-  Modal.success({
+  ModalStyled.success({
     content: 'some messages...some messages...',
   });
 };
 const error = () => {
-  Modal.error({
+  ModalStyled.error({
     title: 'This is an error message',
     content: 'some messages...some messages...',
   });
 };
 
 const warning = () => {
-  Modal.warning({
+  ModalStyled.warning({
     title: 'This is a warning message',
     content: 'some messages...some messages...',
   });
@@ -97,7 +71,7 @@ const warning = () => {
 
 const selfDestroyed = () => {
   let secondsToGo = 5;
-  const modal = Modal.success({
+  const modal = ModalStyled.success({
     title: 'This is a notification message',
     content: `This modal will be destroyed after ${secondsToGo} second.`,
   });
@@ -114,7 +88,7 @@ const selfDestroyed = () => {
 };
 
 const showConfirm = () => {
-  confirm({
+  ModalStyled.confirm({
     title: 'Do you want to delete these items?',
     content: 'When clicked the OK button, this dialog will be closed after 1 second',
     onOk() {
@@ -125,5 +99,5 @@ const showConfirm = () => {
     onCancel() {},
   });
 };
-
-export { BasicModal, ColordModal, info, success, error, warning, selfDestroyed, showConfirm };
+*/
+export { Modal, alertModal };

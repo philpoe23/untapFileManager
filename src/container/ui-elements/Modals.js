@@ -4,16 +4,70 @@ import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
-import {
-  BasicModal,
-  ColordModal,
-  info,
-  success,
-  error,
-  warning,
-  selfDestroyed,
-  showConfirm,
-} from '../../components/modals/antd-modals';
+import { Modal, alertModal } from '../../components/modals/antd-modals';
+
+const info = () => {
+  alertModal.info({
+    title: 'This is a notification message',
+    content: (
+      <div>
+        <p>some messages...some messages...</p>
+        <p>some messages...some messages...</p>
+      </div>
+    ),
+    onOk() {},
+  });
+};
+
+const success = () => {
+  alertModal.success({
+    content: 'some messages...some messages...',
+  });
+};
+const error = () => {
+  alertModal.error({
+    title: 'This is an error message',
+    content: 'some messages...some messages...',
+  });
+};
+
+const warning = () => {
+  alertModal.warning({
+    title: 'This is a warning message',
+    content: 'some messages...some messages...',
+  });
+};
+
+const selfDestroyed = () => {
+  let secondsToGo = 5;
+  const modal = alertModal.success({
+    title: 'This is a notification message',
+    content: `This modal will be destroyed after ${secondsToGo} second.`,
+  });
+  const timer = setInterval(() => {
+    secondsToGo -= 1;
+    modal.update({
+      content: `This modal will be destroyed after ${secondsToGo} second.`,
+    });
+  }, 1000);
+  setTimeout(() => {
+    clearInterval(timer);
+    modal.destroy();
+  }, secondsToGo * 1000);
+};
+
+const showConfirm = () => {
+  alertModal.confirm({
+    title: 'Do you want to delete these items?',
+    content: 'When clicked the OK button, this dialog will be closed after 1 second',
+    onOk() {
+      return new Promise((resolve, reject) => {
+        setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+      }).catch(() => console.log('Oops errors!'));
+    },
+    onCancel() {},
+  });
+};
 
 const Modals = () => {
   const [state, setState] = useState({ visible: false, modalType: 'primary', colorModal: false });
@@ -52,7 +106,7 @@ const Modals = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <BasicModal
+            <Modal
               type={state.modalType}
               title="Basic Modal"
               visible={state.visible}
@@ -62,30 +116,31 @@ const Modals = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
-            </BasicModal>
+            </Modal>
             <Cards headless title="Default Modal" size="large" caption="Default Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button click={showModal} type="primary">
+              <Button onClick={showModal} type="primary">
                 Primary
               </Button>
-              <Button click={showModal} type="success">
+              <Button onClick={showModal} type="success">
                 Success
               </Button>
-              <Button click={showModal} type="danger">
+              <Button onClick={showModal} type="danger">
                 Danger
               </Button>
-              <Button click={showModal} type="warning">
+              <Button onClick={showModal} type="warning">
                 Warning
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <ColordModal
+            <Modal
               type={state.modalType}
+              color
               title="Basic Modal"
               visible={state.colorModal}
               onOk={handleOk}
@@ -94,23 +149,23 @@ const Modals = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
-            </ColordModal>
+            </Modal>
             <Cards headless title="Color Modal" size="large" caption="Color Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button click={showColorModal} type="primary">
+              <Button onClick={showColorModal} type="primary">
                 Primary
               </Button>
-              <Button click={showColorModal} type="success">
+              <Button onClick={showColorModal} type="success">
                 Success
               </Button>
-              <Button click={showColorModal} type="danger">
+              <Button onClick={showColorModal} type="danger">
                 Danger
               </Button>
-              <Button click={showColorModal} type="warning">
+              <Button onClick={showColorModal} type="warning">
                 Warning
               </Button>
             </Cards>
@@ -122,22 +177,22 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button click={success} type="success">
+              <Button onClick={success} type="success">
                 Success
               </Button>
-              <Button click={error} type="error">
+              <Button onClick={error} type="error">
                 Error
               </Button>
-              <Button click={warning} type="warning">
+              <Button onClick={warning} type="warning">
                 Warning
               </Button>
-              <Button click={info} type="info">
+              <Button onClick={info} type="info">
                 Info
               </Button>
-              <Button click={selfDestroyed} type="primary">
+              <Button onClick={selfDestroyed} type="primary">
                 Modal Self Destroyed
               </Button>
-              <Button click={showConfirm} type="primary">
+              <Button onClick={showConfirm} type="primary">
                 Confirm
               </Button>
             </Cards>

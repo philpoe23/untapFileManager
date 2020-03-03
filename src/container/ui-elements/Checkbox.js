@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Checkbox } from 'antd';
 import { Main } from '../styled';
@@ -6,6 +6,24 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { CheckAll } from '../../components/checkbox/checkbox';
 
 const Checkboxs = () => {
+  const [state, setState] = useState({
+    checkdata: [],
+  });
+
+  const childrendata = childData => {
+    setState({ checkdata: childData });
+  };
+
+  useEffect(() => {
+    let unmount = false;
+    if (!unmount) {
+      console.log(state);
+    }
+    return () => {
+      unmount = true;
+    };
+  });
+
   const onChange = e => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -28,7 +46,7 @@ const Checkboxs = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="checkall" caption="The simplest use of Checkbox">
-              <CheckAll item={['Apple', 'Pear', 'Orange']} defaultSelect={['Pear']} />
+              <CheckAll parentCallback={childrendata} item={['Apple', 'Pear', 'Orange']} defaultSelect={['Pear']} />
             </Cards>
           </Col>
         </Row>
