@@ -1,16 +1,17 @@
 import React from 'react';
-import { TabOne, TabChildBasic, TabChildColor, TabTwo } from './tab-styled';
+import { TabBasic, Child } from './style';
 import { Icon } from 'antd';
 
 const Tab = props => {
-  const { data, tabPosition } = props;
+  const { data, tabPosition, color } = props;
 
   return (
-    <TabOne defaultActiveKey="1" tabPosition={tabPosition !== undefined ? tabPosition : 'top'}>
+    <TabBasic color={color && color} defaultActiveKey="1" tabPosition={tabPosition !== undefined ? tabPosition : 'top'}>
       {data.map((item, key) => {
         const { title, content, icon, tabTitle } = item;
         return (
-          <TabChildBasic
+          <Child
+            color={color && color}
             tab={
               icon === undefined ? (
                 tabTitle
@@ -25,42 +26,11 @@ const Tab = props => {
           >
             <h2>{title}</h2>
             <p>{content}</p>
-          </TabChildBasic>
+          </Child>
         );
       })}
-    </TabOne>
+    </TabBasic>
   );
 };
 
-const ColorTab = props => {
-  const { data, color, tabPosition } = props;
-
-  return (
-    <TabTwo color={color} defaultActiveKey="1" tabPosition={tabPosition !== undefined ? tabPosition : 'top'}>
-      {data.map((item, key) => {
-        const { title, content, icon, tabTitle } = item;
-        return (
-          <TabChildColor
-            color={color}
-            tab={
-              icon === undefined ? (
-                tabTitle
-              ) : (
-                <span>
-                  <Icon type={icon} />
-                  {tabTitle}
-                </span>
-              )
-            }
-            key={key + 1}
-          >
-            <h2>{title}</h2>
-            <p>{content}</p>
-          </TabChildColor>
-        );
-      })}
-    </TabTwo>
-  );
-};
-
-export { Tab, ColorTab };
+export { Tab };
