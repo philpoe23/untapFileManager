@@ -1,9 +1,21 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, AreaChart, Area, Brush } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ReferenceLine,
+  AreaChart,
+  Area,
+  Brush,
+} from 'recharts';
 import { data } from '../../../config/dataService/recharts.json';
 
 const CustomizedDot = props => {
@@ -30,7 +42,7 @@ const ReChartLine = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="SIMPLE LINE CHART" size="large" more={false}>
+            <Cards title="SIMPLE LINE CHART" size="large" more={false}>
               <LineChart
                 width={750}
                 height={300}
@@ -50,10 +62,10 @@ const ReChartLine = () => {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="VERTICAL LINE CHART" size="large" more={false}>
+            <Cards title="VERTICAL LINE CHART" size="large" more={false}>
               <LineChart
                 layout="vertical"
                 width={750}
@@ -74,10 +86,10 @@ const ReChartLine = () => {
                 <Line dataKey="pv" stroke="#8884d8" />
                 <Line dataKey="uv" stroke="#82ca9d" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="CUSTOMIZED DOT LINE CHART" size="large" more={false}>
+            <Cards title="CUSTOMIZED DOT LINE CHART" size="large" more={false}>
               <LineChart
                 width={750}
                 height={300}
@@ -97,10 +109,10 @@ const ReChartLine = () => {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" dot={<CustomizedDot />} />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="LINE CHART WITH REFERENCE LINES" size="large" more={false}>
+            <Cards title="LINE CHART WITH REFERENCE LINES" size="large" more={false}>
               <LineChart
                 width={750}
                 height={300}
@@ -122,10 +134,10 @@ const ReChartLine = () => {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="DASHED LINE CHART" size="large" more={false}>
+            <Cards title="DASHED LINE CHART" size="large" more={false}>
               <LineChart
                 width={750}
                 height={300}
@@ -145,10 +157,10 @@ const ReChartLine = () => {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeDasharray="5 5" />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" strokeDasharray="3 4 5 2" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="LINE CHART WITH X-AXIS PADDING" size="large" more={false}>
+            <Cards title="LINE CHART WITH X-AXIS PADDING" size="large" more={false}>
               <LineChart width={750} height={300} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
@@ -158,10 +170,10 @@ const ReChartLine = () => {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
               </LineChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="SYNCHRONIZED LINE CHART" size="large" more={false}>
+            <Cards title="SYNCHRONIZED LINE CHART" size="large" more={false}>
               <div>
                 <h4>A demo of synchronized AreaCharts</h4>
                 <LineChart
@@ -221,10 +233,10 @@ const ReChartLine = () => {
                   <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
                 </AreaChart>
               </div>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="LINE CHART CONNECT NULLS" size="large" more={false}>
+            <Cards title="LINE CHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <LineChart
                   width={750}
@@ -261,7 +273,7 @@ const ReChartLine = () => {
                   <Line connectNulls type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
               </div>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

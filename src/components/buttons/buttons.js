@@ -13,15 +13,15 @@ const Button = props => {
 
   return (
     <ButtonStyled
-      squared={squared && squared}
-      outlined={outlined}
+      squared={squared ? 1 : 0}
+      outlined={outlined ? 1 : 0}
       data={type}
       size={size}
       shape={shape}
       type={type}
       icon={icon}
       color={color}
-      social={social}
+      social={social ? 1 : 0}
       onClick={load && enterLoading}
       loading={state.loading}
       {...rest}

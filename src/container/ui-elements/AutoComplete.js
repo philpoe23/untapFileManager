@@ -2,8 +2,15 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
-import { Complete, Customize, CustomizComponent, AutoCompletes, LookupPatterns, LookupPatternsWithIcon } from '../../components/autoComplete/autoComplete';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import {
+  Complete,
+  Customize,
+  CustomizComponent,
+  AutoCompletes,
+  LookupPatterns,
+  LookupPatternsWithIcon,
+} from '../../components/autoComplete/autoComplete';
 
 const AutoComplete = () => {
   return (
@@ -12,34 +19,34 @@ const AutoComplete = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of AutoComplete">
+            <Cards headless title="Basic" caption="The simplest use of AutoComplete">
               <Complete />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Customize" caption="The simplest use of AutoComplete">
+            <Cards headless title="Customize" caption="The simplest use of AutoComplete">
               <Customize />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Customize Components" caption="The simplest use of AutoComplete">
+            <Cards headless title="Customize Components" caption="The simplest use of AutoComplete">
               <CustomizComponent />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Auto Complete" caption="The simplest use of AutoComplete">
+            <Cards headless title="Auto Complete" caption="The simplest use of AutoComplete">
               <AutoCompletes />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Lookup-Patterns" caption="The simplest use of AutoComplete">
+            <Cards headless title="Lookup-Patterns" caption="The simplest use of AutoComplete">
               <LookupPatterns />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Lookup-Patterns with Icon" caption="The simplest use of AutoComplete">
+            <Cards headless title="Lookup-Patterns with Icon" caption="The simplest use of AutoComplete">
               <LookupPatternsWithIcon />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { GridStyle, GridStyleGutter, GridStyleOffset } from './GridStyled';
 
 const Grid = () => {
@@ -12,7 +12,7 @@ const Grid = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Basic Grid" size="default">
+            <Cards headless title="Basic Grid" size="default">
               <GridStyle>
                 <Row>
                   <Col span={12}>col-12</Col>
@@ -30,12 +30,12 @@ const Grid = () => {
                   <Col span={6}>col-6</Col>
                 </Row>
               </GridStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Grid Gutter" size="default">
+            <Cards headless title="Grid Gutter" size="default">
               <GridStyleGutter>
                 <Row gutter={16}>
                   <Col className="gutter-row" span={6}>
@@ -66,12 +66,12 @@ const Grid = () => {
                   </Col>
                 </Row>
               </GridStyleGutter>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Column offset" size="default">
+            <Cards headless title="Column offset" size="default">
               <GridStyleOffset>
                 <Row>
                   <Col span={8}>col-8</Col>
@@ -93,12 +93,12 @@ const Grid = () => {
                   </Col>
                 </Row>
               </GridStyleOffset>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Grid sort" size="default">
+            <Cards headless title="Grid sort" size="default">
               <GridStyle>
                 <Row>
                   <Col span={18} push={6}>
@@ -109,12 +109,12 @@ const Grid = () => {
                   </Col>
                 </Row>
               </GridStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="sub-element align" size="default">
+            <Cards headless title="sub-element align" size="default">
               <GridStyle>
                 <p>sub-element align left</p>
                 <Row type="flex" justify="start">
@@ -156,12 +156,12 @@ const Grid = () => {
                   <Col span={4}>col-4</Col>
                 </Row>
               </GridStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Responsive" size="default">
+            <Cards headless title="Responsive" size="default">
               <GridStyle>
                 <Row>
                   <Col xs={2} sm={4} md={6} lg={8} xl={10}>
@@ -175,12 +175,12 @@ const Grid = () => {
                   </Col>
                 </Row>
               </GridStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="More Responsive" size="default">
+            <Cards headless title="More Responsive" size="default">
               <GridStyle>
                 <Row>
                   <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
@@ -194,7 +194,7 @@ const Grid = () => {
                   </Col>
                 </Row>
               </GridStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

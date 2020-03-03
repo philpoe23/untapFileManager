@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Carousel, Radio } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { CarouselStyleWraper } from './ui-elements-styled';
 
 const Carousels = () => {
@@ -20,7 +20,7 @@ const Carousels = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Carousel">
+            <Cards headless title="Basic" caption="The simplest use of Carousel">
               <CarouselStyleWraper>
                 <Carousel afterChange={onChange}>
                   <div>
@@ -37,10 +37,10 @@ const Carousels = () => {
                   </div>
                 </Carousel>
               </CarouselStyleWraper>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Autoplay" caption="The simplest use of Carousel">
+            <Cards headless title="Autoplay" caption="The simplest use of Carousel">
               <CarouselStyleWraper>
                 <Carousel autoplay>
                   <div>
@@ -57,10 +57,10 @@ const Carousels = () => {
                   </div>
                 </Carousel>
               </CarouselStyleWraper>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Position" caption="The simplest use of Carousel">
+            <Cards headless title="Position" caption="The simplest use of Carousel">
               <CarouselStyleWraper>
                 <Radio.Group onChange={handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
                   <Radio.Button value="top">Top</Radio.Button>
@@ -83,10 +83,10 @@ const Carousels = () => {
                   </div>
                 </Carousel>
               </CarouselStyleWraper>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Fade Effect" caption="The simplest use of Carousel">
+            <Cards headless title="Fade Effect" caption="The simplest use of Carousel">
               <CarouselStyleWraper>
                 <Carousel effect="fade">
                   <div>
@@ -103,7 +103,7 @@ const Carousels = () => {
                   </div>
                 </Carousel>
               </CarouselStyleWraper>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

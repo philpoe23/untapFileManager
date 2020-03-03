@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Radio } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Radios = () => {
   return (
@@ -11,22 +11,22 @@ const Radios = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Radio">
+            <Cards headless title="Basic" caption="The simplest use of Radio">
               <Radio>Radio</Radio>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Radio Group" caption="The simplest use of Radio">
+            <Cards headless title="Radio Group" caption="The simplest use of Radio">
               <Radio.Group>
                 <Radio value={1}>A</Radio>
                 <Radio value={2}>B</Radio>
                 <Radio value={3}>C</Radio>
                 <Radio value={4}>D</Radio>
               </Radio.Group>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Radio Style" caption="The simplest use of Radio">
+            <Cards headless title="Radio Style" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a">
                   <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -53,10 +53,10 @@ const Radios = () => {
                   <Radio.Button value="d">Chengdu</Radio.Button>
                 </Radio.Group>
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Radio Size" caption="The simplest use of Radio">
+            <Cards headless title="Radio Size" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a" size="large">
                   <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -81,7 +81,7 @@ const Radios = () => {
                   <Radio.Button value="d">Chengdu</Radio.Button>
                 </Radio.Group>
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

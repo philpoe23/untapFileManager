@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Tag } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { CheckedTag, HotTag, AnimatedTags } from '../../components/tags/tags';
 
-const Tags = props => {
+const Tags = () => {
   const log = e => {
     // console.log(e);
   };
@@ -21,7 +21,7 @@ const Tags = props => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of tags">
+            <Cards headless title="Basic" caption="The simplest use of tags">
               <Tag>Tag 1</Tag>
               <Tag>
                 <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
@@ -32,10 +32,10 @@ const Tags = props => {
               <Tag closable onClose={preventDefault}>
                 Prevent Default
               </Tag>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Colorful Tag" caption="The simplest use of tags">
+            <Cards headless title="Colorful Tag" caption="The simplest use of tags">
               <h4 style={{ marginBottom: 16 }}>Presets:</h4>
               <div>
                 <Tag color="magenta">magenta</Tag>
@@ -57,26 +57,26 @@ const Tags = props => {
                 <Tag color="#87d068">#87d068</Tag>
                 <Tag color="#108ee9">#108ee9</Tag>
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Checkable Tag" caption="The simplest use of tags">
+            <Cards headless title="Checkable Tag" caption="The simplest use of tags">
               <CheckedTag>Tag 1</CheckedTag>
               <CheckedTag>Tag 2</CheckedTag>
               <CheckedTag>Tag 3</CheckedTag>
               <CheckedTag>Tag 4</CheckedTag>
               <CheckedTag>Tag 5</CheckedTag>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Hot Tag" caption="The simplest use of tags">
+            <Cards headless title="Hot Tag" caption="The simplest use of tags">
               <HotTag data={['Movies', 'Books', 'Music', 'Sports']} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Animated Tag" caption="The simplest use of tags">
+            <Cards headless title="Animated Tag" caption="The simplest use of tags">
               <AnimatedTags data={['Movies', 'Books', 'Music', 'Sports']} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

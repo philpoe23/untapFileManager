@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Rate } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Rating = () => {
   const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
@@ -20,31 +20,31 @@ const Rating = () => {
       <Main>
         <Row gutter={15}>
           <Col md={6}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Rate">
+            <Cards headless title="Basic" caption="The simplest use of Rate">
               <Rate />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={6}>
-            <CardHeadLessFrame title="Half Star" caption="The simplest use of Rate">
+            <Cards headless title="Half Star" caption="The simplest use of Rate">
               <Rate allowHalf defaultValue={2.5} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={6}>
-            <CardHeadLessFrame title="Show copywriting" caption="The simplest use of Rate">
+            <Cards headless title="Show copywriting" caption="The simplest use of Rate">
               <span>
                 <Rate tooltips={desc} onChange={handleChange} value={value} />
                 {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
               </span>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={6}>
-            <CardHeadLessFrame title="Clear Star" caption="The simplest use of Rate">
+            <Cards headless title="Clear Star" caption="The simplest use of Rate">
               <Rate defaultValue={3} />
               <span className="ant-rate-text">allowClear: true</span>
               <br />
               <Rate allowClear={false} defaultValue={3} />
               <span className="ant-rate-text">allowClear: false</span>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

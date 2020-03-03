@@ -1,38 +1,17 @@
 import Styled from 'styled-components';
-const CardWraper = Styled.div`
-    margin-bottom: 20px;
-    .ant-card.ant-card-bordered {
-        border-radius: 5px;
-        overflow: hidden;
-        border: none;
-    }
+import { Card } from 'antd';
+
+const CardFrame = Styled(Card)`
+  ${({ isbutton, theme }) => isbutton && BtnWraper(theme)}
+  margin-bottom: 20px !important;
+  .ant-card.ant-card-bordered {
+      border-radius: 5px;
+      overflow: hidden;
+      border: none;
+  }
 `;
 
-const CardTabWraper = Styled.div`
-    .ant-card-head {
-      display: flex;
-      justify-content: space-evenly;
-      .ant-card-head-wrapper{
-        width: 100%;
-      }
-      .ant-tabs.ant-tabs-top.ant-card-head-tabs.ant-tabs-large.ant-tabs-line{
-        width: 100%;
-        display: block;
-        
-      }
-      .ant-tabs-nav-scroll {
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-
-    .ant-tabs-nav .ant-tabs-tab {
-      margin: 0px;      
-    }
-
-`;
-
-const CardTabBtnWraper = Styled.div`
+const BtnWraper = theme => `
     .ant-card-head {
       display: flex;
       justify-content: space-evenly;
@@ -57,13 +36,13 @@ const CardTabBtnWraper = Styled.div`
         margin-left: -1px;
         display: inline-flex;
         align-items: center;
-        border: 1px solid ${({ theme }) => theme['border-color-base']};
+        border: 1px solid ${theme['border-color-base']};
         background: #fff;
       }
       .ant-tabs-nav .ant-tabs-tab-active {        
         font-weight: 500;
-        border: 1px solid ${({ theme }) => theme['primary-color']};
-        background: ${({ theme }) => theme['primary-color']};
+        border: 1px solid ${theme['primary-color']};
+        background: ${theme['primary-color']};
         color: #fff;
         border-radius: 2px;
         height: 30px;
@@ -88,4 +67,4 @@ const CardTabBtnWraper = Styled.div`
   }
 `;
 
-export { CardWraper, CardTabWraper, CardTabBtnWraper };
+export { CardFrame };

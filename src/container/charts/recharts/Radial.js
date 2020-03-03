@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
@@ -62,12 +62,34 @@ const ReChartRadial = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardFreshFrame title="SIMPLE RADIAL BAR CHART" size="large" more={false}>
-              <RadialBarChart width={900} height={400} cx={700} cy={150} innerRadius={20} outerRadius={140} barSize={10} data={data}>
-                <RadialBar minAngle={15} label={{ position: 'insideStart', fill: '#fff' }} background clockWise dataKey="uv" />
-                <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
+            <Cards title="SIMPLE RADIAL BAR CHART" size="large">
+              <RadialBarChart
+                width={900}
+                height={400}
+                cx={700}
+                cy={150}
+                innerRadius={20}
+                outerRadius={140}
+                barSize={10}
+                data={data}
+              >
+                <RadialBar
+                  minAngle={15}
+                  label={{ position: 'insideStart', fill: '#fff' }}
+                  background
+                  clockWise
+                  dataKey="uv"
+                />
+                <Legend
+                  iconSize={10}
+                  width={120}
+                  height={140}
+                  layout="vertical"
+                  verticalAlign="middle"
+                  wrapperStyle={style}
+                />
               </RadialBarChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

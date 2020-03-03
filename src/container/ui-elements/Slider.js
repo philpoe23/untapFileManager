@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Slider } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { SliderWithInputInteger, SliderWithInputDecimal, SliderWithIcon } from '../../components/slider/slider';
 
 const Sliders = () => {
@@ -47,32 +47,32 @@ const Sliders = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of slider">
+            <Cards headless title="Basic" caption="The simplest use of slider">
               <Slider defaultValue={30} />
               <Slider range defaultValue={[20, 50]} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="With Input" caption="The simplest use of slider">
+            <Cards headless title="With Input" caption="The simplest use of slider">
               <h3>With integer</h3>
               <SliderWithInputInteger min={1} max={100} />
               <h3>With Decimal</h3>
               <SliderWithInputDecimal min={0} max={1} step={0.01} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="with Icon" caption="The simplest use of slider">
+            <Cards headless title="with Icon" caption="The simplest use of slider">
               <SliderWithIcon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Range" caption="The simplest use of slider">
+            <Cards headless title="Range" caption="The simplest use of slider">
               <Slider range step={10} defaultValue={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
 
           <Col md={12}>
-            <CardHeadLessFrame title="Graduated slider" caption="The simplest use of slider">
+            <Cards headless title="Graduated slider" caption="The simplest use of slider">
               <div>
                 <h4>included=true</h4>
                 <Slider marks={marks} defaultValue={37} />
@@ -87,11 +87,11 @@ const Sliders = () => {
                 <h4>step=null</h4>
                 <Slider marks={marks} step={null} defaultValue={37} />
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
 
           <Col md={12}>
-            <CardHeadLessFrame title="Graduated slider vertical" caption="The simplest use of slider">
+            <Cards title="Graduated slider vertical" caption="The simplest use of slider">
               <div>
                 <div style={style}>
                   <Slider vertical defaultValue={30} />
@@ -103,7 +103,7 @@ const Sliders = () => {
                   <Slider vertical range marks={marks} defaultValue={[26, 37]} />
                 </div>
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

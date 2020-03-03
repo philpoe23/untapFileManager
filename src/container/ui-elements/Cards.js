@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Card } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame, CardFreshFrame, CardTabsFrame, CardTabsBtnFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Meta } = Card;
 const tabList = [
@@ -49,116 +49,158 @@ const contentList = {
   ),
 };
 
-const Cards = props => {
+const CardContainer = () => {
   return (
     <Fragment>
       <PageHeader title="Cards" />
       <Main>
         <Row gutter={15}>
           <Col md={8}>
-            <CardFreshFrame title="Default Size Card" size="default" more={true}>
+            <Cards title="Default Size Card" size="default" more>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={8}>
-            <CardFreshFrame title="Default Size Card" size="default" more={false}>
+            <Cards title="Default Size Card" size="default">
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={8}>
-            <CardFreshFrame title="Small Size Card" size="small" more={true}>
+            <Cards title="Small Size Card" size="small" more>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={8}>
-            <CardFreshFrame title="Small Size Card" size="small" more={false}>
+            <Cards title="Small Size Card" size="small">
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={8}>
-            <CardHeadLessFrame title="simple card">
+            <Cards headless title="simple card">
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={8}>
-            <CardHeadLessFrame title="simple card" size="large">
+            <Cards headless title="simple card" size="large">
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={12}>
-            <CardTabsFrame title="Card with tabs" size="large" more={false} tabList={tabList} contentList={contentList} />
+            <Cards tabs title="Card with tabs" size="large" tabList={tabList} contentList={contentList} />
           </Col>
           <Col md={12}>
-            <CardTabsFrame title="Card with tabs" size="large" more={true} tabList={tabList} contentList={contentList} />
-          </Col>
-        </Row>
-        <Row gutter={15}>
-          <Col md={12}>
-            <CardTabsBtnFrame title="Card with button tabs" size="large" more={false} tabList={tabList} contentList={contentList} />
-          </Col>
-          <Col md={12}>
-            <CardTabsBtnFrame title="Card with button tabs" size="large" more={true} tabList={tabList} contentList={contentList} />
+            <Cards tabs more title="Card with tabs" size="large" tabList={tabList} contentList={contentList} />
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="Grid Card" size="large" more={false}>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-            </CardFreshFrame>
+            <Cards
+              tabs
+              isbutton
+              title="Card with button tabs"
+              size="large"
+              tabList={tabList}
+              contentList={contentList}
+            />
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Grid Card" size="large" more={false}>
+            <Cards
+              tabs
+              isbutton
+              title="Card with button tabs"
+              size="large"
+              more
+              tabList={tabList}
+              contentList={contentList}
+            />
+          </Col>
+        </Row>
+        <Row gutter={15}>
+          <Col md={12}>
+            <Cards title="Grid Card" size="large">
               <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-            </CardFreshFrame>
+            </Cards>
+          </Col>
+          <Col md={12}>
+            <Cards title="Grid Card" size="large">
+              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+            </Cards>
           </Col>
         </Row>
         <Row gutter={15}>
           <Col md={8}>
-            <Card hoverable style={{ width: '100%' }} cover={<img alt="example" src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80" />}>
+            <Card
+              hoverable
+              style={{ width: '100%' }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
+                />
+              }
+            >
               <Meta title="Customized content" description="www.instagram.com" />
             </Card>
           </Col>
           <Col md={8}>
-            <Card hoverable style={{ width: '100%' }} cover={<img alt="example" src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80" />}>
+            <Card
+              hoverable
+              style={{ width: '100%' }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
+                />
+              }
+            >
               <Meta title="Customized content" description="www.instagram.com" />
             </Card>
           </Col>
           <Col md={8}>
-            <Card hoverable style={{ width: '100%' }} cover={<img alt="example" src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80" />}>
+            <Card
+              hoverable
+              style={{ width: '100%' }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
+                />
+              }
+            >
               <Meta title="Customized content" description="www.instagram.com" />
             </Card>
           </Col>
@@ -168,4 +210,4 @@ const Cards = props => {
   );
 };
 
-export default Cards;
+export default CardContainer;

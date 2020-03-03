@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Switch, Icon } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Switches = () => {
   return (
@@ -11,35 +11,39 @@ const Switches = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Switch">
+            <Cards headless title="Basic" caption="The simplest use of Switch">
               <Switch defaultChecked />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Size" caption="The simplest use of Switch">
+            <Cards headless title="Size" caption="The simplest use of Switch">
               <Switch defaultChecked />
               <Switch defaultChecked size="small" />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Text and Icon" caption="The simplest use of Switch">
+            <Cards headless title="Text and Icon" caption="The simplest use of Switch">
               <div>
                 <Switch checkedChildren="a" unCheckedChildren="b" defaultChecked />
                 <br />
                 <Switch checkedChildren="1" unCheckedChildren="0" />
                 <br />
-                <Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked />
+                <Switch
+                  checkedChildren={<Icon type="check" />}
+                  unCheckedChildren={<Icon type="close" />}
+                  defaultChecked
+                />
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Loading" caption="The simplest use of Switch">
+            <Cards headless title="Loading" caption="The simplest use of Switch">
               <div>
                 <Switch loading defaultChecked />
                 <br />
                 <Switch size="small" loading />
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

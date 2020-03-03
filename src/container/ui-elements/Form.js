@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { InlineLoginForm, LogInForm } from '../../components/form/form';
 
 const Form = () => {
@@ -12,14 +12,14 @@ const Form = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Inline Log In Form" caption="The simplest use of Form">
+            <Cards headless title="Inline Log In Form" caption="The simplest use of Form">
               <InlineLoginForm />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Log In Form" caption="The simplest use of Form">
+            <Cards headless title="Log In Form" caption="The simplest use of Form">
               <LogInForm />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

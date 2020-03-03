@@ -3,7 +3,7 @@ import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Comment, Icon, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import CommentEditor from '../../components/comments/editor';
 
@@ -53,7 +53,12 @@ const Comments = () => {
       actions: [<span key="comment-list-reply-to-0">Reply to</span>],
       author: 'Han Solo',
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-      content: <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>,
+      content: (
+        <p>
+          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+          Axure), to help people create their product prototypes beautifully and efficiently.
+        </p>
+      ),
       datetime: (
         <Tooltip
           title={moment()
@@ -72,7 +77,12 @@ const Comments = () => {
       actions: [<span key="comment-list-reply-to-0">Reply to</span>],
       author: 'Han Solo',
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-      content: <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>,
+      content: (
+        <p>
+          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+          Axure), to help people create their product prototypes beautifully and efficiently.
+        </p>
+      ),
       datetime: (
         <Tooltip
           title={moment()
@@ -94,7 +104,12 @@ const Comments = () => {
       actions={[<span key="comment-nested-reply-to">Reply to</span>]}
       author={<NavLink to="#">Han Solo</NavLink>}
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-      content={<p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>}
+      content={
+        <p>
+          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+          Axure).
+        </p>
+      }
     >
       {children}
     </Comment>
@@ -106,22 +121,29 @@ const Comments = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Comments">
+            <Cards headless title="Basic" caption="The simplest use of Comments">
               <Comment
                 actions={actions}
                 author={<NavLink to="#">Han Solo</NavLink>}
-                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-                content={<p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>}
+                avatar={
+                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />
+                }
+                content={
+                  <p>
+                    We supply a series of design principles, practical patterns and high quality design resources
+                    (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+                  </p>
+                }
                 datetime={
                   <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
                     <span>{moment().fromNow()}</span>
                   </Tooltip>
                 }
               />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Usage with list" caption="The simplest use of Comments">
+            <Cards headless title="Usage with list" caption="The simplest use of Comments">
               <List
                 className="comment-list"
                 header={`${data.length} replies`}
@@ -129,26 +151,32 @@ const Comments = () => {
                 dataSource={data}
                 renderItem={item => (
                   <li>
-                    <Comment actions={item.actions} author={item.author} avatar={item.avatar} content={item.content} datetime={item.datetime} />
+                    <Comment
+                      actions={item.actions}
+                      author={item.author}
+                      avatar={item.avatar}
+                      content={item.content}
+                      datetime={item.datetime}
+                    />
                   </li>
                 )}
               />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Nested comments" caption="The simplest use of Comments">
+            <Cards headless title="Nested comments" caption="The simplest use of Comments">
               <ExampleComment>
                 <ExampleComment>
                   <ExampleComment />
                   <ExampleComment />
                 </ExampleComment>
               </ExampleComment>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Reply Editor" caption="The simplest use of Comments">
+            <Cards headless title="Reply Editor" caption="The simplest use of Comments">
               <CommentEditor />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

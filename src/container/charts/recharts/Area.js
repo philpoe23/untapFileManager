@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
@@ -13,7 +13,7 @@ const ReChartArea = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="SIMPLE AREA CHART" size="large" more={false}>
+            <Cards title="SIMPLE AREA CHART" size="large" more={false}>
               <AreaChart
                 width={750}
                 height={400}
@@ -31,11 +31,11 @@ const ReChartArea = () => {
                 <Tooltip />
                 <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
               </AreaChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
 
           <Col md={12}>
-            <CardFreshFrame title="STACKED AREA CHART" size="large" more={false}>
+            <Cards title="STACKED AREA CHART" size="large" more={false}>
               <AreaChart
                 width={750}
                 height={400}
@@ -55,10 +55,10 @@ const ReChartArea = () => {
                 <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
                 <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#ffc658" />
               </AreaChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="AREACHART CONNECT NULLS" size="large" more={false}>
+            <Cards title="AREACHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <AreaChart
                   width={750}
@@ -95,10 +95,10 @@ const ReChartArea = () => {
                   <Area connectNulls type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </AreaChart>
               </div>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="synchronized AreaCharts" size="large" more={false}>
+            <Cards title="synchronized AreaCharts" size="large" more={false}>
               <div>
                 <AreaChart
                   width={750}
@@ -138,7 +138,7 @@ const ReChartArea = () => {
                   <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
                 </AreaChart>
               </div>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

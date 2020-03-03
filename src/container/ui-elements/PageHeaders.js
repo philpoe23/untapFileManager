@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeaderone, PageHeaderTwo, PageHeaderThree } from '../../components/page-headers/page-headers';
 
 const routes = [
@@ -26,24 +26,24 @@ const Page_Headers = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Basic header" caption="The simplest use of Page header">
+            <Cards headless title="Basic header" caption="The simplest use of Page header">
               <PageHeaderone title="Title" subTitle="This is a subtitle" />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Custom header" caption="The simplest use of Page header">
+            <Cards headless title="Custom header" caption="The simplest use of Page header">
               <PageHeader title="Title" subTitle="This is a subtitle" />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
+            <Cards headless title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
               <PageHeaderTwo title="Title" subTitle="This is a subtitle" routes={routes} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Extra content header" caption="The simplest use of Extra content header">
+            <Cards headless title="Extra content header" caption="The simplest use of Extra content header">
               <PageHeaderThree title="Title" subTitle="This is a subtitle" routes={routes} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

@@ -1,9 +1,18 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
-import { CardFreshFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { ChartjsBarChart, ChartjsHorizontalChart, ChartjsStackedChart, ChartjsLineChart, ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsDonutChart, ChartjsPieChart } from '../../components/charts/chartjs';
+import {
+  ChartjsBarChart,
+  ChartjsHorizontalChart,
+  ChartjsStackedChart,
+  ChartjsLineChart,
+  ChartjsAreaChart,
+  ChartjsBarChartTransparent,
+  ChartjsDonutChart,
+  ChartjsPieChart,
+} from '../../components/charts/chartjs';
 
 const ChartJs = () => {
   return (
@@ -12,45 +21,45 @@ const ChartJs = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="Bar Chart" size="large" more={false}>
+            <Cards title="Bar Chart" size="large">
               <ChartjsBarChart className={'foo'} style={{ marginBottom: '20px' }} />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Horizontal  Chart" size="large" more={false}>
+            <Cards title="Horizontal  Chart" size="large">
               <ChartjsHorizontalChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
 
           <Col md={12}>
-            <CardFreshFrame title="Stacked  Chart" size="large" more={false}>
+            <Cards title="Stacked  Chart" size="large">
               <ChartjsStackedChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Line  Chart" size="large" more={false}>
+            <Cards title="Line  Chart" size="large">
               <ChartjsLineChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Area  Chart" size="large" more={false}>
+            <Cards title="Area  Chart" size="large">
               <ChartjsAreaChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Transparent  Chart" size="large" more={false}>
+            <Cards title="Transparent  Chart" size="large">
               <ChartjsBarChartTransparent />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Donut  Chart" size="large" more={false}>
+            <Cards title="Donut  Chart" size="large">
               <ChartjsDonutChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Pie  Chart" size="large" more={false}>
+            <Cards title="Pie  Chart" size="large">
               <ChartjsPieChart />
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

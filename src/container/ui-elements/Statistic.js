@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Statistic, Button, Icon } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
 const { Countdown } = Statistic;
-const Statistics = props => {
+const Statistics = () => {
   const onFinish = () => {
     console.log('finished!');
   };
@@ -16,7 +16,7 @@ const Statistics = props => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Statistic">
+            <Cards headless title="Basic" caption="The simplest use of Statistic">
               <Row gutter={16}>
                 <Col span={6}>
                   <Statistic title="Active Users" value={112893} />
@@ -34,16 +34,30 @@ const Statistics = props => {
                   <Statistic title="Unmerged" value={93} suffix="/ 100" />
                 </Col>
               </Row>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="In Card and Counter" caption="The simplest use of Statistic">
+            <Cards headless title="In Card and Counter" caption="The simplest use of Statistic">
               <Row gutter={15}>
                 <Col md={6}>
-                  <Statistic title="Active" value={11.28} precision={2} valueStyle={{ color: '#3f8600' }} prefix={<Icon type="arrow-up" />} suffix="%" />
+                  <Statistic
+                    title="Active"
+                    value={11.28}
+                    precision={2}
+                    valueStyle={{ color: '#3f8600' }}
+                    prefix={<Icon type="arrow-up" />}
+                    suffix="%"
+                  />
                 </Col>
                 <Col md={6}>
-                  <Statistic title="Idle" value={9.3} precision={2} valueStyle={{ color: '#cf1322' }} prefix={<Icon type="arrow-down" />} suffix="%" />
+                  <Statistic
+                    title="Idle"
+                    value={9.3}
+                    precision={2}
+                    valueStyle={{ color: '#cf1322' }}
+                    prefix={<Icon type="arrow-down" />}
+                    suffix="%"
+                  />
                 </Col>
                 <Col md={6}>
                   <Countdown title="Countdown" value={deadline} onFinish={onFinish} />
@@ -52,7 +66,7 @@ const Statistics = props => {
                   <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
                 </Col>
               </Row>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

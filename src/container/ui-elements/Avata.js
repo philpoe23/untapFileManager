@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Avatar, Icon, Badge } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { AvatarWraperStyle } from './ui-elements-styled';
 
 const Avatars = () => {
@@ -12,7 +12,7 @@ const Avatars = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Avatar">
+            <Cards headless title="Basic" caption="The simplest use of Avatar">
               <AvatarWraperStyle>
                 <Avatar size={64} icon="user" />
                 <Avatar size="large" icon="user" />
@@ -25,10 +25,10 @@ const Avatars = () => {
                 <Avatar shape="square" icon="user" />
                 <Avatar shape="square" size="small" icon="user" />
               </AvatarWraperStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Type" caption="The simplest use of Avatar">
+            <Cards headless title="Type" caption="The simplest use of Avatar">
               <AvatarWraperStyle>
                 <Avatar icon="user" />
                 <Avatar icon={<Icon type="user" />} />
@@ -38,10 +38,10 @@ const Avatars = () => {
                 <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
                 <Avatar style={{ backgroundColor: '#87d068' }} icon="user" />
               </AvatarWraperStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="with badge" caption="The simplest use of Avatar">
+            <Cards headless title="with badge" caption="The simplest use of Avatar">
               <AvatarWraperStyle>
                 <span style={{ marginRight: 24 }}>
                   <Badge count={1}>
@@ -54,7 +54,7 @@ const Avatars = () => {
                   </Badge>
                 </span>
               </AvatarWraperStyle>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

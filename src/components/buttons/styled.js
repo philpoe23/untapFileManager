@@ -67,6 +67,7 @@ const squareOutline = (theme, type) => `
 
 const socialButton = (color, shape) => `
     background: ${color};
+    background: ${color};
     border: 1px solid ${color};
     color: #ffffff;
     margin: 4px;
@@ -78,7 +79,7 @@ const socialButton = (color, shape) => `
         padding-left: 5px;
     }
     &:hover, &:focus {
-        background: ${color}90;
+        background: ${color}90;       
         border: 1px solid ${color}90;
         color: #ffffff;        
     }

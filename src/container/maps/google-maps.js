@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
-import { CardFreshFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { GoogleMaps } from '../../components/maps/google-maps';
@@ -14,32 +14,32 @@ const GoogleMap = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Basic" size="large" more={false}>
+            <Cards title="Google Map Basic" size="large">
               <GoogleMaps />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Style Light" size="large" more={false}>
+            <Cards title="Google Map Style Light" size="large">
               <GoogleMaps mapStyles={map_one_styles} />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Style Dark" size="large" more={false}>
+            <Cards title="Google Map Style Dark" size="large">
               <GoogleMaps mapStyles={map_style_dark} />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Style Theame Color" size="large" more={false}>
+            <Cards title="Google Map Style Theame Color" size="large">
               <GoogleMaps zoom={2} mapStyles={map_Three_styles} />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Style Color" size="large" more={false}>
+            <Cards title="Google Map Style Color" size="large">
               <GoogleMaps mapStyles={map_two_styles} />
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="Google Map Style Color" size="large" more={false}>
+            <Cards title="Google Map Style Color" size="large">
               <GoogleMaps
                 mapStyles={map_two_styles}
                 zoom={4}
@@ -61,7 +61,7 @@ const GoogleMap = () => {
                   },
                 ]}
               />
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

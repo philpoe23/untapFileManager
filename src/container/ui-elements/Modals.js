@@ -2,9 +2,18 @@ import React, { Fragment, useState } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
-import { BasicModal, ColordModal, info, success, error, warning, selfDestroyed, showConfirm } from '../../components/modals/antd-modals';
+import {
+  BasicModal,
+  ColordModal,
+  info,
+  success,
+  error,
+  warning,
+  selfDestroyed,
+  showConfirm,
+} from '../../components/modals/antd-modals';
 
 const Modals = () => {
   const [state, setState] = useState({ visible: false, modalType: 'primary', colorModal: false });
@@ -43,13 +52,23 @@ const Modals = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <BasicModal type={state.modalType} title="Basic Modal" visible={state.visible} onOk={handleOk} onCancel={handleCancel}>
+            <BasicModal
+              type={state.modalType}
+              title="Basic Modal"
+              visible={state.visible}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            >
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
             </BasicModal>
-            <CardHeadLessFrame title="Default Modal" size="large" caption="Default Ant Design Modal">
-              <p>When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information. Additionally</p>
+            <Cards headless title="Default Modal" size="large" caption="Default Ant Design Modal">
+              <p>
+                When requiring users to interact with the application, but without jumping to a new page and
+                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
+                to get user feedback or display information. Additionally
+              </p>
               <Button click={showModal} type="primary">
                 Primary
               </Button>
@@ -62,16 +81,26 @@ const Modals = () => {
               <Button click={showModal} type="warning">
                 Warning
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <ColordModal type={state.modalType} title="Basic Modal" visible={state.colorModal} onOk={handleOk} onCancel={handleCancel}>
+            <ColordModal
+              type={state.modalType}
+              title="Basic Modal"
+              visible={state.colorModal}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            >
               <p>Some contents...</p>
               <p>Some contents...</p>
               <p>Some contents...</p>
             </ColordModal>
-            <CardHeadLessFrame title="Color Modal" size="large" caption="Color Ant Design Modal">
-              <p>When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information. Additionally</p>
+            <Cards headless title="Color Modal" size="large" caption="Color Ant Design Modal">
+              <p>
+                When requiring users to interact with the application, but without jumping to a new page and
+                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
+                to get user feedback or display information. Additionally
+              </p>
               <Button click={showColorModal} type="primary">
                 Primary
               </Button>
@@ -84,11 +113,15 @@ const Modals = () => {
               <Button click={showColorModal} type="warning">
                 Warning
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Information Modal" size="large" caption="Notification Ant Design Modal">
-              <p>When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information. Additionally</p>
+            <Cards headless title="Information Modal" size="large" caption="Notification Ant Design Modal">
+              <p>
+                When requiring users to interact with the application, but without jumping to a new page and
+                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
+                to get user feedback or display information. Additionally
+              </p>
               <Button click={success} type="success">
                 Success
               </Button>
@@ -107,7 +140,7 @@ const Modals = () => {
               <Button click={showConfirm} type="primary">
                 Confirm
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

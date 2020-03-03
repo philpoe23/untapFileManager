@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
@@ -14,7 +14,7 @@ const ReChartComposed = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="LINE BAR AREA COMPOSED CHART" size="large" more={false}>
+            <Cards title="LINE BAR AREA COMPOSED CHART" size="large">
               <ComposedChart
                 width={750}
                 height={400}
@@ -36,10 +36,10 @@ const ReChartComposed = () => {
                 <Line type="monotone" dataKey="uv" stroke="#ff7300" />
                 {/* <Scatter dataKey="cnt" fill="red" /> */}
               </ComposedChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="VERTICAL COMPOSED CHART" size="large" more={false}>
+            <Cards title="VERTICAL COMPOSED CHART" size="large">
               <ComposedChart
                 layout="vertical"
                 width={750}
@@ -61,10 +61,10 @@ const ReChartComposed = () => {
                 <Bar dataKey="pv" barSize={20} fill="#413ea0" />
                 <Line dataKey="uv" stroke="#ff7300" />
               </ComposedChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="SAME DATA COMPOSED CHART" size="large" more={false}>
+            <Cards title="SAME DATA COMPOSED CHART" size="large">
               <ComposedChart
                 width={750}
                 height={400}
@@ -84,10 +84,10 @@ const ReChartComposed = () => {
                 <Bar dataKey="uv" barSize={20} fill="#413ea0" />
                 <Line type="monotone" dataKey="uv" stroke="#ff7300" />
               </ComposedChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="COMPOSED CHART WITH AXIS LABELS" size="large" more={false}>
+            <Cards title="COMPOSED CHART WITH AXIS LABELS" size="large">
               <ComposedChart
                 width={750}
                 height={400}
@@ -108,7 +108,7 @@ const ReChartComposed = () => {
                 <Bar dataKey="pv" barSize={20} fill="#413ea0" />
                 <Line type="monotone" dataKey="uv" stroke="#ff7300" />
               </ComposedChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

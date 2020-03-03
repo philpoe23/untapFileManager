@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Breadcrumb, Icon, Menu } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 const menu = (
   <Menu>
@@ -30,7 +30,7 @@ const Breadcrumbs = props => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use">
+            <Cards headless title="Basic" caption="The simplest use">
               <Breadcrumb>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>
@@ -41,10 +41,10 @@ const Breadcrumbs = props => {
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>An Application</Breadcrumb.Item>
               </Breadcrumb>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="With Icon" caption="The simplest use with Icon">
+            <Cards headless title="With Icon" caption="The simplest use with Icon">
               <Breadcrumb>
                 <Breadcrumb.Item>
                   <Icon type="home" />
@@ -60,10 +60,10 @@ const Breadcrumbs = props => {
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>An Application</Breadcrumb.Item>
               </Breadcrumb>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="With dropdown" caption="The simplest use with dropdown">
+            <Cards headless title="With dropdown" caption="The simplest use with dropdown">
               <Breadcrumb>
                 <Breadcrumb.Item>
                   <Icon type="home" />
@@ -79,7 +79,7 @@ const Breadcrumbs = props => {
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>An Application</Breadcrumb.Item>
               </Breadcrumb>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

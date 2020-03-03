@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Result, Button, Icon, Typography } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 const { Paragraph, Text } = Typography;
 const Results = () => {
@@ -12,7 +12,7 @@ const Results = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Success" caption="The simplest use of Results">
+            <Cards headless title="Success" caption="The simplest use of Results">
               <Result
                 status="success"
                 title="Successfully Purchased Cloud Server ECS!"
@@ -24,10 +24,10 @@ const Results = () => {
                   <Button key="buy">Buy Again</Button>,
                 ]}
               />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Info" caption="The simplest use of Results">
+            <Cards headless title="Info" caption="The simplest use of Results">
               <Result
                 title="Your operation has been executed"
                 extra={
@@ -36,10 +36,10 @@ const Results = () => {
                   </Button>
                 }
               />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Warning" caption="The simplest use of Results">
+            <Cards headless title="Warning" caption="The simplest use of Results">
               <Result
                 status="warning"
                 title="There are some problems with your operation."
@@ -49,25 +49,40 @@ const Results = () => {
                   </Button>
                 }
               />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="403" caption="The simplest use of Results">
-              <Result status="403" title="403" subTitle="Sorry, you are not authorized to access this page." extra={<Button type="primary">Back Home</Button>} />
-            </CardHeadLessFrame>
+            <Cards headless title="403" caption="The simplest use of Results">
+              <Result
+                status="403"
+                title="403"
+                subTitle="Sorry, you are not authorized to access this page."
+                extra={<Button type="primary">Back Home</Button>}
+              />
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="404" caption="The simplest use of Results">
-              <Result status="404" title="404" subTitle="Sorry, the page you visited does not exist." extra={<Button type="primary">Back Home</Button>} />
-            </CardHeadLessFrame>
+            <Cards headless title="404" caption="The simplest use of Results">
+              <Result
+                status="404"
+                title="404"
+                subTitle="Sorry, the page you visited does not exist."
+                extra={<Button type="primary">Back Home</Button>}
+              />
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="500" caption="The simplest use of Results">
-              <Result status="500" title="500" subTitle="Sorry, the server is wrong." extra={<Button type="primary">Back Home</Button>} />
-            </CardHeadLessFrame>
+            <Cards headless title="500" caption="The simplest use of Results">
+              <Result
+                status="500"
+                title="500"
+                subTitle="Sorry, the server is wrong."
+                extra={<Button type="primary">Back Home</Button>}
+              />
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Error" caption="The simplest use of Results">
+            <Cards headless title="Error" caption="The simplest use of Results">
               <Result
                 status="error"
                 title="Submission Failed"
@@ -95,11 +110,12 @@ const Results = () => {
                     <NavLink to="#">Thaw immediately &gt;</NavLink>
                   </Paragraph>
                   <Paragraph>
-                    <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to apply <NavLink to="#">Apply Unlock &gt;</NavLink>
+                    <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to apply{' '}
+                    <NavLink to="#">Apply Unlock &gt;</NavLink>
                   </Paragraph>
                 </div>
               </Result>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

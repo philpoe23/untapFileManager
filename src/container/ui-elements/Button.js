@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
 import FeatherIcon from 'feather-icons-react';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { content } from '../../config/dataService/button-content';
 import { PopupWithIcon } from '../../components/popup/popup';
@@ -11,12 +11,12 @@ import { DropdownWithIcon } from '../../components/dropdown/dropdown';
 
 const Buttons = () => {
   return (
-    <Fragment>
+    <Cards headless>
       <PageHeader title="Button" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic Buttons" size="large" caption="Default Antd buttons style.">
+            <Cards headless title="Basic Buttons" size="large" caption="Default Antd buttons style.">
               <Button type="primary">Primary</Button>
               <Button type="secondary">Secondary</Button>
               <Button type="danger">Danger</Button>
@@ -26,10 +26,10 @@ const Buttons = () => {
               <Button type="default">Default</Button>
               <Button type="info">Info</Button>
               <Button type="link">Link</Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic Rounded Buttons" size="large" caption="Rounded Bootstrap buttons.">
+            <Cards headless title="Basic Rounded Buttons" size="large" caption="Rounded Bootstrap buttons.">
               <Button shape="circle" type="primary">
                 Primary
               </Button>
@@ -57,10 +57,10 @@ const Buttons = () => {
               <Button shape="circle" type="link">
                 Link
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Outline Buttons" size="large" caption="Buttons without background color.">
+            <Cards headless title="Outline Buttons" size="large" caption="Buttons without background color.">
               <Button outlined type="primary">
                 Primary
               </Button>
@@ -88,10 +88,10 @@ const Buttons = () => {
               <Button outlined type="link">
                 Link
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Square Buttons" size="large" caption="Buttons without border radius.">
+            <Cards headless title="Square Buttons" size="large" caption="Buttons without border radius.">
               <Button squared type="primary">
                 Primary
               </Button>
@@ -119,10 +119,10 @@ const Buttons = () => {
               <Button squared type="link">
                 Link
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Square Outline Buttons" size="large" caption="Buttons without border radius.">
+            <Cards headless title="Square Outline Buttons" size="large" caption="Buttons without border radius.">
               <Button squared outlined type="primary">
                 Primary
               </Button>
@@ -150,10 +150,10 @@ const Buttons = () => {
               <Button squared outlined type="link">
                 Link
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
+            <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
               <Button icon="smile" type="primary">
                 Primary
               </Button>
@@ -196,10 +196,10 @@ const Buttons = () => {
               <Button type="link">
                 <Icon type="link" />
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
+            <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
               <Button social color="#2366B8">
                 <FeatherIcon size={16} icon="facebook" />
                 Facebook
@@ -242,10 +242,10 @@ const Buttons = () => {
               <Button social color="#ED553B">
                 <FeatherIcon size={16} icon="rss" />
               </Button>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Button Sizes" size="large" caption="Fancy larger or smaller buttons.">
+            <Cards headless title="Button Sizes" size="large" caption="Fancy larger or smaller buttons.">
               <Row>
                 <Button size="small" type="primary">
                   Small
@@ -273,14 +273,14 @@ const Buttons = () => {
                 <Button load size="large" type="primary">
                   Loading
                 </Button>
-                <Button load size="large" type="primary" event={true}>
+                <Button load size="large" type="primary">
                   Click
                 </Button>
               </Row>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Button Group" size="large" caption="Fancy larger or smaller buttons.">
+            <Cards headless title="Button Group" size="large" caption="Fancy larger or smaller buttons.">
               <Row>
                 <BtnGroup>
                   <Button size="small" type="primary">
@@ -331,10 +331,10 @@ const Buttons = () => {
               <BtnGroup>
                 <Button type="primary">9</Button>
               </BtnGroup>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
+            <Cards headless title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
               <PopupWithIcon placement="bottomLeft" content={content} action="click">
                 <Button type="primary">
                   Primary
@@ -354,11 +354,11 @@ const Buttons = () => {
                   <Icon type="down" />
                 </Button>
               </PopupWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
-              <DropdownWithIcon placement="bottomLeft" content={content} action="click">
+            <Cards headless title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
+              <DropdownWithIcon placement="bottomLeft" content={content} action={['click']}>
                 <Button type="primary">
                   Primary
                   <Icon type="down" />
@@ -377,11 +377,11 @@ const Buttons = () => {
                   <Icon type="down" />
                 </Button>
               </DropdownWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </Cards>
   );
 };
 

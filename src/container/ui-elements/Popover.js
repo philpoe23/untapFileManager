@@ -2,7 +2,7 @@ import React from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { content } from '../../config/dataService/button-content';
 import { DropdownStyle } from './ui-elements-styled';
 import { Button } from '../../components/buttons/buttons';
@@ -16,14 +16,14 @@ const Popover = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic Popover" caption="The simplest use of Popover">
+            <Cards headless title="Basic Popover" caption="The simplest use of Popover">
               <PopupWithIcon content={content} placement="bottomLeft">
                 <NavLink to="#">hover me </NavLink>
               </PopupWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Placement" caption="The simplest use of Popover">
+            <Cards headless title="Placement" caption="The simplest use of Popover">
               <PopupWithIcon content={content} placement="bottomLeft">
                 <Button>bottomLeft</Button>
               </PopupWithIcon>
@@ -43,10 +43,10 @@ const Popover = () => {
               <PopupWithIcon content={content} placement="topRight">
                 <Button>topRight</Button>
               </PopupWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Event menu " caption="The simplest use of Popover">
+            <Cards headless title="Event menu " caption="The simplest use of Popover">
               <PopupWithIcon action="hover" content={content} placement="bottomLeft">
                 <Button>hover</Button>
               </PopupWithIcon>
@@ -56,10 +56,10 @@ const Popover = () => {
               <PopupWithIcon action="contextMenu" content={content} placement="bottomRight">
                 <Button>context</Button>
               </PopupWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           {/* <Col md={12}>
-            <CardHeadLessFrame title="button menu " caption="The simplest use of Popover">
+            <Cards headless title="button menu " caption="The simplest use of Popover">
               <BtnPopOver placement="bottomLeft" type="primary" content={content} action={'click'}>
                 Bottom Left Click
                 <Icon type="down" />
@@ -88,7 +88,7 @@ const Popover = () => {
                 Info
                 <Icon type="down" />
               </BtnPopOver>
-            </CardHeadLessFrame>
+            </Cards>
           </Col> */}
         </Row>
       </Main>

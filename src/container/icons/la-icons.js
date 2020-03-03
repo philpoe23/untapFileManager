@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
-import { CardFreshFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import * as Line from 'react-line-awesome';
@@ -13,7 +13,7 @@ const FeatherSvgIcons = props => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardFreshFrame title="Simply beautiful open source icons" size="learge" more={false}>
+            <Cards title="Simply beautiful open source icons" size="learge">
               <Row gutter={15}>
                 {Object.keys(Line).map((icon, index) => {
                   const CustomTag = Line[icon];
@@ -28,7 +28,7 @@ const FeatherSvgIcons = props => {
                   );
                 })}
               </Row>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

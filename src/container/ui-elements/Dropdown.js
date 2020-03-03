@@ -2,7 +2,7 @@ import React from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { DropdownWithIcon } from '../../components/dropdown/dropdown';
 import { content } from '../../config/dataService/button-content';
 import { DropdownStyle } from './ui-elements-styled';
@@ -16,14 +16,14 @@ const Dropdown = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic Dropdown" caption="The simplest use of Steps">
+            <Cards headless title="Basic Dropdown" caption="The simplest use of Steps">
               <DropdownWithIcon content={content} placement="bottomLeft">
                 <NavLink to="#">hover me</NavLink>
               </DropdownWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Placement" caption="The simplest use of Dropdown">
+            <Cards headless title="Placement" caption="The simplest use of Dropdown">
               <DropdownWithIcon content={content} placement="bottomLeft">
                 <Button>bottomLeft</Button>
               </DropdownWithIcon>
@@ -43,10 +43,10 @@ const Dropdown = () => {
               <DropdownWithIcon content={content} placement="topRight">
                 <Button>topRight</Button>
               </DropdownWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Event menu " caption="The simplest use of Dropdown">
+            <Cards headless title="Event menu " caption="The simplest use of Dropdown">
               <DropdownWithIcon action={['hover']} content={content} placement="bottomLeft">
                 <Button>hover</Button>
               </DropdownWithIcon>
@@ -56,10 +56,10 @@ const Dropdown = () => {
               <DropdownWithIcon action={['contextMenu']} content={content} placement="bottomRight">
                 <Button>context</Button>
               </DropdownWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="button menu " caption="The simplest use of Dropdown">
+            <Cards headless title="button menu " caption="The simplest use of Dropdown">
               <DropdownWithIcon placement="bottomLeft" content={content} action={['click']}>
                 <Button type="primary">
                   Bottom Left Click
@@ -103,7 +103,7 @@ const Dropdown = () => {
                   <Icon type="down" />
                 </Button>
               </DropdownWithIcon>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

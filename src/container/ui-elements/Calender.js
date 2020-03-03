@@ -3,7 +3,7 @@ import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Calendar, Alert } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Calendars = () => {
   const [state, setState] = useState({
@@ -28,24 +28,24 @@ const Calendars = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Calendar">
+            <Cards headless title="Basic" caption="The simplest use of Calendar">
               <Calendar />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Card" caption="The simplest use of Calendar">
+            <Cards headless title="Card" caption="The simplest use of Calendar">
               <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
                 <Calendar fullscreen={false} />
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={24}>
-            <CardHeadLessFrame title="Selectable Calendar" caption="The simplest use of Calendar">
+            <Cards headless title="Selectable Calendar" caption="The simplest use of Calendar">
               <div>
                 <Alert message={`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`} />
                 <Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange} />
               </div>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

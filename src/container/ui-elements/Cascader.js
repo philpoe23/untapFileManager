@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { BasicCascader, LazyOptions, ShowSearch } from '../../components/cascader/cascader';
 const options = [
   {
@@ -57,29 +57,29 @@ const Cascaders = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Cascader">
+            <Cards headless title="Basic" caption="The simplest use of Cascader">
               <BasicCascader data={options} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Default Value" caption="The simplest use of Cascader">
+            <Cards headless title="Default Value" caption="The simplest use of Cascader">
               <BasicCascader data={options} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Hover" caption="The simplest use of Cascader">
+            <Cards headless title="Hover" caption="The simplest use of Cascader">
               <BasicCascader data={options} trigger="hover" />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Lazy Load" caption="The simplest use of Cascader">
+            <Cards headless title="Lazy Load" caption="The simplest use of Cascader">
               <LazyOptions data={options2} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Search" caption="The simplest use of Cascader">
+            <Cards headless title="Search" caption="The simplest use of Cascader">
               <ShowSearch data={options} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

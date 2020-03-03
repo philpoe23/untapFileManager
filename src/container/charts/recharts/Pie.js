@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts';
@@ -25,8 +25,24 @@ const renderActiveShape = props => {
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
         {payload.name}
       </text>
-      <Sector cx={cx} cy={cy} innerRadius={innerRadius} outerRadius={outerRadius} startAngle={startAngle} endAngle={endAngle} fill={fill} />
-      <Sector cx={cx} cy={cy} startAngle={startAngle} endAngle={endAngle} innerRadius={outerRadius + 6} outerRadius={outerRadius + 10} fill={fill} />
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={outerRadius + 6}
+        outerRadius={outerRadius + 10}
+        fill={fill}
+      />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
@@ -69,62 +85,130 @@ const ReChartPie = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="TWO LEVEL PIE CHART" size="large" more={false}>
+            <Cards title="TWO LEVEL PIE CHART" size="large">
               <PieChart width={750} height={400}>
                 <Pie data={data01} dataKey="value" cx={325} cy={200} outerRadius={60} fill="#8884d8" />
-                <Pie data={data02} dataKey="value" cx={325} cy={200} innerRadius={70} outerRadius={90} fill="#82ca9d" label />
+                <Pie
+                  data={data02}
+                  dataKey="value"
+                  cx={325}
+                  cy={200}
+                  innerRadius={70}
+                  outerRadius={90}
+                  fill="#82ca9d"
+                  label
+                />
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="STRAIGHT ANGLE PIE CHART" size="large" more={false}>
+            <Cards title="STRAIGHT ANGLE PIE CHART" size="large">
               <PieChart width={750} height={400}>
-                <Pie dataKey="value" startAngle={180} endAngle={0} data={data01} cx={325} cy={200} outerRadius={80} fill="#8884d8" label />
+                <Pie
+                  dataKey="value"
+                  startAngle={180}
+                  endAngle={0}
+                  data={data01}
+                  cx={325}
+                  cy={200}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  label
+                />
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="CUSTOM ACTIVE SHAPE PIE CHART" size="large" more={false}>
+            <Cards title="CUSTOM ACTIVE SHAPE PIE CHART" size="large">
               <PieChart width={750} height={400}>
-                <Pie activeIndex={state.activeIndex} activeShape={renderActiveShape} data={data01} cx={325} cy={200} innerRadius={60} outerRadius={80} fill="#8884d8" dataKey="value" onMouseEnter={onPieEnter} />
+                <Pie
+                  activeIndex={state.activeIndex}
+                  activeShape={renderActiveShape}
+                  data={data01}
+                  cx={325}
+                  cy={200}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                  onMouseEnter={onPieEnter}
+                />
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="PIE CHART WITH CUSTOMIZED LABEL" size="large" more={false}>
+            <Cards title="PIE CHART WITH CUSTOMIZED LABEL" size="large">
               <PieChart width={750} height={400}>
-                <Pie data={data01} cx={375} cy={200} labelLine={false} label={renderCustomizedLabel} outerRadius={80} fill="#8884d8" dataKey="value">
+                <Pie
+                  data={data01}
+                  cx={375}
+                  cy={200}
+                  labelLine={false}
+                  label={renderCustomizedLabel}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
                   {data01.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="TWO SIMPLE PIE CHART" size="large" more={false}>
+            <Cards title="TWO SIMPLE PIE CHART" size="large">
               <PieChart width={750} height={400}>
-                <Pie dataKey="value" isAnimationActive={false} data={data01} cx={200} cy={200} outerRadius={80} fill="#8884d8" label />
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={false}
+                  data={data01}
+                  cx={200}
+                  cy={200}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  label
+                />
                 <Pie dataKey="value" data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d" />
                 <Tooltip />
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="PIE CHART WITH PADDING ANGLE" size="large" more={false}>
+            <Cards title="PIE CHART WITH PADDING ANGLE" size="large">
               <PieChart width={750} height={400} onMouseEnter={onPieEnter}>
-                <Pie data={data01} cx={120} cy={200} innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5} dataKey="value">
+                <Pie
+                  data={data01}
+                  cx={120}
+                  cy={200}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  paddingAngle={5}
+                  dataKey="value"
+                >
                   {data01.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Pie data={data01} cx={420} cy={200} startAngle={180} endAngle={0} innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5} dataKey="value">
+                <Pie
+                  data={data01}
+                  cx={420}
+                  cy={200}
+                  startAngle={180}
+                  endAngle={0}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  paddingAngle={5}
+                  dataKey="value"
+                >
                   {data01.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
               </PieChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

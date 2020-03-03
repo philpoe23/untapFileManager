@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Select } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Option, OptGroup } = Select;
 const Selects = props => {
@@ -20,7 +20,7 @@ const Selects = props => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Select">
+            <Cards headless title="Basic" caption="The simplest use of Select">
               <Select defaultValue="lucy" style={{ width: 120 }}>
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
@@ -35,38 +35,55 @@ const Selects = props => {
               <Select defaultValue="lucy" style={{ width: 120 }} loading>
                 <Option value="lucy">Lucy</Option>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Search and select" caption="The simplest use of Select">
-              <Select showSearch style={{ width: 200 }} placeholder="Select a person" optionFilterProp="children" filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
+            <Cards headless title="Search and select" caption="The simplest use of Select">
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a person"
+                optionFilterProp="children"
+                filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+              >
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
                 <Option value="tom">Tom</Option>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Multiple select" caption="The simplest use of Select">
-              <Select mode="multiple" style={{ width: '100%' }} placeholder="Please select" defaultValue={['jack', 'tom']}>
+            <Cards headless title="Multiple select" caption="The simplest use of Select">
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="Please select"
+                defaultValue={['jack', 'tom']}
+              >
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
                 <Option value="tom">Tom</Option>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Tags select" caption="The simplest use of Select">
+            <Cards headless title="Tags select" caption="The simplest use of Select">
               <Select mode="tags" style={{ width: '100%' }} placeholder="Please select">
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
                 <Option value="tom">Tom</Option>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Custom" caption="The simplest use of Select">
-              <Select mode="multiple" style={{ width: '100%' }} placeholder="select one country" defaultValue={['china']} optionLabelProp="label">
+            <Cards headless title="Custom" caption="The simplest use of Select">
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="select one country"
+                defaultValue={['china']}
+                optionLabelProp="label"
+              >
                 <Option value="china" label="China">
                   <span role="img" aria-label="China">
                     🇨🇳
@@ -92,10 +109,10 @@ const Selects = props => {
                   Korea
                 </Option>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Custom" caption="The simplest use of Select">
+            <Cards headless title="Custom" caption="The simplest use of Select">
               <Select defaultValue="lucy" style={{ width: 200 }}>
                 <OptGroup label="Manager">
                   <Option value="jack">Jack</Option>
@@ -105,18 +122,24 @@ const Selects = props => {
                   <Option value="Yiminghe">yiminghe</Option>
                 </OptGroup>
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Hide Already Selected" caption="The simplest use of Select">
-              <Select mode="multiple" placeholder="Inserted are removed" value={selectedItems} onChange={handleChange} style={{ width: '100%' }}>
+            <Cards headless title="Hide Already Selected" caption="The simplest use of Select">
+              <Select
+                mode="multiple"
+                placeholder="Inserted are removed"
+                value={selectedItems}
+                onChange={handleChange}
+                style={{ width: '100%' }}
+              >
                 {filteredOptions.map(item => (
                   <Select.Option key={item} value={item}>
                     {item}
                   </Select.Option>
                 ))}
               </Select>
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

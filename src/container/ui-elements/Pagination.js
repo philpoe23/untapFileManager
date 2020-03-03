@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
 import { Row, Col, Pagination } from 'antd';
 import { Main } from '../styled';
-import { CardHeadLessFrame } from '../../components/cards/frame/cards-frame';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Paginations = props => {
   const onShowSizeChange = (current, pageSize) => {
@@ -17,24 +17,24 @@ const Paginations = props => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardHeadLessFrame title="Basic" caption="The simplest use of Pagination">
+            <Cards headless title="Basic" caption="The simplest use of Pagination">
               <Pagination defaultCurrent={1} total={50} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="More Pages" caption="The simplest use of Pagination">
+            <Cards headless title="More Pages" caption="The simplest use of Pagination">
               <Pagination defaultCurrent={1} total={500} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Page size" caption="The simplest use of Pagination">
+            <Cards headless title="Page size" caption="The simplest use of Pagination">
               <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardHeadLessFrame title="Quick Jumper" caption="The simplest use of Pagination">
+            <Cards headless title="Quick Jumper" caption="The simplest use of Pagination">
               <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
-            </CardHeadLessFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>

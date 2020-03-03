@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../../components/page-header/page-header';
-import { CardFreshFrame } from '../../../components/cards/frame/cards-frame';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend } from 'recharts';
@@ -13,17 +13,17 @@ const ReChartRadar = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <CardFreshFrame title="SIMPLE RADAR CHART" size="large" more={false}>
+            <Cards title="SIMPLE RADAR CHART" size="large">
               <RadarChart cx={300} cy={250} outerRadius={150} width={750} height={500} data={radar}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" />
                 <PolarRadiusAxis />
                 <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
               </RadarChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
           <Col md={12}>
-            <CardFreshFrame title="SPECIFIED DOMAIN RADAR CHART" size="large" more={false}>
+            <Cards title="SPECIFIED DOMAIN RADAR CHART" size="large">
               <RadarChart cx={300} cy={250} outerRadius={150} width={750} height={500} data={radar}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" />
@@ -32,7 +32,7 @@ const ReChartRadar = () => {
                 <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
                 <Legend />
               </RadarChart>
-            </CardFreshFrame>
+            </Cards>
           </Col>
         </Row>
       </Main>
