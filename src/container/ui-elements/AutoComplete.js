@@ -1,18 +1,14 @@
 import React, { Fragment } from 'react';
 import PageHeader from '../../components/page-header/page-header';
-import { Row, Col } from 'antd';
+import { Row, Col, Input } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import {
-  Complete,
-  Customize,
-  CustomizComponent,
-  AutoCompletes,
-  LookupPatterns,
-  LookupPatternsWithIcon,
-} from '../../components/autoComplete/autoComplete';
+import { connect } from 'react-redux';
+import { AutoComplete } from '../../components/autoComplete/autoComplete';
 
-const AutoComplete = () => {
+const { TextArea } = Input;
+const AutoCompletess = props => {
+  const { searchData } = props;
   return (
     <Fragment>
       <PageHeader title="AutoComplete" />
@@ -20,32 +16,26 @@ const AutoComplete = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Basic" caption="The simplest use of AutoComplete">
-              <Complete />
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Customize" caption="The simplest use of AutoComplete">
-              <Customize />
+              <AutoComplete searchData={searchData} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Customize Components" caption="The simplest use of AutoComplete">
-              <CustomizComponent />
+              <AutoComplete
+                customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
+                searchData={searchData}
+              />
             </Cards>
           </Col>
-          <Col md={12}>
-            <Cards headless title="Auto Complete" caption="The simplest use of AutoComplete">
-              <AutoCompletes />
-            </Cards>
-          </Col>
+
           <Col md={12}>
             <Cards headless title="Lookup-Patterns" caption="The simplest use of AutoComplete">
-              <LookupPatterns />
+              <AutoComplete width="50%" searchData={searchData} pattarns />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Lookup-Patterns with Icon" caption="The simplest use of AutoComplete">
-              <LookupPatternsWithIcon />
+              <AutoComplete width="50%" searchData={searchData} pattarns pattarnButtons />
             </Cards>
           </Col>
         </Row>
@@ -54,4 +44,9 @@ const AutoComplete = () => {
   );
 };
 
-export default AutoComplete;
+const mapStateToProps = state => {
+  return {
+    searchData: state.headerSearchData,
+  };
+};
+export default connect(mapStateToProps)(AutoCompletess);
