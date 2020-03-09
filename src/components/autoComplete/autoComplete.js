@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Input, Icon, Button } from 'antd';
 import { AutoCompleteStyled } from './style';
 import PropTypes from 'prop-types';
@@ -9,14 +9,13 @@ const onSelect = value => {
 };
 
 const AutoComplete = props => {
-  const [state, setState] = useState({
-    value: '',
-    dataSource: [],
-  });
-  const { customComponent, pattarns, pattarnButtons, width, searchData } = props;
+  const { customComponent, patterns, patternButtons, width, onSearch, dataSource } = props;
 
-  const content = searchData ? (
-    searchData.map(group => {
+  const content =
+    dataSource !== undefined &&
+    dataSource.length !== undefined &&
+    dataSource.length > 0 &&
+    dataSource.map(group => {
       const { title, count, id } = group;
       return (
         <Option key={id} value={title}>
@@ -24,26 +23,17 @@ const AutoComplete = props => {
           <span className="certain-search-item-count">{count} people</span>
         </Option>
       );
-    })
-  ) : (
-    <Option value="">Data Not found....</Option>
-  );
-
-  const onSearch = searchText => {
-    let arrayData = [];
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
-    data.length ? data.map(item => arrayData.push(item.title)) : (arrayData = ['Data Not Found!']);
-    setState({
-      dataSource: !searchText ? [] : arrayData,
     });
+
+  const onSearching = searchText => {
+    onSearch(searchText);
   };
 
-  const { dataSource } = state;
   return customComponent ? (
-    <AutoCompleteStyled dataSource={dataSource} style={{ width: width }} onSelect={onSelect} onSearch={onSearch}>
+    <AutoCompleteStyled dataSource={dataSource} style={{ width: width }} onSelect={onSelect} onSearch={onSearching}>
       {customComponent}
     </AutoCompleteStyled>
-  ) : pattarns ? (
+  ) : patterns ? (
     <AutoCompleteStyled
       className="certain-category-search"
       dropdownClassName="certain-category-search-dropdown"
@@ -54,10 +44,11 @@ const AutoComplete = props => {
       dataSource={content}
       placeholder="input here"
       optionLabelProp="value"
+      onSearch={onSearching}
     >
       <Input
         suffix={
-          pattarnButtons ? (
+          patternButtons ? (
             <Button className="search-btn" style={{ marginRight: -12 }} size="large" type="primary">
               <Icon type="search" />
             </Button>
@@ -72,7 +63,7 @@ const AutoComplete = props => {
       dataSource={dataSource}
       style={{ width: width }}
       onSelect={onSelect}
-      onSearch={onSearch}
+      onSearch={onSearching}
       placeholder="input here"
     />
   );
@@ -84,10 +75,9 @@ AutoComplete.defaultProps = {
 
 AutoComplete.propTypes = {
   customComponent: PropTypes.object,
-  pattarns: PropTypes.bool,
-  pattarnButtons: PropTypes.bool,
+  patterns: PropTypes.bool,
+  patternButtons: PropTypes.bool,
   width: PropTypes.string,
-  searchData: PropTypes.arrayOf(PropTypes.object),
 };
 
 export { AutoComplete };
