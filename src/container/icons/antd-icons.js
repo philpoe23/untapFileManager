@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';

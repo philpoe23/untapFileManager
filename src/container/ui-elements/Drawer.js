@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { BasicDrawer, CustomPlacementDrawer, RenderDrawer, MultiLavelDrawer } from '../../components/drawer/drawer';
+import { Drawer } from '../../components/drawer/drawer';
 
-const Drawer = () => {
+const Drawers = () => {
   return (
     <Fragment>
       <PageHeader title="Drawer" />
@@ -13,34 +13,47 @@ const Drawer = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Basic" caption="The simplest use of Drawer">
-              <BasicDrawer title="Basic Drawer" placement="right">
+              <Drawer title="Basic Drawer" placement="right">
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
-              </BasicDrawer>
+              </Drawer>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Custom placement" caption="The simplest use of Drawer">
-              <CustomPlacementDrawer title="Basic Drawer">
+              <Drawer customPlacement title="Basic Drawer">
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
-              </CustomPlacementDrawer>
+              </Drawer>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Render in current dom" caption="The simplest use of Drawer">
-              <RenderDrawer title="Basic Drawer">
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-              </RenderDrawer>
+              <div
+                style={{
+                  height: 200,
+                  overflow: 'hidden',
+                  position: 'relative',
+                  border: '1px solid #ebedf0',
+                  borderRadius: 2,
+                  padding: 48,
+                  textAlign: 'center',
+                  background: '#fafafa',
+                }}
+              >
+                <Drawer render title="Basic Drawer">
+                  <p>Some contents...</p>
+                  <p>Some contents...</p>
+                  <p>Some contents...</p>
+                </Drawer>
+              </div>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Multi Label Drawer" caption="The simplest use of Drawer">
-              <MultiLavelDrawer
+              <Drawer
                 title="Basic Drawer"
                 childTitle="Lavel Two"
                 childDrawer={
@@ -54,7 +67,7 @@ const Drawer = () => {
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
-              </MultiLavelDrawer>
+              </Drawer>
             </Cards>
           </Col>
         </Row>
@@ -63,4 +76,4 @@ const Drawer = () => {
   );
 };
 
-export default Drawer;
+export default Drawers;

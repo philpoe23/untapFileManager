@@ -1,16 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import PageHeader from '../../components/page-header/page-header';
-import { Row, Col, Checkbox } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { CheckAll } from '../../components/checkbox/checkbox';
+import { Checkbox } from '../../components/checkbox/checkbox';
 
 const Checkboxs = () => {
   const [state, setState] = useState({
     checkdata: [],
   });
 
-  const childrendata = childData => {
+  const multipleChange = childData => {
     setState({ checkdata: childData });
   };
 
@@ -24,8 +24,8 @@ const Checkboxs = () => {
     };
   });
 
-  const onChange = e => {
-    console.log(`checked = ${e.target.checked}`);
+  const onChange = checkValue => {
+    console.log(`checked = ${checkValue}`);
   };
   return (
     <Fragment>
@@ -46,7 +46,12 @@ const Checkboxs = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="checkall" caption="The simplest use of Checkbox">
-              <CheckAll parentCallback={childrendata} item={['Apple', 'Pear', 'Orange']} defaultSelect={['Pear']} />
+              <Checkbox
+                multiple
+                onChangeTriger={multipleChange}
+                item={['Apple', 'Pear', 'Orange']}
+                defaultSelect={['Pear']}
+              />
             </Cards>
           </Col>
         </Row>

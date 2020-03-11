@@ -4,7 +4,14 @@ import moment from 'moment';
 
 const { TextArea } = Input;
 
-const CommentList = ({ comments }) => <List dataSource={comments} header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`} itemLayout="horizontal" renderItem={props => <Comment {...props} />} />;
+const CommentList = ({ comments }) => (
+  <List
+    dataSource={comments}
+    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    itemLayout="horizontal"
+    renderItem={props => <Comment {...props} />}
+  />
+);
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <div>
@@ -32,11 +39,13 @@ const CommentEditor = () => {
     }
 
     setState({
+      ...state,
       submitting: true,
     });
 
     setTimeout(() => {
       setState({
+        ...state,
         submitting: false,
         value: '',
         comments: [
@@ -54,6 +63,7 @@ const CommentEditor = () => {
 
   const handleChange = e => {
     setState({
+      ...state,
       value: e.target.value,
     });
   };
@@ -62,8 +72,11 @@ const CommentEditor = () => {
 
   return (
     <div>
-      {comments.length > 0 && <CommentList comments={comments} />}
-      <Comment avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />} content={<Editor onChange={handleChange} onSubmit={handleSubmit} submitting={submitting} value={value} />} />
+      {comments.length && <CommentList comments={comments} />}
+      <Comment
+        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
+        content={<Editor onChange={handleChange} onSubmit={handleSubmit} submitting={submitting} value={value} />}
+      />
     </div>
   );
 };

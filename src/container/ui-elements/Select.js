@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Select } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Option, OptGroup } = Select;
-const Selects = props => {
+const Selects = () => {
   const [state, setState] = useState({ selectedItems: [] });
 
   const handleChange = selectedItems => {

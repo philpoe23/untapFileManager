@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -7,9 +7,9 @@ import { content } from '../../config/dataService/button-content';
 import { DropdownStyle } from './ui-elements-styled';
 import { Button } from '../../components/buttons/buttons';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { PopupWithIcon } from '../../components/popup/popup';
+import { Popover } from '../../components/popup/popup';
 
-const Popover = () => {
+const Popovers = () => {
   return (
     <DropdownStyle>
       <PageHeader title="Popovers" />
@@ -17,45 +17,45 @@ const Popover = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Basic Popover" caption="The simplest use of Popover">
-              <PopupWithIcon content={content} placement="bottomLeft">
+              <Popover content={content} placement="bottomLeft">
                 <NavLink to="#">hover me </NavLink>
-              </PopupWithIcon>
+              </Popover>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Placement" caption="The simplest use of Popover">
-              <PopupWithIcon content={content} placement="bottomLeft">
-                <Button>bottomLeft</Button>
-              </PopupWithIcon>
-              <PopupWithIcon content={content} placement="bottom">
-                <Button>bottomCenter</Button>
-              </PopupWithIcon>
-              <PopupWithIcon content={content} placement="bottomRight">
-                <Button>bottomRight</Button>
-              </PopupWithIcon>
+              <Popover content={content} placement="bottomLeft">
+                <Button type="primary">bottomLeft</Button>
+              </Popover>
+              <Popover content={content} placement="bottom">
+                <Button type="primary">bottomCenter</Button>
+              </Popover>
+              <Popover content={content} placement="bottomRight">
+                <Button type="primary">bottomRight</Button>
+              </Popover>
               <br />
-              <PopupWithIcon content={content} placement="topLeft">
-                <Button>topLeft</Button>
-              </PopupWithIcon>
-              <PopupWithIcon content={content} placement="top">
-                <Button>topCenter</Button>
-              </PopupWithIcon>
-              <PopupWithIcon content={content} placement="topRight">
-                <Button>topRight</Button>
-              </PopupWithIcon>
+              <Popover content={content} placement="topLeft">
+                <Button type="primary">topLeft</Button>
+              </Popover>
+              <Popover content={content} placement="top">
+                <Button type="primary">topCenter</Button>
+              </Popover>
+              <Popover content={content} placement="topRight">
+                <Button type="primary">topRight</Button>
+              </Popover>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Event menu " caption="The simplest use of Popover">
-              <PopupWithIcon action="hover" content={content} placement="bottomLeft">
-                <Button>hover</Button>
-              </PopupWithIcon>
-              <PopupWithIcon action="click" content={content} placement="bottom">
-                <Button>click</Button>
-              </PopupWithIcon>
-              <PopupWithIcon action="contextMenu" content={content} placement="bottomRight">
-                <Button>context</Button>
-              </PopupWithIcon>
+              <Popover action="hover" content={content} placement="bottomLeft">
+                <Button type="primary">hover</Button>
+              </Popover>
+              <Popover action="click" content={content} placement="bottom">
+                <Button type="primary">click</Button>
+              </Popover>
+              <Popover action="contextMenu" content={content} placement="bottomRight">
+                <Button type="primary">context</Button>
+              </Popover>
             </Cards>
           </Col>
           {/* <Col md={12}>
@@ -96,4 +96,4 @@ const Popover = () => {
   );
 };
 
-export default Popover;
+export default Popovers;

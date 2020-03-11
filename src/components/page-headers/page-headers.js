@@ -1,69 +1,40 @@
 import React, { Fragment } from 'react';
-import { PageHeader, Button } from 'antd';
 import PropTypes from 'prop-types';
+import { PageHeaderStyle } from './style';
 
-const PageHeaderone = props => {
-  const { title, subTitle } = props;
+const PageHeader = props => {
+  const { title, subTitle, routes, buttons, ghost, bgColor } = props;
   return (
     <Fragment>
-      <PageHeader
+      <div
         style={{
-          border: '1px solid rgb(235, 237, 240)',
+          backgroundColor: bgColor ? bgColor : '#F4F5F7',
+          padding: 24,
         }}
-        onBack={() => null}
-        title={title}
-        subTitle={subTitle}
-      />
+      >
+        <PageHeaderStyle
+          style={{
+            border: '1px solid #F4F5F7',
+          }}
+          onBack={() => window.history.back()}
+          title={title}
+          subTitle={subTitle}
+          breadcrumb={routes && { routes }}
+          extra={buttons}
+          ghost={ghost}
+        />
+      </div>
     </Fragment>
   );
 };
 
-PageHeaderone.propTypes = {
+PageHeader.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
+  bgColor: PropTypes.string,
+  routes: PropTypes.array,
+  buttons: PropTypes.array,
+  ghost: PropTypes.bool,
 };
 
-const PageHeaderTwo = props => {
-  const { title, subTitle, routes } = props;
-
-  return (
-    <Fragment>
-      <PageHeader
-        style={{
-          border: '1px solid rgb(235, 237, 240)',
-        }}
-        onBack={() => null}
-        breadcrumb={{ routes }}
-        title={title}
-        subTitle={subTitle}
-      />
-    </Fragment>
-  );
-};
-
-const PageHeaderThree = props => {
-  const { title, subTitle, routes } = props;
-
-  return (
-    <Fragment>
-      <PageHeader
-        style={{
-          border: '1px solid rgb(235, 237, 240)',
-        }}
-        onBack={() => null}
-        breadcrumb={{ routes }}
-        title={title}
-        subTitle={subTitle}
-        extra={[
-          <Button key="3">Operation</Button>,
-          <Button key="2">Operation</Button>,
-          <Button key="1" type="primary">
-            Primary
-          </Button>,
-        ]}
-      />
-    </Fragment>
-  );
-};
-
-export { PageHeaderone, PageHeaderTwo, PageHeaderThree };
+export { PageHeader };

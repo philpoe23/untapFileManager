@@ -1,14 +1,13 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
-import { Row, Col, Steps, Icon, Divider } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Row, Col, Icon, Divider } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { PopupWithIcon } from '../../components/popup/popup';
-import { SwitchStep, NavigationStep } from '../../components/steps/steps';
+import { Popover } from '../../components/popup/popup';
+import { Steps, Step } from '../../components/steps/steps';
 
-const { Step } = Steps;
 const customDot = (dot, { status, index }) => (
-  <PopupWithIcon
+  <Popover
     placement="bottomLeft"
     content={
       <span className="span">
@@ -17,7 +16,7 @@ const customDot = (dot, { status, index }) => (
     }
   >
     {dot}
-  </PopupWithIcon>
+  </Popover>
 );
 const Stepess = () => {
   const [state, setState] = useState({
@@ -29,6 +28,14 @@ const Stepess = () => {
   const onChange = current => {
     console.log('onChange:', current);
     setState({ current });
+  };
+
+  const next = current => {
+    console.log('onChange:', current);
+  };
+
+  const prev = current => {
+    console.log('onChange:', current);
   };
 
   return (
@@ -57,7 +64,26 @@ const Stepess = () => {
           </Col>
           <Col md={24}>
             <Cards headless title="Switch Step" caption="The simplest use of Steps">
-              <SwitchStep />
+              <Steps
+                isswitch
+                steps={[
+                  {
+                    title: 'First',
+                    content: 'First-content',
+                  },
+                  {
+                    title: 'Second',
+                    content: 'Second-content',
+                  },
+
+                  {
+                    title: 'Last',
+                    content: 'Last-content',
+                  },
+                ]}
+                onNext={next}
+                onPrev={prev}
+              />
             </Cards>
           </Col>
           <Col md={24}>
@@ -107,17 +133,17 @@ const Stepess = () => {
           </Col>
           <Col md={24}>
             <Cards headless title="Navigation Steps" caption="The simplest use of Steps">
-              <NavigationStep>
+              <Steps navigation onChange={onChange}>
                 <Step status="finish" title="Step 1" />
                 <Step status="process" title="Step 2" />
                 <Step status="wait" title="Step 3" />
-              </NavigationStep>
-              <NavigationStep>
+              </Steps>
+              <Steps navigation onChange={onChange}>
                 <Step status="finish" title="finish 1" />
                 <Step status="finish" title="finish 2" />
                 <Step status="process" title="current process" />
                 <Step status="wait" title="wait" disabled />
-              </NavigationStep>
+              </Steps>
             </Cards>
           </Col>
         </Row>

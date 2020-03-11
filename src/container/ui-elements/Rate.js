@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Rate } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';

@@ -4,7 +4,7 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { PopupWithIcon } from '../popup/popup';
+import { Popover } from '../popup/popup';
 import { readNotificationList } from '../../redux/actions/auth-info/notification-list';
 
 const NotificationBox = props => {
@@ -38,13 +38,13 @@ const NotificationBox = props => {
   );
   return (
     <div className="notification" style={{ marginTop: 10 }}>
-      <PopupWithIcon placement="bottomLeft" title="Notification List" content={content} trigger="click">
+      <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
           </NavLink>
         </Badge>
-      </PopupWithIcon>
+      </Popover>
     </div>
   );
 };

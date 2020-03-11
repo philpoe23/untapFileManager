@@ -1,9 +1,9 @@
 import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
-import { PopupWithIcon } from '../popup/popup';
+import { Popover } from '../popup/popup';
 
-const Settings = props => {
+const Settings = () => {
   const content = (
     <div>
       <NavLink to="#">Notification Settings</NavLink>
@@ -18,11 +18,11 @@ const Settings = props => {
 
   return (
     <div style={{ marginTop: 10 }}>
-      <PopupWithIcon placement="bottomLeft" title="Settings" content={content} trigger="click">
+      <Popover placement="bottomLeft" title="Settings" content={content} trigger="click">
         <NavLink to="#" className="head-example">
           <FeatherIcon icon="settings" size={20} />
         </NavLink>
-      </PopupWithIcon>
+      </Popover>
     </div>
   );
 };

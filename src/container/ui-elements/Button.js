@@ -1,13 +1,13 @@
 import React from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
 import FeatherIcon from 'feather-icons-react';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { content } from '../../config/dataService/button-content';
-import { PopupWithIcon } from '../../components/popup/popup';
-import { DropdownWithIcon } from '../../components/dropdown/dropdown';
+import { Popover } from '../../components/popup/popup';
+import { Dropdown } from '../../components/dropdown/dropdown';
 
 const Buttons = () => {
   return (
@@ -335,48 +335,48 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
-              <PopupWithIcon placement="bottomLeft" content={content} action="click">
+              <Popover placement="bottomLeft" content={content} action="click">
                 <Button type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
-              </PopupWithIcon>
-              <PopupWithIcon placement="bottomRight" title="with title" content={content}>
+              </Popover>
+              <Popover placement="bottomRight" title="with title" content={content}>
                 <Button type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
-              </PopupWithIcon>
+              </Popover>
 
-              <PopupWithIcon placement="topLeft" content={content}>
+              <Popover placement="topLeft" content={content}>
                 <Button type="danger">
                   Danger
                   <Icon type="down" />
                 </Button>
-              </PopupWithIcon>
+              </Popover>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
-              <DropdownWithIcon placement="bottomLeft" content={content} action={['click']}>
+              <Dropdown placement="bottomLeft" content={content} action={['click']}>
                 <Button type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
-              </DropdownWithIcon>
-              <DropdownWithIcon placement="bottomRight" title="with title" content={content}>
+              </Dropdown>
+              <Dropdown placement="bottomRight" title="with title" content={content}>
                 <Button type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
-              </DropdownWithIcon>
+              </Dropdown>
 
-              <DropdownWithIcon placement="topLeft" content={content}>
+              <Dropdown placement="topLeft" content={content}>
                 <Button type="danger">
                   Danger
                   <Icon type="down" />
                 </Button>
-              </DropdownWithIcon>
+              </Dropdown>
             </Cards>
           </Col>
         </Row>

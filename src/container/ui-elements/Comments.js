@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Comment, Icon, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import CommentEditor from '../../components/comments/editor';
+import CommentEditor from '../../components/comments/comments-editor';
 
 const Comments = () => {
   const [state, setState] = useState({

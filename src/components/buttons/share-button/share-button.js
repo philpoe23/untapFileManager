@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Icon, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { PopupWithIcon } from '../../popup/popup';
+import { Popover } from '../../popup/popup';
 
 const ShareButtonPageHeader = () => {
   const content = (
@@ -30,12 +30,12 @@ const ShareButtonPageHeader = () => {
     </Fragment>
   );
   return (
-    <PopupWithIcon placement="bottomLeft" title="Share Link" content={content} trigger="click">
+    <Popover placement="bottomLeft" title="Share Link" content={content} trigger="click">
       <Button key="3">
         <Icon type="share-alt" />
         Share
       </Button>
-    </PopupWithIcon>
+    </Popover>
   );
 };
 

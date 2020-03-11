@@ -1,53 +1,10 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Card } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Meta } = Card;
-const tabList = [
-  {
-    key: 'tab1',
-    tab: 'tab1',
-  },
-  {
-    key: 'tab2',
-    tab: 'tab2',
-  },
-  {
-    key: 'tab3',
-    tab: 'tab3',
-  },
-];
-const contentList = {
-  tab1: (
-    <Fragment>
-      <p>Card content tab1</p>
-      <p>Card content tab1</p>
-      <p>Card content tab1</p>
-      <p>Card content tab1</p>
-      <p>Card content tab1</p>
-    </Fragment>
-  ),
-  tab2: (
-    <Fragment>
-      <p>Card content tab2</p>
-      <p>Card content tab2</p>
-      <p>Card content tab2</p>
-      <p>Card content tab2</p>
-      <p>Card content tab2</p>
-    </Fragment>
-  ),
-  tab3: (
-    <Fragment>
-      <p>Card content tab3</p>
-      <p>Card content tab3</p>
-      <p>Card content tab3</p>
-      <p>Card content tab3</p>
-      <p>Card content tab3</p>
-    </Fragment>
-  ),
-};
 
 const CardContainer = () => {
   return (
@@ -112,37 +69,7 @@ const CardContainer = () => {
             </Cards>
           </Col>
         </Row>
-        <Row gutter={15}>
-          <Col md={12}>
-            <Cards tabs title="Card with tabs" size="large" tabList={tabList} contentList={contentList} />
-          </Col>
-          <Col md={12}>
-            <Cards tabs more title="Card with tabs" size="large" tabList={tabList} contentList={contentList} />
-          </Col>
-        </Row>
-        <Row gutter={15}>
-          <Col md={12}>
-            <Cards
-              tabs
-              isbutton
-              title="Card with button tabs"
-              size="large"
-              tabList={tabList}
-              contentList={contentList}
-            />
-          </Col>
-          <Col md={12}>
-            <Cards
-              tabs
-              isbutton
-              title="Card with button tabs"
-              size="large"
-              more
-              tabList={tabList}
-              contentList={contentList}
-            />
-          </Col>
-        </Row>
+
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Grid Card" size="large">

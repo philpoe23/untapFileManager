@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { headerSearchAction } from '../../redux/actions/header-search';
 import PropTypes from 'prop-types';
-import { PopupWithIcon } from '../popup/popup';
+import { Popover } from '../popup/popup';
 
 const HeaderSearch = props => {
   const { searchData, headerSearch } = props;
@@ -38,9 +38,9 @@ const HeaderSearch = props => {
           <Icon type="search" className="certain-category-icon" />
         </Col>
         <Col xs={22}>
-          <PopupWithIcon placement="bottomLeft" content={content} title="Search List" trigger="focus">
+          <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
             <Input placeholder="Search..." onInput={search} />
-          </PopupWithIcon>
+          </Popover>
         </Col>
       </Row>
     </Div>

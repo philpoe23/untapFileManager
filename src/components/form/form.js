@@ -35,7 +35,13 @@ const WrappedNormalLoginForm = props => {
       <Form.Item validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
         {getFieldDecorator('password', {
           rules: [{ required: true, message: 'Please input your Password!' }],
-        })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />)}
+        })(
+          <Input
+            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            type="password"
+            placeholder="Password"
+          />,
+        )}
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
@@ -47,13 +53,6 @@ const WrappedNormalLoginForm = props => {
 };
 
 const InlineLoginForm = Form.create({ name: 'normal_login' })(WrappedNormalLoginForm);
-
-// InlineLoginForm.propTypes = {
-//   placement: PropTypes.string.isRequired,
-//   title: PropTypes.string,
-//   action: PropTypes.array,
-//   content: PropTypes.object.isRequired,
-// };
 
 const NormalLoginForm = props => {
   const handleSubmit = e => {
@@ -75,7 +74,13 @@ const NormalLoginForm = props => {
       <Form.Item>
         {getFieldDecorator('password', {
           rules: [{ required: true, message: 'Please input your Password!' }],
-        })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />)}
+        })(
+          <Input
+            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            type="password"
+            placeholder="Password"
+          />,
+        )}
       </Form.Item>
       <Form.Item>
         {getFieldDecorator('remember', {

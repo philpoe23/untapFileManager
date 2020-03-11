@@ -1,13 +1,17 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
-import { Row, Col, Tag } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { CheckedTag, HotTag, AnimatedTags } from '../../components/tags/tags';
+import { Tag } from '../../components/tags/tags';
 
 const Tags = () => {
   const log = e => {
-    // console.log(e);
+    //console.log(e);
+  };
+
+  const checked = checked => {
+    console.log(checked);
   };
 
   const preventDefault = e => {
@@ -61,21 +65,31 @@ const Tags = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="Checkable Tag" caption="The simplest use of tags">
-              <CheckedTag>Tag 1</CheckedTag>
-              <CheckedTag>Tag 2</CheckedTag>
-              <CheckedTag>Tag 3</CheckedTag>
-              <CheckedTag>Tag 4</CheckedTag>
-              <CheckedTag>Tag 5</CheckedTag>
+              <Tag checked onChange={checked}>
+                Tag 1
+              </Tag>
+              <Tag checked onChange={checked}>
+                Tag 2
+              </Tag>
+              <Tag checked onChange={checked}>
+                Tag 3
+              </Tag>
+              <Tag checked onChange={checked}>
+                Tag 4
+              </Tag>
+              <Tag checked onChange={checked}>
+                Tag 5
+              </Tag>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Hot Tag" caption="The simplest use of tags">
-              <HotTag data={['Movies', 'Books', 'Music', 'Sports']} />
+              <Tag hottags onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Animated Tag" caption="The simplest use of tags">
-              <AnimatedTags data={['Movies', 'Books', 'Music', 'Sports']} />
+              <Tag animate onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>
           </Col>
         </Row>

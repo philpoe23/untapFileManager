@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Cascader } from 'antd';
+import { CascaderStyle } from './style';
 
-const BasicCascader = props => {
-  const { data, defaultValue, trigger } = props;
+const Cascader = props => {
+  const { data, defaultValue, trigger, onChange, isShowSearch, loading, placeholder } = props;
   const options = data;
-  const onChange = value => {
-    console.log(value);
-  };
-  return <Cascader options={options} expandTrigger={trigger} defaultValue={defaultValue} onChange={onChange} placeholder="Please select" />;
-};
-
-const LazyOptions = props => {
-  const { data, defaultValue, trigger } = props;
-  const options = data;
-
   const [state, setState] = useState({
     options,
   });
-
-  const onChange = (value, selectedOptions) => {
-    console.log(value, selectedOptions);
+  const onChangeEvent = value => {
+    onChange(value);
   };
-
+  const onChangeLoading = (value, selectedOptions) => {
+    onChange(value, selectedOptions);
+  };
+  const filter = (inputValue, path) => {
+    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+  };
   const loadData = selectedOptions => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
     targetOption.loading = true;
-
     // load options lazily
     setTimeout(() => {
       targetOption.loading = false;
@@ -45,38 +38,68 @@ const LazyOptions = props => {
       });
     }, 1000);
   };
-
-  return <Cascader options={state.options} loadData={loadData} expandTrigger={trigger} defaultValue={defaultValue} onChange={onChange} changeOnSelect />;
+  return (
+    <CascaderStyle
+      options={options}
+      expandTrigger={trigger}
+      defaultValue={defaultValue}
+      onChange={loading ? onChangeLoading : onChangeEvent}
+      showSearch={isShowSearch && { filter }}
+      loadData={loadData}
+      placeholder={placeholder}
+      changeOnSelect={loading ? true : false}
+    />
+  );
 };
 
-const ShowSearch = props => {
-  const { data, defaultValue, trigger } = props;
-  const options = data;
-  const onChange = value => {
-    console.log(value);
-  };
-  const filter = (inputValue, path) => {
-    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-  };
-  return <Cascader options={options} expandTrigger={trigger} defaultValue={defaultValue} onChange={onChange} showSearch={{ filter }} placeholder="Please select" />;
+Cascader.defaultProps = {
+  data: [
+    {
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [
+        {
+          value: 'hangzhou',
+          label: 'Hangzhou',
+          children: [
+            {
+              value: 'xihu',
+              label: 'West Lake',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [
+        {
+          value: 'nanjing',
+          label: 'Nanjing',
+          children: [
+            {
+              value: 'zhonghuamen',
+              label: 'Zhong Hua Men',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  defaultValue: [],
+  trigger: 'click',
+  placeholder: 'Please select',
 };
 
-ShowSearch.propTypes = {
-  data: PropTypes.array.isRequired,
+Cascader.propTypes = {
+  data: PropTypes.array,
   defaultValue: PropTypes.array,
   trigger: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  isShowSearch: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
-LazyOptions.propTypes = {
-  data: PropTypes.array.isRequired,
-  defaultValue: PropTypes.array,
-  trigger: PropTypes.string,
-};
-
-BasicCascader.propTypes = {
-  data: PropTypes.array.isRequired,
-  defaultValue: PropTypes.array,
-  trigger: PropTypes.string,
-};
-
-export { BasicCascader, LazyOptions, ShowSearch };
+export { Cascader };

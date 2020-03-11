@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Progress, Button, Tooltip } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 const ButtonGroup = Button.Group;
 
-const ProgressBar = props => {
+const ProgressBar = () => {
   const [state, setState] = useState({
     percent: 0,
   });

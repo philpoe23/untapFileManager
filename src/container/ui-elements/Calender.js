@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Calendar, Alert } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';

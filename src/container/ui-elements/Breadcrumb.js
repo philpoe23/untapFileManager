@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Breadcrumb, Icon, Menu } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -23,7 +23,7 @@ const menu = (
     </Menu.Item>
   </Menu>
 );
-const Breadcrumbs = props => {
+const Breadcrumbs = () => {
   return (
     <Fragment>
       <PageHeader title="Breadcrumb" />

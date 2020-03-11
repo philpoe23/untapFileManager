@@ -1,44 +1,11 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { BasicCascader, LazyOptions, ShowSearch } from '../../components/cascader/cascader';
+import { Cascader } from '../../components/cascader/cascader';
+
 const options = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
-];
-const options2 = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -51,6 +18,12 @@ const options2 = [
   },
 ];
 const Cascaders = () => {
+  const onChange = value => {
+    console.log(value);
+  };
+  const onChangeLoading = (value, selectedOptions) => {
+    console.log(value, selectedOptions);
+  };
   return (
     <Fragment>
       <PageHeader title="Cascader" />
@@ -58,27 +31,27 @@ const Cascaders = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Basic" caption="The simplest use of Cascader">
-              <BasicCascader data={options} />
+              <Cascader onChange={onChange} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Default Value" caption="The simplest use of Cascader">
-              <BasicCascader data={options} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+              <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Hover" caption="The simplest use of Cascader">
-              <BasicCascader data={options} trigger="hover" />
+              <Cascader onChange={onChange} trigger="hover" />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Lazy Load" caption="The simplest use of Cascader">
-              <LazyOptions data={options2} />
+              <Cascader onChange={onChangeLoading} loading data={options} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Search" caption="The simplest use of Cascader">
-              <ShowSearch data={options} />
+              <Cascader onChange={onChange} isShowSearch />
             </Cards>
           </Col>
         </Row>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Icon, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { PopupWithIcon } from '../../popup/popup';
+import { Popover } from '../../popup/popup';
 
 const ExportButtonPageHeader = () => {
   const content = (
@@ -30,12 +30,12 @@ const ExportButtonPageHeader = () => {
     </Fragment>
   );
   return (
-    <PopupWithIcon placement="bottomLeft" title="Export With" content={content} trigger="click">
+    <Popover placement="bottomLeft" title="Export With" content={content} trigger="click">
       <Button>
         <Icon type="download" />
         Export
       </Button>
-    </PopupWithIcon>
+    </Popover>
   );
 };
 

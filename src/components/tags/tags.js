@@ -1,49 +1,84 @@
 import React, { useState, Fragment } from 'react';
-import { Tag, Input, Icon } from 'antd';
+import { Input, Icon } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 import PropTypes from 'prop-types';
-const { CheckableTag } = Tag;
+import { TagStyle } from './style';
+const { CheckableTag } = TagStyle;
 
-const CheckedTag = props => {
-  const [state, setState] = useState({ checked: true });
-  const handleChange = checked => {
-    setState({ checked });
-  };
-  return <CheckableTag {...props} checked={state.checked} onChange={handleChange} />;
-};
+const Tag = props => {
+  const [state, setState] = useState({
+    checked: true,
+    selectedTags: [],
+  });
 
-const HotTag = props => {
-  const { data } = props;
+  const { closable, onClose, color, checked, onChange, data, hottags, animate } = props;
   const tagsFromServer = data;
-  const [state, setState] = useState({ selectedTags: [] });
-  const handleChange = (tag, checked) => {
+
+  const log = e => {
+    onClose(e);
+  };
+
+  const handleChange = checked => {
+    setState({ ...state, checked });
+    onChange && onChange(checked);
+  };
+
+  const handleChangeHot = (tag, checked) => {
     const { selectedTags } = state;
     const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
     // console.log('You are interested in: ', nextSelectedTags);
-    setState({ selectedTags: nextSelectedTags });
+    setState({
+      ...state,
+      selectedTags: nextSelectedTags,
+    });
+    onChange && onChange(nextSelectedTags);
   };
   const { selectedTags } = state;
 
-  return (
+  return checked ? (
+    <CheckableTag {...props} checked={state.checked} onChange={handleChange} />
+  ) : hottags ? (
     <Fragment>
       <span style={{ marginRight: 8 }}>Categories:</span>
       {tagsFromServer.map(tag => (
-        <CheckableTag key={tag} checked={selectedTags.indexOf(tag) > -1} onChange={checked => handleChange(tag, checked)}>
+        <CheckableTag
+          key={tag}
+          checked={selectedTags.indexOf(tag) > -1}
+          onChange={checked => handleChangeHot(tag, checked)}
+        >
           {tag}
         </CheckableTag>
       ))}
     </Fragment>
+  ) : animate ? (
+    <AnimatedTags data={data} onChange={onChange} />
+  ) : (
+    <TagStyle closable={closable} onClose={log} color={color}>
+      {props.children}
+    </TagStyle>
   );
 };
 
+Tag.propTypes = {
+  data: PropTypes.array,
+  closable: PropTypes.bool,
+  onClose: PropTypes.func,
+  color: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+  hottags: PropTypes.bool,
+  animate: PropTypes.bool,
+};
+
 const AnimatedTags = props => {
-  const { data } = props;
+  const { data, onChange } = props;
   const [state, setState] = useState({ tags: data, inputVisible: false, inputValue: '' });
 
   const handleClose = removedTag => {
     const tags = state.tags.filter(tag => tag !== removedTag);
     // console.log(tags);
     setState({ tags });
+    onChange && onChange(tags);
   };
 
   const showInput = () => {
@@ -60,7 +95,7 @@ const AnimatedTags = props => {
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
-    console.log(tags);
+    onChange && onChange(tags);
     setState({
       ...state,
       tags,
@@ -71,7 +106,7 @@ const AnimatedTags = props => {
 
   const forMap = tag => {
     const tagElem = (
-      <Tag
+      <TagStyle
         closable
         onClose={e => {
           e.preventDefault();
@@ -79,7 +114,7 @@ const AnimatedTags = props => {
         }}
       >
         {tag}
-      </Tag>
+      </TagStyle>
     );
     return (
       <span key={tag} style={{ display: 'inline-block' }}>
@@ -110,19 +145,29 @@ const AnimatedTags = props => {
           {tagChild}
         </TweenOneGroup>
       </div>
-      {inputVisible && <Input autoFocus type="text" size="small" style={{ width: 78 }} value={inputValue} onChange={handleInputChange} onBlur={handleInputConfirm} onPressEnter={handleInputConfirm} />}
+      {inputVisible && (
+        <Input
+          autoFocus
+          type="text"
+          size="small"
+          style={{ width: 78 }}
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={handleInputConfirm}
+          onPressEnter={handleInputConfirm}
+        />
+      )}
       {!inputVisible && (
-        <Tag onClick={showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
+        <TagStyle onClick={showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
           <Icon type="plus" /> New Tag
-        </Tag>
+        </TagStyle>
       )}
     </div>
   );
 };
-HotTag.propTypes = {
-  data: PropTypes.array.isRequired,
-};
+
 AnimatedTags.propTypes = {
   data: PropTypes.array,
+  onChange: PropTypes.func,
 };
-export { CheckedTag, HotTag, AnimatedTags };
+export { Tag };

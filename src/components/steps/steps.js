@@ -1,47 +1,84 @@
 import React, { useState, Fragment } from 'react';
-import { Steps, Button, message } from 'antd';
+import { Button, message } from 'antd';
 import PropTypes from 'prop-types';
-const { Step } = Steps;
+import { StepsStyle } from './style';
+const { Step } = StepsStyle;
 
-const SwitchStep = props => {
-  const { steps } = props;
+const Steps = props => {
+  const {
+    size,
+    current,
+    direction,
+    status,
+    progressDot,
+    steps,
+    isswitch,
+    navigation,
+    onNext,
+    onPrev,
+    onChange,
+  } = props;
   const [state, setState] = useState({
-    current: 0,
+    currents: 0,
   });
-
   const next = () => {
-    const current = state.current + 1;
-    setState({ current });
+    const currents = state.currents + 1;
+    setState({ currents });
+    onNext(currents);
   };
 
   const prev = () => {
-    const current = state.current - 1;
-    setState({ current });
+    const currents = state.currents - 1;
+    setState({ currents });
+    onPrev(currents);
   };
-  const { current } = state;
-
-  return (
+  const { currents } = state;
+  const stepStyle = {
+    marginBottom: 60,
+    boxShadow: '0px -1px 0 0 #e8e8e8 inset',
+  };
+  //console.log(steps);
+  const onChanges = current => {
+    // console.log('onChange:', current);
+    setState({ currents: current });
+    onChange && onChange(current);
+  };
+  return !isswitch ? (
+    <StepsStyle
+      type={navigation && 'navigation'}
+      style={navigation && stepStyle}
+      size={size}
+      current={navigation ? currents : current}
+      direction={direction}
+      status={status}
+      progressDot={progressDot}
+      onChange={onChanges}
+    >
+      {props.children}
+    </StepsStyle>
+  ) : (
     <Fragment>
-      <Steps current={current}>
-        {steps.map(item => (
-          <Step key={item.title} title={item.title} />
-        ))}
-      </Steps>
-      <div className="steps-content" style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {steps[state.current].content}
+      <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
+        {steps !== undefined && steps.map(item => <Step key={item.title} title={item.title} />)}
+      </StepsStyle>
+      <div
+        className="steps-content"
+        style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        {steps[state.currents].content}
       </div>
       <div className="steps-action">
-        {state.current < steps.length - 1 && (
+        {state.currents < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
           </Button>
         )}
-        {state.current === steps.length - 1 && (
+        {state.currents === steps.length - 1 && (
           <Button type="primary" onClick={() => message.success('Processing complete!')}>
             Done
           </Button>
         )}
-        {state.current > 0 && (
+        {state.currents > 0 && (
           <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
             Previous
           </Button>
@@ -50,50 +87,19 @@ const SwitchStep = props => {
     </Fragment>
   );
 };
-SwitchStep.defaultProps = {
-  steps: [
-    {
-      title: 'First',
-      content: 'First-content',
-    },
-    {
-      title: 'Second',
-      content: 'Second-content',
-    },
 
-    {
-      title: 'Last',
-      content: 'Last-content',
-    },
-  ],
-};
-SwitchStep.propTypes = {
-  steps: PropTypes.arrayOf(PropTypes.object).isRequired,
+Steps.propTypes = {
+  size: PropTypes.string,
+  current: PropTypes.number,
+  direction: PropTypes.string,
+  status: PropTypes.string,
+  progressDot: PropTypes.func,
+  steps: PropTypes.arrayOf(PropTypes.object),
+  isswitch: PropTypes.bool,
+  navigation: PropTypes.bool,
+  onNext: PropTypes.func,
+  onPrev: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
-const NavigationStep = props => {
-  const [state, setState] = useState({
-    current: 0,
-  });
-
-  const stepStyle = {
-    marginBottom: 60,
-    boxShadow: '0px -1px 0 0 #e8e8e8 inset',
-  };
-
-  const onChange = current => {
-    // console.log('onChange:', current);
-    setState({ current });
-  };
-  const { current } = state;
-
-  return (
-    <Fragment>
-      <Steps type="navigation" current={current} onChange={onChange} style={stepStyle}>
-        {props.children}
-      </Steps>
-    </Fragment>
-  );
-};
-
-export { SwitchStep, NavigationStep };
+export { Step, Steps };

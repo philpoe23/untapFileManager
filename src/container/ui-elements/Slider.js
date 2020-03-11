@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
-import PageHeader from '../../components/page-header/page-header';
-import { Row, Col, Slider } from 'antd';
+import React, { Fragment } from 'react';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { SliderWithInputInteger, SliderWithInputDecimal, SliderWithIcon } from '../../components/slider/slider';
+import { Slider } from '../../components/slider/slider';
 
 const Sliders = () => {
   const marks = {
@@ -17,19 +17,9 @@ const Sliders = () => {
       label: <strong>100°C</strong>,
     },
   };
-  const [state, setState] = useState({
-    inputValue: 1,
-    inputDecimal: 0,
-    value: 0,
-    min: 0,
-    max: 50,
-  });
 
   const onChange = value => {
-    setState({
-      ...state,
-      inputValue: value,
-    });
+    console.log(value);
   };
 
   const onAfterChange = value => {
@@ -43,31 +33,31 @@ const Sliders = () => {
   };
   return (
     <Fragment>
-      <PageHeader title="Sliders" />
+      <PageHeader ghost title="Sliders" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Basic" caption="The simplest use of slider">
-              <Slider defaultValue={30} />
-              <Slider range defaultValue={[20, 50]} />
+              <Slider onChange={onChange} defaultValue={30} />
+              <Slider onChange={onChange} range defaultValues={[20, 50]} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="With Input" caption="The simplest use of slider">
               <h3>With integer</h3>
-              <SliderWithInputInteger min={1} max={100} />
+              <Slider input min={1} max={100} />
               <h3>With Decimal</h3>
-              <SliderWithInputDecimal min={0} max={1} step={0.01} />
+              <Slider input min={0} max={1} step={0.01} />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="with Icon" caption="The simplest use of slider">
-              <SliderWithIcon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
+              <Slider onChange={onChange} icon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards headless title="Range" caption="The simplest use of slider">
-              <Slider range step={10} defaultValue={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
+              <Slider range step={10} defaultValues={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
             </Cards>
           </Col>
 
@@ -76,7 +66,7 @@ const Sliders = () => {
               <div>
                 <h4>included=true</h4>
                 <Slider marks={marks} defaultValue={37} />
-                <Slider range marks={marks} defaultValue={[26, 37]} />
+                <Slider range marks={marks} defaultValues={[26, 37]} />
 
                 <h4>included=false</h4>
                 <Slider marks={marks} included={false} defaultValue={37} />
@@ -97,10 +87,10 @@ const Sliders = () => {
                   <Slider vertical defaultValue={30} />
                 </div>
                 <div style={style}>
-                  <Slider vertical range step={10} defaultValue={[20, 50]} />
+                  <Slider vertical range step={10} defaultValues={[20, 50]} />
                 </div>
                 <div style={style}>
-                  <Slider vertical range marks={marks} defaultValue={[26, 37]} />
+                  <Slider vertical range marks={marks} defaultValues={[26, 37]} />
                 </div>
               </div>
             </Cards>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from 'antd';
+import { CheckboxStyle } from './style';
+const CheckboxGroup = CheckboxStyle.Group;
 
-const CheckboxGroup = Checkbox.Group;
-
-const CheckAll = props => {
-  const { item, defaultSelect, parentCallback } = props;
+const Checkbox = props => {
+  const { item, defaultSelect, multiple, onChange, onChangeTriger, defaultChecked, disabled } = props;
   const plainOptions = item;
   const [state, setState] = useState({
     checkedList: defaultSelect,
@@ -13,7 +12,7 @@ const CheckAll = props => {
     checkAll: false,
   });
 
-  const onChange = checkedList => {
+  const onMultiChange = checkedList => {
     setState({
       checkedList,
       indeterminate: !!checkedList.length && checkedList.length < plainOptions.length,
@@ -24,7 +23,7 @@ const CheckAll = props => {
   useEffect(() => {
     let unmount = false;
     if (!unmount) {
-      parentCallback(state.checkedList);
+      onChangeTriger && onChangeTriger(state.checkedList);
     }
     return () => {
       unmount = true;
@@ -40,21 +39,34 @@ const CheckAll = props => {
     });
   };
 
-  return (
+  const onChecked = e => {
+    return onChange(e.target.checked);
+  };
+
+  return !multiple ? (
+    <CheckboxStyle onChange={onChecked} defaultChecked={defaultChecked} disabled={disabled}>
+      Checkbox
+    </CheckboxStyle>
+  ) : (
     <div>
       <div style={{ borderBottom: '1px solid #E9E9E9' }}>
-        <Checkbox indeterminate={state.indeterminate} onChange={onCheckAllChange} checked={state.checkAll}>
+        <CheckboxStyle indeterminate={state.indeterminate} onChange={onCheckAllChange} checked={state.checkAll}>
           Check all
-        </Checkbox>
+        </CheckboxStyle>
       </div>
       <br />
-      <CheckboxGroup options={plainOptions} value={state.checkedList} onChange={onChange} />
+      <CheckboxGroup options={plainOptions} value={state.checkedList} onChange={onMultiChange} />
     </div>
   );
 };
 
-CheckAll.propTypes = {
-  item: PropTypes.array.isRequired,
-  defaultSelect: PropTypes.array.isRequired,
+Checkbox.propTypes = {
+  item: PropTypes.array,
+  defaultSelect: PropTypes.array,
+  multiple: PropTypes.bool,
+  onChange: PropTypes.func,
+  onChangeTriger: PropTypes.func,
+  defaultChecked: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
-export { CheckAll };
+export { Checkbox };

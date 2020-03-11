@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import PageHeader from '../../components/page-header/page-header';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Card } from 'antd';
 import { SocialMediaContent } from '../../components/social-media/overview';
@@ -32,7 +32,7 @@ const contentList = {
 const Dashbord = () => {
   return (
     <Fragment>
-      <PageHeader title="Social Media Dashboard" />
+      <PageHeader ghost title="Social Media Dashboard" />
       <Main>
         <Row gutter={15}>
           <Col md={8}>
