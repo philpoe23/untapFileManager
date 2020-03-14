@@ -7,7 +7,11 @@ const SidebarItem = props => {
   const pathArray = window.location.pathname.split('/');
 
   return (
-    <Menu mode="inline" defaultSelectedKeys={[`${pathArray.length > 2 ? pathArray[2] : 'home'}`]} defaultOpenKeys={[`${pathArray.length > 2 ? pathArray[1] : 'dashboard'}`]}>
+    <Menu
+      mode="inline"
+      defaultSelectedKeys={[`${pathArray.length > 2 ? pathArray[2] : 'home'}`]}
+      defaultOpenKeys={[`${pathArray.length > 2 ? pathArray[1] : 'dashboard'}`]}
+    >
       <SubMenu
         key="dashboard"
         title={
@@ -23,6 +27,9 @@ const SidebarItem = props => {
         <Menu.Item key="2">Fintech / Business Dashboard</Menu.Item>
         <Menu.Item key="3">Site Performance Dashboard</Menu.Item>
         <Menu.Item key="4">Ecommerce</Menu.Item>
+        <Menu.Item key="base">
+          <NavLink to="dashbord/base">Dashbord Base</NavLink>
+        </Menu.Item>
       </SubMenu>
       <SubMenu
         key="sub2"

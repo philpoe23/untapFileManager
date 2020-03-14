@@ -3,6 +3,7 @@ import { Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import ThemeLayout from '../layout/Layout';
 const Dashboard = lazy(() => import('../container/dashboard'));
+const DashboardBase = lazy(() => import('../container/dashboard/DashboardBase'));
 
 // charts
 const ChartJs = lazy(() => import('../container/charts/ChartJs'));
@@ -79,6 +80,7 @@ const AdminRoutes = () => {
         }
       >
         <Route exact path="/" component={Dashboard} />
+        <Route exact path="/dashbord/base" component={DashboardBase} />
 
         <Route path="/charts/chartjs" component={ChartJs} />
         <Route path="/charts/google-chart" component={GoogleChart} />

@@ -37,7 +37,7 @@ const AlertStyled = Styled(Alert)`
   }
   
   &:hover, &:focus, &:active {
-      background: ${({ type, theme }) => theme[type + '-color']}90 !important;             
+      background: ${({ type, theme }) => theme[type + '-hover']} !important;             
   }
 `;
 

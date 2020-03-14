@@ -11,8 +11,8 @@ margin: 4px;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
 padding: 0px 15px;
 &:hover, &:focus {
-    background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']}90;
-    border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-color']}90;
+    background: ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
+    border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     color: ${({ type }) => type !== 'default' && '#ffffff'};        
 }
 
@@ -29,8 +29,8 @@ const outline = (theme, type) => {
       color: ${type !== 'default' && theme[type + '-color']};
      
       &:hover, &:focus {
-          background: ${type !== 'default' && theme[type + '-color']};
-          border: 1px solid ${type !== 'default' && theme[type + '-color']};
+          background: ${type !== 'default' && theme[type + '-hover']};
+          border: 1px solid ${type !== 'default' && theme[type + '-hover']};
           color: ${type !== 'default' && '#ffffff'};        
       }
   `;
@@ -45,8 +45,8 @@ const square = (theme, type) => `
     padding: 0px 15px;
 
     &:hover, &:focus {
-        background: ${type !== 'default' && theme[type + '-color']}90;
-        border: 1px solid ${type !== 'default' && theme[type + '-color']}90;
+        background: ${type !== 'default' && theme[type + '-hover']};
+        border: 1px solid ${type !== 'default' && theme[type + '-hover']};
         color: ${type !== 'default' && '#ffffff'};        
     }
 `;
@@ -59,8 +59,8 @@ const squareOutline = (theme, type) => `
     border-radius: 0px;
     padding: 0px 15px;
     &:hover, &:focus {
-        background: ${type !== 'default' && theme[type + '-color']};
-        border: 1px solid ${type !== 'default' && theme[type + '-color']};
+        background: ${type !== 'default' && theme[type + '-hover']};
+        border: 1px solid ${type !== 'default' && theme[type + '-hover']};
         color: ${type !== 'default' && '#ffffff'};        
     }
 `;

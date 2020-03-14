@@ -19,7 +19,6 @@ const Buttons = () => {
             <Cards headless title="Basic Buttons" size="large" caption="Default Antd buttons style.">
               <Button type="primary">Primary</Button>
               <Button type="secondary">Secondary</Button>
-              <Button type="danger">Danger</Button>
               <Button type="success">Success</Button>
               <Button type="error">Error</Button>
               <Button type="warning">Warning</Button>
@@ -35,9 +34,6 @@ const Buttons = () => {
               </Button>
               <Button shape="circle" type="secondary">
                 Secondary
-              </Button>
-              <Button shape="circle" type="danger">
-                Danger
               </Button>
               <Button shape="circle" type="success">
                 Success
@@ -67,9 +63,6 @@ const Buttons = () => {
               <Button outlined type="secondary">
                 Secondary
               </Button>
-              <Button outlined type="danger">
-                Danger
-              </Button>
               <Button outlined type="success">
                 Success
               </Button>
@@ -97,9 +90,6 @@ const Buttons = () => {
               </Button>
               <Button squared type="secondary">
                 Secondary
-              </Button>
-              <Button squared type="danger">
-                Danger
               </Button>
               <Button squared type="success">
                 Success
@@ -129,9 +119,6 @@ const Buttons = () => {
               <Button squared outlined type="secondary">
                 Secondary
               </Button>
-              <Button squared outlined type="danger">
-                Danger
-              </Button>
               <Button squared outlined type="success">
                 Success
               </Button>
@@ -160,9 +147,6 @@ const Buttons = () => {
               <Button icon="global" type="secondary">
                 Secondary
               </Button>
-              <Button icon="close" type="danger">
-                Danger
-              </Button>
               <Button icon="check" type="success">
                 Success
               </Button>
@@ -180,9 +164,6 @@ const Buttons = () => {
               </Button>
               <Button type="secondary">
                 <Icon type="global" />
-              </Button>
-              <Button type="danger">
-                <Icon type="close" />
               </Button>
               <Button type="success">
                 <Icon type="check" />
@@ -349,8 +330,8 @@ const Buttons = () => {
               </Popover>
 
               <Popover placement="topLeft" content={content}>
-                <Button type="danger">
-                  Danger
+                <Button type="error">
+                  Error
                   <Icon type="down" />
                 </Button>
               </Popover>
@@ -372,8 +353,8 @@ const Buttons = () => {
               </Dropdown>
 
               <Dropdown placement="topLeft" content={content}>
-                <Button type="danger">
-                  Danger
+                <Button type="error">
+                  Error
                   <Icon type="down" />
                 </Button>
               </Dropdown>
