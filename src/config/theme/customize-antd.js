@@ -4,9 +4,7 @@ const primaryColor = '#5F63F2',
   secondaryHover = '#E34A87',
   linkColor = '#1890ff',
   linkHover = '#0D79DF',
-  textColor = 'rgba(0, 0, 0, 0.65)',
   headingColor = 'rgba(0, 0, 0, 0.85)',
-  textColorSecondary = 'rgba(0, 0, 0, 0.45)',
   successColor = '#20C997',
   successHover = '#0CAB7C',
   warningColor = '#FA8B0C',
@@ -22,7 +20,13 @@ const primaryColor = '#5F63F2',
   lightColor = '#9299B8',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
-  dangerHover = '#E30D0F';
+  dangerHover = '#E30D0F',
+  borderColorLight = '#F1F2F6',
+  borderColorNormal = '#E3E6EF',
+  borderColorDeep = '#C6D0DC',
+  bgGrayColorDeep = '#EFF0F3',
+  bgGrayColorLight = '#F8F9FB',
+  bgGrayColorNormal = '#F4F5F7';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -42,22 +46,29 @@ const theme = {
   'dark-color': darkColor, // info state color
   'dark-hover': darkHover, // info state color
   'gray-color': grayColor, // info state color
-  'gray-Hover': grayHover, // info state color
+  'gray-hover': grayHover, // info state color
   'light-color': lightColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
   'font-size-base': '14px', // major text font size
   'heading-color': headingColor, // heading text color
-  'text-color': textColor, // major text color
-  'text-color-secondary': textColorSecondary, // secondary text color
+  'text-color': darkColor, // major text color
+  'text-color-secondary': grayColor, // secondary text color
   'disabled-color': 'rgba(0, 0, 0, 0.25)', // disable state color
   'border-radius-base': '4px', // major border radius
   'border-color-base': '#d9d9d9', // major border color
   'box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', // major shadow for layers
+  'border-color-light': borderColorLight,
+  'border-color-normal': borderColorNormal,
+  'border-color-deep': borderColorDeep,
+  'bg-color-light': bgGrayColorLight,
+  'bg-color-normal': bgGrayColorNormal,
+  'bg-color-deep': bgGrayColorDeep,
+
   // cards
   'card-head-background': '#ffffff',
-  'card-head-color': textColor,
+  'card-head-color': darkColor,
   'card-background': '#ffffff',
   'card-head-padding': '16px',
   'card-padding-base': '12px',
@@ -88,7 +99,7 @@ const theme = {
   'page-header-ghost-bg': 'inherit',
 
   // Popover body background color
-  'popover-color': textColor,
+  'popover-color': darkColor,
 
   // slider
   'slider-track-background-color': primaryColor + '70',

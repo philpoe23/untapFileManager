@@ -1,0 +1,44 @@
+{
+  "allMessage": [
+    {
+      "userName": "Hasan Mahmud",
+      "email": "hasan@gmail.com",
+      "status": "unread",
+      "type": "inbox",
+      "stared": false,
+      "img": "./img/hasan.png"
+    },
+    {
+      "userName": "Mohammad Delower Hossain",
+      "email": "deloar@gmail.com",
+      "status": "read",
+      "type": "sent",
+      "stared": false,
+      "img": "./img/delower.png"
+    },
+    {
+      "userName": "Mohammad Atik",
+      "email": "atik@gmail.com",
+      "status": "read",
+      "type": "inbox",
+      "stared": false,
+      "img": "./img/atik.png"
+    },
+    {
+      "userName": "Mohammad Azim Hossain",
+      "email": "azim@gmail.com",
+      "status": "read",
+      "type": "inbox",
+      "stared": false,
+      "img": "./img/azim.png"
+    },
+    {
+      "userName": "Mohammad Abdullah",
+      "email": "abdullah@gmail.com",
+      "status": "read",
+      "type": "sent",
+      "stared": false,
+      "img": "./img/atik.png"
+    }
+  ]
+}

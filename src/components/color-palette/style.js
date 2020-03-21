@@ -9,6 +9,33 @@ const ColorPalette = Styled.div`
     display: flex;
     align-items: center
     justify-content: center;
+    ${({ isbordered, type }) => isbordered && borderd(type)}
+    ${({ iscontent }) => iscontent && content()}
+    ${({ isbg }) => isbg && bg()}
+    ${({ isgrad, type, direction }) => isgrad && grad(type, direction)}
 `;
+const borderd = type => {
+  return `
+        background: #ffffff;
+        color: #5A5F7D;
+        border: 1px solid ${type};        
+    `;
+};
+const content = () => {
+  return `       
+        justify-content: space-around;
+    `;
+};
+const bg = () => {
+  return `       
+        color: #5A5F7D;
+      `;
+};
+const grad = (type, direction) => {
+  return `       
+         background-image: linear-gradient(${direction}, ${type[0]}, ${type[1]});
+         height: 100px;
+        `;
+};
 
 export { ColorPalette };
