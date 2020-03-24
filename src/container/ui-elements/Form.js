@@ -3,7 +3,6 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Form, Icon, Select, Input, InputNumber } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-//import { Input, InputNumber, TextArea } from '../../components/input/input';
 import { Cascader } from '../../components/cascader/cascader';
 import { Button } from '../../components/buttons/buttons';
 const { Option } = Select;

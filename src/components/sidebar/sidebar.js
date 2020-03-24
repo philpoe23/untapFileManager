@@ -40,7 +40,9 @@ const SidebarItem = props => {
           </span>
         }
       >
-        <Menu.Item key="5">Inbox</Menu.Item>
+        <Menu.Item key="5">
+          <NavLink to="/email/inbox">Inbox</NavLink>
+        </Menu.Item>
         <Menu.Item key="6">Read Email</Menu.Item>
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>

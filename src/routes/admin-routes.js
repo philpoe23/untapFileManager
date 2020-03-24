@@ -69,6 +69,8 @@ const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
 
+const Inbox = lazy(() => import('../container/email/Inbox'));
+
 const AdminRoutes = () => {
   return (
     <Switch>
@@ -80,7 +82,7 @@ const AdminRoutes = () => {
         }
       >
         <Route exact path="/" component={Dashboard} />
-        <Route exact path="/dashbord/base" component={DashboardBase} />
+        <Route path="/dashbord/base" component={DashboardBase} />
 
         <Route path="/charts/chartjs" component={ChartJs} />
         <Route path="/charts/google-chart" component={GoogleChart} />
@@ -140,6 +142,8 @@ const AdminRoutes = () => {
         <Route path="/components/calendar" component={Calendar} />
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
+
+        <Route path="/email/inbox" component={Inbox} />
       </Suspense>
     </Switch>
   );

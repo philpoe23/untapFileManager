@@ -1,0 +1,6 @@
+*Theme config
+Body er text config korte hobe.
+dashboard/dashboardbase page ta ektu check korte hobe.
+
+* Email Issue
+Email er navbar e add new labels e add new button e click korle and cancel button e click korle state update hoy na
