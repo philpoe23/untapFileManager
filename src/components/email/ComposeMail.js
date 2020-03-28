@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
-import { Tag } from '../tags/tags';
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css';
+import { Input, Button } from 'antd';
 
 const ComposeMail = ({ onClick, onChange }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
+    tags: [],
+    size: 'small',
   });
 
   const onChanges = value => {
-    setState({ value });
+    setState({ ...state, value });
     if (onChange) {
       // Send the changes up to the parent component as an HTML string.
       // This is here to demonstrate using `.toString()` but in a real app it
@@ -18,24 +22,53 @@ const ComposeMail = ({ onClick, onChange }) => {
       onChange(value.toString('html'));
     }
   };
-  const checked = checked => {
-    console.log(checked);
+  const handleChange = tags => {
+    setState({ ...state, tags });
+  };
+
+  const sizeChange = e => {
+    return setState({
+      ...state,
+      size: state.size === 'small' ? 'big' : 'small',
+    });
   };
 
   return (
-    <MailBox>
+    <MailBox size={state.size}>
       <div className="header">
         <p>New Message</p>
         <div className="icon-right">
-          <FeatherIcon icon="maximize-2" size={18} />
+          <FeatherIcon onClick={sizeChange} icon="maximize-2" size={18} />
           <FeatherIcon onClick={onClick} icon="x" size={18} />
         </div>
       </div>
       <div className="body">
-        {/* <Tag animate onChange={checked} data={[]} />
-        <RichTextEditor value={state.value} onChange={onChanges} /> */}
+        <div className="group">
+          <TagsInput
+            inputProps={{
+              placeholder: 'To',
+            }}
+            value={state.tags}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="group">
+          <Input placeholder="Subject" type="text" />
+        </div>
+        <div className="group">
+          <RichTextEditor value={state.value} onChange={onChanges} />
+        </div>
       </div>
-      <div className="fotter"></div>
+      <div className="fotter">
+        <div className="left">
+          <Button type="primary">Send</Button>
+          <FeatherIcon icon="paperclip" size={18} />
+          <FeatherIcon icon="alert-circle" size={18} />
+        </div>
+        <div className="right">
+          <FeatherIcon icon="trash-2" size={18} />
+        </div>
+      </div>
     </MailBox>
   );
 };

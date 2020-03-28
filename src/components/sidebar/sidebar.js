@@ -1,9 +1,10 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
 const { SubMenu } = Menu;
 
-const SidebarItem = props => {
+const SidebarItem = () => {
   const pathArray = window.location.pathname.split('/');
 
   return (
@@ -16,7 +17,7 @@ const SidebarItem = props => {
         key="dashboard"
         title={
           <span>
-            <Icon type="home" />
+            <FeatherIcon icon="home" size={16} />
             <span>Dashboard</span>
           </span>
         }
@@ -28,26 +29,26 @@ const SidebarItem = props => {
         <Menu.Item key="3">Site Performance Dashboard</Menu.Item>
         <Menu.Item key="4">Ecommerce</Menu.Item>
         <Menu.Item key="base">
-          <NavLink to="dashbord/base">Dashbord Base</NavLink>
+          <NavLink to="/dashbord/base">Dashbord Base</NavLink>
         </Menu.Item>
       </SubMenu>
       <SubMenu
-        key="sub2"
+        key="email"
         title={
           <span>
-            <Icon type="mail" />
+            <FeatherIcon icon="mail" size={16} />
             <span>Email</span>
           </span>
         }
       >
-        <Menu.Item key="5">
+        <Menu.Item key="inbox">
           <NavLink to="/email/inbox">Inbox</NavLink>
         </Menu.Item>
         <Menu.Item key="6">Read Email</Menu.Item>
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
       <Menu.Item key="8">
-        <Icon type="message" />
+        <FeatherIcon icon="message-square" size={16} />
         <span>Chat</span>
       </Menu.Item>
 
@@ -55,7 +56,7 @@ const SidebarItem = props => {
         key="sub3"
         title={
           <span>
-            <Icon type="shopping-cart" />
+            <FeatherIcon icon="shopping-cart" size={16} />
             <span>eCommerce</span>
           </span>
         }
@@ -72,14 +73,14 @@ const SidebarItem = props => {
         <Menu.Item key="18">Transactions</Menu.Item>
       </SubMenu>
       <Menu.Item key="19">
-        <Icon type="calendar" />
+        <FeatherIcon icon="calendar" size={16} />
         <span>Calendar</span>
       </Menu.Item>
       <SubMenu
         key="sub4"
         title={
           <span>
-            <Icon type="layout" />
+            <FeatherIcon icon="layout" size={16} />
             <span>Layouts</span>
           </span>
         }
@@ -96,7 +97,7 @@ const SidebarItem = props => {
         key="sub5"
         title={
           <span>
-            <Icon type="user" />
+            <FeatherIcon icon="user" size={16} />
             <span>Profile</span>
           </span>
         }
@@ -112,7 +113,7 @@ const SidebarItem = props => {
         key="sub6"
         title={
           <span>
-            <Icon type="folder" />
+            <FeatherIcon icon="folder" size={16} />
             <span>Pages</span>
           </span>
         }
@@ -131,7 +132,7 @@ const SidebarItem = props => {
         key="components"
         title={
           <span>
-            <Icon type="ant-design" />
+            <FeatherIcon icon="layers" size={16} />
             <span>UI Elements</span>
           </span>
         }
@@ -258,7 +259,7 @@ const SidebarItem = props => {
         key="icon"
         title={
           <span>
-            <Icon type="appstore" />
+            <FeatherIcon icon="grid" size={16} />
             <span>Icons</span>
           </span>
         }
@@ -281,7 +282,7 @@ const SidebarItem = props => {
         key="charts"
         title={
           <span>
-            <Icon type="bar-chart" />
+            <FeatherIcon icon="bar-chart-2" size={16} />
             <span>Charts</span>
           </span>
         }
@@ -297,7 +298,7 @@ const SidebarItem = props => {
           key="recharts"
           title={
             <span>
-              <Icon type="area-chart" />
+              <FeatherIcon icon="bar-chart" size={16} />
               <span>Recharts</span>
             </span>
           }
@@ -333,7 +334,7 @@ const SidebarItem = props => {
         key="sub10"
         title={
           <span>
-            <Icon type="table" />
+            <FeatherIcon icon="cpu" size={16} />
             <span>Table</span>
           </span>
         }
@@ -343,7 +344,7 @@ const SidebarItem = props => {
         key="sub11"
         title={
           <span>
-            <Icon type="form" />
+            <FeatherIcon icon="disc" size={16} />
             <span>Forms</span>
           </span>
         }
@@ -352,7 +353,7 @@ const SidebarItem = props => {
         key="maps"
         title={
           <span>
-            <Icon type="heat-map" />
+            <FeatherIcon icon="map" size={16} />
             <span>Maps</span>
           </span>
         }

@@ -9,7 +9,7 @@ import EmailContent from '../../components/email/EmailContent';
 import { connect } from 'react-redux';
 import ComposeMail from '../../components/email/ComposeMail';
 
-const Inbox = ({ searchData }) => {
+const Inbox = ({ searchData, email }) => {
   const [state, setstate] = useState({
     isMail: false,
   });
@@ -41,7 +41,7 @@ const Inbox = ({ searchData }) => {
             </Cards>
           </Col>
           <Col md={19}>
-            <EmailContent searchData={searchData} />
+            <EmailContent email={email} searchData={searchData} />
           </Col>
         </Row>
       </Main>
@@ -52,6 +52,7 @@ const Inbox = ({ searchData }) => {
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
+    email: state.email.allMessage,
   };
 };
 

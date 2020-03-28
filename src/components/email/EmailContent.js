@@ -1,15 +1,24 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { TableStyled } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
 
-const EmailContent = ({ searchData }) => {
+const EmailContent = ({ searchData, email }) => {
   const [state, setState] = useState({
     selectedRowKeys: [],
     notdata: searchData,
+    sortedInfo: null,
+    emails: email,
   });
-  const { selectedRowKeys, notdata } = state;
+  let { selectedRowKeys, notdata, sortedInfo, emails } = state;
+
+  useEffect(() => {
+    setState({
+      emails: email,
+    });
+  }, [email]);
+  sortedInfo = sortedInfo || {};
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -19,17 +28,21 @@ const EmailContent = ({ searchData }) => {
   };
 
   const data = [];
-  for (let i = 0; i < 46; i++) {
-    data.push({
-      key: i,
-      name: `Edward King ${i}`,
-      age: 32,
-      address: `London, Park Lane no. ${i}`,
+  emails
+    .filter(email => {
+      return email.type === 'inbox';
+    })
+    .map((inbox, index) => {
+      const { id, type, email, userName, status, stared, img } = inbox;
+      return data.push({
+        key: id,
+        name: userName,
+        email: email,
+        address: `London, Park Lane no. ${index}`,
+      });
     });
-  }
 
   const handleChange = (pagination, filters, sorter) => {
-    console.log('Various parameters', pagination, filters, sorter);
     setState({
       ...state,
       sortedInfo: sorter,
@@ -37,8 +50,16 @@ const EmailContent = ({ searchData }) => {
   };
 
   const onSelectChange = selectedRowKeys => {
-    console.log('selectedRowKeys changed: ', selectedRowKeys);
     setState({ selectedRowKeys });
+  };
+
+  const setAgeSort = () => {
+    setState({
+      sortedInfo: {
+        order: 'descend',
+        columnKey: 'address',
+      },
+    });
   };
 
   const rowSelection = {
@@ -84,16 +105,20 @@ const EmailContent = ({ searchData }) => {
     },
     {
       title: <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />,
-      dataIndex: 'age',
+      dataIndex: 'email',
     },
     {
       title: (
         <Fragment>
-          <FeatherIcon icon="sliders" size={18} />
+          <FeatherIcon onClick={setAgeSort} icon="sliders" size={18} />
           <FeatherIcon icon="more-vertical" size={18} />
         </Fragment>
       ),
       dataIndex: 'address',
+      key: 'address',
+      sorter: (a, b) => a.address.length - b.address.length,
+      sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
+      ellipsis: true,
     },
   ];
 

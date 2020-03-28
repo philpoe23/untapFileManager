@@ -5,7 +5,7 @@ const TableStyled = Styled(Table)`
 .ant-table-thead > tr > th .ant-table-header-column {  
   width: 100%;
 }
-.ant-table-thead > tr:first-child > th:last-child {  
+.ant-table-container table > thead > tr:first-child th:last-child {  
   text-align: right;
 }
 .ant-pagination-item {
@@ -18,14 +18,33 @@ const TableStyled = Styled(Table)`
 }
 `;
 
-const MailBox = Styled.div`
+const small = () => {
+  return `  
   max-width: 600px;
   width: 100%;
-  min-height: 600px;
-  background: #fff;
   position: fixed;
+  min-height: 600px;
   bottom: 75px;
   right: 15px;
+  `;
+};
+const big = () => {
+  return `
+  max-width: 1200px;
+  width: 100%;
+  position: fixed;
+  min-height: 600px;
+  bottom: 100px;
+  right: 100px;
+  `;
+};
+
+const MailBox = Styled.div`  
+  
+  ${({ size }) => size === 'small' && small()}
+  ${({ size }) => size === 'big' && big()}
+
+  background: #fff;
   z-index: 111;
   border-radius: 10px;
   box-shadow: 0 10px 50px #9299B830;  
@@ -49,6 +68,20 @@ const MailBox = Styled.div`
         margin-right: 10px;
       }
     }
+  }
+  .body {
+    .group {
+      padding: 5px 15px;      
+    }
+    .RichTextEditor__editor___1QqIU .public-DraftEditor-content {      
+      height: 267px;
+    }
+  }
+  .fotter {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 

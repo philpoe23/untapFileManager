@@ -13,6 +13,9 @@ module.exports = override(
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: true,
+
+    test: /\.css$/,
+    loaders: ['style-loader', 'css-loader?modules'],
   }),
   (config, env) => {
     return hotLoader(config, env);
