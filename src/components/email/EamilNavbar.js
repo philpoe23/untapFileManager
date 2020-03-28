@@ -31,12 +31,14 @@ const EamilNavbar = () => {
 
   const handeleChange = e => {
     e.preventDefault();
+    console.log('hello world');
     setState({
       ...state,
       labels: [...labels, newlabel],
       newlabel: '',
     });
   };
+  console.log(labels);
 
   const onLabelChange = e => {
     setState({
