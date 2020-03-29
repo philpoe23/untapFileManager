@@ -6,7 +6,7 @@ import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
 import theme from '../../config/theme/customize-antd';
-import Title from '../../components/heading/heading';
+import Heading from '../../components/heading/heading';
 
 const DashbordBase = () => {
   return (
@@ -190,7 +190,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title>h1. Default Heading</Title>
+                      <Heading>h1. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 30 px</p>
@@ -206,7 +206,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title label={2}>h2. Default Heading</Title>
+                      <Heading as="h2">h2. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 24 px</p>
@@ -222,7 +222,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title label={3}>h3. Default Heading</Title>
+                      <Heading as="h3">h3. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 22 px</p>
@@ -238,7 +238,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title label={4}>h4. Default Heading</Title>
+                      <Heading as="h4">h4. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 20 px</p>
@@ -254,7 +254,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title label={5}>h5. Default Heading</Title>
+                      <Heading as="h5">h5. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 18 px</p>
@@ -270,7 +270,7 @@ const DashbordBase = () => {
                 <Col md={24}>
                   <Row>
                     <Col md={5}>
-                      <Title label={6}>h6. Default Heading</Title>
+                      <Heading as="h6">h6. Default Heading</Heading>
                     </Col>
                     <Col md={2}>
                       <p>Font Size - 16 px</p>

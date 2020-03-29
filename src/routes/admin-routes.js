@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
-import ThemeLayout from '../layout/Layout';
+import ThemeLayout from '../layout/layout';
 const Dashboard = lazy(() => import('../container/dashboard'));
 const DashboardBase = lazy(() => import('../container/dashboard/DashboardBase'));
 
