@@ -70,6 +70,11 @@ const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
 
 const Inbox = lazy(() => import('../container/email/Inbox'));
+const Sent = lazy(() => import('../container/email/Sent'));
+const Starred = lazy(() => import('../container/email/Starred'));
+const Draft = lazy(() => import('../container/email/Draft'));
+const Trash = lazy(() => import('../container/email/Trash'));
+const Spam = lazy(() => import('../container/email/Spam'));
 
 const AdminRoutes = () => {
   return (
@@ -144,6 +149,11 @@ const AdminRoutes = () => {
         <Route path="/components/skeleton" component={Skeleton} />
 
         <Route path="/email/inbox" component={Inbox} />
+        <Route path="/email/sent" component={Sent} />
+        <Route path="/email/starred" component={Starred} />
+        <Route path="/email/drafts" component={Draft} />
+        <Route path="/email/trash" component={Trash} />
+        <Route path="/email/spam" component={Spam} />
       </Suspense>
     </Switch>
   );

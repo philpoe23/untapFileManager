@@ -9,7 +9,7 @@ import EmailContent from '../../components/email/EmailContent';
 import { connect } from 'react-redux';
 import ComposeMail from '../../components/email/ComposeMail';
 
-const Inbox = ({ searchData, email }) => {
+const Draft = ({ searchData, email }) => {
   const [state, setstate] = useState({
     isMail: false,
   });
@@ -27,7 +27,7 @@ const Inbox = ({ searchData, email }) => {
   };
   return (
     <Fragment>
-      <PageHeader ghost title="Inbox" />
+      <PageHeader ghost title="Draft" />
 
       {isMail && <ComposeMail onClick={onlyClose} />}
       <Main>
@@ -43,7 +43,7 @@ const Inbox = ({ searchData, email }) => {
           <Col md={19}>
             <EmailContent
               email={email.filter(email => {
-                return email.type === 'inbox';
+                return email.type === 'draft';
               })}
               searchData={searchData}
             />
@@ -61,4 +61,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Inbox);
+export default connect(mapStateToProps)(Draft);

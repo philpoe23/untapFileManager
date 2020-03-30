@@ -3,22 +3,24 @@ import { TableStyled } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
+import Title from '../heading/heading';
+import { textRefactor } from '../../Helper';
+import moment from 'moment';
 
 const EmailContent = ({ searchData, email }) => {
   const [state, setState] = useState({
     selectedRowKeys: [],
     notdata: searchData,
-    sortedInfo: null,
     emails: email,
   });
-  let { selectedRowKeys, notdata, sortedInfo, emails } = state;
+  let { selectedRowKeys, notdata, emails } = state;
 
   useEffect(() => {
     setState({
       emails: email,
     });
   }, [email]);
-  sortedInfo = sortedInfo || {};
+
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -27,18 +29,39 @@ const EmailContent = ({ searchData, email }) => {
     });
   };
 
+  const refreshState = e => {
+    e.preventDefault();
+    setState({
+      ...state,
+      emails: email,
+    });
+  };
+
   const data = [];
-  emails
-    .filter(email => {
-      return email.type === 'inbox';
-    })
-    .map((inbox, index) => {
-      const { id, type, email, userName, status, stared, img } = inbox;
+  emails !== undefined &&
+    emails.map((inbox, index) => {
+      const { id, type, email, userName, status, img, subject, body } = inbox;
+      const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
       return data.push({
         key: id,
-        name: userName,
+        name: (
+          <div>
+            <FeatherIcon icon="star" size={18} />
+            <img style={{ width: '32px', height: '32px', borderRadius: '50%' }} src={img} alt={'image' + index} />
+            <Title label={5}>{userName}</Title>
+          </div>
+        ),
         email: email,
-        address: `London, Park Lane no. ${index}`,
+        status: status,
+        content: (
+          <div>
+            <Title label={5}>
+              {subject} <span>{type}</span>
+            </Title>
+            <p>{textRefactor(body, 10)}</p>
+          </div>
+        ),
+        time: same ? moment(id).format('hh:mm A') : moment(id).format('LL'),
       });
     });
 
@@ -50,16 +73,7 @@ const EmailContent = ({ searchData, email }) => {
   };
 
   const onSelectChange = selectedRowKeys => {
-    setState({ selectedRowKeys });
-  };
-
-  const setAgeSort = () => {
-    setState({
-      sortedInfo: {
-        order: 'descend',
-        columnKey: 'address',
-      },
-    });
+    setState({ ...state, selectedRowKeys });
   };
 
   const rowSelection = {
@@ -73,12 +87,12 @@ const EmailContent = ({ searchData, email }) => {
         onSelect: changableRowKeys => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            if (index % 2 !== 0) {
-              return false;
+            if (index % 2 === 0) {
+              return true;
             }
-            return true;
+            return false;
           });
-          setState({ selectedRowKeys: newSelectedRowKeys });
+          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
         },
       },
       {
@@ -92,7 +106,7 @@ const EmailContent = ({ searchData, email }) => {
             }
             return false;
           });
-          setState({ selectedRowKeys: newSelectedRowKeys });
+          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
         },
       },
     ],
@@ -100,25 +114,22 @@ const EmailContent = ({ searchData, email }) => {
 
   const columns = [
     {
-      title: <Topbar />,
+      title: <Topbar refreshState={refreshState} />,
       dataIndex: 'name',
     },
     {
-      title: <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />,
-      dataIndex: 'email',
+      title: <AutoComplete onSearch={patternSearch} dataSource={notdata} width="80%" patterns />,
+      dataIndex: 'content',
     },
     {
       title: (
         <Fragment>
-          <FeatherIcon onClick={setAgeSort} icon="sliders" size={18} />
+          <FeatherIcon icon="sliders" size={18} />
           <FeatherIcon icon="more-vertical" size={18} />
         </Fragment>
       ),
-      dataIndex: 'address',
-      key: 'address',
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
-      ellipsis: true,
+      dataIndex: 'time',
+      key: 'time',
     },
   ];
 

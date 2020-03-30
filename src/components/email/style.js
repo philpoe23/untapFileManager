@@ -5,7 +5,8 @@ const TableStyled = Styled(Table)`
 .ant-table-thead > tr > th .ant-table-header-column {  
   width: 100%;
 }
-.ant-table-container table > thead > tr:first-child th:last-child {  
+.ant-table-thead > tr:first-child > th:last-child {
+  border-top-right-radius: 4px;
   text-align: right;
 }
 .ant-pagination-item {
