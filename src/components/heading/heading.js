@@ -1,29 +1,18 @@
 import React from 'react';
-import { H1, H2, H3, H4, H5, H6 } from './style';
+import * as headings from './style';
 import PropTypes from 'prop-types';
 
-const Title = props => {
-  const { label } = props;
+const Heading = props => {
+  const { as, children } = props;
+  const StyledHeading = as ? headings[as.toUpperCase()] : headings['H1'];
 
-  return label === 1 ? (
-    <H1>{props.children}</H1>
-  ) : label === 2 ? (
-    <H2>{props.children}</H2>
-  ) : label === 3 ? (
-    <H3>{props.children}</H3>
-  ) : label === 4 ? (
-    <H4>{props.children}</H4>
-  ) : label === 5 ? (
-    <H5>{props.children}</H5>
-  ) : (
-    <H6>{props.children}</H6>
-  );
+  return <StyledHeading>{children}</StyledHeading>;
 };
 
-Title.defaultProps = {
-  label: 1,
+Heading.defaultProps = {
+  as: 'h1',
 };
-Title.propTypes = {
-  label: PropTypes.number,
+Heading.propTypes = {
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };
-export default Title;
+export default Heading;

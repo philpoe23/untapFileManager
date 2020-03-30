@@ -18,7 +18,9 @@ const EmailContent = ({ searchData, email }) => {
       emails: email,
     });
   }, [email]);
+
   sortedInfo = sortedInfo || {};
+
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({

@@ -7,21 +7,22 @@ const Button = props => {
   const [state, setState] = useState({
     loading: false,
   });
+
   const enterLoading = () => {
     setState({ loading: true });
   };
 
   return (
     <ButtonStyled
-      squared={squared ? 1 : 0}
-      outlined={outlined ? 1 : 0}
+      squared={squared}
+      outlined={outlined}
       data={type}
       size={size}
       shape={shape}
       type={type}
       icon={icon}
       color={color}
-      social={social ? 1 : 0}
+      social={social}
       onClick={load && enterLoading}
       loading={state.loading}
       {...rest}
