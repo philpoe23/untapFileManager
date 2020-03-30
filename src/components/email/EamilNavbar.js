@@ -15,6 +15,7 @@ const EamilNavbar = () => {
 
   const addNewLabels = e => {
     e.preventDefault();
+
     setState({
       ...state,
       addNewDisplay: true,
@@ -23,14 +24,17 @@ const EamilNavbar = () => {
 
   const cancelAddNewLabels = e => {
     e.preventDefault();
+    e.stopPropagation();
     setState({
       ...state,
+      foo: 'bar',
       addNewDisplay: false,
     });
   };
 
   const handeleChange = e => {
     e.preventDefault();
+    e.stopPropagation();
     setState({
       ...state,
       labels: [...labels, newlabel],
