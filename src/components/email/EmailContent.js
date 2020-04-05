@@ -82,12 +82,17 @@ const EmailContent = ({ searchData, email }) => {
     hideDefaultSelections: true,
     selections: [
       {
-        key: 'odd',
-        text: 'Select Odd Row',
+        key: 'all',
+        text: 'All',
         onSelect: changableRowKeys => {
           let newSelectedRowKeys = [];
+          const read = emails.filter(email => {
+            return email.status;
+          });
+          const id = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            if (index % 2 === 0) {
+            id.push(read[index] !== undefined && read[index]['id']);
+            if (id.includes(key)) {
               return true;
             }
             return false;
@@ -96,12 +101,74 @@ const EmailContent = ({ searchData, email }) => {
         },
       },
       {
-        key: 'even',
-        text: 'Select Even Row',
+        key: 'read',
+        text: 'Read',
         onSelect: changableRowKeys => {
           let newSelectedRowKeys = [];
+          const read = emails.filter(email => {
+            return email.status === 'read';
+          });
+          const id = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            if (index % 2 !== 0) {
+            id.push(read[index] !== undefined && read[index]['id']);
+            if (id.includes(key)) {
+              return true;
+            }
+            return false;
+          });
+          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
+        },
+      },
+      {
+        key: 'unread',
+        text: 'Unread',
+        onSelect: changableRowKeys => {
+          let newSelectedRowKeys = [];
+          const read = emails.filter(email => {
+            return email.status === 'unread';
+          });
+          const id = [];
+          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+            id.push(read[index] !== undefined && read[index]['id']);
+            if (id.includes(key)) {
+              return true;
+            }
+            return false;
+          });
+          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
+        },
+      },
+      {
+        key: 'stared',
+        text: 'Stared',
+        onSelect: changableRowKeys => {
+          let newSelectedRowKeys = [];
+          const read = emails.filter(email => {
+            return email.stared;
+          });
+          const id = [];
+          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+            id.push(read[index] !== undefined && read[index]['id']);
+            if (id.includes(key)) {
+              return true;
+            }
+            return false;
+          });
+          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
+        },
+      },
+      {
+        key: 'unstared',
+        text: 'Unstared',
+        onSelect: changableRowKeys => {
+          let newSelectedRowKeys = [];
+          const read = emails.filter(email => {
+            return !email.stared;
+          });
+          const id = [];
+          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+            id.push(read[index] !== undefined && read[index]['id']);
+            if (id.includes(key)) {
               return true;
             }
             return false;

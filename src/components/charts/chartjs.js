@@ -305,16 +305,23 @@ ChartjsAreaChart.defaultProps = {
         display: false,
       },
     },
+    elements: {
+      point: {
+        radius: 0,
+      },
+    },
     scales: {
       yAxes: [
         {
           stacked: true,
           gridLines: {
+            display: false,
             color: '#e5e9f2',
           },
           ticks: {
-            beginAtZero: true,
+            beginAtZero: false,
             fontSize: 10,
+            display: false,
           },
         },
       ],
@@ -325,8 +332,9 @@ ChartjsAreaChart.defaultProps = {
             display: false,
           },
           ticks: {
-            beginAtZero: true,
+            beginAtZero: false,
             fontSize: 11,
+            display: false,
           },
         },
       ],
@@ -365,9 +373,9 @@ ChartjsBarChartTransparent.defaultProps = {
     maintainAspectRatio: true,
     responsive: true,
     legend: {
-      display: false,
+      display: true,
       labels: {
-        display: false,
+        display: true,
       },
     },
     scales: {
@@ -539,4 +547,14 @@ ChartjsDonutChart.propTypes = {
   labels: PropTypes.array.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
-export { ChartjsDonutChart, ChartjsPieChart, ChartjsBarChartGrad, ChartjsBarChartTransparent, ChartjsAreaChart, ChartjsLineChart, ChartjsStackedChart, ChartjsHorizontalChart, ChartjsBarChart };
+export {
+  ChartjsDonutChart,
+  ChartjsPieChart,
+  ChartjsBarChartGrad,
+  ChartjsBarChartTransparent,
+  ChartjsAreaChart,
+  ChartjsLineChart,
+  ChartjsStackedChart,
+  ChartjsHorizontalChart,
+  ChartjsBarChart,
+};

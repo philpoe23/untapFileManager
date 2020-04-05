@@ -76,6 +76,11 @@ const Draft = lazy(() => import('../container/email/Draft'));
 const Trash = lazy(() => import('../container/email/Trash'));
 const Spam = lazy(() => import('../container/email/Spam'));
 
+const Chat = lazy(() => import('../container/chat/ChatApp'));
+const NotFound = lazy(() => import('../container/pages/404'));
+const Maintenance = lazy(() => import('../container/pages/Maintenance'));
+const Pricing = lazy(() => import('../container/pages/pricingTable'));
+
 const AdminRoutes = () => {
   return (
     <Switch>
@@ -154,6 +159,11 @@ const AdminRoutes = () => {
         <Route path="/email/drafts" component={Draft} />
         <Route path="/email/trash" component={Trash} />
         <Route path="/email/spam" component={Spam} />
+
+        <Route path="/chat/app" component={Chat} />
+        <Route path="/pages/404" component={NotFound} />
+        <Route path="/pages/maintenance" component={Maintenance} />
+        <Route path="/pages/pricing" component={Pricing} />
       </Suspense>
     </Switch>
   );

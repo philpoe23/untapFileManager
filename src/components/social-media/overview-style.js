@@ -17,17 +17,7 @@ const SocialIcon = Styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 10px;
 `;
 
-const Title = Styled.h2`
-  margin: 5px 0;
-  font-size: 30px;
-  `;
-
-const SubTitle = Styled.p`
-  margin: 0;
-
-`;
-
-export { MainWraper, SocialIcon, Title, SubTitle };
+export { MainWraper, SocialIcon };

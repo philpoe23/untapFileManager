@@ -3,9 +3,22 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Card } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { NavLink } from 'react-router-dom';
 
 const { Meta } = Card;
-
+const content = (
+  <Fragment>
+    <NavLink to="#">
+      <span>More one</span>
+    </NavLink>
+    <NavLink to="#">
+      <span>More two</span>
+    </NavLink>
+    <NavLink to="#">
+      <span>More three</span>
+    </NavLink>
+  </Fragment>
+);
 const CardContainer = () => {
   return (
     <Fragment>
@@ -13,7 +26,7 @@ const CardContainer = () => {
       <Main>
         <Row gutter={15}>
           <Col md={8}>
-            <Cards title="Default Size Card" size="default" more>
+            <Cards title="Default Size Card" size="default" more={content}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
@@ -31,7 +44,7 @@ const CardContainer = () => {
             </Cards>
           </Col>
           <Col md={8}>
-            <Cards title="Small Size Card" size="small" more>
+            <Cards title="Small Size Card" size="small" more={content}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>

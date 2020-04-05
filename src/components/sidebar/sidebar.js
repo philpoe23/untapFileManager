@@ -47,9 +47,11 @@ const SidebarItem = () => {
         <Menu.Item key="6">Read Email</Menu.Item>
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
-      <Menu.Item key="8">
-        <FeatherIcon icon="message-square" size={16} />
-        <span>Chat</span>
+      <Menu.Item key="chat">
+        <NavLink to="/chat/app">
+          <FeatherIcon icon="message-square" size={16} />
+          <span>Chat</span>
+        </NavLink>
       </Menu.Item>
 
       <SubMenu
@@ -110,7 +112,7 @@ const SidebarItem = () => {
       </SubMenu>
 
       <SubMenu
-        key="sub6"
+        key="pages"
         title={
           <span>
             <FeatherIcon icon="folder" size={16} />
@@ -121,11 +123,17 @@ const SidebarItem = () => {
         <Menu.Item key="31">Team</Menu.Item>
         <Menu.Item key="32">Users</Menu.Item>
         <Menu.Item key="33">Gallery</Menu.Item>
-        <Menu.Item key="34">Pricing</Menu.Item>
+        <Menu.Item key="pricing">
+          <NavLink to="/pages/pricing">Pricing</NavLink>
+        </Menu.Item>
         <Menu.Item key="35">Faq`s</Menu.Item>
         <Menu.Item key="36">Search Results</Menu.Item>
-        <Menu.Item key="37">Coming Soon</Menu.Item>
-        <Menu.Item key="38">404</Menu.Item>
+        <Menu.Item key="maintenance">
+          <NavLink to="/pages/maintenance">Coming Soon</NavLink>
+        </Menu.Item>
+        <Menu.Item key="404">
+          <NavLink to="/pages/404">404</NavLink>
+        </Menu.Item>
       </SubMenu>
       <p>Components</p>
       <SubMenu

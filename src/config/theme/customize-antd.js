@@ -106,7 +106,6 @@ const theme = {
   'slider-track-background-color-hover': primaryColor + '90',
 
   // alert
-
   'alert-success-border-color': successColor,
   'alert-success-bg-color': successColor,
   'alert-error-bg-color': errorColor,
