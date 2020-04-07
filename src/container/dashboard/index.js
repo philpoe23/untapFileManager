@@ -21,6 +21,46 @@ const content = (
     </NavLink>
   </Fragment>
 );
+const options = {
+  legend: {
+    display: false,
+    labels: {
+      display: false,
+    },
+  },
+  elements: {
+    point: {
+      radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+    },
+    line: {
+      tension: 0,
+    },
+  },
+  scales: {
+    yAxes: [
+      {
+        stacked: true,
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+      },
+    ],
+    xAxes: [
+      {
+        stacked: true,
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+      },
+    ],
+  },
+};
 const Dashbord = () => {
   return (
     <Fragment>
@@ -252,46 +292,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -318,46 +319,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -384,46 +346,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -450,46 +373,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -516,46 +400,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -596,46 +441,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -662,46 +468,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -728,46 +495,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -794,46 +522,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -860,46 +549,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -940,46 +590,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -1006,46 +617,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -1072,46 +644,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -1138,46 +671,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>
@@ -1204,46 +698,7 @@ const Dashbord = () => {
                         fill: false,
                       },
                     ]}
-                    options={{
-                      legend: {
-                        display: false,
-                        labels: {
-                          display: false,
-                        },
-                      },
-                      elements: {
-                        point: {
-                          radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-                        },
-                        line: {
-                          tension: 0,
-                        },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              display: false,
-                            },
-                          },
-                        ],
-                      },
-                    }}
+                    options={options}
                   />
                 </Col>
               </Row>

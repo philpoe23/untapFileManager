@@ -4,6 +4,11 @@ import { Switch, Route } from 'react-router-dom';
 import ThemeLayout from '../layout/Layout';
 const Dashboard = lazy(() => import('../container/dashboard'));
 const DashboardBase = lazy(() => import('../container/dashboard/DashboardBase'));
+const Ecommerce = lazy(() => import('../container/dashboard/Ecommerce'));
+const Business = lazy(() => import('../container/dashboard/Business'));
+const Performance = lazy(() => import('../container/dashboard/Performance'));
+
+const Calendars = lazy(() => import('../container/Calendar'));
 
 // charts
 const ChartJs = lazy(() => import('../container/charts/ChartJs'));
@@ -93,6 +98,11 @@ const AdminRoutes = () => {
       >
         <Route exact path="/" component={Dashboard} />
         <Route path="/dashbord/base" component={DashboardBase} />
+        <Route path="/dashbord/ecommerce" component={Ecommerce} />
+        <Route path="/dashbord/business" component={Business} />
+        <Route path="/dashbord/performance" component={Performance} />
+
+        <Route path="/calendar" component={Calendars} />
 
         <Route path="/charts/chartjs" component={ChartJs} />
         <Route path="/charts/google-chart" component={GoogleChart} />

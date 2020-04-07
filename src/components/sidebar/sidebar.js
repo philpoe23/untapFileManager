@@ -25,9 +25,15 @@ const SidebarItem = () => {
         <Menu.Item key="home">
           <NavLink to="/">Google Analytics Social Media</NavLink>
         </Menu.Item>
-        <Menu.Item key="2">Fintech / Business Dashboard</Menu.Item>
-        <Menu.Item key="3">Site Performance Dashboard</Menu.Item>
-        <Menu.Item key="4">Ecommerce</Menu.Item>
+        <Menu.Item key="business">
+          <NavLink to="/dashbord/business">Fintech / Business Dashboard</NavLink>
+        </Menu.Item>
+        <Menu.Item key="performance">
+          <NavLink to="/dashbord/performance">Site Performance Dashboard</NavLink>
+        </Menu.Item>
+        <Menu.Item key="ecommerce">
+          <NavLink to="/dashbord/ecommerce">Ecommerce</NavLink>
+        </Menu.Item>
         <Menu.Item key="base">
           <NavLink to="/dashbord/base">Dashbord Base</NavLink>
         </Menu.Item>
@@ -74,9 +80,11 @@ const SidebarItem = () => {
         <Menu.Item key="17">Invoices</Menu.Item>
         <Menu.Item key="18">Transactions</Menu.Item>
       </SubMenu>
-      <Menu.Item key="19">
-        <FeatherIcon icon="calendar" size={16} />
-        <span>Calendar</span>
+      <Menu.Item key="calendar">
+        <NavLink to="/calendar">
+          <FeatherIcon icon="calendar" size={16} />
+          <span>Calendar</span>
+        </NavLink>
       </Menu.Item>
       <SubMenu
         key="sub4"
