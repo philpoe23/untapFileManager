@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Montes Scelerisque",
+    "rate": 5
+  },
+  {
+    "id": 2,
+    "name": "Leo Sodales Varius",
+    "rate": 4
+  },
+  {
+    "id": 3,
+    "name": "Hanging Lamp Berlingo",
+    "rate": 4.5
+  },
+  {
+    "id": 4,
+    "name": "Commodo Adipiscing",
+    "rate": 5
+  },
+  {
+    "id": 5,
+    "name": "Leo Sodales Varius",
+    "rate": 4
+  },
+  {
+    "id": 6,
+    "name": "Leo Sodales Varius",
+    "rate": 3
+  },
+  {
+    "id": 7,
+    "name": "Hanging Lamp Berlingo",
+    "rate": 5
+  },
+  {
+    "id": 8,
+    "name": "Commodo Adipiscing",
+    "rate": 3
+  },
+  {
+    "id": 9,
+    "name": "Montes Scelerisque",
+    "rate": 3
+  },
+  {
+    "id": 10,
+    "name": "Montes Scelerisque",
+    "rate": 4
+  },
+  {
+    "id": 11,
+    "name": "Montes Scelerisque",
+    "rate": 4.5
+  },
+  {
+    "id": 12,
+    "name": "Montes Scelerisque",
+    "rate": 3.5
+  }
+]

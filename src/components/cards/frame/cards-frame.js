@@ -43,7 +43,7 @@ const Cards = props => {
 };
 
 Cards.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   size: PropTypes.string,
   more: PropTypes.object,
   isbutton: PropTypes.object,

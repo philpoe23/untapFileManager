@@ -24,8 +24,8 @@ const Checkboxs = () => {
     };
   });
 
-  const onChange = checkValue => {
-    console.log(`checked = ${checkValue}`);
+  const onChange = (checked, value) => {
+    console.log(`checked = ${checked}`);
   };
   return (
     <Fragment>

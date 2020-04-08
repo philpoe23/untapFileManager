@@ -87,6 +87,8 @@ const Slider = props => {
       vertical={vertical}
       onAfterChange={onAfterChanges}
       onChange={onChange}
+      max={max}
+      min={min}
     />
   );
 };

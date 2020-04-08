@@ -8,6 +8,9 @@ const Ecommerce = lazy(() => import('../container/dashboard/Ecommerce'));
 const Business = lazy(() => import('../container/dashboard/Business'));
 const Performance = lazy(() => import('../container/dashboard/Performance'));
 
+const ProductGrid = lazy(() => import('../container/ecommerce/product/ProductGrid'));
+const ProductList = lazy(() => import('../container/ecommerce/product/ProductList'));
+
 const Calendars = lazy(() => import('../container/Calendar'));
 
 // charts
@@ -101,6 +104,9 @@ const AdminRoutes = () => {
         <Route path="/dashbord/ecommerce" component={Ecommerce} />
         <Route path="/dashbord/business" component={Business} />
         <Route path="/dashbord/performance" component={Performance} />
+
+        <Route path="/ecommerce/productGrid" component={ProductGrid} />
+        <Route path="/ecommerce/productList" component={ProductList} />
 
         <Route path="/calendar" component={Calendars} />
 

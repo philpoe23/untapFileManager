@@ -61,7 +61,7 @@ const SidebarItem = () => {
       </Menu.Item>
 
       <SubMenu
-        key="sub3"
+        key="ecommerce"
         title={
           <span>
             <FeatherIcon icon="shopping-cart" size={16} />
@@ -69,8 +69,13 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="9">Products grid</Menu.Item>
-        <Menu.Item key="10">Products list</Menu.Item>
+        <Menu.Item key="productGrid">
+          <NavLink to="/ecommerce/productGrid">Products grid</NavLink>
+        </Menu.Item>
+        <Menu.Item key="productList">
+          {' '}
+          <NavLink to="/ecommerce/productList">Products list</NavLink>
+        </Menu.Item>
         <Menu.Item key="11">Product edit</Menu.Item>
         <Menu.Item key="12">Product detail</Menu.Item>
         <Menu.Item key="13">Cart</Menu.Item>
