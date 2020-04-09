@@ -2,21 +2,21 @@ import React, { Fragment, lazy, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { connect } from 'react-redux';
-import { Row, Col, Radio, Pagination } from 'antd';
+import { Row, Col, Radio } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
+import { sorting } from '../../../redux/actions/products';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const ProductGrid = ({ searchData }) => {
+const ProductGrid = ({ searchData, sortings }) => {
   const [state, setState] = useState({
     notdata: searchData,
   });
   const { notdata } = state;
-
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -24,8 +24,9 @@ const ProductGrid = ({ searchData }) => {
       notdata: data,
     });
   };
-  const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+
+  const onSorting = e => {
+    sortings(e.target.value);
   };
   return (
     <Fragment>
@@ -47,7 +48,7 @@ const ProductGrid = ({ searchData }) => {
               </Col>
               <Col md={9}>
                 Sort By :
-                <Radio.Group defaultValue={3}>
+                <Radio.Group onChange={onSorting} defaultValue={3}>
                   <Radio.Button value="rate">Top Rated</Radio.Button>
                   <Radio.Button value="popular">Popular</Radio.Button>
                   <Radio.Button value="time">Newest</Radio.Button>
@@ -66,11 +67,15 @@ const ProductGrid = ({ searchData }) => {
               <Route path="/ecommerce/productList" component={List} />
             </Row>
           </Col>
-          <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} pageSize={10} defaultCurrent={1} total={12} />
         </Row>
       </Main>
     </Fragment>
   );
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    sortings: sortBy => dispatch(sorting(sortBy)),
+  };
 };
 
 const mapStateToProps = state => {
@@ -78,5 +83,4 @@ const mapStateToProps = state => {
     searchData: state.headerSearchData,
   };
 };
-
-export default connect(mapStateToProps)(ProductGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductGrid);

@@ -75,4 +75,4 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.string,
 };
-export { Checkbox };
+export { Checkbox, CheckboxGroup };

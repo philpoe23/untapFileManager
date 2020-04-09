@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Rate } from 'antd';
+import React, { useState, useEffect, Fragment } from 'react';
+import { Row, Col, Rate, Pagination } from 'antd';
 import Heading from '../../../../components/heading/heading';
 import { Button } from '../../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
@@ -22,35 +22,57 @@ const Grid = ({ productsAll }) => {
       unmounted = true;
     };
   }, [productsAll]);
-
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
+  };
   return (
     <Row gutter={15}>
-      {products.map(({ id, name, rate }) => {
-        return (
-          <Col md={6} key={id}>
-            <figure>
-              <img src={require(`../../../../static/img/products/${id}.png`)} alt="" />
-              <figcaption>
-                <NavLink to="#">
-                  <FeatherIcon icon="heart" size={14} />
-                </NavLink>
-                <Heading as="h5">{name}</Heading>
-                <p>
-                  <span>$250 </span>
-                  <del> $650 </del>
-                  <span> 60% Off</span>
-                </p>
-                <Rate allowHalf defaultValue={rate} disabled /> rate<span> 778 Reviews</span>
-                <Button type="default">
-                  <FeatherIcon icon="shopping-bag" size={14} />
-                  Add To Cart
-                </Button>
-                <Button type="primary">Buy Now</Button>
-              </figcaption>
-            </figure>
-          </Col>
-        );
-      })}
+      {products.length ? (
+        products.map(({ id, name, rate, price, oldPrice, popular }) => {
+          return (
+            <Col md={6} key={id}>
+              <figure>
+                <img src={require(`../../../../static/img/products/${id}.png`)} alt="" />
+                <figcaption>
+                  <NavLink to="#">
+                    <FeatherIcon
+                      icon="heart"
+                      size={14}
+                      color={popular ? '#FF4D4F' : '#9299B8'}
+                      fill={popular ? '#FF4D4F' : 'none'}
+                    />
+                  </NavLink>
+                  <Heading as="h5">{name}</Heading>
+                  <p>
+                    <span>${price} </span>
+                    {oldPrice && (
+                      <Fragment>
+                        <del> ${oldPrice} </del>
+                        <span> 60% Off</span>
+                      </Fragment>
+                    )}
+                  </p>
+                  <Rate allowHalf defaultValue={rate} disabled /> rate<span> 778 Reviews</span>
+                  <Button type="default">
+                    <FeatherIcon icon="shopping-bag" size={14} />
+                    Add To Cart
+                  </Button>
+                  <Button type="primary">Buy Now</Button>
+                </figcaption>
+              </figure>
+            </Col>
+          );
+        })
+      ) : (
+        <Col md={24}>
+          <Heading as="h1">Data Not Found</Heading>
+        </Col>
+      )}
+      <Col md={24}>
+        {products.length ? (
+          <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} pageSize={10} defaultCurrent={1} total={12} />
+        ) : null}
+      </Col>
     </Row>
   );
 };

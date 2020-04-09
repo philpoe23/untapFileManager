@@ -6,12 +6,13 @@ import { Row, Col, Radio } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
+import { sorting } from '../../../redux/actions/products';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const ProductList = ({ searchData }) => {
+const ProductList = ({ searchData, sortings }) => {
   const [state, setState] = useState({
     notdata: searchData,
   });
@@ -22,6 +23,10 @@ const ProductList = ({ searchData }) => {
       ...state,
       notdata: data,
     });
+  };
+
+  const onSorting = e => {
+    sortings(e.target.value);
   };
   return (
     <Fragment>
@@ -43,7 +48,7 @@ const ProductList = ({ searchData }) => {
               </Col>
               <Col md={9}>
                 Sort By :
-                <Radio.Group defaultValue={3}>
+                <Radio.Group onChange={onSorting} defaultValue={3}>
                   <Radio.Button value="rate">Top Rated</Radio.Button>
                   <Radio.Button value="popular">Popular</Radio.Button>
                   <Radio.Button value="time">Newest</Radio.Button>
@@ -67,11 +72,15 @@ const ProductList = ({ searchData }) => {
     </Fragment>
   );
 };
+const mapDispatchToProps = dispatch => {
+  return {
+    sortings: sortBy => dispatch(sorting(sortBy)),
+  };
+};
 
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
   };
 };
-
-export default connect(mapStateToProps)(ProductList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
