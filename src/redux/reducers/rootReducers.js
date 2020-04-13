@@ -5,7 +5,11 @@ import readMessageReducer from './auth-info/message';
 import readNotificationReducer from './auth-info/notification';
 import emailReducer from './emailReducers';
 import chatReducer from './chatReducers';
-import productReducer from './productReducers';
+import orderReducer from './ordersReducers';
+import sellersReducer from './sellersReducers';
+import galleryReducer from './galleryReducers';
+import authReducer from './authenticationReducers';
+import { productReducer, productSingleReducer } from './productReducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -15,5 +19,10 @@ const rootReducers = combineReducers({
   email: emailReducer,
   chat: chatReducer,
   products: productReducer,
+  product: productSingleReducer,
+  orders: orderReducer,
+  sellers: sellersReducer,
+  gallery: galleryReducer,
+  auth: authReducer,
 });
 export default rootReducers;

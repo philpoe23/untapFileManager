@@ -1,22 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './redux/store';
 import AdminRoutes from './routes/admin-routes';
+import { connect } from 'react-redux';
+import FrontendRoutes from './routes/frontend-routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './static/css/style.css';
 import theme from './config/theme/customize-antd';
-function App() {
+function App({ auth }) {
+  const [state, setState] = useState({
+    isLogedIn: auth,
+  });
+  const { isLogedIn } = state;
+  useEffect(() => {
+    let unmounted = false;
+    if (!unmounted) {
+      setState({
+        isLogedIn: auth,
+      });
+    }
+    return () => {
+      unmounted = true;
+    };
+  }, [auth]);
+
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <AdminRoutes />
-        </Router>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Router>{isLogedIn === null ? <FrontendRoutes /> : <AdminRoutes />}</Router>
+    </ThemeProvider>
   );
 }
+const mapStateToProps = state => {
+  return {
+    auth: state.auth,
+  };
+};
+const MyApp = connect(mapStateToProps)(App);
 
-export default hot(App);
+const StoreReturn = () => {
+  return (
+    <Provider store={store}>
+      <MyApp />
+    </Provider>
+  );
+};
+export default hot(StoreReturn);

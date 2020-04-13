@@ -25,20 +25,26 @@ const List = ({ productsAll }) => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+  const onHandleChange = (current, pageSize) => {
+    // You can create pagination in here
+    console.log(current, pageSize);
+  };
   return (
     <Row gutter={15}>
       {products.length ? (
-        products.map(({ id, name, rate, price, oldPrice, popular, description }) => {
+        products.map(({ id, name, rate, price, oldPrice, popular, description, img }) => {
           return (
             <Col md={24} key={id}>
               <Row gutter={15}>
                 <Col sm={6}>
                   <figure>
-                    <img style={{ width: '100%' }} src={require(`../../../../static/img/products/${id}.png`)} alt="" />
+                    <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
                   </figure>
                 </Col>
                 <Col sm={12}>
-                  <Heading as="h5">{name}</Heading>
+                  <Heading as="h5">
+                    <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                  </Heading>
                   <p>{description}</p>
                 </Col>
                 <Col sm={6}>
@@ -79,7 +85,14 @@ const List = ({ productsAll }) => {
       )}
       <Col md={24}>
         {products.length ? (
-          <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} pageSize={10} defaultCurrent={1} total={12} />
+          <Pagination
+            onChange={onHandleChange}
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            pageSize={10}
+            defaultCurrent={1}
+            total={100}
+          />
         ) : null}
       </Col>
     </Row>

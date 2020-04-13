@@ -1,8 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import Title from '../heading/heading';
+import Title from '../../../components/heading/heading';
 import { Input, Form } from 'antd';
-import { Button } from '../buttons/buttons';
+import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 
 const EamilNavbar = () => {

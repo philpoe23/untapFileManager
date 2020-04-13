@@ -4,7 +4,7 @@ import { CheckboxStyle } from './style';
 const CheckboxGroup = CheckboxStyle.Group;
 
 const Checkbox = props => {
-  const { item, defaultSelect, multiple, onChange, onChangeTriger, defaultChecked, disabled, value, children } = props;
+  const { item, defaultSelect, multiple, onChange, onChangeTriger, defaultChecked, disabled, children } = props;
   const plainOptions = item;
   const [state, setState] = useState({
     checkedList: defaultSelect,
@@ -44,18 +44,13 @@ const Checkbox = props => {
   };
 
   return !multiple ? (
-    <CheckboxStyle value={value} onChange={onChecked} defaultChecked={defaultChecked} disabled={disabled}>
+    <CheckboxStyle onChange={onChecked} defaultChecked={defaultChecked} disabled={disabled}>
       {children}
     </CheckboxStyle>
   ) : (
     <div>
       <div style={{ borderBottom: '1px solid #E9E9E9' }}>
-        <CheckboxStyle
-          value={value}
-          indeterminate={state.indeterminate}
-          onChange={onCheckAllChange}
-          checked={state.checkAll}
-        >
+        <CheckboxStyle indeterminate={state.indeterminate} onChange={onCheckAllChange} checked={state.checkAll}>
           Check all
         </CheckboxStyle>
       </div>

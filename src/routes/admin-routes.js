@@ -8,8 +8,11 @@ const Ecommerce = lazy(() => import('../container/dashboard/Ecommerce'));
 const Business = lazy(() => import('../container/dashboard/Business'));
 const Performance = lazy(() => import('../container/dashboard/Performance'));
 
-const ProductGrid = lazy(() => import('../container/ecommerce/product/ProductGrid'));
-const ProductList = lazy(() => import('../container/ecommerce/product/ProductList'));
+const ProductGrid = lazy(() => import('../container/ecommerce/product/Products'));
+const ProductDetails = lazy(() => import('../container/ecommerce/product/ProductDetails'));
+const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
+const Orders = lazy(() => import('../container/ecommerce/Orders'));
+const Sellers = lazy(() => import('../container/ecommerce/Sellers'));
 
 const Calendars = lazy(() => import('../container/Calendar'));
 
@@ -77,17 +80,15 @@ const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
 
-const Inbox = lazy(() => import('../container/email/Inbox'));
-const Sent = lazy(() => import('../container/email/Sent'));
-const Starred = lazy(() => import('../container/email/Starred'));
-const Draft = lazy(() => import('../container/email/Draft'));
-const Trash = lazy(() => import('../container/email/Trash'));
-const Spam = lazy(() => import('../container/email/Spam'));
+const Inbox = lazy(() => import('../container/email/Email'));
 
 const Chat = lazy(() => import('../container/chat/ChatApp'));
 const NotFound = lazy(() => import('../container/pages/404'));
 const Maintenance = lazy(() => import('../container/pages/Maintenance'));
 const Pricing = lazy(() => import('../container/pages/pricingTable'));
+const Gallery = lazy(() => import('../container/pages/Gallery'));
+const Faq = lazy(() => import('../container/pages/Faq'));
+const Search = lazy(() => import('../container/pages/SearchResult'));
 
 const AdminRoutes = () => {
   return (
@@ -105,8 +106,11 @@ const AdminRoutes = () => {
         <Route path="/dashbord/business" component={Business} />
         <Route path="/dashbord/performance" component={Performance} />
 
-        <Route path="/ecommerce/productGrid" component={ProductGrid} />
-        <Route path="/ecommerce/productList" component={ProductList} />
+        <Route path="/ecommerce/products" component={ProductGrid} />
+        <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
+        <Route path="/ecommerce/Invoice" component={Invoice} />
+        <Route path="/ecommerce/orders" component={Orders} />
+        <Route path="/ecommerce/sellers" component={Sellers} />
 
         <Route path="/calendar" component={Calendars} />
 
@@ -169,17 +173,15 @@ const AdminRoutes = () => {
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
 
-        <Route path="/email/inbox" component={Inbox} />
-        <Route path="/email/sent" component={Sent} />
-        <Route path="/email/starred" component={Starred} />
-        <Route path="/email/drafts" component={Draft} />
-        <Route path="/email/trash" component={Trash} />
-        <Route path="/email/spam" component={Spam} />
+        <Route path="/email/:page" component={Inbox} />
 
         <Route path="/chat/app" component={Chat} />
         <Route path="/pages/404" component={NotFound} />
         <Route path="/pages/maintenance" component={Maintenance} />
         <Route path="/pages/pricing" component={Pricing} />
+        <Route path="/pages/gallery" component={Gallery} />
+        <Route path="/pages/faq" component={Faq} />
+        <Route path="/pages/search" component={Search} />
       </Suspense>
     </Switch>
   );

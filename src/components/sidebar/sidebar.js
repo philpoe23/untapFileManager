@@ -69,20 +69,25 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="productGrid">
-          <NavLink to="/ecommerce/productGrid">Products grid</NavLink>
+        <Menu.Item key="products">
+          <NavLink to="/ecommerce/products">Products</NavLink>
         </Menu.Item>
-        <Menu.Item key="productList">
-          {' '}
-          <NavLink to="/ecommerce/productList">Products list</NavLink>
+        <Menu.Item key="productDetails">
+          <NavLink to="/ecommerce/productDetails/1">Product detail</NavLink>
         </Menu.Item>
+
         <Menu.Item key="11">Product edit</Menu.Item>
-        <Menu.Item key="12">Product detail</Menu.Item>
         <Menu.Item key="13">Cart</Menu.Item>
-        <Menu.Item key="14">Orders</Menu.Item>
+        <Menu.Item key="orders">
+          <NavLink to="/ecommerce/orders">Orders</NavLink>
+        </Menu.Item>
         <Menu.Item key="15">Credit Card</Menu.Item>
-        <Menu.Item key="16">Sellers</Menu.Item>
-        <Menu.Item key="17">Invoices</Menu.Item>
+        <Menu.Item key="sellers">
+          <NavLink to="/ecommerce/sellers">Sellers</NavLink>
+        </Menu.Item>
+        <Menu.Item key="Invoice">
+          <NavLink to="/ecommerce/Invoice">Invoices</NavLink>
+        </Menu.Item>
         <Menu.Item key="18">Transactions</Menu.Item>
       </SubMenu>
       <Menu.Item key="calendar">
@@ -135,12 +140,18 @@ const SidebarItem = () => {
       >
         <Menu.Item key="31">Team</Menu.Item>
         <Menu.Item key="32">Users</Menu.Item>
-        <Menu.Item key="33">Gallery</Menu.Item>
+        <Menu.Item key="gallery">
+          <NavLink to="/pages/gallery">Gallery</NavLink>
+        </Menu.Item>
         <Menu.Item key="pricing">
           <NavLink to="/pages/pricing">Pricing</NavLink>
         </Menu.Item>
-        <Menu.Item key="35">Faq`s</Menu.Item>
-        <Menu.Item key="36">Search Results</Menu.Item>
+        <Menu.Item key="faq">
+          <NavLink to="/pages/faq">Faq`s</NavLink>
+        </Menu.Item>
+        <Menu.Item key="search">
+          <NavLink to="/pages/search">Search Results</NavLink>
+        </Menu.Item>
         <Menu.Item key="maintenance">
           <NavLink to="/pages/maintenance">Coming Soon</NavLink>
         </Menu.Item>

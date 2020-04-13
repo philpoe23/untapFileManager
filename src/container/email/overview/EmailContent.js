@@ -1,10 +1,10 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import { TableStyled } from './style';
 import Topbar from './Topbar';
-import { AutoComplete } from '../../components/autoComplete/autoComplete';
+import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import Title from '../heading/heading';
-import { textRefactor } from '../../Helper';
+import Title from '../../../components/heading/heading';
+import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 
 const EmailContent = ({ searchData, email }) => {

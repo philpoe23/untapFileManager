@@ -18,4 +18,25 @@ const Badge = Styled.span`
   color: ${({ type, theme }) => theme[type + '-color']}
 `;
 
-export { PricingCard, ListGroup, Badge };
+const GalleryNav = Styled.nav`
+  background: #fff;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 5px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;    
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        padding: 8px;
+      }
+      a.active {
+        color: #000;
+      }
+    }
+  }
+`;
+export { PricingCard, ListGroup, Badge, GalleryNav };

@@ -95,4 +95,23 @@ const filterByCategory = category => {
   };
 };
 
-export { sorting, priceRange, filterByRating, filterByBrand, filterByCategory };
+const filterSinglepage = paramsId => {
+  return async dispatch => {
+    try {
+      const data = initialState.filter(product => {
+        return product.id === paramsId;
+      });
+      dispatch({
+        type: 'FILTER_SINGLE_SUCCESS',
+        data: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: 'FILTER_SINGLE_ERR',
+        err,
+      });
+    }
+  };
+};
+
+export { sorting, priceRange, filterByRating, filterByBrand, filterByCategory, filterSinglepage };

@@ -15,4 +15,17 @@ const productReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default productReducer;
+
+const productSingleReducer = (state = initialState, action) => {
+  const { type, data, err } = action;
+  switch (type) {
+    case 'FILTER_SINGLE_SUCCESS':
+      return [...data];
+    case 'FILTER_SINGLE_ERR':
+      return err;
+    default:
+      return state;
+  }
+};
+
+export { productReducer, productSingleReducer };

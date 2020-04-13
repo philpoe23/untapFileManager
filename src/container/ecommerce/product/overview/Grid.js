@@ -25,14 +25,18 @@ const Grid = ({ productsAll }) => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+  const onHandleChange = (current, pageSize) => {
+    // You can create pagination in here
+    console.log(current, pageSize);
+  };
   return (
     <Row gutter={15}>
       {products.length ? (
-        products.map(({ id, name, rate, price, oldPrice, popular }) => {
+        products.map(({ id, name, rate, price, oldPrice, popular, img }) => {
           return (
             <Col md={6} key={id}>
               <figure>
-                <img src={require(`../../../../static/img/products/${id}.png`)} alt="" />
+                <img src={require(`../../../../${img}`)} alt={'img' + id} />
                 <figcaption>
                   <NavLink to="#">
                     <FeatherIcon
@@ -42,7 +46,9 @@ const Grid = ({ productsAll }) => {
                       fill={popular ? '#FF4D4F' : 'none'}
                     />
                   </NavLink>
-                  <Heading as="h5">{name}</Heading>
+                  <Heading as="h5">
+                    <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                  </Heading>
                   <p>
                     <span>${price} </span>
                     {oldPrice && (
@@ -70,7 +76,14 @@ const Grid = ({ productsAll }) => {
       )}
       <Col md={24}>
         {products.length ? (
-          <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} pageSize={10} defaultCurrent={1} total={12} />
+          <Pagination
+            onChange={onHandleChange}
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            pageSize={10}
+            defaultCurrent={1}
+            total={40}
+          />
         ) : null}
       </Col>
     </Row>

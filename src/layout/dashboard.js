@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import SidebarItem from '../components/sidebar/dashboard';
 
-import { LayOutWraper } from './layout-style';
+import { LayOutWraper } from './style';
 
 const { Sider, Content } = Layout;
 

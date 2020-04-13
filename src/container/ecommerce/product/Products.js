@@ -1,8 +1,8 @@
-import React, { Fragment, lazy, useState } from 'react';
+import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { connect } from 'react-redux';
-import { Row, Col, Radio } from 'antd';
+import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
@@ -12,12 +12,12 @@ const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const ProductGrid = ({ searchData, sortings }) => {
+const ProductGrid = ({ searchData, sortings, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
   });
   const { notdata } = state;
-  const patternSearch = searchText => {
+  const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
@@ -34,14 +34,20 @@ const ProductGrid = ({ searchData, sortings }) => {
       <Main>
         <Row gutter={15}>
           <Col md={5}>
-            <Switch>
+            <Suspense
+              fallback={
+                <div className="spin">
+                  <Spin />
+                </div>
+              }
+            >
               <Filters />
-            </Switch>
+            </Suspense>
           </Col>
           <Col md={19}>
             <Row gutter={15}>
               <Col md={8}>
-                <AutoComplete onSearch={patternSearch} dataSource={notdata} width="80%" patterns />
+                <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />
               </Col>
               <Col md={7}>
                 <p>Showing 1–8 of 86 results</p>
@@ -54,17 +60,27 @@ const ProductGrid = ({ searchData, sortings }) => {
                   <Radio.Button value="time">Newest</Radio.Button>
                   <Radio.Button value="price">Price</Radio.Button>
                 </Radio.Group>
-                <NavLink to="/ecommerce/productGrid">
+                <NavLink to={match.path}>
                   <FeatherIcon icon="grid" size={16} />
                 </NavLink>
-                <NavLink to="/ecommerce/productList">
+                <NavLink to={match.path + '/list'}>
                   <FeatherIcon icon="list" size={16} />
                 </NavLink>
               </Col>
             </Row>
             <Row gutter={15}>
-              <Route exact path="/ecommerce/productGrid" component={Grid} />
-              <Route path="/ecommerce/productList" component={List} />
+              <Switch>
+                <Suspense
+                  fallback={
+                    <div className="spin">
+                      <Spin />
+                    </div>
+                  }
+                >
+                  <Route exact path={match.path} component={Grid} />
+                  <Route path={match.path + '/:list'} component={List} />
+                </Suspense>
+              </Switch>
             </Row>
           </Col>
         </Row>
