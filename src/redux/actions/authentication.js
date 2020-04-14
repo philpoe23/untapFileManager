@@ -4,8 +4,10 @@ const login = () => {
   return async dispatch => {
     try {
       dispatch(loginBegin());
-      window.localStorage.setItem('logedIn', true);
-      dispatch(loginSuccess(true));
+      setTimeout(() => {
+        window.localStorage.setItem('logedIn', true);
+        return dispatch(loginSuccess(true));
+      }, 1000);
     } catch (err) {
       dispatch(loginErr(err));
     }
