@@ -6,7 +6,7 @@ import { Form, Input, Icon, Button } from 'antd';
 import { login } from '../../../../redux/actions/authentication';
 import { connect } from 'react-redux';
 
-const SignIn = ({ form, login }) => {
+const SignIn = ({ form, login, isLoading }) => {
   const handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
@@ -21,6 +21,7 @@ const SignIn = ({ form, login }) => {
   const onChange = (checked, value) => {
     console.log(`checked = ${checked}`);
   };
+
   return (
     <div style={{ padding: '30px' }}>
       <p style={{ textAlign: 'right' }}>
@@ -47,7 +48,7 @@ const SignIn = ({ form, login }) => {
           <NavLink to="/forgotPassword">Forgot password?</NavLink>
         </div>
         <Button onClick={handleSubmit} type="primary">
-          Sign In
+          {isLoading ? 'Loading...' : 'Sign In'}
         </Button>
         <p>or</p>
       </Form>
@@ -59,4 +60,9 @@ const mapDispatchToProps = dispatch => {
     login: () => dispatch(login()),
   };
 };
-export default connect(null, mapDispatchToProps)(Form.create({ name: 'loginForm' })(SignIn));
+const mapStateToProps = state => {
+  return {
+    isLoading: state.auth.loading,
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create({ name: 'loginForm' })(SignIn));

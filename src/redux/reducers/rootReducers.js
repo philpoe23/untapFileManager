@@ -8,7 +8,7 @@ import chatReducer from './chatReducers';
 import orderReducer from './ordersReducers';
 import sellersReducer from './sellersReducers';
 import galleryReducer from './galleryReducers';
-import authReducer from './authenticationReducers';
+import authReducer from './authReducers';
 import { productReducer, productSingleReducer } from './productReducers';
 
 const rootReducers = combineReducers({

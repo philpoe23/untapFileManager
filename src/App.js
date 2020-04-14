@@ -34,7 +34,7 @@ function App({ auth }) {
 }
 const mapStateToProps = state => {
   return {
-    auth: state.auth,
+    auth: state.auth.login,
   };
 };
 const MyApp = connect(mapStateToProps)(App);
