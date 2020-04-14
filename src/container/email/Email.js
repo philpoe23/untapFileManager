@@ -30,6 +30,7 @@ const Email = ({ match }) => {
       isMail: false,
     });
   };
+  const path = match.path.split(':')[0];
   return (
     <Fragment>
       <PageHeader ghost title={match.params.page} />
@@ -41,7 +42,7 @@ const Email = ({ match }) => {
               <Button onClick={openClose} shape="round" type="primary">
                 + Compose
               </Button>
-              <EamilNavbar />
+              <EamilNavbar path={path} />
             </Cards>
           </Col>
           <Col md={19}>
@@ -53,12 +54,13 @@ const Email = ({ match }) => {
                   </div>
                 }
               >
-                <Route path={'/email/inbox'} component={Inbox} />
-                <Route path={'/email/sent'} component={Sent} />
-                <Route path={'/email/drafts'} component={Draft} />
-                <Route path={'/email/starred'} component={Starred} />
-                <Route path={'/email/spam'} component={Spam} />
-                <Route path={'/email/trash'} component={Trash} />
+                <Route path="/" component={Inbox} />
+                <Route path={path + 'inbox'} component={Inbox} />
+                <Route path={path + 'sent'} component={Sent} />
+                <Route path={path + 'drafts'} component={Draft} />
+                <Route path={path + 'starred'} component={Starred} />
+                <Route path={path + 'spam'} component={Spam} />
+                <Route path={path + 'trash'} component={Trash} />
               </Suspense>
             </Switch>
           </Col>

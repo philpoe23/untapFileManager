@@ -5,7 +5,7 @@ import { Input, Form } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 
-const EamilNavbar = () => {
+const EamilNavbar = ({ path }) => {
   const [state, setState] = useState({
     labels: ['personal', 'social', 'promotions'],
     newlabel: '',
@@ -55,27 +55,27 @@ const EamilNavbar = () => {
         <ul>
           <li>
             <FeatherIcon icon="inbox" size={18} />
-            <NavLink to="/email/inbox">Inbox</NavLink>
+            <NavLink to={path + 'inbox'}>Inbox</NavLink>
           </li>
           <li>
             <FeatherIcon icon="star" size={18} />
-            <NavLink to="/email/starred">Starred</NavLink>
+            <NavLink to={path + 'starred'}>Starred</NavLink>
           </li>
           <li>
             <FeatherIcon icon="send" size={18} />
-            <NavLink to="/email/sent">Sent</NavLink>
+            <NavLink to={path + 'sent'}>Sent</NavLink>
           </li>
           <li>
             <FeatherIcon icon="edit" size={18} />
-            <NavLink to="/email/drafts">Drafts</NavLink>
+            <NavLink to={path + 'drafts'}>Drafts</NavLink>
           </li>
           <li>
             <FeatherIcon icon="alert-octagon" size={18} />
-            <NavLink to="/email/spam">Spam</NavLink>
+            <NavLink to={path + 'spam'}>Spam</NavLink>
           </li>
           <li>
             <FeatherIcon icon="trash" size={18} />
-            <NavLink to="/email/trash">Trash</NavLink>
+            <NavLink to={path + 'trash'}>Trash</NavLink>
           </li>
         </ul>
         <p>Labels</p>
@@ -84,14 +84,14 @@ const EamilNavbar = () => {
             return (
               <li key={index + 1}>
                 <FeatherIcon icon="list" size={18} />
-                <NavLink to={`/email/${label}`}>{label}</NavLink>
+                <NavLink to={`${path + label}`}>{label}</NavLink>
               </li>
             );
           })}
 
           <li onClick={addNewLabels}>
             <FeatherIcon icon="plus" size={18} />
-            <NavLink onClick={addNewLabels} to="/email/newLabels">
+            <NavLink onClick={addNewLabels} to={path + 'newLabels'}>
               Add New Labels
             </NavLink>
             {addNewDisplay && (

@@ -18,7 +18,7 @@ const BlockSpan = Styled.span`
 
 const MessageList = Styled.li`
   display: block;  
-  width: 500px;
+  max-width: 400px;
   padding: 10px;
   list-style-type: none;
   background: #ffffff;

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
+import { Row, Col, Icon } from 'antd';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
@@ -66,6 +66,23 @@ const ChatApp = ({ searchData, chat }) => {
     });
   };
 
+  const content = (
+    <Fragment>
+      <NavLink to="#">
+        <FeatherIcon icon="users" size={14} />
+        <span>More one</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon icon="trash-2" size={14} />
+        <span>More two</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon icon="slash" size={14} />
+        <span>More three</span>
+      </NavLink>
+    </Fragment>
+  );
+
   return (
     <Fragment>
       <PageHeader ghost title="Chat" />
@@ -116,7 +133,7 @@ const ChatApp = ({ searchData, chat }) => {
             </Cards>
           </Col>
           <Col md={18}>
-            <Cards headless title={name} caption="caption" more>
+            <Cards title={name} more={content}>
               <ul>
                 {singleContent.length ? (
                   singleContent.map((mes, index) => {
@@ -124,13 +141,14 @@ const ChatApp = ({ searchData, chat }) => {
                     const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
                     return (
                       <div key={index + 1} style={{ overflow: 'hidden' }}>
-                        <div style={{ float: mes.email === me ? 'right' : 'left' }}>
+                        <div>
                           <Heading as={'h5'}>
                             {mes.email !== me && name}
                             <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
                           </Heading>
                         </div>
-                        <MessageList style={{ float: mes.email === me ? 'right' : 'left' }}>{mes.content}</MessageList>
+                        <Icon type="smile" />
+                        <MessageList>{mes.content}</MessageList>
                       </div>
                     );
                   })
