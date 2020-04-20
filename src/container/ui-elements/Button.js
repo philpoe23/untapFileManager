@@ -5,7 +5,6 @@ import { Main } from '../styled';
 import FeatherIcon from 'feather-icons-react';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
-import { content } from '../../config/dataService/button-content';
 import { Popover } from '../../components/popup/popup';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
@@ -316,20 +315,20 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
-              <Popover placement="bottomLeft" content={content} action="click">
+              <Popover placement="bottomLeft" action="click">
                 <Button type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
               </Popover>
-              <Popover placement="bottomRight" title="with title" content={content}>
+              <Popover placement="bottomRight" title="with title">
                 <Button type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
               </Popover>
 
-              <Popover placement="topLeft" content={content}>
+              <Popover placement="topLeft">
                 <Button type="error">
                   Error
                   <Icon type="down" />
@@ -339,20 +338,20 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
-              <Dropdown placement="bottomLeft" content={content} action={['click']}>
+              <Dropdown placement="bottomLeft" action={['click']}>
                 <Button type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
-              <Dropdown placement="bottomRight" title="with title" content={content}>
+              <Dropdown placement="bottomRight" title="with title">
                 <Button type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
 
-              <Dropdown placement="topLeft" content={content}>
+              <Dropdown placement="topLeft">
                 <Button type="error">
                   Error
                   <Icon type="down" />

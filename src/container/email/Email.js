@@ -14,6 +14,7 @@ const Draft = lazy(() => import('./overview/Draft'));
 const Starred = lazy(() => import('./overview/Starred'));
 const Trash = lazy(() => import('./overview/Trash'));
 const Spam = lazy(() => import('./overview/Spam'));
+const MailOpen = lazy(() => import('./overview/MailOpen'));
 
 const Email = ({ match }) => {
   const [state, setstate] = useState({
@@ -54,13 +55,13 @@ const Email = ({ match }) => {
                   </div>
                 }
               >
-                <Route path="/" component={Inbox} />
                 <Route path={path + 'inbox'} component={Inbox} />
                 <Route path={path + 'sent'} component={Sent} />
                 <Route path={path + 'drafts'} component={Draft} />
                 <Route path={path + 'starred'} component={Starred} />
                 <Route path={path + 'spam'} component={Spam} />
                 <Route path={path + 'trash'} component={Trash} />
+                <Route path={path + 'single/:id'} component={MailOpen} />
               </Suspense>
             </Switch>
           </Col>

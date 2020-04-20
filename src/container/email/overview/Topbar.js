@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Tooltip } from 'antd';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
 
 const Topbar = ({ refreshState }) => {
   return (

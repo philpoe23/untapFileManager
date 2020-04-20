@@ -50,7 +50,9 @@ const SidebarItem = () => {
         <Menu.Item key="inbox">
           <NavLink to="/email/inbox">Inbox</NavLink>
         </Menu.Item>
-        <Menu.Item key="6">Read Email</Menu.Item>
+        <Menu.Item key="single">
+          <NavLink to="/email/single/1585118055048">Read Email</NavLink>
+        </Menu.Item>
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
       <Menu.Item key="chat">
@@ -90,10 +92,17 @@ const SidebarItem = () => {
         </Menu.Item>
         <Menu.Item key="18">Transactions</Menu.Item>
       </SubMenu>
+
       <Menu.Item key="calendar">
         <NavLink to="/calendar">
           <FeatherIcon icon="calendar" size={16} />
           <span>Calendar</span>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item key="project">
+        <NavLink to="/project">
+          <FeatherIcon icon="target" size={16} />
+          <span>Project</span>
         </NavLink>
       </Menu.Item>
       <SubMenu
@@ -114,7 +123,7 @@ const SidebarItem = () => {
       </SubMenu>
 
       <SubMenu
-        key="sub5"
+        key="profile"
         title={
           <span>
             <FeatherIcon icon="user" size={16} />
@@ -123,7 +132,9 @@ const SidebarItem = () => {
         }
       >
         <Menu.Item key="26">Profile</Menu.Item>
-        <Menu.Item key="27">Settings</Menu.Item>
+        <Menu.Item key="settings">
+          <NavLink to="/profile/settings/profile">Settings</NavLink>
+        </Menu.Item>
         <Menu.Item key="28">Login</Menu.Item>
         <Menu.Item key="29">Register</Menu.Item>
         <Menu.Item key="30">Forgot Password</Menu.Item>
@@ -138,8 +149,12 @@ const SidebarItem = () => {
           </span>
         }
       >
-        <Menu.Item key="31">Team</Menu.Item>
-        <Menu.Item key="32">Users</Menu.Item>
+        <Menu.Item key="team">
+          <NavLink to="/pages/team">Team</NavLink>
+        </Menu.Item>
+        <Menu.Item key="users">
+          <NavLink to="/pages/users">Users</NavLink>
+        </Menu.Item>
         <Menu.Item key="gallery">
           <NavLink to="/pages/gallery">Gallery</NavLink>
         </Menu.Item>

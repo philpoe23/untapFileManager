@@ -3,9 +3,10 @@ import { TableStyled } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import Title from '../../../components/heading/heading';
+import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 const EmailContent = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -21,7 +22,7 @@ const EmailContent = ({ searchData, email }) => {
     });
   }, [email]);
 
-  const patternSearch = searchText => {
+  const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
@@ -48,16 +49,18 @@ const EmailContent = ({ searchData, email }) => {
           <div>
             <FeatherIcon icon="star" size={18} />
             <img style={{ width: '32px', height: '32px', borderRadius: '50%' }} src={img} alt={'image' + index} />
-            <Title label={5}>{userName}</Title>
+            <Heading as="h5">
+              <NavLink to={'/email/single/' + id}>{userName}</NavLink>
+            </Heading>
           </div>
         ),
         email: email,
         status: status,
         content: (
           <div>
-            <Title label={5}>
+            <Heading as="h5">
               {subject} <span>{type}</span>
-            </Title>
+            </Heading>
             <p>{textRefactor(body, 10)}</p>
           </div>
         ),
@@ -185,7 +188,7 @@ const EmailContent = ({ searchData, email }) => {
       dataIndex: 'name',
     },
     {
-      title: <AutoComplete onSearch={patternSearch} dataSource={notdata} width="80%" patterns />,
+      title: <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />,
       dataIndex: 'content',
     },
     {

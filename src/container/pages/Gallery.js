@@ -18,6 +18,7 @@ const Gallery = ({ gallery, galleryFilter }) => {
       .classList.remove('active');
     e.target.classList.add('active');
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Gallery" />

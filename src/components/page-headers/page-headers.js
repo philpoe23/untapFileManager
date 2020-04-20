@@ -29,8 +29,8 @@ const PageHeader = props => {
 };
 
 PageHeader.propTypes = {
-  title: PropTypes.string,
-  subTitle: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  subTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   bgColor: PropTypes.string,
   routes: PropTypes.array,
   buttons: PropTypes.array,

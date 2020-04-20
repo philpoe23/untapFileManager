@@ -2,13 +2,14 @@ import React, { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import ThemeLayout from '../layout/Layout';
+
 const Dashboard = lazy(() => import('../container/dashboard'));
 const DashboardBase = lazy(() => import('../container/dashboard/DashboardBase'));
 const Ecommerce = lazy(() => import('../container/dashboard/Ecommerce'));
 const Business = lazy(() => import('../container/dashboard/Business'));
 const Performance = lazy(() => import('../container/dashboard/Performance'));
 
-const ProductGrid = lazy(() => import('../container/ecommerce/product/Products'));
+const Product = lazy(() => import('../container/ecommerce/product/Products'));
 const ProductDetails = lazy(() => import('../container/ecommerce/product/ProductDetails'));
 const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
 const Orders = lazy(() => import('../container/ecommerce/Orders'));
@@ -89,6 +90,10 @@ const Pricing = lazy(() => import('../container/pages/pricingTable'));
 const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));
+const Users = lazy(() => import('../container/pages/Users'));
+const Team = lazy(() => import('../container/pages/Team'));
+
+const Settings = lazy(() => import('../container/profile/settings/Settings'));
 
 const AdminRoutes = () => {
   return (
@@ -106,7 +111,7 @@ const AdminRoutes = () => {
         <Route path="/dashbord/business" component={Business} />
         <Route path="/dashbord/performance" component={Performance} />
 
-        <Route path="/ecommerce/products" component={ProductGrid} />
+        <Route path="/ecommerce/products" component={Product} />
         <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
         <Route path="/ecommerce/Invoice" component={Invoice} />
         <Route path="/ecommerce/orders" component={Orders} />
@@ -182,6 +187,10 @@ const AdminRoutes = () => {
         <Route path="/pages/gallery" component={Gallery} />
         <Route path="/pages/faq" component={Faq} />
         <Route path="/pages/search" component={Search} />
+        <Route path="/pages/users" component={Users} />
+        <Route path="/pages/team" component={Team} />
+
+        <Route path="/profile/settings" component={Settings} />
       </Suspense>
     </Switch>
   );
