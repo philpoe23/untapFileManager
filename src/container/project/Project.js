@@ -1,6 +1,6 @@
 import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
+import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';

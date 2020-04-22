@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
+import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
