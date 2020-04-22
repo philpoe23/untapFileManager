@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Row, Col, Rate, Pagination } from 'antd';
-import Heading from '../../../components/heading/heading';
-import { Button } from '../../../components/buttons/buttons';
+import Heading from '../../../../components/heading/heading';
+import { Button } from '../../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { connect } from 'react-redux';

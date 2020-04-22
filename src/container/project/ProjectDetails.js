@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import Heading from '../../../components/heading/heading';
-import { filterSinglepage } from '../../../redux/actions/products';
+import Heading from '../../components/heading/heading';
+import { filterSinglepage } from '../../redux/actions/products';
 import { NavLink } from 'react-router-dom';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Button } from '../../../components/buttons/buttons';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { Button } from '../../components/buttons/buttons';
 
 const ProductDetails = props => {
   const { filterSinglepage, match, products, product } = props;

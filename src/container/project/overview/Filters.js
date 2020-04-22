@@ -1,13 +1,13 @@
 import React, { useState, Fragment } from 'react';
 import FeatherIcon from 'feather-icons-react';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import Heading from '../../../../components/heading/heading';
-import { Slider } from '../../../../components/slider/slider';
+import { Cards } from '../../../components/cards/frame/cards-frame';
+import Heading from '../../../components/heading/heading';
+import { Slider } from '../../../components/slider/slider';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { CheckboxGroup } from '../../../../components/checkbox/checkbox';
+import { CheckboxGroup } from '../../../components/checkbox/checkbox';
 import { Rate } from 'antd';
 import { connect } from 'react-redux';
-import { priceRange, filterByRating, filterByBrand, filterByCategory } from '../../../../redux/actions/products';
+import { priceRange, filterByRating, filterByBrand, filterByCategory } from '../../../redux/actions/products';
 
 const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }) => {
   const [state, setState] = useState({
