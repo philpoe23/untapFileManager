@@ -12,7 +12,7 @@ const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const ProductGrid = ({ searchData, sortings, match }) => {
+const Product = ({ searchData, sortings, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
   });
@@ -28,6 +28,7 @@ const ProductGrid = ({ searchData, sortings, match }) => {
   const onSorting = e => {
     sortings(e.target.value);
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Shop" />
@@ -77,7 +78,7 @@ const ProductGrid = ({ searchData, sortings, match }) => {
                     </div>
                   }
                 >
-                  <Route exact path={match.path} component={Grid} />
+                  <Route path={match.path} component={Grid} />
                   <Route path={match.path + '/:list'} component={List} />
                 </Suspense>
               </Switch>
@@ -88,6 +89,7 @@ const ProductGrid = ({ searchData, sortings, match }) => {
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     sortings: sortBy => dispatch(sorting(sortBy)),
@@ -99,4 +101,5 @@ const mapStateToProps = state => {
     searchData: state.headerSearchData,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ProductGrid);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

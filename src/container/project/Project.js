@@ -12,7 +12,7 @@ const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const ProductGrid = ({ searchData, sortings, match }) => {
+const Project = ({ searchData, sortings, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
   });
@@ -77,8 +77,8 @@ const ProductGrid = ({ searchData, sortings, match }) => {
                     </div>
                   }
                 >
-                  <Route exact path={match.path} component={Grid} />
-                  <Route path={match.path + '/:list'} component={List} />
+                  {/* <Route exact path={match.path} component={Grid} />
+                  <Route path={match.path + '/:list'} component={List} /> */}
                 </Suspense>
               </Switch>
             </Row>
@@ -99,4 +99,4 @@ const mapStateToProps = state => {
     searchData: state.headerSearchData,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ProductGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(Project);

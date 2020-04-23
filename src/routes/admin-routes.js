@@ -15,6 +15,8 @@ const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
 const Orders = lazy(() => import('../container/ecommerce/Orders'));
 const Sellers = lazy(() => import('../container/ecommerce/Sellers'));
 
+const Project = lazy(() => import('../container/project/Project'));
+
 const Calendars = lazy(() => import('../container/Calendar'));
 
 // charts
@@ -116,6 +118,8 @@ const AdminRoutes = () => {
         <Route path="/ecommerce/Invoice" component={Invoice} />
         <Route path="/ecommerce/orders" component={Orders} />
         <Route path="/ecommerce/sellers" component={Sellers} />
+
+        <Route path="/project" component={Project} />
 
         <Route path="/calendar" component={Calendars} />
 
