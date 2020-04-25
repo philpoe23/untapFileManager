@@ -14,8 +14,10 @@ const ProductDetails = lazy(() => import('../container/ecommerce/product/Product
 const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
 const Orders = lazy(() => import('../container/ecommerce/Orders'));
 const Sellers = lazy(() => import('../container/ecommerce/Sellers'));
+const Cart = lazy(() => import('../container/ecommerce/Cart'));
 
 const Project = lazy(() => import('../container/project/Project'));
+const ProjectDetails = lazy(() => import('../container/project/ProjectDetails'));
 
 const Calendars = lazy(() => import('../container/Calendar'));
 
@@ -118,8 +120,10 @@ const AdminRoutes = () => {
         <Route path="/ecommerce/Invoice" component={Invoice} />
         <Route path="/ecommerce/orders" component={Orders} />
         <Route path="/ecommerce/sellers" component={Sellers} />
+        <Route path="/ecommerce/cart" component={Cart} />
 
         <Route path="/project" component={Project} />
+        <Route path="/projectDetails/:id" component={ProjectDetails} />
 
         <Route path="/calendar" component={Calendars} />
 

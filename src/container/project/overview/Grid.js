@@ -1,97 +1,73 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Row, Col, Rate, Pagination } from 'antd';
+import React, { Fragment } from 'react';
+import { Row, Col, Progress } from 'antd';
 import Heading from '../../../components/heading/heading';
-import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { connect } from 'react-redux';
+import { Cards } from '../../../components/cards/frame/cards-frame';
+import { Dropdown } from '../../../components/dropdown/dropdown';
+import { Link } from 'react-router-dom';
 
-const Grid = ({ productsAll }) => {
-  const [state, setState] = useState({
-    products: productsAll,
-  });
-  const { products } = state;
-  useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      setState({
-        products: productsAll,
-      });
-    }
-    return () => {
-      unmounted = true;
-    };
-  }, [productsAll]);
-  const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
-  };
-  const onHandleChange = (current, pageSize) => {
-    // You can create pagination in here
-    console.log(current, pageSize);
-  };
+const Grid = () => {
   return (
     <Row gutter={15}>
-      {products.length ? (
-        products.map(({ id, name, rate, price, oldPrice, popular, img }) => {
-          return (
-            <Col md={6} key={id}>
-              <figure>
-                <img src={require(`../../../../${img}`)} alt={'img' + id} />
-                <figcaption>
-                  <NavLink to="#">
-                    <FeatherIcon
-                      icon="heart"
-                      size={14}
-                      color={popular ? '#FF4D4F' : '#9299B8'}
-                      fill={popular ? '#FF4D4F' : 'none'}
-                    />
-                  </NavLink>
-                  <Heading as="h5">
-                    <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
-                  </Heading>
-                  <p>
-                    <span>${price} </span>
-                    {oldPrice && (
-                      <Fragment>
-                        <del> ${oldPrice} </del>
-                        <span> 60% Off</span>
-                      </Fragment>
-                    )}
-                  </p>
-                  <Rate allowHalf defaultValue={rate} disabled /> rate<span> 778 Reviews</span>
-                  <Button type="default">
-                    <FeatherIcon icon="shopping-bag" size={14} />
-                    Add To Cart
-                  </Button>
-                  <Button type="primary">Buy Now</Button>
-                </figcaption>
-              </figure>
+      <Col md={8}>
+        <Cards
+          headless
+          title={
+            <div>
+              <Heading as="h4">
+                <Link to="/projectDetails/1">
+                  Dashboard UI Project <small>EARLY</small>
+                </Link>
+              </Heading>
+              <Dropdown
+                content={
+                  <Fragment>
+                    <Link to="#">More One</Link>
+                    <Link to="#">More Tow</Link>
+                    <Link to="#">More Three</Link>
+                    <Link to="#">More Four</Link>
+                  </Fragment>
+                }
+              >
+                <Link to="#">
+                  <FeatherIcon icon="more-horizontal" size={18} />
+                </Link>
+              </Dropdown>
+            </div>
+          }
+        >
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          <Row>
+            <Col md={6}>
+              <Heading as="h6">Start Date</Heading>
+              <p>26 Dec 2019</p>
             </Col>
-          );
-        })
-      ) : (
-        <Col md={24}>
-          <Heading as="h1">Data Not Found</Heading>
-        </Col>
-      )}
-      <Col md={24}>
-        {products.length ? (
-          <Pagination
-            onChange={onHandleChange}
-            showSizeChanger
-            onShowSizeChange={onShowSizeChange}
-            pageSize={10}
-            defaultCurrent={1}
-            total={40}
-          />
-        ) : null}
+            <Col md={6}>
+              <Heading as="h6">Deadline</Heading>
+              <p>18 Mar 2020</p>
+            </Col>
+          </Row>
+          <Progress percent={84} status="active" />
+          <p>12/15 Task Completed</p>
+          <hr />
+          <p>Assigned To</p>
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/1.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/2.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/3.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/4.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/5.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/6.png`)} alt="" />
+          <img style={{ width: '35px' }} src={require(`../../../static/img/users/7.png`)} alt="" />
+        </Cards>
       </Col>
     </Row>
   );
 };
+
 const mapStateToProps = state => {
   return {
-    productsAll: state.products,
+    //productsAll: state.products,
   };
 };
 

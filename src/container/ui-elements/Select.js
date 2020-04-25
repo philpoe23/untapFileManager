@@ -11,9 +11,11 @@ const Selects = () => {
   const handleChange = selectedItems => {
     setState({ selectedItems });
   };
+
   const { selectedItems } = state;
   const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
   const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+
   return (
     <Fragment>
       <PageHeader title="Select" />

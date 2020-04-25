@@ -1,141 +1,212 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
-import { Row, Col, Rate } from 'antd';
+import { Row, Col, Progress, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../components/heading/heading';
-import { filterSinglepage } from '../../redux/actions/products';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 
-const ProductDetails = props => {
-  const { filterSinglepage, match, products, product } = props;
-  const [state, setState] = useState({
-    quantity: 1,
-  });
-  useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      filterSinglepage(parseInt(match.params.id));
-    }
-    return () => {
-      unmounted = true;
-    };
-  }, [match.params.id, filterSinglepage]);
-  const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
-  const { quantity } = state;
-  const incrementQuantity = e => {
-    e.preventDefault();
-    quantity !== 5 &&
-      setState({
-        ...state,
-        quantity: quantity + 1,
-      });
-  };
-  const decrementQuantity = e => {
-    e.preventDefault();
-    quantity !== 1 &&
-      setState({
-        ...state,
-        quantity: quantity - 1,
-      });
-  };
+const TaskList = lazy(() => import('./overview/TaskList'));
+const Activities = lazy(() => import('./overview/Activities'));
+
+const ProjectDetails = ({ match }) => {
   return (
     <Fragment>
-      <PageHeader ghost title="Product Details" />
-      <Main>
-        <Cards headless>
-          <Row gutter={30}>
-            <Col md={10}>
-              <figure>
-                <img style={{ width: '100%' }} src={require(`../../../${img}`)} alt="" />
-              </figure>
-              <Row gutter={15}>
-                {products.length
-                  ? products
-                      .filter(product => {
-                        return product.category === category;
-                      })
-                      .map((product, index) => {
-                        return (
-                          index <= 3 && (
-                            <Col md={6} key={product.id}>
-                              <figure>
-                                <NavLink to={`/ecommerce/productDetails/${product.id}`}>
-                                  <img style={{ width: '100%' }} src={require(`../../../${product.img}`)} alt="" />
-                                </NavLink>
-                              </figure>
-                            </Col>
-                          )
-                        );
-                      })
-                  : null}
-              </Row>
-            </Col>
-            <Col md={10}>
-              <Heading as="h2">{name}</Heading>
-              <Rate allowHalf defaultValue={rate} disabled /> {rate}
-              <span> 778 Reviews</span>
-              <p>Brand : {brand}</p>
-              <br />
-              <Heading as="h3">${price}</Heading>
-              {oldPrice && (
-                <Heading as="h6">
-                  <del>${oldPrice}</del> <sub>30% Off</sub>
-                </Heading>
-              )}
-              <br />
-              <p>{description}</p>
-              <br />
-              <p>Available: In Stock</p>
-              <p>Shipping:: Free</p>
-              <p>
-                Quantity:
-                <Button onClick={decrementQuantity} type="default">
-                  -
-                </Button>
-                {quantity}
-                <Button onClick={incrementQuantity} type="default">
-                  +
-                </Button>
-                540 pieces available
-              </p>
-              <Button type="primary">Buy Now</Button>
-              <Button type="secondary">
-                <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
+      <PageHeader
+        ghost
+        title={
+          <div>
+            <Heading as="h2">
+              Application UI Design
+              <Button type="primary">
+                <FeatherIcon icon="plus" size="14" /> Add Task
               </Button>
-              <NavLink to="#">
-                <FeatherIcon icon="heart" size={14} />
-              </NavLink>
-              <NavLink to="#">
-                <FeatherIcon icon="share-2" size={14} />
-              </NavLink>
-              <FeatherIcon icon="facebook" size={14} />
-              <FeatherIcon icon="twitter" size={14} />
-              <FeatherIcon icon="linkedin" size={14} />
-              <FeatherIcon icon="send" size={14} />
-              <hr />
-              <p>Category: {category}</p>
-              <p>Tags: Blue, Green, Light</p>
-            </Col>
-          </Row>
-        </Cards>
+              <Button type="default">
+                <FeatherIcon icon="check" size="14" /> Mark as Complete
+              </Button>
+            </Heading>
+          </div>
+        }
+        buttons={[
+          <Link key={1} to="#">
+            <FeatherIcon icon="edit-3" size={14} />
+            Edit
+          </Link>,
+          <Link key={2} to="#">
+            <FeatherIcon icon="trash-2" size={14} />
+            Remove
+          </Link>,
+        ]}
+      />
+      <Main>
+        <Row gutter={15}>
+          <Col md={6}>
+            <Cards headless bodyStyle={{ backgroundColor: '#20C997' }}>
+              <Heading as="h5">Progress</Heading>
+              <Progress percent={84} status="active" />
+            </Cards>
+            <Cards headless>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <Link to="#">
+                    <FeatherIcon icon="layout" size={30} />
+                  </Link>
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">47</Heading>
+                  <p>Total Task</p>
+                </Col>
+              </Row>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <Link to="#">
+                    <FeatherIcon icon="layout" size={30} />
+                  </Link>
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">47</Heading>
+                  <p>Total Task</p>
+                </Col>
+              </Row>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <Link to="#">
+                    <FeatherIcon icon="layout" size={30} />
+                  </Link>
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">47</Heading>
+                  <p>Total Task</p>
+                </Col>
+              </Row>
+            </Cards>
+          </Col>
+          <Col md={12}>
+            <Cards title="About Project">
+              <p>
+                Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim
+                id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non.
+                Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi
+                eiusmod nostrud sit.
+              </p>
+              <p>
+                Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt.
+                Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.
+              </p>
+              <br />
+              <Row gutter={5}>
+                <Col md={5}>
+                  <Heading as="h6">Project owner</Heading>
+                  <p>Peter Jackson</p>
+                </Col>
+                <Col md={5}>
+                  <Heading as="h6">Budget</Heading>
+                  <p>$56,700</p>
+                </Col>
+                <Col md={5}>
+                  <Heading as="h6">Start Date</Heading>
+                  <p>28 Dec 2019</p>
+                </Col>
+                <Col md={5}>
+                  <Heading as="h6">Deadline</Heading>
+                  <p>18 Mar 2020</p>
+                </Col>
+              </Row>
+            </Cards>
+          </Col>
+          <Col md={6}>
+            <Cards
+              title="Users"
+              isbutton={
+                <Button>
+                  <FeatherIcon icon="user-plus" size={14} /> Add Users
+                </Button>
+              }
+            >
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">Meyri Carles</Heading>
+                  <p>Ui Designer</p>
+                </Col>
+              </Row>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">Meyri Carles</Heading>
+                  <p>Ui Designer</p>
+                </Col>
+              </Row>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">Meyri Carles</Heading>
+                  <p>Ui Designer</p>
+                </Col>
+              </Row>
+              <Row gutter={15}>
+                <Col xs={6}>
+                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
+                </Col>
+                <Col xs={18}>
+                  <Heading as="h5">Meyri Carles</Heading>
+                  <p>Ui Designer</p>
+                </Col>
+              </Row>
+            </Cards>
+          </Col>
+          <Col md={16}>
+            <Cards
+              title={
+                <nav>
+                  <NavLink to={{ pathname: match.url, state: [{}] }}>Task List</NavLink> &nbsp; &nbsp;
+                  <NavLink to={{ pathname: match.url + '/activities', state: [{}] }}>Activities</NavLink>
+                </nav>
+              }
+            >
+              <Switch>
+                <Suspense
+                  fallback={
+                    <div className="spin">
+                      <Spin />
+                    </div>
+                  }
+                >
+                  <Route exact path={match.url} component={TaskList} />
+                  <Route path={match.url + '/:activities'} component={Activities} />
+                </Suspense>
+              </Switch>
+            </Cards>
+          </Col>
+          <Col md={8}>
+            <Cards title="Files">
+              <Row></Row>
+            </Cards>
+          </Col>
+        </Row>
       </Main>
     </Fragment>
   );
 };
 const mapDispatchToProps = dispatch => {
   return {
-    filterSinglepage: id => dispatch(filterSinglepage(id)),
+    //filterSinglepage: id => dispatch(filterSinglepage(id)),
   };
 };
 
 const mapStateToProps = state => {
   return {
-    product: state.product,
-    products: state.products,
+    // product: state.product,
+    // products: state.products,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);

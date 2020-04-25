@@ -2,21 +2,24 @@ import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
-import { Row, Col, Radio, Spin } from 'antd';
-import { Switch, NavLink, Route } from 'react-router-dom';
+import { Row, Col, Spin, Select } from 'antd';
+import { Switch, NavLink, Route, Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
 import { sorting } from '../../redux/actions/products';
+import { Button } from '../../components/buttons/buttons';
+import CreateProject from './overview/CreateProject';
 
-const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
 const Project = ({ searchData, sortings, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
+    visible: false,
   });
-  const { notdata } = state;
+
+  const { notdata, visible } = state;
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -25,41 +28,81 @@ const Project = ({ searchData, sortings, match }) => {
     });
   };
 
-  const onSorting = e => {
-    sortings(e.target.value);
+  const onSorting = selectedItems => {
+    sortings(selectedItems);
   };
+
+  const onChangeCategory = e => {
+    e.preventDefault();
+    console.log(e.target.getAttribute('data-category'));
+  };
+
+  const showModal = e => {
+    setState({
+      visible: true,
+    });
+  };
+
+  const onCancel = e => {
+    setState({
+      visible: false,
+    });
+  };
+
   return (
     <Fragment>
-      <PageHeader ghost title="Shop" />
+      <PageHeader
+        ghost
+        title="Projects | "
+        subTitle={<Fragment>12 Running Projects</Fragment>}
+        buttons={[
+          <Button onClick={showModal} key="1" type="primary">
+            + Create Projects
+          </Button>,
+        ]}
+      />
       <Main>
         <Row gutter={15}>
-          <Col md={5}>
-            <Suspense
-              fallback={
-                <div className="spin">
-                  <Spin />
-                </div>
-              }
-            >
-              <Filters />
-            </Suspense>
-          </Col>
-          <Col md={19}>
+          <Col md={24}>
             <Row gutter={15}>
-              <Col md={8}>
-                <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />
+              <Col md={6}>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link onClick={onChangeCategory} data-category="all" to="#">
+                        All
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onChangeCategory} data-category="progress" to="#">
+                        In Progress
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onChangeCategory} data-category="complete" to="#">
+                        Complete
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onChangeCategory} data-category="draft" to="#">
+                        Draft
+                      </Link>
+                    </li>
+                  </ul>
+                </nav>
               </Col>
-              <Col md={7}>
-                <p>Showing 1–8 of 86 results</p>
+              <Col md={12}>
+                <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
               </Col>
-              <Col md={9}>
+              <Col md={6}>
                 Sort By :
-                <Radio.Group onChange={onSorting} defaultValue={3}>
-                  <Radio.Button value="rate">Top Rated</Radio.Button>
-                  <Radio.Button value="popular">Popular</Radio.Button>
-                  <Radio.Button value="time">Newest</Radio.Button>
-                  <Radio.Button value="price">Price</Radio.Button>
-                </Radio.Group>
+                <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="">
+                  <Select.Option value="">Project Category</Select.Option>
+                  <Select.Option value="rate">Top Rated</Select.Option>
+                  <Select.Option value="popular">Popular</Select.Option>
+                  <Select.Option value="time">Newest</Select.Option>
+                  <Select.Option value="price">Price</Select.Option>
+                </Select>
                 <NavLink to={match.path}>
                   <FeatherIcon icon="grid" size={16} />
                 </NavLink>
@@ -77,17 +120,19 @@ const Project = ({ searchData, sortings, match }) => {
                     </div>
                   }
                 >
-                  {/* <Route exact path={match.path} component={Grid} />
-                  <Route path={match.path + '/:list'} component={List} /> */}
+                  <Route exact path={match.path} component={Grid} />
+                  <Route path={match.path + '/:list'} component={List} />
                 </Suspense>
               </Switch>
             </Row>
           </Col>
         </Row>
       </Main>
+      <CreateProject onCancel={onCancel} visible={visible} />
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     sortings: sortBy => dispatch(sorting(sortBy)),

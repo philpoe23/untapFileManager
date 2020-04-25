@@ -13,6 +13,7 @@ const SignUp = ({ form }) => {
       }
     });
   };
+
   const { getFieldDecorator } = form;
   const onChange = (checked, value) => {
     console.log(`checked = ${checked}`);

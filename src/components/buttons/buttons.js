@@ -31,7 +31,9 @@ const Button = props => {
     </ButtonStyled>
   );
 };
-
+Button.defaultProps = {
+  type: 'default',
+};
 Button.propTypes = {
   type: PropTypes.string,
   shape: PropTypes.string,

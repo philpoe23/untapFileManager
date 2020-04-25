@@ -1,10 +1,10 @@
 import React from 'react';
 import { ModalStyled } from './styled';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import { Button } from '../buttons/buttons';
 
 const Modal = props => {
-  const { onCancel, onOk, visible, title, type, color } = props;
+  const { onCancel, onOk, visible, title, type, color, footer, width } = props;
   return (
     <ModalStyled
       title={title}
@@ -12,26 +12,34 @@ const Modal = props => {
       onOk={onOk}
       onCancel={onCancel}
       type={color ? type : false}
-      footer={[
-        <Button type="secondary" key="back" onClick={onCancel}>
-          Cancel
-        </Button>,
-        <Button type={type} key="submit" onClick={onOk}>
-          Save Change
-        </Button>,
-      ]}
+      width={width}
+      footer={
+        footer
+          ? footer
+          : [
+              <Button type="secondary" key="back" onClick={onCancel}>
+                Cancel
+              </Button>,
+              <Button type={type} key="submit" onClick={onOk}>
+                Save Change
+              </Button>,
+            ]
+      }
     >
       {props.children}
     </ModalStyled>
   );
 };
-
+Modal.defaultProps = {
+  width: 620,
+};
 Modal.propTypes = {
-  onCancel: PropTypes.func.isRequired,
-  onOk: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
+  onOk: PropTypes.func,
   visible: PropTypes.bool,
   title: PropTypes.string,
   type: PropTypes.string,
+  footer: PropTypes.arrayOf(object),
 };
 
 const alertModal = ModalStyled;
