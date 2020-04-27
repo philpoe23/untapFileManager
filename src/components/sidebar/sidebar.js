@@ -95,12 +95,13 @@ const SidebarItem = () => {
         <Menu.Item key="18">Transactions</Menu.Item>
       </SubMenu>
 
-      <Menu.Item key="calendar">
+      {/* <Menu.Item key="calendar">
         <NavLink to="/calendar">
           <FeatherIcon icon="calendar" size={16} />
           <span>Calendar</span>
         </NavLink>
-      </Menu.Item>
+      </Menu.Item> */}
+
       <Menu.Item key="project">
         <NavLink to="/project">
           <FeatherIcon icon="target" size={16} />
