@@ -80,6 +80,10 @@ const ChatApp = ({ searchData, chat }) => {
         <FeatherIcon icon="slash" size={14} />
         <span>More three</span>
       </NavLink>
+      <NavLink to="#">
+        <FeatherIcon icon="slash" size={14} />
+        <span>More Four</span>
+      </NavLink>
     </Fragment>
   );
 
