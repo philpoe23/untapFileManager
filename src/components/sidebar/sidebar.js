@@ -79,7 +79,9 @@ const SidebarItem = () => {
         </Menu.Item>
 
         <Menu.Item key="11">Product edit</Menu.Item>
-        <Menu.Item key="13">Cart</Menu.Item>
+        <Menu.Item key="cart">
+          <NavLink to="/ecommerce/cart">Cart</NavLink>
+        </Menu.Item>
         <Menu.Item key="orders">
           <NavLink to="/ecommerce/orders">Orders</NavLink>
         </Menu.Item>

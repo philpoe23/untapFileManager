@@ -1,6 +1,12 @@
 import { LOGIN_BEGIN, LOGIN_SUCCESS, LOGIN_ERR, LOGOUT_BEGIN, LOGOUT_SUCCESS, LOGOUT_ERR } from '../configActions';
-const initState = { login: window.localStorage.getItem('logedIn'), loading: false, error: null };
-const authReducer = (state = initState, action) => {
+
+const initState = {
+  login: window.localStorage.getItem('logedIn'),
+  loading: false,
+  error: null,
+};
+
+const Reducer = (state = initState, action) => {
   const { type, data, err } = action;
   switch (type) {
     case LOGIN_BEGIN:
@@ -41,4 +47,4 @@ const authReducer = (state = initState, action) => {
       return state;
   }
 };
-export default authReducer;
+export default Reducer;

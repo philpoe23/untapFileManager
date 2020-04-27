@@ -3,6 +3,7 @@ import { Row, Col, Table, Progress } from 'antd';
 import Heading from '../../../components/heading/heading';
 import { connect } from 'react-redux';
 import { Cards } from '../../../components/cards/frame/cards-frame';
+import { Link } from 'react-router-dom';
 
 const List = () => {
   const dataSource = [
@@ -10,7 +11,9 @@ const List = () => {
       key: '1',
       project: (
         <div>
-          <Heading as="h4">Dashboard UI Project</Heading>
+          <Link to="/projectDetails/1">
+            <Heading as="h4">Dashboard UI Project</Heading>
+          </Link>
           <p>Web Design</p>
         </div>
       ),

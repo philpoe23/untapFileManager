@@ -1,29 +1,24 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col, Spin } from 'antd';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { UL, Content, BlockSpan, MessageList, Footer } from './style';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import { UL, Content, BlockSpan } from './style';
 import { textRefactor } from '../../Helper';
-import Heading from '../../components/heading/heading';
-import { Button } from '../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
-
-const ChatApp = ({ searchData, chat }) => {
+//import SingleChat from './overview/singleChat';
+//const SingleChat = lazy(() => import('./overview/singleChat'));
+const ChatApp = ({ searchData, chat, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
     chatData: chat,
     me: 'woadud@gmail.com',
-    singleContent: chat[0].content,
-    name: chat[0].userName,
-    inputValue: '',
   });
 
-  const { notdata, chatData, singleContent, name, me, inputValue } = state;
+  const { notdata, chatData } = state;
 
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -32,56 +27,6 @@ const ChatApp = ({ searchData, chat }) => {
       notdata: data,
     });
   };
-
-  const getLiData = e => {
-    const email = e.target.getAttribute('data-email');
-    const singleEmail = chatData !== undefined && chatData.filter(item => item.email === email);
-    return setState({
-      ...state,
-      singleContent: singleEmail[0].content,
-      name: singleEmail[0].userName,
-    });
-  };
-
-  const handleChange = e => {
-    setState({
-      ...state,
-      inputValue: e.target.value,
-    });
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const pushcontent = {
-      content: inputValue,
-      time: new Date().getTime(),
-      seen: false,
-      reaction: false,
-      email: me,
-    };
-    setState({
-      ...state,
-      singleContent: [...singleContent, pushcontent],
-      inputValue: '',
-    });
-  };
-
-  const content = (
-    <Fragment>
-      <NavLink to="#">
-        <FeatherIcon icon="users" size={14} />
-        <span>More one</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon icon="trash-2" size={14} />
-        <span>More two</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon icon="slash" size={14} />
-        <span>More three</span>
-      </NavLink>
-    </Fragment>
-  );
 
   return (
     <Fragment>
@@ -113,17 +58,15 @@ const ChatApp = ({ searchData, chat }) => {
                       const id = content[content.length - 1]['time'];
                       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
                       return (
-                        <li onClick={getLiData} key={index + 1} data-email={email}>
-                          <NavLink onClick={getLiData} data-email={email} to="#">
-                            <BlockSpan onClick={getLiData} data-email={email}>
+                        <li key={index + 1}>
+                          <NavLink to={match.path + '/' + email}>
+                            <BlockSpan>
                               {userName}
                               <span style={{ float: 'right' }}>
                                 {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
                               </span>
                             </BlockSpan>
-                            <BlockSpan onClick={getLiData} data-email={email}>
-                              {textRefactor(content[content.length - 1]['content'], 5)}
-                            </BlockSpan>
+                            <BlockSpan>{textRefactor(content[content.length - 1]['content'], 5)}</BlockSpan>
                           </NavLink>
                         </li>
                       );
@@ -133,51 +76,17 @@ const ChatApp = ({ searchData, chat }) => {
             </Cards>
           </Col>
           <Col md={18}>
-            <Cards title={name} more={content}>
-              <ul>
-                {singleContent.length ? (
-                  singleContent.map((mes, index) => {
-                    const id = mes.time;
-                    const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
-                    return (
-                      <div key={index + 1} style={{ overflow: 'hidden' }}>
-                        <div>
-                          <Heading as={'h5'}>
-                            {mes.email !== me && name}
-                            <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
-                          </Heading>
-                        </div>
-                        <Icon type="smile" />
-                        <MessageList>{mes.content}</MessageList>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <p>No data found</p>
-                )}
-              </ul>
-              <Footer>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    onChange={handleChange}
-                    placeholder="Type your message..."
-                    name="chat"
-                    id="chat"
-                    style={{ width: '70%' }}
-                    value={inputValue}
-                  />
-                  <Button type="default">
-                    <FeatherIcon icon="camera" size={18} />
-                  </Button>
-                  <Button type="default">
-                    <FeatherIcon icon="paperclip" size={18} />
-                  </Button>
-                  <Button onClick={handleSubmit} type="primary">
-                    <FeatherIcon icon="send" size={18} />
-                  </Button>
-                </form>
-              </Footer>
-            </Cards>
+            <Switch>
+              <Suspense
+                fallback={
+                  <div className="spin">
+                    <Spin />
+                  </div>
+                }
+              >
+                {/* <Route path={match.path + '/:id'} component={SingleChat} /> */}
+              </Suspense>
+            </Switch>
           </Col>
         </Row>
       </Main>

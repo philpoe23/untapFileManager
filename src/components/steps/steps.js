@@ -4,23 +4,25 @@ import PropTypes from 'prop-types';
 import { StepsStyle } from './style';
 const { Step } = StepsStyle;
 
-const Steps = props => {
-  const {
-    size,
-    current,
-    direction,
-    status,
-    progressDot,
-    steps,
-    isswitch,
-    navigation,
-    onNext,
-    onPrev,
-    onChange,
-  } = props;
+const Steps = ({
+  size,
+  current,
+  direction,
+  status,
+  progressDot,
+  steps,
+  isswitch,
+  navigation,
+  onNext,
+  onPrev,
+  onChange,
+  children,
+  height,
+}) => {
   const [state, setState] = useState({
-    currents: 0,
+    currents: current,
   });
+
   const next = () => {
     const currents = state.currents + 1;
     setState({ currents });
@@ -32,17 +34,21 @@ const Steps = props => {
     setState({ currents });
     onPrev(currents);
   };
+
   const { currents } = state;
+
   const stepStyle = {
     marginBottom: 60,
     boxShadow: '0px -1px 0 0 #e8e8e8 inset',
   };
+
   //console.log(steps);
   const onChanges = current => {
     // console.log('onChange:', current);
     setState({ currents: current });
     onChange && onChange(current);
   };
+
   return !isswitch ? (
     <StepsStyle
       type={navigation && 'navigation'}
@@ -54,30 +60,34 @@ const Steps = props => {
       progressDot={progressDot}
       onChange={onChanges}
     >
-      {props.children}
+      {children}
     </StepsStyle>
   ) : (
     <Fragment>
       <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
         {steps !== undefined && steps.map(item => <Step key={item.title} title={item.title} />)}
       </StepsStyle>
+
       <div
         className="steps-content"
-        style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        style={{ minHeight: height, display: 'flex', justifyContent: 'center', marginTop: 100 }}
       >
         {steps[state.currents].content}
       </div>
+
       <div className="steps-action">
         {state.currents < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
           </Button>
         )}
+
         {state.currents === steps.length - 1 && (
           <Button type="primary" onClick={() => message.success('Processing complete!')}>
             Done
           </Button>
         )}
+
         {state.currents > 0 && (
           <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
             Previous
@@ -86,6 +96,11 @@ const Steps = props => {
       </div>
     </Fragment>
   );
+};
+
+Steps.defaultProps = {
+  current: 0,
+  height: 150,
 };
 
 Steps.propTypes = {
@@ -100,6 +115,7 @@ Steps.propTypes = {
   onNext: PropTypes.func,
   onPrev: PropTypes.func,
   onChange: PropTypes.func,
+  height: PropTypes.number,
 };
 
 export { Step, Steps };
