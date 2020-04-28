@@ -28,6 +28,7 @@ const ChatApp = ({ chat, match }) => {
         singleContent: chat[0].content,
         name: chat[0].userName,
         inputValue: '',
+        me: 'woadud@gmail.com',
       });
     }
     return () => {
