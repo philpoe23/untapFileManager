@@ -9,9 +9,11 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import { UL, Content, BlockSpan } from './style';
 import { textRefactor } from '../../Helper';
 import moment from 'moment';
-//import SingleChat from './overview/singleChat';
-//const SingleChat = lazy(() => import('./overview/singleChat'));
-const ChatApp = ({ searchData, chat, match }) => {
+import { filterSinglepage } from '../../redux/chat/actionCreator';
+import Heading from '../../components/heading/heading';
+
+const SingleChat = lazy(() => import('./overview/singleChat'));
+const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
   const [state, setState] = useState({
     notdata: searchData,
     chatData: chat,
@@ -28,6 +30,10 @@ const ChatApp = ({ searchData, chat, match }) => {
     });
   };
 
+  const dataFiltering = e => {
+    filterSinglepage(e.currentTarget.getAttribute('data-email'));
+  };
+
   return (
     <Fragment>
       <PageHeader ghost title="Chat" />
@@ -35,7 +41,7 @@ const ChatApp = ({ searchData, chat, match }) => {
       <Main>
         <Row gutter={15}>
           <Col md={6}>
-            <Cards>
+            <Cards headless>
               <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
               <nav>
                 <UL>
@@ -59,7 +65,7 @@ const ChatApp = ({ searchData, chat, match }) => {
                       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
                       return (
                         <li key={index + 1}>
-                          <NavLink to={match.path + '/' + email}>
+                          <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
                             <BlockSpan>
                               {userName}
                               <span style={{ float: 'right' }}>
@@ -84,7 +90,18 @@ const ChatApp = ({ searchData, chat, match }) => {
                   </div>
                 }
               >
-                {/* <Route path={match.path + '/:id'} component={SingleChat} /> */}
+                <Route
+                  exact
+                  path={match.path}
+                  component={() => {
+                    return (
+                      <Cards headless>
+                        <Heading>Welcome to our Chating Service</Heading>
+                      </Cards>
+                    );
+                  }}
+                />
+                <Route path={match.path + '/:id'} component={SingleChat} />
               </Suspense>
             </Switch>
           </Col>
@@ -94,6 +111,12 @@ const ChatApp = ({ searchData, chat, match }) => {
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    filterSinglepage: paramsId => dispatch(filterSinglepage(paramsId)),
+  };
+};
+
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
@@ -101,4 +124,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ChatApp);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatApp);

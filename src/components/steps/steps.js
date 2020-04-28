@@ -15,9 +15,11 @@ const Steps = ({
   navigation,
   onNext,
   onPrev,
+  onDone,
   onChange,
   children,
   height,
+  isfinished,
 }) => {
   const [state, setState] = useState({
     currents: current,
@@ -74,26 +76,27 @@ const Steps = ({
       >
         {steps[state.currents].content}
       </div>
+      {!isfinished && (
+        <div className="steps-action">
+          {state.currents < steps.length - 1 && (
+            <Button type="primary" onClick={() => next()}>
+              Next
+            </Button>
+          )}
 
-      <div className="steps-action">
-        {state.currents < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
+          {state.currents === steps.length - 1 && (
+            <Button type="primary" onClick={onDone}>
+              Done
+            </Button>
+          )}
 
-        {state.currents === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
-            Done
-          </Button>
-        )}
-
-        {state.currents > 0 && (
-          <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
-      </div>
+          {state.currents > 0 && (
+            <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
+              Previous
+            </Button>
+          )}
+        </div>
+      )}
     </Fragment>
   );
 };
@@ -101,6 +104,8 @@ const Steps = ({
 Steps.defaultProps = {
   current: 0,
   height: 150,
+  onDone: () => message.success('Processing complete!'),
+  isfinished: false,
 };
 
 Steps.propTypes = {
@@ -112,8 +117,10 @@ Steps.propTypes = {
   steps: PropTypes.arrayOf(PropTypes.object),
   isswitch: PropTypes.bool,
   navigation: PropTypes.bool,
+  isfinished: PropTypes.bool,
   onNext: PropTypes.func,
   onPrev: PropTypes.func,
+  onDone: PropTypes.func,
   onChange: PropTypes.func,
   height: PropTypes.number,
 };

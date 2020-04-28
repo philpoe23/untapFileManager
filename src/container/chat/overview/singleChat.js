@@ -8,9 +8,8 @@ import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
-import { filterSinglepage } from '../../../redux/chat/actionCreator';
 
-const ChatApp = ({ chat, match, filterSinglepage }) => {
+const ChatApp = ({ chat, match }) => {
   const [state, setState] = useState({
     chatData: chat,
     me: 'woadud@gmail.com',
@@ -24,7 +23,6 @@ const ChatApp = ({ chat, match, filterSinglepage }) => {
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
-      filterSinglepage(match.params.id);
       setState({
         chatData: chat,
         singleContent: chat[0].content,
@@ -35,7 +33,7 @@ const ChatApp = ({ chat, match, filterSinglepage }) => {
     return () => {
       unmounted = true;
     };
-  }, [filterSinglepage, match, chat]);
+  }, [match, chat]);
 
   const handleChange = e => {
     setState({
@@ -128,16 +126,10 @@ const ChatApp = ({ chat, match, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: paramsId => dispatch(filterSinglepage(paramsId)),
-  };
-};
-
 const mapStateToProps = state => {
   return {
     chat: state.chatSingle.data,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatApp);
+export default connect(mapStateToProps)(ChatApp);
