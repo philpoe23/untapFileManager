@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment, lazy, Suspense } from 'react';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { filterSinglepage } from '../../../redux/actions/email';
+import { filterSinglepage } from '../../../redux/email/actionCreator';
 import { connect } from 'react-redux';
 import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -165,7 +165,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    email: state.emailSingle.allMessage[0],
+    email: state.emailSingle.data[0],
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MailOpen);

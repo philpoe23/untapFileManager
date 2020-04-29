@@ -1,19 +1,18 @@
 import initialState from '../../config/dataService/emailData.json';
+import actions from './actions';
+
+const { singleEmailBegin, singleEmailSuccess, singleEmailErr } = actions;
+
 const filterSinglepage = paramsId => {
   return async dispatch => {
     try {
+      dispatch(singleEmailBegin());
       const data = initialState.allMessage.filter(email => {
         return email.id === paramsId;
       });
-      dispatch({
-        type: 'FILTER_SINGLE_EMAIL_SUCCESS',
-        data: data,
-      });
+      dispatch(singleEmailSuccess(data));
     } catch (err) {
-      dispatch({
-        type: 'FILTER_SINGLE_EMAIL_ERR',
-        err,
-      });
+      dispatch(singleEmailErr(err));
     }
   };
 };
