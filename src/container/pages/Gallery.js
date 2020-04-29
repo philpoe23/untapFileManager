@@ -82,15 +82,18 @@ const Gallery = ({ gallery, galleryFilter, isloading }) => {
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     galleryFilter: (column, value) => dispatch(galleryFilter(column, value)),
   };
 };
+
 const mapStateToProps = state => {
   return {
     gallery: state.gallery.data,
     isloading: state.gallery.loading,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

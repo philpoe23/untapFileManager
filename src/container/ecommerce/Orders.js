@@ -8,14 +8,15 @@ import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import FeatherIcon from 'feather-icons-react';
-import { orderFilter } from '../../redux/actions/orders';
+import { orderFilter } from '../../redux/orders/actionCreator';
 
-const Orders = ({ searchData, orders, orderFilter }) => {
+const Orders = ({ searchData, orders, orderFilter, isloading }) => {
   const [state, setState] = useState({
     notdata: searchData,
     item: orders,
     selectedRowKeys: [],
   });
+
   const { notdata, item, selectedRowKeys } = state;
   const filterKey = ['Shipped', 'Awaiting Shipment', 'Canceled'];
 
@@ -164,7 +165,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
-    orders: state.orders,
+    orders: state.orders.data,
+    isloading: state.gallery.loading,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

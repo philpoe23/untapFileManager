@@ -3,13 +3,13 @@ import themeUsersReducer from './reducers/userReducers/themeUsers';
 import headerSearchReducer from './reducers/search/header-search';
 import readMessageReducer from './reducers/auth-info/message';
 import readNotificationReducer from './reducers/auth-info/notification';
-import orderReducer from './reducers/ordersReducers';
 import sellersReducer from './reducers/sellersReducers';
 import { userReducer } from './reducers/usersReducers';
 import { teamReducer } from './reducers/teamReducers';
 
 import authReducer from './authentication/reducers';
 
+import orderReducer from './orders/reducers';
 import galleryReducer from './gallary/reducers';
 import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
