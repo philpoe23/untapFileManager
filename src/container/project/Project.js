@@ -9,11 +9,12 @@ import FeatherIcon from 'feather-icons-react';
 import { sorting } from '../../redux/actions/products';
 import { Button } from '../../components/buttons/buttons';
 import CreateProject from './overview/CreateProject';
+import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
 
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const Project = ({ searchData, sortings, match }) => {
+const Project = ({ searchData, sortings, match, filterProjectByStatus, sortingProjectByCategory }) => {
   const [state, setState] = useState({
     notdata: searchData,
     visible: false,
@@ -29,12 +30,12 @@ const Project = ({ searchData, sortings, match }) => {
   };
 
   const onSorting = selectedItems => {
-    sortings(selectedItems);
+    sortingProjectByCategory(selectedItems);
   };
 
   const onChangeCategory = e => {
     e.preventDefault();
-    console.log(e.target.getAttribute('data-category'));
+    filterProjectByStatus(e.currentTarget.getAttribute('data-category'));
   };
 
   const showModal = e => {
@@ -84,8 +85,13 @@ const Project = ({ searchData, sortings, match }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link onClick={onChangeCategory} data-category="draft" to="#">
-                        Draft
+                      <Link onClick={onChangeCategory} data-category="late" to="#">
+                        Late
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onChangeCategory} data-category="early" to="#">
+                        Early
                       </Link>
                     </li>
                   </ul>
@@ -96,8 +102,8 @@ const Project = ({ searchData, sortings, match }) => {
               </Col>
               <Col md={6}>
                 Sort By :
-                <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="">
-                  <Select.Option value="">Project Category</Select.Option>
+                <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="category">
+                  <Select.Option value="category">Project Category</Select.Option>
                   <Select.Option value="rate">Top Rated</Select.Option>
                   <Select.Option value="popular">Popular</Select.Option>
                   <Select.Option value="time">Newest</Select.Option>
@@ -136,6 +142,8 @@ const Project = ({ searchData, sortings, match }) => {
 const mapDispatchToProps = dispatch => {
   return {
     sortings: sortBy => dispatch(sorting(sortBy)),
+    filterProjectByStatus: status => dispatch(filterProjectByStatus(status)),
+    sortingProjectByCategory: category => dispatch(sortingProjectByCategory(category)),
   };
 };
 

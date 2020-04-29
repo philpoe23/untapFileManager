@@ -1,4 +1,6 @@
-import { loginBegin, loginSuccess, loginErr, logoutBegin, logoutSuccess, logoutErr } from '../configActions';
+import actions from './actions';
+
+const { loginBegin, loginSuccess, loginErr, logoutBegin, logoutSuccess, logoutErr } = actions;
 
 const login = () => {
   return async dispatch => {

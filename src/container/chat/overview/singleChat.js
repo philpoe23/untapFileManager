@@ -65,15 +65,15 @@ const ChatApp = ({ chat, match }) => {
     <Fragment>
       <NavLink to="#">
         <FeatherIcon icon="users" size={14} />
-        <span>More one</span>
+        <span>Create new group</span>
       </NavLink>
       <NavLink to="#">
         <FeatherIcon icon="trash-2" size={14} />
-        <span>More two</span>
+        <span>Delete conversation</span>
       </NavLink>
       <NavLink to="#">
         <FeatherIcon icon="slash" size={14} />
-        <span>More three</span>
+        <span>Block & Report</span>
       </NavLink>
     </Fragment>
   );

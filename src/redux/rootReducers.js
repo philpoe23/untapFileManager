@@ -4,14 +4,17 @@ import headerSearchReducer from './reducers/search/header-search';
 import readMessageReducer from './reducers/auth-info/message';
 import readNotificationReducer from './reducers/auth-info/notification';
 import { emailReducer, emailSingleReducer } from './reducers/emailReducers';
-import { chatReducer, SingleReducer } from './chat/reducers';
 import orderReducer from './reducers/ordersReducers';
 import sellersReducer from './reducers/sellersReducers';
 import galleryReducer from './reducers/galleryReducers';
-import authReducer from './reducers/authReducers';
 import { productReducer, productSingleReducer } from './reducers/productReducers';
 import { userReducer } from './reducers/usersReducers';
 import { teamReducer } from './reducers/teamReducers';
+
+import authReducer from './authentication/reducers';
+
+import { chatReducer, SingleChatReducer } from './chat/reducers';
+import { projectReducer, SingleProjectReducer } from './project/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -20,15 +23,20 @@ const rootReducers = combineReducers({
   notification: readNotificationReducer,
   email: emailReducer,
   emailSingle: emailSingleReducer,
-  chat: chatReducer,
-  chatSingle: SingleReducer,
   products: productReducer,
   product: productSingleReducer,
   orders: orderReducer,
   sellers: sellersReducer,
   gallery: galleryReducer,
-  auth: authReducer,
   users: userReducer,
   team: teamReducer,
+
+  auth: authReducer,
+
+  chatSingle: SingleChatReducer,
+  chat: chatReducer,
+
+  projects: projectReducer,
+  project: SingleProjectReducer,
 });
 export default rootReducers;

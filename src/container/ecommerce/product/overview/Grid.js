@@ -22,6 +22,7 @@ const Grid = ({ productsAll }) => {
       unmounted = true;
     };
   }, [productsAll]);
+
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };

@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { Fragment, lazy, Suspense, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
@@ -8,11 +8,22 @@ import Heading from '../../components/heading/heading';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { filterSinglepage } from '../../redux/project/actionCreator';
 
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
 
-const ProjectDetails = ({ match }) => {
+const ProjectDetails = ({ match, project, filterSinglepage }) => {
+  useEffect(() => {
+    let unmounted = false;
+    if (!unmounted) {
+      filterSinglepage(parseInt(match.params.id));
+    }
+    return () => {
+      unmounted = true;
+    };
+  }, [match.params.id, filterSinglepage]);
+  const { title, content } = project[0];
   return (
     <Fragment>
       <PageHeader
@@ -20,7 +31,7 @@ const ProjectDetails = ({ match }) => {
         title={
           <div>
             <Heading as="h2">
-              Application UI Design
+              {title}
               <Button type="primary">
                 <FeatherIcon icon="plus" size="14" /> Add Task
               </Button>
@@ -86,16 +97,7 @@ const ProjectDetails = ({ match }) => {
           </Col>
           <Col md={12}>
             <Cards title="About Project">
-              <p>
-                Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim
-                id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non.
-                Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi
-                eiusmod nostrud sit.
-              </p>
-              <p>
-                Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt.
-                Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.
-              </p>
+              {content}
               <br />
               <Row gutter={5}>
                 <Col md={5}>
@@ -199,13 +201,13 @@ const ProjectDetails = ({ match }) => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    //filterSinglepage: id => dispatch(filterSinglepage(id)),
+    filterSinglepage: id => dispatch(filterSinglepage(id)),
   };
 };
 
 const mapStateToProps = state => {
   return {
-    // product: state.product,
+    project: state.project.data,
     // products: state.products,
   };
 };
