@@ -1,16 +1,17 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Row, Col, Rate, Pagination } from 'antd';
+import { Row, Col, Rate, Pagination, Spin } from 'antd';
 import Heading from '../../../../components/heading/heading';
 import { Button } from '../../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { connect } from 'react-redux';
 
-const List = ({ productsAll }) => {
+const List = ({ productsAll, isloader }) => {
   const [state, setState] = useState({
     products: productsAll,
   });
   const { products } = state;
+
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -22,16 +23,23 @@ const List = ({ productsAll }) => {
       unmounted = true;
     };
   }, [productsAll]);
+
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
     console.log(current, pageSize);
   };
+
   return (
     <Row gutter={15}>
-      {products.length ? (
+      {isloader ? (
+        <div className="spin">
+          <Spin />
+        </div>
+      ) : products.length ? (
         products.map(({ id, name, rate, price, oldPrice, popular, description, img }) => {
           return (
             <Col md={24} key={id}>
@@ -98,9 +106,11 @@ const List = ({ productsAll }) => {
     </Row>
   );
 };
+
 const mapStateToProps = state => {
   return {
-    productsAll: state.products,
+    productsAll: state.products.data,
+    isloader: state.products.loading,
   };
 };
 

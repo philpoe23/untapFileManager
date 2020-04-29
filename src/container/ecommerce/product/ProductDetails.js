@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../../components/heading/heading';
-import { filterSinglepage } from '../../../redux/actions/products';
+import { filterSinglepage } from '../../../redux/product/actionCreator';
 import { NavLink } from 'react-router-dom';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
@@ -134,8 +134,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    product: state.product,
-    products: state.products,
+    product: state.product.data,
+    products: state.products.data,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

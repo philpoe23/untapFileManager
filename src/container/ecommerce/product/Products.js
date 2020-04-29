@@ -6,7 +6,7 @@ import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import { sorting } from '../../../redux/actions/products';
+import { sorting } from '../../../redux/product/actionCreator';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
@@ -55,7 +55,7 @@ const Product = ({ searchData, sortings, match }) => {
               </Col>
               <Col md={9}>
                 Sort By :
-                <Radio.Group onChange={onSorting} defaultValue={3}>
+                <Radio.Group onChange={onSorting} defaultValue={'rate'}>
                   <Radio.Button value="rate">Top Rated</Radio.Button>
                   <Radio.Button value="popular">Popular</Radio.Button>
                   <Radio.Button value="time">Newest</Radio.Button>
@@ -78,7 +78,7 @@ const Product = ({ searchData, sortings, match }) => {
                     </div>
                   }
                 >
-                  <Route path={match.path} component={Grid} />
+                  <Route exact path={match.path} component={Grid} />
                   <Route path={match.path + '/:list'} component={List} />
                 </Suspense>
               </Switch>

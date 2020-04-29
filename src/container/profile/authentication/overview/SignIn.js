@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import Heading from '../../../../components/heading/heading';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
 import { Form, Input, Icon, Button } from 'antd';
-import { login } from '../../../../redux/actions/authentication';
+import { login } from '../../../../redux/authentication/actionCreator';
 import { connect } from 'react-redux';
 
 const SignIn = ({ form, login, isLoading }) => {

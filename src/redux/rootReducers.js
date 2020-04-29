@@ -7,7 +7,7 @@ import { emailReducer, emailSingleReducer } from './reducers/emailReducers';
 import orderReducer from './reducers/ordersReducers';
 import sellersReducer from './reducers/sellersReducers';
 import galleryReducer from './reducers/galleryReducers';
-import { productReducer, productSingleReducer } from './reducers/productReducers';
+import { productReducer, SingleProductReducer } from './product/reducers';
 import { userReducer } from './reducers/usersReducers';
 import { teamReducer } from './reducers/teamReducers';
 
@@ -24,7 +24,7 @@ const rootReducers = combineReducers({
   email: emailReducer,
   emailSingle: emailSingleReducer,
   products: productReducer,
-  product: productSingleReducer,
+  product: SingleProductReducer,
   orders: orderReducer,
   sellers: sellersReducer,
   gallery: galleryReducer,

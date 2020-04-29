@@ -7,7 +7,12 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { CheckboxGroup } from '../../../../components/checkbox/checkbox';
 import { Rate } from 'antd';
 import { connect } from 'react-redux';
-import { priceRange, filterByRating, filterByBrand, filterByCategory } from '../../../../redux/actions/products';
+import {
+  filterByPriceRange,
+  filterByRating,
+  filterByBrand,
+  filterByCategory,
+} from '../../../../redux/product/actionCreator';
 
 const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }) => {
   const [state, setState] = useState({
@@ -179,7 +184,7 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
 };
 const mapDispatchToProps = dispatch => {
   return {
-    priceRange: range => dispatch(priceRange(range)),
+    priceRange: range => dispatch(filterByPriceRange(range)),
     filterByRating: range => dispatch(filterByRating(range)),
     filterByBrand: brand => dispatch(filterByBrand(brand)),
     filterByCategory: category => dispatch(filterByCategory(category)),

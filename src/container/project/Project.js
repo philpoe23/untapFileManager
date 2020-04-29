@@ -6,7 +6,6 @@ import { Row, Col, Spin, Select } from 'antd';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import { sorting } from '../../redux/actions/products';
 import { Button } from '../../components/buttons/buttons';
 import CreateProject from './overview/CreateProject';
 import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
@@ -14,7 +13,7 @@ import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/pro
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const Project = ({ searchData, sortings, match, filterProjectByStatus, sortingProjectByCategory }) => {
+const Project = ({ searchData, match, filterProjectByStatus, sortingProjectByCategory }) => {
   const [state, setState] = useState({
     notdata: searchData,
     visible: false,
@@ -141,7 +140,6 @@ const Project = ({ searchData, sortings, match, filterProjectByStatus, sortingPr
 
 const mapDispatchToProps = dispatch => {
   return {
-    sortings: sortBy => dispatch(sorting(sortBy)),
     filterProjectByStatus: status => dispatch(filterProjectByStatus(status)),
     sortingProjectByCategory: category => dispatch(sortingProjectByCategory(category)),
   };
