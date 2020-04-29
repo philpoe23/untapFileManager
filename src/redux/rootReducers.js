@@ -5,12 +5,12 @@ import readMessageReducer from './reducers/auth-info/message';
 import readNotificationReducer from './reducers/auth-info/notification';
 import orderReducer from './reducers/ordersReducers';
 import sellersReducer from './reducers/sellersReducers';
-import galleryReducer from './reducers/galleryReducers';
 import { userReducer } from './reducers/usersReducers';
 import { teamReducer } from './reducers/teamReducers';
 
 import authReducer from './authentication/reducers';
 
+import galleryReducer from './gallary/reducers';
 import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer } from './chat/reducers';
@@ -23,11 +23,12 @@ const rootReducers = combineReducers({
   notification: readNotificationReducer,
   orders: orderReducer,
   sellers: sellersReducer,
-  gallery: galleryReducer,
   users: userReducer,
   team: teamReducer,
 
   auth: authReducer,
+
+  gallery: galleryReducer,
 
   email: emailReducer,
   emailSingle: SingleEmailReducer,

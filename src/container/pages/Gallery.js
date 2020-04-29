@@ -2,13 +2,13 @@ import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
-import { Row, Col } from 'antd';
+import { Row, Col, Spin } from 'antd';
 import Heading from '../../components/heading/heading';
 import { Link } from 'react-router-dom';
 import { GalleryNav } from './style';
-import { galleryFilter } from '../../redux/actions/gallery';
+import { galleryFilter } from '../../redux/gallary/actionCreator';
 
-const Gallery = ({ gallery, galleryFilter }) => {
+const Gallery = ({ gallery, galleryFilter, isloading }) => {
   const handleChange = e => {
     e.preventDefault();
     galleryFilter('category', e.target.getAttribute('data-filter'));
@@ -55,20 +55,28 @@ const Gallery = ({ gallery, galleryFilter }) => {
               </ul>
             </GalleryNav>
           </Col>
-          {gallery.map(item => {
-            const { id, name, img, category } = item;
-            return (
-              <Col key={id} md={6}>
-                <figure>
-                  <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />
-                  <figcaption>
-                    <Heading as="h4">{name}</Heading>
-                    <p>{category}</p>
-                  </figcaption>
-                </figure>
-              </Col>
-            );
-          })}
+          {isloading ? (
+            <Col md={24}>
+              <div className="spin">
+                <Spin />
+              </div>
+            </Col>
+          ) : (
+            gallery.map(item => {
+              const { id, name, img, category } = item;
+              return (
+                <Col key={id} md={6}>
+                  <figure>
+                    <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />
+                    <figcaption>
+                      <Heading as="h4">{name}</Heading>
+                      <p>{category}</p>
+                    </figcaption>
+                  </figure>
+                </Col>
+              );
+            })
+          )}
         </Row>
       </Main>
     </Fragment>
@@ -81,7 +89,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = state => {
   return {
-    gallery: state.gallery,
+    gallery: state.gallery.data,
+    isloading: state.gallery.loading,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
