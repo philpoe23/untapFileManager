@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import themeUsersReducer from './reducers/userReducers/themeUsers';
-import readMessageReducer from './reducers/auth-info/message';
-import readNotificationReducer from './reducers/auth-info/notification';
-import sellersReducer from './reducers/sellersReducers';
-import { userReducer } from './reducers/usersReducers';
-import { teamReducer } from './reducers/teamReducers';
+import themeUsersReducer from './themeUsers/reducers';
+import { readMessageReducer } from './message/reducers';
+import { readNotificationReducer } from './notification/reducers';
 
 import authReducer from './authentication/reducers';
 
+import { teamReducer } from './team/reducers';
+import { userReducer } from './users/reducers';
+import { sellersReducer } from './sellers/reducers';
 import { headerSearchReducer } from './headerSearch/reducers';
 import orderReducer from './orders/reducers';
 import galleryReducer from './gallary/reducers';
@@ -25,22 +25,16 @@ const rootReducers = combineReducers({
   sellers: sellersReducer,
   users: userReducer,
   team: teamReducer,
-
   auth: authReducer,
-
   gallery: galleryReducer,
-
   email: emailReducer,
   emailSingle: SingleEmailReducer,
-
   products: productReducer,
   product: SingleProductReducer,
-
   chatSingle: SingleChatReducer,
   chatSingleGroup: SingleChatGroupReducer,
   chat: chatReducer,
   groupChat: groupChatReducer,
-
   projects: projectReducer,
   project: SingleProjectReducer,
 });

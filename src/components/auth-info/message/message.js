@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Popover } from '../../popup/popup';
-import { readMessageList } from '../../../redux/actions/auth-info/message-list';
+import { readMessageList } from '../../../redux/message/actionCreator';
 
 const MessageBox = props => {
   const { message, readMessage } = props;
@@ -57,7 +57,7 @@ MessageBox.propTypes = {
 };
 const mapSTateToProps = state => {
   return {
-    message: state.message,
+    message: state.message.data,
   };
 };
 const mapDispatchToProps = dispatch => {
