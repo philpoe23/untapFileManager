@@ -15,8 +15,12 @@ import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
+import { firebaseReducer } from 'react-redux-firebase';
+import { firestoreReducer } from 'redux-firestore';
 
 const rootReducers = combineReducers({
+  fb: firebaseReducer,
+  fs: firestoreReducer,
   themeUsers: themeUsersReducer,
   headerSearchData: headerSearchReducer,
   message: readMessageReducer,
