@@ -1,13 +1,29 @@
 import initialState from '../../config/dataService/chatData.json';
 import actions from './actions';
 
-const { singleChatBegin, singleChatSuccess, singleChatErr } = actions;
+const {
+  singleChatBegin,
+  singleChatSuccess,
+  singleChatErr,
+
+  singleGroupChatBegin,
+  singleGroupChatSuccess,
+  singleGroupChatErr,
+
+  updateGroupChatBegin,
+  updateGroupChatSuccess,
+  updateGroupChatErr,
+
+  updatePrivetChatBegin,
+  updatePrivetChatSuccess,
+  updatePrivetChatErr,
+} = actions;
 
 const filterSinglepage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleChatBegin());
-      const data = initialState.filter(user => {
+      const data = initialState[0].privetChat.filter(user => {
         return user.email === paramsId;
       });
       dispatch(singleChatSuccess(data));
@@ -17,4 +33,54 @@ const filterSinglepage = paramsId => {
   };
 };
 
-export { filterSinglepage };
+const updatePrivetChat = (paramsId, pushItem) => {
+  return async dispatch => {
+    try {
+      dispatch(updatePrivetChatBegin());
+      const data = initialState[0].privetChat.map(user => {
+        if (user.email === paramsId) {
+          user.time = pushItem.time;
+          user.content = [...user.content, pushItem];
+        }
+        return user;
+      });
+      dispatch(updatePrivetChatSuccess(data));
+    } catch (err) {
+      dispatch(updatePrivetChatErr(err));
+    }
+  };
+};
+
+const filterSinglepageGroup = paramsId => {
+  return async dispatch => {
+    try {
+      dispatch(singleGroupChatBegin());
+      const data = initialState[0].groupChat.filter(user => {
+        return user.id === paramsId;
+      });
+      dispatch(singleGroupChatSuccess(data));
+    } catch (err) {
+      dispatch(singleGroupChatErr(err));
+    }
+  };
+};
+
+const updateGroupChat = (paramsId, pushItem) => {
+  return async dispatch => {
+    try {
+      dispatch(updateGroupChatBegin());
+      const data = initialState[0].groupChat.map(user => {
+        if (user.id === paramsId) {
+          user.time = pushItem.time;
+          user.content = [...user.content, pushItem];
+        }
+        return user;
+      });
+      dispatch(updateGroupChatSuccess(data));
+    } catch (err) {
+      dispatch(updateGroupChatErr(err));
+    }
+  };
+};
+
+export { filterSinglepage, filterSinglepageGroup, updateGroupChat, updatePrivetChat };

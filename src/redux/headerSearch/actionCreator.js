@@ -1,21 +1,18 @@
 import initialState from '../../config/dataService/header-search.json';
+import actions from './actions';
+
+const { searchHeaderBegin, searchHeaderSuccess, searchHeaderErr } = actions;
 
 const headerSearchAction = searchData => {
   return async dispatch => {
     try {
+      dispatch(searchHeaderBegin());
       const data = initialState.filter(item => {
         return item.title.startsWith(searchData);
       });
-
-      dispatch({
-        type: 'HEADER_SEARCH_SUCCESS',
-        data: data,
-      });
+      dispatch(searchHeaderSuccess(data));
     } catch (err) {
-      dispatch({
-        type: 'HEADER_SEARCH_ERR',
-        err,
-      });
+      dispatch(searchHeaderErr(err));
     }
   };
 };

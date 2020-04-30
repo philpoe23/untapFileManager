@@ -56,7 +56,7 @@ const SidebarItem = () => {
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
       <Menu.Item key="chat">
-        <NavLink to="/chat/app">
+        <NavLink to="/chat/app/privet-chat">
           <FeatherIcon icon="message-square" size={16} />
           <span>Chat</span>
         </NavLink>

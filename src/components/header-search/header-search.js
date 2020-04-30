@@ -3,7 +3,7 @@ import { Icon, Input, Row, Col } from 'antd';
 import { Div } from './header-search-style';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { headerSearchAction } from '../../redux/actions/header-search';
+import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import PropTypes from 'prop-types';
 import { Popover } from '../popup/popup';
 

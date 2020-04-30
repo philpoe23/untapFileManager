@@ -8,14 +8,14 @@ import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
-import { updatePrivetChat } from '../../../redux/chat/actionCreator';
+import { updateGroupChat } from '../../../redux/chat/actionCreator';
 
-const SingleChat = ({ chat, match, updatePrivetChat }) => {
+const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
   const [state, setState] = useState({
     chatData: chat,
     me: 'woadud@gmail.com',
     singleContent: chat[0].content,
-    name: chat[0].userName,
+    name: chat[0].groupName,
     inputValue: '',
   });
 
@@ -27,7 +27,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
       setState({
         chatData: chat,
         singleContent: chat[0].content,
-        name: chat[0].userName,
+        name: chat[0].groupName,
         inputValue: '',
         me: 'woadud@gmail.com',
       });
@@ -53,8 +53,9 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
       seen: false,
       reaction: false,
       email: me,
+      userName: 'Woadud Akand',
     };
-    updatePrivetChat(match.params.id, pushcontent);
+    updateGroupChat(match.params.id, pushcontent);
     setState({
       ...state,
       singleContent: [...singleContent, pushcontent],
@@ -90,7 +91,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
               <div key={index + 1} style={{ overflow: 'hidden' }}>
                 <div>
                   <Heading as={'h5'}>
-                    {mes.email !== me && name}
+                    {mes.email !== me && mes.userName}
                     <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
                   </Heading>
                 </div>
@@ -130,13 +131,13 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
 
 const mapStateToProps = state => {
   return {
-    chat: state.chatSingle.data,
+    chat: state.chatSingleGroup.data,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updatePrivetChat: (id, data) => dispatch(updatePrivetChat(id, data)),
+    updateGroupChat: (id, data) => dispatch(updateGroupChat(id, data)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(SingleChat);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleGroupChat);

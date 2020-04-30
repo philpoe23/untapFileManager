@@ -5,22 +5,23 @@ import { Row, Col, Spin } from 'antd';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
-import { NavLink, Switch, Route } from 'react-router-dom';
-import { UL, Content, BlockSpan } from './style';
-import { textRefactor } from '../../Helper';
-import moment from 'moment';
-import { filterSinglepage } from '../../redux/chat/actionCreator';
+import { Switch, Route, Link } from 'react-router-dom';
+import { UL, Content } from './style';
 import Heading from '../../components/heading/heading';
+import PrivetChat from './overview/PrivetChat';
+import GroupChat from './overview/GroupChat';
 
 const SingleChat = lazy(() => import('./overview/singleChat'));
-const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
+const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
+
+const ChatApp = ({ searchData, match }) => {
   const [state, setState] = useState({
     notdata: searchData,
-    chatData: chat,
     me: 'woadud@gmail.com',
+    chatType: 'PrivetChat',
   });
 
-  const { notdata, chatData } = state;
+  const { notdata, chatType } = state;
 
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -30,8 +31,12 @@ const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
     });
   };
 
-  const dataFiltering = e => {
-    filterSinglepage(e.currentTarget.getAttribute('data-email'));
+  const onHandleChange = e => {
+    e.preventDefault();
+    setState({
+      ...state,
+      chatType: e.currentTarget.getAttribute('data-type'),
+    });
   };
 
   return (
@@ -46,38 +51,24 @@ const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
               <nav>
                 <UL>
                   <li>
-                    <NavLink to="/privet-chat">Privet Chat</NavLink>
+                    <Link onClick={onHandleChange} data-type="PrivetChat" to="#">
+                      Privet Chat
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/group-chat">Group Chat</NavLink>
+                    <Link onClick={onHandleChange} data-type="GroupChat" to="#">
+                      Group Chat
+                    </Link>
                   </li>
-                  <li>
-                    <NavLink to="/all-contacts">All Contacts</NavLink>
-                  </li>
+                  {/* <li>
+                    <Link onClick={onHandleChange} data-type="AllContacts" to="#">
+                      All Contacts
+                    </Link>
+                  </li> */}
                 </UL>
               </nav>
               <Content>
-                <ul>
-                  {chatData !== undefined &&
-                    chatData.map((user, index) => {
-                      const { userName, content, email } = user;
-                      const id = content[content.length - 1]['time'];
-                      const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
-                      return (
-                        <li key={index + 1}>
-                          <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
-                            <BlockSpan>
-                              {userName}
-                              <span style={{ float: 'right' }}>
-                                {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
-                              </span>
-                            </BlockSpan>
-                            <BlockSpan>{textRefactor(content[content.length - 1]['content'], 5)}</BlockSpan>
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                </ul>
+                {chatType === 'PrivetChat' ? <PrivetChat match={match} /> : <GroupChat match={match} />}
               </Content>
             </Cards>
           </Col>
@@ -101,7 +92,11 @@ const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
                     );
                   }}
                 />
-                <Route path={match.path + '/:id'} component={SingleChat} />
+                {chatType === 'PrivetChat' ? (
+                  <Route path={match.path + '/:id'} component={SingleChat} />
+                ) : (
+                  <Route path={match.path + '/:id'} component={SingleGroup} />
+                )}
               </Suspense>
             </Switch>
           </Col>
@@ -111,17 +106,10 @@ const ChatApp = ({ searchData, chat, match, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: paramsId => dispatch(filterSinglepage(paramsId)),
-  };
-};
-
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
-    chat: state.chat,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatApp);
+export default connect(mapStateToProps)(ChatApp);
