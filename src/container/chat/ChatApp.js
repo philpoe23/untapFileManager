@@ -8,8 +8,10 @@ import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, Link } from 'react-router-dom';
 import { UL, Content } from './style';
 import Heading from '../../components/heading/heading';
+
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
+import AllContacts from './overview/AllContacts';
 
 const SingleChat = lazy(() => import('./overview/singleChat'));
 const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
@@ -60,15 +62,21 @@ const ChatApp = ({ searchData, match }) => {
                       Group Chat
                     </Link>
                   </li>
-                  {/* <li>
+                  <li>
                     <Link onClick={onHandleChange} data-type="AllContacts" to="#">
                       All Contacts
                     </Link>
-                  </li> */}
+                  </li>
                 </UL>
               </nav>
               <Content>
-                {chatType === 'PrivetChat' ? <PrivetChat match={match} /> : <GroupChat match={match} />}
+                {chatType === 'PrivetChat' ? (
+                  <PrivetChat match={match} />
+                ) : chatType === 'GroupChat' ? (
+                  <GroupChat match={match} />
+                ) : (
+                  <AllContacts match={match} />
+                )}
               </Content>
             </Cards>
           </Col>
@@ -92,7 +100,7 @@ const ChatApp = ({ searchData, match }) => {
                     );
                   }}
                 />
-                {chatType === 'PrivetChat' ? (
+                {chatType !== 'GroupChat' ? (
                   <Route path={match.path + '/:id'} component={SingleChat} />
                 ) : (
                   <Route path={match.path + '/:id'} component={SingleGroup} />

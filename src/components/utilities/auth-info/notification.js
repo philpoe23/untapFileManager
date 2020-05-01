@@ -9,16 +9,17 @@ import { readNotificationList } from '../../../redux/notification/actionCreator'
 
 const NotificationBox = props => {
   const { notification, readNotification } = props;
+
   useEffect(() => {
     let unmount = false;
-
     if (!unmount) {
       readNotification();
     }
     return () => {
       unmount = true;
     };
-  });
+  }, [readNotification]);
+
   const content = (
     <div>
       {notification.map(item => {
@@ -36,6 +37,7 @@ const NotificationBox = props => {
       </p>
     </div>
   );
+
   return (
     <div className="notification" style={{ marginTop: 10 }}>
       <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
@@ -48,17 +50,21 @@ const NotificationBox = props => {
     </div>
   );
 };
+
 NotificationBox.propTypes = {
   notification: PropTypes.array,
 };
+
 const mapSTateToProps = state => {
   return {
     notification: state.notification.data,
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     readNotification: () => dispatch(readNotificationList()),
   };
 };
+
 export default connect(mapSTateToProps, mapDispatchToProps)(NotificationBox);

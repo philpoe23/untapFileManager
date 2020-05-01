@@ -12,14 +12,13 @@ const MessageBox = props => {
 
   useEffect(() => {
     let unmount = false;
-
     if (!unmount) {
       readMessage();
     }
     return () => {
       unmount = true;
     };
-  });
+  }, [readMessage]);
 
   const content = (
     <div>
@@ -51,17 +50,21 @@ const MessageBox = props => {
     </div>
   );
 };
+
 MessageBox.propTypes = {
   message: PropTypes.array,
 };
+
 const mapSTateToProps = state => {
   return {
     message: state.message.data,
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     readMessage: () => dispatch(readMessageList()),
   };
 };
+
 export default connect(mapSTateToProps, mapDispatchToProps)(MessageBox);
