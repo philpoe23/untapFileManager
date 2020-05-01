@@ -6,12 +6,12 @@ const { SubMenu } = Menu;
 
 const SidebarItem = () => {
   const pathArray = window.location.pathname.split('/');
-
+  console.log(pathArray.length);
   return (
     <Menu
       mode="inline"
-      defaultSelectedKeys={[`${pathArray.length > 2 ? pathArray[2] : 'home'}`]}
-      defaultOpenKeys={[`${pathArray.length > 2 ? pathArray[1] : 'dashboard'}`]}
+      defaultSelectedKeys={[`${pathArray[1] === '' ? 'home' : pathArray.length === 2 ? pathArray[1] : pathArray[2]}`]}
+      defaultOpenKeys={[`${pathArray[1] !== '' ? pathArray[1] : 'dashboard'}`]}
     >
       <SubMenu
         key="dashboard"
@@ -26,16 +26,16 @@ const SidebarItem = () => {
           <NavLink to="/">Google Analytics Social Media</NavLink>
         </Menu.Item>
         <Menu.Item key="business">
-          <NavLink to="/dashbord/business">Fintech / Business Dashboard</NavLink>
+          <NavLink to="/dashboard/business">Fintech / Business Dashboard</NavLink>
         </Menu.Item>
         <Menu.Item key="performance">
-          <NavLink to="/dashbord/performance">Site Performance Dashboard</NavLink>
+          <NavLink to="/dashboard/performance">Site Performance Dashboard</NavLink>
         </Menu.Item>
         <Menu.Item key="ecommerce">
-          <NavLink to="/dashbord/ecommerce">Ecommerce</NavLink>
+          <NavLink to="/dashboard/ecommerce">Ecommerce</NavLink>
         </Menu.Item>
         <Menu.Item key="base">
-          <NavLink to="/dashbord/base">Dashbord Base</NavLink>
+          <NavLink to="/dashboard/base">Dashbord Base</NavLink>
         </Menu.Item>
       </SubMenu>
       <SubMenu
@@ -56,7 +56,7 @@ const SidebarItem = () => {
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
       <Menu.Item key="chat">
-        <NavLink to="/chat/app/privet-chat">
+        <NavLink to="/chat">
           <FeatherIcon icon="message-square" size={16} />
           <span>Chat</span>
         </NavLink>
@@ -380,25 +380,21 @@ const SidebarItem = () => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="sub10"
-        title={
-          <span>
-            <FeatherIcon icon="cpu" size={16} />
-            <span>Table</span>
-          </span>
-        }
-      ></SubMenu>
+      <Menu.Item key="tables">
+        <NavLink to="/tables">
+          <FeatherIcon icon="cpu" size={16} />
+          <span>Table</span>
+        </NavLink>
+      </Menu.Item>
 
-      <SubMenu
-        key="sub11"
-        title={
+      <Menu.Item key="forms">
+        <NavLink to="/forms">
           <span>
             <FeatherIcon icon="disc" size={16} />
             <span>Forms</span>
           </span>
-        }
-      ></SubMenu>
+        </NavLink>
+      </Menu.Item>
       <SubMenu
         key="maps"
         title={

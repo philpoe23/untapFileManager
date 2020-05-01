@@ -5,7 +5,7 @@ import SidebarItem from '../components/sidebar/sidebar';
 import { NavLink } from 'react-router-dom';
 import { LayOutWraper } from './style';
 import HeaderSearch from '../components/header-search/header-search';
-import AuthInfo from '../components/auth-info/info';
+import AuthInfo from '../components/utilities/auth-info/info';
 
 const { Header, Footer, Sider, Content } = Layout;
 const ThemeLayout = WrappedComponent => {

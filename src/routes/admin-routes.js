@@ -20,6 +20,8 @@ const Project = lazy(() => import('../container/project/Project'));
 const ProjectDetails = lazy(() => import('../container/project/ProjectDetails'));
 
 const Calendars = lazy(() => import('../container/Calendar'));
+const Tables = lazy(() => import('../container/table/Table'));
+const Forms = lazy(() => import('../container/forms/Forms'));
 
 // charts
 const ChartJs = lazy(() => import('../container/charts/ChartJs'));
@@ -110,10 +112,10 @@ const AdminRoutes = () => {
         }
       >
         <Route exact path="/" component={Dashboard} />
-        <Route path="/dashbord/base" component={DashboardBase} />
-        <Route path="/dashbord/ecommerce" component={Ecommerce} />
-        <Route path="/dashbord/business" component={Business} />
-        <Route path="/dashbord/performance" component={Performance} />
+        <Route path="/dashboard/base" component={DashboardBase} />
+        <Route path="/dashboard/ecommerce" component={Ecommerce} />
+        <Route path="/dashboard/business" component={Business} />
+        <Route path="/dashboard/performance" component={Performance} />
 
         <Route path="/ecommerce/products" component={Product} />
         <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
@@ -126,6 +128,8 @@ const AdminRoutes = () => {
         <Route path="/projectDetails/:id" component={ProjectDetails} />
 
         <Route path="/calendar" component={Calendars} />
+        <Route path="/tables" component={Tables} />
+        <Route path="/forms" component={Forms} />
 
         <Route path="/charts/chartjs" component={ChartJs} />
         <Route path="/charts/google-chart" component={GoogleChart} />
@@ -188,7 +192,7 @@ const AdminRoutes = () => {
 
         <Route path="/email/:page" component={Inbox} />
 
-        <Route path="/chat/app" component={Chat} />
+        <Route path="/chat" component={Chat} />
         <Route path="/pages/404" component={NotFound} />
         <Route path="/pages/maintenance" component={Maintenance} />
         <Route path="/pages/pricing" component={Pricing} />

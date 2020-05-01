@@ -23,7 +23,7 @@ const SignUp = ({ form }) => {
       <p style={{ textAlign: 'right' }}>
         Allready have an account? <NavLink to="/">Sign In</NavLink>
       </p>
-      <Heading as="h3">Sign in to Admin</Heading>
+      <Heading as="h3">Sign Up to Admin</Heading>
       <Form style={{ width: '400px' }} onSubmit={handleSubmit}>
         <Form.Item label="Name">
           {getFieldDecorator('name', {

@@ -4,26 +4,23 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Popover } from '../popup/popup';
-import { readMessageList } from '../../redux/actions/auth-info/message-list';
+import { Popover } from '../../../popup/popup';
+import { readNotificationList } from '../../../../redux/notification/actionCreator';
 
-const MessageBox = props => {
-  const { message, readMessage } = props;
-
+const NotificationBox = props => {
+  const { notification, readNotification } = props;
   useEffect(() => {
     let unmount = false;
-
     if (!unmount) {
-      readMessage();
+      readNotification();
     }
     return () => {
       unmount = true;
     };
   });
-
   const content = (
     <div>
-      {message.map(item => {
+      {notification.map(item => {
         const { id, from } = item;
         return (
           <NavLink key={id} to="#">
@@ -38,30 +35,31 @@ const MessageBox = props => {
       </p>
     </div>
   );
-
   return (
-    <div className="message" style={{ marginTop: 10 }}>
-      <Popover placement="bottomLeft" title="Message List" content={content} trigger="click">
+    <div className="notification" style={{ marginTop: 10 }}>
+      <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
-            <FeatherIcon icon="mail" size={20} />
+            <FeatherIcon icon="bell" size={20} />
           </NavLink>
         </Badge>
       </Popover>
     </div>
   );
 };
-MessageBox.propTypes = {
-  message: PropTypes.array,
+
+NotificationBox.propTypes = {
+  readNotification: PropTypes.func,
+  notification: PropTypes.array,
 };
 const mapSTateToProps = state => {
   return {
-    message: state.message,
+    notification: state.notification.data,
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    readMessage: () => dispatch(readMessageList()),
+    readNotification: () => dispatch(readNotificationList()),
   };
 };
-export default connect(mapSTateToProps, mapDispatchToProps)(MessageBox);
+export default connect(mapSTateToProps, mapDispatchToProps)(NotificationBox);

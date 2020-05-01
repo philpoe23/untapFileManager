@@ -1,7 +1,7 @@
 import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
-import { Popover } from '../popup/popup';
+import { Popover } from '../../popup/popup';
 
 const Support = () => {
   const content = (
