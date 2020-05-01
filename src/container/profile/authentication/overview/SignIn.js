@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
 import Heading from '../../../../components/heading/heading';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
 import { Form, Input, Icon, Button } from 'antd';
@@ -38,7 +38,7 @@ const SignIn = ({ form, login, isLoading }) => {
           )}
         </Form.Item>
         <Form.Item label="Password">
-          {getFieldDecorator('username', {
+          {getFieldDecorator('password', {
             initialValue: '123456',
             rules: [{ message: 'Please input your Password' }],
           })(<Input.Password placeholder="Password" />)}
@@ -55,14 +55,17 @@ const SignIn = ({ form, login, isLoading }) => {
     </div>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     login: () => dispatch(login()),
   };
 };
+
 const mapStateToProps = state => {
   return {
     isLoading: state.auth.loading,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Form.create({ name: 'loginForm' })(SignIn));

@@ -20,6 +20,8 @@ const Project = lazy(() => import('../container/project/Project'));
 const ProjectDetails = lazy(() => import('../container/project/ProjectDetails'));
 
 const Calendars = lazy(() => import('../container/Calendar'));
+const Tables = lazy(() => import('../container/table/Table'));
+const Forms = lazy(() => import('../container/forms/Forms'));
 
 // charts
 const ChartJs = lazy(() => import('../container/charts/ChartJs'));
@@ -126,6 +128,8 @@ const AdminRoutes = () => {
         <Route path="/projectDetails/:id" component={ProjectDetails} />
 
         <Route path="/calendar" component={Calendars} />
+        <Route path="/tables" component={Tables} />
+        <Route path="/forms" component={Forms} />
 
         <Route path="/charts/chartjs" component={ChartJs} />
         <Route path="/charts/google-chart" component={GoogleChart} />

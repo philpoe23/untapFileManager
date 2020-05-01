@@ -380,25 +380,21 @@ const SidebarItem = () => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="sub10"
-        title={
-          <span>
-            <FeatherIcon icon="cpu" size={16} />
-            <span>Table</span>
-          </span>
-        }
-      ></SubMenu>
+      <Menu.Item key="table">
+        <NavLink to="/tables">
+          <FeatherIcon icon="cpu" size={16} />
+          <span>Table</span>
+        </NavLink>
+      </Menu.Item>
 
-      <SubMenu
-        key="sub11"
-        title={
+      <Menu.Item key="forms">
+        <NavLink to="/forms">
           <span>
             <FeatherIcon icon="disc" size={16} />
             <span>Forms</span>
           </span>
-        }
-      ></SubMenu>
+        </NavLink>
+      </Menu.Item>
       <SubMenu
         key="maps"
         title={
