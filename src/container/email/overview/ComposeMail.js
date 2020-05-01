@@ -4,7 +4,8 @@ import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { Input, Button } from 'antd';
+import { Input, Button, Upload } from 'antd';
+import { Link } from 'react-router-dom';
 
 const ComposeMail = ({ onClick, onChange }) => {
   const [state, setState] = useState({
@@ -62,7 +63,11 @@ const ComposeMail = ({ onClick, onChange }) => {
       <div className="fotter">
         <div className="left">
           <Button type="primary">Send</Button>
-          <FeatherIcon icon="paperclip" size={18} />
+          <Upload>
+            <Link to="#">
+              <FeatherIcon icon="paperclip" size={18} />
+            </Link>
+          </Upload>
           <FeatherIcon icon="alert-circle" size={18} />
         </div>
         <div className="right">

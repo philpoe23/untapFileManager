@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Icon } from 'antd';
+import { Icon, Upload } from 'antd';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
@@ -114,12 +114,16 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
             style={{ width: '70%' }}
             value={inputValue}
           />
-          <Button type="default">
-            <FeatherIcon icon="camera" size={18} />
-          </Button>
-          <Button type="default">
-            <FeatherIcon icon="paperclip" size={18} />
-          </Button>
+          <Upload>
+            <Link to="#">
+              <FeatherIcon icon="camera" size={18} />
+            </Link>
+          </Upload>
+          <Upload>
+            <Link to="#">
+              <FeatherIcon icon="paperclip" size={18} />
+            </Link>
+          </Upload>
           <Button onClick={handleSubmit} type="primary">
             <FeatherIcon icon="send" size={18} />
           </Button>
