@@ -4,15 +4,14 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Popover } from '../popup/popup';
-import { readMessageList } from '../../redux/message/actionCreator';
+import { Popover } from '../../../popup/popup';
+import { readMessageList } from '../../../../redux/message/actionCreator';
 
 const MessageBox = props => {
   const { message, readMessage } = props;
 
   useEffect(() => {
     let unmount = false;
-
     if (!unmount) {
       readMessage();
     }
@@ -51,7 +50,9 @@ const MessageBox = props => {
     </div>
   );
 };
+
 MessageBox.propTypes = {
+  readMessage: PropTypes.func,
   message: PropTypes.array,
 };
 const mapSTateToProps = state => {

@@ -4,8 +4,8 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Popover } from '../../popup/popup';
-import { readNotificationList } from '../../../redux/notification/actionCreator';
+import { Popover } from '../../../popup/popup';
+import { readNotificationList } from '../../../../redux/notification/actionCreator';
 
 const NotificationBox = props => {
   const { notification, readNotification } = props;

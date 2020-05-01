@@ -7,10 +7,10 @@ import Support from './support';
 import ReactFlagsSelect from 'react-flags-select';
 import { Avatar } from 'antd';
 import { NavLink } from 'react-router-dom';
-import { Popover } from '../popup/popup';
+import { Popover } from '../../popup/popup';
 //import css module
 import 'react-flags-select/css/react-flags-select.css';
-import { logOut } from '../../redux/authentication/actionCreator';
+import { logOut } from '../../../redux/authentication/actionCreator';
 import { connect } from 'react-redux';
 
 const AuthInfo = ({ logOut }) => {
