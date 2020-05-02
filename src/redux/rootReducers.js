@@ -18,6 +18,8 @@ import { projectReducer, SingleProjectReducer } from './project/reducers';
 import { firebaseReducer } from 'react-redux-firebase';
 import { firestoreReducer } from 'redux-firestore';
 
+import { fsCrudReducer } from './firestore/reducers';
+
 const rootReducers = combineReducers({
   fb: firebaseReducer,
   fs: firestoreReducer,
@@ -41,5 +43,6 @@ const rootReducers = combineReducers({
   groupChat: groupChatReducer,
   projects: projectReducer,
   project: SingleProjectReducer,
+  crud: fsCrudReducer,
 });
 export default rootReducers;
