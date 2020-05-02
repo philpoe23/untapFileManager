@@ -51,7 +51,7 @@ const AddNew = ({ form, fbDataSubmit, isLoading }) => {
                     </Form.Item>
 
                     <Form.Item label="Address">
-                      {getFieldDecorator('address', {})(<Input.TextArea rows={4} placeholder="Input Name" />)}
+                      {getFieldDecorator('address', {})(<Input.TextArea rows={4} placeholder="Input Address" />)}
                     </Form.Item>
                     <Button onClick={handleSubmit} type="primary">
                       {isLoading ? 'Loading...' : 'Submit'}
