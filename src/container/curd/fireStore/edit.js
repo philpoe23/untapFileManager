@@ -1,14 +1,14 @@
 import React, { Fragment, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, InputNumber, Spin } from 'antd';
+import { Row, Col, Form, Input, InputNumber } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fbDataUpdate, fbDataSingle } from '../../../redux/firestore/actionCreator';
 
-const Edit = ({ form, fbDataUpdate, isLoading, match, fbDataSingle, crud, updateLoad }) => {
+const Edit = ({ form, fbDataUpdate, isLoading, match, fbDataSingle, crud }) => {
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -47,34 +47,28 @@ const Edit = ({ form, fbDataUpdate, isLoading, match, fbDataSingle, crud, update
             <Cards headless>
               <Row>
                 <Col md={10} offset={7}>
-                  {crud !== null ? (
-                    <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
-                      <Form.Item label="Name">
-                        {getFieldDecorator('name', {
-                          initialValue: crud.name,
-                        })(<Input placeholder="Input Name" />)}
-                      </Form.Item>
+                  <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
+                    <Form.Item label="Name">
+                      {getFieldDecorator('name', {
+                        initialValue: crud === null ? 'Loading....' : crud.name,
+                      })(<Input placeholder="Input Name" />)}
+                    </Form.Item>
 
-                      <Form.Item label="Age">
-                        {getFieldDecorator('age', {
-                          initialValue: crud.age,
-                        })(<InputNumber min={0} style={{ width: '100%' }} placeholder="Input Age" />)}
-                      </Form.Item>
+                    <Form.Item label="Age">
+                      {getFieldDecorator('age', {
+                        initialValue: crud === null ? 'Loading....' : crud.age,
+                      })(<InputNumber min={0} style={{ width: '100%' }} placeholder="Input Age" />)}
+                    </Form.Item>
 
-                      <Form.Item label="Address">
-                        {getFieldDecorator('address', {
-                          initialValue: crud.address,
-                        })(<Input.TextArea rows={4} placeholder="Input Address" />)}
-                      </Form.Item>
-                      <Button onClick={handleSubmit} type="primary">
-                        {isLoading ? 'Loading...' : 'Update'}
-                      </Button>
-                    </Form>
-                  ) : (
-                    <div className="spin">
-                      <Spin />
-                    </div>
-                  )}
+                    <Form.Item label="Address">
+                      {getFieldDecorator('address', {
+                        initialValue: crud === null ? 'Loading....' : crud.address,
+                      })(<Input.TextArea rows={4} placeholder="Input Address" />)}
+                    </Form.Item>
+                    <Button onClick={handleSubmit} type="primary">
+                      {isLoading ? 'Loading...' : 'Update'}
+                    </Button>
+                  </Form>
                 </Col>
               </Row>
             </Cards>
@@ -96,7 +90,6 @@ const mapStateToProps = state => {
   return {
     crud: state.crud.data,
     isLoading: state.crud.loading,
-    updateLoad: state.crud.updateLoad,
   };
 };
 

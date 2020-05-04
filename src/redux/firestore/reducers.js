@@ -20,7 +20,6 @@ const {
 const initialState = {
   data: null,
   loading: false,
-  updateLoad: false,
   error: null,
 };
 
@@ -52,7 +51,6 @@ const fsCrudReducer = (state = initialState, action) => {
       return {
         ...initialState,
         loading: true,
-        updateLoad: true,
       };
 
     case FB_SINGLE_DATA_SUCCESS:
@@ -61,7 +59,6 @@ const fsCrudReducer = (state = initialState, action) => {
         data,
         error: false,
         loading: false,
-        updateLoad: false,
       };
 
     case FB_SINGLE_DATA_ERR:
@@ -69,7 +66,6 @@ const fsCrudReducer = (state = initialState, action) => {
         ...initialState,
         error: err,
         loading: false,
-        updateLoad: false,
       };
 
     case FB_DELETE_BEGIN:
