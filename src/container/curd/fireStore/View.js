@@ -1,16 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col, Table, Spin } from 'antd';
-import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { Main } from '../../styled';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { fbDataDelete } from '../../../redux/firestore/actionCreator';
+import { fbDataDelete, fbDataRead } from '../../../redux/firestore/actionCreator';
 
-const ViewPage = ({ crud, fbDataDelete, isLoading }) => {
+const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
+  useEffect(() => {
+    let unmounted = false;
+    if (!unmounted) {
+      fbDataRead();
+    }
+    return () => {
+      unmounted = true;
+    };
+  }, [fbDataRead]);
   const dataSource = [];
 
   const handleDelete = e => {
@@ -21,7 +28,7 @@ const ViewPage = ({ crud, fbDataDelete, isLoading }) => {
     return false;
   };
 
-  crud !== undefined &&
+  crud.length &&
     crud.map(person => {
       const { id, name, age, address } = person;
       return dataSource.push({
@@ -102,7 +109,7 @@ const ViewPage = ({ crud, fbDataDelete, isLoading }) => {
 
 const mapStateToProps = state => {
   return {
-    crud: state.fs.ordered.crud,
+    crud: state.crud.data,
     isLoading: state.crud.loading,
   };
 };
@@ -110,10 +117,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fbDataDelete: id => dispatch(fbDataDelete(id)),
+    fbDataRead: () => dispatch(fbDataRead()),
   };
 };
 
-export default compose(
-  firestoreConnect([{ collection: 'crud' }]),
-  connect(mapStateToProps, mapDispatchToProps),
-)(ViewPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewPage);

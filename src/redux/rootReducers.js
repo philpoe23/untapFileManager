@@ -18,7 +18,7 @@ import { projectReducer, SingleProjectReducer } from './project/reducers';
 import { firebaseReducer } from 'react-redux-firebase';
 import { firestoreReducer } from 'redux-firestore';
 
-import { fsCrudReducer } from './firestore/reducers';
+import { fsCrudReducer, fsSingleCrudReducer } from './firestore/reducers';
 
 const rootReducers = combineReducers({
   fb: firebaseReducer,
@@ -44,5 +44,6 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
   crud: fsCrudReducer,
+  singleCrud: fsSingleCrudReducer,
 });
 export default rootReducers;

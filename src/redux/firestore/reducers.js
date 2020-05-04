@@ -4,6 +4,15 @@ const {
   FB_ADD_BEGIN,
   FB_ADD_SUCCESS,
   FB_ADD_ERR,
+
+  FB_READ_BEGIN,
+  FB_READ_SUCCESS,
+  FB_READ_ERR,
+
+  FB_UPDATE_BEGIN,
+  FB_UPDATE_SUCCESS,
+  FB_UPDATE_ERR,
+
   FB_DELETE_BEGIN,
   FB_DELETE_SUCCESS,
   FB_DELETE_ERR,
@@ -11,13 +20,15 @@ const {
   FB_SINGLE_DATA_BEGIN,
   FB_SINGLE_DATA_SUCCESS,
   FB_SINGLE_DATA_ERR,
-
-  FB_UPDATE_BEGIN,
-  FB_UPDATE_SUCCESS,
-  FB_UPDATE_ERR,
 } = actions;
 
 const initialState = {
+  data: [],
+  loading: false,
+  error: null,
+};
+
+const initialStateSingle = {
   data: null,
   loading: false,
   error: null,
@@ -47,13 +58,13 @@ const fsCrudReducer = (state = initialState, action) => {
         loading: false,
       };
 
-    case FB_SINGLE_DATA_BEGIN:
+    case FB_READ_BEGIN:
       return {
         ...initialState,
         loading: true,
       };
 
-    case FB_SINGLE_DATA_SUCCESS:
+    case FB_READ_SUCCESS:
       return {
         ...initialState,
         data,
@@ -61,7 +72,7 @@ const fsCrudReducer = (state = initialState, action) => {
         loading: false,
       };
 
-    case FB_SINGLE_DATA_ERR:
+    case FB_READ_ERR:
       return {
         ...initialState,
         error: err,
@@ -78,6 +89,7 @@ const fsCrudReducer = (state = initialState, action) => {
       return {
         ...initialState,
         error: false,
+        data,
         loading: false,
       };
 
@@ -114,4 +126,33 @@ const fsCrudReducer = (state = initialState, action) => {
   }
 };
 
-export { fsCrudReducer };
+const fsSingleCrudReducer = (state = initialStateSingle, action) => {
+  const { type, data, err } = action;
+  switch (type) {
+    case FB_SINGLE_DATA_BEGIN:
+      return {
+        ...initialStateSingle,
+        loading: true,
+      };
+
+    case FB_SINGLE_DATA_SUCCESS:
+      return {
+        ...initialStateSingle,
+        data,
+        error: false,
+        loading: false,
+      };
+
+    case FB_SINGLE_DATA_ERR:
+      return {
+        ...initialStateSingle,
+        error: err,
+        loading: false,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export { fsCrudReducer, fsSingleCrudReducer };

@@ -88,7 +88,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    crud: state.crud.data,
+    crud: state.singleCrud.data,
     isLoading: state.crud.loading,
   };
 };

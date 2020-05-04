@@ -42,6 +42,14 @@ const {
   fbAddSuccess,
   fbAddErr,
 
+  fbReadBegin,
+  fbReadSuccess,
+  fbReadErr,
+
+  fbUpdateBegin,
+  fbUpdateSuccess,
+  fbUpdateErr,
+
   fbDeleteBegin,
   fbDeleteSuccess,
   fbDeleteErr,
@@ -49,10 +57,6 @@ const {
   fbSingleDataBegin,
   fbSingleDataSuccess,
   fbSingleDataErr,
-
-  fbUpdateBegin,
-  fbUpdateSuccess,
-  fbUpdateErr,
 } = actions;
 
 const fbDataSubmit = data => {
@@ -73,20 +77,19 @@ const fbDataSubmit = data => {
   };
 };
 
-const fbDataDelete = id => {
+const fbDataRead = () => {
   return async (dispatch, getState, { getFirebase, getFirestore }) => {
     const db = getFirestore();
+    const data = [];
     try {
-      await dispatch(fbDeleteBegin());
-      await db
-        .collection('crud')
-        .doc(`${id}`)
-        .delete();
-      await dispatch(fbDeleteSuccess());
-      await deleteNotificationSuccess();
+      await dispatch(fbReadBegin());
+      const query = await db.collection('crud').get();
+      await query.forEach(doc => {
+        data.push(doc.data());
+      });
+      await dispatch(fbReadSuccess(data));
     } catch (err) {
-      await dispatch(fbDeleteErr(err));
-      await deleteNotificationError(err);
+      await dispatch(fbReadErr(err));
     }
   };
 };
@@ -119,6 +122,30 @@ const fbDataUpdate = (id, data) => {
   };
 };
 
+const fbDataDelete = id => {
+  return async (dispatch, getState, { getFirebase, getFirestore }) => {
+    const db = getFirestore();
+    const data = [];
+    try {
+      await dispatch(fbDeleteBegin());
+      await db
+        .collection('crud')
+        .doc(`${id}`)
+        .delete();
+      const query = await db.collection('crud').get();
+      await query.forEach(doc => {
+        data.push(doc.data());
+      });
+      await dispatch(fbDeleteSuccess(data));
+      await deleteNotificationSuccess();
+      await fbDataRead();
+    } catch (err) {
+      await dispatch(fbDeleteErr(err));
+      await deleteNotificationError(err);
+    }
+  };
+};
+
 const fbDataSingle = id => {
   return async (dispatch, getState, { getFirebase, getFirestore }) => {
     const db = getFirestore();
@@ -137,4 +164,4 @@ const fbDataSingle = id => {
   };
 };
 
-export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate };
+export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead };

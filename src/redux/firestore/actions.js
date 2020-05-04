@@ -3,6 +3,14 @@ const actions = {
   FB_ADD_SUCCESS: 'FB_ADD_SUCCESS',
   FB_ADD_ERR: 'FB_ADD_ERR',
 
+  FB_READ_BEGIN: 'FB_READ_BEGIN',
+  FB_READ_SUCCESS: 'FB_READ_SUCCESS',
+  FB_READ_ERR: 'FB_READ_ERR',
+
+  FB_UPDATE_BEGIN: 'FB_UPDATE_BEGIN',
+  FB_UPDATE_SUCCESS: 'FB_UPDATE_SUCCESS',
+  FB_UPDATE_ERR: 'FB_UPDATE_ERR',
+
   FB_DELETE_BEGIN: 'FB_DELETE_BEGIN',
   FB_DELETE_SUCCESS: 'FB_DELETE_SUCCESS',
   FB_DELETE_ERR: 'FB_DELETE_ERR',
@@ -10,10 +18,6 @@ const actions = {
   FB_SINGLE_DATA_BEGIN: 'FB_SINGLE_DATA_BEGIN',
   FB_SINGLE_DATA_SUCCESS: 'FB_SINGLE_DATA_SUCCESS',
   FB_SINGLE_DATA_ERR: 'FB_SINGLE_DATA_ERR',
-
-  FB_UPDATE_BEGIN: 'FB_UPDATE_BEGIN',
-  FB_UPDATE_SUCCESS: 'FB_UPDATE_SUCCESS',
-  FB_UPDATE_ERR: 'FB_UPDATE_ERR',
 
   fbAddBegin: () => {
     return {
@@ -31,6 +35,46 @@ const actions = {
   fbAddErr: err => {
     return {
       type: actions.FB_ADD_ERR,
+      err,
+    };
+  },
+
+  fbReadBegin: () => {
+    return {
+      type: actions.FB_READ_BEGIN,
+    };
+  },
+
+  fbReadSuccess: data => {
+    return {
+      type: actions.FB_READ_SUCCESS,
+      data,
+    };
+  },
+
+  fbReadErr: err => {
+    return {
+      type: actions.FB_READ_ERR,
+      err,
+    };
+  },
+
+  fbUpdateBegin: () => {
+    return {
+      type: actions.FB_UPDATE_BEGIN,
+    };
+  },
+
+  fbUpdateSuccess: data => {
+    return {
+      type: actions.FB_UPDATE_SUCCESS,
+      data,
+    };
+  },
+
+  fbUpdateErr: err => {
+    return {
+      type: actions.FB_UPDATE_ERR,
       err,
     };
   },
@@ -71,26 +115,6 @@ const actions = {
   fbSingleDataErr: err => {
     return {
       type: actions.FB_SINGLE_DATA_ERR,
-      err,
-    };
-  },
-
-  fbUpdateBegin: () => {
-    return {
-      type: actions.FB_UPDATE_BEGIN,
-    };
-  },
-
-  fbUpdateSuccess: data => {
-    return {
-      type: actions.FB_UPDATE_SUCCESS,
-      data,
-    };
-  },
-
-  fbUpdateErr: err => {
-    return {
-      type: actions.FB_UPDATE_ERR,
       err,
     };
   },
