@@ -6,7 +6,7 @@ const { SubMenu } = Menu;
 
 const SidebarItem = () => {
   const pathArray = window.location.pathname.split('/');
-  console.log(pathArray.length);
+
   return (
     <Menu
       mode="inline"
