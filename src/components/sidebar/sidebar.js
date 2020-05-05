@@ -159,7 +159,7 @@ const SidebarItem = () => {
           <NavLink to="/pages/users">Users</NavLink>
         </Menu.Item>
         <Menu.Item key="dataTable">
-          <NavLink to="/pages/dataTable">Data Table</NavLink>
+          <NavLink to="/pages/dataTable">Users Table</NavLink>
         </Menu.Item>
         <Menu.Item key="gallery">
           <NavLink to="/pages/gallery">Gallery</NavLink>

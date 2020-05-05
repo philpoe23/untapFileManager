@@ -136,7 +136,7 @@ const UserListDataTable = ({ searchData, users }) => {
                 dataSource={dataSource}
                 columns={columns}
                 pagination={{
-                  defaultPageSize: 3,
+                  defaultPageSize: 5,
                   total: dataSource.length,
                   showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
                 }}
