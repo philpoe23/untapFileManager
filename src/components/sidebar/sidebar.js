@@ -6,7 +6,7 @@ const { SubMenu } = Menu;
 
 const SidebarItem = () => {
   const pathArray = window.location.pathname.split('/');
-  console.log(pathArray.length);
+
   return (
     <Menu
       mode="inline"
@@ -157,6 +157,9 @@ const SidebarItem = () => {
         </Menu.Item>
         <Menu.Item key="users">
           <NavLink to="/pages/users">Users</NavLink>
+        </Menu.Item>
+        <Menu.Item key="dataTable">
+          <NavLink to="/pages/dataTable">Users Table</NavLink>
         </Menu.Item>
         <Menu.Item key="gallery">
           <NavLink to="/pages/gallery">Gallery</NavLink>
