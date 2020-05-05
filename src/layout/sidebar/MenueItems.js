@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 const { SubMenu } = Menu;
 
-const SidebarItem = () => {
+const MenueItems = () => {
   const pathArray = window.location.pathname.split('/');
 
   return (
@@ -420,4 +420,4 @@ const SidebarItem = () => {
     </Menu>
   );
 };
-export default SidebarItem;
+export default MenueItems;

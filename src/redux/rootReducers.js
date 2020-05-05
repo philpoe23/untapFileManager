@@ -2,9 +2,7 @@ import { combineReducers } from 'redux';
 import themeUsersReducer from './themeUsers/reducers';
 import { readMessageReducer } from './message/reducers';
 import { readNotificationReducer } from './notification/reducers';
-
 import authReducer from './authentication/reducers';
-
 import { teamReducer } from './team/reducers';
 import { userReducer } from './users/reducers';
 import { sellersReducer } from './sellers/reducers';
@@ -38,4 +36,5 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
 });
+
 export default rootReducers;

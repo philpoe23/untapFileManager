@@ -1,6 +1,6 @@
 import Styled from 'styled-components';
 
-const LayOutWraper = Styled.div`
+const Div = Styled.div`
     header{       
         box-shadow: 0px -15px 25px #888;
         z-index: 1;
@@ -13,4 +13,4 @@ const LayOutWraper = Styled.div`
     }
 `;
 
-export { LayOutWraper };
+export { Div };

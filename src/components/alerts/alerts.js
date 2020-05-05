@@ -1,12 +1,12 @@
 import React from 'react';
-import { AlertStyled } from './styled';
+import { Style } from './styled';
 import PropTypes from 'prop-types';
 
 const Alert = props => {
   const { type, message, description, showIcon, outlined } = props;
 
   return (
-    <AlertStyled
+    <Style
       message={message}
       type={type}
       description={description}
@@ -17,9 +17,14 @@ const Alert = props => {
   );
 };
 
+Alert.defaultProps = {
+  type: 'success',
+  message: 'Hello there! A simple success alert—check it out!',
+};
+
 Alert.propTypes = {
-  type: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  message: PropTypes.string,
   description: PropTypes.string,
   showIcon: PropTypes.bool,
   outlined: PropTypes.bool,

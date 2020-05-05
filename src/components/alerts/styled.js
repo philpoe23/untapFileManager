@@ -6,7 +6,7 @@ import { Alert } from 'antd';
  * variation is ancouraged
  */
 
-const AlertStyled = Styled(Alert)`
+const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
   margin: 15px 0!important;
   padding: 15px 15px!important;
@@ -56,4 +56,4 @@ const outline = (theme, type) => {
   `;
 };
 
-export { AlertStyled };
+export { Style };

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import SidebarItem from '../components/sidebar/sidebar';
+import MenueItems from './sidebar/MenueItems';
 import { NavLink } from 'react-router-dom';
-import { LayOutWraper } from './style';
+import { Div } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 
 const { Header, Footer, Sider, Content } = Layout;
+
 const ThemeLayout = WrappedComponent => {
   class LayoutComponent extends Component {
     state = {
@@ -19,9 +20,10 @@ const ThemeLayout = WrappedComponent => {
         collapsed: !this.state.collapsed,
       });
     };
+
     render() {
       return (
-        <LayOutWraper>
+        <Div>
           <Layout>
             <Header
               style={{
@@ -51,7 +53,7 @@ const ThemeLayout = WrappedComponent => {
             <Layout>
               <Sider width={300} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
                 <p>MAIN MENU</p>
-                <SidebarItem />
+                <MenueItems />
               </Sider>
               <Layout style={{ marginLeft: 300, marginTop: '64px', marginBottom: '70px' }}>
                 <Content>
@@ -61,7 +63,7 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
-        </LayOutWraper>
+        </Div>
       );
     }
   }
