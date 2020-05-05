@@ -47,11 +47,13 @@ const AuthInfo = ({ logOut }) => {
         optionsSize={14}
       />
 
-      <Popover placement="bottomLeft" title="Amir" content={content} trigger="click">
-        <NavLink to="#" className="head-example">
-          <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
-        </NavLink>
-      </Popover>
+      <div className="nav-author">
+        <Popover placement="bottomLeft" title="Amir" content={content} trigger="click">
+          <NavLink to="#" className="head-example">
+            <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
+          </NavLink>
+        </Popover>
+      </div>
     </InfoWraper>
   );
 };

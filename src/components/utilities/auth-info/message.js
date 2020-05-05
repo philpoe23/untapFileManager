@@ -39,7 +39,7 @@ const MessageBox = props => {
   );
 
   return (
-    <div className="message" style={{ marginTop: 10 }}>
+    <div className="message">
       <Popover placement="bottomLeft" title="Message List" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
           <NavLink to="#" className="head-example">

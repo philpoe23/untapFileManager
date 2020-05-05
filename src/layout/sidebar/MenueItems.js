@@ -17,7 +17,7 @@ const MenueItems = () => {
         key="dashboard"
         title={
           <span>
-            <FeatherIcon icon="home" size={16} />
+            <FeatherIcon icon="home" />
             <span>Dashboard</span>
           </span>
         }
@@ -42,7 +42,7 @@ const MenueItems = () => {
         key="email"
         title={
           <span>
-            <FeatherIcon icon="mail" size={16} />
+            <FeatherIcon icon="mail" />
             <span>Email</span>
           </span>
         }
@@ -57,7 +57,7 @@ const MenueItems = () => {
       </SubMenu>
       <Menu.Item key="chat">
         <NavLink to="/chat">
-          <FeatherIcon icon="message-square" size={16} />
+          <FeatherIcon icon="message-square" />
           <span>Chat</span>
         </NavLink>
       </Menu.Item>
@@ -66,7 +66,7 @@ const MenueItems = () => {
         key="ecommerce"
         title={
           <span>
-            <FeatherIcon icon="shopping-cart" size={16} />
+            <FeatherIcon icon="shopping-cart" />
             <span>eCommerce</span>
           </span>
         }
@@ -97,14 +97,14 @@ const MenueItems = () => {
 
       {/* <Menu.Item key="calendar">
         <NavLink to="/calendar">
-          <FeatherIcon icon="calendar" size={16} />
+          <FeatherIcon icon="calendar" />
           <span>Calendar</span>
         </NavLink>
       </Menu.Item> */}
 
       <Menu.Item key="project">
         <NavLink to="/project">
-          <FeatherIcon icon="target" size={16} />
+          <FeatherIcon icon="target" />
           <span>Project</span>
         </NavLink>
       </Menu.Item>
@@ -112,7 +112,7 @@ const MenueItems = () => {
         key="sub4"
         title={
           <span>
-            <FeatherIcon icon="layout" size={16} />
+            <FeatherIcon icon="layout" />
             <span>Layouts</span>
           </span>
         }
@@ -129,7 +129,7 @@ const MenueItems = () => {
         key="profile"
         title={
           <span>
-            <FeatherIcon icon="user" size={16} />
+            <FeatherIcon icon="user" />
             <span>Profile</span>
           </span>
         }
@@ -147,7 +147,7 @@ const MenueItems = () => {
         key="pages"
         title={
           <span>
-            <FeatherIcon icon="folder" size={16} />
+            <FeatherIcon icon="folder" />
             <span>Pages</span>
           </span>
         }
@@ -180,12 +180,12 @@ const MenueItems = () => {
           <NavLink to="/pages/404">404</NavLink>
         </Menu.Item>
       </SubMenu>
-      <p>Components</p>
+      <p className="sidebar-nav-title">Components</p>
       <SubMenu
         key="components"
         title={
           <span>
-            <FeatherIcon icon="layers" size={16} />
+            <FeatherIcon icon="layers" />
             <span>UI Elements</span>
           </span>
         }
@@ -312,7 +312,7 @@ const MenueItems = () => {
         key="icon"
         title={
           <span>
-            <FeatherIcon icon="grid" size={16} />
+            <FeatherIcon icon="grid" />
             <span>Icons</span>
           </span>
         }
@@ -335,7 +335,7 @@ const MenueItems = () => {
         key="charts"
         title={
           <span>
-            <FeatherIcon icon="bar-chart-2" size={16} />
+            <FeatherIcon icon="bar-chart-2" />
             <span>Charts</span>
           </span>
         }
@@ -351,7 +351,7 @@ const MenueItems = () => {
           key="recharts"
           title={
             <span>
-              <FeatherIcon icon="bar-chart" size={16} />
+              <FeatherIcon icon="bar-chart" />
               <span>Recharts</span>
             </span>
           }
@@ -385,24 +385,22 @@ const MenueItems = () => {
 
       <Menu.Item key="tables">
         <NavLink to="/tables">
-          <FeatherIcon icon="cpu" size={16} />
+          <FeatherIcon icon="cpu" />
           <span>Table</span>
         </NavLink>
       </Menu.Item>
 
       <Menu.Item key="forms">
         <NavLink to="/forms">
-          <span>
-            <FeatherIcon icon="disc" size={16} />
+            <FeatherIcon icon="disc" />
             <span>Forms</span>
-          </span>
         </NavLink>
       </Menu.Item>
       <SubMenu
         key="maps"
         title={
           <span>
-            <FeatherIcon icon="map" size={16} />
+            <FeatherIcon icon="map" />
             <span>Maps</span>
           </span>
         }
