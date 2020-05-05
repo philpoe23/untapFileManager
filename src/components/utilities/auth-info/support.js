@@ -13,7 +13,7 @@ const Support = () => {
   );
 
   return (
-    <div style={{ marginTop: 10 }}>
+    <div className="support">
       <Popover placement="bottomLeft" title="Support" content={content} trigger="click">
         <NavLink to="#" className="head-example">
           <FeatherIcon icon="help-circle" size={20} />

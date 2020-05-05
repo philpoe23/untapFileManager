@@ -39,7 +39,7 @@ const NotificationBox = props => {
   );
 
   return (
-    <div className="notification" style={{ marginTop: 10 }}>
+    <div className="notification">
       <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
           <NavLink to="#" className="head-example">

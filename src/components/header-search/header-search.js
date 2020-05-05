@@ -34,7 +34,7 @@ const HeaderSearch = props => {
   return (
     <Div className="certain-category-search-wrapper" style={{ width: '100%' }}>
       <Row>
-        <Col xs={2}>
+        <Col xs={2} className="text-right">
           <Icon type="search" className="certain-category-icon" />
         </Col>
         <Col xs={22}>

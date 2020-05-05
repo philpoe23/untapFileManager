@@ -9,6 +9,10 @@ const Div = Styled.div`
         outline: 0;
         box-shadow: none;
     }
+    .certain-category-icon{
+        font-size: 16px;
+        color: ${({theme})=>theme["gray-color"]}
+    }
 `;
 
 export { Div };

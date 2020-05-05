@@ -17,7 +17,7 @@ const Settings = () => {
   );
 
   return (
-    <div style={{ marginTop: 10 }}>
+    <div className="settings">
       <Popover placement="bottomLeft" title="Settings" content={content} trigger="click">
         <NavLink to="#" className="head-example">
           <FeatherIcon icon="settings" size={20} />

@@ -32,7 +32,7 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col md={4}>
+                <Col md={4} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
@@ -50,7 +50,7 @@ const ThemeLayout = WrappedComponent => {
             </Header>
             <Layout>
               <Sider width={300} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
-                <p>MAIN MENU</p>
+                <p className="sidebar-nav-title">MAIN MENU</p>
                 <SidebarItem />
               </Sider>
               <Layout style={{ marginLeft: 300, marginTop: '64px', marginBottom: '70px' }}>
