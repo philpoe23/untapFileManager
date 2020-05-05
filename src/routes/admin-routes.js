@@ -97,6 +97,7 @@ const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));
 const Users = lazy(() => import('../container/pages/Users'));
+const DataTable = lazy(() => import('../container/pages/UserListDataTable'));
 const Team = lazy(() => import('../container/pages/Team'));
 
 const Settings = lazy(() => import('../container/profile/settings/Settings'));
@@ -200,6 +201,7 @@ const AdminRoutes = () => {
         <Route path="/pages/faq" component={Faq} />
         <Route path="/pages/search" component={Search} />
         <Route path="/pages/users" component={Users} />
+        <Route path="/pages/dataTable" component={DataTable} />
         <Route path="/pages/team" component={Team} />
 
         <Route path="/profile/settings" component={Settings} />
