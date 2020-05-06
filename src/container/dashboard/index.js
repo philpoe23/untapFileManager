@@ -114,7 +114,7 @@ const Dashbord = () => {
                       <Focard>
                         <div className="focard-details">
                           <Heading as="h1">25,872</Heading>
-                          <p>Engaged Users</p>
+                          <p className="subtitle">Engaged Users</p>
                           <p>
                             <span>
                               <FeatherIcon icon="trending-up" /> 25%
@@ -141,7 +141,7 @@ const Dashbord = () => {
                       <Focard>
                         <div className="focard-details">
                           <Heading as="h1">492,534</Heading>
-                          <p>Page Impressions</p>
+                          <p className="subtitle">Page Impressions</p>
                           <p>
                             <span>
                               <FeatherIcon icon="trending-up" /> 14%
@@ -172,7 +172,7 @@ const Dashbord = () => {
                       <Focard>
                         <div className="focard-details">
                           <Heading as="h1">12,142</Heading>
-                          <p>Total Page Likes</p>
+                          <p className="subtitle">Total Page Likes</p>
                           <p>
                             <span>
                               <FeatherIcon icon="trending-down" /> 12%
@@ -199,7 +199,7 @@ const Dashbord = () => {
                       <Focard>
                         <div className="focard-details">
                           <Heading as="h1">1,432</Heading>
-                          <p>Page Impressions</p>
+                          <p className="subtitle">Page Impressions</p>
                           <p>
                             <span>
                               <FeatherIcon icon="trending-down" /> 14%
