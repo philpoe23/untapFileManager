@@ -33,6 +33,7 @@ const Tag = props => {
     });
     onChange && onChange(nextSelectedTags);
   };
+
   const { selectedTags } = state;
 
   return checked ? (
@@ -95,6 +96,7 @@ const AnimatedTags = props => {
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
+
     onChange && onChange(tags);
     setState({
       ...state,
@@ -116,6 +118,7 @@ const AnimatedTags = props => {
         {tag}
       </TagStyle>
     );
+
     return (
       <span key={tag} style={{ display: 'inline-block' }}>
         {tagElem}
@@ -145,6 +148,7 @@ const AnimatedTags = props => {
           {tagChild}
         </TweenOneGroup>
       </div>
+
       {inputVisible && (
         <Input
           autoFocus
@@ -157,6 +161,7 @@ const AnimatedTags = props => {
           onPressEnter={handleInputConfirm}
         />
       )}
+
       {!inputVisible && (
         <TagStyle onClick={showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
           <Icon type="plus" /> New Tag
@@ -170,4 +175,5 @@ AnimatedTags.propTypes = {
   data: PropTypes.array,
   onChange: PropTypes.func,
 };
+
 export { Tag };

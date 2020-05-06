@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from 'react';
-import { TableStyled } from './style';
+import { Style } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
@@ -8,7 +8,7 @@ import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
-const EmailContent = ({ searchData, email }) => {
+const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
     selectedRowKeys: [],
     notdata: searchData,
@@ -204,7 +204,7 @@ const EmailContent = ({ searchData, email }) => {
   ];
 
   return (
-    <TableStyled
+    <Style
       pagination={{
         defaultPageSize: 10,
         total: data.length,
@@ -219,4 +219,4 @@ const EmailContent = ({ searchData, email }) => {
   );
 };
 
-export default EmailContent;
+export default Content;

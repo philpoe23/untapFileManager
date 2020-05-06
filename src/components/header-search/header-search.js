@@ -31,6 +31,7 @@ const HeaderSearch = props => {
       )}
     </div>
   );
+
   return (
     <Div className="certain-category-search-wrapper" style={{ width: '100%' }}>
       <Row>
@@ -46,18 +47,22 @@ const HeaderSearch = props => {
     </Div>
   );
 };
+
 HeaderSearch.propTypes = {
   searchData: PropTypes.array,
   headerSearch: PropTypes.func,
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     headerSearch: value => dispatch(headerSearchAction(value)),
   };
 };
+
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearch);

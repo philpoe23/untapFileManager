@@ -4,19 +4,24 @@ import { CascaderStyle } from './style';
 
 const Cascader = props => {
   const { data, defaultValue, trigger, onChange, isShowSearch, loading, placeholder } = props;
+
   const options = data;
   const [state, setState] = useState({
     options,
   });
+
   const onChangeEvent = value => {
     onChange(value);
   };
+
   const onChangeLoading = (value, selectedOptions) => {
     onChange(value, selectedOptions);
   };
+
   const filter = (inputValue, path) => {
     return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
   };
+
   const loadData = selectedOptions => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
     targetOption.loading = true;
@@ -38,6 +43,7 @@ const Cascader = props => {
       });
     }, 1000);
   };
+
   return (
     <CascaderStyle
       options={options}

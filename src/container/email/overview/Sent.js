@@ -1,5 +1,5 @@
 import React from 'react';
-import EmailContent from './EmailContent';
+import EmailContent from './Content';
 import { connect } from 'react-redux';
 
 const Sent = ({ searchData, email }) => {

@@ -8,6 +8,7 @@ import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 import { NavLink } from 'react-router-dom';
+
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -21,7 +22,16 @@ const content = (
     </NavLink>
   </Fragment>
 );
+
 const options = {
+  layout: {
+    padding: {
+      left: '-10',
+      right: 0,
+      top: 0,
+      bottom: '-10',
+    },
+  },
   legend: {
     display: false,
     labels: {
@@ -61,6 +71,7 @@ const options = {
     ],
   },
 };
+
 const Dashbord = () => {
   return (
     <Fragment>
@@ -91,6 +102,7 @@ const Dashbord = () => {
               </Row>
             </Cards>
           </Col>
+
           <Col md={16}>
             <Cards
               isbutton={

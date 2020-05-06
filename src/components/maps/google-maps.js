@@ -29,6 +29,7 @@ const GoogleMaps = GoogleApiWrapper({
       });
     }
   };
+
   const onInfoWindowClose = () => {
     setState({
       showingInfoWindow: false,
@@ -37,13 +38,32 @@ const GoogleMaps = GoogleApiWrapper({
 
   return (
     <GmapWraper width={width} height={height}>
-      <Map onClick={onMapClicked} styles={mapStyles} google={google} style={styles} center={{ lat: latitude, lng: longitude }} zoom={zoom} height="400px">
+      <Map
+        onClick={onMapClicked}
+        styles={mapStyles}
+        google={google}
+        style={styles}
+        center={{ lat: latitude, lng: longitude }}
+        zoom={zoom}
+        height="400px"
+      >
         {place !== undefined ? (
           place.map((item, key) => {
-            return <Marker key={key + 1} onClick={onMarkerClick} position={{ lat: item.latitude, lng: item.longitude }} icon={require(`../../static/img/map/mpc.png`)} />;
+            return (
+              <Marker
+                key={key + 1}
+                onClick={onMarkerClick}
+                position={{ lat: item.latitude, lng: item.longitude }}
+                icon={require(`../../static/img/map/mpc.png`)}
+              />
+            );
           })
         ) : (
-          <Marker onClick={onMarkerClick} position={{ lat: latitude, lng: longitude }} icon={require(`../../static/img/map/mpc.png`)} />
+          <Marker
+            onClick={onMarkerClick}
+            position={{ lat: latitude, lng: longitude }}
+            icon={require(`../../static/img/map/mpc.png`)}
+          />
         )}
         <InfoWindow onClose={onInfoWindowClose} marker={state.activeMarker} visible={state.showingInfoWindow}>
           {infoWindow}
@@ -52,6 +72,7 @@ const GoogleMaps = GoogleApiWrapper({
     </GmapWraper>
   );
 });
+
 GoogleMaps.defaultProps = {
   latitude: 50.797897,
   longitude: -1.077641,
@@ -63,6 +84,7 @@ GoogleMaps.defaultProps = {
       <h1>Hello world</h1>
     </div>
   ),
+
   styles: {
     width: '100%',
     height: '100%',

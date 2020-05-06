@@ -21,6 +21,7 @@ const SocialMediaContent = props => {
     </MainWraper>
   );
 };
+
 SocialMediaContent.propTypes = {
   icon: PropTypes.string.isRequired,
   bgColor: PropTypes.string.isRequired,

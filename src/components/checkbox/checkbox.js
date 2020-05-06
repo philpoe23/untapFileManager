@@ -6,6 +6,7 @@ const CheckboxGroup = CheckboxStyle.Group;
 const Checkbox = props => {
   const { item, defaultSelect, multiple, onChange, onChangeTriger, defaultChecked, disabled, children } = props;
   const plainOptions = item;
+
   const [state, setState] = useState({
     checkedList: defaultSelect,
     indeterminate: true,
@@ -70,4 +71,5 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.string,
 };
+
 export { Checkbox, CheckboxGroup };
