@@ -8,6 +8,9 @@ import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 import { NavLink } from 'react-router-dom';
+import { Focard } from './style';
+
+
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -108,108 +111,116 @@ const Dashbord = () => {
                 <Col md={12}>
                   <Row>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">25,872</Heading>
-                        <p>Engaged Users</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 25%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#20C997',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#20C99730',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">25,872</Heading>
+                          <p>Engaged Users</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-up" /> 25%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [20, 40, 30, 45],
+                              borderColor: '#20C997',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#20C99730',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">492,534</Heading>
-                        <p>Page Impressions</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 14%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#FF69A5',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#FF69A530',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">492,534</Heading>
+                          <p>Page Impressions</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-up" /> 14%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [20, 40, 30, 45],
+                              borderColor: '#FF69A5',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#FF69A530',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={12}>
                   <Row>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">12,142</Heading>
-                        <p>Total Page Likes</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-down" /> 12%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#5F63F2',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#5F63F230',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">12,142</Heading>
+                          <p>Total Page Likes</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-down" /> 12%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [20, 40, 30, 45],
+                              borderColor: '#5F63F2',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#5F63F230',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">1,432</Heading>
-                        <p>Page Impressions</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-down" /> 14%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#FA8B0C',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#FA8B0C30',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">1,432</Heading>
+                          <p>Page Impressions</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-down" /> 14%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [20, 40, 30, 45],
+                              borderColor: '#FA8B0C',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#FA8B0C30',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                   </Row>
                 </Col>

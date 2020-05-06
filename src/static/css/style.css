@@ -25,15 +25,14 @@
 
 
 /* default card style */
-.ant-card{
-  border-radius: 10px !important;
-  box-shadow: 0 5px 20px rgba(146,153,184,0.03);
-}
+
 .ant-card-head{
-  border-radius: 10px 10px 0 0 !important;
   padding-left: 25px !important;
   padding-right: 25px !important;
 }
-.ant-card-body{
-  border-radius: 0 0 10px 10px !important;
+
+
+/* ant radio group */
+.ant-radio-button-wrapper-checked{
+  color: #fff !important;
 }
