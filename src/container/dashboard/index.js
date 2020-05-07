@@ -7,9 +7,8 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Focard, CardBarChart } from './style';
-
 
 const content = (
   <Fragment>
@@ -74,6 +73,15 @@ const options = {
   },
 };
 
+const handleActiveChange = e => {
+  const link = e.currentTarget;
+  link
+    .closest('ul')
+    .querySelector('.active')
+    .classList.remove('active');
+  link.classList.add('active');
+};
+
 const Dashbord = () => {
   return (
     <Fragment>
@@ -128,7 +136,8 @@ const Dashbord = () => {
                           <p className="subtitle">Engaged Users</p>
                           <p>
                             <span>
-                              <FeatherIcon icon="trending-up" />25%
+                              <FeatherIcon icon="trending-up" />
+                              25%
                             </span>
                             <span> 20,641 (prev)</span>
                           </p>
@@ -155,7 +164,8 @@ const Dashbord = () => {
                           <p className="subtitle">Page Impressions</p>
                           <p>
                             <span>
-                              <FeatherIcon icon="trending-up" />14%
+                              <FeatherIcon icon="trending-up" />
+                              14%
                             </span>
                             <span> 20,641 (prev)</span>
                           </p>
@@ -186,7 +196,8 @@ const Dashbord = () => {
                           <p className="subtitle">Total Page Likes</p>
                           <p>
                             <span>
-                              <FeatherIcon icon="trending-down" />12%
+                              <FeatherIcon icon="trending-down" />
+                              12%
                             </span>
                             <span> 20,641 (prev)</span>
                           </p>
@@ -213,7 +224,8 @@ const Dashbord = () => {
                           <p className="subtitle">Page Impressions</p>
                           <p>
                             <span>
-                              <FeatherIcon icon="trending-down" />14%
+                              <FeatherIcon icon="trending-down" />
+                              14%
                             </span>
                             <span> 20,641 (prev)</span>
                           </p>
@@ -244,9 +256,21 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li><a href="#">Week</a></li>
-                    <li className="active"><a href="#">Month</a></li>
-                    <li><a href="#">Year</a></li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               }
@@ -259,7 +283,8 @@ const Dashbord = () => {
                   <Heading as="h3">
                     25,472
                     <sub>
-                      <FeatherIcon icon="arrow-up" size={14} />25%
+                      <FeatherIcon icon="arrow-up" size={14} />
+                      25%
                     </sub>
                   </Heading>
                 </div>
@@ -288,9 +313,21 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li><a href="#">Week</a></li>
-                    <li className="active"><a href="#">Month</a></li>
-                    <li><a href="#">Year</a></li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#" onClick={handleActiveChange}>
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Year
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               }
@@ -304,7 +341,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-down" size={14} />25%
+                        <FeatherIcon icon="arrow-down" size={14} />
+                        25%
                       </sub>
                     </Heading>
                   </div>
@@ -331,7 +369,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />108%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        108%
                       </sub>
                     </Heading>
                   </div>
@@ -358,7 +397,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />30%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        30%
                       </sub>
                     </Heading>
                   </div>
@@ -385,7 +425,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />34%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        34%
                       </sub>
                     </Heading>
                   </div>
@@ -412,7 +453,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />27%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        27%
                       </sub>
                     </Heading>
                   </div>
@@ -439,9 +481,21 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li><a href="#">Week</a></li>
-                    <li className="active"><a href="#">Month</a></li>
-                    <li><a href="#">Year</a></li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#" onClick={handleActiveChange}>
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Year
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               }
@@ -455,7 +509,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />25%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        25%
                       </sub>
                     </Heading>
                   </div>
@@ -482,7 +537,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />108%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        108%
                       </sub>
                     </Heading>
                   </div>
@@ -509,7 +565,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />30%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        30%
                       </sub>
                     </Heading>
                   </div>
@@ -536,7 +593,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />34%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        34%
                       </sub>
                     </Heading>
                   </div>
@@ -563,7 +621,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />27%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        27%
                       </sub>
                     </Heading>
                   </div>
@@ -590,9 +649,21 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li><a href="#">Week</a></li>
-                    <li className="active"><a href="#">Month</a></li>
-                    <li><a href="#">Year</a></li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#" onClick={handleActiveChange}>
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#" onClick={handleActiveChange}>
+                        Year
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               }
@@ -606,7 +677,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />25%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        25%
                       </sub>
                     </Heading>
                   </div>
@@ -633,7 +705,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />108%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        108%
                       </sub>
                     </Heading>
                   </div>
@@ -660,7 +733,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />30%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        30%
                       </sub>
                     </Heading>
                   </div>
@@ -687,7 +761,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />34%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        34%
                       </sub>
                     </Heading>
                   </div>
@@ -714,7 +789,8 @@ const Dashbord = () => {
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />27%
+                        <FeatherIcon icon="arrow-up" size={14} />
+                        27%
                       </sub>
                     </Heading>
                   </div>
