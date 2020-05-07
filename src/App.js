@@ -9,11 +9,13 @@ import FrontendRoutes from './routes/frontend-routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './static/css/style.css';
 import theme from './config/theme/customize-antd';
+
 function App({ auth }) {
   const [state, setState] = useState({
     isLogedIn: auth,
   });
   const { isLogedIn } = state;
+
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -32,11 +34,13 @@ function App({ auth }) {
     </ThemeProvider>
   );
 }
+
 const mapStateToProps = state => {
   return {
     auth: state.auth.login,
   };
 };
+
 const MyApp = connect(mapStateToProps)(App);
 
 const StoreReturn = () => {
@@ -46,4 +50,5 @@ const StoreReturn = () => {
     </Provider>
   );
 };
+
 export default hot(StoreReturn);
