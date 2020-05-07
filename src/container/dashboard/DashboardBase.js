@@ -85,7 +85,7 @@ const DashbordBase = () => {
               <Row gutter={15}>
                 <Col md={5}>
                   <Palette
-                    grad
+                    gradient
                     content
                     direction="90deg"
                     colorCode={[theme['primary-color'], theme['secondary-color']]}
@@ -95,7 +95,7 @@ const DashbordBase = () => {
                 </Col>
                 <Col md={5}>
                   <Palette
-                    grad
+                    gradient
                     content
                     direction="90deg"
                     colorCode={[theme['secondary-color'], theme['warning-color']]}
@@ -104,7 +104,7 @@ const DashbordBase = () => {
                   </Palette>
                 </Col>
                 <Col md={5}>
-                  <Palette grad content direction="90deg" colorCode={[theme['primary-color'], theme['info-color']]}>
+                  <Palette gradient content direction="90deg" colorCode={[theme['primary-color'], theme['info-color']]}>
                     {theme['primary-color']}
                   </Palette>
                 </Col>

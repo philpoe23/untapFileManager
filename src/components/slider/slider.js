@@ -20,15 +20,18 @@ const Slider = props => {
     onAfterChange,
     onChange,
   } = props;
+
   const [state, setState] = useState({
     inputValue: 1,
     mini: min,
     maxi: max,
   });
+
   const onChanges = value => {
     if (isNaN(value)) {
       return;
     }
+
     setState({
       ...state,
       inputValue: value,

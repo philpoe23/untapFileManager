@@ -38,6 +38,7 @@ const MenueItems = () => {
           <NavLink to="/dashboard/base">Dashbord Base</NavLink>
         </Menu.Item>
       </SubMenu>
+
       <SubMenu
         key="email"
         title={
@@ -55,6 +56,7 @@ const MenueItems = () => {
         </Menu.Item>
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
+
       <Menu.Item key="chat">
         <NavLink to="/chat">
           <FeatherIcon icon="message-square" />
@@ -108,6 +110,7 @@ const MenueItems = () => {
           <span>Project</span>
         </NavLink>
       </Menu.Item>
+
       <SubMenu
         key="sub4"
         title={
@@ -181,6 +184,7 @@ const MenueItems = () => {
         </Menu.Item>
       </SubMenu>
       <p className="sidebar-nav-title">Components</p>
+
       <SubMenu
         key="components"
         title={
@@ -308,6 +312,7 @@ const MenueItems = () => {
           <NavLink to="/components/timepicker">Timepicker</NavLink>
         </Menu.Item>
       </SubMenu>
+
       <SubMenu
         key="icon"
         title={
@@ -392,10 +397,11 @@ const MenueItems = () => {
 
       <Menu.Item key="forms">
         <NavLink to="/forms">
-            <FeatherIcon icon="disc" />
-            <span>Forms</span>
+          <FeatherIcon icon="disc" />
+          <span>Forms</span>
         </NavLink>
       </Menu.Item>
+
       <SubMenu
         key="maps"
         title={

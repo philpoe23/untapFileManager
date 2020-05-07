@@ -38,12 +38,23 @@ class DateRangePickerOne extends Component {
       },
     });
   }
+
   render() {
     const start = this.state.dateRangePicker.selection.startDate.toString().split(' ');
     const end = this.state.dateRangePicker.selection.endDate.toString().split(' ');
+
     return (
       <ItemWraper>
-        <DateRangePicker onChange={this.handleRangeChange.bind(this, 'dateRangePicker')} showSelectionPreview={true} moveRangeOnFirstSelection={false} className={'PreviewArea'} months={2} ranges={[this.state.dateRangePicker.selection]} direction="horizontal" />
+        <DateRangePicker
+          onChange={this.handleRangeChange.bind(this, 'dateRangePicker')}
+          showSelectionPreview={true}
+          moveRangeOnFirstSelection={false}
+          className={'PreviewArea'}
+          months={2}
+          ranges={[this.state.dateRangePicker.selection]}
+          direction="horizontal"
+        />
+
         <ButtonGroup>
           <p>{`${start[1]} ${start[2]} ${start[3]} - ${end[1]} ${end[2]} ${end[3]}`}</p>
           <Button type="primary">Apply</Button>
@@ -103,10 +114,29 @@ class CustomDateRange extends React.Component {
 
   render() {
     const { startValue, endValue, endOpen } = this.state;
+
     return (
       <div>
-        <DatePicker disabledDate={this.disabledStartDate} showTime format="YYYY-MM-DD HH:mm:ss" value={startValue} placeholder="Start" onChange={this.onStartChange} onOpenChange={this.handleStartOpenChange} />
-        <DatePicker disabledDate={this.disabledEndDate} showTime format="YYYY-MM-DD HH:mm:ss" value={endValue} placeholder="End" onChange={this.onEndChange} open={endOpen} onOpenChange={this.handleEndOpenChange} />
+        <DatePicker
+          disabledDate={this.disabledStartDate}
+          showTime
+          format="YYYY-MM-DD HH:mm:ss"
+          value={startValue}
+          placeholder="Start"
+          onChange={this.onStartChange}
+          onOpenChange={this.handleStartOpenChange}
+        />
+
+        <DatePicker
+          disabledDate={this.disabledEndDate}
+          showTime
+          format="YYYY-MM-DD HH:mm:ss"
+          value={endValue}
+          placeholder="End"
+          onChange={this.onEndChange}
+          open={endOpen}
+          onOpenChange={this.handleEndOpenChange}
+        />
       </div>
     );
   }

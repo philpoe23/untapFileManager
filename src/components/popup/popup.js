@@ -8,6 +8,7 @@ import FeatherIcon from 'feather-icons-react';
 const Popover = props => {
   const { content, placement, title, action } = props;
   const content1 = <Content>{content}</Content>;
+
   return (
     <PopoverStyle placement={placement} title={title} content={content1} trigger={action}>
       {props.children}

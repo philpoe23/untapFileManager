@@ -76,6 +76,7 @@ const Steps = ({
       >
         {steps[state.currents].content}
       </div>
+
       {!isfinished && (
         <div className="steps-action">
           {state.currents < steps.length - 1 && (

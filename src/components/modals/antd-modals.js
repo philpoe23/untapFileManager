@@ -5,6 +5,7 @@ import { Button } from '../buttons/buttons';
 
 const Modal = props => {
   const { onCancel, onOk, visible, title, type, color, footer, width } = props;
+
   return (
     <ModalStyled
       title={title}
@@ -30,9 +31,11 @@ const Modal = props => {
     </ModalStyled>
   );
 };
+
 Modal.defaultProps = {
   width: 620,
 };
+
 Modal.propTypes = {
   onCancel: PropTypes.func,
   onOk: PropTypes.func,

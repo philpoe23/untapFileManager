@@ -1,10 +1,10 @@
 import React from 'react';
-import EmailContent from './EmailContent';
+import Content from './Content';
 import { connect } from 'react-redux';
 
 const Starred = ({ searchData, email }) => {
   return (
-    <EmailContent
+    <Content
       email={email.filter(email => {
         return email.stared;
       })}

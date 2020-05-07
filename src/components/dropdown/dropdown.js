@@ -6,12 +6,14 @@ import FeatherIcon from 'feather-icons-react';
 
 const Dropdown = props => {
   const { content, placement, title, action } = props;
+
   return (
     <DropdownStyle placement={placement} title={title} overlay={<Content>{content}</Content>} trigger={action}>
       {props.children}
     </DropdownStyle>
   );
 };
+
 const content = (
   <Fragment>
     <Link to="#">
@@ -28,11 +30,13 @@ const content = (
     </Link>
   </Fragment>
 );
+
 Dropdown.defaultProps = {
   action: ['hover'],
   placement: 'bottomCenter',
   content: content,
 };
+
 Dropdown.propTypes = {
   placement: PropTypes.string,
   title: PropTypes.string,

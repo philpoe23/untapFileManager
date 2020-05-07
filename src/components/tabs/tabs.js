@@ -9,6 +9,7 @@ const Tab = props => {
     <TabBasic color={color && color} defaultActiveKey="1" tabPosition={tabPosition !== undefined ? tabPosition : 'top'}>
       {data.map((item, key) => {
         const { title, content, icon, tabTitle } = item;
+
         return (
           <Child
             color={color && color}

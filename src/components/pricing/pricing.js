@@ -4,6 +4,7 @@ import FeatherIcon from 'feather-icons-react';
 
 const List = props => {
   const { text } = props;
+
   return (
     <ListStyle>
       <span className="icon">

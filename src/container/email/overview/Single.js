@@ -10,7 +10,7 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
 
 const ReplyMessage = lazy(() => import('./replyMessage'));
-const MailOpen = props => {
+const Single = props => {
   const { filterSinglepage, match, email, history } = props;
 
   useEffect(() => {
@@ -22,9 +22,11 @@ const MailOpen = props => {
       unmounted = true;
     };
   }, [match.params.id, filterSinglepage]);
+
   const onChange = pageNumber => {
     console.log('Page: ', pageNumber);
   };
+
   return (
     <Cards
       title={
@@ -63,6 +65,7 @@ const MailOpen = props => {
             <span> {email.type}</span>
           </Heading>
         </Col>
+
         <Col md={2}>
           <Link to="#">
             <FeatherIcon icon="code" size={14} />
@@ -71,6 +74,7 @@ const MailOpen = props => {
             <FeatherIcon icon="printer" size={14} />
           </Link>
         </Col>
+
         <Col md={14}>
           <img style={{ width: '60px', borderRadius: '50%' }} src={email.img} alt="" />
           <Heading as="h4">{email.userName}</Heading>
@@ -91,12 +95,14 @@ const MailOpen = props => {
             </Link>
           </Dropdown>
         </Col>
+
         <Col md={10}>
           <FeatherIcon icon="paperclip" size={14} />
           <span> {moment(email.id).format('LLL')} </span>
           <FeatherIcon icon="star" size={14} /> <FeatherIcon icon="corner-up-left" size={14} />{' '}
           <FeatherIcon icon="more-vertical" size={14} />
         </Col>
+
         <Col md={24}>
           <p>{email.body}</p>
           {email.type === 'inbox' && (
@@ -115,6 +121,7 @@ const MailOpen = props => {
             </figcaption>
           </figure>
         </Col>
+
         <Col md={6}>
           <figure>
             <img src={require('../../../static/img/email/1.png')} alt="" />
@@ -140,6 +147,7 @@ const MailOpen = props => {
               </li>
             </ul>
           </nav>
+
           <Switch>
             <Suspense
               fallback={
@@ -168,4 +176,5 @@ const mapStateToProps = state => {
     email: state.emailSingle.data[0],
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(MailOpen);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Single);

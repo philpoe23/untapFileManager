@@ -25,6 +25,7 @@ const Drawer = props => {
       visible: false,
     });
   };
+
   const onChange = e => {
     setState({
       ...state,

@@ -7,7 +7,7 @@ import 'react-tagsinput/react-tagsinput.css';
 import { Input, Button, Upload } from 'antd';
 import { Link } from 'react-router-dom';
 
-const ComposeMail = ({ onClick, onChange }) => {
+const Compose = ({ onClick, onChange }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
     tags: [],
@@ -16,6 +16,7 @@ const ComposeMail = ({ onClick, onChange }) => {
 
   const onChanges = value => {
     setState({ ...state, value });
+
     if (onChange) {
       // Send the changes up to the parent component as an HTML string.
       // This is here to demonstrate using `.toString()` but in a real app it
@@ -23,6 +24,7 @@ const ComposeMail = ({ onClick, onChange }) => {
       onChange(value.toString('html'));
     }
   };
+
   const handleChange = tags => {
     setState({ ...state, tags });
   };
@@ -43,6 +45,7 @@ const ComposeMail = ({ onClick, onChange }) => {
           <FeatherIcon onClick={onClick} icon="x" size={18} />
         </div>
       </div>
+
       <div className="body">
         <div className="group">
           <TagsInput
@@ -60,6 +63,7 @@ const ComposeMail = ({ onClick, onChange }) => {
           <RichTextEditor value={state.value} onChange={onChanges} />
         </div>
       </div>
+
       <div className="fotter">
         <div className="left">
           <Button type="primary">Send</Button>
@@ -78,4 +82,4 @@ const ComposeMail = ({ onClick, onChange }) => {
   );
 };
 
-export default ComposeMail;
+export default Compose;

@@ -1,7 +1,7 @@
 import Styled from 'styled-components';
 import { Table } from 'antd';
 
-const TableStyled = Styled(Table)`
+const Style = Styled(Table)`
 .ant-table-thead > tr > th .ant-table-header-column {  
   width: 100%;
 }
@@ -29,6 +29,7 @@ const small = () => {
   right: 15px;
   `;
 };
+
 const big = () => {
   return `
   max-width: 1200px;
@@ -86,4 +87,4 @@ const MailBox = Styled.div`
   }
 `;
 
-export { TableStyled, MailBox };
+export { Style, MailBox };

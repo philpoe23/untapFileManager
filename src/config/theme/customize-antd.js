@@ -26,7 +26,8 @@ const primaryColor = '#5F63F2',
   borderColorDeep = '#C6D0DC',
   bgGrayColorDeep = '#EFF0F3',
   bgGrayColorLight = '#F8F9FB',
-  bgGrayColorNormal = '#F4F5F7';
+  bgGrayColorNormal = '#F4F5F7',
+  lightGrayColor = '#868EAE';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -65,6 +66,7 @@ const theme = {
   'bg-color-light': bgGrayColorLight,
   'bg-color-normal': bgGrayColorNormal,
   'bg-color-deep': bgGrayColorDeep,
+  'light-gray-color': lightGrayColor,
 
   // cards
   'card-head-background': '#ffffff',
@@ -74,7 +76,7 @@ const theme = {
   'card-padding-base': '12px',
   'card-radius': '10px',
   'card-shadow': '0 5px 20px rgba(146,153,184,0.03)',
-  
+
 
   // Layout
   'layout-body-background': '#F4F5F7',

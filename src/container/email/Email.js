@@ -3,9 +3,9 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Spin } from 'antd';
 import { Main } from '../styled';
-import EamilNavbar from './overview/EamilNavbar';
+import EamilNavbar from './overview/Navbar';
 import { Button } from '../../components/buttons/buttons';
-import ComposeMail from './overview/ComposeMail';
+import ComposeMail from './overview/Compose';
 import { Switch, Route } from 'react-router-dom';
 
 const Inbox = lazy(() => import('./overview/Inbox'));
@@ -14,28 +14,33 @@ const Draft = lazy(() => import('./overview/Draft'));
 const Starred = lazy(() => import('./overview/Starred'));
 const Trash = lazy(() => import('./overview/Trash'));
 const Spam = lazy(() => import('./overview/Spam'));
-const MailOpen = lazy(() => import('./overview/MailOpen'));
+const MailOpen = lazy(() => import('./overview/Single'));
 
 const Email = ({ match }) => {
   const [state, setstate] = useState({
     isMail: false,
   });
+
   const { isMail } = state;
+
   const openClose = e => {
     setstate({
       isMail: isMail ? false : true,
     });
   };
+
   const onlyClose = e => {
     setstate({
       isMail: false,
     });
   };
+
   const path = match.path.split(':')[0];
   return (
     <Fragment>
       <PageHeader ghost title={match.params.page} />
       {isMail && <ComposeMail onClick={onlyClose} />}
+
       <Main>
         <Row gutter={15}>
           <Col md={5}>
@@ -46,6 +51,7 @@ const Email = ({ match }) => {
               <EamilNavbar path={path} />
             </Cards>
           </Col>
+
           <Col md={19}>
             <Switch>
               <Suspense

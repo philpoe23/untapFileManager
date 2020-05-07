@@ -12,7 +12,9 @@ const Heading = props => {
 Heading.defaultProps = {
   as: 'h1',
 };
+
 Heading.propTypes = {
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };
+
 export default Heading;

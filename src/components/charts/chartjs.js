@@ -14,6 +14,7 @@ const ChartjsBarChart = props => {
 ChartjsBarChart.defaultProps = {
   height: 200,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+
   datasets: [
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
@@ -24,6 +25,7 @@ ChartjsBarChart.defaultProps = {
       backgroundColor: '#1ce1ac',
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -69,6 +71,7 @@ ChartjsBarChart.propTypes = {
   height: PropTypes.number.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
+
 const ChartjsHorizontalChart = props => {
   const { labels, datasets, options, height } = props;
   const data = {
@@ -91,6 +94,7 @@ ChartjsHorizontalChart.defaultProps = {
       backgroundColor: '#1ce1ac',
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -130,6 +134,7 @@ ChartjsHorizontalChart.defaultProps = {
     },
   },
 };
+
 ChartjsHorizontalChart.propTypes = {
   height: PropTypes.number.isRequired,
   labels: PropTypes.array.isRequired,
@@ -144,9 +149,11 @@ const ChartjsStackedChart = props => {
   };
   return <Bar data={data} height={height} options={options} />;
 };
+
 ChartjsStackedChart.defaultProps = {
   height: 200,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+
   datasets: [
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
@@ -157,6 +164,7 @@ ChartjsStackedChart.defaultProps = {
       backgroundColor: '#1ce1ac',
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -197,20 +205,22 @@ ChartjsStackedChart.defaultProps = {
     },
   },
 };
+
 ChartjsStackedChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
 
 const ChartjsLineChart = props => {
-  const { labels, datasets, options, height } = props;
+  const { labels, datasets, options, height, layout } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Line data={data} height={height} options={options} />;
+  return <Line data={data} height={height} options={{ ...options, ...layout }} />;
 };
+
 ChartjsLineChart.defaultProps = {
   height: 200,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -228,8 +238,17 @@ ChartjsLineChart.defaultProps = {
       fill: false,
     },
   ],
+
   options: {
     maintainAspectRatio: true,
+    layout: {
+      padding: {
+        left: '-10px',
+        right: 0,
+        top: 0,
+        bottom: '-10px',
+      },
+    },
     legend: {
       display: false,
       labels: {
@@ -263,19 +282,21 @@ ChartjsLineChart.defaultProps = {
     },
   },
 };
+
 ChartjsLineChart.propTypes = {
   height: PropTypes.number.isRequired,
   labels: PropTypes.array.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  layout: PropTypes.object,
 };
 
 const ChartjsAreaChart = props => {
-  const { labels, datasets, options, height } = props;
+  const { labels, datasets, options, height, layout } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Line data={data} height={height} options={options} />;
+  return <Line data={data} height={height} options={{ ...options, ...layout }} />;
 };
 
 ChartjsAreaChart.defaultProps = {
@@ -299,6 +320,14 @@ ChartjsAreaChart.defaultProps = {
   ],
   options: {
     maintainAspectRatio: true,
+    layout: {
+      padding: {
+        left: '-10',
+        right: 0,
+        top: 0,
+        bottom: '-10',
+      },
+    },
     legend: {
       display: false,
       labels: {
@@ -319,7 +348,7 @@ ChartjsAreaChart.defaultProps = {
             color: '#e5e9f2',
           },
           ticks: {
-            beginAtZero: false,
+            beginAtZero: true,
             fontSize: 10,
             display: false,
           },
@@ -331,8 +360,9 @@ ChartjsAreaChart.defaultProps = {
           gridLines: {
             display: false,
           },
+
           ticks: {
-            beginAtZero: false,
+            beginAtZero: true,
             fontSize: 11,
             display: false,
           },
@@ -343,19 +373,21 @@ ChartjsAreaChart.defaultProps = {
 };
 
 ChartjsAreaChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  layout: PropTypes.object,
 };
-//
+
 const ChartjsBarChartTransparent = props => {
-  const { labels, datasets, options, height } = props;
+  const { labels, datasets, options, height, layout } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Bar data={data} height={height} options={options} />;
+  return <Bar data={data} height={height} options={{ ...options, ...layout }} />;
 };
+
 ChartjsBarChartTransparent.defaultProps = {
   height: 200,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -369,6 +401,7 @@ ChartjsBarChartTransparent.defaultProps = {
       backgroundColor: 'rgba(28,225,172, .5)',
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -376,6 +409,14 @@ ChartjsBarChartTransparent.defaultProps = {
       display: true,
       labels: {
         display: true,
+      },
+    },
+    layout: {
+      padding: {
+        left: '0',
+        right: 0,
+        top: 0,
+        bottom: '0',
       },
     },
     scales: {
@@ -410,18 +451,18 @@ ChartjsBarChartTransparent.defaultProps = {
 };
 
 ChartjsBarChartTransparent.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
 
 const ChartjsBarChartGrad = props => {
-  const { labels, datasets, options, height } = props;
+  const { labels, datasets, options, height, layout } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Bar data={data} height={height} options={options} />;
+  return <Bar data={data} height={height} options={{ ...options, ...layout }} />;
 };
 
 ChartjsBarChartGrad.defaultProps = {
@@ -436,9 +477,18 @@ ChartjsBarChartGrad.defaultProps = {
       backgroundColor: 'rgba(28,225,172, .5)',
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
+    layout: {
+      padding: {
+        left: '0',
+        right: 0,
+        top: 0,
+        bottom: '0',
+      },
+    },
     legend: {
       display: false,
       labels: {
@@ -494,6 +544,7 @@ ChartjsPieChart.defaultProps = {
       backgroundColor: ['#560bd0', '#007bff', '#00cccc', '#cbe0e3', '#74de00'],
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -521,6 +572,7 @@ const ChartjsDonutChart = props => {
   };
   return <Doughnut data={data} height={height} options={options} />;
 };
+
 ChartjsDonutChart.defaultProps = {
   height: 200,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
@@ -530,6 +582,7 @@ ChartjsDonutChart.defaultProps = {
       backgroundColor: ['#560bd0', '#007bff', '#00cccc', '#cbe0e3', '#74de00'],
     },
   ],
+
   options: {
     maintainAspectRatio: true,
     responsive: true,
@@ -542,11 +595,13 @@ ChartjsDonutChart.defaultProps = {
     },
   },
 };
+
 ChartjsDonutChart.propTypes = {
   height: PropTypes.number.isRequired,
   labels: PropTypes.array.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
+
 export {
   ChartjsDonutChart,
   ChartjsPieChart,
