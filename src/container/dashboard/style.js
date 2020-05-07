@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 
 const Focard = Styled.div`
-    padding: 0 12px;
+
     canvas{
         width: 100% !important;
         margin-top: 45px;
@@ -56,4 +56,8 @@ const CardBarChart = Styled.div`
     }
 `;
 
-export { Focard, CardBarChart };
+const CardGroup = Styled.div`
+    
+`;
+
+export { Focard, CardBarChart, CardGroup };

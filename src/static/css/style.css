@@ -9,6 +9,9 @@
 .d-flex{
   display: flex;
 }
+.flex-grid .flex-grid-child{
+  padding: 0 12px;
+}
 .align-center-v{
   display: flex;
   align-items: center;
@@ -22,6 +25,9 @@
 .text-center{
   text-align: center;
 }
+.m-0{
+  margin: 0 !important;
+}
 
 
 /* default card style */
@@ -31,6 +37,12 @@
 .ant-card-head{
   padding-left: 25px !important;
   padding-right: 25px !important;
+}
+.ant-card-head-title span{
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 11px;
+  color: #868EAE;
 }
 
 
@@ -85,4 +97,29 @@
 }
 .growth-upward h1 sub{
   color: #20C997;
+}
+
+/* progressbars */
+.ant-progress > div{
+  display: flex;
+  flex-direction: column;
+}
+.ant-progress .ant-progress-outer{
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  order: 1;
+}
+.ant-progress .ant-progress-text{
+  order: 0;
+  margin-left: 0;
+  align-self: flex-end;
+  text-align: right;
+}
+.ant-progress-status-warning .ant-progress-bg{
+  background: #FA8B0C;
+}
+
+/* focards */
+.focard-wrapper .ant-col-md-12{
+  padding: 0 12px;
 }

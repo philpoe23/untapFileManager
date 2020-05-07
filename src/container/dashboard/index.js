@@ -8,7 +8,7 @@ import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 import { NavLink, Link } from 'react-router-dom';
-import { Focard, CardBarChart } from './style';
+import { Focard, CardBarChart, CardGroup } from './style';
 
 const content = (
   <Fragment>
@@ -114,141 +114,143 @@ const Dashbord = () => {
           </Col>
 
           <Col md={16}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={2}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
-              }
-              title="Facebook Overview"
-              size="large"
-            >
-              <Row>
-                <Col md={12}>
-                  <Row>
-                    <Col md={12}>
-                      <Focard>
-                        <div className="focard-details">
-                          <Heading as="h1">25,872</Heading>
-                          <p className="subtitle">Engaged Users</p>
-                          <p>
-                            <span>
-                              <FeatherIcon icon="trending-up" />
-                              25%
-                            </span>
-                            <span> 20,641 (prev)</span>
-                          </p>
-                        </div>
-                        <ChartjsAreaChart
-                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                          datasets={[
-                            {
-                              data: [20, 40, 30, 45],
-                              borderColor: '#20C997',
-                              borderWidth: 3,
-                              fill: true,
-                              backgroundColor: '#20C99730',
-                            },
-                          ]}
-                          height={180}
-                        />
-                      </Focard>
-                    </Col>
-                    <Col md={12}>
-                      <Focard>
-                        <div className="focard-details">
-                          <Heading as="h1">492,534</Heading>
-                          <p className="subtitle">Page Impressions</p>
-                          <p>
-                            <span>
-                              <FeatherIcon icon="trending-up" />
-                              14%
-                            </span>
-                            <span> 20,641 (prev)</span>
-                          </p>
-                        </div>
-                        <ChartjsAreaChart
-                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                          datasets={[
-                            {
-                              data: [10, 20, 60, 33],
-                              borderColor: '#FF69A5',
-                              borderWidth: 3,
-                              fill: true,
-                              backgroundColor: '#FF69A530',
-                            },
-                          ]}
-                          height={180}
-                        />
-                      </Focard>
-                    </Col>
-                  </Row>
-                </Col>
-                <Col md={12}>
-                  <Row>
-                    <Col md={12}>
-                      <Focard>
-                        <div className="focard-details growth-downward">
-                          <Heading as="h1">12,142</Heading>
-                          <p className="subtitle">Total Page Likes</p>
-                          <p>
-                            <span>
-                              <FeatherIcon icon="trending-down" />
-                              12%
-                            </span>
-                            <span> 20,641 (prev)</span>
-                          </p>
-                        </div>
-                        <ChartjsAreaChart
-                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                          datasets={[
-                            {
-                              data: [25, 35, 20, 28],
-                              borderColor: '#5F63F2',
-                              borderWidth: 3,
-                              fill: true,
-                              backgroundColor: '#5F63F230',
-                            },
-                          ]}
-                          height={180}
-                        />
-                      </Focard>
-                    </Col>
-                    <Col md={12}>
-                      <Focard>
-                        <div className="focard-details">
-                          <Heading as="h1">1,432</Heading>
-                          <p className="subtitle">Page Impressions</p>
-                          <p>
-                            <span>
-                              <FeatherIcon icon="trending-down" />
-                              14%
-                            </span>
-                            <span> 20,641 (prev)</span>
-                          </p>
-                        </div>
-                        <ChartjsAreaChart
-                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                          datasets={[
-                            {
-                              data: [40, 31, 20, 45],
-                              borderColor: '#FA8B0C',
-                              borderWidth: 3,
-                              fill: true,
-                              backgroundColor: '#FA8B0C30',
-                            },
-                          ]}
-                          height={180}
-                        />
-                      </Focard>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Cards>
+            <CardGroup>
+              <Cards
+                isbutton={
+                  <Radio.Group defaultValue={2}>
+                    <Radio.Button value={1}>Today</Radio.Button>
+                    <Radio.Button value={2}>Week</Radio.Button>
+                    <Radio.Button value={3}>Month</Radio.Button>
+                    <Radio.Button value={4}>Year</Radio.Button>
+                  </Radio.Group>
+                }
+                title="Facebook Overview"
+                size="large"
+              >
+                <Row>
+                  <Col md={12}>
+                    <Row className="focard-wrapper">
+                      <Col md={12}>
+                        <Focard>
+                          <div className="focard-details">
+                            <Heading as="h1">25,872</Heading>
+                            <p className="subtitle">Engaged Users</p>
+                            <p>
+                              <span>
+                                <FeatherIcon icon="trending-up" />
+                                25%
+                              </span>
+                              <span> 20,641 (prev)</span>
+                            </p>
+                          </div>
+                          <ChartjsAreaChart
+                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                            datasets={[
+                              {
+                                data: [20, 40, 30, 45],
+                                borderColor: '#20C997',
+                                borderWidth: 3,
+                                fill: true,
+                                backgroundColor: '#20C99730',
+                              },
+                            ]}
+                            height={180}
+                          />
+                        </Focard>
+                      </Col>
+                      <Col md={12}>
+                        <Focard>
+                          <div className="focard-details">
+                            <Heading as="h1">492,534</Heading>
+                            <p className="subtitle">Page Impressions</p>
+                            <p>
+                              <span>
+                                <FeatherIcon icon="trending-up" />
+                                14%
+                              </span>
+                              <span> 20,641 (prev)</span>
+                            </p>
+                          </div>
+                          <ChartjsAreaChart
+                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                            datasets={[
+                              {
+                                data: [10, 20, 60, 33],
+                                borderColor: '#FF69A5',
+                                borderWidth: 3,
+                                fill: true,
+                                backgroundColor: '#FF69A530',
+                              },
+                            ]}
+                            height={180}
+                          />
+                        </Focard>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col md={12}>
+                    <Row className="focard-wrapper">
+                      <Col md={12}>
+                        <Focard>
+                          <div className="focard-details growth-downward">
+                            <Heading as="h1">12,142</Heading>
+                            <p className="subtitle">Total Page Likes</p>
+                            <p>
+                              <span>
+                                <FeatherIcon icon="trending-down" />
+                                12%
+                              </span>
+                              <span> 20,641 (prev)</span>
+                            </p>
+                          </div>
+                          <ChartjsAreaChart
+                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                            datasets={[
+                              {
+                                data: [25, 35, 20, 28],
+                                borderColor: '#5F63F2',
+                                borderWidth: 3,
+                                fill: true,
+                                backgroundColor: '#5F63F230',
+                              },
+                            ]}
+                            height={180}
+                          />
+                        </Focard>
+                      </Col>
+                      <Col md={12}>
+                        <Focard>
+                          <div className="focard-details">
+                            <Heading as="h1">1,432</Heading>
+                            <p className="subtitle">Page Impressions</p>
+                            <p>
+                              <span>
+                                <FeatherIcon icon="trending-down" />
+                                14%
+                              </span>
+                              <span> 20,641 (prev)</span>
+                            </p>
+                          </div>
+                          <ChartjsAreaChart
+                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                            datasets={[
+                              {
+                                data: [40, 31, 20, 45],
+                                borderColor: '#FA8B0C',
+                                borderWidth: 3,
+                                fill: true,
+                                backgroundColor: '#FA8B0C30',
+                              },
+                            ]}
+                            height={180}
+                          />
+                        </Focard>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Cards>
+            </CardGroup>
           </Col>
 
           <Col md={8}>

@@ -5,7 +5,7 @@ import { Row, Col, Radio, Progress } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Focard, CardBarChart } from './style';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
@@ -67,7 +67,7 @@ const Business = () => {
                 <Focard>
                   <Cards headless title="Profit">
                     <div className="focard-details">
-                      <Heading as="h1">25,872</Heading>
+                      <Heading as="h1">$25,872</Heading>
                       <p>
                         <span>
                           <FeatherIcon icon="trending-up" /> 25%
@@ -95,7 +95,7 @@ const Business = () => {
                 <Focard>
                 <Cards headless title="Gross Profit">
                   <div className="focard-details">
-                    <Heading as="h1">25,872</Heading>
+                    <Heading as="h1">$25,872</Heading>
                     <p>Engaged Users</p>
                     <p>
                       <span>
@@ -124,7 +124,7 @@ const Business = () => {
                 <Cards headless title="Quick Ratio">
                   <div>
                     <Heading as="h1">1.8</Heading>
-                    <Progress percent={80} status="active" />
+                    <Progress percent={80} status="success" />
                     <p>
                       <strong>1 or higher</strong> quick ratio target
                     </p>
@@ -135,7 +135,7 @@ const Business = () => {
                 <Cards headless title="Current Ratio">
                   <div>
                     <Heading as="h1">2.4</Heading>
-                    <Progress percent={72} status="active" />
+                    <Progress percent={72} status="warning" />
                     <p>
                       <strong>3 or higher</strong> current ratio target
                     </p>
@@ -147,24 +147,49 @@ const Business = () => {
           <Col md={12}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
-              title="Youtube Subscribers"
+              title={<div>Cash Flow <span>Nov 23, 2019 - Nov 29, 2019</span></div>}
               size="large"
             >
               <CardBarChart>
-              <div>
-                <p>Subscribers</p>
-                <Heading as="h3">
-                  25,472
-                  <sub>
-                    <FeatherIcon icon="arrow-up" size={14} /> 25% 20,641 (prev)
-                  </sub>
-                </Heading>
+              <div className="d-flex flex-grid">
+                <div className="flex-grid-child">
+                  <p>Current Balance</p>
+                  <Heading as="h3">
+                    $25,472
+                  </Heading>
+                </div>
+                <div className="flex-grid-child">
+                  <p>Cash In</p>
+                  <Heading as="h3">
+                    $35,414
+                  </Heading>
+                </div>
+                <div className="flex-grid-child">
+                  <p>Cash Out</p>
+                  <Heading as="h3">
+                    $45,798
+                  </Heading>
+                </div>
               </div>
               <ChartjsBarChartTransparent
                 labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
@@ -173,7 +198,7 @@ const Business = () => {
                     data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
                     backgroundColor: '#20C99780',
                     hoverBackgroundColor: '#20C997',
-                    label: 'Gainedhi',
+                    label: 'Gained',
                   },
                   {
                     data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
@@ -196,7 +221,7 @@ const Business = () => {
                   <Radio.Button value={4}>Year</Radio.Button>
                 </Radio.Group>
               }
-              title="Income And Expenses Nov 23, 2019 - Nov 29, 2019"
+              title={<div>Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span></div>}
               size="large"
             >
               <Col md={8}>
