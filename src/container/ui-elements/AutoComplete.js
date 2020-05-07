@@ -9,6 +9,7 @@ import { AutoComplete } from '../../components/autoComplete/autoComplete';
 const { TextArea } = Input;
 const AutoCompletess = props => {
   const { searchData } = props;
+
   const [state, setState] = useState({
     dataSource: [],
     notdata: searchData,
@@ -72,4 +73,5 @@ const mapStateToProps = state => {
     searchData: state.headerSearchData,
   };
 };
+
 export default connect(mapStateToProps)(AutoCompletess);

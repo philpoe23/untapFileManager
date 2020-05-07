@@ -13,6 +13,7 @@ const ForgotPassword = ({ form }) => {
     });
   };
   const { getFieldDecorator } = form;
+
   return (
     <div style={{ padding: '30px' }}>
       <Heading as="h3">Forgot Password?</Heading>

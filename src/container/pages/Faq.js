@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
 import { Row, Col, Collapse, Icon } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Link } from 'react-router-dom';
@@ -10,6 +9,7 @@ import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 
 const { Panel } = Collapse;
+
 const customPanelStyle = {
   background: '#f7f7f7',
   borderRadius: 4,
@@ -17,6 +17,7 @@ const customPanelStyle = {
   border: 0,
   overflow: 'hidden',
 };
+
 const Faq = () => {
   const handleChange = e => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const Faq = () => {
       .classList.remove('active');
     e.target.classList.add('active');
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Frequently Asked Questions" />
@@ -70,6 +72,7 @@ const Faq = () => {
                   </ul>
                 </Cards>
               </Col>
+
               <Col md={24}>
                 <Cards headless>
                   <figure>
@@ -83,6 +86,7 @@ const Faq = () => {
               </Col>
             </Row>
           </Col>
+
           <Col md={19}>
             <Cards headless title="Using Applications">
               <Collapse
@@ -224,14 +228,5 @@ const Faq = () => {
     </Fragment>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    //galleryFilter: (column, value) => dispatch(galleryFilter(column, value)),
-  };
-};
-const mapStateToProps = state => {
-  return {
-    //gallery: state.gallery,
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Faq);
+
+export default Faq;

@@ -31,6 +31,7 @@ const Sliders = () => {
     height: 300,
     marginLeft: 70,
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Sliders" />

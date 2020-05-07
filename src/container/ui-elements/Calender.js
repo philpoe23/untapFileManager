@@ -10,7 +10,9 @@ const Calendars = () => {
     value: moment('2017-01-25'),
     selectedValue: moment('2017-01-25'),
   });
+
   const { value, selectedValue } = state;
+
   const onSelect = value => {
     setState({
       value,

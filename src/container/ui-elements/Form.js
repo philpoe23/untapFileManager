@@ -5,8 +5,10 @@ import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Cascader } from '../../components/cascader/cascader';
 import { Button } from '../../components/buttons/buttons';
+
 const { Option } = Select;
 const { TextArea } = Input;
+
 const Forms = ({ form }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -16,7 +18,9 @@ const Forms = ({ form }) => {
       }
     });
   };
+
   const { getFieldDecorator } = form;
+
   return (
     <Fragment>
       <PageHeader ghost title="Form" />

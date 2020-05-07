@@ -18,26 +18,31 @@ const GoogleMap = () => {
               <GoogleMaps />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Google Map Style Light" size="large">
               <GoogleMaps mapStyles={map_one_styles} />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Google Map Style Dark" size="large">
               <GoogleMaps mapStyles={map_style_dark} />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Google Map Style Theame Color" size="large">
               <GoogleMaps zoom={2} mapStyles={map_Three_styles} />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Google Map Style Color" size="large">
               <GoogleMaps mapStyles={map_two_styles} />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Google Map Style Color" size="large">
               <GoogleMaps

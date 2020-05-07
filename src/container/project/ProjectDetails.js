@@ -24,6 +24,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
     };
   }, [match.params.id, filterSinglepage]);
   const { title, content } = project[0];
+
   return (
     <Fragment>
       <PageHeader
@@ -199,6 +200,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     filterSinglepage: id => dispatch(filterSinglepage(id)),
@@ -211,4 +213,5 @@ const mapStateToProps = state => {
     // products: state.products,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);

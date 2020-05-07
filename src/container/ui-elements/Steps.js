@@ -18,6 +18,7 @@ const customDot = (dot, { status, index }) => (
     {dot}
   </Popover>
 );
+
 const Stepess = () => {
   const [state, setState] = useState({
     current: 0,

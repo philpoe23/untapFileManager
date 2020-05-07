@@ -8,6 +8,7 @@ const Collapses = () => {
   const callback = key => {
     console.log(key);
   };
+
   const customPanelStyle = {
     background: '#f7f7f7',
     borderRadius: 4,
@@ -15,6 +16,7 @@ const Collapses = () => {
     border: 0,
     overflow: 'hidden',
   };
+
   return (
     <Fragment>
       <PageHeader title="Collapse" />

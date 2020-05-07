@@ -144,4 +144,5 @@ const mapStateToProps = state => {
     sellers: state.sellers,
   };
 };
+
 export default connect(mapStateToProps)(Sellers);

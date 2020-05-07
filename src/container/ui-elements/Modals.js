@@ -24,6 +24,7 @@ const success = () => {
     content: 'some messages...some messages...',
   });
 };
+
 const error = () => {
   alertModal.error({
     title: 'This is an error message',

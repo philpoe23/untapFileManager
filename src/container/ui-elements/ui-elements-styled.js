@@ -15,6 +15,7 @@ const SpinerWraperStyle = Styled.div`
   padding: 30px 50px;
   margin: 20px 0;
 `;
+
 const CarouselStyleWraper = Styled.div`
   .ant-carousel .slick-slide {
     text-align: center;

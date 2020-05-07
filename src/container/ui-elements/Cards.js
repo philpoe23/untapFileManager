@@ -6,6 +6,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom';
 
 const { Meta } = Card;
+
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -19,6 +20,7 @@ const content = (
     </NavLink>
   </Fragment>
 );
+
 const CardContainer = () => {
   return (
     <Fragment>

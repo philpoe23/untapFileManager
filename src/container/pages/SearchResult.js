@@ -30,13 +30,16 @@ const SearchResult = ({ searchData }) => {
       .classList.remove('active');
     e.target.classList.add('active');
   };
+
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
     console.log(current, pageSize);
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Search Result" />
@@ -165,14 +168,17 @@ const SearchResult = ({ searchData }) => {
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     //galleryFilter: (column, value) => dispatch(galleryFilter(column, value)),
   };
 };
+
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);

@@ -17,13 +17,16 @@ const options = [
     isLeaf: false,
   },
 ];
+
 const Cascaders = () => {
   const onChange = value => {
     console.log(value);
   };
+
   const onChangeLoading = (value, selectedOptions) => {
     console.log(value, selectedOptions);
   };
+
   return (
     <Fragment>
       <PageHeader title="Cascader" />

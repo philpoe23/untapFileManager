@@ -23,7 +23,8 @@ const routes = [
     breadcrumbName: 'Third-level Menu',
   },
 ];
-const Page_Headers = () => {
+
+const PageHeaders = () => {
   return (
     <Fragment>
       <PageHeader
@@ -103,4 +104,4 @@ const Page_Headers = () => {
   );
 };
 
-export default Page_Headers;
+export default PageHeaders;

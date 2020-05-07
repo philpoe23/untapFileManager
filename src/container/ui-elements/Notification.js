@@ -16,6 +16,7 @@ const Notifications = () => {
       },
     });
   };
+
   const openNotification2 = () => {
     const args = {
       message: 'Notification Title',

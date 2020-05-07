@@ -24,6 +24,7 @@ const GridStyleGutter = Styled.div`
         color: #ffff;
     }    
 `;
+
 const GridStyleOffset = Styled.div`
     .ant-row .ant-col {
         height: 50px;
@@ -34,4 +35,5 @@ const GridStyleOffset = Styled.div`
         color: #ffff;
     }    
 `;
+
 export { GridStyle, GridStyleGutter, GridStyleOffset };

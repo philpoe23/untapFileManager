@@ -15,9 +15,11 @@ const SignUp = ({ form }) => {
   };
 
   const { getFieldDecorator } = form;
+
   const onChange = (checked, value) => {
     console.log(`checked = ${checked}`);
   };
+
   return (
     <div style={{ padding: '30px' }}>
       <p style={{ textAlign: 'right' }}>

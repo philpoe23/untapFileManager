@@ -23,6 +23,7 @@ const AuthLayout = WraperContent => {
             </Content>
           </Aside>
         </Col>
+
         <Col md={16}>
           <WraperContent />
         </Col>

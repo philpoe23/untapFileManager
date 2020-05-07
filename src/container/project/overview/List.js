@@ -27,6 +27,7 @@ const List = props => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
     console.log(current, pageSize);
@@ -102,6 +103,7 @@ const List = props => {
       key: 'completion',
     },
   ];
+
   return (
     <Row gutter={15}>
       <Col md={24}>
@@ -124,6 +126,7 @@ const List = props => {
     </Row>
   );
 };
+
 const mapStateToProps = state => {
   return {
     projects: state.projects.data,

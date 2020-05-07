@@ -4,7 +4,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import FontAwesome from 'react-fontawesome';
-import { Icon } from './icon-styled';
+import { Icon } from './IconStyled';
 import { faIcons } from '../../config/icon/icon.json';
 
 const FeatherSvgIcons = () => {

@@ -13,6 +13,7 @@ const Grid = props => {
     projects: props.projects,
   });
   const { projects } = state;
+
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -28,6 +29,7 @@ const Grid = props => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
     console.log(current, pageSize);

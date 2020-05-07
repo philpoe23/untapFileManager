@@ -156,6 +156,7 @@ const Orders = ({ searchData, orders, orderFilter, isloading }) => {
     </Fragment>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     orderFilter: (column, value) => dispatch(orderFilter(column, value)),
@@ -169,4 +170,5 @@ const mapStateToProps = state => {
     isloading: state.gallery.loading,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

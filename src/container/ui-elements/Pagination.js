@@ -8,9 +8,11 @@ const Paginations = props => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
   const onChange = pageNumber => {
     console.log('Page: ', pageNumber);
   };
+
   return (
     <Fragment>
       <PageHeader title="Paginations" />

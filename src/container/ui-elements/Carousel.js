@@ -9,11 +9,14 @@ const Carousels = () => {
   const onChange = (a, b, c) => {
     console.log(a, b, c);
   };
+
   const [state, setState] = useState({
     dotPosition: 'top',
   });
+
   const handlePositionChange = ({ target: { value: dotPosition } }) => setState({ dotPosition });
   const { dotPosition } = state;
+
   return (
     <Fragment>
       <PageHeader title="Spin" />
