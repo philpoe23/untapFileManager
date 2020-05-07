@@ -13,6 +13,7 @@ const Rating = () => {
   const handleChange = value => {
     setState({ value });
   };
+
   const { value } = state;
   return (
     <Fragment>

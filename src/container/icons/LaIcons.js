@@ -3,24 +3,25 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import FeatherIcon from 'feather-icons-react';
-import { Icon } from './icon-styled';
-import { featherIcons } from '../../config/icon/icon.json';
+import * as Line from 'react-line-awesome';
+import { Icon } from './IconStyled';
 
-const FeatherSvgIcons = () => {
+const FeatherSvgIcons = props => {
   return (
     <Fragment>
-      <PageHeader title="Feather Icons" />
+      <PageHeader title="Line Awesome Icons" />
       <Main>
         <Row gutter={15}>
           <Col md={24}>
             <Cards title="Simply beautiful open source icons" size="learge">
               <Row gutter={15}>
-                {featherIcons.map((icon, index) => {
+                {Object.keys(Line).map((icon, index) => {
+                  const CustomTag = Line[icon];
+                  console.log(Line);
                   return (
                     <Col md={6} key={index + 1}>
                       <Icon>
-                        <FeatherIcon icon={icon} size={18} />
+                        <CustomTag className="custom-class" component="span" />
                         <span>{icon}</span>
                       </Icon>
                     </Col>

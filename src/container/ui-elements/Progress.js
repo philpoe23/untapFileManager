@@ -9,6 +9,7 @@ const ProgressBar = () => {
   const [state, setState] = useState({
     percent: 0,
   });
+
   const increase = () => {
     let percent = state.percent + 10;
     if (percent > 100) {
@@ -24,6 +25,7 @@ const ProgressBar = () => {
     }
     setState({ percent });
   };
+
   return (
     <Fragment>
       <PageHeader title="Progress Bar" />

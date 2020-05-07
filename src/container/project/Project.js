@@ -150,4 +150,5 @@ const mapStateToProps = state => {
     searchData: state.headerSearchData,
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Project);

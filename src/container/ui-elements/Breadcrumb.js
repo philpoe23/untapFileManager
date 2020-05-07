@@ -23,6 +23,7 @@ const menu = (
     </Menu.Item>
   </Menu>
 );
+
 const Breadcrumbs = () => {
   return (
     <Fragment>

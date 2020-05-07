@@ -243,10 +243,10 @@ ChartjsLineChart.defaultProps = {
     maintainAspectRatio: true,
     layout: {
       padding: {
-        left: '-10px',
+        left: '-10',
         right: 0,
         top: 0,
-        bottom: '-10px',
+        bottom: '-10',
       },
     },
     legend: {

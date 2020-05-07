@@ -36,6 +36,7 @@ const OsMap = () => {
               <LeafletMapBasic latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={15} />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Leaflet Multiple Icon" size="large">
               <LeafletMapMultipleIcon
@@ -48,6 +49,7 @@ const OsMap = () => {
               />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Leaflet Custom Icon" size="large">
               <LeafletMapCustomIcon
@@ -61,6 +63,7 @@ const OsMap = () => {
               />
             </Cards>
           </Col>
+
           <Col md={12}>
             <Cards title="Leaflet Cluster Map" size="large">
               <LeafleteMarkerCluster

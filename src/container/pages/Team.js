@@ -105,15 +105,11 @@ const Team = ({ searchData, team }) => {
     </Fragment>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    //galleryFilter: (column, value) => dispatch(galleryFilter(column, value)),
-  };
-};
+
 const mapStateToProps = state => {
   return {
     searchData: state.headerSearchData,
     team: state.team,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Team);
+export default connect(mapStateToProps)(Team);

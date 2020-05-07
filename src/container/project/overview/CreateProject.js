@@ -38,6 +38,7 @@ const CreateProject = ({ visible, onCancel, form }) => {
   const handleCancel = e => {
     onCancel();
   };
+
   const options = [
     {
       label: 'Privet',

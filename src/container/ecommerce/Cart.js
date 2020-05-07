@@ -1,7 +1,6 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import FeatherIcon from 'feather-icons-react';
@@ -103,7 +102,9 @@ const ShoppingCart = ({ form, match }) => {
       key: 'action',
     },
   ];
+
   const { getFieldDecorator } = form;
+
   const submitCoupon = e => {
     e.preventDefault();
     form.validateFields(['coupon'], (err, values) => {
@@ -217,15 +218,5 @@ const ShoppingCart = ({ form, match }) => {
     </Fragment>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    //sortings: sortBy => dispatch(sorting(sortBy)),
-  };
-};
 
-const mapStateToProps = state => {
-  return {
-    //searchData: state.headerSearchData,
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Form.create({ name: 'cart' })(ShoppingCart));
+export default Form.create({ name: 'cart' })(ShoppingCart);

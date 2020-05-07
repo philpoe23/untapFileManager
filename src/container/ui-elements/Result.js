@@ -3,7 +3,8 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Result, Button, Icon, Typography } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
+
 const { Paragraph, Text } = Typography;
 const Results = () => {
   return (

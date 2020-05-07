@@ -4,6 +4,7 @@ import { Row, Col, TimePicker, Button } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+
 const format = 'HH:mm';
 const TimePickers = () => {
   const [state, setState] = useState({ open: false });
@@ -11,6 +12,7 @@ const TimePickers = () => {
   const handleOpenChange = open => {
     setState({ open });
   };
+
   const handleClose = () => setState({ open: false });
 
   return (

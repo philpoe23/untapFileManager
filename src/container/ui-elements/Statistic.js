@@ -3,8 +3,10 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Statistic, Button, Icon } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
 const { Countdown } = Statistic;
+
 const Statistics = () => {
   const onFinish = () => {
     console.log('finished!');

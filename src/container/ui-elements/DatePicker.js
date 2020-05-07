@@ -15,6 +15,7 @@ const DatePickers = () => {
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
+
   return (
     <Fragment>
       <PageHeader title="Date Picker" />

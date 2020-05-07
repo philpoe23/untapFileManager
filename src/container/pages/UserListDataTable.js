@@ -155,4 +155,5 @@ const mapStateToProps = state => {
     users: state.users,
   };
 };
+
 export default connect(mapStateToProps)(UserListDataTable);

@@ -27,6 +27,7 @@ const Checkboxs = () => {
   const onChange = (checked, value) => {
     console.log(`checked = ${checked}`);
   };
+
   return (
     <Fragment>
       <PageHeader title="Checkbox" />
