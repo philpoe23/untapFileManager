@@ -55,7 +55,7 @@ const ThemeLayout = WrappedComponent => {
                 <p className="sidebar-nav-title">MAIN MENU</p>
                 <MenueItems />
               </Sider>
-              <Layout style={{ marginLeft: 300, marginTop: '64px', marginBottom: '70px' }}>
+              <Layout style={{ marginLeft: 280, marginTop: '64px', marginBottom: '70px' }}>
                 <Content>
                   <WrappedComponent />
                   <Footer style={footerStyle}>Footer</Footer>

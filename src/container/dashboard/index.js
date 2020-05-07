@@ -8,6 +8,8 @@ import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 import { NavLink } from 'react-router-dom';
+import { Focard, CardBarChart } from './style';
+
 
 const content = (
   <Fragment>
@@ -120,108 +122,116 @@ const Dashbord = () => {
                 <Col md={12}>
                   <Row>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">25,872</Heading>
-                        <p>Engaged Users</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 25%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#20C997',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#20C99730',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">25,872</Heading>
+                          <p className="subtitle">Engaged Users</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-up" />25%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [20, 40, 30, 45],
+                              borderColor: '#20C997',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#20C99730',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">492,534</Heading>
-                        <p>Page Impressions</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 14%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#FF69A5',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#FF69A530',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">492,534</Heading>
+                          <p className="subtitle">Page Impressions</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-up" />14%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [10, 20, 60, 33],
+                              borderColor: '#FF69A5',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#FF69A530',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={12}>
                   <Row>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">12,142</Heading>
-                        <p>Total Page Likes</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-down" /> 12%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#5F63F2',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#5F63F230',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details growth-downward">
+                          <Heading as="h1">12,142</Heading>
+                          <p className="subtitle">Total Page Likes</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-down" />12%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [25, 35, 20, 28],
+                              borderColor: '#5F63F2',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#5F63F230',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                     <Col md={12}>
-                      <div>
-                        <Heading as="h1">1,432</Heading>
-                        <p>Page Impressions</p>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-down" /> 14%
-                          </span>
-                          <span> 20,641 (prev)</span>
-                        </p>
-                      </div>
-                      <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                        datasets={[
-                          {
-                            data: [20, 40, 30, 45],
-                            borderColor: '#FA8B0C',
-                            borderWidth: 3,
-                            fill: true,
-                            backgroundColor: '#FA8B0C30',
-                          },
-                        ]}
-                        height={180}
-                      />
+                      <Focard>
+                        <div className="focard-details">
+                          <Heading as="h1">1,432</Heading>
+                          <p className="subtitle">Page Impressions</p>
+                          <p>
+                            <span>
+                              <FeatherIcon icon="trending-down" />14%
+                            </span>
+                            <span> 20,641 (prev)</span>
+                          </p>
+                        </div>
+                        <ChartjsAreaChart
+                          labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                          datasets={[
+                            {
+                              data: [40, 31, 20, 45],
+                              borderColor: '#FA8B0C',
+                              borderWidth: 3,
+                              fill: true,
+                              backgroundColor: '#FA8B0C30',
+                            },
+                          ]}
+                          height={180}
+                        />
+                      </Focard>
                     </Col>
                   </Row>
                 </Col>
@@ -232,63 +242,69 @@ const Dashbord = () => {
           <Col md={8}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li><a href="#">Week</a></li>
+                    <li className="active"><a href="#">Month</a></li>
+                    <li><a href="#">Year</a></li>
+                  </ul>
+                </div>
               }
               title="Youtube Subscribers"
               size="large"
             >
-              <div>
-                <p>Subscribers</p>
-                <Heading as="h3">
-                  25,472
-                  <sub>
-                    <FeatherIcon icon="arrow-up" size={14} /> 25% 20,641 (prev)
-                  </sub>
-                </Heading>
-              </div>
-              <ChartjsBarChartTransparent
-                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                datasets={[
-                  {
-                    data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                    backgroundColor: '#5F63F280',
-                    hoverBackgroundColor: '#5F63F2',
-                    label: 'Gainedhi',
-                  },
-                  {
-                    data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                    backgroundColor: '#FF4D4F80',
-                    hoverBackgroundColor: '#FF4D4F',
-                    label: 'Lost',
-                  },
-                ]}
-              />
+              <CardBarChart>
+                <div>
+                  <p>Subscribers</p>
+                  <Heading as="h3">
+                    25,472
+                    <sub>
+                      <FeatherIcon icon="arrow-up" size={14} />25%
+                    </sub>
+                  </Heading>
+                </div>
+                <ChartjsBarChartTransparent
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                  datasets={[
+                    {
+                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                      backgroundColor: '#5F63F280',
+                      hoverBackgroundColor: '#5F63F2',
+                      label: 'Gained',
+                    },
+                    {
+                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                      backgroundColor: '#FF4D4F80',
+                      hoverBackgroundColor: '#FF4D4F',
+                      label: 'Lost',
+                    },
+                  ]}
+                />
+              </CardBarChart>
             </Cards>
           </Col>
           <Col md={8}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li><a href="#">Week</a></li>
+                    <li className="active"><a href="#">Month</a></li>
+                    <li><a href="#">Year</a></li>
+                  </ul>
+                </div>
               }
               title="Twitter Overview"
               size="large"
             >
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-downward">
                     <p>Tweets</p>
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 25%
+                        <FeatherIcon icon="arrow-down" size={14} />25%
                       </sub>
                     </Heading>
                   </div>
@@ -299,7 +315,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -310,12 +326,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Tweet impressions</p>
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 108%
+                        <FeatherIcon icon="arrow-up" size={14} />108%
                       </sub>
                     </Heading>
                   </div>
@@ -326,7 +342,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -337,12 +353,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Retweets</p>
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 30%
+                        <FeatherIcon icon="arrow-up" size={14} />30%
                       </sub>
                     </Heading>
                   </div>
@@ -353,7 +369,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -364,12 +380,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Engagement rate</p>
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 34%
+                        <FeatherIcon icon="arrow-up" size={14} />34%
                       </sub>
                     </Heading>
                   </div>
@@ -380,7 +396,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -391,12 +407,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>New followers</p>
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 27%
+                        <FeatherIcon icon="arrow-up" size={14} />27%
                       </sub>
                     </Heading>
                   </div>
@@ -407,7 +423,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -421,23 +437,25 @@ const Dashbord = () => {
           <Col md={8}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li><a href="#">Week</a></li>
+                    <li className="active"><a href="#">Month</a></li>
+                    <li><a href="#">Year</a></li>
+                  </ul>
+                </div>
               }
               title="Instagram Overview"
               size="large"
             >
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Post</p>
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 25%
+                        <FeatherIcon icon="arrow-up" size={14} />25%
                       </sub>
                     </Heading>
                   </div>
@@ -448,7 +466,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -459,12 +477,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Like</p>
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 108%
+                        <FeatherIcon icon="arrow-up" size={14} />108%
                       </sub>
                     </Heading>
                   </div>
@@ -475,7 +493,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -486,12 +504,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Comments</p>
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 30%
+                        <FeatherIcon icon="arrow-up" size={14} />30%
                       </sub>
                     </Heading>
                   </div>
@@ -502,7 +520,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -513,12 +531,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>New Followers</p>
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 34%
+                        <FeatherIcon icon="arrow-up" size={14} />34%
                       </sub>
                     </Heading>
                   </div>
@@ -529,7 +547,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -540,12 +558,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Following</p>
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 27%
+                        <FeatherIcon icon="arrow-up" size={14} />27%
                       </sub>
                     </Heading>
                   </div>
@@ -556,7 +574,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -570,23 +588,25 @@ const Dashbord = () => {
           <Col md={8}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li><a href="#">Week</a></li>
+                    <li className="active"><a href="#">Month</a></li>
+                    <li><a href="#">Year</a></li>
+                  </ul>
+                </div>
               }
               title="Linkedin Key Metrick"
               size="large"
             >
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Clicks</p>
                     <Heading as="h4">
                       25,472
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 25%
+                        <FeatherIcon icon="arrow-up" size={14} />25%
                       </sub>
                     </Heading>
                   </div>
@@ -597,7 +617,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -608,12 +628,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Like</p>
                     <Heading as="h4">
                       78K
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 108%
+                        <FeatherIcon icon="arrow-up" size={14} />108%
                       </sub>
                     </Heading>
                   </div>
@@ -624,7 +644,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -635,12 +655,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Comments</p>
                     <Heading as="h4">
                       2578
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 30%
+                        <FeatherIcon icon="arrow-up" size={14} />30%
                       </sub>
                     </Heading>
                   </div>
@@ -651,7 +671,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -662,12 +682,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>New Followers</p>
                     <Heading as="h4">
                       2.8
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 34%
+                        <FeatherIcon icon="arrow-up" size={14} />34%
                       </sub>
                     </Heading>
                   </div>
@@ -678,7 +698,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },
@@ -689,12 +709,12 @@ const Dashbord = () => {
               </Row>
               <Row>
                 <Col md={10}>
-                  <div>
+                  <div className="growth-upward">
                     <p>Following</p>
                     <Heading as="h4">
                       1078
                       <sub>
-                        <FeatherIcon icon="arrow-up" size={14} /> 27%
+                        <FeatherIcon icon="arrow-up" size={14} />27%
                       </sub>
                     </Heading>
                   </div>
@@ -705,7 +725,7 @@ const Dashbord = () => {
                     datasets={[
                       {
                         data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#001737',
+                        borderColor: '#C6D0DC',
                         borderWidth: 1,
                         fill: false,
                       },

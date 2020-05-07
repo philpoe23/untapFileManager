@@ -6,6 +6,7 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
+import { Focard, CardBarChart } from './style';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 const content = (
@@ -63,35 +64,37 @@ const Business = () => {
           <Col md={12}>
             <Row gutter={15}>
               <Col md={12}>
-                <Cards headless title="Profit">
-                  <div>
-                    <Heading as="h1">25,872</Heading>
-                    <p>Engaged Users</p>
-                    <p>
-                      <span>
-                        <FeatherIcon icon="trending-up" /> 25%
-                      </span>
-                      <span> 20,641 (prev)</span>
-                    </p>
-                  </div>
-                  <ChartjsAreaChart
-                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-                    datasets={[
-                      {
-                        data: [30, 10, 25, 25, 10, 30],
-                        borderColor: '#5F63F2',
-                        borderWidth: 3,
-                        fill: true,
-                        backgroundColor: '#5F63F230',
-                      },
-                    ]}
-                    height={80}
-                  />
-                </Cards>
+                <Focard>
+                  <Cards headless title="Profit">
+                    <div className="focard-details">
+                      <Heading as="h1">25,872</Heading>
+                      <p>
+                        <span>
+                          <FeatherIcon icon="trending-up" /> 25%
+                        </span>
+                        <span> 20,641 (prev)</span>
+                      </p>
+                    </div>
+                    <ChartjsAreaChart
+                      labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                      datasets={[
+                        {
+                          data: [30, 10, 25, 25, 10, 30],
+                          borderColor: '#5F63F2',
+                          borderWidth: 3,
+                          fill: true,
+                          backgroundColor: '#5F63F230',
+                        },
+                      ]}
+                      height={80}
+                    />
+                  </Cards>
+                </Focard>
               </Col>
               <Col md={12}>
+                <Focard>
                 <Cards headless title="Gross Profit">
-                  <div>
+                  <div className="focard-details">
                     <Heading as="h1">25,872</Heading>
                     <p>Engaged Users</p>
                     <p>
@@ -115,6 +118,7 @@ const Business = () => {
                     height={80}
                   />
                 </Cards>
+                </Focard>
               </Col>
               <Col md={12}>
                 <Cards headless title="Quick Ratio">
@@ -152,6 +156,7 @@ const Business = () => {
               title="Youtube Subscribers"
               size="large"
             >
+              <CardBarChart>
               <div>
                 <p>Subscribers</p>
                 <Heading as="h3">
@@ -179,6 +184,7 @@ const Business = () => {
                 ]}
                 height={150}
               />
+              </CardBarChart>
             </Cards>
           </Col>
           <Col md={24}>
