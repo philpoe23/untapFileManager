@@ -77,9 +77,12 @@ const handleActiveChange = e => {
   const link = e.currentTarget;
   link
     .closest('ul')
-    .querySelector('.active')
-    .classList.remove('active');
-  link.classList.add('active');
+    .querySelectorAll('li')
+    .forEach(li => {
+      li.classList.remove('active');
+    });
+
+  link.closest('li').classList.add('active');
 };
 
 const Dashbord = () => {

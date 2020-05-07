@@ -395,10 +395,12 @@ ChartjsBarChartTransparent.defaultProps = {
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: 'rgba(0,23,55, .5)',
+      label: 'Profit',
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: 'rgba(28,225,172, .5)',
+      label: 'Lose',
     },
   ],
 
@@ -407,8 +409,11 @@ ChartjsBarChartTransparent.defaultProps = {
     responsive: true,
     legend: {
       display: true,
+      position: 'bottom',
       labels: {
+        boxWidth: 6,
         display: true,
+        usePointStyle: true,
       },
     },
     layout: {
