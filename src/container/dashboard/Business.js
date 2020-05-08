@@ -6,7 +6,7 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
-import { Focard, CardBarChart } from './style';
+import { Focard, CardBarChart, Exlist } from './style';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 const content = (
@@ -60,9 +60,9 @@ const Business = () => {
     <Fragment>
       <PageHeader ghost title="Finance Dashboard" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Row gutter={15}>
+            <Row gutter={25}>
               <Col md={12}>
                 <Focard>
                   <Cards headless title="Profit">
@@ -174,7 +174,7 @@ const Business = () => {
               <div className="d-flex flex-grid">
                 <div className="flex-grid-child">
                   <p>Current Balance</p>
-                  <Heading as="h3">
+                  <Heading as="h3" className="color-primary">
                     $25,472
                   </Heading>
                 </div>
@@ -225,42 +225,44 @@ const Business = () => {
               size="large"
             >
               <Col md={8}>
-                <div>
-                  <p>Total income</p>
-                  <Heading as="h1">
-                    $952,784
-                    <sub>
-                      <FeatherIcon icon="arrow-up" /> 37% Since last month
-                    </sub>
-                  </Heading>
-                </div>
-                <div>
-                  <p>Total expenses</p>
-                  <Heading as="h1">
-                    $274,784
-                    <sub>
-                      <FeatherIcon icon="arrow-up" /> 25% Since last month
-                    </sub>
-                  </Heading>
-                </div>
-                <div>
-                  <p>Cost of goods sold</p>
-                  <Heading as="h1">
-                    $532,784
-                    <sub>
-                      <FeatherIcon icon="arrow-up" /> 25% Since last month
-                    </sub>
-                  </Heading>
-                </div>
-                <div>
-                  <p>Net profit</p>
-                  <Heading as="h1">
-                    $252,727
-                    <sub>
-                      <FeatherIcon icon="arrow-up" /> 25% Since last month
-                    </sub>
-                  </Heading>
-                </div>
+                <Exlist>
+                  <div>
+                    <p>Total income</p>
+                    <Heading as="h1">
+                      $952,784
+                      <sub>
+                        <FeatherIcon icon="arrow-up" /> 37% Since last month
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div>
+                    <p>Total expenses</p>
+                    <Heading as="h1">
+                      $274,784
+                      <sub>
+                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div>
+                    <p>Cost of goods sold</p>
+                    <Heading as="h1">
+                      $532,784
+                      <sub>
+                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div>
+                    <p>Net profit</p>
+                    <Heading as="h1">
+                      $252,727
+                      <sub>
+                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                      </sub>
+                    </Heading>
+                  </div>
+                </Exlist>
               </Col>
               <Col md={16}>
                 <ChartjsBarChartTransparent

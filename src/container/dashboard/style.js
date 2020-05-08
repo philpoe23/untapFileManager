@@ -57,7 +57,16 @@ const CardBarChart = Styled.div`
 `;
 
 const CardGroup = Styled.div`
+    .focard-wrapper{
+        margin: 0 -12px;
+        .ant-col-md-12{
+            padding: 0 12px;
+        }
+    }
+`;
+
+const Exlist = Styled.div`
     
 `;
 
-export { Focard, CardBarChart, CardGroup };
+export { Focard, CardBarChart, CardGroup, Exlist };

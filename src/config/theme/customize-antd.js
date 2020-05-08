@@ -121,6 +121,9 @@ const theme = {
   //radio btn
   'radio-button-checked-bg': primaryColor,
 
+  //gutter width
+  'grid-gutter-width': 25,
+
 };
 
 module.exports = theme;

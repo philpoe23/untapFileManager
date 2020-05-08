@@ -3,10 +3,10 @@ import * as headings from './style';
 import PropTypes from 'prop-types';
 
 const Heading = props => {
-  const { as, children } = props;
+  const { as, children, className, id } = props;
   const StyledHeading = as ? headings[as.toUpperCase()] : headings['H1'];
 
-  return <StyledHeading>{children}</StyledHeading>;
+  return <StyledHeading className={className} id={id}>{children}</StyledHeading>;
 };
 
 Heading.defaultProps = {

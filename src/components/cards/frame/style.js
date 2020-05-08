@@ -3,7 +3,7 @@ import { Card } from 'antd';
 
 const CardFrame = Styled(Card)`
   ${({ isbutton, theme }) => isbutton && BtnWraper(theme)}
-  margin-bottom: 20px !important;
+  margin-bottom: 25px !important;
   .ant-card.ant-card-bordered {
       border-radius: 5px;
       overflow: hidden;
@@ -20,7 +20,7 @@ const BtnWraper = theme => `
       }
       .ant-tabs.ant-tabs-top.ant-card-head-tabs.ant-tabs-large.ant-tabs-line{
         width: 100%;
-        display: block;        
+        display: block;
       }
       .ant-tabs-nav-scroll {
         display: flex;
@@ -29,7 +29,7 @@ const BtnWraper = theme => `
       .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
         display: none !important;
       }
-      .ant-tabs-nav .ant-tabs-tab {     
+      .ant-tabs-nav .ant-tabs-tab {
         border-radius: 2px;
         height: 30px;
         margin: 0px;
@@ -39,7 +39,7 @@ const BtnWraper = theme => `
         border: 1px solid ${theme['border-color-base']};
         background: #fff;
       }
-      .ant-tabs-nav .ant-tabs-tab-active {        
+      .ant-tabs-nav .ant-tabs-tab-active {
         font-weight: 500;
         border: 1px solid ${theme['primary-color']};
         background: ${theme['primary-color']};

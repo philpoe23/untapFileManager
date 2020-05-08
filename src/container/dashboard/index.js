@@ -90,10 +90,10 @@ const Dashbord = () => {
     <Fragment>
       <PageHeader ghost title="Social Media Dashboard" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={8}>
             <Cards title="Social Media Overview" size="large">
-              <Row gutter={15}>
+              <Row gutter={25}>
                 <Col md={8}>
                   <SocialMediaContent icon="facebook" bgColor="#2366B8" title="5,461" subTitle="Likes" />
                 </Col>
@@ -130,7 +130,7 @@ const Dashbord = () => {
                 title="Facebook Overview"
                 size="large"
               >
-                <Row>
+                <Row gutter={25}>
                   <Col md={12}>
                     <Row className="focard-wrapper">
                       <Col md={12}>

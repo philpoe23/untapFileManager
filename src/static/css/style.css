@@ -119,7 +119,31 @@
   background: #FA8B0C;
 }
 
-/* focards */
-.focard-wrapper .ant-col-md-12{
-  padding: 0 12px;
+/* color classes */
+.color-primary{
+  color: #5F63F2;
+}
+.color-secondary{
+  color: #FF69A5;
+}
+.color-info{
+  color: #2C99FF;
+}
+.color-warning{
+  color: #FA8B0C;
+}
+.color-success{
+  color: #20C997;
+}
+.color-danger{
+  color: #FF4D4F;
+}
+.color-dark{
+  color: #272B41;
+}
+.color-error{
+  color: #f5222d;
+}
+.color-gray{
+  color: #5A5F7D;
 }
