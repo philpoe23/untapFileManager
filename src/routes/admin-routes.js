@@ -102,6 +102,10 @@ const Team = lazy(() => import('../container/pages/Team'));
 
 const Settings = lazy(() => import('../container/profile/settings/Settings'));
 
+const FbView = lazy(() => import('../container/curd/fireStore/View'));
+const FbAdd = lazy(() => import('../container/curd/fireStore/addNew'));
+const FbUpdate = lazy(() => import('../container/curd/fireStore/edit'));
+
 const AdminRoutes = () => {
   return (
     <Switch>
@@ -194,6 +198,7 @@ const AdminRoutes = () => {
         <Route path="/email/:page" component={Inbox} />
 
         <Route path="/chat" component={Chat} />
+
         <Route path="/pages/404" component={NotFound} />
         <Route path="/pages/maintenance" component={Maintenance} />
         <Route path="/pages/pricing" component={Pricing} />
@@ -205,6 +210,10 @@ const AdminRoutes = () => {
         <Route path="/pages/team" component={Team} />
 
         <Route path="/profile/settings" component={Settings} />
+
+        <Route path="/firestore/view" component={FbView} />
+        <Route path="/firestore/add" component={FbAdd} />
+        <Route path="/firestore/edit/:id" component={FbUpdate} />
       </Suspense>
     </Switch>
   );

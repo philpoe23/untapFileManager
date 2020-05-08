@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import store from './redux/store';
+import { rrfProps } from './redux/store';
 import AdminRoutes from './routes/admin-routes';
 import { connect } from 'react-redux';
 import FrontendRoutes from './routes/frontend-routes';
@@ -46,7 +48,9 @@ const MyApp = connect(mapStateToProps)(App);
 const StoreReturn = () => {
   return (
     <Provider store={store}>
-      <MyApp />
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <MyApp />
+      </ReactReduxFirebaseProvider>
     </Provider>
   );
 };

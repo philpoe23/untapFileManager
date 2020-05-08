@@ -1,12 +1,11 @@
 import React from 'react';
-import { Menu } from 'antd';
+import { Menu, Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 const { SubMenu } = Menu;
 
 const MenueItems = () => {
   const pathArray = window.location.pathname.split('/');
-
   return (
     <Menu
       mode="inline"
@@ -110,6 +109,23 @@ const MenueItems = () => {
           <span>Project</span>
         </NavLink>
       </Menu.Item>
+
+      <SubMenu
+        key="firestore"
+        title={
+          <span>
+            <Icon type="fire" size={24} />
+            <span>Firestore Crud</span>
+          </span>
+        }
+      >
+        <Menu.Item key="view">
+          <NavLink to="/firestore/view">View All</NavLink>
+        </Menu.Item>
+        <Menu.Item key="add">
+          <NavLink to="/firestore/add">Add New</NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu
         key="sub4"
