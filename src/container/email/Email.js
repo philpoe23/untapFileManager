@@ -17,35 +17,27 @@ const Spam = lazy(() => import('./overview/Spam'));
 const MailOpen = lazy(() => import('./overview/Single'));
 
 const Email = ({ match }) => {
-  const [state, setstate] = useState({
-    isMail: false,
-  });
+  const [isMailEditorOpen, setMailEditorStatus] = useState(false);
 
-  const { isMail } = state;
-
-  const openClose = e => {
-    setstate({
-      isMail: isMail ? false : true,
-    });
+  const toggleMailComposer = e => {
+    setMailEditorStatus(!isMailEditorOpen);
   };
 
-  const onlyClose = e => {
-    setstate({
-      isMail: false,
-    });
+  const closeMailComposr = e => {
+    setMailEditorStatus(false);
   };
 
   const path = match.path.split(':')[0];
   return (
     <Fragment>
       <PageHeader ghost title={match.params.page} />
-      {isMail && <ComposeMail onClick={onlyClose} />}
+      {isMailEditorOpen && <ComposeMail close={closeMailComposr} />}
 
       <Main>
         <Row gutter={15}>
           <Col md={5}>
             <Cards>
-              <Button onClick={openClose} shape="round" type="primary">
+              <Button onClick={toggleMailComposer} shape="round" type="primary">
                 + Compose
               </Button>
               <EamilNavbar path={path} />

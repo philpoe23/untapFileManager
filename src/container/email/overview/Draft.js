@@ -1,8 +1,9 @@
 import React from 'react';
 import Content from './Content';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Draft = ({ searchData, email }) => {
+const Draft = () => {
+  const [searchData, email] = useSelector(state => [state.searchData, state.email.allMessage]);
   return (
     <Content
       email={email.filter(email => {
@@ -13,11 +14,4 @@ const Draft = ({ searchData, email }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    email: state.email.allMessage,
-  };
-};
-
-export default connect(mapStateToProps)(Draft);
+export default Draft;
