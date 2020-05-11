@@ -215,11 +215,25 @@ const Business = () => {
           <Col md={24}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               title={<div>Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span></div>}
               size="large"

@@ -44,7 +44,9 @@
   font-size: 11px;
   color: #868EAE;
 }
-
+.ant-card-head .ant-card-extra a{
+  color: #868EAE;
+}
 
 /* ant radio group */
 .ant-radio-button-wrapper-checked{

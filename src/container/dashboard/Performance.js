@@ -6,7 +6,7 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 const content = (
@@ -240,12 +240,25 @@ const Performance = () => {
           <Col md={16}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               more={content}
               title="Total Revenue"

@@ -67,6 +67,7 @@ const CardGroup = Styled.div`
 
 const Exlist = Styled.div`
     div{
+        margin-bottom: 20px;
         p{
             font-size: 14px;
             color: ${({theme})=>theme["light-gray-color"]};
