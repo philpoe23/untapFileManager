@@ -357,7 +357,7 @@ const Performance = () => {
                 labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                 datasets={[
                   {
-                    data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
+                    data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
                     borderColor: '#5F63F2',
                     borderWidth: 5,
                     fill: true,
@@ -371,7 +371,7 @@ const Performance = () => {
                     hoverBorderWidth: 5,
                   },
                   {
-                    data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
+                    data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
                     borderColor: '#C6D0DC',
                     borderWidth: 2,
                     fill: false,
@@ -411,6 +411,7 @@ const Performance = () => {
                           display: true,
                           suggestedMin: 50,
                           suggestedMax: 80,
+                          stepSize: 20,
                           callback: function(label, index, labels) {
                             return label + 'k';
                           },
@@ -432,7 +433,7 @@ const Performance = () => {
                     ],
                   },
                 }}
-                height={200}
+                height={100}
               />
             </Cards>
           </Col>
@@ -473,6 +474,14 @@ const Performance = () => {
                   },
                 ]}
               />
+              <Heading as="h4">
+                <span>4,483</span>
+                <span>45%</span>
+              </Heading>
+              <Heading as="h4">
+                <span>4,483</span>
+                <span>45%</span>
+              </Heading>
             </Cards>
           </Col>
           <Col md={12}>
