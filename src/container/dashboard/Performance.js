@@ -479,8 +479,12 @@ const Performance = () => {
                 <span>45%</span>
               </Heading>
               <Heading as="h4">
-                <span>4,483</span>
-                <span>45%</span>
+                <span>870</span>
+                <span>30%</span>
+              </Heading>
+              <Heading as="h4">
+                <span>2,420</span>
+                <span>25%</span>
               </Heading>
             </Cards>
           </Col>
