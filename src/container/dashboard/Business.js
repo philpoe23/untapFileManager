@@ -231,7 +231,7 @@ const Business = () => {
                     <Heading as="h1">
                       $952,784
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 37% Since last month
+                        <span><FeatherIcon icon="arrow-up" /> 37%</span> Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -239,8 +239,8 @@ const Business = () => {
                     <p>Total expenses</p>
                     <Heading as="h1">
                       $274,784
-                      <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                      <sub className="growth-downward">
+                        <span><FeatherIcon icon="arrow-down" /> 25%</span> Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -249,7 +249,7 @@ const Business = () => {
                     <Heading as="h1">
                       $532,784
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                        <span><FeatherIcon icon="arrow-up" /> 25%</span> Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -258,7 +258,7 @@ const Business = () => {
                     <Heading as="h1">
                       $252,727
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                        <span><FeatherIcon icon="arrow-up" /> 25%</span> Since last month
                       </sub>
                     </Heading>
                   </div>

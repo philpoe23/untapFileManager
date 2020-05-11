@@ -66,7 +66,36 @@ const CardGroup = Styled.div`
 `;
 
 const Exlist = Styled.div`
-    
+    div{
+        p{
+            font-size: 14px;
+            color: ${({theme})=>theme["light-gray-color"]};
+            margin-bottom:0;
+        }
+        h1{
+            font-size: 22px;
+            font-weight: 600;
+            sub{
+                font-size: 13px;
+                display: inline-flex;
+                align-items: center;
+                span{
+                    display: inline-flex;
+                    align-items: center;
+                    color: ${({theme})=>theme["success-color"]};
+                    padding: 0 10px;
+                }
+                svg{
+                    width:12px;
+                }
+                &.growth-downward{
+                    span{
+                        color: ${({theme})=>theme["danger-color"]};
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export { Focard, CardBarChart, CardGroup, Exlist };
