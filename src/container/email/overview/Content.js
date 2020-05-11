@@ -42,6 +42,7 @@ const Content = ({ searchData, email }) => {
   emails !== undefined &&
     emails.map((inbox, index) => {
       const { id, type, email, userName, status, img, subject, body } = inbox;
+
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
       return data.push({
         key: id,
@@ -75,6 +76,18 @@ const Content = ({ searchData, email }) => {
     });
   };
 
+  const onRowSelection = (filterObj, changableRowKeys) => {
+    const { filter, byValue } = filterObj;
+
+    const newSelectedRowKeys = emails
+      .filter(email => {
+        return email[filter] == byValue;
+      })
+      .map(item => item.id);
+
+    setState({ ...state, selectedRowKeys: newSelectedRowKeys });
+  };
+
   const onSelectChange = selectedRowKeys => {
     setState({ ...state, selectedRowKeys });
   };
@@ -88,96 +101,29 @@ const Content = ({ searchData, email }) => {
         key: 'all',
         text: 'All',
         onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          const read = emails.filter(email => {
-            return email.status;
-          });
-          const id = [];
-          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            id.push(read[index] !== undefined && read[index]['id']);
-            if (id.includes(key)) {
-              return true;
-            }
-            return false;
-          });
+          let newSelectedRowKeys = email.map(item => item.id);
           setState({ ...state, selectedRowKeys: newSelectedRowKeys });
         },
       },
       {
         key: 'read',
         text: 'Read',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          const read = emails.filter(email => {
-            return email.status === 'read';
-          });
-          const id = [];
-          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            id.push(read[index] !== undefined && read[index]['id']);
-            if (id.includes(key)) {
-              return true;
-            }
-            return false;
-          });
-          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
-        },
+        onSelect: onRowSelection.bind(null, { filter: 'status', byValue: 'read' }),
       },
       {
         key: 'unread',
         text: 'Unread',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          const read = emails.filter(email => {
-            return email.status === 'unread';
-          });
-          const id = [];
-          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            id.push(read[index] !== undefined && read[index]['id']);
-            if (id.includes(key)) {
-              return true;
-            }
-            return false;
-          });
-          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
-        },
+        onSelect: onRowSelection.bind(null, { filter: 'status', byValue: 'unread' }),
       },
       {
         key: 'stared',
         text: 'Stared',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          const read = emails.filter(email => {
-            return email.stared;
-          });
-          const id = [];
-          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            id.push(read[index] !== undefined && read[index]['id']);
-            if (id.includes(key)) {
-              return true;
-            }
-            return false;
-          });
-          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
-        },
+        onSelect: onRowSelection.bind(null, { filter: 'stared', byValue: true }),
       },
       {
         key: 'unstared',
         text: 'Unstared',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          const read = emails.filter(email => {
-            return !email.stared;
-          });
-          const id = [];
-          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            id.push(read[index] !== undefined && read[index]['id']);
-            if (id.includes(key)) {
-              return true;
-            }
-            return false;
-          });
-          setState({ ...state, selectedRowKeys: newSelectedRowKeys });
-        },
+        onSelect: onRowSelection.bind(null, { filter: 'status', byValue: false }),
       },
     ],
   };
