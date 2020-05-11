@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
