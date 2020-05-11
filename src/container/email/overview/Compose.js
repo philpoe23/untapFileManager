@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
@@ -6,8 +6,9 @@ import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
 import { Input, Button, Upload } from 'antd';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
-const Compose = ({ onClick, onChange }) => {
+const Compose = ({ close, onChange }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
     tags: [],
@@ -29,7 +30,7 @@ const Compose = ({ onClick, onChange }) => {
     setState({ ...state, tags });
   };
 
-  const sizeChange = e => {
+  const toggleSize = e => {
     return setState({
       ...state,
       size: state.size === 'small' ? 'big' : 'small',
@@ -41,8 +42,8 @@ const Compose = ({ onClick, onChange }) => {
       <div className="header">
         <p>New Message</p>
         <div className="icon-right">
-          <FeatherIcon onClick={sizeChange} icon="maximize-2" size={18} />
-          <FeatherIcon onClick={onClick} icon="x" size={18} />
+          <FeatherIcon onClick={toggleSize} icon="maximize-2" size={18} />
+          <FeatherIcon onClick={close} icon="x" size={18} />
         </div>
       </div>
 
@@ -80,6 +81,15 @@ const Compose = ({ onClick, onChange }) => {
       </div>
     </MailBox>
   );
+};
+
+Compose.propTypes = {
+  close: propTypes.func.isRequired,
+  onChange: propTypes.func,
+};
+
+Compose.default = {
+  onChange: false,
 };
 
 export default Compose;
