@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Progress } from 'antd';
+import { Row, Col, Progress } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -93,31 +93,31 @@ const Business = () => {
               </Col>
               <Col md={12}>
                 <Focard>
-                <Cards headless title="Gross Profit">
-                  <div className="focard-details">
-                    <Heading as="h1">$25,872</Heading>
-                    <p>Engaged Users</p>
-                    <p>
-                      <span>
-                        <FeatherIcon icon="trending-up" /> 25%
-                      </span>
-                      <span> 20,641 (prev)</span>
-                    </p>
-                  </div>
-                  <ChartjsAreaChart
-                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-                    datasets={[
-                      {
-                        data: [30, 10, 25, 25, 10, 30],
-                        borderColor: '#20C997',
-                        borderWidth: 3,
-                        fill: true,
-                        backgroundColor: '#20C99730',
-                      },
-                    ]}
-                    height={80}
-                  />
-                </Cards>
+                  <Cards headless title="Gross Profit">
+                    <div className="focard-details">
+                      <Heading as="h1">$25,872</Heading>
+                      <p>Engaged Users</p>
+                      <p>
+                        <span>
+                          <FeatherIcon icon="trending-up" /> 25%
+                        </span>
+                        <span> 20,641 (prev)</span>
+                      </p>
+                    </div>
+                    <ChartjsAreaChart
+                      labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                      datasets={[
+                        {
+                          data: [30, 10, 25, 25, 10, 30],
+                          borderColor: '#20C997',
+                          borderWidth: 3,
+                          fill: true,
+                          backgroundColor: '#20C99730',
+                        },
+                      ]}
+                      height={80}
+                    />
+                  </Cards>
                 </Focard>
               </Col>
               <Col md={12}>
@@ -150,78 +150,84 @@ const Business = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
               }
-              title={<div>Cash Flow <span>Nov 23, 2019 - Nov 29, 2019</span></div>}
+              title={
+                <div>
+                  Cash Flow <span>Nov 23, 2019 - Nov 29, 2019</span>
+                </div>
+              }
               size="large"
             >
               <CardBarChart>
-              <div className="d-flex flex-grid">
-                <div className="flex-grid-child">
-                  <p>Current Balance</p>
-                  <Heading as="h3" className="color-primary">
-                    $25,472
-                  </Heading>
+                <div className="d-flex flex-grid">
+                  <div className="flex-grid-child">
+                    <p>Current Balance</p>
+                    <Heading as="h3" className="color-primary">
+                      $25,472
+                    </Heading>
+                  </div>
+                  <div className="flex-grid-child">
+                    <p>Cash In</p>
+                    <Heading as="h3">$35,414</Heading>
+                  </div>
+                  <div className="flex-grid-child">
+                    <p>Cash Out</p>
+                    <Heading as="h3">$45,798</Heading>
+                  </div>
                 </div>
-                <div className="flex-grid-child">
-                  <p>Cash In</p>
-                  <Heading as="h3">
-                    $35,414
-                  </Heading>
-                </div>
-                <div className="flex-grid-child">
-                  <p>Cash Out</p>
-                  <Heading as="h3">
-                    $45,798
-                  </Heading>
-                </div>
-              </div>
-              <ChartjsBarChartTransparent
-                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                datasets={[
-                  {
-                    data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                    backgroundColor: '#20C99780',
-                    hoverBackgroundColor: '#20C997',
-                    label: 'Gained',
-                  },
-                  {
-                    data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                    backgroundColor: '#FF4D4F80',
-                    hoverBackgroundColor: '#FF4D4F',
-                    label: 'Lost',
-                  },
-                ]}
-                height={150}
-              />
+                <ChartjsBarChartTransparent
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                  datasets={[
+                    {
+                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                      backgroundColor: '#20C99780',
+                      hoverBackgroundColor: '#20C997',
+                      label: 'Gained',
+                    },
+                    {
+                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                      backgroundColor: '#FF4D4F80',
+                      hoverBackgroundColor: '#FF4D4F',
+                      label: 'Lost',
+                    },
+                  ]}
+                  height={150}
+                />
               </CardBarChart>
             </Cards>
           </Col>
           <Col md={24}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link to="#">Week</Link>
+                    </li>
+                    <li className="active">
+                      <Link to="#">Month</Link>
+                    </li>
+                    <li>
+                      <Link to="#">Year</Link>
+                    </li>
+                  </ul>
+                </div>
               }
-              title={<div>Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span></div>}
+              title={
+                <div>
+                  Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span>
+                </div>
+              }
               size="large"
             >
               <Col md={8}>
@@ -231,7 +237,10 @@ const Business = () => {
                     <Heading as="h1">
                       $952,784
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 37% Since last month
+                        <span>
+                          <FeatherIcon icon="arrow-up" /> 37%
+                        </span>{' '}
+                        Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -239,8 +248,11 @@ const Business = () => {
                     <p>Total expenses</p>
                     <Heading as="h1">
                       $274,784
-                      <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                      <sub className="growth-downward">
+                        <span>
+                          <FeatherIcon icon="arrow-down" /> 25%
+                        </span>{' '}
+                        Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -249,7 +261,10 @@ const Business = () => {
                     <Heading as="h1">
                       $532,784
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                        <span>
+                          <FeatherIcon icon="arrow-up" /> 25%
+                        </span>{' '}
+                        Since last month
                       </sub>
                     </Heading>
                   </div>
@@ -258,7 +273,10 @@ const Business = () => {
                     <Heading as="h1">
                       $252,727
                       <sub>
-                        <FeatherIcon icon="arrow-up" /> 25% Since last month
+                        <span>
+                          <FeatherIcon icon="arrow-up" /> 25%
+                        </span>{' '}
+                        Since last month
                       </sub>
                     </Heading>
                   </div>
