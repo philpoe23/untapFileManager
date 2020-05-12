@@ -592,7 +592,13 @@ ChartjsDonutChart.defaultProps = {
     maintainAspectRatio: true,
     responsive: true,
     legend: {
-      display: false,
+      display: true,
+      position: 'bottom',
+      labels: {
+        boxWidth: 6,
+        display: true,
+        usePointStyle: true,
+      },
     },
     animation: {
       animateScale: true,

@@ -7,8 +7,10 @@ import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { NavLink, Link } from 'react-router-dom';
-
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
+import { Button } from '../../components/buttons/buttons';
+import FeatherIcon from 'feather-icons-react';
+
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -55,6 +57,7 @@ const locationcolumns = [
     key: 'value',
   },
 ];
+
 const locationdata = [
   {
     key: '1',
@@ -139,6 +142,7 @@ const landingcolumns = [
     key: 'percentage',
   },
 ];
+
 const landingdata = [
   {
     key: '1',
@@ -181,6 +185,7 @@ const landingdata = [
     percentage: '23.20%',
   },
 ];
+
 const regioncolumns = [
   {
     title: 'Top Region',
@@ -193,6 +198,7 @@ const regioncolumns = [
     key: 'sessions',
   },
 ];
+
 const regiondata = [
   {
     key: '1',
@@ -230,77 +236,166 @@ const regiondata = [
     sessions: '3,397',
   },
 ];
+
 const Performance = () => {
   return (
     <Fragment>
       <PageHeader ghost title="Website Performance Dashboard" />
       <Main>
         <Row gutter={15}>
-          <Col md={8}></Col>
+          <Col md={8}>
+            <div>
+              <div>
+                <Heading as="h4">Daily Overview</Heading>
+                <Button>
+                  Export <FeatherIcon icon="chevron-down" size={14} />
+                </Button>
+              </div>
+              <Cards headless>
+                <div>
+                  <Heading as="h2">5,461</Heading>
+                  <p>Users Today</p>
+                </div>
+                <div>
+                  <Heading as="h2">8,085</Heading>
+                  <p>Expected Users</p>
+                </div>
+
+                <Progress percent={70} showInfo={false} />
+
+                <p>
+                  <span>
+                    <FeatherIcon icon="arrow-up" size={14} />
+                    25%
+                    <span>Since yesterday</span>
+                  </span>
+                  <span style={{ float: 'right' }}>70%</span>
+                </p>
+              </Cards>
+
+              <Cards headless>
+                <div>
+                  <Heading as="h2">8</Heading>
+                  <p>Goals Today</p>
+                </div>
+                <div>
+                  <Heading as="h2">120</Heading>
+                  <p>Expected Goals</p>
+                </div>
+                <Progress percent={70} showInfo={false} />
+                <p>
+                  <span>
+                    <FeatherIcon icon="arrow-up" size={14} />
+                    25%
+                    <span>Since yesterday</span>
+                  </span>
+                  <span style={{ float: 'right' }}>70%</span>
+                </p>
+              </Cards>
+            </div>
+          </Col>
           <Col md={16}>
             <Cards
               isbutton={
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
               }
               more={content}
-              title="Total Revenue"
+              title="Website Performance"
               size="large"
             >
-              <Heading as="h1">
-                $72,784 <span> $52,240</span>
-              </Heading>
+              <div>
+                <p>Users</p>
+                <Heading as="h1">
+                  72.6k
+                  <span>
+                    <FeatherIcon icon="arrow-up" size={14} /> 25%
+                  </span>
+                </Heading>
+              </div>
+              <div>
+                <p>Sessions</p>
+                <Heading as="h1">
+                  87.2k
+                  <span>
+                    <FeatherIcon icon="arrow-up" size={14} /> 47%
+                  </span>
+                </Heading>
+              </div>
+              <div>
+                <p>Bounce Rate</p>
+                <Heading as="h1">
+                  26.3%
+                  <span>
+                    <FeatherIcon icon="arrow-down" size={14} /> 28%
+                  </span>
+                </Heading>
+              </div>
+
+              <div>
+                <p>Session Duration</p>
+                <Heading as="h1">
+                  2m 18s
+                  <span>
+                    <FeatherIcon icon="arrow-up" size={14} /> 13%
+                  </span>
+                </Heading>
+              </div>
 
               <ChartjsAreaChart
                 labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                 datasets={[
                   {
-                    data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
+                    data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
                     borderColor: '#5F63F2',
-                    borderWidth: 3,
+                    borderWidth: 5,
                     fill: true,
                     backgroundColor: '#5F63F210',
                     label: 'Current period',
+                    pointStyle: 'circle',
+                    pointRadius: '0',
+                    hoverRadius: '9',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#5F63F2',
+                    hoverBorderWidth: 5,
                   },
                   {
-                    data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
+                    data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
                     borderColor: '#C6D0DC',
                     borderWidth: 2,
                     fill: false,
                     backgroundColor: '#00173750',
                     label: 'Previous period',
                     borderDash: [10, 5],
+                    pointRadius: '0',
+                    hoverRadius: '0',
                   },
                 ]}
                 options={{
                   maintainAspectRatio: true,
                   legend: {
                     display: true,
+                    position: 'bottom',
                     labels: {
+                      boxWidth: 6,
                       display: true,
+                      usePointStyle: true,
                     },
                   },
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
+                  hover: {
+                    mode: 'index',
+                    intersect: false,
                   },
                   scales: {
                     yAxes: [
@@ -312,8 +407,14 @@ const Performance = () => {
                         },
                         ticks: {
                           beginAtZero: false,
-                          fontSize: 10,
+                          fontSize: 14,
                           display: true,
+                          suggestedMin: 50,
+                          suggestedMax: 80,
+                          stepSize: 20,
+                          callback: function(label, index, labels) {
+                            return label + 'k';
+                          },
                         },
                       },
                     ],
@@ -332,7 +433,7 @@ const Performance = () => {
                     ],
                   },
                 }}
-                height={200}
+                height={100}
               />
             </Cards>
           </Col>
@@ -400,6 +501,18 @@ const Performance = () => {
                   },
                 ]}
               />
+              <Heading as="h4">
+                <span>4,483</span>
+                <span>45%</span>
+              </Heading>
+              <Heading as="h4">
+                <span>870</span>
+                <span>30%</span>
+              </Heading>
+              <Heading as="h4">
+                <span>2,420</span>
+                <span>25%</span>
+              </Heading>
             </Cards>
           </Col>
           <Col md={12}>
