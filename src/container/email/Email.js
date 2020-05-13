@@ -14,7 +14,7 @@ const Draft = lazy(() => import('./overview/Draft'));
 const Starred = lazy(() => import('./overview/Starred'));
 const Trash = lazy(() => import('./overview/Trash'));
 const Spam = lazy(() => import('./overview/Spam'));
-const MailOpen = lazy(() => import('./overview/Single'));
+const MailDetailView = lazy(() => import('./overview/MailDetailView'));
 
 const Email = ({ match }) => {
   const [isMailEditorOpen, setMailEditorStatus] = useState(false);
@@ -59,7 +59,7 @@ const Email = ({ match }) => {
                 <Route path={path + 'starred'} component={Starred} />
                 <Route path={path + 'spam'} component={Spam} />
                 <Route path={path + 'trash'} component={Trash} />
-                <Route path={path + 'single/:id'} component={MailOpen} />
+                <Route path={path + 'single/:id'} component={MailDetailView} />
               </Suspense>
             </Switch>
           </Col>
