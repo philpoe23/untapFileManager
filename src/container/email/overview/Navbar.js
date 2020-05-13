@@ -27,7 +27,6 @@ const EamilNavbar = ({ path }) => {
     e.stopPropagation();
     setState({
       ...state,
-      foo: 'bar',
       addNewDisplay: false,
     });
   };
