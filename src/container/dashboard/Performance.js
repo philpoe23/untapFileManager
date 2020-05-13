@@ -10,6 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import { OverviewCard } from './style';
 
 const content = (
   <Fragment>
@@ -244,21 +245,23 @@ const Performance = () => {
       <Main>
         <Row gutter={15}>
           <Col md={8}>
-            <div>
-              <div>
+            <OverviewCard>
+              <div className="d-flex align-items-center justify-content-between">
                 <Heading as="h4">Daily Overview</Heading>
                 <Button>
                   Export <FeatherIcon icon="chevron-down" size={14} />
                 </Button>
               </div>
               <Cards headless>
-                <div>
-                  <Heading as="h2">5,461</Heading>
-                  <p>Users Today</p>
-                </div>
-                <div>
-                  <Heading as="h2">8,085</Heading>
-                  <p>Expected Users</p>
+                <div className="d-flex align-items-center justify-content-between">
+                  <div>
+                    <Heading as="h2">5,461</Heading>
+                    <p>Users Today</p>
+                  </div>
+                  <div>
+                    <Heading as="h2">8,085</Heading>
+                    <p>Expected Users</p>
+                  </div>
                 </div>
 
                 <Progress percent={70} showInfo={false} />
@@ -292,7 +295,7 @@ const Performance = () => {
                   <span style={{ float: 'right' }}>70%</span>
                 </p>
               </Cards>
-            </div>
+            </OverviewCard>
           </Col>
           <Col md={16}>
             <Cards
