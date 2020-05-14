@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment, lazy, Suspense } from 'react';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { filterSinglepage } from '../../../redux/email/actionCreator';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
@@ -9,14 +9,18 @@ import { Tooltip, Row, Col, Spin, Pagination } from 'antd';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
 
-const ReplyMessage = lazy(() => import('./replyMessage'));
+const MailComposer = lazy(() => import('./MailComposer'));
+
 const Single = props => {
-  const { filterSinglepage, match, email, history } = props;
+  const { match, history } = props;
+  const email = useSelector(state => state.emailSingle.data[0]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
-      filterSinglepage(parseInt(match.params.id));
+      const id = parseInt(match.params.id);
+      dispatch(filterSinglepage(id));
     }
     return () => {
       unmounted = true;
@@ -25,6 +29,11 @@ const Single = props => {
 
   const onChange = pageNumber => {
     console.log('Page: ', pageNumber);
+  };
+
+  const replyMail = async replyMessage => {
+    // hit replyMail api
+    console.log(replyMessage);
   };
 
   return (
@@ -81,16 +90,15 @@ const Single = props => {
           <Dropdown
             content={
               <div>
-                <p>From : {email.type === 'inbox' ? email.email : email.type === 'sent' ? 'me' : 'Unknown'}</p>
-                <p>To : {email.type === 'inbox' ? 'me' : email.type === 'sent' ? email.email : 'Unknown'}</p>
+                <p>From : {email.from}</p>
+                <p>To : {email.to}</p>
                 <p>CC : example@gamil.com</p>
                 <p>Date : {moment(email.id).format('LLL')}</p>
-                <p>Subject : {email.subject}</p>
               </div>
             }
           >
             <Link to="#">
-              To {email.type === 'inbox' ? 'me' : email.type === 'sent' ? email.email : 'Unknown'}
+              To {email.to}
               <FeatherIcon icon="chevron-down" size={14} />
             </Link>
           </Dropdown>
@@ -105,11 +113,10 @@ const Single = props => {
 
         <Col md={24}>
           <p>{email.body}</p>
-          {email.type === 'inbox' && (
-            <Heading as={'h6'}>
-              Best Regurds <br /> {email.userName}
-            </Heading>
-          )}
+
+          <Heading as={'h6'}>
+            Best Regurds <br /> {email.userName}
+          </Heading>
         </Col>
 
         <Col md={4}>
@@ -133,6 +140,7 @@ const Single = props => {
         </Col>
       </Row>
       <hr />
+
       <Row gutter={15}>
         <Col md={24}>
           <nav>
@@ -156,7 +164,7 @@ const Single = props => {
                 </div>
               }
             >
-              <Route path={match.url + '/replay'} component={ReplyMessage} />
+              <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
             </Suspense>
           </Switch>
         </Col>
@@ -165,16 +173,4 @@ const Single = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: id => dispatch(filterSinglepage(id)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    email: state.emailSingle.data[0],
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Single);
+export default Single;
