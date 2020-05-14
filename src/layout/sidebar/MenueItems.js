@@ -80,6 +80,10 @@ const MenueItems = () => {
           <NavLink to="/ecommerce/productDetails/1">Product detail</NavLink>
         </Menu.Item>
 
+        <Menu.Item key="add-product">
+          <NavLink to="/ecommerce/add-product">Product Add</NavLink>
+        </Menu.Item>
+
         <Menu.Item key="11">Product edit</Menu.Item>
         <Menu.Item key="cart">
           <NavLink to="/ecommerce/cart">Cart</NavLink>

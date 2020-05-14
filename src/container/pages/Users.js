@@ -43,8 +43,8 @@ const Users = ({ searchData, users }) => {
           </Fragment>
         }
         buttons={[
-          <Button key="1" type="primary">
-            + Add New User
+          <Button type="primary" key="1">
+            <Link to="/pages/add-user">+ Add New User</Link>
           </Button>,
         ]}
       />

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Progress, Table } from 'antd';
+import { Row, Col, Progress, Table } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
@@ -446,19 +446,13 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
@@ -475,19 +469,13 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
@@ -524,19 +512,13 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
@@ -553,19 +535,13 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">
-                        Week
-                      </Link>
+                      <Link to="#">Week</Link>
                     </li>
                     <li className="active">
-                      <Link to="#">
-                        Month
-                      </Link>
+                      <Link to="#">Month</Link>
                     </li>
                     <li>
-                      <Link to="#">
-                        Year
-                      </Link>
+                      <Link to="#">Year</Link>
                     </li>
                   </ul>
                 </div>
