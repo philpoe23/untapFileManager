@@ -1,5 +1,4 @@
 import React from 'react';
-import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col, Form, Input, Button } from 'antd';
 import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';

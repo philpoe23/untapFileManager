@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
-import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { Input, Button } from 'antd';
+import { Button } from 'antd';
 
 const MailComposer = ({ onChange, onSend }) => {
   const [state, setState] = useState({
@@ -17,10 +16,6 @@ const MailComposer = ({ onChange, onSend }) => {
     if (onChange) {
       onChange(value.toString('html'));
     }
-  };
-
-  const handleChange = tags => {
-    setState({ ...state, tags });
   };
 
   const onSubmit = () => {

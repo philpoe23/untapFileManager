@@ -11,6 +11,7 @@ const Performance = lazy(() => import('../container/dashboard/Performance'));
 
 const Product = lazy(() => import('../container/ecommerce/product/Products'));
 const ProductAdd = lazy(() => import('../container/ecommerce/product/AddProduct'));
+const ProductEdit = lazy(() => import('../container/ecommerce/product/EditProduct'));
 const ProductDetails = lazy(() => import('../container/ecommerce/product/ProductDetails'));
 const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
 const Orders = lazy(() => import('../container/ecommerce/Orders'));
@@ -122,6 +123,7 @@ const AdminRoutes = () => {
 
         <Route path="/ecommerce/products" component={Product} />
         <Route path="/ecommerce/add-product" component={ProductAdd} />
+        <Route path="/ecommerce/edit-product" component={ProductEdit} />
         <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
         <Route path="/ecommerce/Invoice" component={Invoice} />
         <Route path="/ecommerce/orders" component={Orders} />

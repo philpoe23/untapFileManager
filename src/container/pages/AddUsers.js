@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense, useState } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Spin } from 'antd';
@@ -10,13 +10,7 @@ const Info = lazy(() => import('./overview/info'));
 const Work = lazy(() => import('./overview/work'));
 const Social = lazy(() => import('./overview/Social'));
 
-const AddNew = ({ match, history }) => {
-  const [state, setState] = useState({
-    info: {},
-    work: {},
-    social: {},
-  });
-
+const AddNew = ({ match }) => {
   return (
     <Fragment>
       <PageHeader ghost title="Add User" />

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Row, Col, Form, Input, DatePicker, Radio, Select } from 'antd';
+import { Row, Col, Form, Input, DatePicker, Radio } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 import { Link } from 'react-router-dom';
 import Heading from '../../../components/heading/heading';
 
-const { Option } = Select;
 const dateFormat = 'MM/DD/YYYY';
 
 const Work = ({ form, match }) => {

@@ -4,8 +4,7 @@ import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { Input, Button, Upload } from 'antd';
-import { Link } from 'react-router-dom';
+import { Input } from 'antd';
 import propTypes from 'prop-types';
 import MailComposer from './MailComposer';
 

@@ -25,7 +25,7 @@ const Single = props => {
     return () => {
       unmounted = true;
     };
-  }, [match.params.id, filterSinglepage]);
+  }, [match.params.id, dispatch]);
 
   const onChange = pageNumber => {
     console.log('Page: ', pageNumber);
