@@ -124,6 +124,9 @@ const theme = {
   //gutter width
   'grid-gutter-width': 25,
 
+  //skeleton
+  'skeleton-color': borderColorLight,
+
 };
 
 module.exports = theme;
