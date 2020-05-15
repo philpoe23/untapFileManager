@@ -5,11 +5,13 @@ const ButtonGroup = Button.Group;
 const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']};
 border: 1px solid ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme['disabled-color'])};
-
 color: ${({ type }) => type !== 'default' && '#ffffff'};
 margin: 4px;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
-padding: 0px 15px;
+padding: 0px 20px;
+height: 42px;
+font-weight: 500;
+box-shadow: 0 0;
 &:hover, &:focus {
     background: ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
@@ -72,7 +74,7 @@ const socialButton = (color, shape) => `
     color: #ffffff;
     margin: 4px;
     border-radius: ${!shape ? '4px' : '40px'};
-    padding: 0px 15px;
+    padding: 0px 12px;
     display: inline-flex;
     align-items: center;
     span {

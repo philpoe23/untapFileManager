@@ -8,13 +8,12 @@ const PageHeader = props => {
     <Fragment>
       <div
         style={{
-          backgroundColor: bgColor ? bgColor : '#F4F5F7',
-          padding: 24,
+          backgroundColor: bgColor ? bgColor : '#F4F5F7'
         }}
       >
         <PageHeaderStyle
           style={{
-            border: '1px solid #F4F5F7',
+            backgroundColor: 'rgb(244, 245, 247)',
           }}
           onBack={() => window.history.back()}
           title={title}

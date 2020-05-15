@@ -155,3 +155,43 @@
 .color-gray{
   color: #5A5F7D;
 }
+
+/* Button Styles */
+
+.ant-btn-white{
+  background-color: #fff;
+  border-color: #fff;
+  color: #5A5F7D;
+}
+
+.ant-btn-white:hover{
+  color: #5F63F2;
+  border-color: #fff;
+}
+
+.ant-btn-link{
+  background-color: #fff;
+  border-color: #fff;
+  color: #5F63F2
+}
+
+.ant-btn-link:hover{
+  color: #5A5F7D;
+  border-color: #fff;
+  background-color: #fff;
+}
+
+.ant-btn-light,
+.ant-btn-light:hover{
+  color: #5A5F7D
+}
+
+.ant-btn-dashed{
+  color: #5A5F7D;
+  border: 1px dashed #E3E6EF;
+}
+
+.ant-btn-dashed:hover{
+  color: #5F63F2;
+  border: 1px dashed #5F63F2;
+}
