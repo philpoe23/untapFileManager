@@ -27,7 +27,8 @@ const primaryColor = '#5F63F2',
   bgGrayColorDeep = '#EFF0F3',
   bgGrayColorLight = '#F8F9FB',
   bgGrayColorNormal = '#F4F5F7',
-  lightGrayColor = '#868EAE';
+  lightGrayColor = '#868EAE',
+  sliderRailColor = 'rgba(95,99,242,0.2)';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -107,10 +108,6 @@ const theme = {
   // Popover body background color
   'popover-color': darkColor,
 
-  // slider
-  'slider-track-background-color': primaryColor + '70',
-  'slider-track-background-color-hover': primaryColor + '90',
-
   // alert
   'alert-success-border-color': successColor,
   'alert-success-bg-color': successColor,
@@ -126,6 +123,17 @@ const theme = {
 
   //skeleton
   'skeleton-color': borderColorLight,
+
+  //slider
+  'slider-rail-background-color': sliderRailColor,
+  'slider-rail-background-color-hover': sliderRailColor,
+  'slider-track-background-color': primaryColor,
+  'slider-track-background-color-hover': primaryColor,
+  'slider-handle-color': primaryColor,
+  'slider-handle-size': '22px',
+
+
+
 
 };
 

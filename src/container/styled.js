@@ -6,5 +6,13 @@ const Main = Styled.div`
         margin-bottom: 0;
     }
 
+    /* spinner */
+    .ant-spin{
+        margin-right: 20px;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
 `;
 export { Main };
