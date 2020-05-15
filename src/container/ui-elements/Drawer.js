@@ -9,7 +9,7 @@ const { Option } = Select;
 const Drawers = () => {
   return (
     <Fragment>
-      <PageHeader title="Drawer" />
+      <PageHeader ghost title="Drawer" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>

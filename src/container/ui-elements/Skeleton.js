@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+ import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Skeleton } from 'antd';
 import { Main } from '../styled';
