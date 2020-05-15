@@ -78,7 +78,6 @@ const theme = {
   'card-radius': '10px',
   'card-shadow': '0 5px 20px rgba(146,153,184,0.03)',
 
-
   // Layout
   'layout-body-background': '#F4F5F7',
   'layout-header-background': '#ffffff',
