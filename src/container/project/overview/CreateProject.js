@@ -6,7 +6,10 @@ import { CheckboxGroup } from '../../../components/checkbox/checkbox';
 
 const { Option } = Select;
 const dateFormat = 'MM/DD/YYYY';
-const CreateProject = ({ visible, onCancel, form }) => {
+
+const CreateProject = ({ visible, onCancel }) => {
+  const [form] = Form.useForm();
+
   const [state, setState] = useState({
     visible: visible,
     modalType: 'primary',
@@ -25,14 +28,9 @@ const CreateProject = ({ visible, onCancel, form }) => {
     };
   }, [visible]);
 
-  const handleOk = e => {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-        onCancel();
-      }
-    });
+  const handleOk = values => {
+    console.log('Received values of form: ', values);
+    onCancel();
   };
 
   const handleCancel = e => {
@@ -54,7 +52,6 @@ const CreateProject = ({ visible, onCancel, form }) => {
     },
   ];
 
-  const { getFieldDecorator } = form;
   return (
     <Modal
       type={state.modalType}
@@ -70,29 +67,25 @@ const CreateProject = ({ visible, onCancel, form }) => {
       ]}
       onCancel={handleCancel}
     >
-      <Form onSubmit={handleOk}>
-        <Form.Item label="">{getFieldDecorator('project', {})(<Input placeholder="Project Name" />)}</Form.Item>
-        <Form.Item label="">
-          {getFieldDecorator('category', {
-            initialValue: '',
-          })(
-            <Select style={{ width: '100%' }}>
-              <Option value="">Project Category</Option>
-              <Option value="one">Project One</Option>
-              <Option value="two">Project Two</Option>
-            </Select>,
-          )}
+      <Form form={form} name="createProject" onFinish={handleOk}>
+        <Form.Item name="project" label="">
+          <Input placeholder="Project Name" />
         </Form.Item>
-        <Form.Item label="">
-          {getFieldDecorator('description', {})(<Input.TextArea rows={4} placeholder="Project Description" />)}
+        <Form.Item name="category" initialValue="" label="">
+          <Select style={{ width: '100%' }}>
+            <Option value="">Project Category</Option>
+            <Option value="one">Project One</Option>
+            <Option value="two">Project Two</Option>
+          </Select>
         </Form.Item>
-        <Form.Item label="Project Privacy">
-          {getFieldDecorator('pricacy', {
-            initialValue: ['team'],
-          })(<CheckboxGroup options={options} />)}
+        <Form.Item name="description" label="">
+          <Input.TextArea rows={4} placeholder="Project Description" />
         </Form.Item>
-        <Form.Item label="Project Members">
-          {getFieldDecorator('members', {})(<Input placeholder="Search Members" />)}
+        <Form.Item name="pricacy" initialValue={['team']} label="Project Privacy">
+          <CheckboxGroup options={options} />
+        </Form.Item>
+        <Form.Item name="members" label="Project Members">
+          <Input placeholder="Search Members" />
         </Form.Item>
         <img style={{ width: '35px' }} src={require(`../../../static/img/users/1.png`)} alt="" />
         <img style={{ width: '35px' }} src={require(`../../../static/img/users/2.png`)} alt="" />
@@ -101,13 +94,13 @@ const CreateProject = ({ visible, onCancel, form }) => {
         <img style={{ width: '35px' }} src={require(`../../../static/img/users/5.png`)} alt="" />
         <Row gutter={15}>
           <Col md={12}>
-            <Form.Item label="Start Date">
-              {getFieldDecorator('start', {})(<DatePicker placeholder="mm/dd/yyyy" format={dateFormat} />)}
+            <Form.Item name="start" label="Start Date">
+              <DatePicker placeholder="mm/dd/yyyy" format={dateFormat} />
             </Form.Item>
           </Col>
           <Col md={12}>
-            <Form.Item label="End Date">
-              {getFieldDecorator('end', {})(<DatePicker placeholder="mm/dd/yyyy" format={dateFormat} />)}
+            <Form.Item name="end" label="End Date">
+              <DatePicker placeholder="mm/dd/yyyy" format={dateFormat} />
             </Form.Item>
           </Col>
         </Row>
@@ -116,4 +109,4 @@ const CreateProject = ({ visible, onCancel, form }) => {
   );
 };
 
-export default Form.create({ name: 'createProject' })(CreateProject);
+export default CreateProject;

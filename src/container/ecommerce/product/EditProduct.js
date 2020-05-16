@@ -10,7 +10,9 @@ import Heading from '../../../components/heading/heading';
 const { Option } = Select;
 const { Dragger } = Upload;
 
-const EditProduct = ({ form }) => {
+const EditProduct = () => {
+  const [form] = Form.useForm();
+
   const fileList = [
     {
       uid: '-1',
@@ -40,16 +42,9 @@ const EditProduct = ({ form }) => {
     defaultFileList: [...fileList],
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.validateFields((err, values) => {
-      if (!err) {
-        //form.resetFields();
-      }
-    });
+  const handleSubmit = values => {
+    console.log(values);
   };
-  const { getFieldDecorator } = form;
 
   return (
     <Fragment>
@@ -60,83 +55,61 @@ const EditProduct = ({ form }) => {
             <Cards headless>
               <Row gutter={25}>
                 <Col md={10} offset={7}>
-                  <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
+                  <Form style={{ width: '100%' }} form={form} name="editProduct" onFinish={handleSubmit}>
                     <Cards headless bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: '20px' }}>
                       <Row gutter={15}>
                         <Col md={24}>
                           <Cards title="About Product">
-                            <Form.Item label="Product Name">
-                              {getFieldDecorator('name', {
-                                initialValue: 'Red chair',
-                              })(<Input />)}
+                            <Form.Item name="name" initialValue="Red chair" label="Product Name">
+                              <Input />
                             </Form.Item>
-                            <Form.Item label="Sub Text">
-                              {getFieldDecorator('subtext', {
-                                initialValue: 'Sub heading',
-                              })(<Input />)}
+                            <Form.Item name="subtext" initialValue="Sub heading" label="Sub Text">
+                              <Input />
                             </Form.Item>
-                            <Form.Item label="Category">
-                              {getFieldDecorator('category', {
-                                initialValue: 'sunglasses',
-                              })(
-                                <Select style={{ width: '100%' }}>
-                                  <Option value="">Please Select</Option>
-                                  <Option value="wearingClothes">Wearing Clothes</Option>
-                                  <Option value="sunglasses">Sunglasses</Option>
-                                  <Option value="t-shirt">T-Shirt</Option>
-                                </Select>,
-                              )}
+                            <Form.Item name="category" initialValue="sunglasses" label="Category">
+                              <Select style={{ width: '100%' }}>
+                                <Option value="">Please Select</Option>
+                                <Option value="wearingClothes">Wearing Clothes</Option>
+                                <Option value="sunglasses">Sunglasses</Option>
+                                <Option value="t-shirt">T-Shirt</Option>
+                              </Select>
                             </Form.Item>
 
-                            <Form.Item label="Price">
-                              {getFieldDecorator('price', {
-                                initialValue: '120',
-                              })(
-                                <InputNumber
-                                  style={{ width: '100%' }}
-                                  prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                                />,
-                              )}
+                            <Form.Item name="price" initialValue="120" label="Price">
+                              <InputNumber
+                                style={{ width: '100%' }}
+                                prefix={<FeatherIcon icon="dollar-sign" size={14} />}
+                              />
                             </Form.Item>
 
-                            <Form.Item label="Discount">
-                              {getFieldDecorator('discount', {
-                                initialValue: '20%',
-                              })(
-                                <InputNumber
-                                  style={{ width: '100%' }}
-                                  prefix={<FeatherIcon icon="percent" size={14} />}
-                                />,
-                              )}
+                            <Form.Item name="discount" initialValue="20%" label="Discount">
+                              <InputNumber
+                                style={{ width: '100%' }}
+                                prefix={<FeatherIcon icon="percent" size={14} />}
+                              />
                             </Form.Item>
 
-                            <Form.Item label="Status">
-                              {getFieldDecorator('status', {
-                                initialValue: 'Published',
-                              })(
-                                <Radio.Group>
-                                  <Radio value="Published">Published</Radio>
-                                  <Radio value="Draft">Draft</Radio>
-                                </Radio.Group>,
-                              )}
+                            <Form.Item name="status" initialValue="published" label="Status">
+                              <Radio.Group>
+                                <Radio value="published">Published</Radio>
+                                <Radio value="draft">Draft</Radio>
+                              </Radio.Group>
                             </Form.Item>
 
-                            <Form.Item label="Product Description">
-                              {getFieldDecorator('description', {
-                                initialValue: 'loram ipsum dolor sit amit',
-                              })(<Input.TextArea rows={5} />)}
+                            <Form.Item
+                              name="description"
+                              initialValue="loram ipsum dolor sit amit"
+                              label="Product Description"
+                            >
+                              <Input.TextArea rows={5} />
                             </Form.Item>
 
-                            <Form.Item label="Meta Title">
-                              {getFieldDecorator('mTitle', {
-                                initialValue: 'Meta title',
-                              })(<Input />)}
+                            <Form.Item name="mTitle" initialValue="Meta title" label="Meta Title">
+                              <Input />
                             </Form.Item>
 
-                            <Form.Item label="Meta Keyword">
-                              {getFieldDecorator('mKeyword', {
-                                initialValue: 'Meta keyword',
-                              })(<Input />)}
+                            <Form.Item name="mKeyword" initialValue="Meta keyword" label="Meta Keyword">
+                              <Input />
                             </Form.Item>
                           </Cards>
                         </Col>
@@ -160,17 +133,18 @@ const EditProduct = ({ form }) => {
                         </Col>
                       </Row>
                     </Cards>
-
-                    <Button
-                      onClick={() => {
-                        return form.resetFields();
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button onClick={handleSubmit} type="primary">
-                      Save Product
-                    </Button>
+                    <Form.Item>
+                      <Button
+                        onClick={() => {
+                          return form.resetFields();
+                        }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button htmlType="submit" type="primary">
+                        Save Product
+                      </Button>
+                    </Form.Item>
                   </Form>
                 </Col>
               </Row>
@@ -182,4 +156,4 @@ const EditProduct = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'addProduct' })(EditProduct);
+export default EditProduct;

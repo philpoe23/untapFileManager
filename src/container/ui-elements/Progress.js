@@ -3,6 +3,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Progress, Button, Tooltip } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 const ButtonGroup = Button.Group;
 
 const ProgressBar = () => {
@@ -84,8 +85,8 @@ const ProgressBar = () => {
             <Cards title="Dynamic" caption="The simplest use of Progress bar">
               <Progress percent={state.percent} />
               <ButtonGroup>
-                <Button onClick={decline} icon="minus" />
-                <Button onClick={increase} icon="plus" />
+                <Button onClick={decline} icon={<PlusOutlined />} />
+                <Button onClick={increase} icon={<MinusOutlined />} />
               </ButtonGroup>
             </Cards>
           </Col>
@@ -93,8 +94,8 @@ const ProgressBar = () => {
             <Cards title="Dynamic circle" caption="The simplest use of Progress bar">
               <Progress type="circle" percent={state.percent} />
               <ButtonGroup>
-                <Button onClick={decline} icon="minus" />
-                <Button onClick={increase} icon="plus" />
+                <Button onClick={decline} icon={<MinusOutlined />} />
+                <Button onClick={increase} icon={<PlusOutlined />} />
               </ButtonGroup>
             </Cards>
           </Col>
