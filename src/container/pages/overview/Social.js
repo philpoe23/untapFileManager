@@ -4,55 +4,39 @@ import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 
-const SocialProfile = ({ form }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+const SocialProfile = () => {
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    console.log('Received values of form: ', values);
   };
 
-  const { getFieldDecorator } = form;
   return (
     <Row>
       <Col md={10} offset={7}>
-        <Form onSubmit={handleSubmit}>
+        <Form form={form} name="editAccount" onFinish={handleSubmit}>
           <Heading as="h4">Social Profiles</Heading>
-          <Form.Item label="Facebook">
-            {getFieldDecorator('facebook')(
-              <Input prefix={<FeatherIcon icon="facebook" size={16} />} placeholder="URL" />,
-            )}
+          <Form.Item name="facebook" label="Facebook">
+            <Input prefix={<FeatherIcon icon="facebook" size={16} />} placeholder="URL" />
           </Form.Item>
-          <Form.Item label="Twitter">
-            {getFieldDecorator('twitter')(
-              <Input prefix={<FeatherIcon icon="twitter" size={16} />} placeholder="@username" />,
-            )}
+          <Form.Item name="twitter" label="Twitter">
+            <Input prefix={<FeatherIcon icon="twitter" size={16} />} placeholder="@username" />
           </Form.Item>
-          <Form.Item label="Linkedin">
-            {getFieldDecorator('linkedin')(
-              <Input prefix={<FeatherIcon icon="linkedin" size={16} />} placeholder="URL" />,
-            )}
+          <Form.Item name="linkedin" label="Linkedin">
+            <Input prefix={<FeatherIcon icon="linkedin" size={16} />} placeholder="URL" />
           </Form.Item>
-          <Form.Item label="Instagram">
-            {getFieldDecorator('instagram')(
-              <Input prefix={<FeatherIcon icon="instagram" size={16} />} placeholder="URL" />,
-            )}
+          <Form.Item name="instagram" label="Instagram">
+            <Input prefix={<FeatherIcon icon="instagram" size={16} />} placeholder="URL" />
           </Form.Item>
-          <Form.Item label="GitHub">
-            {getFieldDecorator('github')(
-              <Input prefix={<FeatherIcon icon="github" size={16} />} placeholder="Username" />,
-            )}
+          <Form.Item name="github" label="GitHub">
+            <Input prefix={<FeatherIcon icon="github" size={16} />} placeholder="Username" />
           </Form.Item>
-          <Form.Item label="Youtube">
-            {getFieldDecorator('youtube')(
-              <Input prefix={<FeatherIcon icon="youtube" size={16} />} placeholder="Url" />,
-            )}
+          <Form.Item name="youtube" label="Youtube">
+            <Input prefix={<FeatherIcon icon="youtube" size={16} />} placeholder="Url" />
           </Form.Item>
 
           <Form.Item>
-            <Button>
+            <Button htmlType="submit">
               <Link to={'/pages/add-user/work'}>Back</Link>
             </Button>
             &nbsp; &nbsp;
@@ -66,4 +50,4 @@ const SocialProfile = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'editAccount' })(SocialProfile);
+export default SocialProfile;

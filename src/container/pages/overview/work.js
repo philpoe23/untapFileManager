@@ -6,68 +6,59 @@ import Heading from '../../../components/heading/heading';
 
 const dateFormat = 'MM/DD/YYYY';
 
-const Work = ({ form, match }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.validateFields((err, values) => {
-      if (!err) {
-        //form.resetFields();
-      }
-    });
+const Work = () => {
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    console.log(values);
   };
-  const { getFieldDecorator } = form;
 
   return (
     <Row>
       <Col md={10} offset={7}>
-        <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
+        <Form style={{ width: '100%' }} form={form} name="work" onFinish={handleSubmit}>
           <Heading as="h4">Work Information</Heading>
 
-          <Form.Item label="Company Name">
-            {getFieldDecorator('company', {})(<Input placeholder="Company Name" />)}
+          <Form.Item name="company" label="Company Name">
+            <Input placeholder="Company Name" />
           </Form.Item>
 
-          <Form.Item label="Department">
-            {getFieldDecorator('department', {})(<Input placeholder="Department name" />)}
+          <Form.Item name="department" label="Department">
+            <Input placeholder="Department name" />
           </Form.Item>
 
-          <Form.Item label="Designation">
-            {getFieldDecorator('designation', {})(<Input placeholder="Designation" />)}
+          <Form.Item name="designation" label="Designation">
+            <Input placeholder="Designation" />
           </Form.Item>
 
-          <Form.Item label="Hiring Date">
-            {getFieldDecorator('hiringDate', {
-              rules: [{ type: 'object', whitespace: true }],
-            })(<DatePicker format={dateFormat} style={{ width: '100%' }} />)}
+          <Form.Item name="hiringDate" rules={[{ type: 'object', whitespace: true }]} label="Hiring Date">
+            <DatePicker format={dateFormat} style={{ width: '100%' }} />
           </Form.Item>
 
-          <Form.Item label="Status">
-            {getFieldDecorator('status', {
-              initialValue: 'Active',
-            })(
-              <Radio.Group>
-                <Radio value="Active">Active</Radio>
-                <Radio value="Deactivated">Deactivated</Radio>
-                <Radio value="Blocked">Blocked</Radio>
-              </Radio.Group>,
-            )}
+          <Form.Item name="status" initialValue="active" label="Status">
+            <Radio.Group>
+              <Radio value="active">Active</Radio>
+              <Radio value="deactivated">Deactivated</Radio>
+              <Radio value="blocked">Blocked</Radio>
+            </Radio.Group>
           </Form.Item>
-
-          <Button
-            onClick={() => {
-              return form.resetFields();
-            }}
-          >
-            Cancel
-          </Button>
-          <Button onClick={handleSubmit} type="primary">
-            <Link to={'/pages/add-user/social'}>Next</Link>
-          </Button>
+          <Form.Item>
+            <Button
+              type="default"
+              onClick={() => {
+                return form.resetFields();
+              }}
+            >
+              Cancel
+            </Button>
+            <Button htmlType="submit" type="primary">
+              <Link to={'/pages/add-user/social'}>Next</Link>
+            </Button>
+          </Form.Item>
         </Form>
       </Col>
     </Row>
   );
 };
 
-export default Form.create({ name: 'work' })(Work);
+export default Work;
