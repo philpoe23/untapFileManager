@@ -5,19 +5,15 @@ import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Cascader } from '../../components/cascader/cascader';
 import { Button } from '../../components/buttons/buttons';
-import { UserOutlined, MailOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const { TextArea } = Input;
 
-const Forms = ({ form }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+const Forms = () => {
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    console.log('Received values of form: ', values);
   };
 
   return (
@@ -27,16 +23,17 @@ const Forms = ({ form }) => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Elements of Form" caption="The simplest use of Form">
-              <Form name="basic" onSubmit={handleSubmit}>
-                <Form.Item label="Username" rules={[{ required: true, message: 'Please input your username!' }]}>
-                  <Input prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
+              <Form form={form} name="basicforms" onFinish={handleSubmit}>
+                <Form.Item label="Username" name="username">
+                  <Input placeholder="Username" />,
                 </Form.Item>
+
                 <Form.Item
                   label="Email"
                   name="email"
                   rules={[{ required: true, message: 'Please input your email!', type: 'email' }]}
                 >
-                  <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+                  <Input placeholder="Email" />
                 </Form.Item>
                 <Form.Item
                   label="Age"
@@ -66,7 +63,7 @@ const Forms = ({ form }) => {
                   <Option value="tom">Tom</Option>
                 </Select>
                 <Form.Item>
-                  <Button onSubmit={handleSubmit} type="primary">
+                  <Button htmlType="submit" type="primary">
                     Submit
                   </Button>
                 </Form.Item>

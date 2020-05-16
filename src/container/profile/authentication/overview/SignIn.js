@@ -2,22 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Heading from '../../../../components/heading/heading';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
-import { Form, Input, Icon, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { login } from '../../../../redux/authentication/actionCreator';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-const SignIn = ({ form, login, isLoading }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.validateFields((err, values) => {
-      if (!err) {
-        //onsole.log('Received values of form: ', values);
-        login();
-      }
-    });
+const SignIn = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.auth.loading);
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    dispatch(login());
   };
-  const { getFieldDecorator } = form;
+
   const onChange = (checked, value) => {
     console.log(`checked = ${checked}`);
   };
@@ -28,44 +25,31 @@ const SignIn = ({ form, login, isLoading }) => {
         Don't have an account? <NavLink to="/register">Sign up now</NavLink>
       </p>
       <Heading as="h3">Sign in to Admin</Heading>
-      <Form style={{ width: '400px' }} onSubmit={handleSubmit}>
-        <Form.Item label="Username or Email Address">
-          {getFieldDecorator('username', {
-            initialValue: 'name@example.com',
-            rules: [{ message: 'Please input your username or Email!' }],
-          })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="name@example.com" />,
-          )}
+      <Form name="login" form={form} style={{ width: '400px' }} onFinish={handleSubmit}>
+        <Form.Item
+          name="username"
+          rules={[{ message: 'Please input your username or Email!', required: true }]}
+          initialValue="name@example.com"
+          label="Username or Email Address"
+        >
+          <Input />
         </Form.Item>
-        <Form.Item label="Password">
-          {getFieldDecorator('password', {
-            initialValue: '123456',
-            rules: [{ message: 'Please input your Password' }],
-          })(<Input.Password placeholder="Password" />)}
+        <Form.Item name="password" initialValue="123456" label="Password">
+          <Input.Password placeholder="Password" />
         </Form.Item>
         <div>
           <Checkbox onChange={onChange}>Keep me logged in</Checkbox>
           <NavLink to="/forgotPassword">Forgot password?</NavLink>
         </div>
-        <Button onClick={handleSubmit} type="primary">
-          {isLoading ? 'Loading...' : 'Sign In'}
-        </Button>
+        <Form.Item>
+          <Button htmlType="submit" type="primary">
+            {isLoading ? 'Loading...' : 'Sign In'}
+          </Button>
+        </Form.Item>
         <p>or</p>
       </Form>
     </div>
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    login: () => dispatch(login()),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    isLoading: state.auth.loading,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form.create({ name: 'loginForm' })(SignIn));
+export default SignIn;
