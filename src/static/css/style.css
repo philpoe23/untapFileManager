@@ -155,7 +155,6 @@
 .color-gray{
   color: #5A5F7D;
 }
-<<<<<<< HEAD
 
 /* Button Styles */
 
@@ -195,16 +194,4 @@
 .ant-btn-dashed:hover{
   color: #5F63F2;
   border: 1px dashed #5F63F2;
-=======
-.color-light{
-  color: #9299B8;
-}
-
-/* statistics */
-.ant-statistic-title{
-  color: #9299B8 !important;
-}
-.ant-statistic-content-value-int{
-  font-size: 20px;
->>>>>>> 6ab08ff6a918e530242782e9000d30fb5d1f9a79
 }
