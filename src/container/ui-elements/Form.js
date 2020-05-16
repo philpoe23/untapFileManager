@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Form, Icon, Select, Input, InputNumber } from 'antd';
+import { Row, Col, Form, Select, Input, InputNumber } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Cascader } from '../../components/cascader/cascader';
 import { Button } from '../../components/buttons/buttons';
+import { UserOutlined, MailOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -19,8 +20,6 @@ const Forms = ({ form }) => {
     });
   };
 
-  const { getFieldDecorator } = form;
-
   return (
     <Fragment>
       <PageHeader ghost title="Form" />
@@ -28,33 +27,29 @@ const Forms = ({ form }) => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Elements of Form" caption="The simplest use of Form">
-              <Form onSubmit={handleSubmit}>
-                <Form.Item label="Username">
-                  {getFieldDecorator('username', {
-                    rules: [{ required: true, message: 'Please input your username!' }],
-                  })(
-                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
-                  )}
+              <Form name="basic" onSubmit={handleSubmit}>
+                <Form.Item label="Username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                  <Input prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
                 </Form.Item>
-                <Form.Item label="Email">
-                  {getFieldDecorator('email', {
-                    rules: [{ required: true, message: 'Please input your email!', type: 'email' }],
-                  })(<Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />)}
+                <Form.Item
+                  label="Email"
+                  name="email"
+                  rules={[{ required: true, message: 'Please input your email!', type: 'email' }]}
+                >
+                  <Input prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
                 </Form.Item>
-                <Form.Item label="Age">
-                  {getFieldDecorator('age', {
-                    rules: [{ required: true, message: 'Please input your age!', type: 'number' }],
-                  })(<InputNumber />)}
+                <Form.Item
+                  label="Age"
+                  name="age"
+                  rules={[{ required: true, message: 'Please input your age!', type: 'number' }]}
+                >
+                  <InputNumber />
                 </Form.Item>
-                <Form.Item label="Website">
-                  {getFieldDecorator('website', {
-                    rules: [{}],
-                  })(<Input placeholder="http://website.com" />)}
+                <Form.Item label="Website" name="website">
+                  <Input placeholder="http://website.com" />
                 </Form.Item>
-                <Form.Item label="Textarea">
-                  {getFieldDecorator('textarea', {
-                    rules: [{}],
-                  })(<TextArea />)}
+                <Form.Item label="Textarea" name="textarea">
+                  <TextArea />
                 </Form.Item>
                 <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
                 <Select
@@ -84,4 +79,4 @@ const Forms = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'form' })(Forms);
+export default Forms;
