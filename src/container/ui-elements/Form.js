@@ -25,9 +25,9 @@ const Forms = ({ form }) => {
     <Fragment>
       <PageHeader ghost title="Form" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Elements of Form" caption="The simplest use of Form">
+            <Cards title="Elements of Form" caption="The simplest use of Form">
               <Form onSubmit={handleSubmit}>
                 <Form.Item label="Username">
                   {getFieldDecorator('username', {
@@ -84,4 +84,4 @@ const Forms = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'form' })(Forms);
+export default Form.create({ name: 'forms' })(Forms);

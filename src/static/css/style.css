@@ -108,6 +108,10 @@
 }
 
 /* progressbars */
+.ant-progress{
+  display: inline-flex !important;
+  align-items: center;
+}
 .ant-progress > div{
   display: flex;
   flex-direction: column;
@@ -115,11 +119,8 @@
 .ant-progress .ant-progress-outer{
   margin-right: 0 !important;
   padding-right: 0 !important;
-  order: 1;
 }
 .ant-progress .ant-progress-text{
-  order: 0;
-  margin-left: 0;
   align-self: flex-end;
   text-align: right;
 }

@@ -27,7 +27,7 @@ const routes = [
 const PageHeaders = () => {
   return (
     <Fragment>
-      <PageHeader
+      <PageHeader ghost
         buttons={[
           <CalendarButtonPageHeader key="1" />,
           <ExportButtonPageHeader key="2" />,
@@ -42,19 +42,19 @@ const PageHeaders = () => {
         title="Page Headers"
       />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
-            <Cards headless title="Basic header" caption="The simplest use of Page header">
+            <Cards title="Basic header" caption="The simplest use of Page header">
               <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" />
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Custom header" caption="The simplest use of Page header">
+            <Cards title="Custom header" caption="The simplest use of Page header">
               <PageHeader ghost title="Title" subTitle="This is a subtitle" />
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Custom header" caption="The simplest use of Page header">
+            <Cards title="Custom header" caption="The simplest use of Page header">
               <PageHeader
                 ghost
                 title="Title"
@@ -73,12 +73,12 @@ const PageHeaders = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
+            <Cards title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
               <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" routes={routes} />
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Extra content header" caption="The simplest use of Extra content header">
+            <Cards title="Extra content header" caption="The simplest use of Extra content header">
               <PageHeader
                 bgColor="#fff"
                 buttons={[

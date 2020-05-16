@@ -11,9 +11,9 @@ const Drawers = () => {
     <Fragment>
       <PageHeader ghost title="Drawer" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Drawer">
+            <Cards title="Basic" caption="The simplest use of Drawer">
               <Drawer title="Basic Drawer" placement="right">
                 <p>Some contents...</p>
                 <p>Some contents...</p>
@@ -22,7 +22,7 @@ const Drawers = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom placement" caption="The simplest use of Drawer">
+            <Cards title="Custom placement" caption="The simplest use of Drawer">
               <Drawer customPlacement title="Basic Drawer">
                 <p>Some contents...</p>
                 <p>Some contents...</p>
@@ -31,17 +31,14 @@ const Drawers = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Render in current dom" caption="The simplest use of Drawer">
+            <Cards title="Render in current dom" caption="The simplest use of Drawer">
               <div
                 style={{
                   height: 200,
                   overflow: 'hidden',
                   position: 'relative',
-                  border: '1px solid #ebedf0',
-                  borderRadius: 2,
                   padding: 48,
                   textAlign: 'center',
-                  background: '#fafafa',
                 }}
               >
                 <Drawer render title="Basic Drawer">
@@ -53,7 +50,7 @@ const Drawers = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Submit form in drawer" caption="The simplest use of Drawer">
+            <Cards title="Submit form in drawer" caption="The simplest use of Drawer">
               <Drawer width={700} btnText="+ New account" title="Basic Drawer">
                 <Form layout="vertical" hideRequiredMark>
                   <Row gutter={16}>
@@ -150,7 +147,7 @@ const Drawers = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Multi Label Drawer" caption="The simplest use of Drawer">
+            <Cards title="Multi Label Drawer" caption="The simplest use of Drawer">
               <Drawer
                 title="Basic Drawer"
                 childTitle="Lavel Two"
