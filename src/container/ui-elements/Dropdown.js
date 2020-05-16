@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
+import { EllipsisOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../components/dropdown/dropdown';
@@ -11,95 +12,95 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 const Dropdowns = () => {
   return (
     <DropdownStyle>
-      <PageHeader title="Dropdown" />
+      <PageHeader ghost title="Dropdown" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic Dropdown" caption="The simplest use of Steps">
+            <Cards title="Basic Dropdown" caption="The simplest use of Steps">
               <Dropdown placement="bottomLeft">
                 <NavLink to="#">hover me</NavLink>
               </Dropdown>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Placement" caption="The simplest use of Dropdown">
+            <Cards title="Placement" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft">
-                <Button type="primary">bottomLeft</Button>
+                <Button>bottomLeft</Button>
               </Dropdown>
               <Dropdown placement="bottomCenter">
-                <Button type="primary">bottomCenter</Button>
+                <Button>bottomCenter</Button>
               </Dropdown>
               <Dropdown placement="bottomRight">
-                <Button type="primary">bottomRight</Button>
+                <Button>bottomRight</Button>
               </Dropdown>
               <br />
               <Dropdown placement="topLeft">
-                <Button type="primary">topLeft</Button>
+                <Button>topLeft</Button>
               </Dropdown>
               <Dropdown placement="topCenter">
-                <Button type="primary">topCenter</Button>
+                <Button>topCenter</Button>
               </Dropdown>
               <Dropdown placement="topRight">
-                <Button type="primary">topRight</Button>
+                <Button>topRight</Button>
               </Dropdown>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Event menu " caption="The simplest use of Dropdown">
+            <Cards title="Event menu " caption="The simplest use of Dropdown">
               <Dropdown action={['hover']} placement="bottomLeft">
-                <Button type="primary">hover</Button>
+                <NavLink to="#">hover me </NavLink>
               </Dropdown>
               <Dropdown action={['click']} placement="bottomCenter">
-                <Button type="primary">click</Button>
+                <NavLink to="#">click </NavLink>
               </Dropdown>
               <Dropdown action={['contextMenu']} placement="bottomRight">
-                <Button type="primary">context</Button>
+                <NavLink to="#">context</NavLink>
               </Dropdown>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="button menu " caption="The simplest use of Dropdown">
+            <Cards title="button menu " caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft" action={['click']}>
-                <Button type="primary">
+                <Button>
                   Bottom Left Click
-                  <Icon type="down" />
+                  <EllipsisOutlined />
                 </Button>
               </Dropdown>
 
               <Dropdown placement="bottomRight" title="with title">
-                <Button type="secondary">
+                <Button>
                   Bottom Right hover
-                  <Icon type="down" />
+                  <UserOutlined />
                 </Button>
               </Dropdown>
               <Dropdown placement="topLeft">
-                <Button type="danger">
+                <Button>
                   Top Left hover
-                  <Icon type="down" />
+                  <EllipsisOutlined />
                 </Button>
               </Dropdown>
               <Dropdown placement="topRight">
-                <Button type="success">
+                <Button>
                   Top Right hover
-                  <Icon type="down" />
+                  <EllipsisOutlined />
                 </Button>
               </Dropdown>
               <Dropdown placement="bottomLeft" size="small">
-                <Button type="error">
+                <Button>
                   Error
-                  <Icon type="down" />
+                  <EllipsisOutlined />
                 </Button>
               </Dropdown>
               <Dropdown placement="bottomLeft" size="small">
-                <Button type="warning">
+                <Button>
                   Warning
-                  <Icon type="down" />
+                  <EllipsisOutlined />
                 </Button>
               </Dropdown>
               <Dropdown placement="bottomLeft" size="small">
-                <Button type="info">
+                <Button>
                   Info
-                  <Icon type="down" />
+                  <DownOutlined />
                 </Button>
               </Dropdown>
             </Cards>

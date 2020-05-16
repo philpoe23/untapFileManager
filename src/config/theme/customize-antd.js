@@ -19,6 +19,8 @@ const primaryColor = '#5F63F2',
   grayHover = '#363A51',
   lightColor = '#F4F5F7',
   lightHover = '#e2e6ea',
+  whiteColor = '#ffffff',
+  whiteHover = '#5A5F7D',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
   dangerHover = '#E30D0F',
@@ -52,6 +54,8 @@ const theme = {
   'gray-hover': grayHover, // info state color
   'light-color': lightColor, // info state color
   'light-hover': lightHover, // info state color
+  'white-color': whiteColor, // info state color
+  'white-hover': whiteHover, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,

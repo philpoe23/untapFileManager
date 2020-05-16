@@ -20,7 +20,7 @@ const Forms = () => {
     <Fragment>
       <PageHeader ghost title="Form" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards headless title="Elements of Form" caption="The simplest use of Form">
               <Form form={form} name="basicforms" onFinish={handleSubmit}>

@@ -19,6 +19,8 @@ box-shadow: 0 0;
 }
 
 ${({ outlined, theme, type }) => outlined && outline(theme, type)}
+${({ lightColored, theme, type }) => lightColored && lightColor(theme, type)}
+${({ raised, theme, type }) => raised && raise(theme, type)}
 ${({ squared, theme, type }) => squared && square(theme, type)}
 ${({ squared, outlined, theme, type }) => squared && outlined && squareOutline(theme, type)}
 ${({ social, color, shape }) => social && socialButton(color, shape)}
@@ -35,6 +37,25 @@ const outline = (theme, type) => {
           border: 1px solid ${type !== 'default' && theme[type + '-hover']};
           color: ${type !== 'default' && '#ffffff'};        
       }
+  `;
+};
+
+const lightColor = (theme, type) => {
+  return `
+      background: ${type !== 'default' && theme[type + '-color']}15;
+      border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']}15;
+      color: ${type !== 'default' && theme[type + '-color']};
+      &:hover, &:focus {
+          background: ${type !== 'default' && theme[type + '-hover']}15;
+          border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
+          color: ${type !== 'default' && '#ffffff'};        
+      }
+  `;
+};
+
+const raise = (theme, type) => {
+  return `
+      box-shadow: 0 10px 15px ${type !== 'white' ? theme[type + '-color'] : '#9299B8'}20;
   `;
 };
 

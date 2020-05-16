@@ -62,7 +62,65 @@ const Buttons = () => {
           </Col>
           
           <Col md={12}>
-            <Cards title="Basic Rounded Buttons" size="large">
+            <Cards title="Light Color" size="large">
+              <Button lightColored type="primary">
+                Primary
+              </Button>
+              <Button lightColored type="secondary">
+                Secondary
+              </Button>
+              <Button lightColored type="success">
+                Success
+              </Button>
+              <Button lightColored type="info">
+                Info
+              </Button>
+              <Button lightColored type="warning">
+                Warning
+              </Button>
+              <Button lightColored type="danger">
+                Danger
+              </Button>
+              <Button lightColored type="dark">
+                Dark
+              </Button>
+              <Button lightColored type="light">
+                Light
+              </Button>
+            </Cards>
+          </Col>
+          
+          <Col md={12}>
+            <Cards title="Raised" size="large">
+              <Button raised type="primary">
+                Primary
+              </Button>
+              <Button raised type="secondary">
+                Secondary
+              </Button>
+              <Button raised type="success">
+                Success
+              </Button>
+              <Button raised type="info">
+                Info
+              </Button>
+              <Button raised type="warning">
+                Warning
+              </Button>
+              <Button raised type="danger">
+                Danger
+              </Button>
+              <Button raised type="dark">
+                Dark
+              </Button>
+              <Button raised type="white">
+                White
+              </Button>
+            </Cards>
+          </Col>
+
+          <Col md={12}>
+            <Cards title="Rounded" size="large">
               <Button shape="circle" type="primary">
                 Primary
               </Button>
@@ -93,6 +151,38 @@ const Buttons = () => {
             </Cards>
           </Col>
           
+          <Col md={12}>
+            <Cards title="Rounded Outline" size="large">
+              <Button outlined shape="circle" type="primary">
+                Primary
+              </Button>
+              <Button outlined shape="circle" type="secondary">
+                Secondary
+              </Button>
+              <Button outlined shape="circle" type="success">
+                Success
+              </Button>
+              <Button outlined shape="circle" type="info">
+                Info
+              </Button>
+              <Button outlined shape="circle" type="warning">
+                Warning
+              </Button>
+              <Button outlined shape="circle" type="danger">
+                Danger
+              </Button>
+              <Button outlined shape="circle" type="dark">
+                Dark
+              </Button>
+              <Button outlined shape="circle" type="light">
+                Light
+              </Button>
+              <Button outlined shape="circle" type="white">
+                White
+              </Button>
+            </Cards>
+          </Col>
+
           <Col md={12}>
             <Cards headless title="Square Buttons" size="large" caption="Buttons without border radius.">
               <Button squared type="primary">

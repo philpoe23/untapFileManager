@@ -1,5 +1,4 @@
 /* Utilitiy classes */
-
 .spin {
   height: 100vh;
   display: flex;
@@ -7,95 +6,77 @@
   justify-content: center;
   background: rgba(255, 255, 255, 0.05);
 }
-
-.d-flex {
+.d-flex{
   display: flex;
 }
-
-.flex-grid .flex-grid-child {
+.flex-grid .flex-grid-child{
   padding: 0 12px;
 }
-
-.align-center-v {
+.align-center-v{
   display: flex;
   align-items: center;
 }
-
-.justify-content-between {
+.justify-content-between{
   justify-content: space-between;
 }
-
-.align-items-center {
+.align-items-center{
   align-items: center;
 }
-
-.line-height-0 {
+.line-height-0{
   line-height: 0;
 }
-
-.text-right {
+.text-right{
   text-align: right;
 }
-
-.text-center {
+.text-center{
   text-align: center;
 }
-
-.m-0 {
+.m-0{
   margin: 0 !important;
 }
 
-/* default card style */
 
-.ant-card-body {
+/* default card style */
+.ant-card-body{
   padding: 25px !important;
 }
-
-.ant-card-head {
+.ant-card-head{
   padding-left: 25px !important;
   padding-right: 25px !important;
 }
-
-.ant-card-head-title span {
+.ant-card-head-title span{
   display: inline-block;
   margin-left: 15px;
   font-size: 11px;
   color: #868EAE;
 }
-
-.ant-card-head .ant-card-extra a {
+.ant-card-head .ant-card-extra a{
   color: #868EAE;
 }
 
 /* ant radio group */
-
-.ant-radio-button-wrapper-checked {
+.ant-radio-button-wrapper-checked{
   color: #fff !important;
 }
 
 /* card nav */
-
-.card-nav ul {
+.card-nav ul{
   list-style: none;
   display: flex;
   margin: 0 -8px;
 }
-
-.card-nav ul li {
+.card-nav ul li{
   margin: 0 8px;
   position: relative;
 }
-
-.card-nav ul li a {
+.card-nav ul li a{
   color: #868EAE;
   font-size: 12px;
 }
-
-.card-nav ul li.active a {
+.card-nav ul li.active a{
   color: #5F63F2;
 }
-
-.card-nav ul li.active:before {
+.card-nav ul li.active:before{
   position: absolute;
   content: '';
   width: 100%;
@@ -106,100 +87,113 @@
 }
 
 /* chart growth upward */
-
-.growth-downward p, .growth-upward p {
+.growth-downward p,
+.growth-upward p{
   font-size: 14px;
   color: #868EAE;
   margin: 0;
 }
-
-.growth-downward h1 sub, .growth-upward h1 sub {
+.growth-downward h1 sub,
+.growth-upward h1 sub{
   font-size: 14px;
   font-weight: 600;
   left: 5px;
   bottom: 0;
 }
-
-.growth-downward h1 sub {
+.growth-downward h1 sub{
   color: #FF4D4F;
 }
-
-.growth-upward h1 sub {
+.growth-upward h1 sub{
   color: #20C997;
 }
 
 /* progressbars */
-
-.ant-progress>div {
+.ant-progress{
+  display: inline-flex !important;
+  align-items: center;
+}
+.ant-progress > div{
   display: flex;
   flex-direction: column;
 }
-
-.ant-progress .ant-progress-outer {
+.ant-progress .ant-progress-outer{
   margin-right: 0 !important;
   padding-right: 0 !important;
-  order: 1;
 }
-
-.ant-progress .ant-progress-text {
+.ant-progress .ant-progress-text{
   order: 0;
   margin-left: 0;
   align-self: flex-end;
   text-align: right;
 }
-
-.ant-progress-status-warning .ant-progress-bg {
+.ant-progress-status-warning .ant-progress-bg{
   background: #FA8B0C;
 }
 
 /* color classes */
-
-.color-primary {
+.color-primary{
   color: #5F63F2;
 }
-
-.color-secondary {
+.color-secondary{
   color: #FF69A5;
 }
-
-.color-info {
+.color-info{
   color: #2C99FF;
 }
-
-.color-warning {
+.color-warning{
   color: #FA8B0C;
 }
-
-.color-success {
+.color-success{
   color: #20C997;
 }
-
-.color-danger {
+.color-danger{
   color: #FF4D4F;
 }
-
-.color-dark {
+.color-dark{
   color: #272B41;
 }
-
-.color-error {
+.color-error{
   color: #f5222d;
 }
-
-.color-gray {
+.color-gray{
   color: #5A5F7D;
 }
 
-.color-light {
-  color: #9299B8;
+/* Button Styles */
+
+.ant-btn-white{
+  color: #5A5F7D;
 }
 
-/* statistics */
-
-.ant-statistic-title {
-  color: #9299B8 !important;
+.ant-btn-white:hover{
+  color: #5F63F2;
+  background-color: #fff;
+  border-color: #fff;
 }
 
-.ant-statistic-content-value-int {
-  font-size: 20px;
+.ant-btn-link{
+  background-color: #fff;
+  border-color: #fff;
+  color: #5F63F2
+}
+
+.ant-btn-link:hover{
+  color: #5A5F7D;
+  border-color: #fff;
+  background-color: #fff;
+}
+
+.ant-btn-light,
+.ant-btn-light:hover{
+  color: #5A5F7D
+}
+
+.ant-btn-dashed{
+  color: #5A5F7D;
+  border: 1px dashed #E3E6EF;
+}
+
+.ant-btn-dashed:hover{
+  color: #5F63F2;
+  border: 1px dashed #5F63F2;
 }
