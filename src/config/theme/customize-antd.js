@@ -17,7 +17,8 @@ const primaryColor = '#5F63F2',
   darkHover = '#131623',
   grayColor = '#5A5F7D',
   grayHover = '#363A51',
-  lightColor = '#9299B8',
+  lightColor = '#F4F5F7',
+  lightHover = '#e2e6ea',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
   dangerHover = '#E30D0F',
@@ -50,6 +51,7 @@ const theme = {
   'gray-color': grayColor, // info state color
   'gray-hover': grayHover, // info state color
   'light-color': lightColor, // info state color
+  'light-hover': lightHover, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
@@ -130,10 +132,6 @@ const theme = {
   'slider-track-background-color-hover': primaryColor,
   'slider-handle-color': primaryColor,
   'slider-handle-size': '22px',
-
-
-
-
 };
 
 module.exports = theme;

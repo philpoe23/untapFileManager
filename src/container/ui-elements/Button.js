@@ -15,47 +15,22 @@ const Buttons = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic Buttons" size="large" caption="Default Antd buttons style.">
+            <Cards title="Basic" size="large">
               <Button type="primary">Primary</Button>
               <Button type="secondary">Secondary</Button>
               <Button type="success">Success</Button>
-              <Button type="error">Error</Button>
-              <Button type="warning">Warning</Button>
-              <Button type="default">Default</Button>
               <Button type="info">Info</Button>
+              <Button type="warning">Warning</Button>
+              <Button type="danger">Danger</Button>
               <Button type="link">Link</Button>
+              <Button type="dark">Dark</Button>
+              <Button type="light">Light</Button>
+              <Button type="white">White</Button>
             </Cards>
           </Col>
+
           <Col md={12}>
-            <Cards headless title="Basic Rounded Buttons" size="large" caption="Rounded Bootstrap buttons.">
-              <Button shape="circle" type="primary">
-                Primary
-              </Button>
-              <Button shape="circle" type="secondary">
-                Secondary
-              </Button>
-              <Button shape="circle" type="success">
-                Success
-              </Button>
-              <Button shape="circle" type="error">
-                Error
-              </Button>
-              <Button shape="circle" type="warning">
-                Warning
-              </Button>
-              <Button shape="circle" type="default">
-                Default
-              </Button>
-              <Button shape="circle" type="info">
-                Info
-              </Button>
-              <Button shape="circle" type="link">
-                Link
-              </Button>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Outline Buttons" size="large" caption="Buttons without background color.">
+            <Cards title="Outline" size="large">
               <Button outlined type="primary">
                 Primary
               </Button>
@@ -65,23 +40,59 @@ const Buttons = () => {
               <Button outlined type="success">
                 Success
               </Button>
-              <Button outlined type="error">
-                Error
+              <Button outlined type="info">
+                Info
               </Button>
               <Button outlined type="warning">
                 Warning
               </Button>
-              <Button outlined type="default">
-                Default
+              <Button outlined type="danger">
+                Danger
               </Button>
-              <Button outlined type="info">
-                Info
+              <Button outlined type="dark">
+                Dark
               </Button>
-              <Button outlined type="link">
-                Link
+              <Button outlined type="light">
+                Light
+              </Button>
+              <Button outlined type="dashed">
+                Dashed
               </Button>
             </Cards>
           </Col>
+          
+          <Col md={12}>
+            <Cards title="Basic Rounded Buttons" size="large">
+              <Button shape="circle" type="primary">
+                Primary
+              </Button>
+              <Button shape="circle" type="secondary">
+                Secondary
+              </Button>
+              <Button shape="circle" type="success">
+                Success
+              </Button>
+              <Button shape="circle" type="info">
+                Info
+              </Button>
+              <Button shape="circle" type="warning">
+                Warning
+              </Button>
+              <Button shape="circle" type="danger">
+                Danger
+              </Button>
+              <Button shape="circle" type="dark">
+                Dark
+              </Button>
+              <Button shape="circle" type="light">
+                Light
+              </Button>
+              <Button shape="circle" type="white">
+                White
+              </Button>
+            </Cards>
+          </Col>
+          
           <Col md={12}>
             <Cards headless title="Square Buttons" size="large" caption="Buttons without border radius.">
               <Button squared type="primary">

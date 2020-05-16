@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Table } from 'antd';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
@@ -10,7 +10,15 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
 
-const Orders = ({ searchData, orders, orderFilter, isloading }) => {
+const Orders = () => {
+  const dispatch = useDispatch();
+  const { searchData, orders } = useSelector(state => {
+    return {
+      searchData: state.headerSearchData,
+      orders: state.orders.data,
+    };
+  });
+
   const [state, setState] = useState({
     notdata: searchData,
     item: orders,
@@ -41,7 +49,7 @@ const Orders = ({ searchData, orders, orderFilter, isloading }) => {
   };
 
   const handleChangeForFilter = e => {
-    orderFilter('status', e.target.value);
+    dispatch(orderFilter('status', e.target.value));
   };
 
   const dataSource = [];
@@ -157,18 +165,4 @@ const Orders = ({ searchData, orders, orderFilter, isloading }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    orderFilter: (column, value) => dispatch(orderFilter(column, value)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    orders: state.orders.data,
-    isloading: state.gallery.loading,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Orders);
+export default Orders;
