@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
@@ -9,7 +9,14 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import FeatherIcon from 'feather-icons-react';
 
-const Sellers = ({ searchData, sellers }) => {
+const Sellers = () => {
+  const { searchData, sellers } = useSelector(state => {
+    return {
+      searchData: state.headerSearchData,
+      sellers: state.sellers,
+    };
+  });
+
   const [state, setState] = useState({
     notdata: searchData,
     item: sellers,
@@ -138,11 +145,4 @@ const Sellers = ({ searchData, sellers }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    sellers: state.sellers,
-  };
-};
-
-export default connect(mapStateToProps)(Sellers);
+export default Sellers;
