@@ -159,13 +159,12 @@
 /* Button Styles */
 
 .ant-btn-white{
-  background-color: #fff;
-  border-color: #fff;
   color: #5A5F7D;
 }
 
 .ant-btn-white:hover{
   color: #5F63F2;
+  background-color: #fff;
   border-color: #fff;
 }
 
