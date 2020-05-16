@@ -24,9 +24,9 @@ const Forms = ({ form }) => {
     <Fragment>
       <PageHeader ghost title="Form" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Elements of Form" caption="The simplest use of Form">
+            <Cards title="Elements of Form" caption="The simplest use of Form">
               <Form name="basic" onSubmit={handleSubmit}>
                 <Form.Item label="Username" rules={[{ required: true, message: 'Please input your username!' }]}>
                   <Input prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,

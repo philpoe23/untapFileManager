@@ -87,11 +87,11 @@ const Notifications = () => {
 
   return (
     <Fragment>
-      <PageHeader title="Notifications" />
+      <PageHeader ghost title="Notifications" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Notification">
+            <Cards title="Basic" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotification}>
                 Open the notification box
               </Button>
@@ -99,7 +99,6 @@ const Notifications = () => {
           </Col>
           <Col md={12}>
             <Cards
-              headless
               title="Duration after which the notification box is closed"
               caption="The simplest use of Notification"
             >
@@ -109,14 +108,14 @@ const Notifications = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom close button" caption="The simplest use of Notification">
+            <Cards title="Custom close button" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotification3}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with icon" caption="The simplest use of Notification">
+            <Cards title="Notification with icon" caption="The simplest use of Notification">
               <Button type="success" click={() => openNotificationWithIcon('success')}>
                 Success
               </Button>
@@ -132,14 +131,14 @@ const Notifications = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with custom icon" caption="The simplest use of Notification">
+            <Cards title="Notification with custom icon" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotificationCustomIcon}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with custom Style" caption="The simplest use of Notification">
+            <Cards title="Notification with custom Style" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotificationCustomStyle}>
                 Open the notification box
               </Button>
@@ -147,7 +146,7 @@ const Notifications = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with placement" caption="The simplest use of Notification">
+            <Cards title="Notification with placement" caption="The simplest use of Notification">
               <Button type="primary" click={() => openNotificationPlacement('topLeft')}>
                 <Icon type="radius-upleft" />
                 topLeft

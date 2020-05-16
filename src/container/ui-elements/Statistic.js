@@ -18,7 +18,7 @@ const Statistics = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Statistic">
+            <Cards title="Basic" caption="The simplest use of Statistic">
               <Row gutter={16}>
                 <Col span={12}>
                   <Statistic title="Active Users" value={112893} />
@@ -33,7 +33,7 @@ const Statistics = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Unit" caption="The simplest use of Statistic">
+            <Cards title="Unit" caption="The simplest use of Statistic">
               <Row gutter={16}>
                 <Col span={12}>
                   <Statistic title="Feedback" value={1128} prefix={<Icon type="like" />} />
@@ -45,7 +45,7 @@ const Statistics = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="In Card" caption="The simplest use of Statistic">
+            <Cards title="In Card" caption="The simplest use of Statistic">
               <Row gutter={15}>
                 <Col md={12}>
                   <Statistic
@@ -71,7 +71,7 @@ const Statistics = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Countdown" caption="The simplest use of Statistic">
+            <Cards title="Countdown" caption="The simplest use of Statistic">
               <Row gutter={15}>
                 <Col md={12}>
                   <Countdown title="Countdown" value={deadline} onFinish={onFinish} />
