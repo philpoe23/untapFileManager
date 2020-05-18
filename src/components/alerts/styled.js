@@ -8,10 +8,11 @@ import { Alert } from 'antd';
 
 const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
+  border-width: 0px !important;
   margin: 15px 0!important;
-  padding: 15px 15px!important;
+  padding: 11px 15px!important;
   .ant-alert-message, .ant-alert-message {
-    color: #fff;
+    color: ${({ type, theme }) => theme[type + '-color']} !important;
   }
 
   ${({ outlined, theme, type }) => outlined && outline(theme, type)}
@@ -33,11 +34,12 @@ const Style = Styled(Alert)`
     }`}
 
   button {
-    top: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%)
   }
   
   &:hover, &:focus, &:active {
-      background: ${({ type, theme }) => theme[type + '-hover']} !important;             
+      background: ${({ type, theme }) => theme[type + '-hover']}15 !important;             
   }
 `;
 

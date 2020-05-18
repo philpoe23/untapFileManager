@@ -7,7 +7,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Popover } from '../../components/popup/popup';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import {SmileOutlined} from '@ant-design/icons';
+import { DownOutlined , LeftOutlined , RightOutlined } from '@ant-design/icons';
 
 const Buttons = () => {
   return (
@@ -183,68 +183,18 @@ const Buttons = () => {
               </Button>
             </Cards>
           </Col>
-
+          
           <Col md={12}>
-            <Cards headless title="Square Buttons" size="large" caption="Buttons without border radius.">
-              <Button squared type="primary">
-                Primary
-              </Button>
-              <Button squared type="secondary">
-                Secondary
-              </Button>
-              <Button squared type="success">
-                Success
-              </Button>
-              <Button squared type="error">
-                Error
-              </Button>
-              <Button squared type="warning">
-                Warning
-              </Button>
-              <Button squared type="default">
-                Default
-              </Button>
-              <Button squared type="info">
-                Info
-              </Button>
-              <Button squared type="link">
-                Link
-              </Button>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Square Outline Buttons" size="large" caption="Buttons without border radius.">
-              <Button squared outlined type="primary">
-                Primary
-              </Button>
-              <Button squared outlined type="secondary">
-                Secondary
-              </Button>
-              <Button squared outlined type="success">
-                Success
-              </Button>
-              <Button squared outlined type="error">
-                Error
-              </Button>
-              <Button squared outlined type="warning">
-                Warning
-              </Button>
-              <Button squared outlined type="default">
-                Default
-              </Button>
-              <Button squared outlined type="info">
-                Info
-              </Button>
-              <Button squared outlined type="link">
-                Link
-              </Button>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
+            <Cards title="Icon" size="large">
               <Button size="default" type="primary">
                 <span className="button-icon">
                   <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" transparented type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
                 </span>
                 Default
               </Button>
@@ -254,70 +204,114 @@ const Buttons = () => {
                 </span>
                 Default
               </Button>
-              <Button size="default" type="secondary">
+              <Button size="default" outlined type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" raised type="white">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <div class="icon-buttons">
+                <Button size="default" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+              </div>
+            </Cards>
+          </Col>
+          
+          <Col md={12}>
+            <Cards title="Rounded with Icon" size="large">
+              <Button size="default" shape="circle" type="primary">
                 <span className="button-icon">
                   <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
                 </span>
-                Secondary
+                Default
               </Button>
-              <Button size="default" type="primary">
-                <SmileOutlined/>
-              </Button>
-              <Button size="default" type="secondary">
+              <Button size="default" shape="circle" transparented type="primary">
                 <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
                 </span>
+                Default
               </Button>
+              <Button size="default" shape="circle" outlined type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" raised type="white">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <div class="icon-buttons">
+                <Button size="default" shape="round" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined shape="round" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined shape="round" type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" shape="round" type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+              </div>
             </Cards>
           </Col>
+          
           <Col md={12}>
-            <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
-              <Button social color="#2366B8">
-                <FeatherIcon size={16} icon="facebook" />
-                Facebook
-              </Button>
-              <Button social color="#00ABE4">
-                <FeatherIcon size={16} icon="twitter" />
-                Twitter
-              </Button>
-              <Button social color="#9D2E98">
-                <FeatherIcon size={16} icon="instagram" />
-                Instagram
-              </Button>
-              <Button social color="#E32212">
-                <FeatherIcon size={16} icon="youtube" />
-                Youtube
-              </Button>
-              <Button social color="#007CBC">
-                <FeatherIcon size={16} icon="linkedin" />
-                Linkedin
-              </Button>
-              <Button social color="#ED553B">
-                <FeatherIcon size={16} icon="rss" />
-                Feed
-              </Button>
-              <Button social color="#2366B8">
-                <FeatherIcon size={16} icon="facebook" />
-              </Button>
-              <Button social color="#00ABE4">
-                <FeatherIcon size={16} icon="twitter" />
-              </Button>
-              <Button social color="#9D2E98">
-                <FeatherIcon size={16} icon="instagram" />
-              </Button>
-              <Button social color="#E32212">
-                <FeatherIcon size={16} icon="youtube" />
-              </Button>
-              <Button social color="#007CBC">
-                <FeatherIcon size={16} icon="linkedin" />
-              </Button>
-              <Button social color="#ED553B">
-                <FeatherIcon size={16} icon="rss" />
-              </Button>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Button Sizes" size="large" caption="Fancy larger or smaller buttons.">
+            <Cards title="Size" size="large">
               <Row>
                 <Button size="large" type="primary">
                   Large Button
@@ -332,29 +326,105 @@ const Buttons = () => {
                   Extra Small
                 </Button>
               </Row>
+            </Cards>
+          </Col>
+      
+          <Col md={12}>
+            <Cards title="Disabled" size="large">
               <Row>
-                <Button icon="smile" size="small" type="primary">
-                  Small
-                </Button>
-                <Button icon="smile" size="default" type="primary">
-                  Medium
-                </Button>
-                <Button icon="smile" size="large" type="primary">
-                  Large
-                </Button>
+                <Button size="default" type="primary">Primary</Button>
+                <Button size="default" type="primary" disabled>Primary(Disabled)</Button>
               </Row>
-              <p>Loading button</p>
               <Row>
-                <Button load size="large" type="primary">
-                  Loading
-                </Button>
-                <Button load size="large" type="primary">
-                  Click
-                </Button>
+                <Button size="default" outlined type="light">Default</Button>
+                <Button size="default" outlined type="light" disabled>Default(Disabled)</Button>
               </Row>
             </Cards>
           </Col>
+
+          <Col md={12}>
+            <Cards title="Multiple Buttons" size="large">
+              
+              <Button size="default" type="primary">
+                Primary
+              </Button>
+            
+              <Button size="default" type="secondary">
+                Secondary
+              </Button>
+
+              <Dropdown placement="topLeft">
+                <Button size="default" outlined type="light">
+                  Actions
+                  <DownOutlined />
+                </Button>
+              </Dropdown>
+            </Cards>
+          </Col>
           
+          <Col md={12}>
+            <Cards title="Loading" size="large">
+              <Button size="default" shape="circle" type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" transparented type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" type="light">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" shape="circle" raised type="white">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <div class="icon-buttons">
+                <Button size="default" shape="round" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined shape="round" type="primary">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" outlined shape="round" type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+                <Button size="default" shape="round" type="light">
+                  <span className="button-icon">
+                    <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  </span>
+                </Button>
+              </div>
+            </Cards>
+          </Col>
+
           <Col md={12}>
             <Cards title="Group Button" size="large">
               <ButtonsGroupWrapper>
@@ -402,10 +472,12 @@ const Buttons = () => {
                   <Row>
                     <BtnGroup>
                       <Button size="small" type="light">
+                      <LeftOutlined />
                         Go Back
                       </Button>
                       <Button size="small" type="light">
                         Go Forward
+                        <RightOutlined />
                       </Button>
                     </BtnGroup>
                   </Row>
@@ -413,53 +485,7 @@ const Buttons = () => {
               </ButtonsGroupWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
-            <Cards headless title="Button Popover" size="large" caption="Dropdowns styles with buttons.">
-              <Popover placement="bottomLeft" action="click">
-                <Button type="primary">
-                  Primary
-                  <Icon type="down" />
-                </Button>
-              </Popover>
-              <Popover placement="bottomRight" title="with title">
-                <Button type="secondary">
-                  Secondary
-                  <Icon type="down" />
-                </Button>
-              </Popover>
 
-              <Popover placement="topLeft">
-                <Button type="error">
-                  Error
-                  <Icon type="down" />
-                </Button>
-              </Popover>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Multiple Buttons" size="large">
-              <Dropdown placement="bottomLeft" action={['click']}>
-                <Button size="default" type="primary">
-                  Primary
-                  <Icon type="down" />
-                </Button>
-              </Dropdown>
-              <Dropdown placement="bottomRight" title="with title">
-                <Button size="default" type="secondary">
-                  Secondary
-                  <Icon type="down" />
-                </Button>
-              </Dropdown>
-
-              <Dropdown placement="topLeft">
-                <Button size="default" type="error">
-                  Error
-                  <Icon type="down" />
-                </Button>
-              </Dropdown>
-            </Cards>
-          </Col>
-          
           <Col md={12}>
             <Cards title="BlocK" size="large">
               <BlockButtonsWrapper>
@@ -478,6 +504,7 @@ const Buttons = () => {
               </BlockButtonsWrapper>
             </Cards>
           </Col>
+
         </Row>
       </Main>
     </Cards>

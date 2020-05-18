@@ -123,10 +123,10 @@ const theme = {
 
   // alert
   'alert-success-border-color': successColor,
-  'alert-success-bg-color': successColor,
-  'alert-error-bg-color': errorColor,
-  'alert-warning-bg-color': warningColor,
-  'alert-info-bg-color': infoColor,
+  'alert-success-bg-color': successColor+15,
+  'alert-error-bg-color': errorColor+15,
+  'alert-warning-bg-color': warningColor+15,
+  'alert-info-bg-color': infoColor+15,
 
   //radio btn
   'radio-button-checked-bg': primaryColor,
