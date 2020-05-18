@@ -7,6 +7,7 @@ import * as Line from 'react-line-awesome';
 import { Icon } from './IconStyled';
 
 const FeatherSvgIcons = props => {
+  console.log(Line);
   return (
     <Fragment>
       <PageHeader title="Line Awesome Icons" />
