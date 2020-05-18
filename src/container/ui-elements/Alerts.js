@@ -13,10 +13,10 @@ const Alerts = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards headless title="Icon alerts" size="large" caption="Alert with nice Icon">
-              <Alert showIcon message="Hello there! A simple success alert—check it out!" type="success" />
-              <Alert showIcon message="Hello there! A simple error alert—check it out!" type="error" />
-              <Alert showIcon message="Hello there! A simple warning alert—check it out!" type="warning" />
-              <Alert showIcon message="Hello there! A simple info alert—check it out!" type="info" />
+              <Alert closable showIcon message="Hello there! A simple success alert—check it out!" type="success" />
+              <Alert closable showIcon message="Hello there! A simple error alert—check it out!" type="error" />
+              <Alert closable showIcon message="Hello there! A simple warning alert—check it out!" type="warning" />
+              <Alert closable showIcon message="Hello there! A simple info alert—check it out!" type="info" />
             </Cards>
           </Col>
           <Col md={12}>
