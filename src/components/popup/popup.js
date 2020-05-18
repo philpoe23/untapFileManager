@@ -16,25 +16,27 @@ const Popover = props => {
   );
 };
 
-Popover.defaultPropTypes = {
+const content = (
+  <Fragment>
+    <Link to="#">
+      <FeatherIcon size={16} icon="check" />
+      <span>Btn Dropdown one</span>
+    </Link>
+    <Link to="#">
+      <FeatherIcon size={16} icon="check" />
+      <span>Btn Dropdown two</span>
+    </Link>
+    <Link to="#">
+      <FeatherIcon size={16} icon="check" />
+      <span>Btn Dropdown three</span>
+    </Link>
+  </Fragment>
+);
+
+Popover.defaultProps = {
   action: 'hover',
   placement: 'bottomCenter',
-  content: (
-    <Fragment>
-      <Link to="#">
-        <FeatherIcon size={16} icon="check" />
-        <span>Btn Dropdown one</span>
-      </Link>
-      <Link to="#">
-        <FeatherIcon size={16} icon="check" />
-        <span>Btn Dropdown two</span>
-      </Link>
-      <Link to="#">
-        <FeatherIcon size={16} icon="check" />
-        <span>Btn Dropdown three</span>
-      </Link>
-    </Fragment>
-  ),
+  content: content,
 };
 
 Popover.propTypes = {

@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { AnIcon } from './IconStyled';
-import { antdIcons } from '../../config/icon/icon.json';
+import * as Icons from '@ant-design/icons';
 
 const FeatherSvgIcons = () => {
+  const AntdIcons = { ...Icons };
+  //console.log(AntdIcons);
   return (
     <Fragment>
       <PageHeader title="Antd Icons" />
@@ -15,16 +17,16 @@ const FeatherSvgIcons = () => {
           <Col md={24}>
             <Cards title="Simply beautiful open source icons" size="learge">
               <Row gutter={15}>
-                {antdIcons.map((icon, index) => {
+                {/* {Object.values(Icons).map((Icon, index) => {
+                  const CustomTag = Icon;
+                  console.log(Icon);
                   return (
                     <Col md={6} key={index + 1}>
-                      <AnIcon>
-                        <Icon type={icon} size={18} />
-                        <span>{icon}</span>
-                      </AnIcon>
+                      <CustomTag />
+                      <span>{Icon}</span>
                     </Col>
                   );
-                })}
+                })} */}
               </Row>
             </Cards>
           </Col>
