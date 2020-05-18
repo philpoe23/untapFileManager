@@ -6,7 +6,6 @@ const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']};
 border: 1px solid ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme['disabled-color'])};
 color: ${({ type }) => type !== 'default' && '#ffffff'};
-margin: 4px;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
 padding: 0px 20px;
 height: 42px;
@@ -15,7 +14,7 @@ box-shadow: 0 0;
 &:hover, &:focus {
     background: ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
-    color: ${({ type }) => type !== 'default' && '#ffffff'};        
+    color: ${({ type }) => type !== 'default' && '#ffffff'};
 }
 
 ${({ outlined, theme, type }) => outlined && outline(theme, type)}
@@ -31,11 +30,11 @@ const outline = (theme, type) => {
       background: transparent;
       border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']};
       color: ${type !== 'default' && theme[type + '-color']};
-     
+
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']};
           border: 1px solid ${type !== 'default' && theme[type + '-hover']};
-          color: ${type !== 'default' && '#ffffff'};        
+          color: ${type !== 'default' && '#ffffff'};
       }
   `;
 };
@@ -48,7 +47,7 @@ const lightColor = (theme, type) => {
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']}15;
           border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
-          color: ${type !== 'default' && '#ffffff'};        
+          color: ${type !== 'default' && '#ffffff'};
       }
   `;
 };
@@ -63,14 +62,13 @@ const square = (theme, type) => `
     background: ${type !== 'default' && theme[type + '-color']};
     border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']};
     color: ${type !== 'default' && '#ffffff'};
-    margin: 4px;
     border-radius: 0px;
     padding: 0px 15px;
 
     &:hover, &:focus {
         background: ${type !== 'default' && theme[type + '-hover']};
         border: 1px solid ${type !== 'default' && theme[type + '-hover']};
-        color: ${type !== 'default' && '#ffffff'};        
+        color: ${type !== 'default' && '#ffffff'};
     }
 `;
 
@@ -78,13 +76,12 @@ const squareOutline = (theme, type) => `
     background: transparent;
     border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']};
     color: ${type !== 'default' && theme[type + '-color']};
-    margin: 4px;
     border-radius: 0px;
     padding: 0px 15px;
     &:hover, &:focus {
         background: ${type !== 'default' && theme[type + '-hover']};
         border: 1px solid ${type !== 'default' && theme[type + '-hover']};
-        color: ${type !== 'default' && '#ffffff'};        
+        color: ${type !== 'default' && '#ffffff'};
     }
 `;
 
@@ -93,7 +90,6 @@ const socialButton = (color, shape) => `
     background: ${color};
     border: 1px solid ${color};
     color: #ffffff;
-    margin: 4px;
     border-radius: ${!shape ? '4px' : '40px'};
     padding: 0px 12px;
     display: inline-flex;
@@ -102,14 +98,14 @@ const socialButton = (color, shape) => `
         padding-left: 5px;
     }
     &:hover, &:focus {
-        background: ${color}90;       
+        background: ${color}90;
         border: 1px solid ${color}90;
-        color: #ffffff;        
+        color: #ffffff;
     }
 `;
 
 const ButtonStyledGroup = Styled(ButtonGroup)`
-    margin: 4px;  
+    margin: 4px;
     button {
         margin: 0px;
     }

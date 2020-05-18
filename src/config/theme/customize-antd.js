@@ -136,6 +136,11 @@ const theme = {
   'slider-track-background-color-hover': primaryColor,
   'slider-handle-color': primaryColor,
   'slider-handle-size': '22px',
+
+  //input
+  'input-height-base': "48px",
+  'input-border-color': borderColorNormal,
+  
 };
 
 module.exports = theme;

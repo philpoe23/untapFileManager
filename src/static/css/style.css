@@ -160,7 +160,12 @@
 }
 
 /* Button Styles */
-
+.button-example .ant-btn{
+  margin: 4px;
+}
+.button-example .ant-btn-group .ant-btn{
+  margin: 0;
+}
 .ant-btn-white{
   color: #5A5F7D;
 }
@@ -196,4 +201,9 @@
 .ant-btn-dashed:hover{
   color: #5F63F2;
   border: 1px dashed #5F63F2;
+}
+
+/* input styles */
+.ant-form-item-label > label{
+  font-weight: 500;
 }
