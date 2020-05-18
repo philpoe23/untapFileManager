@@ -41,4 +41,8 @@ const BlockButtonsWrapper = Styled.div`
     }
 `;
 
-export { Main , ButtonsGroupWrapper , BlockButtonsWrapper };
+const AlertList = Styled.div`
+    margin-top: -15px;
+`;
+
+export { Main , ButtonsGroupWrapper , BlockButtonsWrapper , AlertList };

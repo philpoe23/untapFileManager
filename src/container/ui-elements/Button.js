@@ -13,7 +13,7 @@ const Buttons = () => {
   return (
     <Cards headless>
       <PageHeader title="Button" />
-      <Main>
+      <Main className="button-example">
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Basic" size="large">
@@ -61,7 +61,7 @@ const Buttons = () => {
               </Button>
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="Light Color" size="large">
               <Button size="default" transparented type="primary">
@@ -90,7 +90,7 @@ const Buttons = () => {
               </Button>
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="Raised" size="large">
               <Button size="default" raised type="primary">
@@ -151,7 +151,7 @@ const Buttons = () => {
               </Button>
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="Rounded Outline" size="large">
               <Button size="default" outlined shape="circle" type="primary">

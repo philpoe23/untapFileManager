@@ -9,9 +9,12 @@ import { Alert } from 'antd';
 const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
   border-width: 0px !important;
-  margin: 15px 0!important;
+  margin: 15px 0 0 0!important;
   padding: 11px 15px!important;
-  .ant-alert-message, .ant-alert-message {
+  .ant-alert-message{
+    font-size: 15px !important;
+  }
+  .ant-alert-message, .ant-alert-description {
     color: ${({ type, theme }) => theme[type + '-color']} !important;
   }
 
@@ -28,14 +31,18 @@ const Style = Styled(Alert)`
       position: absolute;
       top: 0;
       left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }`}
 
-  button {
-    top: 50% !important;
-    transform: translateY(-50%)
+  .ant-alert-close-icon {
+    top: 12px !important;
+    right: 20px !important;
+    svg,
+    span,
+    img,
+    i{
+      width: 8px;
+      height: 8px;
+    }
   }
   
   &:hover, &:focus, &:active {

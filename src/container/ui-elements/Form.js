@@ -26,10 +26,10 @@ const Forms = () => {
       <Main>
         <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Elements of Form" caption="The simplest use of Form">
-              <Form form={form} name="basicforms" onFinish={handleSubmit}>
+            <Cards title="Elements of Form" caption="The simplest use of Form">
+              <Form layout="vertical" form={form} name="basicforms" onFinish={handleSubmit}>
                 <Form.Item label="Username" name="username">
-                  <Input placeholder="Username" />,
+                  <Input placeholder="Username" />
                 </Form.Item>
 
                 <Form.Item
@@ -55,7 +55,7 @@ const Forms = () => {
                 <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
                 <Select
                   showSearch
-                  style={{ width: 200 }}
+                  style={{ width: 200, marginLeft: '15px' }}
                   placeholder="Select a person"
                   optionFilterProp="children"
                   filterOption={(input, option) =>
@@ -67,7 +67,7 @@ const Forms = () => {
                   <Option value="tom">Tom</Option>
                 </Select>
                 <Form.Item>
-                  <Button htmlType="submit" type="primary">
+                  <Button htmlType="submit" type="primary" style={{marginTop: "20px"}}>
                     Submit
                   </Button>
                 </Form.Item>
