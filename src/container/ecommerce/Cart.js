@@ -11,7 +11,9 @@ import { Button } from '../../components/buttons/buttons';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
 
-const ShoppingCart = ({ form, match }) => {
+const ShoppingCart = ({ match }) => {
+  const [form] = Form.useForm();
+
   const dataSource = [
     {
       key: '1',
@@ -103,27 +105,16 @@ const ShoppingCart = ({ form, match }) => {
     },
   ];
 
-  const { getFieldDecorator } = form;
-
-  const submitCoupon = e => {
-    e.preventDefault();
-    form.validateFields(['coupon'], (err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+  const submitCoupon = values => {
+    console.log('Received values of form: ', values);
   };
 
-  const submitPromo = e => {
-    e.preventDefault();
-    form.validateFields(['couponType', 'promo'], (err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+  const submitPromo = values => {
+    console.log('Received values of form: ', values);
   };
 
   const { Option } = Select;
+
   return (
     <Fragment>
       <PageHeader ghost title="Shopping Cart" />
@@ -148,15 +139,15 @@ const ShoppingCart = ({ form, match }) => {
                           return (
                             <Fragment>
                               <Table pagination={false} dataSource={dataSource} columns={columns} />
-                              <Form onSubmit={submitCoupon}>
+                              <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
                                 <Row gutter={15}>
                                   <Col md={6}>
-                                    <Form.Item label="">
-                                      {getFieldDecorator('coupon', {})(<Input placeholder="Coupon Code" />)}
+                                    <Form.Item name="coupon" label="">
+                                      <Input placeholder="Coupon Code" />
                                     </Form.Item>
                                   </Col>
                                   <Col md={2}>
-                                    <Button onClick={submitCoupon} type="primary">
+                                    <Button htmlType="submit" type="primary">
                                       Apply Coupon
                                     </Button>
                                   </Col>
@@ -182,22 +173,18 @@ const ShoppingCart = ({ form, match }) => {
                       <p>Subtotal : {'$' + 497.32}</p>
                       <p>Descount : -20</p>
                       <p>Shipping Charge : 30</p>
-                      <Form onSubmit={submitPromo}>
-                        <Form.Item label="">
-                          {getFieldDecorator('couponType', {
-                            initialValue: '',
-                          })(
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">% Select Coupon</Option>
-                              <Option value="one">% Coupon one</Option>
-                              <Option value="tow">% Coupon tow</Option>
-                            </Select>,
-                          )}
+                      <Form form={form} name="promo" onFinish={submitPromo}>
+                        <Form.Item name="couponType" initialValue="" label="">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">% Select Coupon</Option>
+                            <Option value="one">% Coupon one</Option>
+                            <Option value="tow">% Coupon tow</Option>
+                          </Select>
                         </Form.Item>
 
-                        <Form.Item label="Promo Code">
-                          {getFieldDecorator('promo', {})(<Input style={{ width: '70%' }} placeholder="Promo Code" />)}
-                          <Button onClick={submitPromo} type="primary">
+                        <Form.Item name="promo" label="Promo Code">
+                          <Input style={{ width: '70%' }} placeholder="Promo Code" />
+                          <Button htmlType="submit" type="primary">
                             Apply
                           </Button>
                         </Form.Item>
@@ -219,4 +206,4 @@ const ShoppingCart = ({ form, match }) => {
   );
 };
 
-export default Form.create({ name: 'cart' })(ShoppingCart);
+export default ShoppingCart;
