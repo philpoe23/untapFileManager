@@ -1,13 +1,14 @@
 import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Icon } from 'antd';
-import { Main , ButtonsGroupWrapper , BlockButtonsWrapper } from '../styled';
+import { Main, ButtonsGroupWrapper, BlockButtonsWrapper } from '../styled';
 import FeatherIcon from 'feather-icons-react';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Popover } from '../../components/popup/popup';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import {SmileOutlined} from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
+import theme from '../../config/theme/customize-antd';
 
 const Buttons = () => {
   return (
@@ -17,16 +18,36 @@ const Buttons = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Basic" size="large">
-              <Button size="default" type="primary">Primary</Button>
-              <Button size="default" type="secondary">Secondary</Button>
-              <Button size="default" type="success">Success</Button>
-              <Button size="default" type="info">Info</Button>
-              <Button size="default" type="warning">Warning</Button>
-              <Button size="default" type="danger">Danger</Button>
-              <Button size="default" type="link">Link</Button>
-              <Button size="default" type="dark">Dark</Button>
-              <Button size="default" type="light">Light</Button>
-              <Button size="default" type="white">White</Button>
+              <Button size="default" type="primary">
+                Primary
+              </Button>
+              <Button size="default" type="secondary">
+                Secondary
+              </Button>
+              <Button size="default" type="success">
+                Success
+              </Button>
+              <Button size="default" type="info">
+                Info
+              </Button>
+              <Button size="default" type="warning">
+                Warning
+              </Button>
+              <Button size="default" type="danger">
+                Danger
+              </Button>
+              <Button size="default" type="link">
+                Link
+              </Button>
+              <Button size="default" type="dark">
+                Dark
+              </Button>
+              <Button size="default" type="light">
+                Light
+              </Button>
+              <Button size="default" type="white">
+                White
+              </Button>
             </Cards>
           </Col>
 
@@ -244,28 +265,28 @@ const Buttons = () => {
             <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
               <Button size="default" type="primary">
                 <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
                 </span>
                 Default
               </Button>
               <Button size="default" outlined type="primary">
                 <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
                 </span>
                 Default
               </Button>
               <Button size="default" type="secondary">
                 <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
                 </span>
                 Secondary
               </Button>
               <Button size="default" type="primary">
-                <SmileOutlined/>
+                <SmileOutlined />
               </Button>
               <Button size="default" type="secondary">
                 <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
                 </span>
               </Button>
             </Cards>
@@ -354,7 +375,7 @@ const Buttons = () => {
               </Row>
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="Group Button" size="large">
               <ButtonsGroupWrapper>
@@ -396,7 +417,7 @@ const Buttons = () => {
                     </BtnGroup>
                   </Row>
                 </div>
-                  
+
                 <div className="button-group-single">
                   <h4>With Icon</h4>
                   <Row>
@@ -409,7 +430,7 @@ const Buttons = () => {
                       </Button>
                     </BtnGroup>
                   </Row>
-              </div>
+                </div>
               </ButtonsGroupWrapper>
             </Cards>
           </Col>
@@ -459,7 +480,7 @@ const Buttons = () => {
               </Dropdown>
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="BlocK" size="large">
               <BlockButtonsWrapper>
@@ -474,6 +495,27 @@ const Buttons = () => {
                 </Button>
                 <Button size="extra-small" type="info" block>
                   Extra Small
+                </Button>
+              </BlockButtonsWrapper>
+            </Cards>
+          </Col>
+          <Col md={12}>
+            <Cards
+              bodyStyle={{
+                backgroundImage: `linear-gradient(90deg, ${theme['primary-color']}, ${theme['secondary-color']})`,
+              }}
+              title="Ghost"
+              size="large"
+            >
+              <BlockButtonsWrapper>
+                <Button type="primary" ghost>
+                  Primary
+                </Button>
+                <Button type="secondary" ghost>
+                  Secondary
+                </Button>
+                <Button type="success" ghost>
+                  Default
                 </Button>
               </BlockButtonsWrapper>
             </Cards>
