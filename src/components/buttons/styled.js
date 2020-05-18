@@ -24,7 +24,7 @@ box-shadow: 0 0;
 }
 
 ${({ outlined, theme, type }) => outlined && outline(theme, type)}
-${({ lightColored, theme, type }) => lightColored && lightColor(theme, type)}
+${({ transparented, theme, type }) => transparented && transparent(theme, type)}
 ${({ raised, theme, type }) => raised && raise(theme, type)}
 ${({ squared, theme, type }) => squared && square(theme, type)}
 ${({ squared, outlined, theme, type }) => squared && outlined && squareOutline(theme, type)}
@@ -34,7 +34,7 @@ ${({ social, color, shape }) => social && socialButton(color, shape)}
 const outline = (theme, type) => {
   return `
       background: transparent;
-      border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']};
+      border: 1px solid ${type !== 'light' ? theme[type + '-color'] : theme['border-color-normal']};
       color: ${type !== 'default' && theme[type + '-color']};
      
       &:hover, &:focus {
@@ -45,11 +45,11 @@ const outline = (theme, type) => {
   `;
 };
 
-const lightColor = (theme, type) => {
+const transparent = (theme, type) => {
   return `
       background: ${type !== 'default' && theme[type + '-color']}15;
-      border: 1px solid ${type !== 'default' ? theme[type + '-color'] : theme['disabled-color']}15;
-      color: ${type !== 'default' && theme[type + '-color']};
+      border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])}15;
+      color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']}15;
           border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
@@ -114,9 +114,19 @@ const socialButton = (color, shape) => `
 `;
 
 const ButtonStyledGroup = Styled(ButtonGroup)`
-    margin: 4px;  
+    >.ant-btn:first-child{
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
     button {
         margin: 0px;
+        padding: 0 10.75px;
+        height: 30px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .ant-btn-light:hover{
+        background: #F4F5F7;
     }
 `;
 
