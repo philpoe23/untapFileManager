@@ -2,16 +2,17 @@ import React from 'react';
 import { Icon, Input, Row, Col } from 'antd';
 import { Div } from './header-search-style';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import PropTypes from 'prop-types';
 import { Popover } from '../popup/popup';
 
 const HeaderSearch = props => {
-  const { searchData, headerSearch } = props;
+  const dispatch = useDispatch();
+  const searchData = useSelector(state => state.headerSearchData);
 
   const search = e => {
-    headerSearch(e.target.value);
+    dispatch(headerSearchAction(e.target.value));
   };
 
   const content = (
@@ -53,16 +54,4 @@ HeaderSearch.propTypes = {
   headerSearch: PropTypes.func,
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    headerSearch: value => dispatch(headerSearchAction(value)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearch);
+export default HeaderSearch;

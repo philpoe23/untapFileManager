@@ -16,6 +16,10 @@ const Forms = () => {
     console.log('Received values of form: ', values);
   };
 
+  const onChange = value => {
+    console.log(value);
+  };
+
   return (
     <Fragment>
       <PageHeader ghost title="Form" />
@@ -48,7 +52,7 @@ const Forms = () => {
                 <Form.Item label="Textarea" name="textarea">
                   <TextArea />
                 </Form.Item>
-                <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+                <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
                 <Select
                   showSearch
                   style={{ width: 200 }}
