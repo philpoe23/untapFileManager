@@ -7,8 +7,6 @@ import { AnIcon } from './IconStyled';
 import * as Icons from '@ant-design/icons';
 
 const FeatherSvgIcons = () => {
-  const AntdIcons = { ...Icons };
-  //console.log(AntdIcons);
   return (
     <Fragment>
       <PageHeader title="Antd Icons" />
@@ -17,16 +15,25 @@ const FeatherSvgIcons = () => {
           <Col md={24}>
             <Cards title="Simply beautiful open source icons" size="learge">
               <Row gutter={15}>
-                {/* {Object.values(Icons).map((Icon, index) => {
-                  const CustomTag = Icon;
-                  console.log(Icon);
-                  return (
-                    <Col md={6} key={index + 1}>
-                      <CustomTag />
-                      <span>{Icon}</span>
-                    </Col>
-                  );
-                })} */}
+                {Object.keys(Icons)
+                  .filter(
+                    item =>
+                      item !== 'default' &&
+                      item !== 'setTwoToneColor' &&
+                      item !== 'getTwoToneColor' &&
+                      item !== 'createFromIconfontCN',
+                  )
+                  .map((icon, index) => {
+                    const CustomTag = Icons[icon];
+                    return (
+                      <Col md={6} key={index}>
+                        <AnIcon>
+                          <CustomTag />
+                          <span> {icon}</span>
+                        </AnIcon>
+                      </Col>
+                    );
+                  })}
               </Row>
             </Cards>
           </Col>

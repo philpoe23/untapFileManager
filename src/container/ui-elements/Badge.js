@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Icon, Badge } from 'antd';
+import { Row, Col, Badge } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { BadgeWraperStyle } from './ui-elements-styled';
 import { NavLink } from 'react-router-dom';
+import { ClockCircleOutlined } from '@ant-design/icons';
 
 const Badges = () => {
   return (
     <Fragment>
-      <PageHeader title="Badge" />
+      <PageHeader ghost title="Badge" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
@@ -21,7 +22,7 @@ const Badges = () => {
                 <Badge count={0} showZero>
                   <NavLink to="#" className="head-example" />
                 </Badge>
-                <Badge count={<Icon type="clock-circle" style={{ color: '#f5222d' }} />}>
+                <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
                   <NavLink to="#" className="head-example" />
                 </Badge>
               </BadgeWraperStyle>
