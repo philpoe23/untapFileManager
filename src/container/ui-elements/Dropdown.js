@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import { EllipsisOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';

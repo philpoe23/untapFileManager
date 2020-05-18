@@ -27,7 +27,8 @@ const routes = [
 const PageHeaders = () => {
   return (
     <Fragment>
-      <PageHeader ghost
+      <PageHeader
+        ghost
         buttons={[
           <CalendarButtonPageHeader key="1" />,
           <ExportButtonPageHeader key="2" />,
@@ -38,7 +39,6 @@ const PageHeaders = () => {
           </Button>,
           // <DateRangePickerOne key="5" />,
         ]}
-        ghost
         title="Page Headers"
       />
       <Main>

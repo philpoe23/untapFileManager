@@ -10,7 +10,8 @@ import Heading from '../../../components/heading/heading';
 const { Option } = Select;
 const { Dragger } = Upload;
 
-const AddProduct = ({ form }) => {
+const AddProduct = () => {
+  const [form] = Form.useForm();
   const props = {
     name: 'file',
     multiple: true,
@@ -28,16 +29,10 @@ const AddProduct = ({ form }) => {
     },
     listType: 'picture',
   };
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.validateFields((err, values) => {
-      if (!err) {
-        //form.resetFields();
-      }
-    });
+
+  const handleSubmit = values => {
+    console.log(values);
   };
-  const { getFieldDecorator } = form;
 
   return (
     <Fragment>
@@ -48,68 +43,56 @@ const AddProduct = ({ form }) => {
             <Cards headless>
               <Row gutter={25}>
                 <Col md={10} offset={7}>
-                  <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
+                  <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
                     <Cards headless bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: '20px' }}>
                       <Row gutter={15}>
                         <Col md={24}>
                           <Cards title="About Product">
-                            <Form.Item label="Product Name">{getFieldDecorator('name', {})(<Input />)}</Form.Item>
-                            <Form.Item label="Sub Text">{getFieldDecorator('subtext', {})(<Input />)}</Form.Item>
-                            <Form.Item label="Category">
-                              {getFieldDecorator('category', {
-                                initialValue: '',
-                              })(
-                                <Select style={{ width: '100%' }}>
-                                  <Option value="">Please Select</Option>
-                                  <Option value="wearingClothes">Wearing Clothes</Option>
-                                  <Option value="sunglasses">Sunglasses</Option>
-                                  <Option value="t-shirt">T-Shirt</Option>
-                                </Select>,
-                              )}
+                            <Form.Item name="name" label="Product Name">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item name="subtext" label="Sub Text">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item name="category" initialValue="" label="Category">
+                              <Select style={{ width: '100%' }}>
+                                <Option value="">Please Select</Option>
+                                <Option value="wearingClothes">Wearing Clothes</Option>
+                                <Option value="sunglasses">Sunglasses</Option>
+                                <Option value="t-shirt">T-Shirt</Option>
+                              </Select>
                             </Form.Item>
 
-                            <Form.Item label="Price">
-                              {getFieldDecorator(
-                                'price',
-                                {},
-                              )(
-                                <InputNumber
-                                  style={{ width: '100%' }}
-                                  prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                                />,
-                              )}
+                            <Form.Item name="price" label="Price">
+                              <InputNumber
+                                style={{ width: '100%' }}
+                                prefix={<FeatherIcon icon="dollar-sign" size={14} />}
+                              />
                             </Form.Item>
 
-                            <Form.Item label="Discount">
-                              {getFieldDecorator(
-                                'discount',
-                                {},
-                              )(
-                                <InputNumber
-                                  style={{ width: '100%' }}
-                                  prefix={<FeatherIcon icon="percent" size={14} />}
-                                />,
-                              )}
+                            <Form.Item name="discount" label="Discount">
+                              <InputNumber
+                                style={{ width: '100%' }}
+                                prefix={<FeatherIcon icon="percent" size={14} />}
+                              />
                             </Form.Item>
 
-                            <Form.Item label="Status">
-                              {getFieldDecorator('status', {
-                                initialValue: 'Published',
-                              })(
-                                <Radio.Group>
-                                  <Radio value="Published">Published</Radio>
-                                  <Radio value="Draft">Draft</Radio>
-                                </Radio.Group>,
-                              )}
+                            <Form.Item name="status" label="Status">
+                              <Radio.Group>
+                                <Radio value="Published">Published</Radio>
+                                <Radio value="Draft">Draft</Radio>
+                              </Radio.Group>
                             </Form.Item>
 
-                            <Form.Item label="Product Description">
-                              {getFieldDecorator('description', {})(<Input.TextArea rows={5} />)}
+                            <Form.Item name="description" label="Product Description">
+                              <Input.TextArea rows={5} />
                             </Form.Item>
-
-                            <Form.Item label="Meta Title">{getFieldDecorator('mTitle', {})(<Input />)}</Form.Item>
-
-                            <Form.Item label="Meta Keyword">{getFieldDecorator('mKeyword', {})(<Input />)}</Form.Item>
+                            <Form.Item name="mTitle" label="Meta Title">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item name="mKeyword" label="Meta Keyword">
+                              <Input />
+                            </Form.Item>
                           </Cards>
                         </Col>
                       </Row>
@@ -132,17 +115,18 @@ const AddProduct = ({ form }) => {
                         </Col>
                       </Row>
                     </Cards>
-
-                    <Button
-                      onClick={() => {
-                        return form.resetFields();
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button onClick={handleSubmit} type="primary">
-                      Save Product
-                    </Button>
+                    <Form.Item>
+                      <Button
+                        onClick={() => {
+                          return form.resetFields();
+                        }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button htmlType="submit" type="primary">
+                        Save Product
+                      </Button>
+                    </Form.Item>
                   </Form>
                 </Col>
               </Row>
@@ -154,4 +138,4 @@ const AddProduct = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'addProduct' })(AddProduct);
+export default AddProduct;

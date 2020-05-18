@@ -4,7 +4,7 @@ import { Row, Col, Icon, Badge } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { BadgeWraperStyle } from './ui-elements-styled';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom';
 
 const Badges = () => {
   return (

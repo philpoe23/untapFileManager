@@ -16,7 +16,7 @@ const Button = props => {
     <ButtonStyled
       squared={squared}
       outlined={outlined}
-      lightColored={lightColored}
+      lightcolored={lightColored}
       raised={raised}
       data={type}
       size={size}

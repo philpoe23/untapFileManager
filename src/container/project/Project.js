@@ -1,7 +1,7 @@
 import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Spin, Select } from 'antd';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
@@ -13,7 +13,10 @@ import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/pro
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const Project = ({ searchData, match, filterProjectByStatus, sortingProjectByCategory }) => {
+const Project = ({ match }) => {
+  const dispatch = useDispatch();
+  const searchData = useSelector(state => state.headerSearchData);
+
   const [state, setState] = useState({
     notdata: searchData,
     visible: false,
@@ -29,12 +32,12 @@ const Project = ({ searchData, match, filterProjectByStatus, sortingProjectByCat
   };
 
   const onSorting = selectedItems => {
-    sortingProjectByCategory(selectedItems);
+    dispatch(sortingProjectByCategory(selectedItems));
   };
 
   const onChangeCategory = e => {
     e.preventDefault();
-    filterProjectByStatus(e.currentTarget.getAttribute('data-category'));
+    dispatch(filterProjectByStatus(e.currentTarget.getAttribute('data-category')));
   };
 
   const showModal = e => {
@@ -138,17 +141,4 @@ const Project = ({ searchData, match, filterProjectByStatus, sortingProjectByCat
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterProjectByStatus: status => dispatch(filterProjectByStatus(status)),
-    sortingProjectByCategory: category => dispatch(sortingProjectByCategory(category)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Project);
+export default Project;

@@ -3,29 +3,28 @@ import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Row, Col, Form, Input, Button } from 'antd';
 import Heading from '../../../../components/heading/heading';
 
-const Account = ({ form }) => {
+const Account = () => {
+  const [form] = Form.useForm();
+
   const [state, setState] = useState({
     name: 'clayton',
   });
-  const handleSubmit = e => {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+
+  const handleSubmit = values => {
+    console.log('Received values of form: ', values);
   };
+
   const handleCancel = e => {
     e.preventDefault();
     form.resetFields();
   };
+
   const handleChange = e => {
     setState({
       name: e.target.value,
     });
   };
 
-  const { getFieldDecorator } = form;
   return (
     <Cards
       title={
@@ -37,18 +36,13 @@ const Account = ({ form }) => {
     >
       <Row>
         <Col md={12} offset={6}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Item label="Username">
-              {getFieldDecorator('username', {
-                initialValue: state.name,
-              })(<Input onChange={handleChange} />)}
+          <Form form={form} name="editaccount" onFinish={handleSubmit}>
+            <Form.Item name="username" initialValue={state.name} label="Username">
+              <Input onChange={handleChange} />
             </Form.Item>
             <p>Your Dashboard URL: http://dashboard.com/{state.name}</p>
-            <Form.Item label="Email">
-              {getFieldDecorator('email', {
-                initialValue: 'contact@example.com',
-                rules: [{ type: 'email' }],
-              })(<Input />)}
+            <Form.Item name="email" initialValue="contact@example.com" rules={[{ type: 'email' }]} label="Email">
+              <Input />
             </Form.Item>
             <hr />
             <Row>
@@ -61,7 +55,7 @@ const Account = ({ form }) => {
               </Col>
             </Row>
             <Form.Item>
-              <Button onClick={handleSubmit} type="primary">
+              <Button htmlType="submit" type="primary">
                 Save Change
               </Button>
               &nbsp; &nbsp;
@@ -76,4 +70,4 @@ const Account = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'editAccount' })(Account);
+export default Account;

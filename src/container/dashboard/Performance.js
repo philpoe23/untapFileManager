@@ -238,6 +238,18 @@ const regiondata = [
   },
 ];
 
+const handleActiveChange = e => {
+  const link = e.currentTarget;
+  link
+    .closest('ul')
+    .querySelectorAll('li')
+    .forEach(li => {
+      li.classList.remove('active');
+    });
+
+  link.closest('li').classList.add('active');
+};
+
 const Performance = () => {
   return (
     <Fragment>
@@ -303,13 +315,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -446,13 +464,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -469,13 +493,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -512,13 +542,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -535,13 +571,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
