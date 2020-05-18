@@ -12,7 +12,7 @@ display: inline-flex;
 align-items: center;
 justify-content: center;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
-padding: 0px 20px;
+padding: 0px 20.5px;
 height: ${({ size, theme }) => (size !== 'default' ? theme['btn-height-' + size] : '42px')};
 font-weight: 500;
 box-shadow: 0 0;
@@ -20,6 +20,13 @@ box-shadow: 0 0;
     background: ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     color: ${({ type }) => type !== 'default' && '#ffffff'};
+}
+i,
+svg,
+span{
+    +span{
+        margin-left: 6px;
+    }
 }
 
 ${({ outlined, theme, type }) => outlined && outline(theme, type)}
@@ -62,12 +69,17 @@ const ghosts = theme => {
 const transparent = (theme, type) => {
   return `
       background: ${type !== 'default' && theme[type + '-color']}15;
-      border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])}15;
-      color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
+      border-width: 0px;
+      color: ${type !== 'default' && theme[type + '-color']};
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']}15;
+<<<<<<< HEAD
+          border-width: 0px;
+          color: ${type !== 'default' && theme[type + '-color']};       
+=======
           border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
           color: ${type !== 'default' && '#ffffff'};
+>>>>>>> 5de0d80e2fcf0f4b9133abdf1f0d1cdd444b29bc
       }
   `;
 };

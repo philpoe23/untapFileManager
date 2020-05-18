@@ -199,10 +199,22 @@
   border: 1px dashed #5F63F2;
 }
 
+.ant-btn-primary[disabled]{
+  color: #fff;
+  background-color: #5F63F260;
+}
+
+.ant-btn-light[disabled]{
+  background-color: #fff;
+}
+
 .ant-btn-lg span{
   margin-top: -6px;
 }
 
+.icon-buttons button {
+  padding: 0 12.5px;
+}
 /* input styles */
 .ant-form-item-label > label{
   font-weight: 500;
