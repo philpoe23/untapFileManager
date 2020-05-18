@@ -16,4 +16,28 @@ const Main = Styled.div`
     }
 
 `;
-export { Main };
+
+const ButtonsGroupWrapper = Styled.div`
+    margin-bottom: -25px;
+    .button-group-single{
+        margin-bottom: 25px;
+        h4{
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+    }
+    .button-group-single .ant-btn-light{
+        border: 1px solid #E3E6EF;
+    }
+    .ant-btn-group:not(:last-child){
+        margin-right: 20px;
+    }
+`;
+
+const BlockButtonsWrapper = Styled.div`
+    margin-bottom: -10px;
+    .ant-btn-block{
+        margin-bottom: 10px;
+    }
+`;
+export { Main , ButtonsGroupWrapper , BlockButtonsWrapper };
