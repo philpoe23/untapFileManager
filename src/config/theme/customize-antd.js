@@ -20,6 +20,7 @@ const primaryColor = '#5F63F2',
   lightColor = '#F4F5F7',
   lightHover = '#e2e6ea',
   whiteColor = '#ffffff',
+  dashColor = '#E3E6EF',
   whiteHover = '#5A5F7D',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
@@ -31,7 +32,10 @@ const primaryColor = '#5F63F2',
   bgGrayColorLight = '#F8F9FB',
   bgGrayColorNormal = '#F4F5F7',
   lightGrayColor = '#868EAE',
-  sliderRailColor = 'rgba(95,99,242,0.2)';
+  sliderRailColor = 'rgba(95,99,242,0.2)',
+  btnlg = '48px',
+  btnsm = '36px',
+  btnxs = '29px';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -56,6 +60,7 @@ const theme = {
   'light-hover': lightHover, // info state color
   'white-color': whiteColor, // info state color
   'white-hover': whiteHover, // info state color
+  'dash-color': dashColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
@@ -74,6 +79,9 @@ const theme = {
   'bg-color-normal': bgGrayColorNormal,
   'bg-color-deep': bgGrayColorDeep,
   'light-gray-color': lightGrayColor,
+  'btn-height-large': btnlg,
+  'btn-height-small': btnsm,
+  'btn-height-extra-small': btnxs,
 
   // cards
   'card-head-background': '#ffffff',

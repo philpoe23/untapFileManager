@@ -1,12 +1,13 @@
 import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Icon } from 'antd';
-import { Main } from '../styled';
+import { Main , ButtonsGroupWrapper , BlockButtonsWrapper } from '../styled';
 import FeatherIcon from 'feather-icons-react';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Popover } from '../../components/popup/popup';
 import { Dropdown } from '../../components/dropdown/dropdown';
+import {SmileOutlined} from '@ant-design/icons';
 
 const Buttons = () => {
   return (
@@ -16,46 +17,46 @@ const Buttons = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Basic" size="large">
-              <Button type="primary">Primary</Button>
-              <Button type="secondary">Secondary</Button>
-              <Button type="success">Success</Button>
-              <Button type="info">Info</Button>
-              <Button type="warning">Warning</Button>
-              <Button type="danger">Danger</Button>
-              <Button type="link">Link</Button>
-              <Button type="dark">Dark</Button>
-              <Button type="light">Light</Button>
-              <Button type="white">White</Button>
+              <Button size="default" type="primary">Primary</Button>
+              <Button size="default" type="secondary">Secondary</Button>
+              <Button size="default" type="success">Success</Button>
+              <Button size="default" type="info">Info</Button>
+              <Button size="default" type="warning">Warning</Button>
+              <Button size="default" type="danger">Danger</Button>
+              <Button size="default" type="link">Link</Button>
+              <Button size="default" type="dark">Dark</Button>
+              <Button size="default" type="light">Light</Button>
+              <Button size="default" type="white">White</Button>
             </Cards>
           </Col>
 
           <Col md={12}>
             <Cards title="Outline" size="large">
-              <Button outlined type="primary">
+              <Button size="default" outlined type="primary">
                 Primary
               </Button>
-              <Button outlined type="secondary">
+              <Button size="default" outlined type="secondary">
                 Secondary
               </Button>
-              <Button outlined type="success">
+              <Button size="default" outlined type="success">
                 Success
               </Button>
-              <Button outlined type="info">
+              <Button size="default" outlined type="info">
                 Info
               </Button>
-              <Button outlined type="warning">
+              <Button size="default" outlined type="warning">
                 Warning
               </Button>
-              <Button outlined type="danger">
+              <Button size="default" outlined type="danger">
                 Danger
               </Button>
-              <Button outlined type="dark">
+              <Button size="default" outlined type="dark">
                 Dark
               </Button>
-              <Button outlined type="light">
+              <Button size="default" outlined type="light">
                 Light
               </Button>
-              <Button outlined type="dashed">
+              <Button size="default" outlined type="dashed">
                 Dashed
               </Button>
             </Cards>
@@ -63,28 +64,28 @@ const Buttons = () => {
 
           <Col md={12}>
             <Cards title="Light Color" size="large">
-              <Button lightColored type="primary">
+              <Button size="default" transparented type="primary">
                 Primary
               </Button>
-              <Button lightColored type="secondary">
+              <Button size="default" transparented type="secondary">
                 Secondary
               </Button>
-              <Button lightColored type="success">
+              <Button size="default" transparented type="success">
                 Success
               </Button>
-              <Button lightColored type="info">
+              <Button size="default" transparented type="info">
                 Info
               </Button>
-              <Button lightColored type="warning">
+              <Button size="default" transparented type="warning">
                 Warning
               </Button>
-              <Button lightColored type="danger">
+              <Button size="default" transparented type="danger">
                 Danger
               </Button>
-              <Button lightColored type="dark">
+              <Button size="default" transparented type="dark">
                 Dark
               </Button>
-              <Button lightColored type="light">
+              <Button size="default" transparented type="light">
                 Light
               </Button>
             </Cards>
@@ -92,28 +93,28 @@ const Buttons = () => {
 
           <Col md={12}>
             <Cards title="Raised" size="large">
-              <Button raised type="primary">
+              <Button size="default" raised type="primary">
                 Primary
               </Button>
-              <Button raised type="secondary">
+              <Button size="default" raised type="secondary">
                 Secondary
               </Button>
-              <Button raised type="success">
+              <Button size="default" raised type="success">
                 Success
               </Button>
-              <Button raised type="info">
+              <Button size="default" raised type="info">
                 Info
               </Button>
-              <Button raised type="warning">
+              <Button size="default" raised type="warning">
                 Warning
               </Button>
-              <Button raised type="danger">
+              <Button size="default" raised type="danger">
                 Danger
               </Button>
-              <Button raised type="dark">
+              <Button size="default" raised type="dark">
                 Dark
               </Button>
-              <Button raised type="white">
+              <Button size="default" raised type="white">
                 White
               </Button>
             </Cards>
@@ -121,31 +122,31 @@ const Buttons = () => {
 
           <Col md={12}>
             <Cards title="Rounded" size="large">
-              <Button shape="circle" type="primary">
+              <Button size="default" shape="circle" type="primary">
                 Primary
               </Button>
-              <Button shape="circle" type="secondary">
+              <Button size="default" shape="circle" type="secondary">
                 Secondary
               </Button>
-              <Button shape="circle" type="success">
+              <Button size="default" shape="circle" type="success">
                 Success
               </Button>
-              <Button shape="circle" type="info">
+              <Button size="default" shape="circle" type="info">
                 Info
               </Button>
-              <Button shape="circle" type="warning">
+              <Button size="default" shape="circle" type="warning">
                 Warning
               </Button>
-              <Button shape="circle" type="danger">
+              <Button size="default" shape="circle" type="danger">
                 Danger
               </Button>
-              <Button shape="circle" type="dark">
+              <Button size="default" shape="circle" type="dark">
                 Dark
               </Button>
-              <Button shape="circle" type="light">
+              <Button size="default" shape="circle" type="light">
                 Light
               </Button>
-              <Button shape="circle" type="white">
+              <Button size="default" shape="circle" type="white">
                 White
               </Button>
             </Cards>
@@ -153,32 +154,32 @@ const Buttons = () => {
 
           <Col md={12}>
             <Cards title="Rounded Outline" size="large">
-              <Button outlined shape="circle" type="primary">
+              <Button size="default" outlined shape="circle" type="primary">
                 Primary
               </Button>
-              <Button outlined shape="circle" type="secondary">
+              <Button size="default" outlined shape="circle" type="secondary">
                 Secondary
               </Button>
-              <Button outlined shape="circle" type="success">
+              <Button size="default" outlined shape="circle" type="success">
                 Success
               </Button>
-              <Button outlined shape="circle" type="info">
+              <Button size="default" outlined shape="circle" type="info">
                 Info
               </Button>
-              <Button outlined shape="circle" type="warning">
+              <Button size="default" outlined shape="circle" type="warning">
                 Warning
               </Button>
-              <Button outlined shape="circle" type="danger">
+              <Button size="default" outlined shape="circle" type="danger">
                 Danger
               </Button>
-              <Button outlined shape="circle" type="dark">
+              <Button size="default" outlined shape="circle" type="dark">
                 Dark
               </Button>
-              <Button outlined shape="circle" type="light">
+              <Button size="default" outlined shape="circle" type="light">
                 Light
               </Button>
-              <Button outlined shape="circle" type="white">
-                White
+              <Button size="default" outlined shape="circle" type="dashed">
+                Dashed
               </Button>
             </Cards>
           </Col>
@@ -241,41 +242,31 @@ const Buttons = () => {
           </Col>
           <Col md={12}>
             <Cards headless title="Icon Buttons" size="large" caption="Default Antd buttons style with icon.">
-              <Button icon="smile" type="primary">
-                Primary
+              <Button size="default" type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                </span>
+                Default
               </Button>
-              <Button icon="global" type="secondary">
+              <Button size="default" outlined type="primary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-primary-default.svg')} alt=""/>
+                </span>
+                Default
+              </Button>
+              <Button size="default" type="secondary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                </span>
                 Secondary
               </Button>
-              <Button icon="check" type="success">
-                Success
+              <Button size="default" type="primary">
+                <SmileOutlined/>
               </Button>
-              <Button icon="warning" type="warning">
-                Warning
-              </Button>
-              <Button icon="info" type="info">
-                Info
-              </Button>
-              <Button icon="link" type="link">
-                Link
-              </Button>
-              <Button type="primary">
-                <Icon type="smile" />
-              </Button>
-              <Button type="secondary">
-                <Icon type="global" />
-              </Button>
-              <Button type="success">
-                <Icon type="check" />
-              </Button>
-              <Button type="warning">
-                <Icon type="warning" />
-              </Button>
-              <Button type="info">
-                <Icon type="info" />
-              </Button>
-              <Button type="link">
-                <Icon type="link" />
+              <Button size="default" type="secondary">
+                <span className="button-icon">
+                  <img src={require('../../static/img/icon-white-default.svg')} alt=""/>
+                </span>
               </Button>
             </Cards>
           </Col>
@@ -328,14 +319,17 @@ const Buttons = () => {
           <Col md={12}>
             <Cards headless title="Button Sizes" size="large" caption="Fancy larger or smaller buttons.">
               <Row>
-                <Button size="small" type="primary">
+                <Button size="large" type="primary">
+                  Large Button
+                </Button>
+                <Button size="default" type="secondary">
+                  Default
+                </Button>
+                <Button size="small" type="success">
                   Small
                 </Button>
-                <Button size="default" type="primary">
-                  Medium
-                </Button>
-                <Button size="large" type="primary">
-                  Large
+                <Button size="extra-small" type="info">
+                  Extra Small
                 </Button>
               </Row>
               <Row>
@@ -360,58 +354,63 @@ const Buttons = () => {
               </Row>
             </Cards>
           </Col>
+          
           <Col md={12}>
-            <Cards headless title="Button Group" size="large" caption="Fancy larger or smaller buttons.">
-              <Row>
-                <BtnGroup>
-                  <Button size="small" type="primary">
-                    Left
-                  </Button>
-                  <Button size="small" type="primary">
-                    Middle
-                  </Button>
-                  <Button size="small" type="primary">
-                    Right
-                  </Button>
-                </BtnGroup>
-              </Row>
-
-              <Row>
-                <BtnGroup>
-                  <Button type="secondary">Left</Button>
-                  <Button type="secondary">Middle</Button>
-                  <Button type="secondary">Right</Button>
-                </BtnGroup>
-              </Row>
-              <Row>
-                <BtnGroup>
-                  <Button outlined size="large" type="primary">
-                    Left
-                  </Button>
-                  <Button outlined size="large" type="primary">
-                    Middle
-                  </Button>
-                  <Button outlined size="large" type="primary">
-                    Right
-                  </Button>
-                </BtnGroup>
-              </Row>
-              <p>Button toolbar</p>
-              <BtnGroup>
-                <Button type="primary">1</Button>
-                <Button type="primary">2</Button>
-                <Button type="primary">3</Button>
-                <Button type="primary">4</Button>
-                <Button type="primary">5</Button>
-              </BtnGroup>
-              <BtnGroup>
-                <Button type="primary">6</Button>
-                <Button type="primary">7</Button>
-                <Button type="primary">8</Button>
-              </BtnGroup>
-              <BtnGroup>
-                <Button type="primary">9</Button>
-              </BtnGroup>
+            <Cards title="Group Button" size="large">
+              <ButtonsGroupWrapper>
+                <div className="button-group-single">
+                  <h4>Basic</h4>
+                  <Row>
+                    <BtnGroup>
+                      <Button size="small" type="primary">
+                        Today
+                      </Button>
+                      <Button size="small" outlined type="light">
+                        Week
+                      </Button>
+                      <Button size="small" outlined type="light">
+                        Month
+                      </Button>
+                      <Button size="small" outlined type="light">
+                        Year
+                      </Button>
+                    </BtnGroup>
+                    <BtnGroup>
+                      <Button size="small" outlined type="light">
+                        Cancel
+                      </Button>
+                      <Button size="small" outlined type="light">
+                        Ok
+                      </Button>
+                    </BtnGroup>
+                    <BtnGroup>
+                      <Button size="small" type="light">
+                        Left
+                      </Button>
+                      <Button size="small" type="light">
+                        Middle
+                      </Button>
+                      <Button size="small" type="light">
+                        Right
+                      </Button>
+                    </BtnGroup>
+                  </Row>
+                </div>
+                  
+                <div className="button-group-single">
+                  <h4>With Icon</h4>
+                  <Row>
+                    <BtnGroup>
+                      <Button size="small" type="light">
+                        Go Back
+                      </Button>
+                      <Button size="small" type="light">
+                        Go Forward
+                      </Button>
+                    </BtnGroup>
+                  </Row>
+              </div>
+              </ButtonsGroupWrapper>
             </Cards>
           </Col>
           <Col md={12}>
@@ -438,26 +437,45 @@ const Buttons = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
+            <Cards title="Multiple Buttons" size="large">
               <Dropdown placement="bottomLeft" action={['click']}>
-                <Button type="primary">
+                <Button size="default" type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
               <Dropdown placement="bottomRight" title="with title">
-                <Button type="secondary">
+                <Button size="default" type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
 
               <Dropdown placement="topLeft">
-                <Button type="error">
+                <Button size="default" type="error">
                   Error
                   <Icon type="down" />
                 </Button>
               </Dropdown>
+            </Cards>
+          </Col>
+          
+          <Col md={12}>
+            <Cards title="BlocK" size="large">
+              <BlockButtonsWrapper>
+                <Button size="large" type="primary" block>
+                  Large Button
+                </Button>
+                <Button size="default" type="secondary" block>
+                  Default
+                </Button>
+                <Button size="small" type="success" block>
+                  Small
+                </Button>
+                <Button size="extra-small" type="info" block>
+                  Extra Small
+                </Button>
+              </BlockButtonsWrapper>
             </Cards>
           </Col>
         </Row>

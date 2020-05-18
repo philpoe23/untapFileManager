@@ -183,24 +183,24 @@
 }
 
 .ant-btn-link:hover{
-  color: #5A5F7D;
   border-color: #fff;
   background-color: #fff;
 }
 
 .ant-btn-light,
-.ant-btn-light:hover{
-  color: #5A5F7D
-}
-
+.ant-btn-light:hover,
+.ant-btn-link:hover,
 .ant-btn-dashed{
-  color: #5A5F7D;
-  border: 1px dashed #E3E6EF;
+  color: #5A5F7D
 }
 
 .ant-btn-dashed:hover{
   color: #5F63F2;
   border: 1px dashed #5F63F2;
+}
+
+.ant-btn-lg span{
+  margin-top: -6px;
 }
 
 /* input styles */
