@@ -4,12 +4,17 @@ const ButtonGroup = Button.Group;
 
 const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']};
-border: 1px solid ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme['disabled-color'])};
+border-width: 1px;
+border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
+border-style: ${({ type }) => type !== 'dashed' ? 'solid':'dashed'};
 color: ${({ type }) => type !== 'default' && '#ffffff'};
 margin: 4px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
 padding: 0px 20px;
-height: 42px;
+height: ${({ size, theme }) => (size !== 'default' ? theme['btn-height-'+size] : '42px')};
 font-weight: 500;
 box-shadow: 0 0;
 &:hover, &:focus {

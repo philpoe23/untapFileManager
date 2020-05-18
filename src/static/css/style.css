@@ -190,10 +190,13 @@
 
 .ant-btn-dashed{
   color: #5A5F7D;
-  border: 1px dashed #E3E6EF;
 }
 
 .ant-btn-dashed:hover{
   color: #5F63F2;
   border: 1px dashed #5F63F2;
+}
+
+.ant-btn-lg span{
+  margin-top: -6px;
 }

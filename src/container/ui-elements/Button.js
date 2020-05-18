@@ -16,46 +16,46 @@ const Buttons = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Basic" size="large">
-              <Button type="primary">Primary</Button>
-              <Button type="secondary">Secondary</Button>
-              <Button type="success">Success</Button>
-              <Button type="info">Info</Button>
-              <Button type="warning">Warning</Button>
-              <Button type="danger">Danger</Button>
-              <Button type="link">Link</Button>
-              <Button type="dark">Dark</Button>
-              <Button type="light">Light</Button>
-              <Button type="white">White</Button>
+              <Button size="default" type="primary">Primary</Button>
+              <Button size="default" type="secondary">Secondary</Button>
+              <Button size="default" type="success">Success</Button>
+              <Button size="default" type="info">Info</Button>
+              <Button size="default" type="warning">Warning</Button>
+              <Button size="default" type="danger">Danger</Button>
+              <Button size="default" type="link">Link</Button>
+              <Button size="default" type="dark">Dark</Button>
+              <Button size="default" type="light">Light</Button>
+              <Button size="default" type="white">White</Button>
             </Cards>
           </Col>
 
           <Col md={12}>
             <Cards title="Outline" size="large">
-              <Button outlined type="primary">
+              <Button size="default" outlined type="primary">
                 Primary
               </Button>
-              <Button outlined type="secondary">
+              <Button size="default" outlined type="secondary">
                 Secondary
               </Button>
-              <Button outlined type="success">
+              <Button size="default" outlined type="success">
                 Success
               </Button>
-              <Button outlined type="info">
+              <Button size="default" outlined type="info">
                 Info
               </Button>
-              <Button outlined type="warning">
+              <Button size="default" outlined type="warning">
                 Warning
               </Button>
-              <Button outlined type="danger">
+              <Button size="default" outlined type="danger">
                 Danger
               </Button>
-              <Button outlined type="dark">
+              <Button size="default" outlined type="dark">
                 Dark
               </Button>
-              <Button outlined type="light">
+              <Button size="default" outlined type="light">
                 Light
               </Button>
-              <Button outlined type="dashed">
+              <Button size="default" outlined type="dashed">
                 Dashed
               </Button>
             </Cards>
@@ -63,28 +63,28 @@ const Buttons = () => {
           
           <Col md={12}>
             <Cards title="Light Color" size="large">
-              <Button lightColored type="primary">
+              <Button size="default" lightColored type="primary">
                 Primary
               </Button>
-              <Button lightColored type="secondary">
+              <Button size="default" lightColored type="secondary">
                 Secondary
               </Button>
-              <Button lightColored type="success">
+              <Button size="default" lightColored type="success">
                 Success
               </Button>
-              <Button lightColored type="info">
+              <Button size="default" lightColored type="info">
                 Info
               </Button>
-              <Button lightColored type="warning">
+              <Button size="default" lightColored type="warning">
                 Warning
               </Button>
-              <Button lightColored type="danger">
+              <Button size="default" lightColored type="danger">
                 Danger
               </Button>
-              <Button lightColored type="dark">
+              <Button size="default" lightColored type="dark">
                 Dark
               </Button>
-              <Button lightColored type="light">
+              <Button size="default" lightColored type="light">
                 Light
               </Button>
             </Cards>
@@ -92,28 +92,28 @@ const Buttons = () => {
           
           <Col md={12}>
             <Cards title="Raised" size="large">
-              <Button raised type="primary">
+              <Button size="default" raised type="primary">
                 Primary
               </Button>
-              <Button raised type="secondary">
+              <Button size="default" raised type="secondary">
                 Secondary
               </Button>
-              <Button raised type="success">
+              <Button size="default" raised type="success">
                 Success
               </Button>
-              <Button raised type="info">
+              <Button size="default" raised type="info">
                 Info
               </Button>
-              <Button raised type="warning">
+              <Button size="default" raised type="warning">
                 Warning
               </Button>
-              <Button raised type="danger">
+              <Button size="default" raised type="danger">
                 Danger
               </Button>
-              <Button raised type="dark">
+              <Button size="default" raised type="dark">
                 Dark
               </Button>
-              <Button raised type="white">
+              <Button size="default" raised type="white">
                 White
               </Button>
             </Cards>
@@ -121,31 +121,31 @@ const Buttons = () => {
 
           <Col md={12}>
             <Cards title="Rounded" size="large">
-              <Button shape="circle" type="primary">
+              <Button size="default" shape="circle" type="primary">
                 Primary
               </Button>
-              <Button shape="circle" type="secondary">
+              <Button size="default" shape="circle" type="secondary">
                 Secondary
               </Button>
-              <Button shape="circle" type="success">
+              <Button size="default" shape="circle" type="success">
                 Success
               </Button>
-              <Button shape="circle" type="info">
+              <Button size="default" shape="circle" type="info">
                 Info
               </Button>
-              <Button shape="circle" type="warning">
+              <Button size="default" shape="circle" type="warning">
                 Warning
               </Button>
-              <Button shape="circle" type="danger">
+              <Button size="default" shape="circle" type="danger">
                 Danger
               </Button>
-              <Button shape="circle" type="dark">
+              <Button size="default" shape="circle" type="dark">
                 Dark
               </Button>
-              <Button shape="circle" type="light">
+              <Button size="default" shape="circle" type="light">
                 Light
               </Button>
-              <Button shape="circle" type="white">
+              <Button size="default" shape="circle" type="white">
                 White
               </Button>
             </Cards>
@@ -153,32 +153,32 @@ const Buttons = () => {
           
           <Col md={12}>
             <Cards title="Rounded Outline" size="large">
-              <Button outlined shape="circle" type="primary">
+              <Button size="default" outlined shape="circle" type="primary">
                 Primary
               </Button>
-              <Button outlined shape="circle" type="secondary">
+              <Button size="default" outlined shape="circle" type="secondary">
                 Secondary
               </Button>
-              <Button outlined shape="circle" type="success">
+              <Button size="default" outlined shape="circle" type="success">
                 Success
               </Button>
-              <Button outlined shape="circle" type="info">
+              <Button size="default" outlined shape="circle" type="info">
                 Info
               </Button>
-              <Button outlined shape="circle" type="warning">
+              <Button size="default" outlined shape="circle" type="warning">
                 Warning
               </Button>
-              <Button outlined shape="circle" type="danger">
+              <Button size="default" outlined shape="circle" type="danger">
                 Danger
               </Button>
-              <Button outlined shape="circle" type="dark">
+              <Button size="default" outlined shape="circle" type="dark">
                 Dark
               </Button>
-              <Button outlined shape="circle" type="light">
+              <Button size="default" outlined shape="circle" type="light">
                 Light
               </Button>
-              <Button outlined shape="circle" type="white">
-                White
+              <Button size="default" outlined shape="circle" type="dashed">
+                Dashed
               </Button>
             </Cards>
           </Col>
@@ -328,14 +328,17 @@ const Buttons = () => {
           <Col md={12}>
             <Cards headless title="Button Sizes" size="large" caption="Fancy larger or smaller buttons.">
               <Row>
-                <Button size="small" type="primary">
+                <Button size="large" type="primary">
+                  Large Button
+                </Button>
+                <Button size="default" type="secondary">
+                  Default
+                </Button>
+                <Button size="small" type="success">
                   Small
                 </Button>
-                <Button size="default" type="primary">
-                  Medium
-                </Button>
-                <Button size="large" type="primary">
-                  Large
+                <Button size="extra-small" type="info">
+                  Extra Small
                 </Button>
               </Row>
               <Row>
@@ -360,9 +363,32 @@ const Buttons = () => {
               </Row>
             </Cards>
           </Col>
+          
           <Col md={12}>
-            <Cards headless title="Button Group" size="large" caption="Fancy larger or smaller buttons.">
+            <Cards title="Group Button" size="large">
               <Row>
+                <BtnGroup>
+                  <Button size="small" type="primary">
+                    Today
+                  </Button>
+                  <Button size="small" type="primary">
+                    Week
+                  </Button>
+                  <Button size="small" type="primary">
+                    Month
+                  </Button>
+                  <Button size="small" type="primary">
+                    Year
+                  </Button>
+                </BtnGroup>
+                <BtnGroup>
+                  <Button size="small" type="primary">
+                    Cancel
+                  </Button>
+                  <Button size="small" type="primary">
+                    Ok
+                  </Button>
+                </BtnGroup>
                 <BtnGroup>
                   <Button size="small" type="primary">
                     Left
@@ -374,6 +400,7 @@ const Buttons = () => {
                     Right
                   </Button>
                 </BtnGroup>
+                
               </Row>
 
               <Row>
@@ -438,26 +465,42 @@ const Buttons = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Button Dropdown" size="large" caption="Dropdowns styles with buttons.">
+            <Cards title="Multiple Buttons" size="large">
               <Dropdown placement="bottomLeft" action={['click']}>
-                <Button type="primary">
+                <Button size="default" type="primary">
                   Primary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
               <Dropdown placement="bottomRight" title="with title">
-                <Button type="secondary">
+                <Button size="default" type="secondary">
                   Secondary
                   <Icon type="down" />
                 </Button>
               </Dropdown>
 
               <Dropdown placement="topLeft">
-                <Button type="error">
+                <Button size="default" type="error">
                   Error
                   <Icon type="down" />
                 </Button>
               </Dropdown>
+            </Cards>
+          </Col>
+          <Col md={12}>
+            <Cards title="BlocK" size="large">
+              <Button size="large" type="primary" block>
+                Large Button
+              </Button>
+              <Button size="default" type="secondary" block>
+                Default
+              </Button>
+              <Button size="small" type="success" block>
+                Small
+              </Button>
+              <Button size="extra-small" type="info" block>
+                Extra Small
+              </Button>
             </Cards>
           </Col>
         </Row>
