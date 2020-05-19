@@ -10,9 +10,10 @@ const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
   border-width: 0px !important;
   margin: 15px 0 0 0!important;
-  padding: 11px 15px!important;
+  padding: 10.5px 20px!important;
   .ant-alert-message{
     font-size: 15px !important;
+    font-weight: 500 !important;
   }
   .ant-alert-message, .ant-alert-description {
     color: ${({ type, theme }) => theme[type + '-color']} !important;

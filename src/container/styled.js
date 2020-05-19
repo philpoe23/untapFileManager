@@ -35,14 +35,18 @@ const ButtonsGroupWrapper = Styled.div`
 `;
 
 const BlockButtonsWrapper = Styled.div`
-    margin-bottom: -10px;
     .ant-btn-block{
         margin-bottom: 10px;
     }
+`;
+
+const ButtonSizeWrapper = Styled.div`
+    display: flex;
+    align-items: flex-end;
 `;
 
 const AlertList = Styled.div`
     margin-top: -15px;
 `;
 
-export { Main , ButtonsGroupWrapper , BlockButtonsWrapper , AlertList };
+export { Main , ButtonsGroupWrapper , BlockButtonsWrapper , ButtonSizeWrapper , AlertList };

@@ -23,7 +23,9 @@ box-shadow: 0 0;
 }
 i,
 svg,
-span{
+img{
+    width: 16px;
+    height: 16px;
     +span{
         margin-left: 6px;
     }
@@ -73,13 +75,8 @@ const transparent = (theme, type) => {
       color: ${type !== 'default' && theme[type + '-color']};
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']}15;
-<<<<<<< HEAD
           border-width: 0px;
-          color: ${type !== 'default' && theme[type + '-color']};       
-=======
-          border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
-          color: ${type !== 'default' && '#ffffff'};
->>>>>>> 5de0d80e2fcf0f4b9133abdf1f0d1cdd444b29bc
+          color: ${type !== 'default' && theme[type + '-hover']}; 
       }
   `;
 };
