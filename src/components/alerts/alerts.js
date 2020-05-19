@@ -3,7 +3,7 @@ import { Style } from './styled';
 import PropTypes from 'prop-types';
 
 const Alert = props => {
-  const { type, message, description, showIcon, outlined, closable, closeText } = props;
+  const { type, icon, message, description, showIcon, outlined, closable, closeText } = props;
 
   return (
     <Style
@@ -14,6 +14,7 @@ const Alert = props => {
       showIcon={showIcon && showIcon}
       outlined={outlined}
       closeText={closeText && closeText}
+      icon={icon && icon}
     />
   );
 };
@@ -31,6 +32,7 @@ Alert.propTypes = {
   outlined: PropTypes.bool,
   closable: PropTypes.bool,
   closeText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  icon: PropTypes.object,
 };
 
 export default Alert;

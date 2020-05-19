@@ -20,7 +20,7 @@ const Alerts = () => {
             </Cards>
             <Cards title="Closable" size="large">
               <AlertList>
-                <Alert 
+                <Alert
                   closable
                   message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
                   type="warning"
@@ -35,42 +35,38 @@ const Alerts = () => {
             </Cards>
             <Cards title="Icon" size="large">
               <AlertList>
-                <Alert showIcon message="" description="Success Tips" type="success" />
-                <Alert showIcon message="" description="Informational Notes" type="info" />
-                <Alert showIcon message="" description="Warning" type="warning" />
-                <Alert showIcon message="" description="Error" type="error" />
+                <Alert showIcon icon={<FeatherIcon icon="layers" size={15} />} message="" description="Success Tips" type="success" />
+                <Alert showIcon icon={<FeatherIcon icon="layers" size={15} />} message="" description="Informational Notes" type="info" />
+                <Alert showIcon icon={<FeatherIcon icon="layers" size={15} />} message="" description="Warning" type="warning" />
+                <Alert showIcon icon={<FeatherIcon icon="layers" size={15} />} message="" description="Error" type="error" />
                 <Alert
-                  message={
-                    <div>
-                      <FeatherIcon icon="layers" size={15} />
-                      <sapn>Success Tips</sapn>
-                    </div>
-                  }
+                  showIcon
+                  icon={<FeatherIcon icon="layers" size={15} />}
+                  message="Success Tips"
                   description="Detailed description and advice about successful copywriting."
                   type="success" 
                 />
                 <Alert 
                   showIcon
+                  icon={<FeatherIcon icon="layers" size={15} />}
                   message="Informational Notes"
                   description="Additional description and information about copywriting."
                   type="info" 
                 />
                 <Alert 
                   showIcon
+                  icon={<FeatherIcon icon="layers" size={15} />}
                   message="Warning"
                   description="This is a warning notice about copywriting."
                   type="warning" 
                 />
                 <Alert 
                   showIcon 
+                  icon={<FeatherIcon icon="layers" size={15} />}
                   message="Error" 
                   description= "This is an error message about copywriting."
                   type="error" 
                 />
-                <Alert message="Success Text" type="success" />
-                <Alert message="Info Text" type="info" />
-                <Alert message="Warning Text" type="warning" />
-                <Alert message="Error Text" type="error" />
               </AlertList>
             </Cards>
           </Col>
@@ -109,86 +105,37 @@ const Alerts = () => {
             </Cards>
             <Cards headless title="Icon alerts" size="large" caption="Alert with nice Icon">
               <Alert
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple success alert—check it out!</sapn>
-                  </div>
-                }
+                showIcon
+                icon={<FeatherIcon icon="layers" size={15} />}
+                message="Hello there! A simple success alert—check it out!"
                 type="success"
               />
               <Alert
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple error alert—check it out!</sapn>
-                  </div>
-                }
+                showIcon
+                icon={<FeatherIcon icon="layers" size={15} />}
+                message="Hello there! A simple error alert—check it out!"
                 type="error"
               />
               <Alert
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple warning alert—check it out!</sapn>
-                  </div>
-                }
+                showIcon
+                icon={<FeatherIcon icon="layers" size={15} />}
+                message="Hello there! A simple warning alert—check it out!"
                 type="warning"
               />
               <Alert
-                outlined
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple info alert—check it out!</sapn>
-                  </div>
-                }
+                showIcon
+                icon={<FeatherIcon icon="layers" size={15} />}
+                message="Hello there! A simple info alert—check it out!"
                 type="info"
               />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards title="Icon alerts" size="large" caption="Alert with nice Icon">
-              <Alert
-                outlined
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple success alert—check it out!</sapn>
-                  </div>
-                }
-                type="success"
-              />
-              <Alert
-                outlined
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple error alert—check it out!</sapn>
-                  </div>
-                }
-                type="error"
-              />
-              <Alert
-                outlined
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple warning alert—check it out!</sapn>
-                  </div>
-                }
-                type="warning"
-              />
-              <Alert
-                outlined
-                message={
-                  <div>
-                    <FeatherIcon icon="layers" size={14} />
-                    <sapn>Hello there! A simple info alert—check it out!</sapn>
-                  </div>
-                }
-                type="info"
-              />
+              <Alert outlined message="Hello there! A simple success alert—check it out!" type="success" />
+              <Alert outlined message="Hello there! A simple error alert—check it out!" type="error" />
+              <Alert outlined message="Hello there! A simple warning alert—check it out!" type="warning" />
+              <Alert outlined message="Hello there! A simple info alert—check it out!" type="info" />
             </Cards>
             <Cards title="Customized Close Text" size="large">
               <AlertList>

@@ -29,7 +29,7 @@ const Style = Styled(Alert)`
 
   ${({ showIcon }) =>
     showIcon &&
-    `padding-left: 60px!important;
+    `padding-left: 50px!important;
     i.ant-alert-icon {
       color: ${({ type, theme }) => theme[type + '-color']} !important;
       background: #ffffff80 !important;
