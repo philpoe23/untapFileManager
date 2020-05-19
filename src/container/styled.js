@@ -49,4 +49,10 @@ const AlertList = Styled.div`
     margin-top: -15px;
 `;
 
-export { Main , ButtonsGroupWrapper , BlockButtonsWrapper , ButtonSizeWrapper , AlertList };
+const AutoCompleteWrapper = Styled.div`
+    .ant-select:not(:last-child){
+        margin-bottom: 20px;
+    }
+`;
+
+export { Main , ButtonsGroupWrapper , BlockButtonsWrapper , ButtonSizeWrapper , AlertList , AutoCompleteWrapper };

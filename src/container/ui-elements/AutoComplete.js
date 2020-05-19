@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Input } from 'antd';
-import { Main } from '../styled';
+import { Main , AutoCompleteWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
@@ -38,11 +38,26 @@ const AutoCompletess = props => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of AutoComplete">
-              <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+            <Cards title="Basic Usage">
+              <AutoCompleteWrapper>
+                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+              </AutoCompleteWrapper>
+            </Cards>
+            <Cards title="Customize Input Component">
+              <AutoComplete
+                customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
+                dataSource={dataSource}
+                onSearch={onSearch}
+              />
             </Cards>
           </Col>
           <Col md={12}>
+            <Cards title="Customize">
+              <AutoCompleteWrapper>
+                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+              </AutoCompleteWrapper>
+            </Cards>
             <Cards headless title="Customize Components" caption="The simplest use of AutoComplete">
               <AutoComplete
                 customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
