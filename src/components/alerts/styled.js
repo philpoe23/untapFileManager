@@ -10,13 +10,19 @@ const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
   border-width: 0px !important;
   margin: 15px 0 0 0!important;
-  padding: 10.5px 20px!important;
+  padding: 9px 20px!important;
   .ant-alert-message{
     font-size: 15px !important;
     font-weight: 500 !important;
   }
   .ant-alert-message, .ant-alert-description {
     color: ${({ type, theme }) => theme[type + '-color']} !important;
+  }
+  .ant-alert-close-text{
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #9299B8;
   }
 
   ${({ outlined, theme, type }) => outlined && outline(theme, type)}

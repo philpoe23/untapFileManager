@@ -3,6 +3,9 @@ import { AutoComplete } from 'antd';
 
 const AutoCompleteStyled = Styled(AutoComplete)`
     display: block !important;
+    .ant-select-selection-placeholder{
+        padding: 0 20px !important;
+    }
     .ant-select-selector{
         display: flex;
         align-items: center;
@@ -10,6 +13,18 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     }
     .ant-select-selector input{
         height: 35px !important;
+    }
+    .ant-input-affix-wrapper{
+        padding: 0 20px;
+    }
+    .ant-input-affix-wrapper input{
+        height: 38px !important;
+    }
+    .ant-input-affix-wrapper .ant-input-suffix{
+        margin-right: -10px;
+    }
+    .ant-input-affix-wrapper .ant-input-suffix .search-btn{
+        border-radius: 0 4px 4px 0;
     }
 `;
 

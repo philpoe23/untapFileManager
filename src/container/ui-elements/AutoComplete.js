@@ -51,6 +51,9 @@ const AutoCompletess = props => {
                 onSearch={onSearch}
               />
             </Cards>
+            <Cards title="Lookup-Patterns - Certain Category">
+              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="35%" patterns />
+            </Cards>
           </Col>
           <Col md={12}>
             <Cards title="Customize">
@@ -58,23 +61,8 @@ const AutoCompletess = props => {
                 <AutoComplete dataSource={dataSource} onSearch={onSearch} />
               </AutoCompleteWrapper>
             </Cards>
-            <Cards headless title="Customize Components" caption="The simplest use of AutoComplete">
-              <AutoComplete
-                customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
-                dataSource={dataSource}
-                onSearch={onSearch}
-              />
-            </Cards>
-          </Col>
-
-          <Col md={12}>
-            <Cards headless title="Lookup-Patterns" caption="The simplest use of AutoComplete">
-              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="50%" patterns />
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Lookup-Patterns with Icon" caption="The simplest use of AutoComplete">
-              <AutoComplete dataSource={notdata} onSearch={patternSearch} width="50%" patterns patternButtons />
+            <Cards title="Lookup-Patterns - Uncertain Category">
+              <AutoComplete dataSource={notdata} onSearch={patternSearch} width="35%" patterns patternButtons />
             </Cards>
           </Col>
         </Row>
