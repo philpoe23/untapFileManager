@@ -3,7 +3,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Badge, Switch } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { BadgeWraperStyle } from './ui-elements-styled';
+import { BadgeWraperStyle, BadgeStandAloneStyle, BadgeOverflowStyle } from './ui-elements-styled';
 import { NavLink, Link } from 'react-router-dom';
 import { ClockCircleOutlined, NotificationOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { BtnGroup, Button } from '../../components/buttons/buttons';
@@ -53,7 +53,7 @@ const Badges = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of badge">
+            <Cards title="Basic">
               <BadgeWraperStyle>
                 <Badge count={5}>
                   <NavLink to="#" className="head-example" />
@@ -68,38 +68,36 @@ const Badges = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Standalone" caption="The simplest use of badge">
+            <Cards title="Standalone">
               <BadgeWraperStyle>
-                <Badge count={25}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
-                <Badge
-                  count={4}
-                  style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }}
-                >
-                  <NavLink to="#" className="head-example" />
-                </Badge>
-                <Badge count={109} style={{ backgroundColor: '#52c41a' }}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
+                <BadgeStandAloneStyle>
+                  <Badge count={25}></Badge>
+                  <Badge
+                    count={4}
+                    style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }}
+                  ></Badge>
+                  <Badge count={109} style={{ backgroundColor: '#52c41a' }}></Badge>
+                </BadgeStandAloneStyle>
               </BadgeWraperStyle>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Overflow Count" caption="The simplest use of badge">
+            <Cards title="Overflow Count">
               <BadgeWraperStyle>
-                <Badge count={99}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
-                <Badge count={100}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
-                <Badge count={99} overflowCount={10}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
-                <Badge count={1000} overflowCount={999}>
-                  <NavLink to="#" className="head-example" />
-                </Badge>
+                <BadgeOverflowStyle>
+                  <Badge count={99}>
+                    <NavLink to="#" className="head-example" />
+                  </Badge>
+                  <Badge count={100}>
+                    <NavLink to="#" className="head-example" />
+                  </Badge>
+                  <Badge count={99} overflowCount={10}>
+                    <NavLink to="#" className="head-example" />
+                  </Badge>
+                  <Badge count={1000} overflowCount={999}>
+                    <NavLink to="#" className="head-example" />
+                  </Badge>
+                </BadgeOverflowStyle>
               </BadgeWraperStyle>
             </Cards>
           </Col>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
-import { Main, ButtonsGroupWrapper, BlockButtonsWrapper } from '../styled';
+import { Main, ButtonsGroupWrapper, BlockButtonsWrapper , ButtonSizeWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import FeatherIcon from 'feather-icons-react';
 import theme from '../../config/theme/customize-antd';
 
 const Buttons = () => {
@@ -206,61 +207,41 @@ const Buttons = () => {
           <Col md={12}>
             <Cards title="Icon" size="large">
               <Button size="default" type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" transparented type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" outlined type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" outlined type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" raised type="white">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <div class="icon-buttons">
                 <Button size="default" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
               </div>
             </Cards>
@@ -269,61 +250,41 @@ const Buttons = () => {
           <Col md={12}>
             <Cards title="Rounded with Icon" size="large">
               <Button size="default" shape="circle" type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" transparented type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" outlined type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" outlined type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" raised type="white">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <div class="icon-buttons">
                 <Button size="default" shape="round" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined shape="round" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined shape="round" type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" shape="round" type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
               </div>
             </Cards>
@@ -332,18 +293,20 @@ const Buttons = () => {
           <Col md={12}>
             <Cards title="Size" size="large">
               <Row>
-                <Button size="large" type="primary">
-                  Large Button
-                </Button>
-                <Button size="default" type="secondary">
-                  Default
-                </Button>
-                <Button size="small" type="success">
-                  Small
-                </Button>
-                <Button size="extra-small" type="info">
-                  Extra Small
-                </Button>
+                <ButtonSizeWrapper>
+                  <Button size="large" type="primary">
+                    Large Button
+                  </Button>
+                  <Button size="default" type="secondary">
+                    Default
+                  </Button>
+                  <Button size="small" type="success">
+                    Small
+                  </Button>
+                  <Button size="extra-small" type="info">
+                    Extra Small
+                  </Button>
+                </ButtonSizeWrapper>
               </Row>
             </Cards>
           </Col>
@@ -391,61 +354,41 @@ const Buttons = () => {
           <Col md={12}>
             <Cards title="Loading" size="large">
               <Button size="default" shape="circle" type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" transparented type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" outlined type="primary">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" outlined type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" type="light">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <Button size="default" shape="circle" raised type="white">
-                <span className="button-icon">
-                  <img src={require('../../static/img/icon-primary-default.svg')} alt="" />
-                </span>
+                <FeatherIcon icon="layers" />
                 Default
               </Button>
               <div class="icon-buttons">
                 <Button size="default" shape="round" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                    <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined shape="round" type="primary">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" outlined shape="round" type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                  <FeatherIcon icon="layers" />
                 </Button>
                 <Button size="default" shape="round" type="light">
-                  <span className="button-icon">
-                    <img src={require('../../static/img/icon-white-default.svg')} alt="" />
-                  </span>
+                <FeatherIcon icon="layers" />
                 </Button>
               </div>
             </Cards>
@@ -513,6 +456,26 @@ const Buttons = () => {
           </Col>
 
           <Col md={12}>
+            <Cards
+              bodyStyle={{
+                backgroundImage: `linear-gradient(90deg, ${theme['primary-color']}, ${theme['secondary-color']})`,
+                borderRadius: `0 0 10px 10px`,
+              }}
+              title="Ghost"
+              size="large"
+            >
+              <Button size="default" type="primary" ghost>
+                Primary
+              </Button>
+              <Button size="default" type="secondary" ghost>
+                Secondary
+              </Button>
+              <Button size="default" type="success" ghost>
+                Default
+              </Button>
+            </Cards>
+          </Col>
+          <Col md={12}>
             <Cards title="BlocK" size="large">
               <BlockButtonsWrapper>
                 <Button size="large" type="primary" block>
@@ -526,27 +489,6 @@ const Buttons = () => {
                 </Button>
                 <Button size="extra-small" type="info" block>
                   Extra Small
-                </Button>
-              </BlockButtonsWrapper>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards
-              bodyStyle={{
-                backgroundImage: `linear-gradient(90deg, ${theme['primary-color']}, ${theme['secondary-color']})`,
-              }}
-              title="Ghost"
-              size="large"
-            >
-              <BlockButtonsWrapper>
-                <Button type="primary" ghost>
-                  Primary
-                </Button>
-                <Button type="secondary" ghost>
-                  Secondary
-                </Button>
-                <Button type="success" ghost>
-                  Default
                 </Button>
               </BlockButtonsWrapper>
             </Cards>
