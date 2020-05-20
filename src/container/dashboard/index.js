@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio } from 'antd';
+import { Row, Col, Radio, Table } from 'antd';
 import { SocialMediaContent } from '../../components/social-media/overview';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -86,6 +86,112 @@ const handleActiveChange = e => {
 };
 
 const Dashbord = () => {
+  const columns = [
+    {
+      dataIndex: 'network',
+      key: 'network',
+    },
+    {
+      title: 'Acquisition',
+      dataIndex: 'users',
+      key: 'users',
+    },
+    {
+      dataIndex: 'newUsers',
+      key: 'newUsers',
+    },
+    {
+      dataIndex: 'sessions',
+      key: 'sessions',
+    },
+    {
+      title: 'Bounce Rate',
+      dataIndex: 'bounceRate',
+      key: 'bounceRate',
+    },
+    {
+      dataIndex: 'pages',
+      key: 'pages',
+    },
+    {
+      dataIndex: 'avg',
+      key: 'avg',
+    },
+  ];
+
+  const data = [
+    {
+      key: '1',
+      network: 'Social Network',
+      users: 'Users',
+      newUsers: 'New Users',
+      sessions: 'Sessions',
+      bounceRate: 'Bounce Rate',
+      pages: 'Pages / Session',
+      avg: 'Avg. Session Duration',
+    },
+    {
+      key: '2',
+      network: 'Facebook',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+    {
+      key: '3',
+      network: 'Twitter',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+    {
+      key: '4',
+      network: 'Linkdin',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+    {
+      key: '5',
+      network: 'Youtube',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+    {
+      key: '6',
+      network: 'Pinterest',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+    {
+      key: '7',
+      network: 'Google+',
+      users: '3,397',
+      newUsers: '422',
+      sessions: '2,584',
+      bounceRate: '30.35%',
+      pages: '2.50',
+      avg: '00:01:05',
+    },
+  ];
+
   return (
     <Fragment>
       <PageHeader ghost title="Social Media Dashboard" />
@@ -830,7 +936,9 @@ const Dashbord = () => {
               title="Social Traffic Metrics"
               size="large"
               more={content}
-            ></Cards>
+            >
+              <Table columns={columns} dataSource={data} pagination={false} />
+            </Cards>
           </Col>
         </Row>
       </Main>
