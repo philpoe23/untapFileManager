@@ -79,7 +79,13 @@ const MenueItems = () => {
           <NavLink to="/ecommerce/productDetails/1">Product detail</NavLink>
         </Menu.Item>
 
-        <Menu.Item key="11">Product edit</Menu.Item>
+        <Menu.Item key="add-product">
+          <NavLink to="/ecommerce/add-product">Product Add</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="edit-product">
+          <NavLink to="/ecommerce/edit-product">Product Edit</NavLink>
+        </Menu.Item>
         <Menu.Item key="cart">
           <NavLink to="/ecommerce/cart">Cart</NavLink>
         </Menu.Item>
@@ -326,6 +332,9 @@ const MenueItems = () => {
         </Menu.Item>
         <Menu.Item key="timepicker">
           <NavLink to="/components/timepicker">Timepicker</NavLink>
+        </Menu.Item>
+        <Menu.Item key="tree-select">
+          <NavLink to="/components/tree-select">TreeSelect</NavLink>
         </Menu.Item>
       </SubMenu>
 

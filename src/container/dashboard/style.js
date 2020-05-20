@@ -99,4 +99,29 @@ const Exlist = Styled.div`
     }
 `;
 
-export { Focard, CardBarChart, CardGroup, Exlist };
+const OverviewCard = Styled.div`
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px 25px 45px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    &:before{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 215px;
+        background:linear-gradient(45deg, ${({theme})=>theme["secondary-color"]}, ${({theme})=>theme["warning-color"]});
+        left:0;
+        top:0;
+        z-index:-1;
+    }
+    .ant-card{
+        box-shadow: 0 10px 30px rgba(146,153,184,0.15);
+    }
+`;
+
+
+
+
+export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard };

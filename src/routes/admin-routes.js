@@ -10,6 +10,8 @@ const Business = lazy(() => import('../container/dashboard/Business'));
 const Performance = lazy(() => import('../container/dashboard/Performance'));
 
 const Product = lazy(() => import('../container/ecommerce/product/Products'));
+const ProductAdd = lazy(() => import('../container/ecommerce/product/AddProduct'));
+const ProductEdit = lazy(() => import('../container/ecommerce/product/EditProduct'));
 const ProductDetails = lazy(() => import('../container/ecommerce/product/ProductDetails'));
 const Invoice = lazy(() => import('../container/ecommerce/Invoice'));
 const Orders = lazy(() => import('../container/ecommerce/Orders'));
@@ -83,6 +85,7 @@ const Radio = lazy(() => import('../container/ui-elements/Radio'));
 const Switches = lazy(() => import('../container/ui-elements/Switch'));
 const Selects = lazy(() => import('../container/ui-elements/Select'));
 const TimePicker = lazy(() => import('../container/ui-elements/Timepicker'));
+const TreeSelect = lazy(() => import('../container/ui-elements/TreeSelect'));
 const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
@@ -97,6 +100,7 @@ const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));
 const Users = lazy(() => import('../container/pages/Users'));
+const AddUser = lazy(() => import('../container/pages/AddUsers'));
 const DataTable = lazy(() => import('../container/pages/UserListDataTable'));
 const Team = lazy(() => import('../container/pages/Team'));
 
@@ -123,6 +127,8 @@ const AdminRoutes = () => {
         <Route path="/dashboard/performance" component={Performance} />
 
         <Route path="/ecommerce/products" component={Product} />
+        <Route path="/ecommerce/add-product" component={ProductAdd} />
+        <Route path="/ecommerce/edit-product" component={ProductEdit} />
         <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
         <Route path="/ecommerce/Invoice" component={Invoice} />
         <Route path="/ecommerce/orders" component={Orders} />
@@ -191,6 +197,7 @@ const AdminRoutes = () => {
         <Route path="/components/switch" component={Switches} />
         <Route path="/components/select" component={Selects} />
         <Route path="/components/timePicker" component={TimePicker} />
+        <Route path="/components/tree-select" component={TreeSelect} />
         <Route path="/components/calendar" component={Calendar} />
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
@@ -206,6 +213,7 @@ const AdminRoutes = () => {
         <Route path="/pages/faq" component={Faq} />
         <Route path="/pages/search" component={Search} />
         <Route path="/pages/users" component={Users} />
+        <Route path="/pages/add-user" component={AddUser} />
         <Route path="/pages/dataTable" component={DataTable} />
         <Route path="/pages/team" component={Team} />
 

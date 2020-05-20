@@ -15,26 +15,26 @@ const Paginations = props => {
 
   return (
     <Fragment>
-      <PageHeader title="Paginations" />
+      <PageHeader ghost title="Paginations" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Pagination">
+            <Cards title="Basic" caption="The simplest use of Pagination">
               <Pagination defaultCurrent={1} total={50} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="More Pages" caption="The simplest use of Pagination">
+            <Cards title="More Pages" caption="The simplest use of Pagination">
               <Pagination defaultCurrent={1} total={500} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Page size" caption="The simplest use of Pagination">
+            <Cards title="Page size" caption="The simplest use of Pagination">
               <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Quick Jumper" caption="The simplest use of Pagination">
+            <Cards title="Quick Jumper" caption="The simplest use of Pagination">
               <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
             </Cards>
           </Col>

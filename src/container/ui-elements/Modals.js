@@ -105,7 +105,7 @@ const Modals = () => {
 
   return (
     <Fragment>
-      <PageHeader title="Modals" />
+      <PageHeader ghost title="Modals" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
@@ -120,7 +120,7 @@ const Modals = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
             </Modal>
-            <Cards headless title="Default Modal" size="large" caption="Default Ant Design Modal">
+            <Cards title="Default Modal" size="large" caption="Default Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
@@ -153,7 +153,7 @@ const Modals = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
             </Modal>
-            <Cards headless title="Color Modal" size="large" caption="Color Ant Design Modal">
+            <Cards title="Color Modal" size="large" caption="Color Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
@@ -174,7 +174,7 @@ const Modals = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Information Modal" size="large" caption="Notification Ant Design Modal">
+            <Cards title="Information Modal" size="large" caption="Notification Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page

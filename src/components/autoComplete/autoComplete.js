@@ -1,7 +1,8 @@
 import React from 'react';
-import { Input, Icon, Button } from 'antd';
+import { Input, Button } from 'antd';
 import { AutoCompleteStyled } from './style';
 import PropTypes from 'prop-types';
+import { SearchOutlined } from '@ant-design/icons';
 
 const { Option } = AutoCompleteStyled;
 const onSelect = value => {
@@ -50,10 +51,10 @@ const AutoComplete = props => {
         suffix={
           patternButtons ? (
             <Button className="search-btn" style={{ marginRight: -12 }} size="large" type="primary">
-              <Icon type="search" />
+              <SearchOutlined />
             </Button>
           ) : (
-            <Icon type="search" className="certain-category-icon" />
+            <SearchOutlined />
           )
         }
       />

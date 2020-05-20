@@ -87,11 +87,11 @@ const Notifications = () => {
 
   return (
     <Fragment>
-      <PageHeader title="Notifications" />
+      <PageHeader ghost title="Notifications" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Notification">
+            <Cards title="Basic" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotification}>
                 Open the notification box
               </Button>
@@ -99,7 +99,6 @@ const Notifications = () => {
           </Col>
           <Col md={12}>
             <Cards
-              headless
               title="Duration after which the notification box is closed"
               caption="The simplest use of Notification"
             >
@@ -109,37 +108,37 @@ const Notifications = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom close button" caption="The simplest use of Notification">
+            <Cards title="Custom close button" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotification3}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with icon" caption="The simplest use of Notification">
-              <Button type="success" click={() => openNotificationWithIcon('success')}>
+            <Cards title="Notification with icon" caption="The simplest use of Notification">
+              <Button type="success" onClick={() => openNotificationWithIcon('success')}>
                 Success
               </Button>
-              <Button type="info" click={() => openNotificationWithIcon('info')}>
+              <Button type="info" onClick={() => openNotificationWithIcon('info')}>
                 Info
               </Button>
-              <Button type="warning" click={() => openNotificationWithIcon('warning')}>
+              <Button type="warning" onClick={() => openNotificationWithIcon('warning')}>
                 Warning
               </Button>
-              <Button type="error" click={() => openNotificationWithIcon('error')}>
+              <Button type="error" onClick={() => openNotificationWithIcon('error')}>
                 Error
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with custom icon" caption="The simplest use of Notification">
+            <Cards title="Notification with custom icon" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotificationCustomIcon}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with custom Style" caption="The simplest use of Notification">
+            <Cards title="Notification with custom Style" caption="The simplest use of Notification">
               <Button type="primary" onClick={openNotificationCustomStyle}>
                 Open the notification box
               </Button>
@@ -147,21 +146,21 @@ const Notifications = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Notification with placement" caption="The simplest use of Notification">
-              <Button type="primary" click={() => openNotificationPlacement('topLeft')}>
+            <Cards title="Notification with placement" caption="The simplest use of Notification">
+              <Button type="primary" onClick={() => openNotificationPlacement('topLeft')}>
                 <Icon type="radius-upleft" />
                 topLeft
               </Button>
-              <Button type="primary" click={() => openNotificationPlacement('topRight')}>
+              <Button type="primary" onClick={() => openNotificationPlacement('topRight')}>
                 <Icon type="radius-upright" />
                 topRight
               </Button>
               <Divider />
-              <Button type="primary" click={() => openNotificationPlacement('bottomLeft')}>
+              <Button type="primary" onClick={() => openNotificationPlacement('bottomLeft')}>
                 <Icon type="radius-bottomleft" />
                 bottomLeft
               </Button>
-              <Button type="primary" click={() => openNotificationPlacement('bottomRight')}>
+              <Button type="primary" onClick={() => openNotificationPlacement('bottomRight')}>
                 <Icon type="radius-bottomright" />
                 bottomRight
               </Button>

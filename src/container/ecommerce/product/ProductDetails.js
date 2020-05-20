@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../../components/heading/heading';
@@ -10,22 +10,34 @@ import { NavLink } from 'react-router-dom';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 
-const ProductDetails = props => {
-  const { filterSinglepage, match, products, product } = props;
+const ProductDetails = ({ match }) => {
+  const dispatch = useDispatch();
+
+  const { products, product } = useSelector(state => {
+    return {
+      product: state.product.data,
+      products: state.products.data,
+    };
+  });
+
   const [state, setState] = useState({
     quantity: 1,
   });
+
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
-      filterSinglepage(parseInt(match.params.id));
+      dispatch(filterSinglepage(parseInt(match.params.id)));
     }
+
     return () => {
       unmounted = true;
     };
-  }, [match.params.id, filterSinglepage]);
+  }, [match.params.id, dispatch]);
+
   const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
   const { quantity } = state;
+
   const incrementQuantity = e => {
     e.preventDefault();
     quantity !== 5 &&
@@ -34,6 +46,7 @@ const ProductDetails = props => {
         quantity: quantity + 1,
       });
   };
+
   const decrementQuantity = e => {
     e.preventDefault();
     quantity !== 1 &&
@@ -42,6 +55,7 @@ const ProductDetails = props => {
         quantity: quantity - 1,
       });
   };
+
   return (
     <Fragment>
       <PageHeader ghost title="Product Details" />
@@ -126,16 +140,5 @@ const ProductDetails = props => {
     </Fragment>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: id => dispatch(filterSinglepage(id)),
-  };
-};
 
-const mapStateToProps = state => {
-  return {
-    product: state.product.data,
-    products: state.products.data,
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
+export default ProductDetails;

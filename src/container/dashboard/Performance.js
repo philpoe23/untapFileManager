@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Progress, Table } from 'antd';
+import { Row, Col, Progress, Table } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
@@ -10,6 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import { OverviewCard } from './style';
 
 const content = (
   <Fragment>
@@ -65,7 +66,7 @@ const locationdata = [
     sessions: '3,397',
     rate: '3.5%',
     completions: '225',
-    percentage: <Progress percent={70} status="active" />,
+    percentage: <Progress percent={70} status="active" showInfo={false} className="progress-dt" />,
     value: '23.28%',
   },
   {
@@ -74,7 +75,7 @@ const locationdata = [
     sessions: '5,578',
     rate: '2.4%',
     completions: '145',
-    percentage: <Progress percent={65} status="active" />,
+    percentage: <Progress percent={65} status="active" showInfo={false} className="progress-et" />,
     value: '65.55%',
   },
   {
@@ -83,7 +84,7 @@ const locationdata = [
     sessions: '2,398',
     rate: '6.8%',
     completions: '120',
-    percentage: <Progress percent={83} status="active" />,
+    percentage: <Progress percent={83} status="active" showInfo={false} className="progress-ost" />,
     value: '83.19%',
   },
   {
@@ -92,7 +93,7 @@ const locationdata = [
     sessions: '3,397',
     rate: '1.5%',
     completions: '110',
-    percentage: <Progress percent={73} status="active" />,
+    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-rt" />,
     value: '73.33%',
   },
   {
@@ -101,7 +102,7 @@ const locationdata = [
     sessions: '4,247',
     rate: '3.6%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" />,
+    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-smt" />,
     value: '73.33%',
   },
   {
@@ -110,7 +111,7 @@ const locationdata = [
     sessions: '6,354',
     rate: '3.5%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" />,
+    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-ot" />,
     value: '73.33%',
   },
 ];
@@ -237,6 +238,18 @@ const regiondata = [
   },
 ];
 
+const handleActiveChange = e => {
+  const link = e.currentTarget;
+  link
+    .closest('ul')
+    .querySelectorAll('li')
+    .forEach(li => {
+      li.classList.remove('active');
+    });
+
+  link.closest('li').classList.add('active');
+};
+
 const Performance = () => {
   return (
     <Fragment>
@@ -244,21 +257,23 @@ const Performance = () => {
       <Main>
         <Row gutter={15}>
           <Col md={8}>
-            <div>
-              <div>
+            <OverviewCard>
+              <div className="d-flex align-items-center justify-content-between">
                 <Heading as="h4">Daily Overview</Heading>
                 <Button>
                   Export <FeatherIcon icon="chevron-down" size={14} />
                 </Button>
               </div>
               <Cards headless>
-                <div>
-                  <Heading as="h2">5,461</Heading>
-                  <p>Users Today</p>
-                </div>
-                <div>
-                  <Heading as="h2">8,085</Heading>
-                  <p>Expected Users</p>
+                <div className="d-flex align-items-center justify-content-between">
+                  <div>
+                    <Heading as="h2">5,461</Heading>
+                    <p>Users Today</p>
+                  </div>
+                  <div>
+                    <Heading as="h2">8,085</Heading>
+                    <p>Expected Users</p>
+                  </div>
                 </div>
 
                 <Progress percent={70} showInfo={false} />
@@ -292,7 +307,7 @@ const Performance = () => {
                   <span style={{ float: 'right' }}>70%</span>
                 </p>
               </Cards>
-            </div>
+            </OverviewCard>
           </Col>
           <Col md={16}>
             <Cards
@@ -300,13 +315,19 @@ const Performance = () => {
                 <div className="card-nav">
                   <ul>
                     <li>
-                      <Link to="#">Week</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
                     </li>
                     <li className="active">
-                      <Link to="#">Month</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
                     </li>
                     <li>
-                      <Link to="#">Year</Link>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -440,12 +461,25 @@ const Performance = () => {
           <Col md={16}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               title="Traffic Channels"
               size="large"
@@ -456,11 +490,25 @@ const Performance = () => {
           <Col md={8}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               title="Sessions By Device"
               size="large"
@@ -491,11 +539,25 @@ const Performance = () => {
           <Col md={12}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               title="Top Landing Pages"
               size="large"
@@ -506,11 +568,25 @@ const Performance = () => {
           <Col md={12}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               title="Sessions by Region"
               size="large"

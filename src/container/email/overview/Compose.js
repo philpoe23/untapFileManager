@@ -4,26 +4,19 @@ import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { Input, Button, Upload } from 'antd';
-import { Link } from 'react-router-dom';
+import { Input } from 'antd';
 import propTypes from 'prop-types';
+import MailComposer from './MailComposer';
 
-const Compose = ({ close, onChange }) => {
+const Compose = ({ close }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
     tags: [],
     size: 'small',
   });
 
-  const onChanges = value => {
+  const onChange = value => {
     setState({ ...state, value });
-
-    if (onChange) {
-      // Send the changes up to the parent component as an HTML string.
-      // This is here to demonstrate using `.toString()` but in a real app it
-      // would be better to avoid generating a string on each change.
-      onChange(value.toString('html'));
-    }
   };
 
   const handleChange = tags => {
@@ -35,6 +28,10 @@ const Compose = ({ close, onChange }) => {
       ...state,
       size: state.size === 'small' ? 'big' : 'small',
     });
+  };
+
+  const onMailSend = async () => {
+    //hit the mail sender api
   };
 
   return (
@@ -61,22 +58,7 @@ const Compose = ({ close, onChange }) => {
           <Input placeholder="Subject" type="text" />
         </div>
         <div className="group">
-          <RichTextEditor value={state.value} onChange={onChanges} />
-        </div>
-      </div>
-
-      <div className="fotter">
-        <div className="left">
-          <Button type="primary">Send</Button>
-          <Upload>
-            <Link to="#">
-              <FeatherIcon icon="paperclip" size={18} />
-            </Link>
-          </Upload>
-          <FeatherIcon icon="alert-circle" size={18} />
-        </div>
-        <div className="right">
-          <FeatherIcon icon="trash-2" size={18} />
+          <MailComposer onSend={onMailSend} onChange={onChange} />
         </div>
       </div>
     </MailBox>

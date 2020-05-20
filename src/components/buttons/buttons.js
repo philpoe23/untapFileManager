@@ -3,7 +3,21 @@ import { ButtonStyledGroup, ButtonStyled } from './styled';
 import PropTypes from 'prop-types';
 
 const Button = props => {
-  const { type, shape, icon, size, outlined, squared, color, social, load, ...rest } = props;
+  const {
+    type,
+    shape,
+    icon,
+    size,
+    outlined,
+    ghost,
+    transparented,
+    raised,
+    squared,
+    color,
+    social,
+    load,
+    ...rest
+  } = props;
   const [state, setState] = useState({
     loading: false,
   });
@@ -16,6 +30,9 @@ const Button = props => {
     <ButtonStyled
       squared={squared}
       outlined={outlined}
+      ghost={ghost}
+      transparented={transparented}
+      raised={raised}
       data={type}
       size={size}
       shape={shape}
@@ -43,9 +60,12 @@ Button.propTypes = {
   size: PropTypes.string,
   color: PropTypes.string,
   outlined: PropTypes.bool,
+  transparented: PropTypes.bool,
+  raised: PropTypes.bool,
   squared: PropTypes.bool,
   social: PropTypes.bool,
   load: PropTypes.bool,
+  ghost: PropTypes.bool,
 };
 
 const BtnGroup = props => {

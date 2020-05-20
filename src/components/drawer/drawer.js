@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from 'react';
-import { Button, Radio } from 'antd';
+import { Radio } from 'antd';
 import PropTypes from 'prop-types';
 import { DrawerStyle } from './style';
+import { Button } from '../buttons/buttons';
+
 const RadioGroup = Radio.Group;
 
 const Drawer = props => {
-  const { title, placement, children, customPlacement, render, childDrawer, childTitle } = props;
+  const { width, title, placement, children, customPlacement, render, childDrawer, childTitle, btnText } = props;
   const [state, setState] = useState({
     visible: false,
     placement: placement ? placement : 'right',
@@ -58,8 +60,9 @@ const Drawer = props => {
         </RadioGroup>
       )}
 
+      {render && <p>Render in this</p>}
       <Button type="primary" onClick={showDrawer}>
-        Open
+        {btnText}
       </Button>
       <DrawerStyle
         title={title}
@@ -69,6 +72,7 @@ const Drawer = props => {
         visible={state.visible}
         getContainer={!render ? true : false}
         style={{ position: !render ? 'fixed' : 'absolute' }}
+        width={width}
       >
         {!childDrawer ? (
           children
@@ -80,7 +84,7 @@ const Drawer = props => {
 
             <DrawerStyle
               title={childTitle}
-              width={320}
+              width={width}
               closable={false}
               onClose={onChildrenDrawerClose}
               visible={state.childrenDrawer}
@@ -121,6 +125,11 @@ const Drawer = props => {
   );
 };
 
+Drawer.defaultProps = {
+  btnText: 'Open',
+  width: 320,
+};
+
 Drawer.propTypes = {
   title: PropTypes.string,
   placement: PropTypes.string,
@@ -129,6 +138,8 @@ Drawer.propTypes = {
   render: PropTypes.bool,
   childDrawer: PropTypes.object,
   childTitle: PropTypes.string,
+  btnText: PropTypes.string,
+  width: PropTypes.number,
 };
 
 export { Drawer };

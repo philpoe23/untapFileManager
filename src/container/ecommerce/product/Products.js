@@ -1,7 +1,7 @@
 import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
@@ -12,11 +12,16 @@ const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const Product = ({ searchData, sortings, match }) => {
+const Product = ({ match }) => {
+  const dispatch = useDispatch();
+  const searchData = useSelector(state => state.headerSearchData);
+
   const [state, setState] = useState({
     notdata: searchData,
   });
+
   const { notdata } = state;
+
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -26,7 +31,7 @@ const Product = ({ searchData, sortings, match }) => {
   };
 
   const onSorting = e => {
-    sortings(e.target.value);
+    dispatch(sorting(e.target.value));
   };
 
   return (
@@ -90,16 +95,4 @@ const Product = ({ searchData, sortings, match }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    sortings: sortBy => dispatch(sorting(sortBy)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default Product;

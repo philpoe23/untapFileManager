@@ -17,7 +17,11 @@ const primaryColor = '#5F63F2',
   darkHover = '#131623',
   grayColor = '#5A5F7D',
   grayHover = '#363A51',
-  lightColor = '#9299B8',
+  lightColor = '#F4F5F7',
+  lightHover = '#e2e6ea',
+  whiteColor = '#ffffff',
+  dashColor = '#E3E6EF',
+  whiteHover = '#5A5F7D',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
   dangerHover = '#E30D0F',
@@ -27,7 +31,11 @@ const primaryColor = '#5F63F2',
   bgGrayColorDeep = '#EFF0F3',
   bgGrayColorLight = '#F8F9FB',
   bgGrayColorNormal = '#F4F5F7',
-  lightGrayColor = '#868EAE';
+  lightGrayColor = '#868EAE',
+  sliderRailColor = 'rgba(95,99,242,0.2)',
+  btnlg = '48px',
+  btnsm = '36px',
+  btnxs = '29px';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -49,6 +57,10 @@ const theme = {
   'gray-color': grayColor, // info state color
   'gray-hover': grayHover, // info state color
   'light-color': lightColor, // info state color
+  'light-hover': lightHover, // info state color
+  'white-color': whiteColor, // info state color
+  'white-hover': whiteHover, // info state color
+  'dash-color': dashColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
@@ -67,6 +79,9 @@ const theme = {
   'bg-color-normal': bgGrayColorNormal,
   'bg-color-deep': bgGrayColorDeep,
   'light-gray-color': lightGrayColor,
+  'btn-height-large': btnlg,
+  'btn-height-small': btnsm,
+  'btn-height-extra-small': btnxs,
 
   // cards
   'card-head-background': '#ffffff',
@@ -76,7 +91,6 @@ const theme = {
   'card-padding-base': '12px',
   'card-radius': '10px',
   'card-shadow': '0 5px 20px rgba(146,153,184,0.03)',
-
 
   // Layout
   'layout-body-background': '#F4F5F7',
@@ -107,16 +121,12 @@ const theme = {
   // Popover body background color
   'popover-color': darkColor,
 
-  // slider
-  'slider-track-background-color': primaryColor + '70',
-  'slider-track-background-color-hover': primaryColor + '90',
-
   // alert
   'alert-success-border-color': successColor,
-  'alert-success-bg-color': successColor,
-  'alert-error-bg-color': errorColor,
-  'alert-warning-bg-color': warningColor,
-  'alert-info-bg-color': infoColor,
+  'alert-success-bg-color': successColor+15,
+  'alert-error-bg-color': errorColor+15,
+  'alert-warning-bg-color': warningColor+15,
+  'alert-info-bg-color': infoColor+15,
 
   //radio btn
   'radio-button-checked-bg': primaryColor,
@@ -124,6 +134,21 @@ const theme = {
   //gutter width
   'grid-gutter-width': 25,
 
+  //skeleton
+  'skeleton-color': borderColorLight,
+
+  //slider
+  'slider-rail-background-color': sliderRailColor,
+  'slider-rail-background-color-hover': sliderRailColor,
+  'slider-track-background-color': primaryColor,
+  'slider-track-background-color-hover': primaryColor,
+  'slider-handle-color': primaryColor,
+  'slider-handle-size': '22px',
+
+  //input
+  'input-height-base': "48px",
+  'input-border-color': borderColorNormal,
+  
 };
 
 module.exports = theme;

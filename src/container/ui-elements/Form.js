@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Form, Icon, Select, Input, InputNumber } from 'antd';
+import { Row, Col, Form, Select, Input, InputNumber } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Cascader } from '../../components/cascader/cascader';
@@ -9,57 +9,53 @@ import { Button } from '../../components/buttons/buttons';
 const { Option } = Select;
 const { TextArea } = Input;
 
-const Forms = ({ form }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+const Forms = () => {
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    console.log('Received values of form: ', values);
   };
 
-  const { getFieldDecorator } = form;
+  const onChange = value => {
+    console.log(value);
+  };
 
   return (
     <Fragment>
       <PageHeader ghost title="Form" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Elements of Form" caption="The simplest use of Form">
-              <Form onSubmit={handleSubmit}>
-                <Form.Item label="Username">
-                  {getFieldDecorator('username', {
-                    rules: [{ required: true, message: 'Please input your username!' }],
-                  })(
-                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
-                  )}
+            <Cards title="Elements of Form" caption="The simplest use of Form">
+              <Form layout="vertical" form={form} name="basicforms" onFinish={handleSubmit}>
+                <Form.Item label="Username" name="username">
+                  <Input placeholder="Username" />
                 </Form.Item>
-                <Form.Item label="Email">
-                  {getFieldDecorator('email', {
-                    rules: [{ required: true, message: 'Please input your email!', type: 'email' }],
-                  })(<Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />)}
+
+                <Form.Item
+                  label="Email"
+                  name="email"
+                  rules={[{ required: true, message: 'Please input your email!', type: 'email' }]}
+                >
+                  <Input placeholder="Email" />
                 </Form.Item>
-                <Form.Item label="Age">
-                  {getFieldDecorator('age', {
-                    rules: [{ required: true, message: 'Please input your age!', type: 'number' }],
-                  })(<InputNumber />)}
+                <Form.Item
+                  label="Age"
+                  name="age"
+                  rules={[{ required: true, message: 'Please input your age!', type: 'number' }]}
+                >
+                  <InputNumber />
                 </Form.Item>
-                <Form.Item label="Website">
-                  {getFieldDecorator('website', {
-                    rules: [{}],
-                  })(<Input placeholder="http://website.com" />)}
+                <Form.Item label="Website" name="website">
+                  <Input placeholder="http://website.com" />
                 </Form.Item>
-                <Form.Item label="Textarea">
-                  {getFieldDecorator('textarea', {
-                    rules: [{}],
-                  })(<TextArea />)}
+                <Form.Item label="Textarea" name="textarea">
+                  <TextArea />
                 </Form.Item>
-                <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+                <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
                 <Select
                   showSearch
-                  style={{ width: 200 }}
+                  style={{ width: 200, marginLeft: '15px' }}
                   placeholder="Select a person"
                   optionFilterProp="children"
                   filterOption={(input, option) =>
@@ -71,7 +67,7 @@ const Forms = ({ form }) => {
                   <Option value="tom">Tom</Option>
                 </Select>
                 <Form.Item>
-                  <Button onSubmit={handleSubmit} type="primary">
+                  <Button htmlType="submit" type="primary" style={{marginTop: "20px"}}>
                     Submit
                   </Button>
                 </Form.Item>
@@ -84,4 +80,4 @@ const Forms = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'form' })(Forms);
+export default Forms;
