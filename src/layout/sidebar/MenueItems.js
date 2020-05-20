@@ -257,6 +257,9 @@ const MenueItems = () => {
         <Menu.Item key="grid">
           <NavLink to="/components/grid">Grid</NavLink>
         </Menu.Item>
+        <Menu.Item key="list">
+          <NavLink to="/components/list">List</NavLink>
+        </Menu.Item>
         <Menu.Item key="modals">
           <NavLink to="/components/modals">Modals</NavLink>
         </Menu.Item>

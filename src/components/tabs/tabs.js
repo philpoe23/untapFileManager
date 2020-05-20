@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabBasic, Child } from './style';
-import { Icon } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 
 const Tab = props => {
   const { data, tabPosition, color } = props;
@@ -18,7 +18,7 @@ const Tab = props => {
                 tabTitle
               ) : (
                 <span>
-                  <Icon type={icon} />
+                  <FeatherIcon icon={icon} size={16} />
                   {tabTitle}
                 </span>
               )

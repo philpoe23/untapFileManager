@@ -89,6 +89,7 @@ const TreeSelect = lazy(() => import('../container/ui-elements/TreeSelect'));
 const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
+const List = lazy(() => import('../container/ui-elements/List'));
 
 const Inbox = lazy(() => import('../container/email/Email'));
 
@@ -164,6 +165,7 @@ const AdminRoutes = () => {
         <Route path="/components/grid" component={Grid} />
         <Route path="/components/tabs" component={Tabs} />
         <Route path="/components/breadcrumb" component={Breadcrumb} />
+        <Route path="/components/list" component={List} />
         <Route path="/components/pagination" component={Pagination} />
         <Route path="/components/page-headers" component={PageHeader} />
         <Route path="/components/steps" component={Steps} />
