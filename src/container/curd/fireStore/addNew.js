@@ -5,21 +5,19 @@ import { Row, Col, Form, Input, InputNumber } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fbDataSubmit } from '../../../redux/firestore/actionCreator';
 
-const AddNew = ({ form, fbDataSubmit, isLoading }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.validateFields((err, values) => {
-      if (!err) {
-        fbDataSubmit({ ...values, id: new Date().getTime() });
-        form.resetFields();
-      }
-    });
+const AddNew = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.crud.loading);
+
+  const [form] = Form.useForm();
+
+  const handleSubmit = values => {
+    dispatch(fbDataSubmit({ ...values, id: new Date().getTime() }));
+    form.resetFields();
   };
-  const { getFieldDecorator } = form;
 
   return (
     <Fragment>
@@ -38,22 +36,17 @@ const AddNew = ({ form, fbDataSubmit, isLoading }) => {
             <Cards headless>
               <Row>
                 <Col md={10} offset={7}>
-                  <Form style={{ width: '100%' }} onSubmit={handleSubmit}>
-                    <Form.Item label="Name">
-                      {getFieldDecorator('name', {})(<Input placeholder="Input Name" />)}
+                  <Form style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
+                    <Form.Item name="name" label="Name">
+                      <Input placeholder="Input Name" />
                     </Form.Item>
-
-                    <Form.Item label="Age">
-                      {getFieldDecorator(
-                        'age',
-                        {},
-                      )(<InputNumber min={0} style={{ width: '100%' }} placeholder="Input Age" />)}
+                    <Form.Item name="age" label="Age">
+                      <InputNumber min={0} style={{ width: '100%' }} placeholder="Input Age" />
                     </Form.Item>
-
-                    <Form.Item label="Address">
-                      {getFieldDecorator('address', {})(<Input.TextArea rows={4} placeholder="Input Address" />)}
+                    <Form.Item name="address" label="Address">
+                      <Input.TextArea rows={4} placeholder="Input Address" />
                     </Form.Item>
-                    <Button onClick={handleSubmit} type="primary">
+                    <Button htmlType="submit" type="primary">
                       {isLoading ? 'Loading...' : 'Submit'}
                     </Button>
                   </Form>
@@ -67,16 +60,4 @@ const AddNew = ({ form, fbDataSubmit, isLoading }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fbDataSubmit: data => dispatch(fbDataSubmit(data)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    isLoading: state.crud.loading,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form.create({ name: 'addNew' })(AddNew));
+export default AddNew;
