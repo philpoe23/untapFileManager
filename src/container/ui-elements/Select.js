@@ -20,10 +20,10 @@ const Selects = () => {
     <Fragment>
       <PageHeader title="Select" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Select">
-              <Select defaultValue="lucy" style={{ width: 120 }}>
+            <Cards title="Basic" caption="The simplest use of Select">
+              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
                 <Option value="disabled" disabled>
@@ -31,7 +31,7 @@ const Selects = () => {
                 </Option>
                 <Option value="Yiminghe">yiminghe</Option>
               </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
                 <Option value="lucy">Lucy</Option>
               </Select>
               <Select defaultValue="lucy" style={{ width: 120 }} loading>
@@ -40,7 +40,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Search and select" caption="The simplest use of Select">
+            <Cards title="Search and select" caption="The simplest use of Select">
               <Select
                 showSearch
                 style={{ width: 200 }}
@@ -55,7 +55,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Multiple select" caption="The simplest use of Select">
+            <Cards title="Multiple select" caption="The simplest use of Select">
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
@@ -69,7 +69,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Tags select" caption="The simplest use of Select">
+            <Cards title="Tags select" caption="The simplest use of Select">
               <Select mode="tags" style={{ width: '100%' }} placeholder="Please select">
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
@@ -78,7 +78,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom" caption="The simplest use of Select">
+            <Cards title="Custom" caption="The simplest use of Select">
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
@@ -114,7 +114,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom" caption="The simplest use of Select">
+            <Cards title="Custom" caption="The simplest use of Select">
               <Select defaultValue="lucy" style={{ width: 200 }}>
                 <OptGroup label="Manager">
                   <Option value="jack">Jack</Option>
@@ -127,7 +127,7 @@ const Selects = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Hide Already Selected" caption="The simplest use of Select">
+            <Cards title="Hide Already Selected" caption="The simplest use of Select">
               <Select
                 mode="multiple"
                 placeholder="Inserted are removed"

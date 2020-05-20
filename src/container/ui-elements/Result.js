@@ -11,9 +11,9 @@ const Results = () => {
     <Fragment>
       <PageHeader title="Results" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Success" caption="The simplest use of Results">
+            <Cards title="Success" caption="The simplest use of Results">
               <Result
                 status="success"
                 title="Successfully Purchased Cloud Server ECS!"
@@ -28,7 +28,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Info" caption="The simplest use of Results">
+            <Cards title="Info" caption="The simplest use of Results">
               <Result
                 title="Your operation has been executed"
                 extra={
@@ -40,7 +40,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Warning" caption="The simplest use of Results">
+            <Cards title="Warning" caption="The simplest use of Results">
               <Result
                 status="warning"
                 title="There are some problems with your operation."
@@ -53,7 +53,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="403" caption="The simplest use of Results">
+            <Cards title="403" caption="The simplest use of Results">
               <Result
                 status="403"
                 title="403"
@@ -63,7 +63,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="404" caption="The simplest use of Results">
+            <Cards title="404" caption="The simplest use of Results">
               <Result
                 status="404"
                 title="404"
@@ -73,7 +73,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="500" caption="The simplest use of Results">
+            <Cards title="500" caption="The simplest use of Results">
               <Result
                 status="500"
                 title="500"
@@ -83,7 +83,7 @@ const Results = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Error" caption="The simplest use of Results">
+            <Cards title="Error" caption="The simplest use of Results">
               <Result
                 status="error"
                 title="Submission Failed"

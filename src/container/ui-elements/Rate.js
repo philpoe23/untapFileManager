@@ -19,27 +19,27 @@ const Rating = () => {
     <Fragment>
       <PageHeader title="Rating" />
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
-            <Cards headless title="Basic" caption="The simplest use of Rate">
+        <Row gutter={25}>
+          <Col md={12}>
+            <Cards title="Basic" caption="The simplest use of Rate">
               <Rate />
             </Cards>
           </Col>
-          <Col md={6}>
-            <Cards headless title="Half Star" caption="The simplest use of Rate">
+          <Col md={12}>
+            <Cards title="Half Star" caption="The simplest use of Rate">
               <Rate allowHalf defaultValue={2.5} />
             </Cards>
           </Col>
-          <Col md={6}>
-            <Cards headless title="Show copywriting" caption="The simplest use of Rate">
+          <Col md={12}>
+            <Cards title="Show copywriting" caption="The simplest use of Rate">
               <span>
                 <Rate tooltips={desc} onChange={handleChange} value={value} />
                 {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
               </span>
             </Cards>
           </Col>
-          <Col md={6}>
-            <Cards headless title="Clear Star" caption="The simplest use of Rate">
+          <Col md={12}>
+            <Cards title="Clear Star" caption="The simplest use of Rate">
               <Rate defaultValue={3} />
               <span className="ant-rate-text">allowClear: true</span>
               <br />

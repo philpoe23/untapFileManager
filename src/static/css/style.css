@@ -122,7 +122,7 @@
 }
 .ant-progress .ant-progress-text{
   order: 0;
-  margin-left: 0;
+  margin-left: 10px;
   align-self: flex-end;
   text-align: right;
 }
@@ -206,4 +206,56 @@
 /* input styles */
 .ant-form-item-label > label{
   font-weight: 500;
+}
+
+/* pagination */
+.ant-pagination .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+  height: 32px;
+}
+.ant-pagination .ant-pagination-options .ant-select-selection-item{
+  line-height: 30px !important;
+}
+.ant-pagination .ant-pagination-options .ant-pagination-options-quick-jumper{
+  height: 30px;
+  line-height: 30px;
+}
+.ant-pagination .ant-pagination-options .ant-pagination-options-quick-jumper input{
+  line-height: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* radio style */
+.ant-radio-checked .ant-radio-inner{
+  border-width: 5px !important;
+}
+.ant-radio-inner::after{
+  content: none !important;
+}
+
+/* rate */
+.ant-rate-star:not(:last-child) {
+  margin-right: 2px !important;
+}
+
+/* result */
+.ant-result-icon{
+  margin-bottom: 20px !important;
+}
+.ant-result-title{
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* form select */
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+  height: 42px !important;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-item,
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder{
+  line-height: 40px !important;
+}
+.ant-select-multiple .ant-select-selector{
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
 }

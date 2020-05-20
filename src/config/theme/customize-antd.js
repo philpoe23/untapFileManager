@@ -148,7 +148,16 @@ const theme = {
   //input
   'input-height-base': "48px",
   'input-border-color': borderColorNormal,
-  
+
+  //rate
+  'rate-star-color': warningColor,
+  'rate-star-size': '13px',
+
+  //result
+  'result-title-font-size': '20px',
+  'result-subtitle-font-size': '12px',
+  'result-icon-font-size': '50px',
+
 };
 
 module.exports = theme;
