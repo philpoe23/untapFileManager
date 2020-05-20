@@ -58,7 +58,7 @@ const TreeSelects = () => {
 
   const onCheckChange = value => {
     console.log('onChange ', value);
-    this.setState({ ...state, check_value: value });
+    setState({ ...state, check_value: value });
   };
 
   const tProps = {
