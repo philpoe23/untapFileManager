@@ -85,6 +85,7 @@ const Radio = lazy(() => import('../container/ui-elements/Radio'));
 const Switches = lazy(() => import('../container/ui-elements/Switch'));
 const Selects = lazy(() => import('../container/ui-elements/Select'));
 const TimePicker = lazy(() => import('../container/ui-elements/Timepicker'));
+const TreeSelect = lazy(() => import('../container/ui-elements/TreeSelect'));
 const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
@@ -192,6 +193,7 @@ const AdminRoutes = () => {
         <Route path="/components/switch" component={Switches} />
         <Route path="/components/select" component={Selects} />
         <Route path="/components/timePicker" component={TimePicker} />
+        <Route path="/components/tree-select" component={TreeSelect} />
         <Route path="/components/calendar" component={Calendar} />
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
