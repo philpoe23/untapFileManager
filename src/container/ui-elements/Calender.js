@@ -30,7 +30,7 @@ const Calendars = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless title="Basic" caption="The simplest use of Calendar">
+            <Cards title="Basic">
               <Calendar />
             </Cards>
           </Col>
