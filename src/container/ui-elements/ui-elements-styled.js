@@ -35,16 +35,66 @@ const AvatarWraperStyle = Styled.div`
     margin: 5px;
   }
 `;
+
 const BadgeWraperStyle = Styled.div`
   .head-example {
-    width: 30px;
-    height: 30px;
-    margin: 9px 5px;
+    width: 42px;
+    height: 42px;
+    margin: 9px 15px;
     display: block;
     background: #ddd;
     border-radius: 3px;
-
+  }
+  .ant-badge-count{
+    top: 10px;
+    right: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 20px;
+    padding: 0;
+    height: 20px;
+    line-height: 14px;
+    border: 3px solid #fff
+  }
+  .ant-scroll-number-custom-component{
+    top: 10px !important;
+    right: 15px !important;
   }
 `;
 
-export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle };
+const BadgeStandAloneStyle = Styled.div`
+  .ant-badge-count{
+    left: 0;
+    border: 0;
+    font-size: 12px !important;
+    font-weight: 500;
+    margin: 0 5px;
+    line-height: 20px;
+    padding: 0 8.6px !important;
+  }
+`;
+
+const BadgeOverflowStyle = Styled.div`
+  .ant-badge-count{
+    font-size: 11px;
+    border-width: 2px;
+    padding: 0 7.2px;
+    line-height: 16px;
+  }
+`;
+
+const BreadcrumbWrapperStyle = Styled.div`
+  .ant-breadcrumb{
+    color: #5A5F7D;
+  }
+  .ant-breadcrumb span:first-child .ant-breadcrumb-link,
+  .ant-breadcrumb span:first-child .ant-breadcrumb-link svg,
+  .ant-breadcrumb span:first-child .ant-breadcrumb-link a{
+    color: #5F63F2;
+  }
+  .ant-breadcrumb span:last-child .ant-breadcrumb-link{
+    color: #9299B8;
+  }
+`;
+
+export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle , BadgeStandAloneStyle , BadgeOverflowStyle , BreadcrumbWrapperStyle };

@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Breadcrumb, Icon, Menu } from 'antd';
+import { BreadcrumbWrapperStyle } from './ui-elements-styled';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { HomeOutlined } from '@ant-design/icons';
 const menu = (
   <Menu>
     <Menu.Item>
@@ -31,55 +33,60 @@ const Breadcrumbs = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use">
-              <Breadcrumb>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <NavLink to="#">Application Center</NavLink>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <NavLink to="#">Application List</NavLink>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>An Application</Breadcrumb.Item>
-              </Breadcrumb>
+            <Cards title="Basic">
+              <BreadcrumbWrapperStyle>
+                <Breadcrumb>
+                  <Breadcrumb.Item>Home</Breadcrumb.Item>
+                  <Breadcrumb.Item>
+                    <NavLink to="#">Application Center</NavLink>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>
+                    <NavLink to="#">Application List</NavLink>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>An Application</Breadcrumb.Item>
+                </Breadcrumb>
+              </BreadcrumbWrapperStyle>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="With Icon" caption="The simplest use with Icon">
+            <Cards title="With Icon">
+            <BreadcrumbWrapperStyle>
               <Breadcrumb>
-                <Breadcrumb.Item>
-                  <Icon type="home" />
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <NavLink to="#">Application Center</NavLink>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <NavLink to="#">
-                    <Icon type="user" />
-                    <span>Application List</span>
-                  </NavLink>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>An Application</Breadcrumb.Item>
-              </Breadcrumb>
+                  <Breadcrumb.Item>
+                    <HomeOutlined />
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>
+                    <NavLink to="#">Application Center</NavLink>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>
+                    <NavLink to="#">
+                      <span>Application List</span>
+                    </NavLink>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>An Application</Breadcrumb.Item>
+                </Breadcrumb>
+            </BreadcrumbWrapperStyle>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="With dropdown" caption="The simplest use with dropdown">
+            <Cards title="Bread crumbs with drop down menu">
+            <BreadcrumbWrapperStyle>
               <Breadcrumb>
                 <Breadcrumb.Item>
-                  <Icon type="home" />
+                  <NavLink to="#">Design</NavLink>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <NavLink to="#">Application Center</NavLink>
+                  <NavLink to="#">Component</NavLink>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item overlay={menu}>
                   <NavLink to="#">
                     <Icon type="user" />
-                    <span>Application List</span>
+                    <span>General</span>
                   </NavLink>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>An Application</Breadcrumb.Item>
+                <Breadcrumb.Item>Button</Breadcrumb.Item>
               </Breadcrumb>
+            </BreadcrumbWrapperStyle>
             </Cards>
           </Col>
         </Row>

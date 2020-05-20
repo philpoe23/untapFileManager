@@ -6,14 +6,14 @@ const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']};
 border-width: 1px;
 border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
-border-style: ${({ type }) => type !== 'dashed' ? 'solid':'dashed'};
+border-style: ${({ type }) => (type !== 'dashed' ? 'solid' : 'dashed')};
 color: ${({ type }) => type !== 'default' && '#ffffff'};
 display: inline-flex;
 align-items: center;
 justify-content: center;
 border-radius: ${({ shape }) => (!shape ? '4px' : '40px')};
-padding: 0px 20px;
-height: ${({ size, theme }) => (size !== 'default' ? theme['btn-height-'+size] : '42px')};
+padding: 0px 20.5px;
+height: ${({ size, theme }) => (size !== 'default' ? theme['btn-height-' + size] : '42px')};
 font-weight: 500;
 box-shadow: 0 0;
 &:hover, &:focus {
@@ -21,8 +21,18 @@ box-shadow: 0 0;
     border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     color: ${({ type }) => type !== 'default' && '#ffffff'};
 }
+i,
+svg,
+img{
+    width: 16px;
+    height: 16px;
+    +span{
+        margin-left: 6px;
+    }
+}
 
 ${({ outlined, theme, type }) => outlined && outline(theme, type)}
+${({ ghost, theme }) => ghost && ghosts(theme)}
 ${({ transparented, theme, type }) => transparented && transparent(theme, type)}
 ${({ raised, theme, type }) => raised && raise(theme, type)}
 ${({ squared, theme, type }) => squared && square(theme, type)}
@@ -44,15 +54,29 @@ const outline = (theme, type) => {
   `;
 };
 
+const ghosts = theme => {
+  return `
+        background: transparent;
+        border: 1px solid ${theme['border-color-normal']} !important;
+        color: ${theme['border-color-normal']} !important;
+          
+        &:hover, &:focus {
+            background: #ffffff50 !important;
+            border: 1px solid transparent !important;
+            color: ${theme['border-color-normal']} !important;
+        }
+    `;
+};
+
 const transparent = (theme, type) => {
   return `
       background: ${type !== 'default' && theme[type + '-color']}15;
-      border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])}15;
-      color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
+      border-width: 0px;
+      color: ${type !== 'default' && theme[type + '-color']};
       &:hover, &:focus {
           background: ${type !== 'default' && theme[type + '-hover']}15;
-          border: 1px solid ${type !== 'default' && theme[type + '-hover']}15;
-          color: ${type !== 'default' && '#ffffff'};
+          border-width: 0px;
+          color: ${type !== 'default' && theme[type + '-hover']}; 
       }
   `;
 };

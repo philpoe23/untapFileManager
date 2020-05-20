@@ -317,6 +317,9 @@ const MenueItems = () => {
         <Menu.Item key="timepicker">
           <NavLink to="/components/timepicker">Timepicker</NavLink>
         </Menu.Item>
+        <Menu.Item key="tree-select">
+          <NavLink to="/components/tree-select">TreeSelect</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu
