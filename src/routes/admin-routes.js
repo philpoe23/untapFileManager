@@ -93,6 +93,7 @@ const List = lazy(() => import('../container/ui-elements/List'));
 const Input = lazy(() => import('../container/ui-elements/Inputs'));
 const Message = lazy(() => import('../container/ui-elements/Messages'));
 const Confirme = lazy(() => import('../container/ui-elements/PopConfirme'));
+const Menu = lazy(() => import('../container/ui-elements/Menu'));
 
 const Inbox = lazy(() => import('../container/email/Email'));
 
@@ -205,6 +206,7 @@ const AdminRoutes = () => {
         <Route path="/components/input" component={Input} />
         <Route path="/components/message" component={Message} />
         <Route path="/components/confirme" component={Confirme} />
+        <Route path="/components/menu" component={Menu} />
 
         <Route path="/email/:page" component={Inbox} />
 
