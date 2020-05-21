@@ -219,3 +219,22 @@
 .ant-form-item-label > label{
   font-weight: 500;
 }
+
+
+/* Calendar Styles */
+.ant-picker-calendar-header .ant-select-selector{
+  height: 32px !important;
+}
+
+.ant-picker-calendar-header .ant-select-selection-search-input{
+  height: 30px !important;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item{
+  line-height: 30px !important;
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled){
+  background: #fff !important;
+  color: #5F63F2 !important;
+}
