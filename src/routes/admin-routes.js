@@ -89,6 +89,11 @@ const TreeSelect = lazy(() => import('../container/ui-elements/TreeSelect'));
 const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
+const List = lazy(() => import('../container/ui-elements/List'));
+const Input = lazy(() => import('../container/ui-elements/Inputs'));
+const Message = lazy(() => import('../container/ui-elements/Messages'));
+const Confirme = lazy(() => import('../container/ui-elements/PopConfirme'));
+const Menu = lazy(() => import('../container/ui-elements/Menu'));
 
 const Inbox = lazy(() => import('../container/email/Email'));
 
@@ -164,6 +169,7 @@ const AdminRoutes = () => {
         <Route path="/components/grid" component={Grid} />
         <Route path="/components/tabs" component={Tabs} />
         <Route path="/components/breadcrumb" component={Breadcrumb} />
+        <Route path="/components/list" component={List} />
         <Route path="/components/pagination" component={Pagination} />
         <Route path="/components/page-headers" component={PageHeader} />
         <Route path="/components/steps" component={Steps} />
@@ -197,6 +203,10 @@ const AdminRoutes = () => {
         <Route path="/components/calendar" component={Calendar} />
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
+        <Route path="/components/input" component={Input} />
+        <Route path="/components/message" component={Message} />
+        <Route path="/components/confirme" component={Confirme} />
+        <Route path="/components/menu" component={Menu} />
 
         <Route path="/email/:page" component={Inbox} />
 

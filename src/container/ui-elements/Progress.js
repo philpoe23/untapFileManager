@@ -85,8 +85,8 @@ const ProgressBar = () => {
             <Cards title="Dynamic" caption="The simplest use of Progress bar">
               <Progress percent={state.percent} />
               <ButtonGroup>
-                <Button onClick={decline} icon={<PlusOutlined />} />
-                <Button onClick={increase} icon={<MinusOutlined />} />
+                <Button onClick={decline} icon={<MinusOutlined />} />
+                <Button onClick={increase} icon={<PlusOutlined />} />
               </ButtonGroup>
             </Cards>
           </Col>
