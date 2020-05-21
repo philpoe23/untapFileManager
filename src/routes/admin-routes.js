@@ -90,6 +90,9 @@ const Calendar = lazy(() => import('../container/ui-elements/Calender'));
 const Form = lazy(() => import('../container/ui-elements/Form'));
 const Skeleton = lazy(() => import('../container/ui-elements/Skeleton'));
 const List = lazy(() => import('../container/ui-elements/List'));
+const Input = lazy(() => import('../container/ui-elements/Inputs'));
+const Message = lazy(() => import('../container/ui-elements/Messages'));
+const Confirme = lazy(() => import('../container/ui-elements/PopConfirme'));
 
 const Inbox = lazy(() => import('../container/email/Email'));
 
@@ -199,6 +202,9 @@ const AdminRoutes = () => {
         <Route path="/components/calendar" component={Calendar} />
         <Route path="/components/form" component={Form} />
         <Route path="/components/skeleton" component={Skeleton} />
+        <Route path="/components/input" component={Input} />
+        <Route path="/components/message" component={Message} />
+        <Route path="/components/confirme" component={Confirme} />
 
         <Route path="/email/:page" component={Inbox} />
 
