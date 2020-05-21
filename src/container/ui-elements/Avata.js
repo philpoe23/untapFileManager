@@ -25,7 +25,7 @@ const Avatars = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Avatar">
+            <Cards title="Basic">
               <AvatarWraperStyle>
                 <Avatar size={64} icon={<UserOutlined />} />
                 <Avatar size="large" icon={<UserOutlined />} />
@@ -39,9 +39,21 @@ const Avatars = () => {
                 <Avatar shape="square" size="small" icon={<UserOutlined />} />
               </AvatarWraperStyle>
             </Cards>
+            <Cards title="Autoset Font Size">
+              <AvatarWraperStyle>
+                <div>
+                  <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
+                    {user}
+                  </Avatar>
+                  <Button size="small" style={{ margin: '0 6px', verticalAlign: 'middle', color: '#ADB4D2' }} onClick={changeUser}>
+                    Change
+                  </Button>
+                </div>
+              </AvatarWraperStyle>
+            </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Type" caption="The simplest use of Avatar">
+            <Cards title="Type">
               <AvatarWraperStyle>
                 <Avatar icon={<UserOutlined />} />
                 <Avatar icon={<Icon type="user" />} />
@@ -49,12 +61,10 @@ const Avatars = () => {
                 <Avatar>USER</Avatar>
                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                 <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
-                <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+                <Avatar style={{ backgroundColor: '#20C997' }} icon={<UserOutlined />} />
               </AvatarWraperStyle>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="with badge" caption="The simplest use of Avatar">
+            <Cards title="with badge">
               <AvatarWraperStyle>
                 <span style={{ marginRight: 24 }}>
                   <Badge count={1}>
@@ -66,20 +76,6 @@ const Avatars = () => {
                     <Avatar shape="square" icon={<UserOutlined />} />
                   </Badge>
                 </span>
-              </AvatarWraperStyle>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Autoset Font Size">
-              <AvatarWraperStyle>
-                <div>
-                  <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
-                    {user}
-                  </Avatar>
-                  <Button size="small" style={{ margin: '0 16px', verticalAlign: 'middle' }} onClick={changeUser}>
-                    Change
-                  </Button>
-                </div>
               </AvatarWraperStyle>
             </Cards>
           </Col>

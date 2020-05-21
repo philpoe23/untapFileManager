@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Spin, Icon } from 'antd';
+import { Row, Col, Spin } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { SpinerWraperStyle } from './ui-elements-styled';
-const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+import { LoadingOutlined } from '@ant-design/icons';
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} />;
+
 const Spiner = () => {
   return (
     <Fragment>

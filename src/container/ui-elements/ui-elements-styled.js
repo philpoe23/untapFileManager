@@ -33,6 +33,22 @@ const CarouselStyleWraper = Styled.div`
 const AvatarWraperStyle = Styled.div`
   .ant-avatar {
     margin: 5px;
+    background: #E3E6EF;
+  }
+  .ant-avatar:not(:last-child){
+    margin-right: 15px;
+  }
+  .ant-badge-count{
+    padding: 0 4px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    border: 3px solid #fff;
+  }
+  .ant-badge-dot{
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fff;
   }
 `;
 
@@ -59,6 +75,23 @@ const BadgeWraperStyle = Styled.div`
   .ant-scroll-number-custom-component{
     top: 10px !important;
     right: 15px !important;
+  }
+  .ant-badge-dot{
+    top: 0;
+    right: -1px;
+    border: 1px solid #fff;
+    width: 10px;
+    height: 10px;
+  }
+  .ant-badge-status-text{
+    margin-left: 10px;
+    color: #9299B8;
+  }
+`;
+
+const BadgeRedStyle = Styled.div`
+  .ant-badge:not(:last-child){
+    margin-right: 20px;
   }
 `;
 
@@ -87,14 +120,33 @@ const BreadcrumbWrapperStyle = Styled.div`
   .ant-breadcrumb{
     color: #5A5F7D;
   }
-  .ant-breadcrumb span:first-child .ant-breadcrumb-link,
-  .ant-breadcrumb span:first-child .ant-breadcrumb-link svg,
-  .ant-breadcrumb span:first-child .ant-breadcrumb-link a{
+  .ant-breadcrumb-separator{
+    margin: 0 4px;
+  }
+  .ant-breadcrumb >span:first-child .ant-breadcrumb-link,
+  .ant-breadcrumb >span:first-child .ant-breadcrumb-link svg,
+  .ant-breadcrumb >span:first-child .ant-breadcrumb-link a{
     color: #5F63F2;
   }
-  .ant-breadcrumb span:last-child .ant-breadcrumb-link{
+  .ant-breadcrumb >span:last-child .ant-breadcrumb-link{
     color: #9299B8;
   }
 `;
 
-export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle , BadgeStandAloneStyle , BadgeOverflowStyle , BreadcrumbWrapperStyle };
+const BadgeDynamicStyle = Styled.div`
+.badge-dynamic{
+  .ant-btn-group{
+    padding-top: 4px;
+    margin-left: 12px;
+  }
+}
+.ant-badge-dot{
+  right: 16px;
+  top: 8px;
+}
+.ant-switch{
+  margin-left: 15px;
+}
+`;
+
+export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle, BadgeStandAloneStyle , BadgeOverflowStyle, BreadcrumbWrapperStyle, BadgeRedStyle, BadgeDynamicStyle };
