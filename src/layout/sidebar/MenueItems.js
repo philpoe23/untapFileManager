@@ -273,6 +273,18 @@ const MenueItems = () => {
         <Menu.Item key="grid">
           <NavLink to="/components/grid">Grid</NavLink>
         </Menu.Item>
+        <Menu.Item key="input">
+          <NavLink to="/components/input">Input</NavLink>
+        </Menu.Item>
+        <Menu.Item key="list">
+          <NavLink to="/components/list">List</NavLink>
+        </Menu.Item>
+        <Menu.Item key="menu">
+          <NavLink to="/components/menu">Menu</NavLink>
+        </Menu.Item>
+        <Menu.Item key="message">
+          <NavLink to="/components/message">Message</NavLink>
+        </Menu.Item>
         <Menu.Item key="modals">
           <NavLink to="/components/modals">Modals</NavLink>
         </Menu.Item>
@@ -284,6 +296,9 @@ const MenueItems = () => {
         </Menu.Item>
         <Menu.Item key="pagination">
           <NavLink to="/components/pagination">Paginations</NavLink>
+        </Menu.Item>
+        <Menu.Item key="confirme">
+          <NavLink to="/components/confirme">Popconfirme</NavLink>
         </Menu.Item>
         <Menu.Item key="popover">
           <NavLink to="/components/popover">Popover</NavLink>
