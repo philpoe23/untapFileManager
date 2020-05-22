@@ -16,7 +16,7 @@ const Statistics = () => {
     <Fragment>
       <PageHeader ghost title="Statistics" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic" caption="The simplest use of Statistic">
               <Row gutter={16}>

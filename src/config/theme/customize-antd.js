@@ -143,7 +143,7 @@ const theme = {
   'slider-track-background-color': primaryColor,
   'slider-track-background-color-hover': primaryColor,
   'slider-handle-color': primaryColor,
-  'slider-handle-size': '22px',
+  'slider-handle-size': '16px',
 
   //input
   'input-height-base': "48px",
@@ -157,6 +157,13 @@ const theme = {
   'result-title-font-size': '20px',
   'result-subtitle-font-size': '12px',
   'result-icon-font-size': '50px',
+
+  //tabs
+  'tabs-horizontal-padding': '12px 15px',
+  'tabs-horizontal-margin': '0',
+
+  //list
+  'list-item-padding': '10px 24px',
 
 };
 

@@ -17,7 +17,7 @@ const Lists = () => {
     <Fragment>
       <PageHeader ghost title="List" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Simple list">
               <List

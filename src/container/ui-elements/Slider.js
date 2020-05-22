@@ -36,15 +36,15 @@ const Sliders = () => {
     <Fragment>
       <PageHeader ghost title="Sliders" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of slider">
+            <Cards title="Basic" caption="The simplest use of slider">
               <Slider onChange={onChange} defaultValue={30} />
               <Slider onChange={onChange} range defaultValues={[20, 50]} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="With Input" caption="The simplest use of slider">
+            <Cards title="With Input" caption="The simplest use of slider">
               <h3>With integer</h3>
               <Slider input min={1} max={100} />
               <h3>With Decimal</h3>
@@ -52,18 +52,18 @@ const Sliders = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="with Icon" caption="The simplest use of slider">
+            <Cards title="with Icon" caption="The simplest use of slider">
               <Slider onChange={onChange} icon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Range" caption="The simplest use of slider">
+            <Cards title="Range" caption="The simplest use of slider">
               <Slider range step={10} defaultValues={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
             </Cards>
           </Col>
 
           <Col md={12}>
-            <Cards headless title="Graduated slider" caption="The simplest use of slider">
+            <Cards title="Graduated slider" caption="The simplest use of slider">
               <div>
                 <h4>included=true</h4>
                 <Slider marks={marks} defaultValue={37} />
