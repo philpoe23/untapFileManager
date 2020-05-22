@@ -9,20 +9,20 @@ const Switches = () => {
     <Fragment>
       <PageHeader title="Switch" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Switch">
+            <Cards title="Basic" caption="The simplest use of Switch">
               <Switch defaultChecked />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Size" caption="The simplest use of Switch">
+            <Cards title="Size" caption="The simplest use of Switch">
               <Switch defaultChecked />
               <Switch defaultChecked size="small" />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Text and Icon" caption="The simplest use of Switch">
+            <Cards title="Text and Icon" caption="The simplest use of Switch">
               <div>
                 <Switch checkedChildren="a" unCheckedChildren="b" defaultChecked />
                 <br />
@@ -37,7 +37,7 @@ const Switches = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Loading" caption="The simplest use of Switch">
+            <Cards title="Loading" caption="The simplest use of Switch">
               <div>
                 <Switch loading defaultChecked />
                 <br />

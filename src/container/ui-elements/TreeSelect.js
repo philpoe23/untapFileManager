@@ -108,7 +108,7 @@ const TreeSelects = () => {
     <Fragment>
       <PageHeader title="TreeSelect" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <TreeSelect

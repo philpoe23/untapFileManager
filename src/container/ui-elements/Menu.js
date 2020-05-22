@@ -27,7 +27,7 @@ const Menus = () => {
     <Fragment>
       <PageHeader ghost title="Menu" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
             <Cards title="Top Navigation">
               <Menu onClick={handleClick} selectedKeys={[state.current]} mode="horizontal">

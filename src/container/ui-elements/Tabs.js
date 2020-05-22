@@ -10,7 +10,7 @@ const Tabs = () => {
     <Fragment>
       <PageHeader title="Tabs" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Tab data={data} icon="apple" />
           </Col>
