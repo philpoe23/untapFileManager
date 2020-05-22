@@ -256,7 +256,8 @@ const Business = () => {
               }
               size="large"
             >
-              <Col md={8}>
+              <Row gutter="25">
+                <Col md={8}>
                 <Exlist>
                   <div>
                     <p>Total income</p>
@@ -265,7 +266,7 @@ const Business = () => {
                       <sub>
                         <span>
                           <FeatherIcon icon="arrow-up" /> 37%
-                        </span>{' '}
+                        </span>
                         Since last month
                       </sub>
                     </Heading>
@@ -277,7 +278,7 @@ const Business = () => {
                       <sub className="growth-downward">
                         <span>
                           <FeatherIcon icon="arrow-down" /> 25%
-                        </span>{' '}
+                        </span>
                         Since last month
                       </sub>
                     </Heading>
@@ -289,7 +290,7 @@ const Business = () => {
                       <sub>
                         <span>
                           <FeatherIcon icon="arrow-up" /> 25%
-                        </span>{' '}
+                        </span>
                         Since last month
                       </sub>
                     </Heading>
@@ -301,7 +302,7 @@ const Business = () => {
                       <sub>
                         <span>
                           <FeatherIcon icon="arrow-up" /> 25%
-                        </span>{' '}
+                        </span>
                         Since last month
                       </sub>
                     </Heading>
@@ -337,9 +338,63 @@ const Business = () => {
                       label: 'Net profit',
                     },
                   ]}
-                  height={150}
+                  height={100}
+                  options= {{
+                    maintainAspectRatio: true,
+                    responsive: true,
+                    legend: {
+                      display: true,
+                      position: 'bottom',
+                      labels: {
+                        boxWidth: 6,
+                        display: true,
+                        usePointStyle: true,
+                      },
+                    },
+                    layout: {
+                      padding: {
+                        left: '0',
+                        right: 0,
+                        top: 0,
+                        bottom: '0',
+                      },
+                    },
+                    scales: {
+                      yAxes: [
+                        {
+                          gridLines: {
+                            color: '#e5e9f2',
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            fontSize: 10,
+                            fontColor: '#182b49',
+                            max: 80,
+                            stepSize: 20,
+                            callback: function(label, index, labels) {
+                              return label + 'k';
+                            },
+                          },
+                        },
+                      ],
+                      xAxes: [
+                        {
+                          gridLines: {
+                            display: false,
+                          },
+                          barPercentage: 0.6,
+                          ticks: {
+                            beginAtZero: true,
+                            fontSize: 11,
+                            fontColor: '#182b49',
+                          },
+                        },
+                      ],
+                    },
+                  }}
                 />
               </Col>
+              </Row>
             </Cards>
           </Col>
           <Col md={12}>

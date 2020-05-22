@@ -935,7 +935,6 @@ const Dashbord = () => {
               }
               title="Social Traffic Metrics"
               size="large"
-              more={content}
             >
               <Table columns={columns} dataSource={data} pagination={false} />
             </Cards>
