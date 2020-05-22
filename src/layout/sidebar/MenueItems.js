@@ -2,7 +2,6 @@ import React from 'react';
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { FireOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const MenueItems = () => {
@@ -121,7 +120,7 @@ const MenueItems = () => {
         key="firestore"
         title={
           <span>
-            <FireOutlined />
+            <FeatherIcon icon="database" />
             <span>Firestore Crud</span>
           </span>
         }
