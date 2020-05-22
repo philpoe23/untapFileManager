@@ -6,20 +6,40 @@ import { NavLink } from 'react-router-dom';
 import { Div } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 const ThemeLayout = WrappedComponent => {
   class LayoutComponent extends Component {
-    state = {
-      collapsed: false,
-    };
+    constructor(props, ...rest) {
+      super(props, ...rest);
+      this.state = {
+        collapsed: false,
+        top: 0,
+      };
+      this.handleUpdate = this.handleUpdate.bind(this);
+      this.renderThumb = this.renderThumb.bind(this);
+    }
+
+    handleUpdate(values) {
+      const { top } = values;
+      this.setState({ top });
+    }
 
     toggleCollapsed = () => {
       this.setState({
         collapsed: !this.state.collapsed,
       });
     };
+
+    renderThumb({ style, ...props }) {
+      const thumbStyle = {
+        backgroundColor: `rgb(0,0,0)`,
+        borderRadius: '20px',
+      };
+      return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    }
 
     render() {
       return (
@@ -52,8 +72,14 @@ const ThemeLayout = WrappedComponent => {
             </Header>
             <Layout>
               <Sider width={300} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
-                <p className="sidebar-nav-title">MAIN MENU</p>
-                <MenueItems />
+                <Scrollbars
+                  renderThumbHorizontal={this.renderThumb}
+                  renderThumbVertical={this.renderThumb}
+                  onUpdate={this.handleUpdate}
+                >
+                  <p className="sidebar-nav-title">MAIN MENU</p>
+                  <MenueItems />
+                </Scrollbars>
               </Sider>
               <Layout style={{ marginLeft: 280, marginTop: '64px' }}>
                 <Content>
