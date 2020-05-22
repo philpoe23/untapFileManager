@@ -3,6 +3,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Collapse, Icon } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { RightOutlined } from '@ant-design/icons';
 const { Panel } = Collapse;
 const Collapses = () => {
   const callback = key => {
@@ -10,9 +11,9 @@ const Collapses = () => {
   };
 
   const customPanelStyle = {
-    background: '#f7f7f7',
-    borderRadius: 4,
-    marginBottom: 24,
+    background: '#F8F9FB',
+    borderRadius: 3,
+    marginBottom: 20,
     border: 0,
     overflow: 'hidden',
   };
@@ -23,7 +24,7 @@ const Collapses = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Collapse">
+            <Cards title="Basic">
               <Collapse defaultActiveKey={['1']} onChange={callback}>
                 <Panel header="This is panel header 1" key="1">
                   <p>
@@ -45,34 +46,7 @@ const Collapses = () => {
                 </Panel>
               </Collapse>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Accordion" caption="The simplest use of Collapse">
-              <Collapse defaultActiveKey={['1']} accordion>
-                <Panel header="This is panel header 1" key="1">
-                  <p>
-                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
-                    welcome guest in many households across the world.
-                  </p>
-                </Panel>
-                <Panel header="This is panel header 2" key="2">
-                  <p>
-                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
-                    welcome guest in many households across the world.
-                  </p>
-                </Panel>
-                <Panel header="This is panel header 3" key="3">
-                  <p>
-                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
-                    welcome guest in many households across the world.
-                  </p>
-                </Panel>
-              </Collapse>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
-            <Cards headless title="Nested Panel" caption="The simplest use of Collapse">
+            <Cards title="Nested Panel">
               <Collapse onChange={callback}>
                 <Panel header="This is panel header 1" key="1">
                   <Collapse defaultActiveKey="1">
@@ -104,9 +78,47 @@ const Collapses = () => {
                 </Panel>
               </Collapse>
             </Cards>
+            <Cards title="No arrow">
+              <Collapse defaultActiveKey={['1']} onChange={callback}>
+                <Panel header="This is panel header 1" key="1">
+                  <p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
+                  </p>
+                </Panel>
+                <Panel showArrow={false} header="This is panel header 2" key="2">
+                  <p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
+                  </p>
+                </Panel>
+              </Collapse>
+            </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Borderless" caption="The simplest use of Collapse">
+            <Cards title="Accordion">
+              <Collapse defaultActiveKey={['1']} accordion>
+                <Panel header="This is panel header 1" key="1">
+                  <p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
+                  </p>
+                </Panel>
+                <Panel header="This is panel header 2" key="2">
+                  <p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
+                  </p>
+                </Panel>
+                <Panel header="This is panel header 3" key="3">
+                  <p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
+                  </p>
+                </Panel>
+              </Collapse>
+            </Cards>
+            <Cards title="Borderless">
               <Collapse defaultActiveKey={['1']} bordered={false}>
                 <Panel header="This is panel header 1" key="1">
                   <p style={{ paddingLeft: '24px' }}>
@@ -128,13 +140,12 @@ const Collapses = () => {
                 </Panel>
               </Collapse>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Custom Panel" caption="The simplest use of Collapse">
+            <Cards title="Custom Panel">
               <Collapse
                 bordered={false}
                 defaultActiveKey={['1']}
-                expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
+                expandIcon={({ isActive }) => <RightOutlined rotate={isActive ? 90 : 0} />}
+                style={{ background: '#fff' }}
               >
                 <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
                   <p>

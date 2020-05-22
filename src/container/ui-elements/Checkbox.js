@@ -34,25 +34,26 @@ const Checkboxs = () => {
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Checkbox">
+            <Cards title="Basic">
               <Checkbox onChange={onChange}>Checkbox</Checkbox>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Disabled" caption="The simplest use of Checkbox">
-              <Checkbox defaultChecked={false} disabled />
-              <br />
-              <Checkbox defaultChecked disabled />
+            <Cards title="Basic">
+              <Checkbox onChange={onChange}>Checkbox</Checkbox>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="checkall" caption="The simplest use of Checkbox">
+            <Cards title="Check all">
               <Checkbox
                 multiple
                 onChangeTriger={multipleChange}
                 item={['Apple', 'Pear', 'Orange']}
                 defaultSelect={['Pear']}
               />
+            </Cards>
+          </Col>
+          <Col md={12}>
+            <Cards title="Disabled">
+              <Checkbox defaultChecked={false} disabled />
+              <br />
+              <Checkbox defaultChecked disabled />
             </Cards>
           </Col>
         </Row>

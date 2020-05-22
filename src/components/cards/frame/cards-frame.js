@@ -7,7 +7,7 @@ import Heading from '../../heading/heading';
 import { Dropdown } from '../../dropdown/dropdown';
 
 const Cards = props => {
-  const { title, more, size, headless, caption, isbutton, bodyStyle, headStyle, border } = props;
+  const { title, more, moreText, size, headless, caption, isbutton, bodyStyle, headStyle, border } = props;
   return (
     <Fragment>
       {!headless ? (
@@ -21,9 +21,7 @@ const Cards = props => {
             <Fragment>
               {more && (
                 <Dropdown content={more} placement="bottomCenter">
-                  <NavLink to="#">
-                    <FeatherIcon icon="more-horizontal" />
-                  </NavLink>
+                  <NavLink to="#">{!moreText ? <FeatherIcon icon="more-horizontal" /> : 'More'}</NavLink>
                 </Dropdown>
               )}
 
@@ -59,6 +57,7 @@ Cards.propTypes = {
   headless: PropTypes.bool,
   border: PropTypes.bool,
   caption: PropTypes.string,
+  moreText: PropTypes.bool,
 };
 
 export { Cards };

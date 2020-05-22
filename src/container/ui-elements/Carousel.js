@@ -19,11 +19,11 @@ const Carousels = () => {
 
   return (
     <Fragment>
-      <PageHeader title="Spin" />
+      <PageHeader title="Carousel" />
       <Main>
         <Row gutter={15}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Carousel">
+            <Cards title="Basic">
               <CarouselStyleWraper>
                 <Carousel afterChange={onChange}>
                   <div>
@@ -41,9 +41,8 @@ const Carousels = () => {
                 </Carousel>
               </CarouselStyleWraper>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Autoplay" caption="The simplest use of Carousel">
+
+            <Cards title="Scroll automatically">
               <CarouselStyleWraper>
                 <Carousel autoplay>
                   <div>
@@ -63,7 +62,7 @@ const Carousels = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Position" caption="The simplest use of Carousel">
+            <Cards title="Position">
               <CarouselStyleWraper>
                 <Radio.Group onChange={handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
                   <Radio.Button value="top">Top</Radio.Button>
@@ -87,9 +86,7 @@ const Carousels = () => {
                 </Carousel>
               </CarouselStyleWraper>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards headless title="Fade Effect" caption="The simplest use of Carousel">
+            <Cards title="Fade in">
               <CarouselStyleWraper>
                 <Carousel effect="fade">
                   <div>

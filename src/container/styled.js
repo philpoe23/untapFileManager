@@ -14,6 +14,8 @@ const Main = Styled.div`
             margin-right: 0;
         }
     }
+
+    /* Column Cards Wrapper */
     .columnCardsWrapper{
         background: #F4F5F7;
         border-radius: 4px;
@@ -26,6 +28,71 @@ const Main = Styled.div`
         background: #fff;
     }
 
+    /* Ant Collapse */
+    .ant-collapse{
+        border-color: #E3E6EF;
+        border-radius: 5px;
+    }
+    .ant-collapse .ant-collapse-header{
+        color: #5A5F7D;
+        padding-left: 45px !important;
+    }
+    .ant-collapse-content p{
+        color: #9299B8;
+        margin-bottom: 0;
+    }
+    .ant-collapse-content > .ant-collapse-content-box {
+        padding: 12px 20px;
+    }
+    .ant-collapse..ant-collapse-borderless{
+        background-color: #F8F9FB;
+    }
+
+    .ant-collapse .ant-collapse {
+        border: 0 none;
+        background: #fff;
+    }
+
+    .ant-collapse .ant-collapse > .ant-collapse-item {
+        border-bottom: 0;
+    }
+    .ant-collapse .ant-collapse .ant-collapse-header{
+        border: 1px solid #E3E6EF;
+        background: #F8F9FB;
+    }
+    .ant-collapse .ant-collapse .ant-collapse-content{
+        margin: 20px 0 10px 0;
+        border: 1px solid #E3E6EF;
+        border-radius: 0;
+    }
+
+    /* Ant Comment */
+    .ant-comment-inner{
+        padding: 0;
+    }
+    .ant-comment-content-detail p{
+        color: #9299B8;
+    }
+    .ant-list-items{
+        padding-top: 22px;
+    }
+    .ant-list-items li:not(:last-child){
+        margin-bottom: 22px;
+    }
+    .ant-comment:not(:last-child){
+        margin-bottom: 22px;
+    }
+    .ant-comment-nested{
+        margin-top: 22px;
+    }
+    .ant-comment-actions li span{
+        color: #ADB4D2;
+    }
+    .ant-comment-content-detail textarea{
+        resize: none;
+        min-height: 170px;
+        border-radius: 5px;
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

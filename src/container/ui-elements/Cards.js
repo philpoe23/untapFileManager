@@ -6,8 +6,6 @@ import { CardStyleWrapper } from './ui-elements-styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom';
 
-const { Meta } = Card;
-
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -32,14 +30,28 @@ const CardContainer = () => {
             <Cards title="Basic card" size="large">
               <Col md={8} style={{ padding: 0 }}>
                 <CardStyleWrapper>
-                  <Cards title="Default Size Card" border={true} size="default" more={content} style={{ width: 400 }}>
+                  <Cards
+                    title="Default Size Card"
+                    border={true}
+                    size="default"
+                    moreText
+                    more={content}
+                    style={{ width: 400 }}
+                  >
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                   </Cards>
-                  <Cards title="Small size card" border={true} size="small" more={content} style={{ width: 400 }}>
+                  <Cards
+                    title="Small size card"
+                    border={true}
+                    size="small"
+                    moreText
+                    more={content}
+                    style={{ width: 400 }}
+                  >
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
@@ -50,9 +62,16 @@ const CardContainer = () => {
               </Col>
             </Cards>
             <Cards title="No border" size="large">
-              <Col md={8} style={{ padding: 0 , marginBottom: '-20px' }}>
+              <Col md={8} style={{ padding: 0, marginBottom: '-20px' }}>
                 <CardStyleWrapper>
-                  <Cards title="Default Size Card" border={false} size="default" more={content} style={{ width: 400 }}>
+                  <Cards
+                    title="Default Size Card"
+                    border={false}
+                    size="default"
+                    moreText
+                    more={content}
+                    style={{ width: 400 }}
+                  >
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
@@ -63,7 +82,7 @@ const CardContainer = () => {
               </Col>
             </Cards>
             <Cards title="Simple card" size="large">
-              <Col md={8} style={{ padding: 0 , marginBottom: '-20px' }}>
+              <Col md={8} style={{ padding: 0, marginBottom: '-20px' }}>
                 <CardStyleWrapper>
                   <Cards headless border={true} size="default">
                     <p>Card content</p>
@@ -74,7 +93,7 @@ const CardContainer = () => {
               </Col>
             </Cards>
           </Col>
-          
+
           {/* <Col md={8}>
             <Cards title="Default Size Card" size="default">
               <p>Card content</p>
@@ -121,10 +140,14 @@ const CardContainer = () => {
             </Row>
           </div>
         </Cards>
-        
+
         <Row gutter={15}>
           <Col md={24}>
             <Cards title="Grid Card" size="large">
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
               <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
