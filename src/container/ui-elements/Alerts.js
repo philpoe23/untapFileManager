@@ -103,40 +103,6 @@ const Alerts = () => {
                 />
               </AlertList>
             </Cards>
-            <Cards headless title="Icon alerts" size="large" caption="Alert with nice Icon">
-              <Alert
-                showIcon
-                icon={<FeatherIcon icon="layers" size={15} />}
-                message="Hello there! A simple success alert—check it out!"
-                type="success"
-              />
-              <Alert
-                showIcon
-                icon={<FeatherIcon icon="layers" size={15} />}
-                message="Hello there! A simple error alert—check it out!"
-                type="error"
-              />
-              <Alert
-                showIcon
-                icon={<FeatherIcon icon="layers" size={15} />}
-                message="Hello there! A simple warning alert—check it out!"
-                type="warning"
-              />
-              <Alert
-                showIcon
-                icon={<FeatherIcon icon="layers" size={15} />}
-                message="Hello there! A simple info alert—check it out!"
-                type="info"
-              />
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Icon alerts" size="large" caption="Alert with nice Icon">
-              <Alert outlined message="Hello there! A simple success alert—check it out!" type="success" />
-              <Alert outlined message="Hello there! A simple error alert—check it out!" type="error" />
-              <Alert outlined message="Hello there! A simple warning alert—check it out!" type="warning" />
-              <Alert outlined message="Hello there! A simple info alert—check it out!" type="info" />
-            </Cards>
             <Cards title="Customized Close Text" size="large">
               <AlertList>
                 <Alert 

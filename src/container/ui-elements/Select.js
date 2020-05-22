@@ -54,10 +54,10 @@ const Selects = () => {
     <Fragment>
       <PageHeader ghost title="Select" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
-              <Select defaultValue="lucy" style={{ width: 120 }}>
+              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
                 <Option value="jack">Jack</Option>
                 <Option value="lucy">Lucy</Option>
                 <Option value="disabled" disabled>
@@ -65,7 +65,7 @@ const Selects = () => {
                 </Option>
                 <Option value="Yiminghe">yiminghe</Option>
               </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
                 <Option value="lucy">Lucy</Option>
               </Select>
               <Select defaultValue="lucy" style={{ width: 120 }} loading>

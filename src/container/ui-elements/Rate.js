@@ -19,9 +19,9 @@ const Rating = () => {
     <Fragment>
       <PageHeader title="Rating" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards title="Basic">
+            <Cards title="Basic" caption="The simplest use of Rate">
               <Rate />
             </Cards>
           </Col>

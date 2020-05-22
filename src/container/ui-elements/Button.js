@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
-import { Main, ButtonsGroupWrapper, BlockButtonsWrapper , ButtonSizeWrapper } from '../styled';
+import { Main, ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
@@ -11,7 +11,7 @@ import theme from '../../config/theme/customize-antd';
 
 const Buttons = () => {
   return (
-    <Cards headless>
+    <Fragment>
       <PageHeader title="Button" />
       <Main className="button-example">
         <Row gutter={15}>
@@ -343,10 +343,12 @@ const Buttons = () => {
               </Button>
 
               <Dropdown placement="topLeft">
-                <Button size="default" outlined type="light">
-                  Actions
-                  <DownOutlined />
-                </Button>
+                <BtnWithIcon>
+                  <Button size="default" outlined type="light">
+                    Actions
+                    <DownOutlined />
+                  </Button>
+                </BtnWithIcon>
               </Dropdown>
             </Cards>
           </Col>
@@ -439,16 +441,18 @@ const Buttons = () => {
                 <div className="button-group-single">
                   <h4>With Icon</h4>
                   <Row>
-                    <BtnGroup>
-                      <Button size="small" type="light">
-                        <LeftOutlined />
-                        Go Back
-                      </Button>
-                      <Button size="small" type="light">
-                        Go Forward
-                        <RightOutlined />
-                      </Button>
-                    </BtnGroup>
+                    <BtnWithIcon>
+                      <BtnGroup>
+                          <Button size="small" type="primary" className="active">
+                            <LeftOutlined />
+                            Go Back
+                          </Button>
+                          <Button size="small" type="primary">
+                            Go Forward
+                            <RightOutlined />
+                          </Button>
+                      </BtnGroup>
+                    </BtnWithIcon>
                   </Row>
                 </div>
               </ButtonsGroupWrapper>
@@ -495,7 +499,7 @@ const Buttons = () => {
           </Col>
         </Row>
       </Main>
-    </Cards>
+    </Fragment>
   );
 };
 

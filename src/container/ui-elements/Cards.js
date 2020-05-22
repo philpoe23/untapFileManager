@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Card } from 'antd';
 import { Main } from '../styled';
+import { CardStyleWrapper } from './ui-elements-styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom';
 
@@ -27,16 +28,54 @@ const CardContainer = () => {
       <PageHeader title="Cards" />
       <Main>
         <Row gutter={15}>
-          <Col md={8}>
-            <Cards title="Default Size Card" size="default" more={content}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+          <Col md={24}>
+            <Cards title="Basic card" size="large">
+              <Col md={8} style={{ padding: 0 }}>
+                <CardStyleWrapper>
+                  <Cards title="Default Size Card" border={true} size="default" more={content} style={{ width: 400 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                  </Cards>
+                  <Cards title="Small size card" border={true} size="small" more={content} style={{ width: 400 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
+            </Cards>
+            <Cards title="No border" size="large">
+              <Col md={8} style={{ padding: 0 , marginBottom: '-20px' }}>
+                <CardStyleWrapper>
+                  <Cards title="Default Size Card" border={false} size="default" more={content} style={{ width: 400 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
+            </Cards>
+            <Cards title="Simple card" size="large">
+              <Col md={8} style={{ padding: 0 , marginBottom: '-20px' }}>
+                <CardStyleWrapper>
+                  <Cards headless border={true} size="default">
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
             </Cards>
           </Col>
-          <Col md={8}>
+          
+          {/* <Col md={8}>
             <Cards title="Default Size Card" size="default">
               <p>Card content</p>
               <p>Card content</p>
@@ -44,8 +83,8 @@ const CardContainer = () => {
               <p>Card content</p>
               <p>Card content</p>
             </Cards>
-          </Col>
-          <Col md={8}>
+          </Col> */}
+          {/* <Col md={8}>
             <Cards title="Small Size Card" size="small" more={content}>
               <p>Card content</p>
               <p>Card content</p>
@@ -53,98 +92,44 @@ const CardContainer = () => {
               <p>Card content</p>
               <p>Card content</p>
             </Cards>
-          </Col>
+          </Col> */}
         </Row>
+        <Cards title="Simple card" size="large">
+          <div className="columnCardsWrapper">
+            <Row gutter={16}>
+              <Col span={8}>
+                <CardStyleWrapper>
+                  <Cards title="Card title" border={false} size="default">
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
+              <Col span={8}>
+                <CardStyleWrapper>
+                  <Cards title="Card title" border={false} size="default">
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
+              <Col span={8}>
+                <CardStyleWrapper>
+                  <Cards title="Card title" border={false} size="default">
+                    <p>Card content</p>
+                  </Cards>
+                </CardStyleWrapper>
+              </Col>
+            </Row>
+          </div>
+        </Cards>
+        
         <Row gutter={15}>
-          <Col md={8}>
-            <Cards title="Small Size Card" size="small">
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Cards>
-          </Col>
-          <Col md={8}>
-            <Cards headless title="simple card">
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Cards>
-          </Col>
-          <Col md={8}>
-            <Cards headless title="simple card" size="large">
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Cards>
-          </Col>
-        </Row>
-
-        <Row gutter={15}>
-          <Col md={12}>
+          <Col md={24}>
             <Cards title="Grid Card" size="large">
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Grid Card" size="large">
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '50%' }}>Content</Card.Grid>
-            </Cards>
-          </Col>
-        </Row>
-        <Row gutter={15}>
-          <Col md={8}>
-            <Card
-              hoverable
-              style={{ width: '100%' }}
-              cover={
-                <img
-                  alt="example"
-                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
-                />
-              }
-            >
-              <Meta title="Customized content" description="www.instagram.com" />
-            </Card>
-          </Col>
-          <Col md={8}>
-            <Card
-              hoverable
-              style={{ width: '100%' }}
-              cover={
-                <img
-                  alt="example"
-                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
-                />
-              }
-            >
-              <Meta title="Customized content" description="www.instagram.com" />
-            </Card>
-          </Col>
-          <Col md={8}>
-            <Card
-              hoverable
-              style={{ width: '100%' }}
-              cover={
-                <img
-                  alt="example"
-                  src="https://images.unsplash.com/photo-1553342047-1a988767f0de?ixlib=rb-1.2.1&w=1000&q=80"
-                />
-              }
-            >
-              <Meta title="Customized content" description="www.instagram.com" />
-            </Card>
           </Col>
         </Row>
       </Main>
