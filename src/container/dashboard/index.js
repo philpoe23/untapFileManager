@@ -7,22 +7,8 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Focard, CardBarChart, CardGroup } from './style';
-
-const content = (
-  <Fragment>
-    <NavLink to="#">
-      <span>More one</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More two</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More three</span>
-    </NavLink>
-  </Fragment>
-);
 
 const options = {
   layout: {
@@ -935,7 +921,6 @@ const Dashbord = () => {
               }
               title="Social Traffic Metrics"
               size="large"
-              more={content}
             >
               <Table columns={columns} dataSource={data} pagination={false} />
             </Cards>

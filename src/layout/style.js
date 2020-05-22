@@ -9,7 +9,7 @@ const Div = Styled.div`
         }
     }
     .ant-layout-sider-children {
-        height: auto;
+        /* height: auto; */
     }
     .navbar-brand{
         button{

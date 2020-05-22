@@ -258,7 +258,7 @@ const Performance = () => {
         <Row gutter={15}>
           <Col md={8}>
             <OverviewCard>
-              <div className="d-flex align-items-center justify-content-between">
+              <div className="d-flex align-items-center justify-content-between overview-head">
                 <Heading as="h4">Daily Overview</Heading>
                 <Button>
                   Export <FeatherIcon icon="chevron-down" size={14} />
@@ -289,13 +289,15 @@ const Performance = () => {
               </Cards>
 
               <Cards headless>
-                <div>
-                  <Heading as="h2">8</Heading>
-                  <p>Goals Today</p>
-                </div>
-                <div>
-                  <Heading as="h2">120</Heading>
-                  <p>Expected Goals</p>
+                <div  className="d-flex align-items-center justify-content-between">
+                  <div>
+                    <Heading as="h2">8</Heading>
+                    <p>Goals Today</p>
+                  </div>
+                  <div>
+                    <Heading as="h2">120</Heading>
+                    <p>Expected Goals</p>
+                  </div>
                 </div>
                 <Progress percent={70} showInfo={false} />
                 <p>
@@ -340,9 +342,11 @@ const Performance = () => {
                 <p>Users</p>
                 <Heading as="h1">
                   72.6k
+                  <sub>
                   <span>
                     <FeatherIcon icon="arrow-up" size={14} /> 25%
                   </span>
+                  </sub>
                 </Heading>
               </div>
               <div>

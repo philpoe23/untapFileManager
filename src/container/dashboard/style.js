@@ -102,7 +102,7 @@ const Exlist = Styled.div`
 const OverviewCard = Styled.div`
     background: #fff;
     border-radius: 10px;
-    padding: 25px 25px 45px;
+    padding: 25px 25px 20px;
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -118,6 +118,9 @@ const OverviewCard = Styled.div`
     }
     .ant-card{
         box-shadow: 0 10px 30px rgba(146,153,184,0.15);
+    }
+    .overview-head{
+        margin-bottom: 70px;
     }
 `;
 

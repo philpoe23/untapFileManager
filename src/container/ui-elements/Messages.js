@@ -36,7 +36,7 @@ const Messages = () => {
     <Fragment>
       <PageHeader ghost title="Message" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <Button type="primary" onClick={info}>

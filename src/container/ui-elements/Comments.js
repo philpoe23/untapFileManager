@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Comment, Icon, Tooltip, Avatar, List } from 'antd';
+import { Row, Col, Comment, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import CommentEditor from '../../components/comments/comments-editor';
+import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
 
 const Comments = () => {
   const [state, setState] = useState({
@@ -35,22 +36,22 @@ const Comments = () => {
   const actions = [
     <span key="comment-basic-like">
       <Tooltip title="Like">
-        <Icon type="like" theme={action === 'liked' ? 'filled' : 'outlined'} onClick={like} />
+        <LikeOutlined theme={action === 'liked' ? 'filled' : 'outlined'} onClick={like} />
       </Tooltip>
       <span style={{ paddingLeft: 8, cursor: 'auto' }}>{likes}</span>
     </span>,
     <span key=' key="comment-basic-dislike"'>
       <Tooltip title="Dislike">
-        <Icon type="dislike" theme={action === 'disliked' ? 'filled' : 'outlined'} onClick={dislike} />
+        <DislikeOutlined theme={action === 'disliked' ? 'filled' : 'outlined'} onClick={dislike} />
       </Tooltip>
       <span style={{ paddingLeft: 8, cursor: 'auto' }}>{dislikes}</span>
     </span>,
-    <span key="comment-basic-reply-to">Reply to</span>,
+    <span key="comment-basic-reply-to">Reply</span>,
   ];
 
   const data = [
     {
-      actions: [<span key="comment-list-reply-to-0">Reply to</span>],
+      actions: [<span key="comment-list-reply-to-0">Reply</span>],
       author: 'Han Solo',
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       content: (
@@ -74,7 +75,7 @@ const Comments = () => {
       ),
     },
     {
-      actions: [<span key="comment-list-reply-to-0">Reply to</span>],
+      actions: [<span key="comment-list-reply-to-0">Reply</span>],
       author: 'Han Solo',
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       content: (
@@ -101,7 +102,7 @@ const Comments = () => {
 
   const ExampleComment = ({ children }) => (
     <Comment
-      actions={[<span key="comment-nested-reply-to">Reply to</span>]}
+      actions={[<span key="comment-nested-reply-to">Reply</span>]}
       author={<NavLink to="#">Han Solo</NavLink>}
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
       content={
@@ -121,7 +122,7 @@ const Comments = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless title="Basic" caption="The simplest use of Comments">
+            <Cards title="Basic comment">
               <Comment
                 actions={actions}
                 author={<NavLink to="#">Han Solo</NavLink>}
@@ -143,7 +144,7 @@ const Comments = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Usage with list" caption="The simplest use of Comments">
+            <Cards title="Usage with list">
               <List
                 className="comment-list"
                 header={`${data.length} replies`}
@@ -152,7 +153,7 @@ const Comments = () => {
                 renderItem={item => (
                   <li>
                     <Comment
-                      actions={item.actions}
+                      actions={actions}
                       author={item.author}
                       avatar={item.avatar}
                       content={item.content}
@@ -164,17 +165,20 @@ const Comments = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Nested comments" caption="The simplest use of Comments">
-              <ExampleComment>
+            <Cards title="Nested comments">
+              <div className="nested-comment-wrapper">
+                <h6 className="comment-title">Reply to</h6>
                 <ExampleComment>
-                  <ExampleComment />
-                  <ExampleComment />
+                  <ExampleComment>
+                    <ExampleComment />
+                    <ExampleComment />
+                  </ExampleComment>
                 </ExampleComment>
-              </ExampleComment>
+              </div>
             </Cards>
           </Col>
-          <Col md={24}>
-            <Cards headless title="Reply Editor" caption="The simplest use of Comments">
+          <Col md={12}>
+            <Cards title="Reply Editor">
               <CommentEditor />
             </Cards>
           </Col>

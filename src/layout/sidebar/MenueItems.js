@@ -352,6 +352,9 @@ const MenueItems = () => {
         <Menu.Item key="tree-select">
           <NavLink to="/components/tree-select">TreeSelect</NavLink>
         </Menu.Item>
+        <Menu.Item key="upload">
+          <NavLink to="/components/upload">Upload</NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu
