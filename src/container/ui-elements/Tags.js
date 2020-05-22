@@ -23,9 +23,9 @@ const Tags = () => {
     <Fragment>
       <PageHeader title="Tags" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of tags">
+            <Cards title="Basic" caption="The simplest use of tags">
               <Tag>Tag 1</Tag>
               <Tag>
                 <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
@@ -39,7 +39,7 @@ const Tags = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Colorful Tag" caption="The simplest use of tags">
+            <Cards title="Colorful Tag" caption="The simplest use of tags">
               <h4 style={{ marginBottom: 16 }}>Presets:</h4>
               <div>
                 <Tag color="magenta">magenta</Tag>
@@ -64,7 +64,7 @@ const Tags = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Checkable Tag" caption="The simplest use of tags">
+            <Cards title="Checkable Tag" caption="The simplest use of tags">
               <Tag checked onChange={checked}>
                 Tag 1
               </Tag>
@@ -83,12 +83,12 @@ const Tags = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Hot Tag" caption="The simplest use of tags">
+            <Cards title="Hot Tag" caption="The simplest use of tags">
               <Tag hottags onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Animated Tag" caption="The simplest use of tags">
+            <Cards title="Animated Tag" caption="The simplest use of tags">
               <Tag animate onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>
           </Col>

@@ -19,43 +19,43 @@ const TimePickers = () => {
     <Fragment>
       <PageHeader title="Time picker" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Time picker">
+            <Cards title="Basic" caption="The simplest use of Time picker">
               <TimePicker defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Disebled" caption="The simplest use of Time picker">
+            <Cards title="Disebled" caption="The simplest use of Time picker">
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="interval option" caption="The simplest use of Time picker">
+            <Cards title="interval option" caption="The simplest use of Time picker">
               <TimePicker minuteStep={15} secondStep={10} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="12 hours" caption="The simplest use of Time picker">
-              <TimePicker use12Hours />
-              <TimePicker use12Hours format="h:mm:ss A" />
+            <Cards title="12 hours" caption="The simplest use of Time picker">
+              <TimePicker use12Hours style={{marginRight: "10px"}} />
+              <TimePicker use12Hours format="h:mm:ss A" style={{marginRight: "10px"}} />
               <TimePicker use12Hours format="h:mm a" />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Three Size" caption="The simplest use of Time picker">
-              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
-              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
+            <Cards title="Three Size" caption="The simplest use of Time picker">
+              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} style={{marginRight: "10px"}} />
+              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" style={{marginRight: "10px"}} />
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Hours and minute" caption="The simplest use of Time picker">
+            <Cards title="Hours and minute" caption="The simplest use of Time picker">
               <TimePicker defaultValue={moment('12:08', format)} format={format} />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Addon" caption="The simplest use of Time picker">
+            <Cards title="Addon" caption="The simplest use of Time picker">
               <TimePicker
                 open={state.open}
                 onOpenChange={handleOpenChange}

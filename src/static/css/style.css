@@ -271,3 +271,28 @@
   padding-top: 2px !important;
   padding-bottom: 2px !important;
 }
+
+/* slider */
+.ant-slider-handle{
+  margin-top: -6px !important;
+}
+
+/* tags */
+.ant-tag{
+  font-weight: 600;
+}
+
+/* tabs */
+.ant-tabs-tab span{
+  display: flex;
+  align-items: center;
+}
+.ant-tabs-tab span svg{
+  padding-right: 5px;
+}
+
+/* list */
+.ant-list-item-meta{
+  padding: 10px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}

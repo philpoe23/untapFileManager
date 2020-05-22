@@ -12,28 +12,28 @@ const Spiner = () => {
     <Fragment>
       <PageHeader title="Spin" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Spin">
+            <Cards title="Basic" caption="The simplest use of Spin">
               <Spin />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Size" caption="The simplest use of Spin">
+            <Cards title="Size" caption="The simplest use of Spin">
               <Spin size="small" />
               <Spin />
               <Spin size="large" />
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Inside a container" caption="The simplest use of Spin">
+            <Cards title="Inside a container" caption="The simplest use of Spin">
               <SpinerWraperStyle>
                 <Spin />
               </SpinerWraperStyle>
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom Indicator" caption="The simplest use of Spin">
+            <Cards title="Custom Indicator" caption="The simplest use of Spin">
               <SpinerWraperStyle>
                 <Spin indicator={antIcon} />
               </SpinerWraperStyle>

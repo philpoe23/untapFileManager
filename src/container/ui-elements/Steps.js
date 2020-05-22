@@ -43,9 +43,9 @@ const Stepess = () => {
     <Fragment>
       <PageHeader title="Steps" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
-            <Cards headless title="Basic Step" caption="The simplest use of Steps">
+            <Cards title="Basic Step" caption="The simplest use of Steps">
               <Steps size="small" current={1}>
                 <Step title="Finished" />
                 <Step title="In Progress" />
@@ -54,7 +54,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="With Icon" caption="The simplest use of Steps">
+            <Cards title="With Icon" caption="The simplest use of Steps">
               <Steps>
                 <Step status="finish" title="Login" icon={<Icon type="user" />} />
                 <Step status="finish" title="Verification" icon={<Icon type="solution" />} />
@@ -64,7 +64,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Switch Step" caption="The simplest use of Steps">
+            <Cards title="Switch Step" caption="The simplest use of Steps">
               <Steps
                 isswitch
                 steps={[
@@ -88,7 +88,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Vertical mini version" caption="The simplest use of Steps">
+            <Cards title="Vertical mini version" caption="The simplest use of Steps">
               <Steps direction="vertical" size="small" current={1}>
                 <Step title="Finished" description="This is a description." />
                 <Step title="In Progress" description="This is a description." />
@@ -97,7 +97,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Error Status" caption="The simplest use of Steps">
+            <Cards title="Error Status" caption="The simplest use of Steps">
               <Steps current={1} status="error">
                 <Step title="Finished" description="This is a description" />
                 <Step title="In Process" description="This is a description" />
@@ -106,7 +106,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Custom dot style" caption="The simplest use of Steps">
+            <Cards title="Custom dot style" caption="The simplest use of Steps">
               <Steps current={1} progressDot={customDot}>
                 <Step title="Finished" description="You can hover on the dot." />
                 <Step title="In Progress" description="You can hover on the dot." />
@@ -116,7 +116,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Clickable" caption="The simplest use of Steps">
+            <Cards title="Clickable" caption="The simplest use of Steps">
               <Steps current={current} onChange={onChange}>
                 <Step title="Step 1" description="This is a description." />
                 <Step title="Step 2" description="This is a description." />
@@ -133,7 +133,7 @@ const Stepess = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Navigation Steps" caption="The simplest use of Steps">
+            <Cards title="Navigation Steps" caption="The simplest use of Steps">
               <Steps navigation onChange={onChange}>
                 <Step status="finish" title="Step 1" />
                 <Step status="process" title="Step 2" />
