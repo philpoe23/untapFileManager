@@ -10,8 +10,10 @@ const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
   border-width: 0px !important;
   margin: 15px 0 0 0!important;
-  padding: 9px 20px!important;
+  padding: 11px 20px!important;
   .ant-alert-message{
+    line-height: 1.8;
+    margin-bottom: 0 !important;
     font-size: 15px !important;
     font-weight: 500 !important;
   }
@@ -29,7 +31,14 @@ const Style = Styled(Alert)`
 
   ${({ showIcon }) =>
     showIcon &&
-    `padding-left: 50px!important;
+    `padding: 16px 40px 20px!important;
+    .ant-alert-icon{
+      top: 20px !important;
+      left: 15px !important;
+    }
+    .ant-alert-message{
+      margin-top: -2px;
+    }
     i.ant-alert-icon {
       color: ${({ type, theme }) => theme[type + '-color']} !important;
       background: #ffffff80 !important;

@@ -31,11 +31,11 @@ const Calendars = () => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards title="Basic">
-              <Calendar />
+              <Calendar onPanelChange={onPanelChange} />
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Card" caption="The simplest use of Calendar">
+            <Cards title="Notice Calendar">
               <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
                 <Calendar fullscreen={false} />
               </div>
