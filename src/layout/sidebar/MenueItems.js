@@ -1,9 +1,10 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-const { SubMenu } = Menu;
+import { FireOutlined } from '@ant-design/icons';
 
+const { SubMenu } = Menu;
 const MenueItems = () => {
   const pathArray = window.location.pathname.split('/');
   return (
@@ -120,7 +121,7 @@ const MenueItems = () => {
         key="firestore"
         title={
           <span>
-            <Icon type="fire" size={24} />
+            <FireOutlined />
             <span>Firestore Crud</span>
           </span>
         }
