@@ -11,7 +11,7 @@ const Inputs = () => {
     <Fragment>
       <PageHeader ghost title="Input" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <Input placeholder="Basic usage" />

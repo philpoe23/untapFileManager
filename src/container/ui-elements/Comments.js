@@ -122,7 +122,7 @@ const Comments = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless title="Basic" caption="The simplest use of Comments">
+            <Cards title="Basic comment">
               <Comment
                 actions={actions}
                 author={<NavLink to="#">Han Solo</NavLink>}
@@ -144,7 +144,7 @@ const Comments = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Usage with list" caption="The simplest use of Comments">
+            <Cards title="Usage with list">
               <List
                 className="comment-list"
                 header={`${data.length} replies`}
@@ -165,17 +165,20 @@ const Comments = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards headless title="Nested comments" caption="The simplest use of Comments">
-              <ExampleComment>
+            <Cards title="Nested comments">
+              <div className="nested-comment-wrapper">
+                <h6 className="comment-title">Reply to</h6>
                 <ExampleComment>
-                  <ExampleComment />
-                  <ExampleComment />
+                  <ExampleComment>
+                    <ExampleComment />
+                    <ExampleComment />
+                  </ExampleComment>
                 </ExampleComment>
-              </ExampleComment>
+              </div>
             </Cards>
           </Col>
-          <Col md={24}>
-            <Cards headless title="Reply Editor" caption="The simplest use of Comments">
+          <Col md={12}>
+            <Cards title="Reply Editor">
               <CommentEditor />
             </Cards>
           </Col>

@@ -19,12 +19,25 @@ const SpinerWraperStyle = Styled.div`
 const CarouselStyleWraper = Styled.div`
   .ant-carousel .slick-slide {
     text-align: center;
-    height: 160px;
+    height: 150px;
     line-height: 160px;
-    background: #364d79;
+    background: #5A5F7D;
     overflow: hidden;
   }
-
+  .ant-carousel .slick-dots li{
+    width: 15px;
+  }
+  .ant-carousel .slick-dots li.slick-active{
+    width: 25px;
+  }
+  .ant-radio-group{
+    margin-bottom: 16px !important;
+  }
+  .ant-radio-button-wrapper{
+    height: 38px;
+    line-height: 36px;
+    padding: 0 25.25px;
+  }
   .ant-carousel .slick-slide h3 {
     color: #fff;
   }
@@ -188,4 +201,14 @@ const CardStyleWrapper = Styled.div`
 }
 `;
 
-export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle, BadgeStandAloneStyle , BadgeOverflowStyle, BreadcrumbWrapperStyle, BadgeRedStyle, BadgeDynamicStyle, CardStyleWrapper };
+const CasCaderStyleWrapper = Styled.div`
+  .ant-cascader-picker{
+    display: block;
+    width: fit-content;
+  }
+  .ant-cascader-picker:not(:last-child){
+    margin-bottom: 20px;
+  }
+`;
+
+export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle, BadgeStandAloneStyle , BadgeOverflowStyle, BreadcrumbWrapperStyle, BadgeRedStyle, BadgeDynamicStyle, CardStyleWrapper, CasCaderStyleWrapper };

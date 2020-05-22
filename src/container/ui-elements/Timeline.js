@@ -9,9 +9,9 @@ const Timelines = () => {
     <Fragment>
       <PageHeader title="Timelines" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Timelines">
+            <Cards title="Basic" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
                 <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
@@ -21,7 +21,7 @@ const Timelines = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Color" caption="The simplest use of Timelines">
+            <Cards title="Color" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
                 <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
@@ -49,7 +49,7 @@ const Timelines = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Alternate" caption="The simplest use of Timelines">
+            <Cards title="Alternate" caption="The simplest use of Timelines">
               <Timeline mode="alternate">
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
                 <Timeline.Item color="green">Solve initial network problems 2015-09-01</Timeline.Item>
@@ -67,7 +67,7 @@ const Timelines = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Right alternate" caption="The simplest use of Timelines">
+            <Cards title="Right alternate" caption="The simplest use of Timelines">
               <Timeline mode="right">
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
                 <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
@@ -79,7 +79,7 @@ const Timelines = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards headless title="Custom" caption="The simplest use of Timelines">
+            <Cards title="Custom" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
                 <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
