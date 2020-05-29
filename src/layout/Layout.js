@@ -12,8 +12,8 @@ const { Header, Footer, Sider, Content } = Layout;
 
 const ThemeLayout = WrappedComponent => {
   class LayoutComponent extends Component {
-    constructor(props, ...rest) {
-      super(props, ...rest);
+    constructor(props) {
+      super(props);
       this.state = {
         collapsed: false,
         top: 0,
