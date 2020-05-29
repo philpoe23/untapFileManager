@@ -7,7 +7,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { DropdownStyle } from './ui-elements-styled';
 import { Button } from '../../components/buttons/buttons';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Dropdowns = () => {
   return (
@@ -18,7 +18,7 @@ const Dropdowns = () => {
           <Col md={12}>
             <Cards title="Basic Dropdown" caption="The simplest use of Steps">
               <Dropdown placement="bottomLeft">
-                <NavLink to="#">hover me</NavLink>
+                <Link to="#">hover me</Link>
               </Dropdown>
             </Cards>
           </Col>
@@ -48,13 +48,13 @@ const Dropdowns = () => {
           <Col md={12}>
             <Cards title="Event menu " caption="The simplest use of Dropdown">
               <Dropdown action={['hover']} placement="bottomLeft">
-                <NavLink to="#">hover me </NavLink>
+                <Link to="#">hover me </Link>
               </Dropdown>
               <Dropdown action={['click']} placement="bottomCenter">
-                <NavLink to="#">click </NavLink>
+                <Link to="#">click </Link>
               </Dropdown>
               <Dropdown action={['contextMenu']} placement="bottomRight">
-                <NavLink to="#">context</NavLink>
+                <Link to="#">context</Link>
               </Dropdown>
             </Cards>
           </Col>

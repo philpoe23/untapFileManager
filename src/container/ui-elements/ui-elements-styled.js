@@ -213,4 +213,17 @@ const CasCaderStyleWrapper = Styled.div`
   }
 `;
 
-export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle, BadgeStandAloneStyle , BadgeOverflowStyle, BreadcrumbWrapperStyle, BadgeRedStyle, BadgeDynamicStyle, CardStyleWrapper, CasCaderStyleWrapper };
+export {
+  DropdownStyle,
+  SpinerWraperStyle,
+  CarouselStyleWraper,
+  AvatarWraperStyle,
+  BadgeWraperStyle,
+  BadgeStandAloneStyle,
+  BadgeOverflowStyle,
+  BreadcrumbWrapperStyle,
+  BadgeRedStyle,
+  BadgeDynamicStyle,
+  CardStyleWrapper,
+  CasCaderStyleWrapper,
+};
