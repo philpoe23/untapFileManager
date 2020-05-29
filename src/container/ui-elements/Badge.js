@@ -98,7 +98,7 @@ const Badges = () => {
 
             <Cards title="Status">
               <BadgeWraperStyle>
-                <div>
+                <div style={{marginBottom: 10}}>
                   {colors.map(color => (
                     <Badge key={color} color={color} />
                   ))}

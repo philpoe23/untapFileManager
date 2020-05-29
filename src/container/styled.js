@@ -146,4 +146,21 @@ const AutoCompleteWrapper = Styled.div`
     }
 `;
 
-export { Main , ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon, AlertList , AutoCompleteWrapper };
+const CalendarWrapper = Styled.div`
+    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+        height: 30px !important;
+    }
+    .ant-select-single .ant-select-selector .ant-select-selection-item, 
+    .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+        line-height: 28px !important;
+    }
+    .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-content{
+        height: 105px;
+    }
+    .ant-radio-button-wrapper{
+        height: 30px;
+        line-height: 28px;
+    }
+`;
+
+export { Main , ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon, AlertList , AutoCompleteWrapper , CalendarWrapper };
