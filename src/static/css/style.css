@@ -155,13 +155,15 @@
   align-self: flex-end;
   text-align: right;
 }
-
 .ant-progress-status-warning .ant-progress-bg {
   background: #FA8B0C;
 }
+/* progress primary */
+.progress-primary .ant-progress-bg{
+  background: #5F63F2;
+}
 
 /* color classes */
-
 .color-primary {
   color: #5F63F2;
 }
