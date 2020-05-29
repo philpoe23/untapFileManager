@@ -30,12 +30,14 @@ const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
 
   crud.length &&
     crud.map(person => {
-      const { id, name, age, address } = person;
+      const { id, name, email, company, position, status } = person;
       return dataSource.push({
         key: id,
         name,
-        age,
-        address,
+        email,
+        company,
+        position,
+        status: <p className={status}>{status}</p>,
         action: (
           <Fragment>
             <Link to={'/firestore/edit/' + id}>
@@ -57,14 +59,24 @@ const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
       key: 'name',
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: 'Company',
+      dataIndex: 'company',
+      key: 'company',
+    },
+    {
+      title: 'Position',
+      dataIndex: 'position',
+      key: 'position',
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
     },
     {
       title: 'Actions',
@@ -97,7 +109,7 @@ const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
                   <Spin />
                 </div>
               ) : (
-                <Table pagination={false} dataSource={dataSource} columns={columns} />
+                <Table pagination={{ pageSize: 10, showSizeChanger: true }} dataSource={dataSource} columns={columns} />
               )}
             </Cards>
           </Col>

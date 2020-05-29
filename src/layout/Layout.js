@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { Div } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { Scrollbars } from 'react-custom-scrollbars';
+// import { Scrollbars } from 'react-custom-scrollbars';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -72,14 +72,14 @@ const ThemeLayout = WrappedComponent => {
             </Header>
             <Layout>
               <Sider width={300} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
-                <Scrollbars
+                {/* <Scrollbars
                   renderThumbHorizontal={this.renderThumb}
                   renderThumbVertical={this.renderThumb}
                   onUpdate={this.handleUpdate}
-                >
-                  <p className="sidebar-nav-title">MAIN MENU</p>
-                  <MenueItems />
-                </Scrollbars>
+                > */}
+                <p className="sidebar-nav-title">MAIN MENU</p>
+                <MenueItems />
+                {/* </Scrollbars> */}
               </Sider>
               <Layout style={{ marginLeft: 280, marginTop: '64px' }}>
                 <Content>
