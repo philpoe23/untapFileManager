@@ -10,7 +10,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard } from './style';
+import { OverviewCard, Pstates } from './style';
+import { Dropdown } from '../../components/dropdown/dropdown';
+
 
 const content = (
   <Fragment>
@@ -255,19 +257,21 @@ const Performance = () => {
     <Fragment>
       <PageHeader ghost title="Website Performance Dashboard" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={8}>
             <OverviewCard>
               <div className="d-flex align-items-center justify-content-between overview-head">
                 <Heading as="h4">Daily Overview</Heading>
-                <Button>
-                  Export <FeatherIcon icon="chevron-down" size={14} />
-                </Button>
+                <Dropdown>
+                  <Button>
+                    Export <FeatherIcon icon="chevron-down" size={14} />
+                  </Button>
+                </Dropdown>
               </div>
               <Cards headless>
                 <div className="d-flex align-items-center justify-content-between">
                   <div>
-                    <Heading as="h2">5,461</Heading>
+                    <Heading as="h2" className="color-primary">5,461</Heading>
                     <p>Users Today</p>
                   </div>
                   <div>
@@ -276,13 +280,12 @@ const Performance = () => {
                   </div>
                 </div>
 
-                <Progress percent={70} showInfo={false} />
+                <Progress percent={70} showInfo={false} className="progress-primary" />
 
                 <p>
-                  <span>
+                  <span className="growth-upward">
                     <FeatherIcon icon="arrow-up" size={14} />
-                    25%
-                    <span>Since yesterday</span>
+                    25% <span>Since yesterday</span>
                   </span>
                   <span style={{ float: 'right' }}>70%</span>
                 </p>
@@ -291,7 +294,7 @@ const Performance = () => {
               <Cards headless>
                 <div  className="d-flex align-items-center justify-content-between">
                   <div>
-                    <Heading as="h2">8</Heading>
+                    <Heading as="h2" className="color-info">140</Heading>
                     <p>Goals Today</p>
                   </div>
                   <div>
@@ -301,10 +304,9 @@ const Performance = () => {
                 </div>
                 <Progress percent={70} showInfo={false} />
                 <p>
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} />
-                    25%
-                    <span>Since yesterday</span>
+                  <span className="growth-downward">
+                    <FeatherIcon icon="arrow-down" size={14} />
+                    25% <span>Since yesterday</span>
                   </span>
                   <span style={{ float: 'right' }}>70%</span>
                 </p>
@@ -338,45 +340,44 @@ const Performance = () => {
               title="Website Performance"
               size="large"
             >
-              <div>
-                <p>Users</p>
-                <Heading as="h1">
-                  72.6k
-                  <sub>
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} /> 25%
-                  </span>
-                  </sub>
-                </Heading>
-              </div>
-              <div>
-                <p>Sessions</p>
-                <Heading as="h1">
-                  87.2k
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} /> 47%
-                  </span>
-                </Heading>
-              </div>
-              <div>
-                <p>Bounce Rate</p>
-                <Heading as="h1">
-                  26.3%
-                  <span>
-                    <FeatherIcon icon="arrow-down" size={14} /> 28%
-                  </span>
-                </Heading>
-              </div>
-
-              <div>
-                <p>Session Duration</p>
-                <Heading as="h1">
-                  2m 18s
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} /> 13%
-                  </span>
-                </Heading>
-              </div>
+              <Pstates>
+                <div>
+                  <p>Users</p>
+                  <Heading as="h1">
+                    72.6k
+                    <span>
+                      <FeatherIcon icon="arrow-up" size={14} /> 25%
+                    </span>
+                  </Heading>
+                </div>
+                <div>
+                  <p>Sessions</p>
+                  <Heading as="h1">
+                    87.2k
+                    <span>
+                      <FeatherIcon icon="arrow-up" size={14} /> 47%
+                    </span>
+                  </Heading>
+                </div>
+                <div>
+                  <p>Bounce Rate</p>
+                  <Heading as="h1">
+                    26.3%
+                    <span>
+                      <FeatherIcon icon="arrow-down" size={14} /> 28%
+                    </span>
+                  </Heading>
+                </div>
+                <div>
+                  <p>Session Duration</p>
+                  <Heading as="h1">
+                    2m 18s
+                    <span>
+                      <FeatherIcon icon="arrow-up" size={14} /> 13%
+                    </span>
+                  </Heading>
+                </div>
+              </Pstates>
 
               <ChartjsAreaChart
                 labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}

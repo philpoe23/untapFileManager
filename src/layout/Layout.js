@@ -35,7 +35,7 @@ const ThemeLayout = WrappedComponent => {
 
     renderThumb({ style, ...props }) {
       const thumbStyle = {
-        backgroundColor: `rgb(0,0,0)`,
+        backgroundColor: `#EFF0F3`,
         borderRadius: '20px',
       };
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
@@ -111,6 +111,7 @@ const ThemeLayout = WrappedComponent => {
     height: '100vh',
     position: 'fixed',
     left: 0,
+    zIndex: 1,
   };
 
   return LayoutComponent;
