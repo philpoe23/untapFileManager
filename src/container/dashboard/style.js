@@ -105,7 +105,7 @@ const OverviewCard = Styled.div`
     padding: 25px 25px 20px;
     overflow: hidden;
     position: relative;
-    z-index: 1;
+    z-index: 0;
     &:before{
         position: absolute;
         content: '';
@@ -118,13 +118,52 @@ const OverviewCard = Styled.div`
     }
     .ant-card{
         box-shadow: 0 10px 30px rgba(146,153,184,0.15);
+        .growth-upward{
+            color: ${({theme})=>theme["success-color"]};
+            font-weight: 600;
+            span{
+                color: ${({theme})=>theme["light-gray-color"]};
+                font-weight: 400;
+            }
+        }
+        .growth-downward{
+            color: ${({theme})=>theme["danger-color"]};
+            font-weight: 600;
+            span{
+                color: ${({theme})=>theme["light-gray-color"]};
+                font-weight: 400;
+            }
+        }
     }
     .overview-head{
         margin-bottom: 70px;
+        h1{
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .ant-btn-default{
+            background: rgba(255,255,255,0.1);
+            border: 0 none;
+            color: #fff;
+        }
+    }
+`;
+
+const Pstates = Styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    div{
+        transition: 0.3s ease;
+        padding: 20px;
+        &:hover{
+            box-shadow: 0 15px 30px rgba(146,153,184,0.15);
+        }
     }
 `;
 
 
 
-
-export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard };
+export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard, Pstates };
