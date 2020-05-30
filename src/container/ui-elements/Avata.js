@@ -45,7 +45,7 @@ const Avatars = () => {
                   <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
                     {user}
                   </Avatar>
-                  <Button size="small" style={{ margin: '0 6px', verticalAlign: 'middle', color: '#ADB4D2' }} onClick={changeUser}>
+                  <Button size="extra-small" style={{ margin: '0 10px', verticalAlign: 'middle', color: '#ADB4D2' }} onClick={changeUser}>
                     Change
                   </Button>
                 </div>
@@ -66,7 +66,7 @@ const Avatars = () => {
             </Cards>
             <Cards title="with badge">
               <AvatarWraperStyle>
-                <span style={{ marginRight: 24 }}>
+                <span style={{ marginRight: 20 }}>
                   <Badge count={1}>
                     <Avatar shape="square" icon={<UserOutlined />} />
                   </Badge>

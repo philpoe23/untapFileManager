@@ -336,7 +336,8 @@
   height: 42px !important;
 }
 
-.ant-select-single .ant-select-selector .ant-select-selection-item, .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+.ant-select-single .ant-select-selector .ant-select-selection-item, 
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
   line-height: 40px !important;
 }
 

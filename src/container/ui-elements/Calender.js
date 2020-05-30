@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Calendar, Badge } from 'antd';
 import moment from 'moment';
-import { Main } from '../styled';
+import { Main, CalendarWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Calendars = () => {
@@ -82,12 +82,20 @@ const Calendars = () => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards title="Basic">
-              <Calendar onPanelChange={onPanelChange} />
+              <CalendarWrapper>
+
+                <Calendar onPanelChange={onPanelChange} />
+
+              </CalendarWrapper>
             </Cards>
           </Col>
           <Col md={24}>
             <Cards title="Notice Calendar">
-              <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+              <CalendarWrapper>
+
+                <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+
+              </CalendarWrapper>
             </Cards>
           </Col>
         </Row>
