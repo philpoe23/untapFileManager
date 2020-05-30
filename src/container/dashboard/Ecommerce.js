@@ -14,6 +14,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
+import { CardBarChart2 } from './style';
 
 const content = (
   <Fragment>
@@ -354,19 +355,21 @@ const Ecommerce = () => {
     <Fragment>
       <PageHeader ghost title="Ecommerce Dashboard" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={6}>
             <Cards headless>
               <Row>
                 <Col xs={12}>
-                  <Heading as="h1">7,461</Heading>
-                  <span>Orders</span>
-                  <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
+                  <CardBarChart2>
+                    <Heading as="h1">7,461</Heading>
+                    <span>Orders</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
+                  </CardBarChart2>
                 </Col>
                 <Col xs={12}>
                   <ChartjsBarChartTransparent
@@ -388,14 +391,16 @@ const Ecommerce = () => {
             <Cards headless>
               <Row>
                 <Col xs={12}>
+                  <CardBarChart2>
                   <Heading as="h1">$28,947</Heading>
                   <span>Revenue</span>
                   <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
+                    <span className="growth-downward">
+                      <FeatherIcon icon="arrow-down" /> 25%
                     </span>
                     <span>Since last week</span>
                   </p>
+                  </CardBarChart2>
                 </Col>
                 <Col xs={12}>
                   <ChartjsBarChartTransparent
@@ -417,14 +422,16 @@ const Ecommerce = () => {
             <Cards headless>
               <Row>
                 <Col xs={12}>
+                  <CardBarChart2>
                   <Heading as="h1">$3,241</Heading>
                   <span>Avg. order value</span>
                   <p>
-                    <span>
+                    <span className="growth-upward">
                       <FeatherIcon icon="arrow-up" /> 25%
                     </span>
                     <span>Since last week</span>
                   </p>
+                  </CardBarChart2>
                 </Col>
                 <Col xs={12}>
                   <ChartjsBarChartTransparent
@@ -446,14 +453,16 @@ const Ecommerce = () => {
             <Cards headless>
               <Row>
                 <Col xs={12}>
+                  <CardBarChart2>
                   <Heading as="h1">45.2k</Heading>
                   <span>Unique visitors</span>
                   <p>
-                    <span>
+                    <span className="growth-upward">
                       <FeatherIcon icon="arrow-up" /> 25%
                     </span>
                     <span>Since last week</span>
                   </p>
+                  </CardBarChart2>
                 </Col>
                 <Col xs={12}>
                   <ChartjsBarChartTransparent
@@ -488,7 +497,8 @@ const Ecommerce = () => {
               size="large"
             >
               <Heading as="h1">
-                $72,784 <span> $52,240</span>
+                <span>$72,784</span>
+                <span> $52,240</span>
               </Heading>
 
               <ChartjsAreaChart

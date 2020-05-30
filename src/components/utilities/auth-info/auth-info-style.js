@@ -59,7 +59,6 @@ const InfoWraper = Styled.div`
         span, a{
             display: block;
             line-height: normal;
-            color: ${({theme}) => theme["light-color"]};
         }
     }
 `;

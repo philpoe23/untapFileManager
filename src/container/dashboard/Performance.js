@@ -10,7 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, Pstates } from './style';
+import { OverviewCard, Pstates, SessionState, RegionList } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
 
@@ -341,40 +341,48 @@ const Performance = () => {
               size="large"
             >
               <Pstates>
-                <div>
+                <div className="growth-upward">
                   <p>Users</p>
                   <Heading as="h1">
                     72.6k
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 25%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 25%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-upward">
                   <p>Sessions</p>
                   <Heading as="h1">
                     87.2k
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 47%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 47%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-downward">
                   <p>Bounce Rate</p>
                   <Heading as="h1">
                     26.3%
-                    <span>
-                      <FeatherIcon icon="arrow-down" size={14} /> 28%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-down" size={14} /> 28%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-upward">
                   <p>Session Duration</p>
                   <Heading as="h1">
                     2m 18s
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 13%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 13%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
               </Pstates>
@@ -527,18 +535,20 @@ const Performance = () => {
                   },
                 ]}
               />
-              <Heading as="h4">
-                <span>4,483</span>
-                <span>45%</span>
-              </Heading>
-              <Heading as="h4">
-                <span>870</span>
-                <span>30%</span>
-              </Heading>
-              <Heading as="h4">
-                <span>2,420</span>
-                <span>25%</span>
-              </Heading>
+              <SessionState className="d-flex justify-content-center">
+                <div>
+                  <span>4,483</span>
+                  <sub>45%</sub>
+                </div>
+                <div>
+                  <span>870</span>
+                  <sub>30%</sub>
+                </div>
+                <div>
+                  <span>2,420</span>
+                  <sub>25%</sub>
+                </div>
+              </SessionState>
             </Cards>
           </Col>
           <Col md={12}>
@@ -596,12 +606,16 @@ const Performance = () => {
               title="Sessions by Region"
               size="large"
             >
-              <Col md={9}>
-                <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+            <Row>
+              <Col md={8}>
+                <RegionList>
+                  <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                </RegionList>
               </Col>
-              <Col md={15}>
+              <Col md={16}>
                 <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
               </Col>
+            </Row>
             </Cards>
           </Col>
         </Row>

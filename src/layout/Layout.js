@@ -81,7 +81,7 @@ const ThemeLayout = WrappedComponent => {
                   <MenueItems />
                 </Scrollbars>
               </Sider>
-              <Layout style={{ marginLeft: 280, marginTop: '64px' }}>
+              <Layout style={{ marginLeft: 300, marginTop: '64px' }}>
                 <Content>
                   <WrappedComponent />
                   <Footer style={footerStyle}>Footer</Footer>

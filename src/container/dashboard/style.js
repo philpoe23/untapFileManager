@@ -161,9 +161,75 @@ const Pstates = Styled.div`
         &:hover{
             box-shadow: 0 15px 30px rgba(146,153,184,0.15);
         }
+        &.growth-downward{
+            background: ${({theme})=>theme['bg-color-light']};
+        }
+    }
+`;
+
+const SessionState = Styled.div`
+    margin: 0 -15px;
+    div{
+        padding: 0 15px;
+        span{
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        sub{
+            bottom: 0;
+            left: 5px;
+            font-size: 13px;
+            color: ${({theme})=>theme["light-gray-color"]};
+        }
+    }
+`;
+
+const RegionList = Styled.div`
+    max-height: 300px;
+    overflow: hidden auto;
+`;
+
+const CardBarChart2 = Styled.div`
+    h1{
+        margin-bottom: 5px;
+    }
+    & > span{
+        font-size: 14px;
+        color: ${({theme})=>theme["light-gray-color"]};
+    }
+    p{
+        display: flex;
+        align-items: center;
+        margin: 15px 0 0 0;
+        .growth-upward, .growth-downward{
+            display: inline-flex;
+            align-items: center;
+            padding-right: 10px;
+            font-weight: 600;
+            svg{
+                width: 15px;
+            }
+        }
+        .growth-upward{
+            color: ${({theme})=>theme["success-color"]};
+            svg{
+                color: ${({theme})=>theme["success-color"]};
+            }
+        }
+        .growth-downward{
+            color: ${({theme})=>theme["danger-color"]};
+            svg{
+                color: ${({theme})=>theme["danger-color"]};
+            }
+        }
+        span{
+            color: ${({theme})=>theme["light-gray-color"]};
+            font-size: 13px;
+            display: inline-block;
+        }
     }
 `;
 
 
-
-export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard, Pstates };
+export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard, Pstates, SessionState, RegionList, CardBarChart2 };

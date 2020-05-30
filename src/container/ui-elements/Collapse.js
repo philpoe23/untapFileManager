@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Row, Col, Collapse, Icon } from 'antd';
+import { Row, Col, Collapse } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { RightOutlined } from '@ant-design/icons';

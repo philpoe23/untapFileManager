@@ -25,6 +25,10 @@
   justify-content: space-between;
 }
 
+.justify-content-center{
+  justify-content: center;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -68,6 +72,11 @@
 }
 .ant-card-head .ant-card-extra a{
   color: #868EAE;
+}
+.ant-card-extra .ant-dropdown-trigger{
+  line-height: 0;
+  order: 1;
+  margin-left: 20px;
 }
 
 
