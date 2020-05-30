@@ -213,16 +213,17 @@ ChartjsStackedChart.propTypes = {
 };
 
 const ChartjsLineChart = props => {
-  const { labels, datasets, options, height, layout } = props;
+  const { labels, datasets, options, height, layout, width } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Line data={data} height={height} options={{ ...options, ...layout }} />;
+  return <Line width={width} data={data} height={height} options={{ ...options, ...layout }} />;
 };
 
 ChartjsLineChart.defaultProps = {
   height: 200,
+  width: null,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [
     {
@@ -240,7 +241,8 @@ ChartjsLineChart.defaultProps = {
   ],
 
   options: {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         left: '-10',
@@ -288,6 +290,7 @@ ChartjsLineChart.propTypes = {
   labels: PropTypes.array.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
+  width: PropTypes.number,
 };
 
 const ChartjsAreaChart = props => {

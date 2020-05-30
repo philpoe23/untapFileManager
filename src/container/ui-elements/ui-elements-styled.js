@@ -48,10 +48,12 @@ const AvatarWraperStyle = Styled.div`
     margin: 5px;
     background: #E3E6EF;
   }
-  .ant-avatar:not(:last-child){
-    margin-right: 15px;
+  .ant-btn-default{
+    padding: 0 10px;
   }
   .ant-badge-count{
+    top: 6px;
+    right: 6px;
     padding: 0 4px;
     font-size: 10px;
     font-weight: 600;
@@ -211,4 +213,17 @@ const CasCaderStyleWrapper = Styled.div`
   }
 `;
 
-export { DropdownStyle, SpinerWraperStyle, CarouselStyleWraper, AvatarWraperStyle, BadgeWraperStyle, BadgeStandAloneStyle , BadgeOverflowStyle, BreadcrumbWrapperStyle, BadgeRedStyle, BadgeDynamicStyle, CardStyleWrapper, CasCaderStyleWrapper };
+export {
+  DropdownStyle,
+  SpinerWraperStyle,
+  CarouselStyleWraper,
+  AvatarWraperStyle,
+  BadgeWraperStyle,
+  BadgeStandAloneStyle,
+  BadgeOverflowStyle,
+  BreadcrumbWrapperStyle,
+  BadgeRedStyle,
+  BadgeDynamicStyle,
+  CardStyleWrapper,
+  CasCaderStyleWrapper,
+};

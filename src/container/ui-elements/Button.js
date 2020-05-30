@@ -48,41 +48,7 @@ const Buttons = () => {
                 White
               </Button>
             </Cards>
-          </Col>
-
-          <Col md={12}>
-            <Cards title="Outline" size="large">
-              <Button size="default" outlined type="primary">
-                Primary
-              </Button>
-              <Button size="default" outlined type="secondary">
-                Secondary
-              </Button>
-              <Button size="default" outlined type="success">
-                Success
-              </Button>
-              <Button size="default" outlined type="info">
-                Info
-              </Button>
-              <Button size="default" outlined type="warning">
-                Warning
-              </Button>
-              <Button size="default" outlined type="danger">
-                Danger
-              </Button>
-              <Button size="default" outlined type="dark">
-                Dark
-              </Button>
-              <Button size="default" outlined type="light">
-                Light
-              </Button>
-              <Button size="default" outlined type="dashed">
-                Dashed
-              </Button>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
+            
             <Cards title="Light Color" size="large">
               <Button size="default" transparented type="primary">
                 Primary
@@ -109,38 +75,7 @@ const Buttons = () => {
                 Light
               </Button>
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Raised" size="large">
-              <Button size="default" raised type="primary">
-                Primary
-              </Button>
-              <Button size="default" raised type="secondary">
-                Secondary
-              </Button>
-              <Button size="default" raised type="success">
-                Success
-              </Button>
-              <Button size="default" raised type="info">
-                Info
-              </Button>
-              <Button size="default" raised type="warning">
-                Warning
-              </Button>
-              <Button size="default" raised type="danger">
-                Danger
-              </Button>
-              <Button size="default" raised type="dark">
-                Dark
-              </Button>
-              <Button size="default" raised type="white">
-                White
-              </Button>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
             <Cards title="Rounded" size="large">
               <Button size="default" shape="circle" type="primary">
                 Primary
@@ -170,41 +105,7 @@ const Buttons = () => {
                 White
               </Button>
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Rounded Outline" size="large">
-              <Button size="default" outlined shape="circle" type="primary">
-                Primary
-              </Button>
-              <Button size="default" outlined shape="circle" type="secondary">
-                Secondary
-              </Button>
-              <Button size="default" outlined shape="circle" type="success">
-                Success
-              </Button>
-              <Button size="default" outlined shape="circle" type="info">
-                Info
-              </Button>
-              <Button size="default" outlined shape="circle" type="warning">
-                Warning
-              </Button>
-              <Button size="default" outlined shape="circle" type="danger">
-                Danger
-              </Button>
-              <Button size="default" outlined shape="circle" type="dark">
-                Dark
-              </Button>
-              <Button size="default" outlined shape="circle" type="light">
-                Light
-              </Button>
-              <Button size="default" outlined shape="circle" type="dashed">
-                Dashed
-              </Button>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
             <Cards title="Icon" size="large">
               <Button size="default" type="primary">
                 <FeatherIcon icon="layers" />
@@ -245,52 +146,7 @@ const Buttons = () => {
                 </Button>
               </div>
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Rounded with Icon" size="large">
-              <Button size="default" shape="circle" type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" transparented type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" outlined type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" outlined type="light">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" type="light">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" raised type="white">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <div class="icon-buttons">
-                <Button size="default" shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-              </div>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
             <Cards title="Size" size="large">
               <Row>
                 <ButtonSizeWrapper>
@@ -309,30 +165,7 @@ const Buttons = () => {
                 </ButtonSizeWrapper>
               </Row>
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Disabled" size="large">
-              <Row>
-                <Button size="default" type="primary">
-                  Primary
-                </Button>
-                <Button size="default" type="primary" disabled>
-                  Primary(Disabled)
-                </Button>
-              </Row>
-              <Row>
-                <Button size="default" outlined type="light">
-                  Default
-                </Button>
-                <Button size="default" outlined type="light" disabled>
-                  Default(Disabled)
-                </Button>
-              </Row>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
             <Cards title="Multiple Buttons" size="large">
               <Button size="default" type="primary">
                 Primary
@@ -351,52 +184,7 @@ const Buttons = () => {
                 </BtnWithIcon>
               </Dropdown>
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Loading" size="large">
-              <Button size="default" shape="circle" type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" transparented type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" outlined type="primary">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" outlined type="light">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" type="light">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <Button size="default" shape="circle" raised type="white">
-                <FeatherIcon icon="layers" />
-                Default
-              </Button>
-              <div class="icon-buttons">
-                <Button size="default" shape="round" type="primary">
-                    <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" shape="round" type="light">
-                <FeatherIcon icon="layers" />
-                </Button>
-              </div>
-            </Cards>
-          </Col>
-
-          <Col md={12}>
             <Cards title="Group Button" size="large">
               <ButtonsGroupWrapper>
                 <div className="button-group-single">
@@ -457,9 +245,214 @@ const Buttons = () => {
                 </div>
               </ButtonsGroupWrapper>
             </Cards>
+
+            <Cards title="BlocK" size="large">
+              <BlockButtonsWrapper>
+                <Button size="large" type="primary" block>
+                  Large Button
+                </Button>
+                <Button size="default" type="secondary" block>
+                  Default
+                </Button>
+                <Button size="small" type="success" block>
+                  Small
+                </Button>
+                <Button size="extra-small" type="info" block>
+                  Extra Small
+                </Button>
+              </BlockButtonsWrapper>
+            </Cards>
           </Col>
 
           <Col md={12}>
+            <Cards title="Outline" size="large">
+              <Button size="default" outlined type="primary">
+                Primary
+              </Button>
+              <Button size="default" outlined type="secondary">
+                Secondary
+              </Button>
+              <Button size="default" outlined type="success">
+                Success
+              </Button>
+              <Button size="default" outlined type="info">
+                Info
+              </Button>
+              <Button size="default" outlined type="warning">
+                Warning
+              </Button>
+              <Button size="default" outlined type="danger">
+                Danger
+              </Button>
+              <Button size="default" outlined type="dark">
+                Dark
+              </Button>
+              <Button size="default" outlined type="light">
+                Light
+              </Button>
+              <Button size="default" outlined type="dashed">
+                Dashed
+              </Button>
+            </Cards>
+
+            <Cards title="Raised" size="large">
+              <Button size="default" raised type="primary">
+                Primary
+              </Button>
+              <Button size="default" raised type="secondary">
+                Secondary
+              </Button>
+              <Button size="default" raised type="success">
+                Success
+              </Button>
+              <Button size="default" raised type="info">
+                Info
+              </Button>
+              <Button size="default" raised type="warning">
+                Warning
+              </Button>
+              <Button size="default" raised type="danger">
+                Danger
+              </Button>
+              <Button size="default" raised type="dark">
+                Dark
+              </Button>
+              <Button size="default" raised type="white">
+                White
+              </Button>
+            </Cards>
+
+            <Cards title="Rounded Outline" size="large">
+              <Button size="default" outlined shape="circle" type="primary">
+                Primary
+              </Button>
+              <Button size="default" outlined shape="circle" type="secondary">
+                Secondary
+              </Button>
+              <Button size="default" outlined shape="circle" type="success">
+                Success
+              </Button>
+              <Button size="default" outlined shape="circle" type="info">
+                Info
+              </Button>
+              <Button size="default" outlined shape="circle" type="warning">
+                Warning
+              </Button>
+              <Button size="default" outlined shape="circle" type="danger">
+                Danger
+              </Button>
+              <Button size="default" outlined shape="circle" type="dark">
+                Dark
+              </Button>
+              <Button size="default" outlined shape="circle" type="light">
+                Light
+              </Button>
+              <Button size="default" outlined shape="circle" type="dashed">
+                Dashed
+              </Button>
+            </Cards>
+
+            <Cards title="Rounded with Icon" size="large">
+              <Button size="default" shape="circle" type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" transparented type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="light">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" type="light">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" raised type="white">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <div class="icon-buttons">
+                <Button size="default" shape="round" type="primary">
+                  <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" outlined shape="round" type="primary">
+                  <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" outlined shape="round" type="light">
+                  <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" shape="round" type="light">
+                  <FeatherIcon icon="layers" />
+                </Button>
+              </div>
+            </Cards>
+
+            <Cards title="Disabled" size="large">
+              <Row>
+                <Button size="default" type="primary">
+                  Primary
+                </Button>
+                <Button size="default" type="primary" disabled>
+                  Primary(Disabled)
+                </Button>
+              </Row>
+              <Row>
+                <Button size="default" outlined type="light">
+                  Default
+                </Button>
+                <Button size="default" outlined type="light" disabled>
+                  Default(Disabled)
+                </Button>
+              </Row>
+            </Cards>
+
+            <Cards title="Loading" size="large">
+              <Button size="default" shape="circle" type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" transparented type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="primary">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" outlined type="light">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" type="light">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <Button size="default" shape="circle" raised type="white">
+                <FeatherIcon icon="layers" />
+                Default
+              </Button>
+              <div class="icon-buttons">
+                <Button size="default" shape="round" type="primary">
+                    <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" outlined shape="round" type="primary">
+                  <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" outlined shape="round" type="light">
+                  <FeatherIcon icon="layers" />
+                </Button>
+                <Button size="default" shape="round" type="light">
+                <FeatherIcon icon="layers" />
+                </Button>
+              </div>
+            </Cards>
+
             <Cards
               bodyStyle={{
                 backgroundImage: `linear-gradient(90deg, ${theme['primary-color']}, ${theme['secondary-color']})`,
@@ -477,24 +470,6 @@ const Buttons = () => {
               <Button size="default" type="success" ghost>
                 Default
               </Button>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="BlocK" size="large">
-              <BlockButtonsWrapper>
-                <Button size="large" type="primary" block>
-                  Large Button
-                </Button>
-                <Button size="default" type="secondary" block>
-                  Default
-                </Button>
-                <Button size="small" type="success" block>
-                  Small
-                </Button>
-                <Button size="extra-small" type="info" block>
-                  Extra Small
-                </Button>
-              </BlockButtonsWrapper>
             </Cards>
           </Col>
         </Row>

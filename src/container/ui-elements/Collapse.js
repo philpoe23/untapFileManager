@@ -4,6 +4,7 @@ import { Row, Col, Collapse } from 'antd';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { RightOutlined } from '@ant-design/icons';
+
 const { Panel } = Collapse;
 const Collapses = () => {
   const callback = key => {

@@ -88,7 +88,7 @@ const revenuecolumns = [
     title: 'Trend',
     dataIndex: 'trend',
     key: 'trend',
-    maxWidth: 60,
+    width: 120,
   },
 ];
 const revenuedata = [
@@ -109,7 +109,8 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={60}
+        height={20}
+        width={120}
         options={{
           ...options,
           elements: {
@@ -138,7 +139,8 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={60}
+        height={20}
+        width={120}
         options={{
           ...options,
           elements: {
@@ -167,7 +169,8 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={60}
+        height={20}
+        width={120}
         options={{
           ...options,
           elements: {
@@ -196,7 +199,8 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={60}
+        height={20}
+        width={120}
         options={{
           ...options,
           elements: {
@@ -225,7 +229,8 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={60}
+        height={20}
+        width={120}
         options={{
           ...options,
           elements: {
