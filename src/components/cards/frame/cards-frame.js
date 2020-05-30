@@ -7,7 +7,7 @@ import Heading from '../../heading/heading';
 import { Dropdown } from '../../dropdown/dropdown';
 
 const Cards = props => {
-  const { title, more, moreText, size, headless, caption, isbutton, bodyStyle, headStyle, border, padding } = props;
+  const { title, more, moreText, size, headless, caption, isbutton, bodyStyle, headStyle, border, bodypadding } = props;
   return (
     <Fragment>
       {!headless ? (
@@ -17,7 +17,7 @@ const Cards = props => {
           bodyStyle={bodyStyle && bodyStyle}
           headStyle={headStyle && headStyle}
           bordered={border}
-          padding={padding}
+          bodypadding={bodypadding && bodypadding}
           extra={
             <Fragment>
               {more && (
@@ -34,7 +34,13 @@ const Cards = props => {
           {props.children}
         </CardFrame>
       ) : (
-        <CardFrame padding={padding} bodyStyle={bodyStyle && bodyStyle} size={size} style={{ width: '100%' }} bordered={border}>
+        <CardFrame
+          bodypadding={bodypadding && bodypadding}
+          bodyStyle={bodyStyle && bodyStyle}
+          size={size}
+          style={{ width: '100%' }}
+          bordered={border}
+        >
           <Heading as="h4">{title}</Heading>
           <p>{caption}</p>
           {props.children}
@@ -58,6 +64,7 @@ Cards.propTypes = {
   headless: PropTypes.bool,
   border: PropTypes.bool,
   caption: PropTypes.string,
+  bodypadding: PropTypes.string,
   moreText: PropTypes.bool,
 };
 

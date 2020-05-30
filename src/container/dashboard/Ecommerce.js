@@ -397,14 +397,14 @@ const Ecommerce = () => {
               <Row>
                 <Col xs={12}>
                   <CardBarChart2>
-                  <Heading as="h1">$28,947</Heading>
-                  <span>Revenue</span>
-                  <p>
-                    <span className="growth-downward">
-                      <FeatherIcon icon="arrow-down" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
+                    <Heading as="h1">$28,947</Heading>
+                    <span>Revenue</span>
+                    <p>
+                      <span className="growth-downward">
+                        <FeatherIcon icon="arrow-down" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
                   </CardBarChart2>
                 </Col>
                 <Col xs={12}>
@@ -428,14 +428,14 @@ const Ecommerce = () => {
               <Row>
                 <Col xs={12}>
                   <CardBarChart2>
-                  <Heading as="h1">$3,241</Heading>
-                  <span>Avg. order value</span>
-                  <p>
-                    <span className="growth-upward">
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
+                    <Heading as="h1">$3,241</Heading>
+                    <span>Avg. order value</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
                   </CardBarChart2>
                 </Col>
                 <Col xs={12}>
@@ -459,14 +459,14 @@ const Ecommerce = () => {
               <Row>
                 <Col xs={12}>
                   <CardBarChart2>
-                  <Heading as="h1">45.2k</Heading>
-                  <span>Unique visitors</span>
-                  <p>
-                    <span className="growth-upward">
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
+                    <Heading as="h1">45.2k</Heading>
+                    <span>Unique visitors</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
                   </CardBarChart2>
                 </Col>
                 <Col xs={12}>
@@ -602,7 +602,7 @@ const Ecommerce = () => {
               }
               title="Top Selling Products"
               size="large"
-              padding={0}
+              bodypadding="0px"
             >
               <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
             </Cards>
