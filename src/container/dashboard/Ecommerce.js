@@ -109,7 +109,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -139,7 +139,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -169,7 +169,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -199,7 +199,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -229,7 +229,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -602,6 +602,7 @@ const Ecommerce = () => {
               }
               title="Top Selling Products"
               size="large"
+              padding={0}
             >
               <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
             </Cards>
