@@ -41,8 +41,8 @@ const Cards = props => {
           style={{ width: '100%' }}
           bordered={border}
         >
-          <Heading as="h4">{title}</Heading>
-          <p>{caption}</p>
+          {title && <Heading as="h4">{title}</Heading>}
+          {caption && <p>{caption}</p>}
           {props.children}
         </CardFrame>
       )}

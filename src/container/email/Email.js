@@ -34,10 +34,10 @@ const Email = ({ match }) => {
       {isMailEditorOpen && <ComposeMail close={closeMailComposr} />}
 
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={5}>
-            <Cards>
-              <Button onClick={toggleMailComposer} shape="round" type="primary">
+            <Cards headless bodypadding="30px">
+              <Button onClick={toggleMailComposer} shape="round" type="primary" size="large" block>
                 + Compose
               </Button>
               <EamilNavbar path={path} />
