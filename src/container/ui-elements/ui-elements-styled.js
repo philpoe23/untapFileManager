@@ -146,6 +146,15 @@ const BreadcrumbWrapperStyle = Styled.div`
   .ant-breadcrumb >span:last-child .ant-breadcrumb-link{
     color: #9299B8;
   }
+  .demo-nav{
+    height: 48px;
+    line-height: 48px;
+    padding: 0 10px;
+  }
+  .demo-nav a{
+    padding: 0 12px;
+    color: #5F63F2;
+  }
 `;
 
 const BadgeDynamicStyle = Styled.div`
@@ -180,6 +189,9 @@ const CardStyleWrapper = Styled.div`
 }
 .ant-card.ant-card-bordered .ant-card-head{
   background: #fff;
+}
+.ant-card-head-wrapper .ant-card-extra a{
+  color: #5F63F2;
 }
 .ant-card-body{
   padding: 22px 25px 15px 25px !important
