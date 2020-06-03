@@ -14,7 +14,7 @@ const CardFrame = Styled(Card)`
     font-weight: 500;
   }
   .ant-card-body{
-    padding: ${({ bodypadding }) => (bodypadding ? bodypadding + ' !important' : '22px !important')};
+    padding: ${({ bodypadding }) => (bodypadding ? bodypadding + ' !important' : '25px !important')};
   }
   .ant-card.ant-card-bordered {
       border-radius: 5px;
