@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Select, Radio } from 'antd';
 import { Main } from '../styled';
+import { SelectWrapperStyle } from './ui-elements-styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Option, OptGroup } = Select;
@@ -57,20 +58,24 @@ const Selects = () => {
         <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
-              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="disabled" disabled>
-                  Disabled
-                </Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
-              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
-                <Option value="lucy">Lucy</Option>
-              </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} loading>
-                <Option value="lucy">Lucy</Option>
-              </Select>
+
+              <SelectWrapperStyle>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
+                  <Option value="jack">Jack</Option>
+                  <Option value="lucy">Lucy</Option>
+                  <Option value="disabled" disabled>
+                    Disabled
+                  </Option>
+                  <Option value="Yiminghe">yiminghe</Option>
+                </Select>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
+                  <Option value="lucy">Lucy</Option>
+                </Select>
+                <Select defaultValue="lucy" style={{ width: 120 }} loading>
+                  <Option value="lucy">Lucy</Option>
+                </Select>
+              </SelectWrapperStyle>
+              
             </Cards>
           </Col>
           <Col md={12}>

@@ -61,7 +61,7 @@ const Drawer = props => {
       )}
 
       {render && <p>Render in this</p>}
-      <Button type="primary" onClick={showDrawer}>
+      <Button type="primary" size="default" onClick={showDrawer} raised>
         {btnText}
       </Button>
       <DrawerStyle
@@ -125,7 +125,7 @@ const Drawer = props => {
   );
 };
 
-Drawer.defaultProps = {
+Drawer.defaultProps = { 
   btnText: 'Open',
   width: 320,
 };

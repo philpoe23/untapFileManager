@@ -2,8 +2,13 @@ import Styled from 'styled-components';
 
 const DropdownStyle = Styled.div`
   .ant-card-body .ant-btn {
-      margin-right: 8px;
-      margin-bottom: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      height: 36px;
+      font-weight: 400;
+      border-color: #E3E6EF;
+      padding: 0px 19px;
+      border-radius: 5px;
   }
 `;
 
@@ -225,6 +230,10 @@ const CasCaderStyleWrapper = Styled.div`
   }
 `;
 
+const SelectWrapperStyle = Styled.div`
+  
+`;
+
 export {
   DropdownStyle,
   SpinerWraperStyle,
@@ -238,4 +247,5 @@ export {
   BadgeDynamicStyle,
   CardStyleWrapper,
   CasCaderStyleWrapper,
+  SelectWrapperStyle
 };

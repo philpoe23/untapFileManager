@@ -460,3 +460,22 @@
 .mail-props p span{
   color: #9299b8;
 }
+
+/* Cascade Styles */
+.custom-cascade-render .ant-cascader-picker{
+  width: 100%;
+}
+
+/* Comment Styles */
+.ant-comment-actions li{
+  margin-bottom: 0 !important;
+}
+
+/* Radio Vertical Button */
+.ant-radio-vertical .ant-radio-wrapper{
+  display: block;
+}
+
+.ant-radio-vertical .ant-radio-wrapper:not(:last-child){
+  margin-bottom: 14px;
+}

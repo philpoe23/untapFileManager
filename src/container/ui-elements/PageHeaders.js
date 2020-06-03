@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Row, Col, Icon } from 'antd';
-import { Main } from '../styled';
+import { Main, PageHeaderWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Button } from '../../components/buttons/buttons';
@@ -45,7 +45,9 @@ const PageHeaders = () => {
         <Row gutter={25}>
           <Col md={24}>
             <Cards title="Basic header" caption="The simplest use of Page header">
-              <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" />
+              <PageHeaderWrapper>
+                <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle"/>
+              </PageHeaderWrapper>
             </Cards>
           </Col>
           <Col md={24}>
