@@ -345,7 +345,7 @@
   height: 35px !important;
 }
 
-.ant-select-single .ant-select-selector .ant-select-selection-item, 
+.ant-select-single .ant-select-selector .ant-select-selection-item,
 .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
   line-height: 33px !important;
 }
@@ -442,4 +442,21 @@
 /* popover */
 .ant-popover-inner{
   padding: 15px;
+}
+
+/* mail props dropdown */
+.mail-props{
+  padding: 25px;
+  border: 0 none;
+  background: #fff;
+  box-shadow: 0 5px 40px rgba(146,153,184,0.25);
+}
+.mail-props p{
+  margin-bottom: 5px;
+}
+.mail-props p:last-child{
+  margin-bottom:0;
+}
+.mail-props p span{
+  color: #9299b8;
 }

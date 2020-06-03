@@ -7,6 +7,7 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { EmailAuthor, EmailHeader } from './style';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -47,23 +48,23 @@ const Content = ({ searchData, email }) => {
       return data.push({
         key: id,
         name: (
-          <div>
+          <EmailAuthor>
             <FeatherIcon icon="star" size={18} />
-            <img style={{ width: '32px', height: '32px', borderRadius: '50%' }} src={img} alt={'image' + index} />
+            <img src={img} alt={'image' + index} />
             <Heading as="h5">
               <NavLink to={'/email/single/' + id}>{userName}</NavLink>
             </Heading>
-          </div>
+          </EmailAuthor>
         ),
         email: email,
         status: status,
         content: (
-          <div>
+          <EmailHeader>
             <Heading as="h5">
               {subject} <span>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
-          </div>
+          </EmailHeader>
         ),
         time: same ? moment(id).format('hh:mm A') : moment(id).format('LL'),
       });

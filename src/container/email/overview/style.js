@@ -2,21 +2,21 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-.ant-table-thead > tr > th .ant-table-header-column {
-  width: 100%;
-}
-.ant-table-thead > tr:first-child > th:last-child {
-  border-top-right-radius: 4px;
-  text-align: right;
-}
-.ant-pagination-item {
-  display: none;
-}
-.ant-table-pagination.ant-pagination {
-  position: absolute;
-  z-index: 1;
-  right: 60px;
-}
+  .ant-table-thead > tr > th .ant-table-header-column {
+    width: 100%;
+  }
+  .ant-table-thead > tr:first-child > th:last-child {
+    border-top-right-radius: 4px;
+    text-align: right;
+  }
+  .ant-pagination-item {
+    display: none;
+  }
+  .ant-table-pagination.ant-pagination {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+  }
 `;
 
 const small = () => {
@@ -175,4 +175,170 @@ const MessageAction = Styled.div`
   }
 `;
 
-export { Style, MailBox, EmailNav, MessageAction };
+const EmailAuthor = Styled.div`
+  display: flex;
+  align-items: center;
+  svg{
+    color: ${({theme})=>theme['extra-light-color']};
+  }
+  img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 15px;
+  }
+  h1{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    a{
+      color: ${({theme})=>theme['dark-color']};
+    }
+  }
+`;
+
+const EmailHeader = Styled.div`
+  h1{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  p{
+    margin: 0;
+  }
+`;
+
+const MessageDetails = Styled.div`
+  .message-action{
+    display: flex;
+    align-items: center;
+    a{
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      flex-direction: column;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      transition: 0.3s ease;
+      color: ${({theme})=>theme["gray-solid"]};
+      svg{
+        margin: -3px 0;
+      }
+      &:hover{
+        background: rgba(95,99,242,0.05);
+      }
+    }
+  }
+  .message-author{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    div{
+      margin-left: 20px;
+      h1{
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+      a{
+        display: flex;
+        align-items: center;
+        color: ${({theme})=>theme["gray-solid"]};
+      }
+    }
+
+  }
+  .message-excerpt{
+    display: flex;
+    align-items: center;
+    margin: 0 -15px;
+    span, a{
+      display: block;
+      padding: 0 15px;
+      color: ${({theme})=>theme["gray-solid"]};
+    }
+    & > span{
+      line-height:0;
+      padding-left: 0;
+    }
+    svg{
+      width: 16px;
+    }
+  }
+
+  .message-body{
+    padding-left: 82px;
+    margin-top: 22px;
+    p{
+      color: ${({theme})=>theme["gray-color"]};
+      font-size: 15px;
+    }
+    h1{
+      font-size: 15px;
+      color: ${({theme})=>theme["gray-color"]};
+      font-weight: normal;
+      line-height: 30px;
+    }
+  }
+  .message-attachments{
+    margin: 30px -5px 0 -5px;
+    padding-left: 82px;
+    display: flex;
+    flex-wrap: wrap;
+    figure{
+      border: 1px solid ${({theme})=>theme["border-color-light"]};
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0 5px;
+      figcaption{
+        margin-top: 10px;
+        h1{
+          font-size: 13px;
+          margin: 0;
+        }
+        p{
+          font-size: 12px;
+          color: ${({theme})=>theme["gray-solid"]};
+          margin:0;
+        }
+      }
+    }
+  }
+  hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid ${({theme})=>theme["border-color-light"]};
+  }
+`;
+
+const MessageReply = Styled.div`
+  nav{
+    margin-bottom: 30px;
+    ul{
+      display: flex;
+      align-items: center;
+      list-style:none;
+      margin: 0 -5px;
+      padding: 0;
+      li{
+        padding: 0 5px;
+        a{
+          border: 1px solid ${({theme})=>theme["border-color-light"]};
+          line-height: 44px;
+          display: inline-block;
+          padding: 0 20px;
+          font-size: 14px;
+          font-weight: 600;
+          color: ${({theme})=>theme["gray-color"]};
+          border-radius: 4px;
+          &:hover{
+            color: ${({theme})=>theme["primary-color"]};
+          }
+        }
+      }
+    }
+  }
+`;
+
+export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MessageDetails, MessageReply };

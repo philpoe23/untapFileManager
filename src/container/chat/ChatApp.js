@@ -6,7 +6,7 @@ import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, Link } from 'react-router-dom';
-import { UL, Content } from './style';
+import { UL, Content, ChatSidebar } from './style';
 import Heading from '../../components/heading/heading';
 
 import PrivetChat from './overview/PrivetChat';
@@ -48,37 +48,39 @@ const ChatApp = ({ searchData, match }) => {
       <Main>
         <Row gutter={15}>
           <Col md={6}>
-            <Cards headless>
-              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
-              <nav>
-                <UL>
-                  <li>
-                    <Link onClick={onHandleChange} data-type="PrivetChat" to="#">
-                      Privet Chat
-                    </Link>
-                  </li>
-                  <li>
-                    <Link onClick={onHandleChange} data-type="GroupChat" to="#">
-                      Group Chat
-                    </Link>
-                  </li>
-                  <li>
-                    <Link onClick={onHandleChange} data-type="AllContacts" to="#">
-                      All Contacts
-                    </Link>
-                  </li>
-                </UL>
-              </nav>
-              <Content>
-                {chatType === 'PrivetChat' ? (
-                  <PrivetChat match={match} />
-                ) : chatType === 'GroupChat' ? (
-                  <GroupChat match={match} />
-                ) : (
-                  <AllContacts match={match} />
-                )}
-              </Content>
-            </Cards>
+            <ChatSidebar>
+              <Cards headless>
+                <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+                <nav>
+                  <UL>
+                    <li>
+                      <Link onClick={onHandleChange} data-type="PrivetChat" to="#">
+                        Privet Chat
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onHandleChange} data-type="GroupChat" to="#">
+                        Group Chat
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={onHandleChange} data-type="AllContacts" to="#">
+                        All Contacts
+                      </Link>
+                    </li>
+                  </UL>
+                </nav>
+                <Content>
+                  {chatType === 'PrivetChat' ? (
+                    <PrivetChat match={match} />
+                  ) : chatType === 'GroupChat' ? (
+                    <GroupChat match={match} />
+                  ) : (
+                    <AllContacts match={match} />
+                  )}
+                </Content>
+              </Cards>
+            </ChatSidebar>
           </Col>
           <Col md={18}>
             <Switch>

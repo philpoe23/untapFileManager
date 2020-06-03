@@ -65,6 +65,7 @@ const theme = {
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
+  'font-family': "'Inter', sans-serif",
   'font-size-base': '14px', // major text font size
   'heading-color': headingColor, // heading text color
   'text-color': darkColor, // major text color
