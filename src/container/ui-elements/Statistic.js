@@ -25,7 +25,7 @@ const Statistics = () => {
                 </Col>
                 <Col span={12}>
                   <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
-                  <Button style={{ marginTop: 16 }} type="primary">
+                  <Button style={{ marginTop: 16,fontSize: 14 }} size="large" type="primary" raised>
                     Recharge
                   </Button>
                 </Col>

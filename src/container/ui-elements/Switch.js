@@ -17,7 +17,7 @@ const Switches = () => {
           </Col>
           <Col md={12}>
             <Cards title="Size" caption="The simplest use of Switch">
-              <Switch defaultChecked />
+              <Switch defaultChecked style={{marginRight: 20}} />
               <Switch defaultChecked size="small" />
             </Cards>
           </Col>

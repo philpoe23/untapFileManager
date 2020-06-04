@@ -215,4 +215,22 @@ const PageHeaderWrapper = Styled.div`
     }
 `;
 
-export { Main , ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon, AlertList , AutoCompleteWrapper , CalendarWrapper , DatePickerWrapper, NotificationListWrapper, PageHeaderWrapper };
+const MessageStyleWrapper = Styled.div`
+    .ant-btn-lg{
+        font-size: 14px;
+    }
+`;
+
+export { Main, 
+    ButtonsGroupWrapper, 
+    BlockButtonsWrapper, 
+    ButtonSizeWrapper, 
+    BtnWithIcon, 
+    AlertList, 
+    AutoCompleteWrapper, 
+    CalendarWrapper, 
+    DatePickerWrapper, 
+    NotificationListWrapper, 
+    PageHeaderWrapper,
+    MessageStyleWrapper
+};
