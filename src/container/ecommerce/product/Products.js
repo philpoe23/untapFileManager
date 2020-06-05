@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
-import { ProductListToolbox } from '../Style';
+import { TopToolBox } from '../Style';
 import FeatherIcon from 'feather-icons-react';
 import { sorting } from '../../../redux/product/actionCreator';
 
@@ -52,7 +52,7 @@ const Product = ({ match }) => {
             </Suspense>
           </Col>
           <Col md={19}>
-            <ProductListToolbox>
+            <TopToolBox>
               <Row gutter={15}>
                 <Col md={7}>
                   <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
@@ -83,7 +83,7 @@ const Product = ({ match }) => {
                   </div>
                 </Col>
               </Row>
-            </ProductListToolbox>
+            </TopToolBox>
             
             <Row gutter={15}>
               <Switch>

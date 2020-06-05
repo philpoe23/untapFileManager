@@ -136,21 +136,35 @@ const ProductDetails = ({ match }) => {
                         <span className="pdbr__availability">540 pieces available</span>
                       </p>
                     </div>
-                    <Button size="default" type="primary">Buy Now</Button>
-                    <Button size="default" type="secondary">
-                      <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
-                    </Button>
-                    <NavLink className="btn-icon" to="#">
-                      <FeatherIcon icon="heart" size={14} />
-                    </NavLink>
-                    <NavLink className="btn-icon" to="#">
-                      <FeatherIcon icon="share-2" size={14} />
-                    </NavLink>
-                    <FeatherIcon icon="facebook" size={14} />
-                    <FeatherIcon icon="twitter" size={14} />
-                    <FeatherIcon icon="linkedin" size={14} />
-                    <FeatherIcon icon="send" size={14} />
-                    <hr />
+                    
+                    <div className="pdbr__Actions d-flex align-items-center">
+                      <div className="pdbr__product-action">
+                        <Button size="default" type="primary">Buy Now</Button>
+                        <Button size="default" type="secondary">
+                          <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
+                        </Button>
+                        <Button className="btn-icon" size="default" raised type="white" shape="circle">
+                          <FeatherIcon icon="heart" size={14} />
+                        </Button>
+                        <Button className="btn-icon" size="default" raised type="white" shape="circle">
+                          <FeatherIcon icon="share-2" size={14} />
+                        </Button>
+                      </div>
+                      <div className="pdbr__socials">
+                        <NavLink to="#">
+                          <FeatherIcon icon="facebook" size={14} />
+                        </NavLink>
+                        <NavLink to="#">
+                          <FeatherIcon icon="twitter" size={14} />
+                        </NavLink>
+                        <NavLink to="#">
+                          <FeatherIcon icon="linkedin" size={14} />
+                        </NavLink>
+                        <NavLink to="#">
+                          <FeatherIcon icon="send" size={14} />
+                        </NavLink>
+                      </div>
+                    </div>
                     <ul className="pdbr__list">
                       <li>
                         <span>Category:</span>

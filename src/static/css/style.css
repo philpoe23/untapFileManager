@@ -263,8 +263,31 @@ ul {
   background-color: #fff;
 }
 
-.icon-buttons button {
-  padding: 0 12.5px;
+.btn-icon{
+  padding: 0 12px;
+}
+
+.btn-inc,
+.btn-dec{
+  height: 38px;
+  width: 38px;
+  font-size: 20px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 0 none;
+}
+
+.btn-inc:hover,
+.btn-dec:hover{
+  background: #5F63F210 !important;
+  border: 0 none !important;
+}
+
+.btn-inc:hover i,
+.btn-inc:hover svg,
+.btn-dec:hover i,
+.btn-dec:hover svg{
+  color: #5F63F2;
 }
 
 /* input styles */
@@ -343,7 +366,6 @@ ul {
 }
 
 /* form select */
-
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
   height: 35px !important;
 }

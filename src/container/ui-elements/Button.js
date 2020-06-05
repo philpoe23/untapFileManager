@@ -131,20 +131,18 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
-              <div class="icon-buttons">
-                <Button size="default" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-              </div>
+              <Button className="btn-icon" size="default" type="primary">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" type="primary">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" outlined type="light">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" outlined type="light">
+                <FeatherIcon icon="layers" />
+              </Button>
             </Cards>
 
             <Cards title="Size" size="large">
@@ -377,20 +375,18 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
-              <div class="icon-buttons">
-                <Button size="default" shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-              </div>
+              <Button className="btn-icon" size="default" shape="round" type="primary">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" outlined shape="round" type="primary">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" outlined shape="round" type="light">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" shape="round" type="light">
+                <FeatherIcon icon="layers" />
+              </Button>
             </Cards>
 
             <Cards title="Disabled" size="large">
@@ -437,20 +433,18 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
-              <div class="icon-buttons">
-                <Button size="default" shape="round" type="primary">
-                    <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="primary">
+              <Button className="btn-icon" size="default" shape="round" type="primary">
                   <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" outlined shape="round" type="light">
-                  <FeatherIcon icon="layers" />
-                </Button>
-                <Button size="default" shape="round" type="light">
+              </Button>
+              <Button className="btn-icon" size="default" outlined shape="round" type="primary">
                 <FeatherIcon icon="layers" />
-                </Button>
-              </div>
+              </Button>
+              <Button className="btn-icon" size="default" outlined shape="round" type="light">
+                <FeatherIcon icon="layers" />
+              </Button>
+              <Button className="btn-icon" size="default" shape="round" type="light">
+              <FeatherIcon icon="layers" />
+              </Button>
             </Cards>
 
             <Cards
