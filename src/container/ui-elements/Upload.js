@@ -115,7 +115,7 @@ const Uploads = () => {
           <Col md={12}>
             <Cards title="Basic">
               <Upload {...props}>
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Click to Upload
                 </Button>
               </Upload>
@@ -131,7 +131,7 @@ const Uploads = () => {
                 }}
                 fileList={state.fileList}
               >
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>
@@ -179,7 +179,7 @@ const Uploads = () => {
                   },
                 ]}
               >
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>

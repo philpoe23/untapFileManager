@@ -17,7 +17,7 @@ const primaryColor = '#5F63F2',
   darkHover = '#131623',
   grayColor = '#5A5F7D',
   grayHover = '#363A51',
-  lightColor = '#F4F5F7',
+  lightColor = '#9299B8',
   lightHover = '#e2e6ea',
   whiteColor = '#ffffff',
   dashColor = '#E3E6EF',
@@ -85,6 +85,7 @@ const theme = {
   'btn-height-large': btnlg,
   'btn-height-small': btnsm,
   'btn-height-extra-small': btnxs,
+  'btn-default-color': darkColor,
 
   // cards
   'card-head-background': '#ffffff',
@@ -151,10 +152,18 @@ const theme = {
   //input
   'input-height-base': "48px",
   'input-border-color': borderColorNormal,
+  'input-height-sm': '30px',
+  'input-height-lg': '50px',
 
   //rate
   'rate-star-color': warningColor,
   'rate-star-size': '13px',
+
+  // Switch 
+  'switch-min-width': '35px',
+  'switch-sm-min-width': '30px',
+  'switch-height': '18px',
+  'switch-sm-height': '15px',
 
   //result
   'result-title-font-size': '20px',
@@ -167,6 +176,11 @@ const theme = {
 
   //list
   'list-item-padding': '10px 24px',
+
+  // Tags
+  'tag-default-bg': '#EFF0F3',
+  'tag-default-color': darkColor,
+  'tag-font-size': '11px'
 
 };
 

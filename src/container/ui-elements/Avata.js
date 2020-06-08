@@ -26,7 +26,7 @@ const Avatars = () => {
         <Row gutter={15}>
           <Col md={12}>
             <Cards title="Basic">
-              <AvatarWraperStyle>
+              <AvatarWraperStyle style={{marginBottom: 10}}>
                 <Avatar size={64} icon={<UserOutlined />} />
                 <Avatar size="large" icon={<UserOutlined />} />
                 <Avatar icon={<UserOutlined />} />

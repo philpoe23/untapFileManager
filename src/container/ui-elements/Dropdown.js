@@ -18,30 +18,30 @@ const Dropdowns = () => {
           <Col md={12}>
             <Cards title="Basic Dropdown" caption="The simplest use of Steps">
               <Dropdown placement="bottomLeft">
-                <Link to="#">hover me</Link>
+                <Link to="#">Hover me</Link>
               </Dropdown>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards title="Placement" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft">
-                <Button>bottomLeft</Button>
+                <Button>Bottom Left</Button>
               </Dropdown>
               <Dropdown placement="bottomCenter">
-                <Button>bottomCenter</Button>
+                <Button>Bottom Center</Button>
               </Dropdown>
               <Dropdown placement="bottomRight">
-                <Button>bottomRight</Button>
+                <Button>Bottom Right</Button>
               </Dropdown>
               <br />
               <Dropdown placement="topLeft">
-                <Button>topLeft</Button>
+                <Button>Top Left</Button>
               </Dropdown>
               <Dropdown placement="topCenter">
-                <Button>topCenter</Button>
+                <Button>Top Center</Button>
               </Dropdown>
               <Dropdown placement="topRight">
-                <Button>topRight</Button>
+                <Button>Top Right</Button>
               </Dropdown>
             </Cards>
           </Col>
@@ -59,7 +59,7 @@ const Dropdowns = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards title="button menu " caption="The simplest use of Dropdown">
+            <Cards title="Button with dropdown menu" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft" action={['click']}>
                 <Button>
                   Bottom Left Click

@@ -49,6 +49,11 @@
   margin: 0 !important;
 }
 
+ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
 /* default card style */
 
 .ant-card-body {
@@ -258,12 +263,31 @@
   background-color: #fff;
 }
 
-.ant-btn-lg span {
-  margin-top: -6px;
+.btn-icon{
+  padding: 0 12px;
 }
 
-.icon-buttons button {
-  padding: 0 12.5px;
+.btn-inc,
+.btn-dec{
+  height: 38px;
+  width: 38px;
+  font-size: 20px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 0 none;
+}
+
+.btn-inc:hover,
+.btn-dec:hover{
+  background: #5F63F210 !important;
+  border: 0 none !important;
+}
+
+.btn-inc:hover i,
+.btn-inc:hover svg,
+.btn-dec:hover i,
+.btn-dec:hover svg{
+  color: #5F63F2;
 }
 
 /* input styles */
@@ -329,7 +353,9 @@
 }
 
 /* rate */
-
+.ant-rate-star.ant-rate-star-zero span svg{
+  color: #C6D0DC;
+}
 .ant-rate-star:not(:last-child) {
   margin-right: 2px !important;
 }
@@ -346,14 +372,13 @@
 }
 
 /* form select */
-
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-  height: 42px !important;
+  height: 35px !important;
 }
 
 .ant-select-single .ant-select-selector .ant-select-selection-item,
 .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
-  line-height: 40px !important;
+  line-height: 33px !important;
 }
 
 .ant-select-multiple .ant-select-selector {
@@ -425,6 +450,7 @@
 
 .ant-tag {
   font-weight: 600;
+  padding: 0 9.5px
 }
 
 /* tabs */
@@ -439,10 +465,12 @@
 }
 
 /* list */
-
+.ant-list-bordered{
+  border-color: #E3E6EF !important;
+}
 .ant-list-item-meta {
   padding: 10px 24px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #F1F2F6;
 }
 
 /* popover */
@@ -465,4 +493,101 @@
 }
 .mail-props p span{
   color: #9299b8;
+}
+
+/* Cascade Styles */
+.custom-cascade-render .ant-cascader-picker{
+  width: 100%;
+}
+
+/* Comment Styles */
+.ant-comment-actions li{
+  margin-bottom: 0 !important;
+}
+
+/* Radio Vertical Button */
+.ant-radio-vertical .ant-radio-wrapper{
+  display: block;
+}
+
+.ant-radio-vertical .ant-radio-wrapper:not(:last-child){
+  margin-bottom: 14px;
+}
+
+/* Select Tree */
+.ant-select-tree-list .ant-select-tree-node-content-wrapper:hover{
+  background-color: #BAE7FF !important;
+}
+
+.ant-select-tree-list .ant-select-arrow svg{
+  font-size: 10px;
+}
+
+.ant-tree-select.ant-select-multiple .ant-select-selection-item{
+  border: 0 none;
+  border-radius: 3px;
+  background: #F4F5F7;
+  color: #5A5F7D;
+  font-weight: 500;
+}
+
+/* Ant Switch */
+.ant-switch:after{
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.ant-switch-small:after{
+  width: 10px !important;
+  height: 10px !important;
+}
+
+/* Time Picker */
+.ant-picker{
+  min-width: 250px;
+}
+
+/* Input Affix */
+
+.ant-input-affix-wrapper > input.ant-input{
+  padding-left: 5px;
+}
+.ant-input-affix-wrapper .ant-input-prefix svg{
+  color: #E3E6EF;
+}
+
+/* Space Item */
+.ant-space-item .ant-btn span{
+  font-size: 14px;
+}
+
+/* Pop confirm */
+.pop-confirm .ant-btn{
+  max-width: 90px;
+  padding: 0px 35.5px;
+  height: 44px;
+}
+.pop-confirm-top{
+  margin-bottom: 10px;
+}
+.pop-confirm-bottom{
+  margin-top: 10px;
+}
+.pop-confirm-top .ant-btn:not(:last-child),
+.pop-confirm-bottom .ant-btn:not(:last-child){
+  margin-right: 10px;
+}
+.pop-confirm-left .ant-btn:not(:last-child),
+.pop-confirm-right .ant-btn:not(:last-child){
+  margin-bottom: 10px;
+}
+
+/* Ant Upload */
+.ant-upload .ant-btn{
+  font-size: 14px;
+}
+
+/* Ant Picker */
+.ant-picker{
+  border-color: #E3E6EF !important;
 }

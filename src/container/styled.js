@@ -34,18 +34,34 @@ const Main = Styled.div`
         border-radius: 5px;
     }
     .ant-collapse .ant-collapse-header{
-        color: #5A5F7D;
-        padding-left: 45px !important;
+        color: #5A5F7D !important;
+        background-color: #F8F9FB;
+        padding: 12px 16px 10px 45px !important;
     }
     .ant-collapse-content p{
         color: #9299B8;
         margin-bottom: 0;
     }
     .ant-collapse-content > .ant-collapse-content-box {
-        padding: 12px 20px;
+        padding: 20px 20px 12px;
     }
-    .ant-collapse..ant-collapse-borderless{
+    .ant-collapse-content > .ant-collapse-content-box .ant-collapse-content-box{
+        padding: 10.5px 20px;
+    }
+    .ant-collapse.ant-collapse-borderless{
         background-color: #F8F9FB;
+    }
+    .ant-collapse > .ant-collapse-item,
+    .ant-collapse .ant-collapse-content{
+        border-color: #E3E6EF;
+    }
+    .ant-collapse > .ant-collapse-item.ant-collapse-item-disabled .ant-collapse-header{
+        color: #ADB4D2 !important;
+    }
+
+    .ant-collapse > .ant-collapse-item .ant-collapse-header .ant-collapse-arrow{
+        
+        font-size: 8px;
     }
 
     .ant-collapse .ant-collapse {
@@ -163,4 +179,58 @@ const CalendarWrapper = Styled.div`
     }
 `;
 
-export { Main , ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon, AlertList , AutoCompleteWrapper , CalendarWrapper };
+const DatePickerWrapper = Styled.div`
+    .ant-picker{
+        padding: 6px 11px 6px;
+        width: 100%;
+        border-color: #E3E6EF;
+        border-radius: 5px;
+    }
+    .ant-picker:not(:last-child){
+        margin-bottom: 20px;
+    }
+    .ant-picker-input > input{
+        color: #5A5F7D;
+    }
+    .ant-picker-range .ant-picker-input > input{
+        text-align: center;
+        font-weight: 500;
+    }
+`;
+
+const NotificationListWrapper = Styled.div`
+    margin-left: -4px;
+    button{
+        margin: 0 4px;
+    }
+`;
+
+const PageHeaderWrapper = Styled.div`
+    .ant-page-header{
+        border: 1px solid #E3E6EF;
+        border-radius: 5px;
+    }
+    .ant-page-header .ant-page-header-heading-left{
+        margin: 2px 0;
+    }
+`;
+
+const MessageStyleWrapper = Styled.div`
+    .ant-btn-lg{
+        font-size: 14px;
+    }
+`;
+
+export { Main, 
+    ButtonsGroupWrapper, 
+    BlockButtonsWrapper, 
+    ButtonSizeWrapper, 
+    BtnWithIcon, 
+    AlertList, 
+    AutoCompleteWrapper, 
+    CalendarWrapper, 
+    DatePickerWrapper, 
+    NotificationListWrapper, 
+    PageHeaderWrapper,
+    MessageStyleWrapper
+};

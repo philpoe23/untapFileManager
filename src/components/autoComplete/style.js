@@ -10,9 +10,14 @@ const AutoCompleteStyled = Styled(AutoComplete)`
         display: flex;
         align-items: center;
         height: 37px !important;
+        padding: 0 !important;
+        border-color: #E3E6EF !important;
     }
     .ant-select-selector input{
-        height: 35px !important;
+        height: 33px !important;
+    }
+    .ant-select-selection-search textarea.ant-input{
+        padding: 12px 20px;
     }
     .ant-input-affix-wrapper{
         padding: 0 20px;

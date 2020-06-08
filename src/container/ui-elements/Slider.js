@@ -39,7 +39,7 @@ const Sliders = () => {
         <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic" caption="The simplest use of slider">
-              <Slider onChange={onChange} defaultValue={30} />
+              <Slider onChange={onChange} defaultValue={30}/>
               <Slider onChange={onChange} range defaultValues={[20, 50]} />
             </Cards>
           </Col>

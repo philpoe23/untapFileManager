@@ -6,7 +6,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import FeatherIcon from 'feather-icons-react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Heading from '../../components/heading/heading';
-import { FigureCart } from './Style';
+import { FigureCart, ProductTable, CouponForm, OrderSummaryTable } from './Style';
 import { Button } from '../../components/buttons/buttons';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
@@ -18,61 +18,99 @@ const ShoppingCart = ({ match }) => {
     {
       key: '1',
       product: (
-        <FigureCart>
-          <img style={{ width: 70 }} src={require('../../static/img/products/1.png')} alt="" />
-          <figcaption>
-            <Heading as="h4">Fiber Base Chair</Heading>
-            <p>Size : Large &nbsp;&nbsp; Color : Brown</p>
-          </figcaption>
-        </FigureCart>
+        <div className="cart-single">
+          <FigureCart>
+            <img style={{ width: 80 }} src={require('../../static/img/products/1.png')} alt="" />
+            <figcaption>
+              <div className="cart-single__info">
+                <Heading as="h6">Fiber Base Chair</Heading>
+                <ul className="info-list">
+                  <li>
+                    <span className="info-title">Size :</span>
+                    <span>Large</span>
+                  </li>
+                  <li>
+                    <span className="info-title"> Color :</span>
+                    <span>Brown</span>
+                  </li>
+                </ul>
+              </div>
+            </figcaption>
+          </FigureCart>
+        </div>
       ),
-      price: '$' + 248.66,
+      price: (
+        <span className="cart-single-price">'$' + 248.66</span>
+      ),
       quantity: (
-        <div>
-          <Button>
-            <FeatherIcon icon="minus" size={14} />
+        <div className="cart-single-quantity">
+          <Button className="btn-dec" type="default">
+            <FeatherIcon icon="minus" size={12} />
           </Button>
           1
-          <Button>
-            <FeatherIcon icon="plus" size={14} />
+          <Button className="btn-inc" type="default">
+            <FeatherIcon icon="plus" size={12} />
           </Button>
         </div>
       ),
-      total: '$' + 248.66,
+      total: (
+        <span className="cart-single-t-price">'$' + 248.66</span>
+      ),
       action: (
-        <Link to="#">
-          <FeatherIcon icon="trash-2" size={16} />
-        </Link>
+        <div className="table-action">
+          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
+            <FeatherIcon icon="trash-2" size={16} />
+          </Button>
+        </div>
       ),
     },
     {
-      key: '2',
+      key: '1',
       product: (
-        <FigureCart>
-          <img style={{ width: 70 }} src={require('../../static/img/products/2.png')} alt="" />
-          <figcaption>
-            <Heading as="h4">Fiber Base Chair</Heading>
-            <p>Size : Large &nbsp;&nbsp; Color : Brown</p>
-          </figcaption>
-        </FigureCart>
+        <div className="cart-single">
+          <FigureCart>
+            <img style={{ width: 80 }} src={require('../../static/img/products/1.png')} alt="" />
+            <figcaption>
+              <div className="cart-single__info">
+                <Heading as="h6">Fiber Base Chair</Heading>
+                <ul className="info-list">
+                  <li>
+                    <span className="info-title">Size :</span>
+                    <span>Large</span>
+                  </li>
+                  <li>
+                    <span className="info-title"> Color :</span>
+                    <span>Brown</span>
+                  </li>
+                </ul>
+              </div>
+            </figcaption>
+          </FigureCart>
+        </div>
       ),
-      price: '$' + 248.66,
+      price: (
+        <span className="cart-single-price">'$' + 248.66</span>
+      ),
       quantity: (
-        <div>
-          <Button>
-            <FeatherIcon icon="minus" size={14} />
+        <div className="cart-single-quantity">
+          <Button className="btn-dec" type="default">
+            <FeatherIcon icon="minus" size={12} />
           </Button>
           1
-          <Button>
-            <FeatherIcon icon="plus" size={14} />
+          <Button className="btn-inc" type="default">
+            <FeatherIcon icon="plus" size={12} />
           </Button>
         </div>
       ),
-      total: '$' + 248.66,
+      total: (
+        <span className="cart-single-t-price">'$' + 248.66</span>
+      ),
       action: (
-        <Link to="#">
-          <FeatherIcon icon="trash-2" size={16} />
-        </Link>
+        <div className="table-action">
+          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
+            <FeatherIcon icon="trash-2" size={16} />
+          </Button>
+        </div>
       ),
     },
   ];
@@ -122,8 +160,8 @@ const ShoppingCart = ({ match }) => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless>
-              <Row gutter={15}>
-                <Col md={18}>
+              <Row gutter={30}>
+                <Col md={17}>
                   <Switch>
                     <Suspense
                       fallback={
@@ -138,21 +176,28 @@ const ShoppingCart = ({ match }) => {
                         component={() => {
                           return (
                             <Fragment>
-                              <Table pagination={false} dataSource={dataSource} columns={columns} />
-                              <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
-                                <Row gutter={15}>
-                                  <Col md={6}>
-                                    <Form.Item name="coupon" label="">
-                                      <Input placeholder="Coupon Code" />
-                                    </Form.Item>
-                                  </Col>
-                                  <Col md={2}>
-                                    <Button htmlType="submit" type="primary">
-                                      Apply Coupon
-                                    </Button>
-                                  </Col>
-                                </Row>
-                              </Form>
+                              <ProductTable>
+                                <div className="table-cart">
+                                  <Table pagination={false} dataSource={dataSource} columns={columns} />
+                                </div>
+                              </ProductTable>
+                              
+                              <CouponForm>
+                                <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
+                                  <Row gutter={15}>
+                                    <Col md={4}>
+                                      <Form.Item name="coupon" label="">
+                                        <Input placeholder="Coupon Code" />
+                                      </Form.Item>
+                                    </Col>
+                                    <Col md={4}>
+                                      <Button htmlType="submit" size="default" type="primary">
+                                        Apply Coupon
+                                      </Button>
+                                    </Col>
+                                  </Row>
+                                </Form>
+                              </CouponForm>
                             </Fragment>
                           );
                         }}
@@ -161,40 +206,66 @@ const ShoppingCart = ({ match }) => {
                     </Suspense>
                   </Switch>
                 </Col>
-                <Col md={6}>
+                <Col md={7}>
                   <Cards
                     bodyStyle={{
                       backgroundColor: '#F8F9FB',
+                      borderRadius: '20px'
                     }}
                     headless
                   >
-                    <Heading as="h4">Order Summary</Heading>
-                    <Cards headless>
-                      <p>Subtotal : {'$' + 497.32}</p>
-                      <p>Descount : -20</p>
-                      <p>Shipping Charge : 30</p>
-                      <Form form={form} name="promo" onFinish={submitPromo}>
-                        <Form.Item name="couponType" initialValue="" label="">
-                          <Select style={{ width: '100%' }}>
-                            <Option value="">% Select Coupon</Option>
-                            <Option value="one">% Coupon one</Option>
-                            <Option value="tow">% Coupon tow</Option>
-                          </Select>
-                        </Form.Item>
-
-                        <Form.Item name="promo" label="Promo Code">
-                          <Input style={{ width: '70%' }} placeholder="Promo Code" />
-                          <Button htmlType="submit" type="primary">
-                            Apply
+                    <OrderSummaryTable>
+                      <Heading className="summary-table-title" as="h4">Order Summary</Heading>
+                      <Cards 
+                        bodyStyle={{
+                          backgroundColor: '#ffffff',
+                          borderRadius: '20px'
+                        }}
+                        headless
+                      
+                      >
+                        <div className="order-summary-inner">
+                          <ul className="summary-list">
+                            <li>
+                              <span className="summary-list-title">Subtotal :</span>
+                              <span className="summary-list-text">{'$' + 497.32}</span>
+                            </li>
+                            <li>
+                              <span className="summary-list-title">Descount :</span>
+                              <span className="summary-list-text">{'$' + -20}</span>
+                            </li>
+                            <li>
+                              <span className="summary-list-title">Shipping Charge :</span>
+                              <span className="summary-list-text">{'$' + 30}</span>
+                            </li>
+                          </ul>
+                          <Form form={form} name="promo" onFinish={submitPromo}>
+                            <Form.Item name="couponType" initialValue="" label="">
+                              <Select style={{ width: '100%' }}>
+                                <Option value="">% Select Coupon</Option>
+                                <Option value="one">% Coupon one</Option>
+                                <Option value="tow">% Coupon tow</Option>
+                              </Select>
+                            </Form.Item>
+                            <div className="promo-apply-form">
+                              <Form.Item name="promo" label="Promo Code">
+                                <Input style={{ width: '72%' }} placeholder="Promo Code" />
+                                <Button htmlType="submit" size="default" type="success" outlined>
+                                  Apply
+                                </Button>
+                              </Form.Item>
+                            </div>
+                          </Form>
+                          <Heading className="summary-total" as="h4">
+                            <span className="summary-total-label">Total : </span>
+                            <span className="summary-total-amount">{'$' + 507.32}</span>
+                          </Heading>
+                          <Button className="btn-proceed" to={match.path + '/checkout'} type="secondary" size="large">
+                            Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
                           </Button>
-                        </Form.Item>
-                      </Form>
-                      <hr />
-                      <Heading as="h4">Total : {'$' + 507.32}</Heading>
-                      <Link to={match.path + '/checkout'}>
-                        Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
-                      </Link>
-                    </Cards>
+                        </div>
+                      </Cards>
+                    </OrderSummaryTable>
                   </Cards>
                 </Col>
               </Row>
