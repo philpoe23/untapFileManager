@@ -221,7 +221,203 @@ const MessageStyleWrapper = Styled.div`
     }
 `;
 
-export { Main, 
+const BasicFormWrapper = Styled.div`
+    .ant-form-item{
+        flex-flow: column;
+        &:not(:last-child){
+            margin-bottom: 26px;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .ant-form-item-label{
+            text-align: left;
+            label{
+                height: fit-content;
+                margin-bottom: 6px;
+            }
+        }
+        .ant-select-single{
+            .ant-select-selector{
+                height: 48px !important;
+                .ant-select-selection-item{
+                    line-height: 46px !important;
+                }
+            }
+        }
+    }
+`;
+
+const CardToolbox = Styled.div`
+    .ant-page-header-heading-title{
+        position: relative;
+        padding-right: 24px;
+        margin-right: 24px;
+        &:after{
+            position: absolute;
+            right: 0px;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            content: '';
+            background: ${({theme})=>theme['border-color-normal']}
+        }
+    }
+    .ant-page-header-heading-sub-title{
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+    .ant-select{
+        margin-left: 25px;
+        .ant-select-selector{
+            height: 46px !important;
+            min-width: 350px;
+        }
+        .ant-select-selection-search-input{
+            height: 46px;
+            border-radius: 23px;
+            border: 0 none;
+            box-shadow: 0 5px 20px #9299B803;
+            input{
+                height: 46px !important;
+                font-size: 14px;
+            }
+        }
+    }
+    .btn-add_new{
+        height: 40px;
+    }
+`;
+
+const TableWrapper = Styled.div`
+    table{
+        thead{
+            tr{
+                border-radius: 10px;
+                th{
+                    &:last-child{
+                        text-align: right;
+                    }
+                    color: ${({theme})=>theme['gray-color']};
+                    background: ${({theme})=>theme['bg-color-light']};
+                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
+                    border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                    &:first-child{
+                        border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-radius: 10px 0 0 10px !important;
+                    }
+                    &:last-child{
+                        border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-radius: 0 10px 10px 0 !important;
+                    }
+                }
+            }
+        }
+
+        tbody{
+            >tr{
+                &:hover{
+                    >td{
+                        background: ${({theme})=>theme['bg-color-light']};
+                        &.table-actions
+                    }
+                }
+                &.ant-table-row-selected{
+                    &:hover{
+                        >td{
+                            background: ${({theme})=>theme['bg-color-light']};
+                        }
+                    }
+                    >td{
+                        background: ${({theme})=>theme['bg-color-light']};
+                    }
+                }
+                >td{
+                    border: 0 none;
+                    font-weight: 500;
+                    color: ${({theme})=>theme['dark-color']};
+                    &:first-child{
+                        border-radius: 10px 0 0 10px !important;
+                    }
+                    &:last-child{
+                        border-radius: 0 10px 10px 0 !important;
+                    }
+                    span{
+                        display: block;
+                    }
+                    .order-id{
+                        min-width: 128px;
+                    }
+                    .customer-name{
+                        min-width: 174px;
+                    }
+                    .status{
+                        min-width: 175px;
+                    }
+                    .ordered-amount{
+                        min-width: 175px;
+                    }
+                    .ordered-date{
+                        min-width: 165px;
+                    }
+                    .table-actions{
+                        min-width: 60px;
+                    }
+                }
+            }
+        }
+        .table-actions{
+            text-align: right;
+            min-width: 150px;
+            button{
+                height: 40px;
+                padding: 0 11px;
+                background: transparent;
+                border: 0 none;
+                color: ${({theme})=>theme['extra-light-color']};
+                &:hover{
+                    &.ant-btn-primary{
+                        color: ${({theme})=>theme['primary-color']};
+                        background: ${({theme})=>theme['primary-color']}10; 
+                    }
+                    &.ant-btn-info{
+                        color: ${({theme})=>theme['info-color']};
+                        background: ${({theme})=>theme['info-color']}10; 
+                    }
+                    &.ant-btn-danger{
+                        color: ${({theme})=>theme['danger-color']};
+                        background: ${({theme})=>theme['danger-color']}10; 
+                    }
+                }
+            }
+        }
+        .seller-info{
+            img{
+                margin-right: 12px;
+            }
+        }
+        .user-info{
+            display: flex;
+            align-items: center;
+            figure{
+                margin: 0 8px 0;
+            }
+            .user-name{
+                margin-bottom: 0;
+                font-weight: 500;
+            }
+            .user-designation{
+                font-size: 12px;
+                font-weight: 400;
+                color: ${({theme})=>theme['light-color']};
+            }
+        }
+    }
+`;
+
+export { 
+    Main, 
     ButtonsGroupWrapper, 
     BlockButtonsWrapper, 
     ButtonSizeWrapper, 
@@ -232,5 +428,8 @@ export { Main,
     DatePickerWrapper, 
     NotificationListWrapper, 
     PageHeaderWrapper,
-    MessageStyleWrapper
+    MessageStyleWrapper,
+    BasicFormWrapper,
+    CardToolbox,
+    TableWrapper
 };

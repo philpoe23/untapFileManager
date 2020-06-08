@@ -6,7 +6,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import FeatherIcon from 'feather-icons-react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Heading from '../../components/heading/heading';
-import { FigureCart, ProductTable, CouponForm, OrderSummaryTable } from './Style';
+import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { Button } from '../../components/buttons/buttons';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
@@ -214,7 +214,7 @@ const ShoppingCart = ({ match }) => {
                     }}
                     headless
                   >
-                    <OrderSummaryTable>
+                    <OrderSummary>
                       <Heading className="summary-table-title" as="h4">Order Summary</Heading>
                       <Cards 
                         bodyStyle={{
@@ -265,7 +265,7 @@ const ShoppingCart = ({ match }) => {
                           </Button>
                         </div>
                       </Cards>
-                    </OrderSummaryTable>
+                    </OrderSummary>
                   </Cards>
                 </Col>
               </Row>

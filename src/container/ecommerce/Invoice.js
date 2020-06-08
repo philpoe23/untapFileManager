@@ -5,7 +5,7 @@ import { Row, Col, Table } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
-import { InvoiceHeader, InvoiceLetterBox, ProductTable } from './Style';
+import { InvoiceHeader, InvoiceLetterBox,InvoiceAction, ProductTable, OrderSummary } from './Style';
 import FeatherIcon from 'feather-icons-react';
 
 const Invoice = () => {
@@ -15,26 +15,58 @@ const Invoice = () => {
       row: '1',
       details: (
         <Fragment>
-          <p>Fiber Base Chair</p>
-          <p>Size: Large Color: Brown</p>
+          <div className="product-info">
+            <Heading className="product-info" as="h6">Fiber Base Chair</Heading>
+            <ul className="info-list">
+              <li>
+                <span className="info-title">Size :</span>
+                <span>Large</span>
+              </li>
+              <li>
+                <span className="info-title"> Color :</span>
+                <span>Brown</span>
+              </li>
+            </ul>
+          </div>
         </Fragment>
       ),
-      unit: '$248.66',
-      quantity: 3,
-      total: '$943.30',
+      unit: (
+        <span className="product-unit">$248.66</span>
+      ),
+      quantity: (
+        <span className="product-quantity">3</span>
+      ),
+      total: (
+        <span className="product-total-price">$943.30</span>
+      ),
     },
     {
       key: '2',
       row: '2',
       details: (
         <Fragment>
-          <p>Panton Tunior Chair</p>
-          <p>Size: Large Color: Brown</p>
+          <Heading className="product-info" as="h6">Panton Tunior Chair</Heading>
+          <ul className="info-list">
+            <li>
+              <span className="info-title">Size :</span>
+              <span>Large</span>
+            </li>
+            <li>
+              <span className="info-title"> Color :</span>
+              <span>Brown</span>
+            </li>
+          </ul>
         </Fragment>
       ),
-      unit: '$248.66',
-      quantity: 2,
-      total: '$943.30',
+      unit: (
+        <span className="product-unit">$248.66</span>
+      ),
+      quantity: (
+        <span className="product-quantity">2</span>
+      ),
+      total: (
+        <span className="product-total-price">$943.30</span>
+      ),
     },
   ];
 
@@ -93,7 +125,7 @@ const Invoice = () => {
                 </Row>
               </InvoiceHeader>
               <InvoiceLetterBox>
-                <div style={{ background: '#F8F9FB', padding: '30px 50px', borderRadius: '20px' }}>
+                <div style={{ background: '#F8F9FB', padding: '30px 50px 25px', borderRadius: '20px' }}>
                   <Row>
                     <Col sm={8}>
                       <article className="invoice-author">
@@ -136,28 +168,46 @@ const Invoice = () => {
               
               <Row>
                 <Col md={4} offset={20}>
-                  <article>
-                    <p>Subtotal : $1,690.26</p>
-                    <p>Discount : -$126.30</p>
-                    <p>Shipping Charge : $46.30</p>
-                    <Heading as="h4">Total : $1738.60</Heading>
-                  </article>
+                  <OrderSummary>
+                    <div className="invoice-summary-inner">
+                      <ul className="summary-list">
+                        <li>
+                          <span className="summary-list-title">Subtotal :</span>
+                          <span className="summary-list-text">{'$' + 497.32}</span>
+                        </li>
+                        <li>
+                          <span className="summary-list-title">Descount :</span>
+                          <span className="summary-list-text">{'$' + -20}</span>
+                        </li>
+                        <li>
+                          <span className="summary-list-title">Shipping Charge :</span>
+                          <span className="summary-list-text">{'$' + 30}</span>
+                        </li>
+                      </ul>
+                      <Heading className="summary-total" as="h4">
+                        <span className="summary-total-label">Total : </span>
+                        <span className="summary-total-amount">{'$' + 507.32}</span>
+                      </Heading>
+                    </div>
+                  </OrderSummary>
                 </Col>
               </Row>
               <Row>
-                <Col md={6} offset={18}>
-                  <Button shape="round" type="default">
-                    <FeatherIcon icon="printer" size={14} />
-                    Print
-                  </Button>
-                  <Button shape="round" type="default">
-                    <FeatherIcon icon="send" size={14} />
-                    Send Invoice
-                  </Button>
-                  <Button shape="round" type="primary">
-                    <FeatherIcon icon="download" size={14} />
-                    Download
-                  </Button>
+                <Col md={8} offset={16}>
+                  <InvoiceAction>
+                    <Button size="small" shape="round" type="default">
+                      <FeatherIcon icon="printer" size={14} />
+                      Print
+                    </Button>
+                    <Button size="small" shape="round" type="default">
+                      <FeatherIcon icon="send" size={14} />
+                      Send Invoice
+                    </Button>
+                    <Button size="small" shape="round" type="primary">
+                      <FeatherIcon icon="download" size={14} />
+                      Download
+                    </Button>
+                  </InvoiceAction>
                 </Col>
               </Row>
             </Cards>

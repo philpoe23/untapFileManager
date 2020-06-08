@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
+import { Main, CardToolbox } from '../styled';
 import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 import Heading from '../../components/heading/heading';
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { UserCard } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
 const Team = ({ searchData, team }) => {
@@ -44,59 +45,65 @@ const Team = ({ searchData, team }) => {
 
   return (
     <Fragment>
-      <PageHeader
-        ghost
-        title="Team Members | "
-        subTitle={
-          <Fragment>
-            274 Users <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
-          </Fragment>
-        }
-        buttons={[
-          <Button key="1" type="primary">
-            + Add New Members
-          </Button>,
-        ]}
-      />
-
+      <CardToolbox>
+        <PageHeader
+          ghost
+          title="Team Members"
+          subTitle={
+            <Fragment>
+              274 Users <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+            </Fragment>
+          }
+          buttons={[
+            <Button className="btn-add_new" size="default" key="1" type="primary">
+              + Add New User
+            </Button>,
+          ]}
+        />
+      </CardToolbox>
+      
       <Main>
         <Row gutter={15}>
           {team.map(user => {
             const { id, name, designation, img } = user;
             return (
               <Col key={id} md={4}>
-                <Cards headless>
-                  <figure>
-                    <img src={require('../../' + img)} alt="" />
-                    <figcaption>
-                      <div className="edit">
-                        <Dropdown content={content}>
-                          <Link to="#">
-                            <FeatherIcon icon="more-horizontal" size={14} />
-                          </Link>
-                        </Dropdown>
-                      </div>
-                      <Heading as="h6">
-                        <Link to="#">{name}</Link>
-                      </Heading>
-                      <p>{designation}</p>
-                      <div>
-                        <Link to="#">
-                          <FeatherIcon icon="facebook" size={14} />
-                        </Link>
-                        <Link to="#">
-                          <FeatherIcon icon="twitter" size={14} />
-                        </Link>
-                        <Link to="#">
-                          <FeatherIcon icon="youtube" size={14} />
-                        </Link>
-                        <Link to="#">
-                          <FeatherIcon icon="instagram" size={14} />
-                        </Link>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </Cards>
+                <UserCard>
+                  <div className="card team-card">
+                    <Cards headless>
+                      <figure>
+                        <img src={require('../../' + img)} alt="" />
+                        <figcaption>
+                          <div className="edit">
+                            <Dropdown content={content}>
+                              <Link className="card__more_actions" to="#">
+                                <FeatherIcon icon="more-horizontal" size={14} />
+                              </Link>
+                            </Dropdown>
+                          </div>
+                          <Heading className="card__name" as="h6">
+                            <Link to="#">{name}</Link>
+                          </Heading>
+                          <span className="card__designation">{designation}</span>
+                          <div className="card__social">
+                            <Link className="btn-icon" to="#">
+                              <FeatherIcon icon="facebook" size={14} />
+                            </Link>
+                            <Link className="btn-icon" to="#">
+                              <FeatherIcon icon="twitter" size={14} />
+                            </Link>
+                            <Link className="btn-icon" to="#">
+                              <FeatherIcon icon="youtube" size={14} />
+                            </Link>
+                            <Link className="btn-icon" to="#">
+                              <FeatherIcon icon="instagram" size={14} />
+                            </Link>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </Cards>
+                  </div>
+                </UserCard>
               </Col>
             );
           })}

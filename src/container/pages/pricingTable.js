@@ -15,9 +15,9 @@ const PricingTable = () => {
       <Main>
         <Row gutter={15}>
           <Col md={6}>
-            <PricingCard>
+            <PricingCard style={{marginBottom: 30}}>
               <Badge type="dark">Free Forever</Badge>
-              <Heading as="h3">Free</Heading>
+              <Heading className="pricing-title" as="h3">Free</Heading>
               <p>For Individuals</p>
               <ListGroup>
                 <List text="100MB File Space" />
@@ -25,11 +25,11 @@ const PricingTable = () => {
                 <List text="Limited Boards" />
                 <List text="Basic Project Management" />
               </ListGroup>
-              <Button type="default">Current Plan</Button>
+              <Button size="default" type="default">Current Plan</Button>
             </PricingCard>
           </Col>
           <Col md={6}>
-            <PricingCard>
+            <PricingCard style={{marginBottom: 30}}>
               <Badge type="primary">Basic Plan</Badge>
               <Heading as="h3">
                 <sup>$</sup>19 <sub>Per month</sub>
@@ -42,11 +42,11 @@ const PricingTable = () => {
                 <List text="Basic Project Management" />
                 <List text="Custom Post Types" />
               </ListGroup>
-              <Button type="primary">Get Started</Button>
+              <Button size="default" type="primary">Get Started</Button>
             </PricingCard>
           </Col>
           <Col md={6}>
-            <PricingCard>
+            <PricingCard style={{marginBottom: 30}}>
               <Badge type="secondary">Business</Badge>
               <Heading as="h3">
                 <sup>$</sup>39 <sub>Per month</sub>
@@ -60,11 +60,11 @@ const PricingTable = () => {
                 <List text="Custom Post Types" />
                 <List text="Subtasks" />
               </ListGroup>
-              <Button type="secondary">Get Started</Button>
+              <Button size="default" type="secondary">Get Started</Button>
             </PricingCard>
           </Col>
           <Col md={6}>
-            <PricingCard>
+            <PricingCard style={{marginBottom: 30}}>
               <Badge type="success">Enterprise</Badge>
               <Heading as="h3">
                 <sup>$</sup>79 <sub>Per month</sub>
@@ -78,7 +78,7 @@ const PricingTable = () => {
                 <List text="Custom Post Types" />
                 <List text="Subtasks" />
               </ListGroup>
-              <Button type="success">Get Started</Button>
+              <Button size="default" type="success">Get Started</Button>
             </PricingCard>
           </Col>
         </Row>
@@ -97,7 +97,7 @@ const PricingTable = () => {
                       <List text="Limited Boards" />
                       <List text="Basic Project Management" />
                     </ListGroup>
-                    <Button type="default">Current Plan</Button>
+                    <Button size="default" type="default">Current Plan</Button>
                   </PricingCard>
                 </Col>
                 <Col md={6}>
@@ -114,7 +114,7 @@ const PricingTable = () => {
                       <List text="Basic Project Management" />
                       <List text="Custom Post Types" />
                     </ListGroup>
-                    <Button type="primary">Get Started</Button>
+                    <Button size="default" type="primary">Get Started</Button>
                   </PricingCard>
                 </Col>
                 <Col md={6}>
@@ -124,6 +124,7 @@ const PricingTable = () => {
                       <sup>$</sup>39 <sub>Per month</sub>
                     </Heading>
                     <p>For 10 Users</p>
+                    
                     <ListGroup>
                       <List text="100GB File Space" />
                       <List text="300 Projects" />
@@ -132,7 +133,7 @@ const PricingTable = () => {
                       <List text="Custom Post Types" />
                       <List text="Subtasks" />
                     </ListGroup>
-                    <Button type="secondary">Get Started</Button>
+                    <Button size="default" type="secondary">Get Started</Button>
                   </PricingCard>
                 </Col>
                 <Col md={6}>
@@ -150,7 +151,7 @@ const PricingTable = () => {
                       <List text="Custom Post Types" />
                       <List text="Subtasks" />
                     </ListGroup>
-                    <Button type="success">Get Started</Button>
+                    <Button size="default" type="success">Get Started</Button>
                   </PricingCard>
                 </Col>
               </Row>

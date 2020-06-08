@@ -79,11 +79,21 @@ const ProductCard = Styled.div`
         figure{
             margin-right: 15px;
         }
+        .product-single-description{
+            p{
+                color: ${({theme})=>theme['gray-color']};
+                font-size: 15px;
+            }
+        }
         .product-single-title{
+            font-size: 18px;
             margin: 25px 0 16px;
         }
         .product-single-info{
             margin-top: 25px;
+        }
+        .product-single-price__new{
+            font-size: 16px;
         }
         .product-single-action{
             flex-flow: column;
@@ -143,7 +153,7 @@ const ProductCard = Styled.div`
         color: ${({theme})=>theme['primary-color']};
     }
     .product-single-price__offer{
-        font-size: 13px;
+        font-size: 12px;
         color: ${({theme})=>theme['secondary-color']};
     }
     .product-single-rating{
@@ -523,6 +533,56 @@ const ProductTable = Styled.div`
             }
         }
     }
+    .table-invoice{
+        table{
+            thead{
+                >tr{
+                    th{
+                        border-top: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                        &:first-child{
+                            border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                        }
+                        &:last-child{
+                            border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            tbody{
+                >tr{
+                    &.ant-table-row{
+                        &:hover{
+                            >td{
+                                background: #fff;
+                            }
+                        }
+                    }
+                    td{
+                        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                        color: ${({theme})=>theme['gray-color']};
+                        border-radius: 0 !important;
+                        &:last-child{
+                            text-align: right;
+                        }
+                        .product-unit{
+                            padding-left: 40px;
+                        }
+                        .product-quantity{
+                            padding-left: 50px;
+                        }
+                    }
+                }
+            }
+        }
+        .product-info{
+            min-width: 300px;
+            .product-info{
+                margin-bottom: 8px;
+            }
+        }
+    }
     table{
         thead{
             tr{
@@ -630,7 +690,7 @@ const CouponForm = Styled.div`
 `;
 
 
-const OrderSummaryTable = Styled.div`
+const OrderSummary = Styled.div`
     .ant-card{
         margin-bottom: 0 !important;
     }
@@ -645,6 +705,14 @@ const OrderSummaryTable = Styled.div`
     }
     .order-summary-inner{
         padding-bottom: 5px;
+    }
+    .invoice-summary-inner{
+        .summary-list{
+            margin: 22px 0;
+        }
+        .summary-total-amount{
+            color: ${({theme})=>theme['primary-color']} !important;
+        }
     }
 
     .summary-list{
@@ -722,6 +790,7 @@ const OrderSummaryTable = Styled.div`
         }
         .summary-total-amount{
             font-size: 18px;
+            font-weight: 600;
             color: ${({theme})=>theme['success-color']};
         }
     }
@@ -739,31 +808,6 @@ const OrderSummaryTable = Styled.div`
 `;
 
 const AddProductForm = Styled.div`
-    .ant-form-item{
-        flex-flow: column;
-        &:not(:last-child){
-            margin-bottom: 26px;
-        }
-        &:last-child{
-            margin-bottom: 0;
-        }
-        .ant-form-item-label{
-            text-align: left;
-            label{
-                height: fit-content;
-                margin-bottom: 6px;
-            }
-        }
-        .ant-select-single{
-            .ant-select-selector{
-                height: 48px !important;
-                .ant-select-selection-item{
-                    line-height: 46px !important;
-                }
-            }
-        }
-    }
-
     .add-product-block{
         background: ${({theme})=>theme['bg-color-light']};
         border-radius: 20px;
@@ -865,115 +909,6 @@ const AddProductForm = Styled.div`
     }
 `;
 
-const TableWrapper = Styled.div`
-    table{
-        thead{
-            tr{
-                border-radius: 10px;
-                th{
-                    &:last-child{
-                        text-align: right;
-                    }
-                    color: ${({theme})=>theme['gray-color']};
-                    background: ${({theme})=>theme['bg-color-light']};
-                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
-                    border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
-                    &:first-child{
-                        border-left: 1px solid ${({theme})=>theme['border-color-light']};
-                        border-radius: 10px 0 0 10px !important;
-                    }
-                    &:last-child{
-                        border-right: 1px solid ${({theme})=>theme['border-color-light']};
-                        border-radius: 0 10px 10px 0 !important;
-                    }
-                }
-            }
-        }
-
-        tbody{
-            >tr{
-                &:hover{
-                    >td{
-                        background: ${({theme})=>theme['bg-color-light']};
-                        &.table-actions
-                    }
-                }
-                &.ant-table-row-selected{
-                    &:hover{
-                        >td{
-                            background: ${({theme})=>theme['bg-color-light']};
-                        }
-                    }
-                    >td{
-                        background: ${({theme})=>theme['bg-color-light']};
-                    }
-                }
-                >td{
-                    border: 0 none;
-                    font-weight: 500;
-                    color: ${({theme})=>theme['dark-color']};
-                    &:first-child{
-                        border-radius: 10px 0 0 10px !important;
-                    }
-                    &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
-                    }
-                    span{
-                        display: block;
-                    }
-                    .order-id{
-                        min-width: 128px;
-                    }
-                    .customer-name{
-                        min-width: 174px;
-                    }
-                    .status{
-                        min-width: 175px;
-                    }
-                    .ordered-amount{
-                        min-width: 175px;
-                    }
-                    .ordered-date{
-                        min-width: 165px;
-                    }
-                    .table-actions{
-                        min-width: 60px;
-                    }
-                }
-            }
-        }
-        .table-actions{
-            text-align: right;
-            button{
-                height: 40px;
-                padding: 0 11px;
-                background: transparent;
-                border: 0 none;
-                color: ${({theme})=>theme['extra-light-color']};
-                &:hover{
-                    &.ant-btn-primary{
-                        color: ${({theme})=>theme['primary-color']};
-                        background: ${({theme})=>theme['primary-color']}10; 
-                    }
-                    &.ant-btn-info{
-                        color: ${({theme})=>theme['info-color']};
-                        background: ${({theme})=>theme['info-color']}10; 
-                    }
-                    &.ant-btn-danger{
-                        color: ${({theme})=>theme['danger-color']};
-                        background: ${({theme})=>theme['danger-color']}10; 
-                    }
-                }
-            }
-        }
-        .seller-info{
-            img{
-                margin-right: 12px;
-            }
-        }
-    }
-`;
-
 
 const InvoiceHeader = Styled.div`
     .invoice-info{
@@ -998,6 +933,9 @@ const InvoiceLetterBox = Styled.div`
         max-width: 310px;
         max-width: 0 auto;
         text-align: center;
+        .ant-card{
+            margin-bottom: 0 !important;
+        }
         .ant-card-body{
             padding: 20px 20px 16px !important;
         }
@@ -1020,6 +958,21 @@ const InvoiceLetterBox = Styled.div`
     }
 `;
 
+const InvoiceAction = Styled.div`
+    text-align: right;
+    margin-top: 95px;
+    .ant-btn-default{
+        background: ${({theme})=>theme['bg-color-light']};
+        border-color: ${({theme})=>theme['border-color-light']};
+    }
+    button{
+        padding: 0 25px !important;
+        &:not(:last-child){
+            margin-right: 10px;
+        }
+    }
+`;
+
 export { 
     FigureCart,
     Sidebar,
@@ -1030,9 +983,9 @@ export {
     ProductDetailsWrapper,
     ProductTable,
     CouponForm,
-    OrderSummaryTable,
+    OrderSummary,
     AddProductForm,
-    TableWrapper,
     InvoiceHeader,
-    InvoiceLetterBox
+    InvoiceLetterBox,
+    InvoiceAction
 };

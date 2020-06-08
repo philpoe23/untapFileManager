@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
-import { Main } from '../../styled';
+import { Main, BasicFormWrapper  } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { AddProductForm } from '../Style';
@@ -46,7 +46,8 @@ const AddProduct = () => {
                 <Col md={10} offset={7}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
-                      <div className="add-product-block">
+                      <BasicFormWrapper>
+                        <div className="add-product-block">
                           <Row gutter={15}>
                             <Col md={24}>
                               <div className="add-product-content">
@@ -101,42 +102,43 @@ const AddProduct = () => {
                             </Col>
                           </Row>
                         </div>
-                      
-                      <div className="add-product-block">
-                        <Row gutter={15}>
-                          <Col md={24}>
-                            <div className="add-product-content">
-                              <Cards title="Product Image">
-                                <Dragger {...props}>
-                                  <p className="ant-upload-drag-icon">
-                                    <FeatherIcon icon="upload" size={50} />
-                                  </p>
-                                  <Heading as="h4" className="ant-upload-text">
-                                    Drag and drop an image
-                                  </Heading>
-                                  <p className="ant-upload-hint">or <span>Browse</span>  to choose a file</p>
-                                </Dragger>
-                              </Cards>
-                            </div>
-                          </Col>
-                        </Row>
-                      </div>
-                      <div className="add-form-action">
-                        <Form.Item>
-                          <Button
-                            className="btn-cancel"
-                            size="large"
-                            onClick={() => {
-                              return form.resetFields();
-                            }}
-                          >
-                            Cancel
-                          </Button>
-                          <Button size="large" htmlType="submit" type="primary" raised>
-                            Save Product
-                          </Button>
-                        </Form.Item>
-                      </div>
+
+                        <div className="add-product-block">
+                          <Row gutter={15}>
+                            <Col md={24}>
+                              <div className="add-product-content">
+                                <Cards title="Product Image">
+                                  <Dragger {...props}>
+                                    <p className="ant-upload-drag-icon">
+                                      <FeatherIcon icon="upload" size={50} />
+                                    </p>
+                                    <Heading as="h4" className="ant-upload-text">
+                                      Drag and drop an image
+                                    </Heading>
+                                    <p className="ant-upload-hint">or <span>Browse</span>  to choose a file</p>
+                                  </Dragger>
+                                </Cards>
+                              </div>
+                            </Col>
+                          </Row>
+                        </div>
+                        <div className="add-form-action">
+                          <Form.Item>
+                            <Button
+                              className="btn-cancel"
+                              size="large"
+                              onClick={() => {
+                                return form.resetFields();
+                              }}
+                            >
+                              Cancel
+                            </Button>
+                            <Button size="large" htmlType="submit" type="primary" raised>
+                              Save Product
+                            </Button>
+                          </Form.Item>
+                        </div>
+                      </BasicFormWrapper>
                     </Form>
                   </AddProductForm>
                 </Col>

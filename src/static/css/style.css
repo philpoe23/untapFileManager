@@ -245,7 +245,10 @@ ul {
   background-color: #fff;
 }
 
-.ant-btn-light, .ant-btn-light:hover, .ant-btn-link:hover, .ant-btn-dashed {
+.ant-btn-light, 
+.ant-btn-light:hover, 
+.ant-btn-link:hover, 
+.ant-btn-dashed {
   color: #5A5F7D
 }
 
@@ -261,6 +264,10 @@ ul {
 
 .ant-btn-light[disabled] {
   background-color: #fff;
+}
+
+.ant-btn-round.ant-btn-sm{
+  height: 38px;
 }
 
 .btn-icon{
@@ -584,4 +591,22 @@ ul {
 /* Ant Picker */
 .ant-picker{
   border-color: #E3E6EF !important;
+}
+
+/* Ant Dropdown */
+
+.ant-dropdown{
+  box-shadow: 0 5px 30px #9299B820;
+  border: 0 none;
+}
+
+.ant-dropdown a{
+  font-weight: 400;
+  color: #5A5F7D;
+  background: #5F63F205;
+}
+
+.ant-dropdown div{
+  box-shadow: 0 0;
+  border-radius: 5px;
 }

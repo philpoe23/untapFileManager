@@ -6,9 +6,9 @@ const List = props => {
   const { text } = props;
 
   return (
-    <ListStyle>
+    <ListStyle className="list-single">
       <span className="icon">
-        <FeatherIcon icon="check" size={18} />
+        <FeatherIcon icon="check" size={14} />
       </span>
       <span>{text}</span>
     </ListStyle>

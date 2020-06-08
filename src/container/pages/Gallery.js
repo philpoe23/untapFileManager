@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Row, Col, Spin } from 'antd';
 import Heading from '../../components/heading/heading';
 import { Link } from 'react-router-dom';
-import { GalleryNav } from './style';
+import { GalleryNav, GalleryCard } from './style';
 import { galleryFilter } from '../../redux/gallary/actionCreator';
 
 const Gallery = ({ gallery, galleryFilter, isloading }) => {
@@ -66,13 +66,17 @@ const Gallery = ({ gallery, galleryFilter, isloading }) => {
               const { id, name, img, category } = item;
               return (
                 <Col key={id} md={6}>
-                  <figure>
-                    <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />
-                    <figcaption>
-                      <Heading as="h4">{name}</Heading>
-                      <p>{category}</p>
-                    </figcaption>
-                  </figure>
+                  <GalleryCard style={{marginBottom: '25px'}}>
+                    <figure>
+                      <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />
+                      <figcaption>
+                        <div className="gallery-single-content">
+                          <Heading className="gallery-single-title" as="h4">{name}</Heading>
+                          <p>{category}</p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </GalleryCard>
                 </Col>
               );
             })

@@ -7,6 +7,7 @@ import Heading from '../../components/heading/heading';
 import { Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { SearchResultWrapper, ResultList } from './style';
 
 const SearchResult = ({ searchData }) => {
   const [state, setState] = useState({
@@ -44,126 +45,138 @@ const SearchResult = ({ searchData }) => {
     <Fragment>
       <PageHeader ghost title="Search Result" />
       <Main>
-        <Row gutter={15}>
-          <Col md={24}>
-            <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
-          </Col>
-          <Col md={24}>
-            <ul>
-              <li>
-                <Link className="active" onClick={handleChange} data-filter="" to="#">
-                  All
-                </Link>
-              </li>
-              <li>
-                <Link onClick={handleChange} data-filter="webDesign" to="#">
-                  Web Design
-                </Link>
-              </li>
-              <li>
-                <Link onClick={handleChange} data-filter="uiDesign" to="#">
-                  UI Design
-                </Link>
-              </li>
-              <li>
-                <Link onClick={handleChange} data-filter="wireframe" to="#">
-                  Wireframe
-                </Link>
-              </li>
-              <li>
-                <Link onClick={handleChange} data-filter="Presentation" to="#">
-                  Presentation
-                </Link>
-              </li>
-            </ul>
-          </Col>
-          <Col md={24}>
-            <Cards headless>
-              <Row>
-                <Col md={12}>
-                  <Heading as="h6">207 results found for “Keyword”</Heading>
-                </Col>
-                <Col md={12}>
-                  <p>Showing 1-10 of 76 results</p>
-                </Col>
-              </Row>
-              <hr />
-              <Row>
-                <Col md={24}>
-                  <nav>
-                    <ul>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
+        <SearchResultWrapper>
+          <Row gutter={15}>
+            <Col md={24}>
+              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
+            </Col>
+            <Col md={24}>
+              <div className="search-filter-menu">
+                <ul>
+                  <li>
+                    <Link className="active" onClick={handleChange} data-filter="" to="#">
+                      All
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleChange} data-filter="webDesign" to="#">
+                      Web Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleChange} data-filter="uiDesign" to="#">
+                      UI Design
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleChange} data-filter="wireframe" to="#">
+                      Wireframe
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleChange} data-filter="Presentation" to="#">
+                      Presentation
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col md={24}>
+              <ResultList>
+                <Cards headless>
+                  <div className="result-list-top">
+                    <Row>
+                      <Col md={12}>
+                        <p className="search-found-text">
+                          <span className="result-count">207</span>
+                          results found for
+                          <span className="result-keyword">“Keyword”</span>
                         </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                      <li>
-                        <Heading as="h6">Keyword installing lorem multi vendor marketplace</Heading>
-                        <p>
-                          Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                          diam nonumy eirmod...
-                        </p>
-                      </li>
-                    </ul>
-                  </nav>
-                </Col>
-              </Row>
-              <hr />
-              <Pagination
-                onChange={onHandleChange}
-                showSizeChanger
-                onShowSizeChange={onShowSizeChange}
-                pageSize={10}
-                defaultCurrent={1}
-                total={40}
-              />
-            </Cards>
-          </Col>
-        </Row>
+                      </Col>
+                      <Col md={12}>
+                        <p className="result-limit">Showing 1-10 of 76 results</p>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="result-list-content">
+                    <Row>
+                      <Col md={24}>
+                        <nav>
+                          <ul>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                            <li>
+                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <p>
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
+                                diam nonumy eirmod...
+                              </p>
+                            </li>
+                          </ul>
+                        </nav>
+                      </Col>
+                    </Row>
+                  </div>
+                  <Pagination
+                    onChange={onHandleChange}
+                    showSizeChanger
+                    onShowSizeChange={onShowSizeChange}
+                    pageSize={10}
+                    defaultCurrent={1}
+                    total={40}
+                  />
+                </Cards>
+              </ResultList>
+            </Col>
+          </Row>
+        </SearchResultWrapper>
       </Main>
     </Fragment>
   );
