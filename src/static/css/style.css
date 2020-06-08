@@ -294,7 +294,7 @@
 /* pagination */
 
 .ant-pagination .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-  height: 32px;
+  height: 32px !important;
 }
 
 .ant-pagination .ant-pagination-options .ant-select-selection-item {
@@ -310,6 +310,12 @@
   line-height: 30px;
   padding-top: 0;
   padding-bottom: 0;
+}
+.ant-pagination .ant-select-single .ant-select-selector .ant-select-selection-item{
+  line-height: 30px !important;
+}
+.ant-pagination .ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input{
+  height: 100% !important;
 }
 
 /* radio style */
