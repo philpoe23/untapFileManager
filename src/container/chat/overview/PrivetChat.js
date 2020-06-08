@@ -31,6 +31,7 @@ const PrivetChat = ({ chat, match, filterSinglepage }) => {
             return (
               <li key={index + 1}>
                 <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
+                  <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                   <BlockSpan>
                     {userName}
                     <span style={{ float: 'right' }}>

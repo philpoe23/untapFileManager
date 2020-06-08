@@ -32,7 +32,7 @@ const Footer = Styled.div`
 
 const ChatSidebar = Styled.div`
   .ant-select-selector{
-    
+    height: auto !important;
   }
   .ant-select-single .ant-select-selector .ant-select-selection-search-input{
     border-radius: 23px;
@@ -41,6 +41,26 @@ const ChatSidebar = Styled.div`
     input{
       background: ${({theme})=>theme["bg-color-normal"]};
       height: 46px !important;
+    }
+  }
+  nav{
+    ul{
+      margin: 0 0 25px 0;
+      padding: 25px 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+      li{
+        a{
+          color: ${({theme})=>theme['gray-solid']};
+        }
+        &.active{
+          a{
+            color: ${({theme})=>theme['primary-color']};
+          }
+        }
+      }
     }
   }
 `;
