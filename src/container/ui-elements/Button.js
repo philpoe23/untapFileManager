@@ -119,7 +119,7 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
-              <Button size="default" outlined type="light">
+              <Button size="default" outlined type="white">
                 <FeatherIcon icon="layers" />
                 Default
               </Button>

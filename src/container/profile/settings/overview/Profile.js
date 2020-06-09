@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, Button } from 'antd';
+import { Row, Col, Form, Input, Select } from 'antd';
+import { Button } from '../../../../components/buttons/buttons';
+import { BasicFormWrapper, TagInput  } from '../../../styled';
 import Heading from '../../../../components/heading/heading';
 import { Tag } from '../../../../components/tags/tags';
 
@@ -26,66 +28,74 @@ const Profile = () => {
   };
 
   return (
-    <Cards
-      title={
-        <div>
-          <Heading as="h4">Edit Profile</Heading>
-          <span>Set Up Your Personal Information</span>
-        </div>
-      }
-    >
-      <Row>
-        <Col md={12} offset={6}>
-          <Form name="editProfile" onFinish={handleSubmit}>
-            <Form.Item name="name" initialValue="Duran Clayton" label="Name">
-              <Input />
-            </Form.Item>
-            <Form.Item name="phone" initialValue="01742920502" label="Phone Number">
-              <Input />
-            </Form.Item>
-            <Form.Item name="country" initialValue="" label="Country">
-              <Select style={{ width: '100%' }}>
-                <Option value="">Please Select</Option>
-                <Option value="bangladesh">Bangladesh</Option>
-                <Option value="india">India</Option>
-                <Option value="pakistan">Pakistan</Option>
-              </Select>
-            </Form.Item>
-            <Form.Item name="city" initialValue="" label="City">
-              <Select style={{ width: '100%' }}>
-                <Option value="">Please Select</Option>
-                <Option value="dhaka">Dhaka</Option>
-                <Option value="mymensingh">Mymensingh</Option>
-                <Option value="khulna">Khulna</Option>
-              </Select>
-            </Form.Item>
-            <Form.Item name="company" initialValue="Example" label="Company Name">
-              <Input />
-            </Form.Item>
-            <Form.Item name="website" initialValue="www.example.com" label="Website">
-              <Input />
-            </Form.Item>
-            <Form.Item
-              name="userBio"
-              initialValue="Nam malesuada dolor tellus pretium amet was hendrerit facilisi id vitae enim sed ornare there suspendisse sed orci neque ac sed aliquet risus faucibus in pretium molestee."
-              label="User Bio"
-            >
-              <Input.TextArea rows={3} />
-            </Form.Item>
-            <Tag animate onChange={checked} data={state.tags} />,
-            <Form.Item>
-              <Button htmlType="submit" type="primary">
-                Update Profile
-              </Button>
-              &nbsp; &nbsp;
-              <Button onClick={handleCancel} type="default">
-                Cancel
-              </Button>
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
-    </Cards>
+    
+      <Cards
+        title={
+          <div className="setting-card-title">
+            <Heading as="h4">Edit Profile</Heading>
+            <span>Set Up Your Personal Information</span>
+          </div>
+        }
+      >
+        <Row>
+          <Col md={12} offset={6}>
+            <BasicFormWrapper>
+              <Form name="editProfile" onFinish={handleSubmit}>
+                <Form.Item name="name" initialValue="Duran Clayton" label="Name">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="phone" initialValue="01742920502" label="Phone Number">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="country" initialValue="" label="Country">
+                  <Select style={{ width: '100%' }}>
+                    <Option value="">Please Select</Option>
+                    <Option value="bangladesh">Bangladesh</Option>
+                    <Option value="india">India</Option>
+                    <Option value="pakistan">Pakistan</Option>
+                  </Select>
+                </Form.Item>
+                <Form.Item name="city" initialValue="" label="City">
+                  <Select style={{ width: '100%' }}>
+                    <Option value="">Please Select</Option>
+                    <Option value="dhaka">Dhaka</Option>
+                    <Option value="mymensingh">Mymensingh</Option>
+                    <Option value="khulna">Khulna</Option>
+                  </Select>
+                </Form.Item>
+                <Form.Item name="company" initialValue="Example" label="Company Name">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="website" initialValue="www.example.com" label="Website">
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="userBio"
+                  initialValue="Nam malesuada dolor tellus pretium amet was hendrerit facilisi id vitae enim sed ornare there suspendisse sed orci neque ac sed aliquet risus faucibus in pretium molestee."
+                  label="User Bio"
+                >
+                  <Input.TextArea rows={3} />
+                </Form.Item>
+                <Form.Item name="skills" label="Skills">
+                  <TagInput>
+                    <Tag animate onChange={checked} data={state.tags} />
+                  </TagInput>
+                    <div className="setting-form-actions">
+                      <Button size="default" htmlType="submit" type="primary">
+                        Update Profile
+                      </Button>
+                      &nbsp; &nbsp;
+                      <Button size="default" onClick={handleCancel} type="light">
+                        Cancel
+                      </Button>
+                    </div>
+                </Form.Item>
+              </Form>
+            </BasicFormWrapper>
+          </Col>
+        </Row>
+      </Cards>
+    
   );
 };
 

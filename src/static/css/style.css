@@ -226,6 +226,7 @@ ul {
 
 .ant-btn-white {
   color: #5A5F7D;
+  border-color: #E3E6EF;
 }
 
 .ant-btn-white:hover {
@@ -242,7 +243,7 @@ ul {
 
 .ant-btn-link:hover {
   border-color: #fff;
-  background-color: #fff;
+  background: #fff;
 }
 
 .ant-btn-light, 
@@ -259,11 +260,14 @@ ul {
 
 .ant-btn-primary[disabled] {
   color: #fff;
-  background-color: #5F63F260;
+  background: #5F63F260;
 }
-
+.ant-btn-light {
+  background: #F4F5F7 !important;
+  border-color: #F4F5F7 !important;
+}
 .ant-btn-light[disabled] {
-  background-color: #fff;
+  background: #fff;
 }
 
 .ant-btn-round.ant-btn-sm{

@@ -5,8 +5,14 @@ import { Checkbox } from '../../../../components/checkbox/checkbox';
 import { Form, Input, Button } from 'antd';
 import { login } from '../../../../redux/authentication/actionCreator';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { AuthWrapper } from './style';
+=======
+import { BasicFormWrapper } from '../../../styled';
+import { AuthenticationWrapper } from './style';
+import FeatherIcon from 'feather-icons-react';
+>>>>>>> e6eb4ca62be90daa944474c270b62034ca333562
 
 const SignIn = () => {
   const dispatch = useDispatch();
