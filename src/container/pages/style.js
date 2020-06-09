@@ -211,10 +211,6 @@ const UserCard = Styled.div`
         line-height: 1.5;
         margin-bottom: 4px;
       }
-      p{
-        margin-bottom: 0;
-        color: ${({theme})=>theme['light-color']};
-      }
     }
   }
 `;
@@ -488,27 +484,53 @@ const MaintananceWrapper = Styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 100vh;
-  .maintanace-content{
-    text-align: center;
-    img{
-      margin-bottom: 72px;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6{
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-    p{
-      color: ${({theme})=>theme['gray-color']};
-    }
+  min-height: 100vh;
+  text-align: center;
+  img{
+    margin-bottom: 72px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  p{
+    color: ${({theme})=>theme['gray-color']};
   }
 `;
 
-export { PricingCard, ListGroup, Badge, GalleryNav, UserCard, GalleryCard, FaqCategoryBox, FaqSupportBox, FaqWrapper, SearchResultWrapper, ResultList, MaintananceWrapper };
+const ErrorWrapper = Styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  img{
+    margin-bottom: 100px;
+  }
+  .error-text{
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: ${({theme})=>theme['extra-light-color']};
+  }
+  p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 26px;
+  }
+  button{
+    height: 44px;
+  }
+`;
+
+export { PricingCard, ListGroup, Badge, GalleryNav, UserCard, GalleryCard, FaqCategoryBox, FaqSupportBox, FaqWrapper, SearchResultWrapper, ResultList, MaintananceWrapper, ErrorWrapper };

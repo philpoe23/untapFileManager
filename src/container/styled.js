@@ -320,7 +320,6 @@ const TableWrapper = Styled.div`
                 &:hover{
                     >td{
                         background: ${({theme})=>theme['bg-color-light']};
-                        &.table-actions
                     }
                 }
                 &.ant-table-row-selected{
@@ -369,7 +368,7 @@ const TableWrapper = Styled.div`
         }
         .table-actions{
             text-align: right;
-            min-width: 150px;
+            min-width: 150px !important;
             button{
                 height: 40px;
                 padding: 0 11px;
@@ -404,7 +403,7 @@ const TableWrapper = Styled.div`
                 margin: 0 8px 0;
             }
             .user-name{
-                margin-bottom: 0;
+                margin-bottom: 4px;
                 font-weight: 500;
             }
             .user-designation{

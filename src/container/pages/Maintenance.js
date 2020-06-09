@@ -7,14 +7,12 @@ const Maintenance = () => {
   return (
     <Main>
       <MaintananceWrapper>
-        <div className="maintanace-content">
-          <img src={require(`../../static/img/pages/maintenance.svg`)} alt="maintenance" />
-          <Heading as="h3">We are currently performing maintenance</Heading>
-          <p>
-            We're making the system more awesome. <br />
-            We'll be back shortly.
-          </p>
-        </div>
+        <img src={require(`../../static/img/pages/maintenance.svg`)} alt="maintenance" />
+        <Heading as="h3">We are currently performing maintenance</Heading>
+        <p>
+          We're making the system more awesome. <br />
+          We'll be back shortly.
+        </p>
       </MaintananceWrapper>
     </Main>
   );

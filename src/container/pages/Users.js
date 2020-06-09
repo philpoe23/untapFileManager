@@ -68,7 +68,7 @@ const Users = ({ searchData, users }) => {
                           <Heading className="card__name" as="h6">
                             <Link to="#">{name}</Link>
                           </Heading>
-                          <p>{designation}</p>
+                          <p className="card__designation">{designation}</p>
                         </div>
                         
                         <div className="card__actions">
