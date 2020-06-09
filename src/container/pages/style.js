@@ -533,4 +533,18 @@ const ErrorWrapper = Styled.div`
   }
 `;
 
-export { PricingCard, ListGroup, Badge, GalleryNav, UserCard, GalleryCard, FaqCategoryBox, FaqSupportBox, FaqWrapper, SearchResultWrapper, ResultList, MaintananceWrapper, ErrorWrapper };
+export { 
+  PricingCard, 
+  ListGroup, 
+  Badge, 
+  GalleryNav, 
+  UserCard, 
+  GalleryCard, 
+  FaqCategoryBox, 
+  FaqSupportBox, 
+  FaqWrapper, 
+  SearchResultWrapper, 
+  ResultList, 
+  MaintananceWrapper, 
+  ErrorWrapper 
+};

@@ -205,9 +205,23 @@ const NotificationListWrapper = Styled.div`
     }
 `;
 
+const TagInput = Styled.div`
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid ${({theme})=>theme['border-color-normal']};
+    .ant-tag{
+        font-size: 11px;
+        padding: 0 4px;
+        border: 0 none;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+    }
+`;
+
 const PageHeaderWrapper = Styled.div`
     .ant-page-header{
-        border: 1px solid #E3E6EF;
+        border: 1px solid ${({theme})=>theme['border-color-normal']};
         border-radius: 5px;
     }
     .ant-page-header .ant-page-header-heading-left{
@@ -237,14 +251,34 @@ const BasicFormWrapper = Styled.div`
                 margin-bottom: 6px;
             }
         }
+        .ant-form-item-control-input{
+            input,
+            textarea{
+                padding: 12px 20px;
+                color: ${({theme})=>theme['gray-color']};
+                &:placeholder{
+                    color: ${({theme})=>theme['light-color']};
+                }
+            }
+            button{
+                height: 44px;
+            }
+            .ant-input-affix-wrapper{
+                padding: 0 11px;
+            }
+        }
         .ant-select-single{
             .ant-select-selector{
+                padding: 0 20px;
                 height: 48px !important;
                 .ant-select-selection-item{
                     line-height: 46px !important;
                 }
             }
         }
+    }
+    .setting-form-actions{
+        margin: 48px 0 28px;
     }
 `;
 
@@ -426,6 +460,7 @@ export {
     CalendarWrapper, 
     DatePickerWrapper, 
     NotificationListWrapper, 
+    TagInput,
     PageHeaderWrapper,
     MessageStyleWrapper,
     BasicFormWrapper,
