@@ -6,7 +6,7 @@ import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
-import { Focard, CardBarChart, Exlist } from './style';
+import { Focard, CardBarChart, Exlist, RatioCard, IncomeExpenseWrapper } from './style';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 const content = (
@@ -79,82 +79,89 @@ const Business = () => {
             <Row gutter={25}>
               <Col md={12}>
                 <Focard>
-                  <Cards headless title="Profit">
-                    <div className="focard-details">
-                      <Heading as="h1">$25,872</Heading>
-                      <p>
-                        <span>
-                          <FeatherIcon icon="trending-up" /> 25%
-                        </span>
-                        <span> 20,641 (prev)</span>
-                      </p>
-                    </div>
-                    <ChartjsAreaChart
-                      labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-                      datasets={[
-                        {
-                          data: [30, 10, 25, 25, 10, 30],
-                          borderColor: '#5F63F2',
-                          borderWidth: 3,
-                          fill: true,
-                          backgroundColor: '#5F63F230',
-                        },
-                      ]}
-                      height={80}
-                    />
-                  </Cards>
+                  <div className="forcast-card-box">
+                    <Cards headless title="Profit">
+                      <div className="focard-details">
+                        <Heading as="h1">$25,872</Heading>
+                        <p>
+                          <span>
+                            <FeatherIcon icon="trending-up" /> 25%
+                          </span>
+                          <span> 20,641 (prev)</span>
+                        </p>
+                      </div>
+                      <ChartjsAreaChart
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                        datasets={[
+                          {
+                            data: [30, 10, 25, 25, 10, 30],
+                            borderColor: '#5F63F2',
+                            borderWidth: 3,
+                            fill: true,
+                            backgroundColor: '#5F63F230',
+                          },
+                        ]}
+                        height={80}
+                      />
+                    </Cards>
+                  </div>
                 </Focard>
               </Col>
               <Col md={12}>
                 <Focard>
-                  <Cards headless title="Gross Profit">
-                    <div className="focard-details">
-                      <Heading as="h1">$25,872</Heading>
-                      <p>Engaged Users</p>
-                      <p>
-                        <span>
-                          <FeatherIcon icon="trending-up" /> 25%
-                        </span>
-                        <span> 20,641 (prev)</span>
-                      </p>
-                    </div>
-                    <ChartjsAreaChart
-                      labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-                      datasets={[
-                        {
-                          data: [30, 10, 25, 25, 10, 30],
-                          borderColor: '#20C997',
-                          borderWidth: 3,
-                          fill: true,
-                          backgroundColor: '#20C99730',
-                        },
-                      ]}
-                      height={80}
-                    />
-                  </Cards>
+                  <div className="forcast-card-box">
+                    <Cards headless title="Gross Profit">
+                      <div className="focard-details">
+                        <Heading as="h1">$25,872</Heading>
+                        <p>
+                          <span>
+                            <FeatherIcon icon="trending-up" /> 25%
+                          </span>
+                          <span> 20,641 (prev)</span>
+                        </p>
+                      </div>
+                      <ChartjsAreaChart
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                        datasets={[
+                          {
+                            data: [30, 10, 25, 25, 10, 30],
+                            borderColor: '#20C997',
+                            borderWidth: 3,
+                            fill: true,
+                            backgroundColor: '#20C99730',
+                          },
+                        ]}
+                        height={80}
+                      />
+                    </Cards>
+                  </div>
                 </Focard>
               </Col>
               <Col md={12}>
-                <Cards headless title="Quick Ratio">
-                  <div>
-                    <Heading as="h1">1.8</Heading>
-                    <Progress percent={80} status="success" />
-                    <p>
-                      <strong>1 or higher</strong> quick ratio target
-                    </p>
-                  </div>
-                </Cards>
+                <RatioCard>
+                  <Cards headless title="Quick Ratio">
+                    <div className="ratio-content">
+                      <Heading as="h1">1.8</Heading>
+                      <Progress percent={80} status="success" />
+                      <p>
+                        <strong>1 or higher</strong> quick ratio target
+                      </p>
+                    </div>
+                  </Cards>
+                </RatioCard>
               </Col>
               <Col md={12}>
-                <Cards headless title="Current Ratio">
-                  <div>
-                    <Heading as="h1">2.4</Heading>
-                    <Progress percent={72} status="warning" />
-                    <p>
-                      <strong>3 or higher</strong> current ratio target
-                    </p>
-                  </div>
-                </Cards>
+                <RatioCard>
+                  <Cards headless title="Current Ratio">
+                    <div>
+                      <Heading as="h1">2.4</Heading>
+                      <Progress percent={72} status="warning" />
+                      <p>
+                        <strong>3 or higher</strong> current ratio target
+                      </p>
+                    </div>
+                  </Cards>
+                </RatioCard>
               </Col>
             </Row>
           </Col>
@@ -189,7 +196,7 @@ const Business = () => {
               size="large"
             >
               <CardBarChart>
-                <div className="d-flex flex-grid">
+                <div className="card-bar-top d-flex flex-grid">
                   <div className="flex-grid-child">
                     <p>Current Balance</p>
                     <Heading as="h3" className="color-primary">
@@ -227,175 +234,178 @@ const Business = () => {
             </Cards>
           </Col>
           <Col md={24}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title={
-                <div>
-                  Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span>
-                </div>
-              }
-              size="large"
-            >
-              <Row gutter="25">
-                <Col md={8}>
-                <Exlist>
-                  <div>
-                    <p>Total income</p>
-                    <Heading as="h1">
-                      $952,784
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" /> 37%
-                        </span>
-                        Since last month
-                      </sub>
-                    </Heading>
+            <IncomeExpenseWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
+                }
+                title={
                   <div>
-                    <p>Total expenses</p>
-                    <Heading as="h1">
-                      $274,784
-                      <sub className="growth-downward">
-                        <span>
-                          <FeatherIcon icon="arrow-down" /> 25%
-                        </span>
-                        Since last month
-                      </sub>
-                    </Heading>
+                    Income And Expenses <span>Nov 23, 2019 - Nov 29, 2019</span>
                   </div>
-                  <div>
-                    <p>Cost of goods sold</p>
-                    <Heading as="h1">
-                      $532,784
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" /> 25%
-                        </span>
-                        Since last month
-                      </sub>
-                    </Heading>
-                  </div>
-                  <div>
-                    <p>Net profit</p>
-                    <Heading as="h1">
-                      $252,727
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" /> 25%
-                        </span>
-                        Since last month
-                      </sub>
-                    </Heading>
-                  </div>
-                </Exlist>
-              </Col>
-              <Col md={16}>
-                <ChartjsBarChartTransparent
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                  datasets={[
-                    {
-                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                      backgroundColor: '#5F63F280',
-                      hoverBackgroundColor: '#5F63F2',
-                      label: 'Total Income',
-                    },
-                    {
-                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                      backgroundColor: '#FF69A580',
-                      hoverBackgroundColor: '#FF69A5',
-                      label: 'Cost of goods sold',
-                    },
-                    {
-                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                      backgroundColor: '#FA8B0C80',
-                      hoverBackgroundColor: '#FA8B0C',
-                      label: 'Total expenses',
-                    },
-                    {
-                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                      backgroundColor: '#20C99780',
-                      hoverBackgroundColor: '#20C997',
-                      label: 'Net profit',
-                    },
-                  ]}
-                  height={100}
-                  options= {{
-                    maintainAspectRatio: true,
-                    responsive: true,
-                    legend: {
-                      display: true,
-                      position: 'bottom',
-                      labels: {
-                        boxWidth: 6,
+                }
+                size="large"
+              >
+                <Row gutter="25">
+                  <Col md={6}>
+                  <Exlist>
+                    <div>
+                      <p>Total income</p>
+                      <Heading as="h1">
+                        $952,784
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" /> 37%
+                          </span>
+                          Since last month
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div>
+                      <p>Total expenses</p>
+                      <Heading as="h1">
+                        $274,784
+                        <sub className="growth-downward">
+                          <span>
+                            <FeatherIcon icon="arrow-down" /> 25%
+                          </span>
+                          Since last month
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div>
+                      <p>Cost of goods sold</p>
+                      <Heading as="h1">
+                        $532,784
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" /> 25%
+                          </span>
+                          Since last month
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div>
+                      <p>Net profit</p>
+                      <Heading as="h1">
+                        $252,727
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" /> 25%
+                          </span>
+                          Since last month
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Exlist>
+                </Col>
+                <Col md={18}>
+                  <ChartjsBarChartTransparent
+                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                    datasets={[
+                      {
+                        data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                        backgroundColor: '#5F63F280',
+                        hoverBackgroundColor: '#5F63F2',
+                        label: 'Total Income',
+                      },
+                      {
+                        data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                        backgroundColor: '#FF69A580',
+                        hoverBackgroundColor: '#FF69A5',
+                        label: 'Cost of goods sold',
+                      },
+                      {
+                        data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                        backgroundColor: '#FA8B0C80',
+                        hoverBackgroundColor: '#FA8B0C',
+                        label: 'Total expenses',
+                      },
+                      {
+                        data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                        backgroundColor: '#20C99780',
+                        hoverBackgroundColor: '#20C997',
+                        label: 'Net profit',
+                      },
+                    ]}
+                    height={100}
+                    options= {{
+                      maintainAspectRatio: true,
+                      responsive: true,
+                      legend: {
                         display: true,
-                        usePointStyle: true,
+                        position: 'bottom',
+                        labels: {
+                          boxWidth: 6,
+                          display: true,
+                          usePointStyle: true,
+                        },
                       },
-                    },
-                    layout: {
-                      padding: {
-                        left: '0',
-                        right: 0,
-                        top: 0,
-                        bottom: '0',
+                      layout: {
+                        padding: {
+                          left: '0',
+                          right: 0,
+                          top: 0,
+                          bottom: '0',
+                        },
                       },
-                    },
-                    scales: {
-                      yAxes: [
-                        {
-                          gridLines: {
-                            color: '#e5e9f2',
-                          },
-                          ticks: {
-                            beginAtZero: true,
-                            fontSize: 10,
-                            fontColor: '#182b49',
-                            max: 80,
-                            stepSize: 20,
-                            callback: function(label, index, labels) {
-                              return label + 'k';
+                      scales: {
+                        yAxes: [
+                          {
+                            gridLines: {
+                              color: '#e5e9f2',
+                            },
+                            ticks: {
+                              beginAtZero: true,
+                              fontSize: 10,
+                              fontColor: '#182b49',
+                              max: 80,
+                              stepSize: 20,
+                              callback: function(label, index, labels) {
+                                return label + 'k';
+                              },
                             },
                           },
-                        },
-                      ],
-                      xAxes: [
-                        {
-                          gridLines: {
-                            display: false,
+                        ],
+                        xAxes: [
+                          {
+                            gridLines: {
+                              display: false,
+                            },
+                            barPercentage: 0.6,
+                            ticks: {
+                              beginAtZero: true,
+                              fontSize: 11,
+                              fontColor: '#182b49',
+                            },
                           },
-                          barPercentage: 0.6,
-                          ticks: {
-                            beginAtZero: true,
-                            fontSize: 11,
-                            fontColor: '#182b49',
-                          },
-                        },
-                      ],
-                    },
-                  }}
-                />
-              </Col>
-              </Row>
-            </Cards>
+                        ],
+                      },
+                    }}
+                  />
+                </Col>
+                </Row>
+              </Cards>
+            </IncomeExpenseWrapper>
+            
           </Col>
           <Col md={12}>
             <Cards title="Account Receivable" more={content}>

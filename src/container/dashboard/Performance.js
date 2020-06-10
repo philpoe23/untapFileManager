@@ -268,49 +268,53 @@ const Performance = () => {
                   </Button>
                 </Dropdown>
               </div>
-              <Cards headless>
-                <div className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <Heading as="h2" className="color-primary">5,461</Heading>
-                    <p>Users Today</p>
+              <div className="overview-box">
+                <Cards headless>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="overview-box-single">
+                      <Heading as="h2" className="color-primary">5,461</Heading>
+                      <p>Users Today</p>
+                    </div>
+                    <div className="overview-box-single">
+                      <Heading as="h2">8,085</Heading>
+                      <p>Expected Users</p>
+                    </div>
                   </div>
-                  <div>
-                    <Heading as="h2">8,085</Heading>
-                    <p>Expected Users</p>
-                  </div>
-                </div>
 
-                <Progress percent={70} showInfo={false} className="progress-primary" />
+                  <Progress percent={70} showInfo={false} className="progress-primary" />
 
-                <p>
-                  <span className="growth-upward">
-                    <FeatherIcon icon="arrow-up" size={14} />
-                    25% <span>Since yesterday</span>
-                  </span>
-                  <span style={{ float: 'right' }}>70%</span>
-                </p>
-              </Cards>
+                  <p>
+                    <span className="growth-upward">
+                      <FeatherIcon icon="arrow-up" size={14} />
+                      25% <span>Since yesterday</span>
+                    </span>
+                    <span style={{ float: 'right' }}>70%</span>
+                  </p>
+                </Cards>
+              </div>
 
-              <Cards headless>
-                <div  className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <Heading as="h2" className="color-info">140</Heading>
-                    <p>Goals Today</p>
+              <div className="overview-box">
+                <Cards headless>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="overview-box-single">
+                      <Heading as="h2" className="color-info">140</Heading>
+                      <p>Goals Today</p>
+                    </div>
+                    <div className="overview-box-single">
+                      <Heading as="h2">120</Heading>
+                      <p>Expected Goals</p>
+                    </div>
                   </div>
-                  <div>
-                    <Heading as="h2">120</Heading>
-                    <p>Expected Goals</p>
-                  </div>
-                </div>
-                <Progress percent={70} showInfo={false} />
-                <p>
-                  <span className="growth-downward">
-                    <FeatherIcon icon="arrow-down" size={14} />
-                    25% <span>Since yesterday</span>
-                  </span>
-                  <span style={{ float: 'right' }}>70%</span>
-                </p>
-              </Cards>
+                  <Progress percent={70} showInfo={false} />
+                  <p>
+                    <span className="growth-downward">
+                      <FeatherIcon icon="arrow-down" size={14} />
+                      25% <span>Since yesterday</span>
+                    </span>
+                    <span style={{ float: 'right' }}>70%</span>
+                  </p>
+                </Cards>
+              </div>
             </OverviewCard>
           </Col>
           <Col md={16}>
@@ -472,33 +476,35 @@ const Performance = () => {
             </Cards>
           </Col>
           <Col md={16}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Traffic Channels"
-              size="large"
-            >
-              <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-            </Cards>
+            <div className="full-width-table">  
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Traffic Channels"
+                size="large"
+              >
+                <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+              </Cards>
+            </div>
           </Col>
           <Col md={8}>
             <Cards
@@ -552,33 +558,35 @@ const Performance = () => {
             </Cards>
           </Col>
           <Col md={12}>
+          <div className="full-width-table">
             <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Top Landing Pages"
-              size="large"
-            >
-              <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
-            </Cards>
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Top Landing Pages"
+                size="large"
+              >
+                <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+              </Cards>
+            </div>
           </Col>
           <Col md={12}>
             <Cards

@@ -6,7 +6,7 @@ const MainWraper = Styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 15px 0;
+  margin: 18px 0;
   h1{
     font-size: 22px;
     font-weight: 600;
@@ -16,6 +16,11 @@ const MainWraper = Styled.div`
   p{
     margin: 0;
     color: #868EAE;
+  }
+  .social-icon{
+    span{
+      font-size: 20px;
+    }
   }
 `;
 

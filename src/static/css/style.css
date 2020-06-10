@@ -120,7 +120,7 @@ ul {
   height: 1px;
   background: #5F63F2;
   left: 0;
-  bottom: -18px;
+  bottom: -19px;
 }
 
 /* chart growth upward */
@@ -138,6 +138,11 @@ ul {
   bottom: 0;
 }
 
+.growth-downward h1,
+.growth-upward h1{
+  font-size: 22px;
+  margin: 6px 0 0;
+}
 .growth-downward h1 sub {
   color: #FF4D4F;
 }
@@ -623,4 +628,22 @@ ul {
 /* Leaflet COntainer */
 .leaflet-container{
   z-index: 0;
+}
+
+/* Full Width Table */
+
+.full-width-table .ant-card-body{
+  padding: 0 !important;
+}
+
+.full-width-table .ant-table{
+  border-radius: 10px !important;
+}
+
+.full-width-table .revenue-table{
+  min-height: 580px;
+}
+
+.full-width-table .top-seller-table{
+  min-height: 405px;
 }
