@@ -4,7 +4,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import FontAwesome from 'react-fontawesome';
-import { Icon } from './IconStyled';
+import { Icon, IconWrapper } from './IconStyled';
 import { faIcons } from '../../config/icon/icon.json';
 
 const FeatherSvgIcons = () => {
@@ -14,25 +14,27 @@ const FeatherSvgIcons = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards title="Simply beautiful open source icons" size="learge">
-              <Row gutter={15}>
-                {faIcons.map((icon, index) => {
-                  return (
-                    <Col md={6} key={index + 1}>
-                      <Icon>
-                        <FontAwesome
-                          className="super-crazy-colors"
-                          name={icon}
-                          size="2x"
-                          style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-                        />
-                        <span>{icon}</span>
-                      </Icon>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </Cards>
+            <IconWrapper>
+              <Cards title="Simply beautiful open source icons" size="learge">
+                <Row gutter={15}>
+                  {faIcons.map((icon, index) => {
+                    return (
+                      <Col md={6} key={index + 1}>
+                        <Icon className="icon-single">
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name={icon}
+                            size="2x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
+                          <span>{icon}</span>
+                        </Icon>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </Cards>
+            </IconWrapper>
           </Col>
         </Row>
       </Main>

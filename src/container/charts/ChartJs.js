@@ -19,44 +19,37 @@ const ChartJs = () => {
     <Fragment>
       <PageHeader title="Chart Js" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Bar Chart" size="large">
               <ChartjsBarChart className={'foo'} style={{ marginBottom: '20px' }} />
+            </Cards>
+
+            <Cards title="Stacked  Chart" size="large">
+              <ChartjsStackedChart />
+            </Cards>
+
+            <Cards title="Area  Chart" size="large">
+              <ChartjsAreaChart />
+            </Cards>
+
+            <Cards title="Donut  Chart" size="large">
+              <ChartjsDonutChart />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards title="Horizontal  Chart" size="large">
               <ChartjsHorizontalChart />
             </Cards>
-          </Col>
 
-          <Col md={12}>
-            <Cards title="Stacked  Chart" size="large">
-              <ChartjsStackedChart />
-            </Cards>
-          </Col>
-          <Col md={12}>
             <Cards title="Line  Chart" size="large">
               <ChartjsLineChart />
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Area  Chart" size="large">
-              <ChartjsAreaChart />
-            </Cards>
-          </Col>
-          <Col md={12}>
+
             <Cards title="Transparent  Chart" size="large">
               <ChartjsBarChartTransparent />
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Donut  Chart" size="large">
-              <ChartjsDonutChart />
-            </Cards>
-          </Col>
-          <Col md={12}>
+
             <Cards title="Pie  Chart" size="large">
               <ChartjsPieChart />
             </Cards>

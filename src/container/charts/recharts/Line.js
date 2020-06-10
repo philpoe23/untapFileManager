@@ -40,11 +40,11 @@ const ReChartLine = () => {
     <Fragment>
       <PageHeader title="Rechats Line Chart" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={24}>
           <Col md={12}>
             <Cards title="SIMPLE LINE CHART" size="large" more={false}>
               <LineChart
-                width={750}
+                width={630}
                 height={300}
                 data={data}
                 margin={{
@@ -68,7 +68,7 @@ const ReChartLine = () => {
             <Cards title="VERTICAL LINE CHART" size="large" more={false}>
               <LineChart
                 layout="vertical"
-                width={750}
+                width={630}
                 height={300}
                 data={data}
                 margin={{
@@ -91,7 +91,7 @@ const ReChartLine = () => {
           <Col md={12}>
             <Cards title="CUSTOMIZED DOT LINE CHART" size="large" more={false}>
               <LineChart
-                width={750}
+                width={630}
                 height={300}
                 data={data}
                 margin={{
@@ -114,7 +114,7 @@ const ReChartLine = () => {
           <Col md={12}>
             <Cards title="LINE CHART WITH REFERENCE LINES" size="large" more={false}>
               <LineChart
-                width={750}
+                width={630}
                 height={300}
                 data={data}
                 margin={{
@@ -139,7 +139,7 @@ const ReChartLine = () => {
           <Col md={12}>
             <Cards title="DASHED LINE CHART" size="large" more={false}>
               <LineChart
-                width={750}
+                width={630}
                 height={300}
                 data={data}
                 margin={{
@@ -161,7 +161,7 @@ const ReChartLine = () => {
           </Col>
           <Col md={12}>
             <Cards title="LINE CHART WITH X-AXIS PADDING" size="large" more={false}>
-              <LineChart width={750} height={300} data={data}>
+              <LineChart width={630} height={300} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
                 <YAxis />
@@ -177,7 +177,7 @@ const ReChartLine = () => {
               <div>
                 <h4>A demo of synchronized AreaCharts</h4>
                 <LineChart
-                  width={750}
+                  width={630}
                   height={200}
                   data={data}
                   syncId="anyId"
@@ -185,7 +185,7 @@ const ReChartLine = () => {
                     top: 10,
                     right: 30,
                     left: 0,
-                    bottom: 0,
+                    bottom: 15,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -196,7 +196,7 @@ const ReChartLine = () => {
                 </LineChart>
                 <p>Maybe some other content</p>
                 <LineChart
-                  width={750}
+                  width={630}
                   height={200}
                   data={data}
                   syncId="anyId"
@@ -204,7 +204,7 @@ const ReChartLine = () => {
                     top: 10,
                     right: 30,
                     left: 0,
-                    bottom: 0,
+                    bottom: 22,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -215,7 +215,7 @@ const ReChartLine = () => {
                   <Brush />
                 </LineChart>
                 <AreaChart
-                  width={750}
+                  width={630}
                   height={200}
                   data={data}
                   syncId="anyId"
@@ -239,14 +239,14 @@ const ReChartLine = () => {
             <Cards title="LINE CHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <LineChart
-                  width={750}
+                  width={630}
                   height={300}
                   data={data}
                   margin={{
                     top: 10,
                     right: 30,
                     left: 0,
-                    bottom: 0,
+                    bottom: 15,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -256,7 +256,7 @@ const ReChartLine = () => {
                   <Line type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
                 <LineChart
-                  width={750}
+                  width={630}
                   height={360}
                   data={data}
                   margin={{
