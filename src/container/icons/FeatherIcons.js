@@ -4,7 +4,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import FeatherIcon from 'feather-icons-react';
-import { Icon } from './IconStyled';
+import { Icon, IconWrapper } from './IconStyled';
 import { featherIcons } from '../../config/icon/icon.json';
 
 const FeatherSvgIcons = () => {
@@ -14,20 +14,22 @@ const FeatherSvgIcons = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards title="Simply beautiful open source icons" size="learge">
-              <Row gutter={15}>
-                {featherIcons.map((icon, index) => {
-                  return (
-                    <Col md={6} key={index + 1}>
-                      <Icon>
-                        <FeatherIcon icon={icon} size={18} />
-                        <span>{icon}</span>
-                      </Icon>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </Cards>
+            <IconWrapper>
+              <Cards title="Simply beautiful open source icons" size="learge">
+                <Row gutter={15}>
+                  {featherIcons.map((icon, index) => {
+                    return (
+                      <Col md={6} key={index + 1}>
+                        <Icon className="icon-single">
+                          <FeatherIcon icon={icon} size={18} />
+                          <span>{icon}</span>
+                        </Icon>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </Cards>
+            </IconWrapper>
           </Col>
         </Row>
       </Main>

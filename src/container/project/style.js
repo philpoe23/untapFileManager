@@ -435,4 +435,15 @@ const TasklistAction = Styled.div`
     }
 `;
 
-export { ProjectHeader, ProjectSorting, ProjectCard, ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList, ProjectDetailsWrapper, TaskLists, TasklistAction };
+export { 
+    ProjectHeader,
+    ProjectSorting, 
+    ProjectCard, 
+    ProjectPagination, 
+    ProjectListTitle, 
+    ProjectListAssignees, 
+    ProjectList, 
+    ProjectDetailsWrapper, 
+    TaskLists, 
+    TasklistAction 
+};

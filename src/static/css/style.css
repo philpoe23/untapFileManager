@@ -604,7 +604,6 @@ ul {
 }
 
 /* Ant Dropdown */
-
 .ant-dropdown{
   box-shadow: 0 5px 30px #9299B820;
   border: 0 none;
@@ -619,4 +618,9 @@ ul {
 .ant-dropdown div{
   box-shadow: 0 0;
   border-radius: 5px;
+}
+
+/* Leaflet COntainer */
+.leaflet-container{
+  z-index: 0;
 }

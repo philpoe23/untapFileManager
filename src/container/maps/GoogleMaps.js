@@ -12,7 +12,7 @@ const GoogleMap = () => {
     <Fragment>
       <PageHeader title="Google Maps" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Google Map Basic" size="large">
               <GoogleMaps />
