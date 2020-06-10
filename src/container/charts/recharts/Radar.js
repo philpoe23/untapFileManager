@@ -11,7 +11,7 @@ const ReChartRadar = () => {
     <Fragment>
       <PageHeader title="Rechats Radar Chart" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="SIMPLE RADAR CHART" size="large">
               <RadarChart cx={300} cy={250} outerRadius={150} width={750} height={500} data={radar}>

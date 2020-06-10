@@ -149,7 +149,7 @@ const Notification = () => {
         <div className="notification-actions">
           <Button size="default" type="primary">Update Social Profile</Button>
           &nbsp; &nbsp;
-          <Button size="default" type="default">Cancel</Button>
+          <Button size="default" type="light">Cancel</Button>
         </div>
       </Cards>
     </NotificationWrapper>

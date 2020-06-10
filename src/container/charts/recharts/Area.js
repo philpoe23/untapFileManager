@@ -11,12 +11,12 @@ const ReChartArea = () => {
     <Fragment>
       <PageHeader title="Rechats Area Chart" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="SIMPLE AREA CHART" size="large" more={false}>
               <AreaChart
-                width={750}
-                height={400}
+                width={630}
+                height={350}
                 data={data}
                 margin={{
                   top: 10,
@@ -37,8 +37,8 @@ const ReChartArea = () => {
           <Col md={12}>
             <Cards title="STACKED AREA CHART" size="large" more={false}>
               <AreaChart
-                width={750}
-                height={400}
+                width={630}
+                height={350}
                 data={data}
                 margin={{
                   top: 10,
@@ -61,14 +61,14 @@ const ReChartArea = () => {
             <Cards title="AREACHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <AreaChart
-                  width={750}
-                  height={300}
+                  width={630}
+                  height={350}
                   data={nullchart}
                   margin={{
                     top: 10,
                     right: 30,
                     left: 0,
-                    bottom: 0,
+                    bottom: 15,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -78,8 +78,8 @@ const ReChartArea = () => {
                   <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </AreaChart>
                 <AreaChart
-                  width={750}
-                  height={300}
+                  width={630}
+                  height={350}
                   data={data}
                   margin={{
                     top: 10,
@@ -101,15 +101,15 @@ const ReChartArea = () => {
             <Cards title="synchronized AreaCharts" size="large" more={false}>
               <div>
                 <AreaChart
-                  width={750}
-                  height={300}
+                  width={630}
+                  height={350}
                   data={data}
                   syncId="anyId"
                   margin={{
                     top: 10,
                     right: 30,
                     left: 0,
-                    bottom: 0,
+                    bottom: 15,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -120,8 +120,8 @@ const ReChartArea = () => {
                 </AreaChart>
                 <p>Maybe some other content</p>
                 <AreaChart
-                  width={750}
-                  height={300}
+                  width={630}
+                  height={350}
                   data={data}
                   syncId="anyId"
                   margin={{

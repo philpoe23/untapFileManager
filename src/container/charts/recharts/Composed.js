@@ -12,11 +12,11 @@ const ReChartComposed = () => {
     <Fragment>
       <PageHeader title="Rechats Composed Chart" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="LINE BAR AREA COMPOSED CHART" size="large">
               <ComposedChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
@@ -42,7 +42,7 @@ const ReChartComposed = () => {
             <Cards title="VERTICAL COMPOSED CHART" size="large">
               <ComposedChart
                 layout="vertical"
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
@@ -66,7 +66,7 @@ const ReChartComposed = () => {
           <Col md={12}>
             <Cards title="SAME DATA COMPOSED CHART" size="large">
               <ComposedChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
@@ -89,7 +89,7 @@ const ReChartComposed = () => {
           <Col md={12}>
             <Cards title="COMPOSED CHART WITH AXIS LABELS" size="large">
               <ComposedChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{

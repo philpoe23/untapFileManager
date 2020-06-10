@@ -10,20 +10,20 @@ const Peity = () => {
     <Fragment>
       <PageHeader title="Peity Charts" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={24}>
           <Col md={12}>
             <Cards title="LINE CHART" size="large">
               <Line
                 values={[5, 3, 9, 6, 5, 9, 7, 3, 5, 2, 5, 3, 9, 6, 5, 9, 7, 3, 5, 2]}
                 height={300}
-                width={750}
+                width={630}
                 fillColor="none"
               />
             </Cards>
           </Col>
           <Col md={12}>
             <Cards title="AREA CHART" size="large">
-              <Line values={[5, 3, 9, 6, 5, 9, 7, 3, 5, 2, 5, 3, 9, 6, 5, 9, 7, 3, 5, 2]} height={300} width={750} />
+              <Line values={[5, 3, 9, 6, 5, 9, 7, 3, 5, 2, 5, 3, 9, 6, 5, 9, 7, 3, 5, 2]} height={300} width={630} />
             </Cards>
           </Col>
         </Row>

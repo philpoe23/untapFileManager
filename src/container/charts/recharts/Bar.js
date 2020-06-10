@@ -12,10 +12,10 @@ const ReChartBar = () => {
     <Fragment>
       <PageHeader title="Rechats Bar Chart" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="TINY BAR CHART" size="large" more={false}>
-              <BarChart width={750} height={400} data={data}>
+              <BarChart width={630} height={400} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -30,7 +30,7 @@ const ReChartBar = () => {
           <Col md={12}>
             <Cards title="STACKED BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
@@ -53,7 +53,7 @@ const ReChartBar = () => {
           <Col md={12}>
             <Cards title="MIX BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
@@ -77,7 +77,7 @@ const ReChartBar = () => {
           <Col md={12}>
             <Cards title="POSITIVE AND NEGATIVE BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
+                width={630}
                 height={400}
                 data={positiveAndnegetive}
                 margin={{
@@ -101,7 +101,7 @@ const ReChartBar = () => {
           <Col md={12}>
             <Cards title="BAR CHART STACKED BY SIGN" size="large" more={false}>
               <BarChart
-                width={750}
+                width={630}
                 height={400}
                 data={positiveAndnegetive}
                 margin={{
@@ -125,7 +125,7 @@ const ReChartBar = () => {
           <Col md={12}>
             <Cards title="BIAXIAL BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
+                width={630}
                 height={400}
                 data={data}
                 margin={{
