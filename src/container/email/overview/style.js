@@ -118,7 +118,7 @@ const MailBox = Styled.div`
   }
   .body {
     .group {
-      padding: 5px 30px;
+      padding: 0px 30px;
       input,
       .react-tagsinput{
         border: 0 none;
@@ -131,13 +131,14 @@ const MailBox = Styled.div`
         }
       }
       input{
-        padding-left: 0;
+        padding: 15px 0;
         &:focus{
           box-shadow: 0 0;
         }
       }
-      div{
+      >div{
         box-shadow: 0 0;
+        border: none;
       }
     }
     .RichTextEditor__editor___1QqIU .public-DraftEditor-content {
