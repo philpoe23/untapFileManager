@@ -34,8 +34,8 @@ const Email = ({ match }) => {
       {isMailEditorOpen && <ComposeMail close={closeMailComposr} />}
 
       <Main>
-        <Row gutter={25}>
-          <Col md={5}>
+        <Row className="justify-content-center" gutter={25}>
+          <Col lg={7} xl={5}>
             <Cards headless bodypadding="30px">
               <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
                 + Compose
@@ -44,7 +44,7 @@ const Email = ({ match }) => {
             </Cards>
           </Col>
 
-          <Col md={19}>
+          <Col lg={17} xl={19}>
             <Switch>
               <Suspense
                 fallback={

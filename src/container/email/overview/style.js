@@ -2,8 +2,17 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
+  
+  @media only screen and (max-width: 991px){
+    margin-bottom: 30px;   
+  }
   .ant-table{
     border-radius: 10px;
+    .ant-table-selection-extra{
+      @media only screen and (max-width: 991px){
+        right: -15px;   
+      }
+    }
   }
   .ant-table-thead{
     >tr{
@@ -94,6 +103,9 @@ const MailBox = Styled.div`
   z-index: 111;
   border-radius: 10px;
   box-shadow: 0 10px 50px #9299B830;
+  @media only screen and (max-width: 575px){
+    right: 0;
+  }
   .header {
     padding: 20px;
     color: #fff;
@@ -119,6 +131,9 @@ const MailBox = Styled.div`
   .body {
     .group {
       padding: 0px 30px;
+      @media only screen and (max-width: 575px){
+        padding: 0px 15px;
+      }
       input,
       .react-tagsinput{
         border: 0 none;
@@ -143,6 +158,9 @@ const MailBox = Styled.div`
     }
     .RichTextEditor__editor___1QqIU .public-DraftEditor-content {
       height: 275px;
+      @media only screen and (max-width: 575px){
+        height: 240px
+      }
     }
   }
   .fotter {
@@ -201,6 +219,10 @@ const EmailNav = Styled.nav`
         margin-left: -45px;
         background: #fff;
         border-radius: 8px;
+        @media only screen and (max-width: 1199px){
+          width: 270px;
+          padding: 15px;
+        }
         h1{
           font-size: 16px;
           line-height: 20px;
@@ -243,10 +265,31 @@ const EmailNav = Styled.nav`
   }
 `;
 
+const MailDetailsWrapper = Styled.div`
+  .ant-card-head-wrapper{
+    @media only screen and (max-width: 767px){
+      flex-flow: column;
+      align-items: center;
+    }
+  }
+
+  .ant-card-head {
+    .ant-card-extra{
+      @media only screen and (max-width: 767px){
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .ant-card-head-title{
+      @media only screen and (max-width: 767px){
+        padding: 18px 0 0;
+      }
+    }
+  }
+`;
 const MessageAction = Styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   margin: 0 -5px;
   a{
     display: flex;
@@ -305,6 +348,12 @@ const EmailHeader = Styled.div`
 `;
 
 const MessageDetails = Styled.div`
+  .message-box {
+    @media only screen and (max-width: 767px){
+      flex-flow: column;
+      align-items: flex-start;
+    }
+  }
   .message-subject{
     h1{
       font-weight: 500;
@@ -335,6 +384,9 @@ const MessageDetails = Styled.div`
     display: flex;
     align-items: center;
     margin-top: 20px;
+    @media only screen and (max-width: 767px){
+      margin-top: 14px;
+    }
     div{
       margin-left: 20px;
       h1{
@@ -353,14 +405,22 @@ const MessageDetails = Styled.div`
     display: flex;
     align-items: center;
     margin: 0 -15px;
+    @media only screen and (max-width: 767px){
+      margin: 18px 0 0;
+    }
     span, a{
       display: block;
       padding: 0 15px;
       color: ${({theme})=>theme["gray-solid"]};
+      @media only screen and (max-width: 767px){
+        padding: 0 8px;
+      }
     }
     & > span{
-      line-height:0;
       padding-left: 0;
+      svg{
+        margin-top: 6px;
+      }
     }
     svg{
       width: 16px;
@@ -370,6 +430,10 @@ const MessageDetails = Styled.div`
   .message-body{
     padding-left: 82px;
     margin-top: 22px;
+    @media only screen and (max-width: 767px){
+      padding-left: 0px;
+      margin-top: 18px;
+    }
     p{
       color: ${({theme})=>theme["gray-color"]};
       font-size: 15px;
@@ -387,6 +451,11 @@ const MessageDetails = Styled.div`
     padding-left: 82px;
     display: flex;
     flex-wrap: wrap;
+    @media only screen and (max-width: 767px){
+      margin: 30px 0 0;
+      padding-left: 0px;
+      justify-content: center;
+    }
     figure{
       border: 1px solid ${({theme})=>theme["border-color-light"]};
       border-radius: 10px;
@@ -418,6 +487,9 @@ const MessageDetails = Styled.div`
 const MessageReply = Styled.div`
   nav{
     margin-bottom: 30px;
+    @media only screen and (max-width: 767px){
+      margin-bottom: 0px;
+    }
     ul{
       display: flex;
       align-items: center;
@@ -445,6 +517,9 @@ const MessageReply = Styled.div`
   .RichTextEditor__root___2QXK-{
     border: 0 none;
     padding: 15px 30px;
+    @media only screen and (max-width: 575px){
+      padding: 15px;
+    }
     .public-DraftEditor-content{
       min-height: 120px;
     }
@@ -453,6 +528,9 @@ const MessageReply = Styled.div`
     .fotter{
       margin: 15px 30px 0;
       padding-bottom: 15px;
+      @media only screen and (max-width: 575px){
+        margin: 15px 15px 0
+      }
     }
   }
 `;
@@ -463,4 +541,4 @@ const MailRightAction = Styled.div`
   }
 `;
 
-export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MessageDetails, MessageReply, MailRightAction };
+export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MailDetailsWrapper, MessageDetails, MessageReply, MailRightAction };

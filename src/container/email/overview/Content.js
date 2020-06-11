@@ -7,6 +7,7 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { TableResponsive } from '../../styled';
 import { EmailAuthor, EmailHeader } from './style';
 
 const Content = ({ searchData, email }) => {
@@ -161,18 +162,15 @@ const Content = ({ searchData, email }) => {
   ];
 
   return (
-    <Style
-      pagination={{
-        defaultPageSize: 10,
-        total: data.length,
-        showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-        position: 'top',
-      }}
-      rowSelection={rowSelection}
-      columns={columns}
-      dataSource={data}
-      onChange={handleChange}
-    />
+    <TableResponsive>
+      <Style
+        pagination={false}
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={data}
+        onChange={handleChange}
+      />
+    </TableResponsive>
   );
 };
 
