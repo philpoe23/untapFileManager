@@ -31,7 +31,7 @@ const MessageBox = props => {
         );
       })}
       <p>
-        <NavLink style={{ display: 'block', textAlign: 'center' }} to="#">
+        <NavLink style={{ display: 'block' }} to="#">
           Read more
         </NavLink>
       </p>

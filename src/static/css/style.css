@@ -492,6 +492,46 @@ ul {
 /* popover */
 .ant-popover-inner{
   padding: 15px;
+  box-shadow: 0 5px 20px #9299B820;
+  border-radius: 0 0 6px 6px;
+}
+
+.ant-popover-inner .ant-popover-title{
+  padding: 5px 10px 10px;
+}
+
+.ant-popover-inner .ant-popover-inner-content a{
+  color: #5A5F7D;
+}
+
+/* Select Dropdwon */
+.ant-select-dropdown{
+  padding: 18px 0 !important;
+  box-shadow: 0 5px 20px #9299B820 !important;
+  border-radius: 0 0 6px 6px !important;
+}
+
+.ant-select-dropdown .ant-select-item.ant-select-item-option-active{
+  background: #5F63F205;
+}
+
+.ant-select-dropdown .ant-select-item.ant-select-item-option-selected .ant-select-item-option-content{
+  padding-left: 10px;
+}
+
+.ant-select-dropdown .ant-select-item.ant-select-item-option-selected{
+  color: #5F63F2;
+  background: #5F63F206;
+}
+
+.ant-select-dropdown .ant-select-item.ant-select-item-option-selected .ant-select-item-option-content{
+  color: #5F63F2;
+  font-weight: 500;
+}
+
+.ant-select-dropdown .ant-select-item .ant-select-item-option-content{
+  transition: .3s;
+  color: #5A5F7D;
 }
 
 /* mail props dropdown */
@@ -610,14 +650,19 @@ ul {
 
 /* Ant Dropdown */
 .ant-dropdown{
-  box-shadow: 0 5px 30px #9299B820;
+  box-shadow: 0 5px 20px #9299B820;
+  background: #fff;
+  border-radius: 0 0 6px 6px;
+  padding: 15px 0 !important;
   border: 0 none;
 }
 
 .ant-dropdown a{
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
   font-weight: 400;
   color: #5A5F7D;
-  background: #5F63F205;
 }
 
 .ant-dropdown div{
@@ -650,6 +695,9 @@ ul {
 
 /* Rich TextEditor  */
 
+.RichTextEditor__root___2QXK-{
+  border: 0 none !important;
+}
 .RichTextEditor__root___2QXK- .EditorToolbar__root___3_Aqz{
   margin: 0;
   border-color: #F1F2F6;
@@ -663,7 +711,7 @@ ul {
 .RichTextEditor__root___2QXK- .Dropdown__root___3ALmx .Dropdown__value___34Py9{
   border: 0 none;
 }
-.RichTextEditor__root___2QXK- .Dropdown__root___3ALmx .select{
+.RichTextEditor__root___2QXK- .Dropdown__root___3ALmx select{
   border-right-width: 0px;
 }
 .RichTextEditor__editor___1QqIU .DraftEditor-editorContainer {
