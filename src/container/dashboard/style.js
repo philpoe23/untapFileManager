@@ -25,13 +25,15 @@ const Focard = Styled.div`
         }
         p{
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
+            margin: 0 -5px;
             span{
                 display: inline-flex;
                 align-items: center;
+                margin: 0 5px;
             }
             span + span{
-                margin-left: 10px;
                 color: #868EAE;
                 font-size: 13px;
             }
@@ -54,10 +56,10 @@ const Focard = Styled.div`
             h1{
                 padding: 25px 0 0 25px;
                 font-size: 16px;
-                font-weight: 500;    
+                font-weight: 500;
             }
         }
-        
+
         .focard-details{
             margin-top: 15px;
             padding: 0 25px 25px;
@@ -125,7 +127,7 @@ const CardGroup = Styled.div`
                 background: ${({theme})=>theme['primary-color']} !important;
                 &:hover{
                     color: #fff !important;
-                    background: ${({theme})=>theme['primary-color']} !important; 
+                    background: ${({theme})=>theme['primary-color']} !important;
                 }
             }
             &:hover{
@@ -136,7 +138,7 @@ const CardGroup = Styled.div`
     .focard-wrapper{
         margin: 0 -12px;
         padding: 24px 0 25px 0;
-        &.focard-divider{ 
+        &.focard-divider{
             border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
             .ant-col-md-12{
                 &:first-child{
@@ -189,7 +191,7 @@ const CardGroup = Styled.div`
 const Exlist = Styled.div`
     padding: 25px 0 0;
     height: 100%;
-    border-right: 1px solid ${({theme})=>theme['border-color-light']}; 
+    border-right: 1px solid ${({theme})=>theme['border-color-light']};
     div{
         margin-bottom: 25px;
         p{
@@ -473,23 +475,23 @@ const LocationMapWrapper = Styled.div`
 `;
 
 const RevenueChartWrapper = Styled.div`
-    
+
 `;
 
-export { 
-    Focard, 
-    CardBarChart, 
-    CardGroup, 
-    Exlist, 
-    OverviewCard, 
-    Pstates, 
-    SessionState, 
-    RegionList, 
-    CardBarChart2, 
+export {
+    Focard,
+    CardBarChart,
+    CardGroup,
+    Exlist,
+    OverviewCard,
+    Pstates,
+    SessionState,
+    RegionList,
+    CardBarChart2,
     SocialMediaWrapper,
     LineChartWrapper,
-    RatioCard, 
-    IncomeExpenseWrapper, 
-    LocationMapWrapper, 
-    RevenueChartWrapper 
+    RatioCard,
+    IncomeExpenseWrapper,
+    LocationMapWrapper,
+    RevenueChartWrapper
 };
