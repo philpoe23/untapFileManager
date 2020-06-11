@@ -8,7 +8,7 @@ import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 import { Link } from 'react-router-dom';
-import { Focard, CardBarChart, CardGroup } from './style';
+import { Focard, CardBarChart, CardGroup, SocialMediaWrapper, LineChartWrapper } from './style';
 
 const options = {
   layout: {
@@ -184,167 +184,173 @@ const Dashbord = () => {
       <Main>
         <Row gutter={25}>
           <Col md={8}>
-            <Cards title="Social Media Overview" size="large">
-              <Row gutter={25}>
-                <Col md={8}>
-                  <SocialMediaContent icon="facebook" bgColor="#2366B8" title="5,461" subTitle="Likes" />
-                </Col>
-                <Col md={8}>
-                  <SocialMediaContent icon="twitter" bgColor="#00ABE4" title="5,461" subTitle="Followers" />
-                </Col>
-                <Col md={8}>
-                  <SocialMediaContent icon="instagram" bgColor="#9D2E98" title="5,461" subTitle="Followers" />
-                </Col>
-                <Col md={8}>
-                  <SocialMediaContent icon="youtube-play" bgColor="#E32212" title="5,461" subTitle="Subscribers" />
-                </Col>
-                <Col md={8}>
-                  <SocialMediaContent icon="pinterest-p" bgColor="#E32212" title="5,461" subTitle="Followers" />
-                </Col>
-                <Col md={8}>
-                  <SocialMediaContent icon="linkedin" bgColor="#007CBC" title="5,461" subTitle="Followers" />
-                </Col>
-              </Row>
-            </Cards>
+            <SocialMediaWrapper>
+              <Cards title="Social Media Overview" size="large">
+                <Row gutter={25}>
+                  <Col md={8}>
+                    <SocialMediaContent icon="facebook" bgColor="#2366B8" title="5,461" subTitle="Likes" />
+                  </Col>
+                  <Col md={8}>
+                    <SocialMediaContent icon="twitter" bgColor="#00ABE4" title="5,461" subTitle="Followers" />
+                  </Col>
+                  <Col md={8}>
+                    <SocialMediaContent icon="instagram" bgColor="#9D2E98" title="5,461" subTitle="Followers" />
+                  </Col>
+                  <Col md={8}>
+                    <SocialMediaContent icon="youtube-play" bgColor="#E32212" title="5,461" subTitle="Subscribers" />
+                  </Col>
+                  <Col md={8}>
+                    <SocialMediaContent icon="pinterest-p" bgColor="#E32212" title="5,461" subTitle="Followers" />
+                  </Col>
+                  <Col md={8}>
+                    <SocialMediaContent icon="linkedin" bgColor="#007CBC" title="5,461" subTitle="Followers" />
+                  </Col>
+                </Row>
+              </Cards>
+            </SocialMediaWrapper>
           </Col>
 
           <Col md={16}>
             <CardGroup>
-              <Cards
-                isbutton={
-                  <Radio.Group defaultValue={2}>
-                    <Radio.Button value={1}>Today</Radio.Button>
-                    <Radio.Button value={2}>Week</Radio.Button>
-                    <Radio.Button value={3}>Month</Radio.Button>
-                    <Radio.Button value={4}>Year</Radio.Button>
-                  </Radio.Group>
-                }
-                title="Facebook Overview"
-                size="large"
-              >
-                <Row gutter={25}>
-                  <Col md={12}>
-                    <Row className="focard-wrapper">
-                      <Col md={12}>
-                        <Focard>
-                          <div className="focard-details">
-                            <Heading as="h1">25,872</Heading>
-                            <p className="subtitle">Engaged Users</p>
-                            <p>
-                              <span>
-                                <FeatherIcon icon="trending-up" />
-                                25%
-                              </span>
-                              <span> 20,641 (prev)</span>
-                            </p>
-                          </div>
-                          <ChartjsAreaChart
-                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                            datasets={[
-                              {
-                                data: [20, 40, 30, 45],
-                                borderColor: '#20C997',
-                                borderWidth: 3,
-                                fill: true,
-                                backgroundColor: '#20C99730',
-                              },
-                            ]}
-                            height={180}
-                          />
-                        </Focard>
-                      </Col>
-                      <Col md={12}>
-                        <Focard>
-                          <div className="focard-details">
-                            <Heading as="h1">492,534</Heading>
-                            <p className="subtitle">Page Impressions</p>
-                            <p>
-                              <span>
-                                <FeatherIcon icon="trending-up" />
-                                14%
-                              </span>
-                              <span> 20,641 (prev)</span>
-                            </p>
-                          </div>
-                          <ChartjsAreaChart
-                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                            datasets={[
-                              {
-                                data: [10, 20, 60, 33],
-                                borderColor: '#FF69A5',
-                                borderWidth: 3,
-                                fill: true,
-                                backgroundColor: '#FF69A530',
-                              },
-                            ]}
-                            height={180}
-                          />
-                        </Focard>
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col md={12}>
-                    <Row className="focard-wrapper">
-                      <Col md={12}>
-                        <Focard>
-                          <div className="focard-details growth-downward">
-                            <Heading as="h1">12,142</Heading>
-                            <p className="subtitle">Total Page Likes</p>
-                            <p>
-                              <span>
-                                <FeatherIcon icon="trending-down" />
-                                12%
-                              </span>
-                              <span> 20,641 (prev)</span>
-                            </p>
-                          </div>
-                          <ChartjsAreaChart
-                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                            datasets={[
-                              {
-                                data: [25, 35, 20, 28],
-                                borderColor: '#5F63F2',
-                                borderWidth: 3,
-                                fill: true,
-                                backgroundColor: '#5F63F230',
-                              },
-                            ]}
-                            height={180}
-                          />
-                        </Focard>
-                      </Col>
-                      <Col md={12}>
-                        <Focard>
-                          <div className="focard-details">
-                            <Heading as="h1">1,432</Heading>
-                            <p className="subtitle">Page Impressions</p>
-                            <p>
-                              <span>
-                                <FeatherIcon icon="trending-down" />
-                                14%
-                              </span>
-                              <span> 20,641 (prev)</span>
-                            </p>
-                          </div>
-                          <ChartjsAreaChart
-                            labels={['Jan', 'Feb', 'Mar', 'Apr']}
-                            datasets={[
-                              {
-                                data: [40, 31, 20, 45],
-                                borderColor: '#FA8B0C',
-                                borderWidth: 3,
-                                fill: true,
-                                backgroundColor: '#FA8B0C30',
-                              },
-                            ]}
-                            height={180}
-                          />
-                        </Focard>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </Cards>
+              <div className="forcast-overview">
+                <Cards
+                  isbutton={
+                    <div className="card-radio">
+                      <Radio.Group defaultValue={2}>
+                        <Radio.Button value={1}>Today</Radio.Button>
+                        <Radio.Button value={2}>Week</Radio.Button>
+                        <Radio.Button value={3}>Month</Radio.Button>
+                        <Radio.Button value={4}>Year</Radio.Button>
+                      </Radio.Group>
+                    </div>
+                  }
+                  title="Facebook Overview"
+                  size="large"
+                >
+                  <Row gutter={25}>
+                    <Col md={12}>
+                      <Row className="focard-wrapper focard-divider">
+                        <Col md={12}>
+                          <Focard>
+                            <div className="focard-details">
+                              <Heading as="h1">25,872</Heading>
+                              <p className="subtitle">Engaged Users</p>
+                              <p>
+                                <span>
+                                  <FeatherIcon icon="trending-up" />
+                                  25%
+                                </span>
+                                <span> 20,641 (prev)</span>
+                              </p>
+                            </div>
+                            <ChartjsAreaChart
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              datasets={[
+                                {
+                                  data: [400, 60, 100, 25, 20],
+                                  borderColor: '#20C997',
+                                  borderWidth: 3,
+                                  fill: true,
+                                  backgroundColor: '#20C99730',
+                                },
+                              ]}
+                              height={180}
+                            />
+                          </Focard>
+                        </Col>
+                        <Col md={12}>
+                          <Focard>
+                            <div className="focard-details">
+                              <Heading as="h1">492,534</Heading>
+                              <p className="subtitle">Page Impressions</p>
+                              <p>
+                                <span>
+                                  <FeatherIcon icon="trending-up" />
+                                  14%
+                                </span>
+                                <span> 20,641 (prev)</span>
+                              </p>
+                            </div>
+                            <ChartjsAreaChart
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              datasets={[
+                                {
+                                  data: [400, 60, 100, 235, 200],
+                                  borderColor: '#FF69A5',
+                                  borderWidth: 3,
+                                  fill: true,
+                                  backgroundColor: '#FF69A530',
+                                },
+                              ]}
+                              height={180}
+                            />
+                          </Focard>
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col md={12}>
+                      <Row className="focard-wrapper">
+                        <Col md={12}>
+                          <Focard>
+                            <div className="focard-details growth-downward">
+                              <Heading as="h1">12,142</Heading>
+                              <p className="subtitle">Total Page Likes</p>
+                              <p>
+                                <span>
+                                  <FeatherIcon icon="trending-down" />
+                                  12%
+                                </span>
+                                <span> 20,641 (prev)</span>
+                              </p>
+                            </div>
+                            <ChartjsAreaChart
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              datasets={[
+                                {
+                                  data: [400, 60, 100, 25, 200],
+                                  borderColor: '#5F63F2',
+                                  borderWidth: 3,
+                                  fill: true,
+                                  backgroundColor: '#5F63F230',
+                                },
+                              ]}
+                              height={180}
+                            />
+                          </Focard>
+                        </Col>
+                        <Col md={12}>
+                          <Focard>
+                            <div className="focard-details">
+                              <Heading as="h1">1,432</Heading>
+                              <p className="subtitle">Page Impressions</p>
+                              <p>
+                                <span>
+                                  <FeatherIcon icon="trending-down" />
+                                  14%
+                                </span>
+                                <span> 20,641 (prev)</span>
+                              </p>
+                            </div>
+                            <ChartjsAreaChart
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              datasets={[
+                                {
+                                  data: [10, 400, 100, 235, 20],
+                                  borderColor: '#FA8B0C',
+                                  borderWidth: 3,
+                                  fill: true,
+                                  backgroundColor: '#FA8B0C30',
+                                },
+                              ]}
+                              height={180}
+                            />
+                          </Focard>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Cards>
+              </div>
             </CardGroup>
           </Col>
 
@@ -375,7 +381,7 @@ const Dashbord = () => {
               size="large"
             >
               <CardBarChart>
-                <div>
+                <div className="card-bar-top">
                   <p>Subscribers</p>
                   <Heading as="h3">
                     25,472
@@ -406,524 +412,540 @@ const Dashbord = () => {
             </Cards>
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link to="#" onClick={handleActiveChange}>
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Twitter Overview"
-              size="large"
-            >
-              <Row>
-                <Col md={10}>
-                  <div className="growth-downward">
-                    <p>Tweets</p>
-                    <Heading as="h4">
-                      25,472
-                      <sub>
-                        <FeatherIcon icon="arrow-down" size={14} />
-                        25%
-                      </sub>
-                    </Heading>
+            <LineChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link to="#" onClick={handleActiveChange}>
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Tweet impressions</p>
-                    <Heading as="h4">
-                      78K
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        108%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Retweets</p>
-                    <Heading as="h4">
-                      2578
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        30%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Engagement rate</p>
-                    <Heading as="h4">
-                      2.8
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        34%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>New followers</p>
-                    <Heading as="h4">
-                      1078
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        27%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-            </Cards>
+                }
+                title="Twitter Overview"
+                size="large"
+              >
+
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-downward">
+                      <p>Tweets</p>
+                      <Heading as="h4">
+                        25,472
+                        <sub>
+                          <FeatherIcon icon="arrow-down" size={14} />
+                          25%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row"> 
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Tweet impressions</p>
+                      <Heading as="h4">
+                        78K
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          108%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Retweets</p>
+                      <Heading as="h4">
+                        2578
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          30%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Engagement rate</p>
+                      <Heading as="h4">
+                        2.8
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          34%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>New followers</p>
+                      <Heading as="h4">
+                        1078
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          27%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+              </Cards>
+            </LineChartWrapper>
+            
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link to="#" onClick={handleActiveChange}>
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Instagram Overview"
-              size="large"
-            >
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Post</p>
-                    <Heading as="h4">
-                      25,472
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        25%
-                      </sub>
-                    </Heading>
+            <LineChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link to="#" onClick={handleActiveChange}>
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Like</p>
-                    <Heading as="h4">
-                      78K
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        108%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Comments</p>
-                    <Heading as="h4">
-                      2578
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        30%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>New Followers</p>
-                    <Heading as="h4">
-                      2.8
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        34%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Following</p>
-                    <Heading as="h4">
-                      1078
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        27%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-            </Cards>
+                }
+                title="Instagram Overview"
+                size="large"
+              >
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Post</p>
+                      <Heading as="h4">
+                        25,472
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          25%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Like</p>
+                      <Heading as="h4">
+                        78K
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          108%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Comments</p>
+                      <Heading as="h4">
+                        2578
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          30%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>New Followers</p>
+                      <Heading as="h4">
+                        2.8
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          34%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Following</p>
+                      <Heading as="h4">
+                        1078
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          27%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+              </Cards>
+            </LineChartWrapper>
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link to="#" onClick={handleActiveChange}>
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" onClick={handleActiveChange}>
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Linkedin Key Metrick"
-              size="large"
-            >
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Clicks</p>
-                    <Heading as="h4">
-                      25,472
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        25%
-                      </sub>
-                    </Heading>
+            <LineChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link to="#" onClick={handleActiveChange}>
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="#" onClick={handleActiveChange}>
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Like</p>
-                    <Heading as="h4">
-                      78K
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        108%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Comments</p>
-                    <Heading as="h4">
-                      2578
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        30%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>New Followers</p>
-                    <Heading as="h4">
-                      2.8
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        34%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col md={10}>
-                  <div className="growth-upward">
-                    <p>Following</p>
-                    <Heading as="h4">
-                      1078
-                      <sub>
-                        <FeatherIcon icon="arrow-up" size={14} />
-                        27%
-                      </sub>
-                    </Heading>
-                  </div>
-                </Col>
-                <Col md={14}>
-                  <ChartjsLineChart
-                    height={110}
-                    datasets={[
-                      {
-                        data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 1,
-                        fill: false,
-                      },
-                    ]}
-                    options={options}
-                  />
-                </Col>
-              </Row>
-            </Cards>
+                }
+                title="Linkedin Key Metrick"
+                size="large"
+              >
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Clicks</p>
+                      <Heading as="h4">
+                        25,472
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          25%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Like</p>
+                      <Heading as="h4">
+                        78K
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          108%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Comments</p>
+                      <Heading as="h4">
+                        2578
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          30%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>New Followers</p>
+                      <Heading as="h4">
+                        2.8
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          34%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+                <Row className="line-chart-row">
+                  <Col md={10}>
+                    <div className="growth-upward">
+                      <p>Following</p>
+                      <Heading as="h4">
+                        1078
+                        <sub>
+                          <FeatherIcon icon="arrow-up" size={14} />
+                          27%
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Col>
+                  <Col md={14}>
+                    <ChartjsLineChart
+                      height={50}
+                      datasets={[
+                        {
+                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                          borderColor: '#C6D0DC',
+                          borderWidth: 1,
+                          fill: false,
+                        },
+                      ]}
+                      options={options}
+                    />
+                  </Col>
+                </Row>
+              </Cards>
+            </LineChartWrapper>
           </Col>
           <Col md={16}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={2}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
-              }
-              title="Social Traffic Metrics"
-              size="large"
-            >
-              <Table columns={columns} dataSource={data} pagination={false} />
-            </Cards>
+            <CardGroup>
+              <div className="full-width-table">
+                <Cards
+                  isbutton={
+                    <div className="card-radio">
+                      <Radio.Group defaultValue={2}>
+                        <Radio.Button value={1}>Today</Radio.Button>
+                        <Radio.Button value={2}>Week</Radio.Button>
+                        <Radio.Button value={3}>Month</Radio.Button>
+                        <Radio.Button value={4}>Year</Radio.Button>
+                      </Radio.Group>
+                    </div>
+                  }
+                  title="Social Traffic Metrics"
+                  size="large"
+                >
+                  <div className="traffic-table">
+                    <Table columns={columns} dataSource={data} pagination={false} />
+                  </div>
+                </Cards>
+              </div>
+            </CardGroup>
           </Col>
         </Row>
       </Main>

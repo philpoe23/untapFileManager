@@ -14,7 +14,8 @@ import {
 import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
-import { CardBarChart2 } from './style';
+import { Link } from 'react-router-dom';
+import { CardBarChart2, LocationMapWrapper, RevenueChartWrapper } from './style';
 
 const content = (
   <Fragment>
@@ -355,6 +356,17 @@ const locationdata = [
   },
 ];
 
+const handleActiveChange = e => {
+  const link = e.currentTarget;
+  link
+    .closest('ul')
+    .querySelectorAll('li')
+    .forEach(li => {
+      li.classList.remove('active');
+    });
+
+  link.closest('li').classList.add('active');
+};
 const Ecommerce = () => {
   return (
     <Fragment>
@@ -490,12 +502,30 @@ const Ecommerce = () => {
           <Col md={12}>
             <Cards
               isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
+                <div className="card-nav">
+                  <ul>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                      Today
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Week
+                      </Link>
+                    </li>
+                    <li className="active">
+                      <Link onClick={handleActiveChange} to="#">
+                        Month
+                      </Link>
+                    </li>
+                    <li>
+                      <Link onClick={handleActiveChange} to="#">
+                        Year
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               }
               more={content}
               title="Total Revenue"
@@ -575,76 +605,172 @@ const Ecommerce = () => {
             </Cards>
           </Col>
           <Col md={12}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
-              }
-              more={content}
-              title="Source Of Revenue Generated"
-              size="large"
-            >
-              <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
-            </Cards>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                more={content}
+                title="Source Of Revenue Generated"
+                size="large"
+              >
+                <div className="revenue-table">
+                  <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
+                </div>
+              </Cards>
+            </div>
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Top Selling Products"
-              size="large"
-              bodypadding="0px"
-            >
-              <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
-            </Cards>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  }
+                  title="Top Selling Products"
+                  size="large"
+                  bodypadding="0px"
+                >
+                  <div className="top-seller-table">
+                    <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
+                  </div>
+                </Cards>
+            </div>
+            
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Sales By Location"
-              size="large"
-            >
-              <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
-              <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-            </Cards>
+            <LocationMapWrapper>
+              <div className="full-width-table">
+                <Cards
+                    isbutton={
+                      <div className="card-nav">
+                        <ul>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                            Today
+                            </Link>
+                          </li>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                              Week
+                            </Link>
+                          </li>
+                          <li className="active">
+                            <Link onClick={handleActiveChange} to="#">
+                              Month
+                            </Link>
+                          </li>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                              Year
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    }
+                    title="Sales By Location"
+                    size="large"
+                  >
+                    <div className="location-map d-flex justify-content-center">
+                      <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    </div>
+                    
+                    <div className="location-table">
+                      <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                    </div>
+                  </Cards>
+              </div>
+            </LocationMapWrapper>
           </Col>
           <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Revenue By Device"
-              size="large"
-            >
-              <ChartjsDonutChart
-                labels={['Desktop', 'Mobile', 'Tablets']}
-                datasets={[
-                  {
-                    data: [5870, 4483, 2420],
-                    backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
-                  },
-                ]}
-              />
-            </Cards>
+            <RevenueChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Revenue By Device"
+                size="large"
+              >
+
+                <ChartjsDonutChart
+                  labels={['Desktop', 'Mobile', 'Tablets']}
+                  datasets={[
+                    {
+                      data: [5870, 4483, 2420],
+                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                    },
+                  ]}
+                />
+              </Cards>
+            </RevenueChartWrapper>
           </Col>
         </Row>
       </Main>
