@@ -102,7 +102,7 @@ const EamilNavbar = ({ path }) => {
                       placeholder="Enter label name"
                     />
                     <div className="btn-group">
-                      <Button onClick={handeleChange} type="primary">
+                      <Button size="default" onClick={handeleChange} type="primary">
                         Add Label
                       </Button>
                       <Button onClick={cancelAddNewLabels} type="default">

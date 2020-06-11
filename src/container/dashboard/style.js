@@ -4,10 +4,16 @@ const Focard = Styled.div`
 
     canvas{
         width: 100% !important;
-        margin-top: 45px;
-        min-height: 140px;
+        margin-top: 65px;
+        min-height: 110px;
     }
     .focard-details{
+        &.growth-downward{
+            h1{
+                font-size: 30px;
+                margin: 0;
+            }
+        }
         h1{
             font-weight: 600;
             margin-bottom: 2px;
@@ -373,6 +379,9 @@ const SocialMediaWrapper = Styled.div`
 `;
 
 const LineChartWrapper = Styled.div`
+    .linkedin-chart-wrap{
+        min-height: 392px;
+    }
     .line-chart-row{
         &:not(:last-child){
             margin-bottom: 28px;

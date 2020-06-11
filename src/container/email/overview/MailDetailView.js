@@ -8,7 +8,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin, Pagination } from 'antd';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
-import { MessageAction, MessageDetails, MessageReply } from './style';
+import { MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
 
 const MailComposer = lazy(() => import('./MailComposer'));
 
@@ -79,10 +79,10 @@ const Single = props => {
         </Fragment>
       }
       isbutton={
-        <div>
+        <MailRightAction>
           <span>1 - 50 of 235</span>
           <Pagination onChange={onChange} defaultCurrent={1} total={50} />
-        </div>
+        </MailRightAction>
       }
     >
       <Row gutter={15}>
@@ -192,7 +192,9 @@ const Single = props => {
                   </div>
                 }
               >
-                <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
+                <div className="reply-box">
+                  <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
+                </div>
               </Suspense>
             </Switch>
           </MessageReply>

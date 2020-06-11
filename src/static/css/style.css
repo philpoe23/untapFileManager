@@ -647,3 +647,25 @@ ul {
 .full-width-table .top-seller-table{
   min-height: 405px;
 }
+
+/* Rich TextEditor  */
+
+.RichTextEditor__root___2QXK- .EditorToolbar__root___3_Aqz{
+  margin: 0;
+  border-color: #F1F2F6;
+}
+.RichTextEditor__root___2QXK- .ButtonWrap__root___1EO_R button{
+  padding: 0;
+  border: 0 none;
+  background: #fff;
+  margin-right: 8px;
+}
+.RichTextEditor__root___2QXK- .Dropdown__root___3ALmx .Dropdown__value___34Py9{
+  border: 0 none;
+}
+.RichTextEditor__root___2QXK- .Dropdown__root___3ALmx .select{
+  border-right-width: 0px;
+}
+.RichTextEditor__editor___1QqIU .DraftEditor-editorContainer {
+  border: 0 none;
+}

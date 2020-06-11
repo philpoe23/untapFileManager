@@ -244,17 +244,17 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May']}
                               datasets={[
                                 {
-                                  data: [400, 60, 100, 25, 20],
+                                  data: [60, 6, 60, 10, 80],
                                   borderColor: '#20C997',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#20C99730',
                                 },
                               ]}
-                              height={180}
+                              height={140}
                             />
                           </Focard>
                         </Col>
@@ -272,17 +272,17 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May']}
                               datasets={[
                                 {
-                                  data: [400, 60, 100, 235, 200],
+                                  data: [60, 6, 60, 10, 80],
                                   borderColor: '#FF69A5',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#FF69A530',
                                 },
                               ]}
-                              height={180}
+                              height={140}
                             />
                           </Focard>
                         </Col>
@@ -304,17 +304,17 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May']}
                               datasets={[
                                 {
-                                  data: [400, 60, 100, 25, 200],
+                                  data: [40, 6, 10, 40, 10],
                                   borderColor: '#5F63F2',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#5F63F230',
                                 },
                               ]}
-                              height={180}
+                              height={140}
                             />
                           </Focard>
                         </Col>
@@ -332,17 +332,17 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'Mar']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May']}
                               datasets={[
                                 {
-                                  data: [10, 400, 100, 235, 20],
+                                  data: [60, 6, 60, 10, 50],
                                   borderColor: '#FA8B0C',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#FA8B0C30',
                                 },
                               ]}
-                              height={180}
+                              height={140}
                             />
                           </Focard>
                         </Col>
@@ -780,146 +780,148 @@ const Dashbord = () => {
                 title="Linkedin Key Metrick"
                 size="large"
               >
-                <Row className="line-chart-row">
-                  <Col md={10}>
-                    <div className="growth-upward">
-                      <p>Clicks</p>
-                      <Heading as="h4">
-                        25,472
-                        <sub>
-                          <FeatherIcon icon="arrow-up" size={14} />
-                          25%
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Col>
-                  <Col md={14}>
-                    <ChartjsLineChart
-                      height={50}
-                      datasets={[
-                        {
-                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                          borderColor: '#C6D0DC',
-                          borderWidth: 1,
-                          fill: false,
-                        },
-                      ]}
-                      options={options}
-                    />
-                  </Col>
-                </Row>
-                <Row className="line-chart-row">
-                  <Col md={10}>
-                    <div className="growth-upward">
-                      <p>Like</p>
-                      <Heading as="h4">
-                        78K
-                        <sub>
-                          <FeatherIcon icon="arrow-up" size={14} />
-                          108%
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Col>
-                  <Col md={14}>
-                    <ChartjsLineChart
-                      height={50}
-                      datasets={[
-                        {
-                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                          borderColor: '#C6D0DC',
-                          borderWidth: 1,
-                          fill: false,
-                        },
-                      ]}
-                      options={options}
-                    />
-                  </Col>
-                </Row>
-                <Row className="line-chart-row">
-                  <Col md={10}>
-                    <div className="growth-upward">
-                      <p>Comments</p>
-                      <Heading as="h4">
-                        2578
-                        <sub>
-                          <FeatherIcon icon="arrow-up" size={14} />
-                          30%
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Col>
-                  <Col md={14}>
-                    <ChartjsLineChart
-                      height={50}
-                      datasets={[
-                        {
-                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                          borderColor: '#C6D0DC',
-                          borderWidth: 1,
-                          fill: false,
-                        },
-                      ]}
-                      options={options}
-                    />
-                  </Col>
-                </Row>
-                <Row className="line-chart-row">
-                  <Col md={10}>
-                    <div className="growth-upward">
-                      <p>New Followers</p>
-                      <Heading as="h4">
-                        2.8
-                        <sub>
-                          <FeatherIcon icon="arrow-up" size={14} />
-                          34%
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Col>
-                  <Col md={14}>
-                    <ChartjsLineChart
-                      height={50}
-                      datasets={[
-                        {
-                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                          borderColor: '#C6D0DC',
-                          borderWidth: 1,
-                          fill: false,
-                        },
-                      ]}
-                      options={options}
-                    />
-                  </Col>
-                </Row>
-                <Row className="line-chart-row">
-                  <Col md={10}>
-                    <div className="growth-upward">
-                      <p>Following</p>
-                      <Heading as="h4">
-                        1078
-                        <sub>
-                          <FeatherIcon icon="arrow-up" size={14} />
-                          27%
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Col>
-                  <Col md={14}>
-                    <ChartjsLineChart
-                      height={50}
-                      datasets={[
-                        {
-                          data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                          borderColor: '#C6D0DC',
-                          borderWidth: 1,
-                          fill: false,
-                        },
-                      ]}
-                      options={options}
-                    />
-                  </Col>
-                </Row>
+                <div className="linkedin-chart-wrap">
+                  <Row className="line-chart-row">
+                    <Col md={10}>
+                      <div className="growth-upward">
+                        <p>Clicks</p>
+                        <Heading as="h4">
+                          25,472
+                          <sub>
+                            <FeatherIcon icon="arrow-up" size={14} />
+                            25%
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Col>
+                    <Col md={14}>
+                      <ChartjsLineChart
+                        height={50}
+                        datasets={[
+                          {
+                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 1,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="line-chart-row">
+                    <Col md={10}>
+                      <div className="growth-upward">
+                        <p>Like</p>
+                        <Heading as="h4">
+                          78K
+                          <sub>
+                            <FeatherIcon icon="arrow-up" size={14} />
+                            108%
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Col>
+                    <Col md={14}>
+                      <ChartjsLineChart
+                        height={50}
+                        datasets={[
+                          {
+                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 1,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="line-chart-row">
+                    <Col md={10}>
+                      <div className="growth-upward">
+                        <p>Comments</p>
+                        <Heading as="h4">
+                          2578
+                          <sub>
+                            <FeatherIcon icon="arrow-up" size={14} />
+                            30%
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Col>
+                    <Col md={14}>
+                      <ChartjsLineChart
+                        height={50}
+                        datasets={[
+                          {
+                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 1,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="line-chart-row">
+                    <Col md={10}>
+                      <div className="growth-upward">
+                        <p>New Followers</p>
+                        <Heading as="h4">
+                          2.8
+                          <sub>
+                            <FeatherIcon icon="arrow-up" size={14} />
+                            34%
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Col>
+                    <Col md={14}>
+                      <ChartjsLineChart
+                        height={50}
+                        datasets={[
+                          {
+                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 1,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="line-chart-row">
+                    <Col md={10}>
+                      <div className="growth-upward">
+                        <p>Following</p>
+                        <Heading as="h4">
+                          1078
+                          <sub>
+                            <FeatherIcon icon="arrow-up" size={14} />
+                            27%
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Col>
+                    <Col md={14}>
+                      <ChartjsLineChart
+                        height={50}
+                        datasets={[
+                          {
+                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 1,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
+                    </Col>
+                  </Row>
+                </div>
               </Cards>
             </LineChartWrapper>
           </Col>

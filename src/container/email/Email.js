@@ -37,7 +37,7 @@ const Email = ({ match }) => {
         <Row gutter={25}>
           <Col md={5}>
             <Cards headless bodypadding="30px">
-              <Button onClick={toggleMailComposer} shape="round" type="primary" size="large" block>
+              <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
                 + Compose
               </Button>
               <EamilNavbar path={path} />
