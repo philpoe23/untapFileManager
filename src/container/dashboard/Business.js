@@ -75,7 +75,7 @@ const Business = () => {
       <PageHeader ghost title="Finance Dashboard" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col lg={12}>
             <Row gutter={25}>
               <Col md={12}>
                 <Focard>
@@ -158,7 +158,7 @@ const Business = () => {
               </Col>
             </Row>
           </Col>
-          <Col md={12}>
+          <Col lg={12}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -226,7 +226,7 @@ const Business = () => {
               </CardBarChart>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col lg={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -397,7 +397,7 @@ const Business = () => {
               </Row>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col lg={12}>
             <Cards title="Account Receivable" more={content}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
@@ -421,7 +421,7 @@ const Business = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col lg={12}>
             <Cards title="Account Payable" more={content}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
