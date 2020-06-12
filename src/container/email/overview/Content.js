@@ -7,7 +7,6 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { TableResponsive } from '../../styled';
 import { EmailAuthor, EmailHeader } from './style';
 
 const Content = ({ searchData, email }) => {
@@ -162,15 +161,14 @@ const Content = ({ searchData, email }) => {
   ];
 
   return (
-    <TableResponsive>
       <Style
+        className="table-responsive"
         pagination={false}
         rowSelection={rowSelection}
         columns={columns}
         dataSource={data}
         onChange={handleChange}
       />
-    </TableResponsive>
   );
 };
 

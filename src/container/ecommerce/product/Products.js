@@ -39,8 +39,8 @@ const Product = ({ match }) => {
     <Fragment>
       <PageHeader ghost title="Shop" />
       <Main>
-        <Row gutter={44}>
-          <Col md={5}>
+        <Row gutter={40}>
+          <Col xl={5} lg={7}>
             <Suspense
               fallback={
                 <div className="spin">
@@ -51,16 +51,16 @@ const Product = ({ match }) => {
               <Filters />
             </Suspense>
           </Col>
-          <Col md={19}>
+          <Col xl={19} lg={17}>
             <TopToolBox>
-              <Row gutter={15}>
-                <Col md={7}>
+              <Row gutter={0}>
+                <Col xl={7} lg={12}>
                   <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                 </Col>
-                <Col md={7}>
+                <Col lg={7}>
                   <p className="search-result">Showing 1–8 of 86 results</p>
                 </Col>
-                <Col md={10}>
+                <Col lg={10}>
                   <div className="product-list-action d-flex justify-content-between align-items-center">
                     <div className="product-list-action__tab">
                       Sort By :
