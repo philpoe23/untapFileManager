@@ -96,7 +96,7 @@ const Div = Styled.div`
     }
 
     .atbd-main-layout{
-        margin-left: 300px;
+        margin-left: 280px;
         margin-top: 64px;
         @media only screen and (max-width: 1199px){
             margin-left: 80px !important;
