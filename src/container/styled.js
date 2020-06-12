@@ -3,6 +3,9 @@ const Main = Styled.div`
     padding: 0px 30px;
     min-height: 750px;
     background-color: rgb(244, 245, 247);
+    @media only screen and (max-width: 1199px){
+        padding: 0px 15px;
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }
@@ -449,6 +452,17 @@ const TableWrapper = Styled.div`
     }
 `;
 
+const TableResponsive = Styled.div`
+    .ant-table-content{
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        .ant-table-cell{
+            white-space: nowrap;
+        }
+    }
+`;
+
 export { 
     Main, 
     ButtonsGroupWrapper, 
@@ -465,5 +479,6 @@ export {
     MessageStyleWrapper,
     BasicFormWrapper,
     CardToolbox,
-    TableWrapper
+    TableWrapper,
+    TableResponsive
 };

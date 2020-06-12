@@ -76,7 +76,7 @@ const ThemeLayout = WrappedComponent => {
                   <MenueItems />
                 </div>
               </Sider>
-              <Layout style={{ marginLeft: 300, marginTop: '64px' }}>
+              <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
                   <Footer style={footerStyle}>Footer</Footer>
