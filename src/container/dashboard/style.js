@@ -1,12 +1,11 @@
 import Styled from "styled-components";
 
 const Focard = Styled.div`
-
     canvas{
         width: 100% !important;
         margin-top: 65px;
         min-height: 110px;
-    }
+    }}
     .focard-details{
         &.growth-downward{
             h1{
@@ -49,6 +48,19 @@ const Focard = Styled.div`
             }
         }
     }
+
+    @media (max-width: 1300px){
+        .focard-details{
+            h1{
+                font-size: 24px;
+            }
+            &.growth-downward{
+                h1{
+                    font-size: 24px;
+                }
+            }
+        }
+
 
     .forcast-card-box{
         .ant-card-body{
