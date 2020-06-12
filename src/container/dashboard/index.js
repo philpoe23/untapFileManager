@@ -228,7 +228,7 @@ const Dashbord = () => {
                   size="large"
                 >
                   <Row gutter={25}>
-                    <Col md={12}>
+                    <Col xl={12} md={24}>
                       <Row className="focard-wrapper focard-divider">
                         <Col md={12}>
                           <Focard>
@@ -288,7 +288,7 @@ const Dashbord = () => {
                         </Col>
                       </Row>
                     </Col>
-                    <Col md={12}>
+                    <Col xl={12} md={24}>
                       <Row className="focard-wrapper">
                         <Col md={12}>
                           <Focard>
@@ -467,7 +467,7 @@ const Dashbord = () => {
                     />
                   </Col>
                 </Row>
-                <Row className="line-chart-row"> 
+                <Row className="line-chart-row">
                   <Col md={10}>
                     <div className="growth-upward">
                       <p>Tweet impressions</p>
@@ -581,7 +581,7 @@ const Dashbord = () => {
                 </Row>
               </Cards>
             </LineChartWrapper>
-            
+
           </Col>
           <Col md={8}>
             <LineChartWrapper>
