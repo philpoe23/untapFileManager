@@ -36,7 +36,7 @@ const Grid = ({ productsAll, isloader }) => {
   };
 
   return (
-    <Row gutter={22}>
+    <Row gutter={30}>
       {isloader ? (
         <div className="spin">
           <Spin />
@@ -44,7 +44,7 @@ const Grid = ({ productsAll, isloader }) => {
       ) : products.length ? (
         products.map(({ id, name, rate, price, oldPrice, popular, img }) => {
           return (
-            <Col md={6} key={id}>
+            <Col xl={6} lg={12} key={id}>
               <ProductCard style={{marginBottom: 30}}>
                 <figure>
                   <img src={require(`../../../../${img}`)} alt={'img' + id} />

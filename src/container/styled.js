@@ -452,16 +452,6 @@ const TableWrapper = Styled.div`
     }
 `;
 
-const TableResponsive = Styled.div`
-    .ant-table-content{
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        .ant-table-cell{
-            white-space: nowrap;
-        }
-    }
-`;
 
 export { 
     Main, 
@@ -479,6 +469,5 @@ export {
     MessageStyleWrapper,
     BasicFormWrapper,
     CardToolbox,
-    TableWrapper,
-    TableResponsive
+    TableWrapper
 };
