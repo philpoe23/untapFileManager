@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
@@ -32,9 +32,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
         ghost
         title={
           <div className="project-header">
-            <Heading as="h2">
-              {title}
-            </Heading>
+            <Heading as="h2">{title}</Heading>
             <Button type="primary" size="small">
               <FeatherIcon icon="plus" size="14" /> Add Task
             </Button>
@@ -53,7 +51,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <FeatherIcon icon="trash-2" size={14} />
               Remove
             </Link>
-          </div>
+          </div>,
         ]}
       />
       <Main>

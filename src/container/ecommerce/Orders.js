@@ -6,7 +6,6 @@ import { Row, Col, Radio, Table } from 'antd';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { TopToolBox } from './Style';
 import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
@@ -59,27 +58,15 @@ const Orders = () => {
       const { status, orderId, customars, amount, date } = item;
       return dataSource.push({
         key: key + 1,
-        id: (
-          <span className="order-id">
-            {orderId}
-          </span>
-        ),
-        customar: (
-        <span className="customer-name">{customars}</span>
-        ),
-        status: (
-        <span className="status">{status}</span>
-        ),
-        amount: (
-        <span className="ordered-amount">{amount}</span>
-        ),
-        date: (
-        <span className="ordered-date">{date}</span>
-        ),
+        id: <span className="order-id">{orderId}</span>,
+        customar: <span className="customer-name">{customars}</span>,
+        status: <span className="status">{status}</span>,
+        amount: <span className="ordered-amount">{amount}</span>,
+        date: <span className="ordered-date">{date}</span>,
         action: (
           <div className="table-actions">
             <Fragment>
-              <Button  className="btn-icon" type="primary" to="#" shape="circle">
+              <Button className="btn-icon" type="primary" to="#" shape="circle">
                 <FeatherIcon icon="eye" size={16} />
               </Button>
               <Button className="btn-icon" type="info" to="#" shape="circle">
@@ -141,7 +128,6 @@ const Orders = () => {
       <PageHeader ghost title="Orders" />
       <Main>
         <Cards headless>
-          
           <Row gutter={15}>
             <Col md={24}>
               <TopToolBox>
@@ -167,8 +153,12 @@ const Orders = () => {
                   </Col>
                   <Col md={4}>
                     <div className="table-toolbox-actions">
-                      <Button size="small" type="secondary" transparented>Export</Button>
-                      <Button size="small" type="primary">+ Add Order</Button>
+                      <Button size="small" type="secondary" transparented>
+                        Export
+                      </Button>
+                      <Button size="small" type="primary">
+                        + Add Order
+                      </Button>
                     </div>
                   </Col>
                 </Row>

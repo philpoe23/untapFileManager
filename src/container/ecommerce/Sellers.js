@@ -6,7 +6,6 @@ import { Row, Col, Table } from 'antd';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { TopToolBox } from './Style';
 import FeatherIcon from 'feather-icons-react';
 
@@ -136,8 +135,12 @@ const Sellers = () => {
                   <Col md={15}></Col>
                   <Col md={4}>
                     <div className="table-toolbox-actions">
-                      <Button size="small" type="secondary" transparented>Export</Button>
-                      <Button size="small" type="primary">+ Add Order</Button>
+                      <Button size="small" type="secondary" transparented>
+                        Export
+                      </Button>
+                      <Button size="small" type="primary">
+                        + Add Order
+                      </Button>
                     </div>
                   </Col>
                 </Row>
@@ -154,7 +157,6 @@ const Sellers = () => {
               </TableWrapper>
             </Col>
           </Row>
-          
         </Cards>
       </Main>
     </Fragment>
