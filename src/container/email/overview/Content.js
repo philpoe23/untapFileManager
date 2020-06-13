@@ -66,7 +66,11 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
           </EmailHeader>
         ),
-        time: same ? moment(id).format('hh:mm A') : moment(id).format('LL'),
+        time: (
+          <span className="email-time">
+            {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
+          </span>
+        )
       });
     });
 
@@ -141,8 +145,14 @@ const Content = ({ searchData, email }) => {
     {
       title: (
         <Fragment>
-          <FeatherIcon icon="sliders" size={18} />
-          <FeatherIcon icon="more-vertical" size={18} />
+          <div className="email-top-right d-flex align-items-center">
+            <NavLink to='/'>
+              <FeatherIcon icon="sliders" size={18} />
+            </NavLink>
+            <NavLink to='/'>
+              <FeatherIcon icon="more-vertical" size={18} />
+            </NavLink>
+          </div>
         </Fragment>
       ),
       dataIndex: 'time',
@@ -151,18 +161,14 @@ const Content = ({ searchData, email }) => {
   ];
 
   return (
-    <Style
-      pagination={{
-        defaultPageSize: 10,
-        total: data.length,
-        showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-        position: 'top',
-      }}
-      rowSelection={rowSelection}
-      columns={columns}
-      dataSource={data}
-      onChange={handleChange}
-    />
+      <Style
+        className="table-responsive"
+        pagination={false}
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={data}
+        onChange={handleChange}
+      />
   );
 };
 

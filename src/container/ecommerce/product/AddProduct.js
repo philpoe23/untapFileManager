@@ -40,16 +40,16 @@ const AddProduct = () => {
       <PageHeader ghost title="Add Product" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless>
-              <Row gutter={25}>
-                <Col md={10} offset={7}>
+              <Row gutter={25} justify="center">
+                <Col xxl={10} md={14} sm={18} xs={24}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
                       <BasicFormWrapper>
                         <div className="add-product-block">
                           <Row gutter={15}>
-                            <Col md={24}>
+                            <Col xs={24}>
                               <div className="add-product-content">
                                 <Cards title="About Product">
                                   <Form.Item name="name" label="Product Name">

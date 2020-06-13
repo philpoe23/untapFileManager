@@ -36,7 +36,7 @@ const Grid = ({ productsAll, isloader }) => {
   };
 
   return (
-    <Row gutter={22}>
+    <Row gutter={30}>
       {isloader ? (
         <div className="spin">
           <Spin />
@@ -44,7 +44,7 @@ const Grid = ({ productsAll, isloader }) => {
       ) : products.length ? (
         products.map(({ id, name, rate, price, oldPrice, popular, img }) => {
           return (
-            <Col md={6} key={id}>
+            <Col xxl={6} lg={12} xs={24} key={id}>
               <ProductCard style={{marginBottom: 30}}>
                 <figure>
                   <img src={require(`../../../../${img}`)} alt={'img' + id} />
@@ -75,7 +75,7 @@ const Grid = ({ productsAll, isloader }) => {
                   </div>
                   
                   <div className="product-single-action">
-                    <Button size="small" type="default" className="btn-cart">
+                    <Button size="small" type="light" className="btn-cart" outlined>
                       <FeatherIcon icon="shopping-bag" size={14} />
                       Add To Cart
                     </Button>

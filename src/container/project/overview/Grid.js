@@ -37,7 +37,7 @@ const Grid = props => {
   };
 
   return (
-    <Row gutter={15}>
+    <Row gutter={25}>
       {projects.length ? (
         projects.map(project => {
           const { id, title, status, content } = project;

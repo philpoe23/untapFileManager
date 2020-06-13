@@ -131,27 +131,29 @@ const Orders = () => {
           <Row gutter={15}>
             <Col md={24}>
               <TopToolBox>
-                <Row gutter={15}>
-                  <Col md={5}>
+                <Row gutter={15} className="justify-content-center">
+                  <Col lg={5} xs={24}>
                     <div className="table-search-box">
                       <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col md={15}>
-                    Status:
-                    <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
-                      <Radio.Button value="">All</Radio.Button>
-                      {item.length &&
-                        [...new Set(filterKey)].map((item, key) => {
-                          return (
-                            <Radio.Button key={key + 1} value={item}>
-                              {item}
-                            </Radio.Button>
-                          );
-                        })}
-                    </Radio.Group>
+                  <Col xxl={15} lg={13} xs={24}>
+                    <div className="table-toolbox-menu">
+                      Status:
+                      <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
+                        <Radio.Button value="">All</Radio.Button>
+                        {item.length &&
+                          [...new Set(filterKey)].map((item, key) => {
+                            return (
+                              <Radio.Button key={key + 1} value={item}>
+                                {item}
+                              </Radio.Button>
+                            );
+                          })}
+                      </Radio.Group>
+                    </div>
                   </Col>
-                  <Col md={4}>
+                  <Col xxl={4} lg={6} xs={24}>
                     <div className="table-toolbox-actions">
                       <Button size="small" type="secondary" transparented>
                         Export
@@ -167,7 +169,7 @@ const Orders = () => {
           </Row>
           <Row gutter={15}>
             <Col md={24}>
-              <TableWrapper>
+              <TableWrapper className="table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}

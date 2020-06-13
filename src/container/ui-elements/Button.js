@@ -9,7 +9,7 @@ import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import FeatherIcon from 'feather-icons-react';
 import theme from '../../config/theme/customize-antd';
 
-const Buttons = () => {
+const Buttons = () => { 
   return (
     <Fragment>
       <PageHeader title="Button" />

@@ -1,6 +1,11 @@
 import Styled from 'styled-components';
 
 const Div = Styled.div`
+    .ant-layout-sider{
+        @media only screen and (max-width: 1199px){
+            display: none;
+        }
+    }
     header{
         box-shadow: 0px -15px 25px #888;
         z-index: 1;
@@ -87,6 +92,17 @@ const Div = Styled.div`
             text-transform: uppercase;
             color: #868EAE;
             padding: 0 15px;
+        }
+    }
+
+    .atbd-main-layout{
+        margin-left: 280px;
+        margin-top: 64px;
+        @media only screen and (max-width: 1199px){
+            margin-left: 80px !important;
+        }
+        @media only screen and (max-width: 767px){
+            margin-left: 0 !important;
         }
     }
 `;

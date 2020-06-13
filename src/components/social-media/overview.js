@@ -8,7 +8,7 @@ const SocialMediaContent = props => {
   const { icon, bgColor, title, subTitle } = props;
   return (
     <MainWraper>
-      <SocialIcon bgColor={bgColor}>
+      <SocialIcon className="social-icon" bgColor={bgColor}>
         <FontAwesome
           className="super-crazy-colors"
           name={icon}

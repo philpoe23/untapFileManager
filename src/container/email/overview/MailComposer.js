@@ -3,7 +3,8 @@ import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import 'react-tagsinput/react-tagsinput.css';
-import { Button } from 'antd';
+import { Button } from '../../../components/buttons/buttons';
+import { NavLink } from 'react-router-dom';
 
 const MailComposer = ({ onChange, onSend }) => {
   const [state, setState] = useState({
@@ -24,21 +25,23 @@ const MailComposer = ({ onChange, onSend }) => {
 
   return (
     <MailBox>
-      <div className="body">
-        <div className="group">
-          <RichTextEditor value={state.value} onChange={onChanges} />
-        </div>
-      </div>
+      <RichTextEditor value={state.value} onChange={onChanges} />
       <div className="fotter">
-        <div className="left">
-          <Button type="primary" onClick={onSubmit}>
+        <div className="left d-flex align-items-center">
+          <Button size="default" type="primary" onClick={onSubmit} raised>
             Send
           </Button>
-          <FeatherIcon icon="paperclip" size={18} />
-          <FeatherIcon icon="alert-circle" size={18} />
+          <NavLink to='/'>
+            <FeatherIcon icon="paperclip" size={18} />
+          </NavLink>
+          <NavLink to='/'>
+            <FeatherIcon icon="alert-circle" size={18} />
+          </NavLink>
         </div>
         <div className="right">
-          <FeatherIcon icon="trash-2" size={18} />
+          <NavLink to='/'>
+            <FeatherIcon icon="trash-2" size={18} />
+          </NavLink>
         </div>
       </div>
     </MailBox>

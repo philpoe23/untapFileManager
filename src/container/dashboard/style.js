@@ -1,14 +1,21 @@
 import Styled from "styled-components";
 
 const Focard = Styled.div`
-
     canvas{
         width: 100% !important;
-        margin-top: 45px;
-    }
+        margin-top: 65px;
+        min-height: 110px;
+    }}
     .focard-details{
+        &.growth-downward{
+            h1{
+                font-size: 30px;
+                margin: 0;
+            }
+        }
         h1{
-            margin-bottom: 0;
+            font-weight: 600;
+            margin-bottom: 2px;
         }
         .subtitle{
             font-size: 14px;
@@ -17,13 +24,15 @@ const Focard = Styled.div`
         }
         p{
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
+            margin: 0 -5px;
             span{
                 display: inline-flex;
                 align-items: center;
+                margin: 0 5px;
             }
             span + span{
-                margin-left: 10px;
                 color: #868EAE;
                 font-size: 13px;
             }
@@ -39,35 +48,164 @@ const Focard = Styled.div`
             }
         }
     }
+
+    @media (max-width: 1300px){
+        .focard-details{
+            h1{
+                font-size: 24px;
+            }
+            &.growth-downward{
+                h1{
+                    font-size: 24px;
+                }
+            }
+        }
+
+
+    .forcast-card-box{
+        .ant-card-body{
+            padding: 0 !important;
+            h1{
+                padding: 25px 0 0 25px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        .focard-details{
+            margin-top: 15px;
+            padding: 0 25px 25px;
+            h1{
+                padding: 0;
+                font-size: 30px;
+            }
+            p{
+                margin-bottom: 0;
+            }
+        }
+        canvas{
+            margin-top: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+    }
 `;
 
 const CardBarChart = Styled.div`
-    div{
+    .card-bar-top{
         p{
             font-size: 14px;
-            color: ${({theme})=>theme['light-gray-color']};
+            margin-bottom: 5px;
+            color: ${({theme})=>theme['light-color']};
         }
         h1{
+            margin-bottom: 22px;
             sub{
+                bottom: 0;
                 font-size: 14px;
+                margin-left: 10px;
                 color: ${({theme})=>theme['success-color']};
+                svg{
+                    margin-right: 4px;
+                }
             }
         }
     }
 `;
 
 const CardGroup = Styled.div`
+    .forcast-overview{
+        .ant-card-body{
+            padding: 0 25px !important;
+        }
+    }
+    .card-radio{
+        .ant-radio-button-wrapper{
+            height: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 0 10.5px;
+            color: ${({theme})=>theme['gray-color']};
+            &:focus-within{
+                box-shadow: 0 0;
+            }
+            &:first-child{
+                border-radius: 3px 0 0 3px;
+            }
+            &:last-child{
+                border-radius: 0 3px 3px 0;
+            }
+            &.ant-radio-button-wrapper-checked{
+                color: #fff !important;
+                background: ${({theme})=>theme['primary-color']} !important;
+                &:hover{
+                    color: #fff !important;
+                    background: ${({theme})=>theme['primary-color']} !important;
+                }
+            }
+            &:hover{
+                background: ${({theme})=>theme['bg-color-normal']} !important;
+            }
+        }
+    }
     .focard-wrapper{
         margin: 0 -12px;
+        padding: 24px 0 25px 0;
+        &.focard-divider{
+            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
+            .ant-col-md-12{
+                &:first-child{
+                    padding: 0 0 0 15px;
+                }
+                &:last-child{
+                    padding: 0 24px 0 24px;
+                }
+            }
+        }
         .ant-col-md-12{
-            padding: 0 12px;
+            padding: 0 0 0 24px;
+            &:last-child{
+                padding: 0 14px 0 24px;
+            }
+        }
+    }
+
+    .traffic-table{
+        .ant-table{
+            border-radius: 10px;
+        }
+        table{
+            color: #333;
+            thead{
+                th{
+                    &:nth-child(2){
+                        border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                    }
+                    &:nth-child(4){
+                        border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                    }
+                }
+            }
+            tbody{
+                td{
+                    border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                    &:first-child{
+                        border-left: 0 none;
+                    }
+                    &:last-child{
+                        border-right: 0 none;
+                    }
+                }
+            }
         }
     }
 `;
 
 const Exlist = Styled.div`
+    padding: 25px 0 0;
+    height: 100%;
+    border-right: 1px solid ${({theme})=>theme['border-color-light']};
     div{
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         p{
             font-size: 14px;
             color: ${({theme})=>theme["light-gray-color"]};
@@ -116,6 +254,22 @@ const OverviewCard = Styled.div`
         top:0;
         z-index:-1;
     }
+    .overview-box{
+        .ant-card-body{
+            padding: 22px 25px 14px !important;
+        }
+        .overview-box-single{
+            p{
+                color: ${({theme})=>theme["light-color"]};
+            }
+        }
+        .growth-downward,
+        .growth-upward{
+            span{
+                margin-left: 6px;
+            }
+        }
+    }
     .ant-card{
         box-shadow: 0 10px 30px rgba(146,153,184,0.15);
         .growth-upward{
@@ -139,7 +293,7 @@ const OverviewCard = Styled.div`
         margin-bottom: 70px;
         h1{
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 500;
             color: #fff;
         }
         .ant-btn-default{
@@ -154,7 +308,7 @@ const Pstates = Styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+    margin: -25px 0 30px;
     div{
         transition: 0.3s ease;
         padding: 20px;
@@ -168,7 +322,7 @@ const Pstates = Styled.div`
 `;
 
 const SessionState = Styled.div`
-    margin: 0 -15px;
+    margin: 0 0 15px -15px;
     div{
         padding: 0 15px;
         span{
@@ -232,4 +386,124 @@ const CardBarChart2 = Styled.div`
 `;
 
 
-export { Focard, CardBarChart, CardGroup, Exlist, OverviewCard, Pstates, SessionState, RegionList, CardBarChart2 };
+const SocialMediaWrapper = Styled.div`
+    .ant-card-body{
+        padding: 12px 25px 10px !important;
+    }
+`;
+
+const LineChartWrapper = Styled.div`
+    .linkedin-chart-wrap{
+        min-height: 392px;
+    }
+    .line-chart-row{
+        &:not(:last-child){
+            margin-bottom: 28px;
+        }
+    }
+`;
+
+const RatioCard = Styled.div`
+    .ant-card-body{
+        h1{
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    .ratio-content{
+        margin-top: 25px;
+        h1{
+            margin-bottom: 2px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .ant-progress{
+            margin-bottom: 8px;
+        }
+        p{
+            margin-bottom: 0;
+            strong{
+                font-weight: 600;
+            }
+        }
+    }
+`;
+
+const IncomeExpenseWrapper = Styled.div`
+    .ant-card-body{
+        padding: 0 25px !important;
+    }
+    canvas{
+        padding: 20px 0;
+    }
+`;
+
+const LocationMapWrapper = Styled.div`
+    .location-map{
+        padding: 20px 0;
+        svg{
+            width: 300px;
+            height: 166px;
+        }
+    }
+    .location-table{
+        margin: 0 25px 15px;
+        padding-top: 12px;
+        min-height: 180px;
+        border-top: 1px solid ${({theme})=>theme['border-color-light']} !important;
+        table{
+            tr{
+                &:hover{
+                    td{
+                        background: #fff;
+                    }
+                }
+                td{
+                    border: 0 none;
+                    color: ${({theme})=>theme['gray-color']}
+                }
+                th,
+                td{
+                    padding: 6px 16px;
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                    &:last-child{
+                        text-align: right;
+                        padding-right: 0;
+                    }
+                }
+            }
+            thead{
+                th{
+                    background: #fff;
+                    border: 0 none;
+                    font-weight: 400;
+                    color: ${({theme})=>theme['light-color']}
+                }
+            }
+        }
+    }
+`;
+
+const RevenueChartWrapper = Styled.div`
+
+`;
+
+export {
+    Focard,
+    CardBarChart,
+    CardGroup,
+    Exlist,
+    OverviewCard,
+    Pstates,
+    SessionState,
+    RegionList,
+    CardBarChart2,
+    SocialMediaWrapper,
+    LineChartWrapper,
+    RatioCard,
+    IncomeExpenseWrapper,
+    LocationMapWrapper,
+    RevenueChartWrapper
+};

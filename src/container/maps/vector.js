@@ -11,7 +11,7 @@ const VectorMaps = () => {
     <Fragment>
       <PageHeader title="Vector Maps" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
             <Cards title="World Map" size="large">
               <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />

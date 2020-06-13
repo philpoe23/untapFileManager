@@ -127,13 +127,13 @@ const Sellers = () => {
             <Col md={24}>
               <TopToolBox>
                 <Row gutter={15}>
-                  <Col md={5}>
+                  <Col xxl={5} lg={10} xs={24}>
                     <div className="table-search-box">
                       <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col md={15}></Col>
-                  <Col md={4}>
+                  <Col xxl={15} lg={5} xs={24}></Col>
+                  <Col xxl={4} lg={9} xs={24}>
                     <div className="table-toolbox-actions">
                       <Button size="small" type="secondary" transparented>
                         Export
@@ -147,7 +147,7 @@ const Sellers = () => {
               </TopToolBox>
             </Col>
             <Col md={24}>
-              <TableWrapper>
+              <TableWrapper className="table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}

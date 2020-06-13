@@ -39,8 +39,8 @@ const RechartsRadial = lazy(() => import('../container/charts/recharts/Radial'))
 
 // maps
 const GoogleMaps = lazy(() => import('../container/maps/GoogleMaps'));
-const Osm = lazy(() => import('../container/maps/Leaflet'));
-const Vector = lazy(() => import('../container/maps/Vector'));
+const Osm = lazy(() => import('../container/maps/leaflet'));
+const Vector = lazy(() => import('../container/maps/vector'));
 
 // Icons
 const Feathers = lazy(() => import('../container/icons/FeatherIcons'));

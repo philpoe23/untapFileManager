@@ -3,6 +3,9 @@ const Main = Styled.div`
     padding: 0px 30px;
     min-height: 750px;
     background-color: rgb(244, 245, 247);
+    @media only screen and (max-width: 1199px){
+        padding: 0px 15px;
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }
@@ -448,6 +451,7 @@ const TableWrapper = Styled.div`
         }
     }
 `;
+
 
 export { 
     Main, 

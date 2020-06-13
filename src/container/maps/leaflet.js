@@ -30,7 +30,7 @@ const OsMap = () => {
     <Fragment>
       <PageHeader title="Openstreet Maps (Leaflet)" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Leaflet Basic Map" size="large">
               <LeafletMapBasic latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={15} />
