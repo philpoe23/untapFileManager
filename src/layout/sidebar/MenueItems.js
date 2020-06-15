@@ -58,7 +58,7 @@ const MenueItems = () => {
       </SubMenu>
 
       <Menu.Item key="chat">
-        <NavLink to="/chat">
+        <NavLink to="/chat/rofiq@gmail.com">
           <FeatherIcon icon="message-square" />
           <span>Chat</span>
         </NavLink>

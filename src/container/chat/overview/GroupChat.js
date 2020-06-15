@@ -37,6 +37,7 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
             return (
               <li key={index + 1}>
                 <NavLink onClick={dataFiltering} data-id={id} to={match.path + '/' + id}>
+                  <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />
                   <BlockSpan>
                     {groupName}
                     <span style={{ float: 'right' }}>
