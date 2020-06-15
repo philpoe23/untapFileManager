@@ -70,7 +70,7 @@ const ThemeLayout = WrappedComponent => {
               </Row>
             </Header>
             <Layout>
-              <Sider width={300} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
+              <Sider width={280} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
                 <div className="glider-scrollable" data="ss-container">
                   <p className="sidebar-nav-title">MAIN MENU</p>
                   <MenueItems />

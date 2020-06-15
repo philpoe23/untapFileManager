@@ -54,6 +54,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 /* default card style */
 
 .ant-card-body {
@@ -258,6 +259,10 @@ ul {
   color: #5A5F7D
 }
 
+.ant-btn-light{
+  border-color: #E3E6EF;
+}
+
 .ant-btn-dashed:hover {
   color: #5F63F2;
   border: 1px dashed #5F63F2;
@@ -267,10 +272,7 @@ ul {
   color: #fff;
   background: #5F63F260;
 }
-.ant-btn-light {
-  background: #F4F5F7 !important;
-  border-color: #F4F5F7 !important;
-}
+
 .ant-btn-light[disabled] {
   background: #fff;
 }
@@ -744,5 +746,13 @@ ul {
   .ant-card-head {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 575px){
+  .btn-inc,
+  .btn-dec{
+    height: 30px;
+    width: 30px;
   }
 }

@@ -52,16 +52,16 @@ const EditProduct = () => {
       <PageHeader ghost title="Edit Product" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless>
-              <Row gutter={25}>
-                <Col md={10} offset={7}>
+              <Row gutter={25} justify="center">
+                <Col xxl={10} md={14} sm={18} xs={24}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="editProduct" onFinish={handleSubmit}>
                       <BasicFormWrapper>
                         <div className="add-product-block">
                           <Row gutter={15}>
-                            <Col md={24}>
+                            <Col xs={24}>
                               <Cards title="About Product">
                                 <Form.Item name="name" initialValue="Red chair" label="Product Name">
                                   <Input />
@@ -120,7 +120,7 @@ const EditProduct = () => {
                         </div>
                         <div className="add-product-block">
                           <Row gutter={15}>
-                            <Col md={24}>
+                            <Col xs={24}>
                               <Cards title="Product Image">
                                 <Dragger {...props}>
                                   <p className="ant-upload-drag-icon">

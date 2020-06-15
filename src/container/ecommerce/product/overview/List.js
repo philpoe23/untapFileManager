@@ -43,66 +43,66 @@ const List = ({ productsAll, isloader }) => {
       ) : products.length ? (
         products.map(({ id, name, rate, price, oldPrice, popular, description, img }) => {
           return (
-            <ProductCard style={{marginBottom: 20}}>
-              <div className="product-list">
-                <Col md={24} key={id}>
-                  <Row gutter={15}>
-                    <Col sm={6}>
-                      <figure>
-                        <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
-                      </figure>
-                    </Col>
-                    <Col sm={12}>
-                      <div className="product-single-description">
-                        <Heading className="product-single-title" as="h5">
-                          <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
-                        </Heading>
-                        <p>{description}</p>
-                      </div>
-                    </Col>
-                    <Col sm={6}>
-                      <div className="product-single-info">
-                        <NavLink className="btn-heart" to="#">
-                          <FeatherIcon
-                            icon="heart"
-                            size={14}
-                            color={popular ? '#FF4D4F' : '#9299B8'}
-                            fill={popular ? '#FF4D4F' : 'none'}
-                          />
-                        </NavLink>
-                        <p className="product-single-price">
-                          <span className="product-single-price__new">${price} </span>
-                          {oldPrice && (
-                            <Fragment>
-                              <del> ${oldPrice} </del>
-                              <span className="product-single-price__offer"> 60% Off</span>
-                            </Fragment>
-                          )}
-                        </p>
-                        <div className="product-single-rating">
-                          <Rate allowHalf defaultValue={rate} disabled /> 4.9<span className="total-reviews"> 778 Reviews</span>
+              <Col xs={24} key={id}>
+                <ProductCard style={{marginBottom: 20}}>
+                  <div className="product-list">
+                    <Row gutter={15}>
+                      <Col xxl={6} lg={6} xs={24}>
+                        <figure>
+                          <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
+                        </figure>
+                      </Col>
+                      <Col xxl={12} lg={10} xs={24}>
+                        <div className="product-single-description">
+                          <Heading className="product-single-title" as="h5">
+                            <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                          </Heading>
+                          <p>{description}</p>
                         </div>
-                        <div className="product-single-action">
-                          <Button className="btn-cart" size="small" type="default">
-                            <FeatherIcon icon="shopping-bag" size={14} />
-                            Add To Cart
-                          </Button>
-                          <Button size="small" type="primary">Buy Now</Button>
+                      </Col>
+                      <Col xxl={6} lg={8} xs={24}>
+                        <div className="product-single-info">
+                          <NavLink className="btn-heart" to="#">
+                            <FeatherIcon
+                              icon="heart"
+                              size={14}
+                              color={popular ? '#FF4D4F' : '#9299B8'}
+                              fill={popular ? '#FF4D4F' : 'none'}
+                            />
+                          </NavLink>
+                          <p className="product-single-price">
+                            <span className="product-single-price__new">${price} </span>
+                            {oldPrice && (
+                              <Fragment>
+                                <del> ${oldPrice} </del>
+                                <span className="product-single-price__offer"> 60% Off</span>
+                              </Fragment>
+                            )}
+                          </p>
+                          <div className="product-single-rating">
+                            <Rate allowHalf defaultValue={rate} disabled /> 4.9<span className="total-reviews"> 778 Reviews</span>
+                          </div>
+                          <div className="product-single-action">
+                            <Button className="btn-cart" size="small" type="light" outlined>
+                              <FeatherIcon icon="shopping-bag" size={14} />
+                              Add To Cart
+                            </Button>
+                            <Button size="small" type="primary">Buy Now</Button>
+                          </div>
                         </div>
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
-              </div>
-            </ProductCard>
+                      </Col>
+                    </Row>
+                  </div>
+                </ProductCard>
+              </Col>
           );
         })
       ) : (
-        <Col md={24}>
+        <Col xs={24}>
           <Heading as="h1">Data Not Found</Heading>
         </Col>
       )}
-      <Col md={24}>
+      <Col xs={24}>
         {products.length ? (
           <PaginationWrapper style={{marginTop: 20}}>
               <Pagination

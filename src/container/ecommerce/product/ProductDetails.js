@@ -65,7 +65,7 @@ const ProductDetails = ({ match }) => {
           <ProductDetailsWrapper>
             <div className="product-details-box">
               <Row gutter={30}>
-                <Col md={10}>
+                <Col xs={24} lg={10}>
                   <div className="product-details-box__left pdbl">
 
                     <figure>
@@ -99,7 +99,7 @@ const ProductDetails = ({ match }) => {
                   </div>
                   
                 </Col>
-                <Col md={10}>
+                <Col xs={24} lg={14}>
                   <div className="product-details-box__right pdbr">
                     <Heading className="pdbr__title" as="h2">{name}</Heading>
                     <Rate allowHalf defaultValue={rate} disabled /> 
@@ -112,9 +112,7 @@ const ProductDetails = ({ match }) => {
                         <del>${oldPrice}</del> <span className="pdbr__offer-price">30% Off</span>
                       </Heading>
                     )}
-                    <br />
-                    <p>{description}</p>
-                    <br />
+                    <p className="pdbr__desc">{description}</p>
                     <div className="pdbr__current-status">
                       <p> <span className="current-status-title">Available:</span> 
                         <span className="stock-status in-stock"> In Stock</span>

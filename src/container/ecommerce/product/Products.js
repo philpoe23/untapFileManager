@@ -39,8 +39,8 @@ const Product = ({ match }) => {
     <Fragment>
       <PageHeader ghost title="Shop" />
       <Main>
-        <Row gutter={40}>
-          <Col xl={5} lg={7}>
+        <Row gutter={30}>
+          <Col xxl={5} xl={7} lg={7} md={10} xs={24}>
             <Suspense
               fallback={
                 <div className="spin">
@@ -51,16 +51,16 @@ const Product = ({ match }) => {
               <Filters />
             </Suspense>
           </Col>
-          <Col xl={19} lg={17}>
+          <Col xxl={19} xl={17} lg={17} md={14}>
             <TopToolBox>
               <Row gutter={0}>
-                <Col xl={7} lg={12}>
+                <Col xxl={7} lg={12} xs={24}>
                   <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                 </Col>
-                <Col lg={7}>
+                <Col xxl={7} lg={12} xs={24}>
                   <p className="search-result">Showing 1–8 of 86 results</p>
                 </Col>
-                <Col lg={10}>
+                <Col xxl={10} xs={24}>
                   <div className="product-list-action d-flex justify-content-between align-items-center">
                     <div className="product-list-action__tab">
                       Sort By :
@@ -85,20 +85,18 @@ const Product = ({ match }) => {
               </Row>
             </TopToolBox>
             
-            <Row gutter={15}>
-              <Switch>
-                <Suspense
-                  fallback={
-                    <div className="spin">
-                      <Spin />
-                    </div>
-                  }
-                >
-                  <Route exact path={match.path} component={Grid} />
-                  <Route path={match.path + '/:list'} component={List} />
-                </Suspense>
-              </Switch>
-            </Row>
+            <Switch>
+              <Suspense
+                fallback={
+                  <div className="spin">
+                    <Spin />
+                  </div>
+                }
+              >
+                <Route exact path={match.path} component={Grid} />
+                <Route path={match.path + '/:list'} component={List} />
+              </Suspense>
+            </Switch>
           </Col>
         </Row>
       </Main>

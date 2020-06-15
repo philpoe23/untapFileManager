@@ -107,12 +107,12 @@ const Invoice = () => {
             <Cards headless>
               <InvoiceHeader>
                 <Row style={{alignItems: 'center'}}>
-                  <Col xs={12}>
+                  <Col sm={12} xs={24}>
                     <figure>
                       <img src={require('../../static/img/logo.png')} alt="logo" />
                     </figure>
                   </Col>
-                  <Col xs={12}>
+                  <Col sm={12} xs={24}>
                     <div>
                       <address className="invoice-info" style={{ textAlign: 'right' }}>
                         Admin Company <br />
@@ -125,16 +125,16 @@ const Invoice = () => {
                 </Row>
               </InvoiceHeader>
               <InvoiceLetterBox>
-                <div style={{ background: '#F8F9FB', padding: '30px 50px 25px', borderRadius: '20px' }}>
+                <div className="invoice-letter-inner">
                   <Row>
-                    <Col sm={8}>
+                    <Col lg={8} xs={24}>
                       <article className="invoice-author">
                         <Heading className="invoice-author__title" as="h3">Invoice</Heading>
                         <p>No : #642678</p>
                         <p>Date : Jan 17, 2020</p>
                       </article>
                     </Col>
-                    <Col sm={8}>
+                    <Col lg={8} xs={24}>
                       <div className="invoice-barcode">
                         <Cards headless>
                             <img style={{ width: '100%' }} src={require('../../static/img/barcode.png')} alt="barcode" />
@@ -142,7 +142,7 @@ const Invoice = () => {
                         </Cards>
                       </div>
                     </Col>
-                    <Col sm={8}>
+                    <Col lg={8} xs={24}>
                       <address className="invoice-customer">
                         <Heading className="invoice-customer__title" as="h5">Invoice To:</Heading>
                         <p>
@@ -160,14 +160,14 @@ const Invoice = () => {
               <br />
               <ProductTable>
 
-                <div className="table-invoice">
+                <div className="table-invoice table-responsive">
                   <Table dataSource={dataSource} columns={columns} pagination={false} />
                 </div>
 
               </ProductTable>
               
-              <Row>
-                <Col md={4} offset={20}>
+              <Row justify="end">
+                <Col xxl={4} xl={5} sm={8} xs={14} offset={10}>
                   <OrderSummary>
                     <div className="invoice-summary-inner">
                       <ul className="summary-list">
@@ -192,8 +192,8 @@ const Invoice = () => {
                   </OrderSummary>
                 </Col>
               </Row>
-              <Row>
-                <Col md={8} offset={16}>
+              <Row justify="end">
+                <Col lg={10} md={18} sm={24} offset={0}>
                   <InvoiceAction>
                     <Button size="small" shape="round" type="default">
                       <FeatherIcon icon="printer" size={14} />

@@ -161,7 +161,7 @@ const ShoppingCart = ({ match }) => {
           <Col md={24}>
             <Cards headless>
               <Row gutter={30}>
-                <Col md={17}>
+                <Col xxl={17} xs={24}>
                   <Switch>
                     <Suspense
                       fallback={
@@ -177,7 +177,7 @@ const ShoppingCart = ({ match }) => {
                           return (
                             <Fragment>
                               <ProductTable>
-                                <div className="table-cart">
+                                <div className="table-cart table-responsive">
                                   <Table pagination={false} dataSource={dataSource} columns={columns} />
                                 </div>
                               </ProductTable>
@@ -185,12 +185,12 @@ const ShoppingCart = ({ match }) => {
                               <CouponForm>
                                 <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
                                   <Row gutter={15}>
-                                    <Col md={4}>
+                                    <Col xs={12} sm={8} lg={4}>
                                       <Form.Item name="coupon" label="">
                                         <Input placeholder="Coupon Code" />
                                       </Form.Item>
                                     </Col>
-                                    <Col md={4}>
+                                    <Col xs={12} sm={8} lg={4}>
                                       <Button htmlType="submit" size="default" type="primary">
                                         Apply Coupon
                                       </Button>
@@ -206,7 +206,7 @@ const ShoppingCart = ({ match }) => {
                     </Suspense>
                   </Switch>
                 </Col>
-                <Col md={7}>
+                <Col xxl={7} xs={24}>
                   <Cards
                     bodyStyle={{
                       backgroundColor: '#F8F9FB',

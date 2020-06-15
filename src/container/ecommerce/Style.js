@@ -8,6 +8,8 @@ const FigureCart = Styled.figure`
 `;
 
 const Sidebar = Styled.div`
+    max-width: 480px;
+    margin: 0 auto;
     .ant-card-head-title{
         padding: 14px 0 !important;
         span{
@@ -72,12 +74,25 @@ const ProductCard = Styled.div`
     border-radius: 10px;
     background-color: #fff;
     position: relative;
+    @media only screen and (max-width: 767px){
+        max-width: 350px;
+        margin: 0 auto;
+    }
     .product-list{
         background-color: #fff;
-        padding: 18px 20px;
+        padding: 20px;
         border-radius: 10px;
         figure{
             margin-right: 15px;
+            @media only screen and (max-width: 1199px){
+                margin-right: 0;
+            }
+            @media only screen and (max-width: 991px){
+                margin: 0 0 20px;
+            }
+            img{
+                border-radius: 10px;
+            }
         }
         .product-single-description{
             p{
@@ -88,9 +103,15 @@ const ProductCard = Styled.div`
         .product-single-title{
             font-size: 18px;
             margin: 25px 0 16px;
+            @media only screen and (max-width: 1199px){
+                margin: 0 0 16px;
+            }
         }
         .product-single-info{
             margin-top: 25px;
+            @media only screen and (max-width: 1199px){
+                margin-top: 0;
+            }
         }
         .product-single-price__new{
             font-size: 16px;
@@ -106,6 +127,19 @@ const ProductCard = Styled.div`
             }
             .ant-btn-sm{
                 height: 38px;
+            }
+        }
+        .btn-heart{
+            @media only screen and (max-width: 1599px){
+                top: 0;
+                right: 10px;
+            }
+            @media only screen and (max-width: 1199px){
+                top: -4px;
+                right: 0;
+            }
+            @media only screen and (max-width: 991){
+                top: 0;
             }
         }
     }
@@ -180,7 +214,7 @@ const ProductCard = Styled.div`
         }
         .ant-btn-sm{
             font-size: 12px;
-            padding: 0px 18px;
+            padding: 0px 15px;
             height: 34px;
         }
         .btn-cart{
@@ -195,9 +229,35 @@ const TopToolBox = Styled.div`
     .ant-row{
         align-items: center;
     }
+    .table-toolbox-menu{
+        @media only screen and (max-width: 991px){
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+    .ant-select{
+        @media only screen and (max-width: 1599px){
+            margin-bottom: 20px;
+        }
+        @media only screen and (max-width: 767px){
+            max-width: 350px;
+            margin: 0 auto 20px;
+        }
+    }
     .search-result{
-        margin-bottom: 0;
+        margin: 0 0 0 25px;
         color: ${({theme})=>theme['gray-color']};
+        @media only screen and (max-width: 1599px){
+            text-align: right;
+            margin-bottom: 15px;
+        }
+        @media only screen and (max-width: 991px){
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        @media only screen and (max-width: 991px){
+            margin-left: 0px;
+        }
     }
     .ant-select-selector{
         height: 46px !important;
@@ -216,6 +276,12 @@ const TopToolBox = Styled.div`
         border-radius: 5px;
         background: #fff;
         border: 1px solid ${({theme})=>theme['border-color-normal']};
+        @media only screen and (max-width: 1599px){
+            margin-left: 10px
+        }
+        @media only screen and (max-width: 991px){
+            padding: 0;
+        }
     }
     .ant-radio-button-wrapper{
         height: 40px;
@@ -248,6 +314,9 @@ const TopToolBox = Styled.div`
                 transition: background-color 0.3s;
                 content: '';
                 z-index: 1;
+                @media only screen and (max-width: 479px){
+                    display: none;
+                }
             }
         }
         span{
@@ -261,8 +330,18 @@ const TopToolBox = Styled.div`
     }
 
     // Product Toolbox Styles
+    .product-list-action{
+        @media only screen and (max-width: 991px){
+            flex-flow: column;
+            justify-content: center;
+        }
+    }
     .product-list-action__tab{
         color: ${({theme})=>theme['gray-color']};
+        @media only screen and (max-width: 991px){
+            margin-bottom: 20px;
+            text-align: center;
+        }
     }
 
     .product-list-action__viewmode{
@@ -285,6 +364,13 @@ const TopToolBox = Styled.div`
     }
 
     .table-search-box{
+        @media only screen and (max-width: 991px){
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        .ant-select{
+            margin-bottom: 0;
+        }
         .ant-select-selection-search{
             .ant-select-selection-search-input {
                 border-radius: 20px;
@@ -300,6 +386,9 @@ const TopToolBox = Styled.div`
     }
     .table-toolbox-actions{
         text-align: right;
+        @media only screen and (max-width: 991px){
+            text-align: center !important;
+        }
         button{
             padding: 0px 13.4px;
             height: 38px;
@@ -318,6 +407,9 @@ const TopToolBox = Styled.div`
 const PaginationWrapper = Styled.div`
     display: flex;
     justify-content: flex-end;
+    @media only screen and (max-width: 1199px){
+        justify-content: center;
+    }
 `;
 
 const ProductDetailsWrapper = Styled.div`
@@ -333,13 +425,26 @@ const ProductDetailsWrapper = Styled.div`
         margin-top: 15px;
     }
     .pdbl__image{
+        margin-right: 6px;
         img{
             border-radius: 10px;
             max-width: 90px;
             min-height: 80px;
+            @media only screen and (max-width: 1199px){
+                min-height: 60px;
+            }
+            @media only screen and (max-width: 991px){
+                min-height: 80px;
+            }
+            @media only screen and (max-width: 991px){
+                margin-bottom: 10px;
+            }
         }
     }
     .product-details-box__right{
+        @media only screen and (max-width: 991px){
+            margin-top: 20px;
+        }
         p{
             margin-bottom: 8px;
             color: ${({theme})=>theme['gray-color']};
@@ -381,10 +486,13 @@ const ProductDetailsWrapper = Styled.div`
             color: ${({theme})=>theme['light-color']};
         }
     }
+    .pdbr__desc{
+        max-width: 580px;
+    }
     .pdbr__old-price{
         display: inline-flex;
         align-items: center;
-        margin-bottom: 25px;
+        margin-bottom: 22px;
         del{
             font-size: 16px;
             font-weight: 400;
@@ -399,10 +507,14 @@ const ProductDetailsWrapper = Styled.div`
     }
 
     .pdbr__current-status{
+        margin-top: 25px;
         .current-status-title{
             font-weight: 500;
             margin-right: 30px;
             color: ${({theme})=>theme['dark-color']};
+            @media only screen and (max-width: 575px){
+                margin-right: 15px;
+              }
         }
         .stock-status{
             &.in-stock{
@@ -438,12 +550,20 @@ const ProductDetailsWrapper = Styled.div`
         border-bottom: 1px solid ${({theme})=>theme['border-color-normal']};
         padding-bottom: 30px;
         margin-bottom: 28px;
+        @media only screen and (max-width: 575px){
+            flex-flow: column;
+            align-items: flex-start;
+        }
         .pdbr__product-action{
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             button,
             a{
                 margin-right: 10px;
+                @media only screen and (max-width: 575px){
+                    margin-bottom: 20px;
+                }
             }
             .btn-icon{
                 height: 44px;
@@ -456,7 +576,7 @@ const ProductDetailsWrapper = Styled.div`
             }
         }
         .pdbr__socials{
-            margin-left: 5px;
+            margin: 5px 0 0 5px;
             a{
                 color: #707070;
                 &:not(:last-child){
@@ -487,6 +607,9 @@ const ProductDetailsWrapper = Styled.div`
 
 const ProductTable = Styled.div`
     .table-cart{
+        .ant-table-content{
+            padding-bottom: 30px;
+        }
         .ant-table-tbody{
             .cart-single{
                 figure{
@@ -649,9 +772,15 @@ const ProductTable = Styled.div`
                 }
                 &.btn-inc{
                     margin-left: 16px;
+                    @media only screen and (max-width: 575px){
+                        margin-left: 10px;
+                    }
                 }
                 &.btn-dec{
                     margin-right: 16px;
+                    @media only screen and (max-width: 575px){
+                        margin-right: 10px;
+                    }
                 }
             }
         }
@@ -672,14 +801,25 @@ const ProductTable = Styled.div`
 
 
 const CouponForm = Styled.div`
-    margin-top: 20px;
+    margin: -10px 0 20px 0;
     #submitcoupon{
+        >.ant-row{
+            align-items: center;
+        }
+        .ant-form-item{
+            margin-bottom: 0;
+        }
         .ant-form-item-control-input-content{
+            disply: flex;
+            align: items-center;
             input{
                 max-width: 180px;
                 height: 44px;
                 background:  ${({theme})=>theme['bg-color-light']};
                 border-color:  ${({theme})=>theme['border-color-light']};
+                @media only screen and (max-width: 991px){
+                    max-width: 100%;
+                }
             }
         }
         button{
@@ -697,6 +837,8 @@ const OrderSummary = Styled.div`
     .ant-form-item{
         margin-bottom: 0;
     }
+    max-width: 650px;
+    margin: 0 auto;
     
     .summary-table-title{
         font-size: 18px;
@@ -705,6 +847,10 @@ const OrderSummary = Styled.div`
     }
     .order-summary-inner{
         padding-bottom: 5px;
+        @media only screen and (max-width: 1599px){
+            max-width: 600px;
+            margin: 0 auto;
+        }
     }
     .invoice-summary-inner{
         .summary-list{
@@ -753,7 +899,7 @@ const OrderSummary = Styled.div`
         }
     }
     .promo-apply-form{
-        margin: 5px 0 32px;
+        margin: 5px 0 18px;
         .ant-form-item{
             margin-bottom: 0;
         }
@@ -770,7 +916,7 @@ const OrderSummary = Styled.div`
         }
         .ant-form-item-control-input-content{
             input{
-                margin-right: 6px;
+                margin: 0 6px 15px 0;
                 height: 40px;
             }
             button{
@@ -814,6 +960,9 @@ const AddProductForm = Styled.div`
         padding: 30px;
         box-shadow: 0 10px 30px ${({theme})=>theme['light-color']}10;
         border: 1px solid ${({theme})=>theme['bg-color-light']};
+        @media only screen and (max-width: 575px){
+            padding: 20px;
+        }
         &:not(:last-child){
             margin-bottom: 30px;
         }
@@ -823,12 +972,18 @@ const AddProductForm = Styled.div`
         .add-product-content{
             .ant-card-head{
                 padding: 0 40px !important;
+                @media only screen and (max-width: 575px){
+                    padding: 0 15px !important;
+                }
             }
             .ant-card-head-title{
                 padding: 26px 0 25px;
             }
             .ant-card-body{
                 padding: 30px 40px 40px !important;
+                @media only screen and (max-width: 575px){
+                    padding: 20px !important;
+                }
             }
         }
         .ant-upload{
@@ -838,6 +993,9 @@ const AddProductForm = Styled.div`
             background: ${({theme})=>theme['bg-color-light']};
             border-color: ${({theme})=>theme['border-color-deep']};
             padding: 50px;
+            @media only screen and (max-width: 575px){
+                padding: 15px !important;
+            }
             .ant-upload-drag-icon{
                 i,
                 svg{
@@ -911,14 +1069,30 @@ const AddProductForm = Styled.div`
 
 
 const InvoiceHeader = Styled.div`
+    figure{
+        @media only screen and (max-width: 575px){
+            text-align: center;
+        }
+    }
     .invoice-info{
         font-weight: 500;
         line-height: 1.5;
+        @media only screen and (max-width: 575px){
+            text-align: center !important;
+        }
     }
 `;
 
 const InvoiceLetterBox = Styled.div`
+    .invoice-letter-inner{
+        background: #F8F9FB;
+        padding: 30px 50px 25px;
+        border-radius: 20px
+    }
     .invoice-author{
+        @media only screen and (max-width: 991px){
+            text-align: center;
+        }
         .invoice-author__title{
             font-size: 36px;
             font-weight: 600;
@@ -931,8 +1105,11 @@ const InvoiceLetterBox = Styled.div`
     }
     .invoice-barcode{
         max-width: 310px;
-        max-width: 0 auto;
+        margin: 0 auto;
         text-align: center;
+        @media only screen and (max-width: 991px){
+            margin: 20px auto;
+        }
         .ant-card{
             margin-bottom: 0 !important;
         }
@@ -945,6 +1122,10 @@ const InvoiceLetterBox = Styled.div`
     }
     .invoice-customer{
         float: right;
+        @media only screen and (max-width: 991px){
+            float: none;
+            text-align: center;
+        }
         .invoice-customer__title{
             font-size: 15px;
             font-weight: 500;
@@ -961,6 +1142,9 @@ const InvoiceLetterBox = Styled.div`
 const InvoiceAction = Styled.div`
     text-align: right;
     margin-top: 95px;
+    @media only screen and (max-width: 479px){
+        text-align: center;
+    }
     .ant-btn-default{
         background: ${({theme})=>theme['bg-color-light']};
         border-color: ${({theme})=>theme['border-color-light']};
@@ -969,6 +1153,9 @@ const InvoiceAction = Styled.div`
         padding: 0 25px !important;
         &:not(:last-child){
             margin-right: 10px;
+        }
+        @media only screen and (max-width: 479px){
+            margin-bottom 10px;
         }
     }
 `;
