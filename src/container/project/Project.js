@@ -72,7 +72,7 @@ const Project = ({ match }) => {
             <Col md={24}>
               <ProjectSorting>
                 <Row gutter={25}>
-                  <Col md={6}>
+                  <Col lg={7}>
                     <nav>
                       <ul>
                         <li>
@@ -103,10 +103,10 @@ const Project = ({ match }) => {
                       </ul>
                     </nav>
                   </Col>
-                  <Col md={10}>
-                    <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
+                  <Col lg={6}>
+                    <AutoComplete onSearch={handleSearch} dataSource={notdata} patterns />
                   </Col>
-                  <Col md={8}>
+                  <Col lg={11}>
                     <div className="sort-group">
                       <span>Sort By:</span>
                       <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="category">

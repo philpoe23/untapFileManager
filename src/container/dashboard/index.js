@@ -183,7 +183,7 @@ const Dashbord = () => {
       <PageHeader ghost title="Social Media Dashboard" />
       <Main>
         <Row gutter={25}>
-          <Col md={8}>
+          <Col md={8} sm={24} xs={24}>
             <SocialMediaWrapper>
               <Cards title="Social Media Overview" size="large">
                 <Row gutter={25}>
@@ -210,7 +210,7 @@ const Dashbord = () => {
             </SocialMediaWrapper>
           </Col>
 
-          <Col md={16}>
+          <Col md={16} xs={24}>
             <CardGroup>
               <div className="forcast-overview">
                 <Cards
@@ -230,7 +230,7 @@ const Dashbord = () => {
                   <Row gutter={25}>
                     <Col xl={12} md={24}>
                       <Row className="focard-wrapper focard-divider">
-                        <Col md={12}>
+                        <Col md={12} sm={12}>
                           <Focard>
                             <div className="focard-details">
                               <Heading as="h1">25,872</Heading>
@@ -258,7 +258,7 @@ const Dashbord = () => {
                             />
                           </Focard>
                         </Col>
-                        <Col md={12}>
+                        <Col md={12} sm={12}>
                           <Focard>
                             <div className="focard-details">
                               <Heading as="h1">492,534</Heading>
@@ -290,7 +290,7 @@ const Dashbord = () => {
                     </Col>
                     <Col xl={12} md={24}>
                       <Row className="focard-wrapper">
-                        <Col md={12}>
+                        <Col md={12} sm={12}>
                           <Focard>
                             <div className="focard-details growth-downward">
                               <Heading as="h1">12,142</Heading>
@@ -318,7 +318,7 @@ const Dashbord = () => {
                             />
                           </Focard>
                         </Col>
-                        <Col md={12}>
+                        <Col md={12} sm={12}>
                           <Focard>
                             <div className="focard-details">
                               <Heading as="h1">1,432</Heading>
@@ -354,7 +354,7 @@ const Dashbord = () => {
             </CardGroup>
           </Col>
 
-          <Col md={8}>
+          <Col md={8} sm={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -411,7 +411,7 @@ const Dashbord = () => {
               </CardBarChart>
             </Cards>
           </Col>
-          <Col md={8}>
+          <Col md={8} sm={12} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -583,7 +583,7 @@ const Dashbord = () => {
             </LineChartWrapper>
 
           </Col>
-          <Col md={8}>
+          <Col md={8} sm={12} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -753,7 +753,7 @@ const Dashbord = () => {
               </Cards>
             </LineChartWrapper>
           </Col>
-          <Col md={8}>
+          <Col md={8} sm={12} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -925,7 +925,7 @@ const Dashbord = () => {
               </Cards>
             </LineChartWrapper>
           </Col>
-          <Col md={16}>
+          <Col md={16} sm={24} xs={24}>
             <CardGroup>
               <div className="full-width-table">
                 <Cards
@@ -942,7 +942,7 @@ const Dashbord = () => {
                   title="Social Traffic Metrics"
                   size="large"
                 >
-                  <div className="traffic-table">
+                  <div className="traffic-table table-responsive">
                     <Table columns={columns} dataSource={data} pagination={false} />
                   </div>
                 </Cards>

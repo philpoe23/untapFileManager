@@ -20,10 +20,10 @@ const Settings = ({ match }) => {
       <PageHeader ghost title="Profile Settings" />
 
       <Main>
-        <Row gutter={30}>
+        <Row gutter={25}>
           <Col xxl={5} lg={8} md={10} xs={24}>
             <ProfileAuthorBox>
-              
+
               <Cards headless>
                 <div className="author-info">
                   <figure>

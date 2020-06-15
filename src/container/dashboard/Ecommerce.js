@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
-import { CardBarChart2, LocationMapWrapper, RevenueChartWrapper } from './style';
+import { CardBarChart2, LocationMapWrapper, RevenueChartWrapper, ECahrtCard } from './style';
 
 const content = (
   <Fragment>
@@ -373,10 +373,10 @@ const Ecommerce = () => {
       <PageHeader ghost title="Ecommerce Dashboard" />
       <Main>
         <Row gutter={25}>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">7,461</Heading>
                     <span>Orders</span>
@@ -387,8 +387,8 @@ const Ecommerce = () => {
                       <span>Since last week</span>
                     </p>
                   </CardBarChart2>
-                </Col>
-                <Col xs={12}>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
@@ -400,14 +400,14 @@ const Ecommerce = () => {
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">$28,947</Heading>
                     <span>Revenue</span>
@@ -418,8 +418,8 @@ const Ecommerce = () => {
                       <span>Since last week</span>
                     </p>
                   </CardBarChart2>
-                </Col>
-                <Col xs={12}>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
@@ -431,14 +431,14 @@ const Ecommerce = () => {
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">$3,241</Heading>
                     <span>Avg. order value</span>
@@ -449,8 +449,8 @@ const Ecommerce = () => {
                       <span>Since last week</span>
                     </p>
                   </CardBarChart2>
-                </Col>
-                <Col xs={12}>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
@@ -462,14 +462,14 @@ const Ecommerce = () => {
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">45.2k</Heading>
                     <span>Unique visitors</span>
@@ -480,8 +480,8 @@ const Ecommerce = () => {
                       <span>Since last week</span>
                     </p>
                   </CardBarChart2>
-                </Col>
-                <Col xs={12}>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
@@ -493,13 +493,13 @@ const Ecommerce = () => {
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
         </Row>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -604,7 +604,7 @@ const Ecommerce = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -637,13 +637,13 @@ const Ecommerce = () => {
                 title="Source Of Revenue Generated"
                 size="large"
               >
-                <div className="revenue-table">
+                <div className="revenue-table table-responsive">
                   <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
                 </div>
               </Cards>
             </div>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -676,14 +676,14 @@ const Ecommerce = () => {
                   size="large"
                   bodypadding="0px"
                 >
-                  <div className="top-seller-table">
+                  <div className="top-seller-table table-responsive">
                     <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
                   </div>
                 </Cards>
             </div>
-            
+
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <LocationMapWrapper>
               <div className="full-width-table">
                 <Cards
@@ -719,7 +719,7 @@ const Ecommerce = () => {
                     <div className="location-map d-flex justify-content-center">
                       <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
                     </div>
-                    
+
                     <div className="location-table">
                       <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
                     </div>
@@ -727,7 +727,7 @@ const Ecommerce = () => {
               </div>
             </LocationMapWrapper>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <RevenueChartWrapper>
               <Cards
                 isbutton={
