@@ -13,15 +13,7 @@ const MenueItems = () => {
       defaultSelectedKeys={[`${pathArray[1] === '' ? 'home' : pathArray.length === 2 ? pathArray[1] : pathArray[2]}`]}
       defaultOpenKeys={[`${pathArray[1] !== '' ? pathArray[1] : 'dashboard'}`]}
     >
-      <SubMenu
-        key="dashboard"
-        title={
-          <span>
-            <FeatherIcon icon="home" />
-            <span>Dashboard</span>
-          </span>
-        }
-      >
+      <SubMenu key="dashboard" icon={<FeatherIcon icon="home" />} title="Dashboard">
         <Menu.Item key="home">
           <NavLink to="/">Google Analytics Social Media</NavLink>
         </Menu.Item>
@@ -39,15 +31,7 @@ const MenueItems = () => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="email"
-        title={
-          <span>
-            <FeatherIcon icon="mail" />
-            <span>Email</span>
-          </span>
-        }
-      >
+      <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
         <Menu.Item key="inbox">
           <NavLink to="/email/inbox">Inbox</NavLink>
         </Menu.Item>
@@ -57,22 +41,11 @@ const MenueItems = () => {
         <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
 
-      <Menu.Item key="chat">
-        <NavLink to="/chat/rofiq@gmail.com">
-          <FeatherIcon icon="message-square" />
-          <span>Chat</span>
-        </NavLink>
+      <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
+        <NavLink to="/chat/rofiq@gmail.com">Chat</NavLink>
       </Menu.Item>
 
-      <SubMenu
-        key="ecommerce"
-        title={
-          <span>
-            <FeatherIcon icon="shopping-cart" />
-            <span>eCommerce</span>
-          </span>
-        }
-      >
+      <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
         <Menu.Item key="products">
           <NavLink to="/ecommerce/products">Products</NavLink>
         </Menu.Item>
@@ -110,22 +83,11 @@ const MenueItems = () => {
         </NavLink>
       </Menu.Item> */}
 
-      <Menu.Item key="project">
-        <NavLink to="/project">
-          <FeatherIcon icon="target" />
-          <span>Project</span>
-        </NavLink>
+      <Menu.Item icon={<FeatherIcon icon="target" />} key="project">
+        <NavLink to="/project">Project</NavLink>
       </Menu.Item>
 
-      <SubMenu
-        key="sub4"
-        title={
-          <span>
-            <FeatherIcon icon="layout" />
-            <span>Layouts</span>
-          </span>
-        }
-      >
+      <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
         <Menu.Item key="20">Sidebar with User</Menu.Item>
         <Menu.Item key="21">Light Sidebar</Menu.Item>
         <Menu.Item key="22">Dark Sidebar</Menu.Item>
@@ -134,15 +96,7 @@ const MenueItems = () => {
         <Menu.Item key="25">Sidebar Collapsed</Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="profile"
-        title={
-          <span>
-            <FeatherIcon icon="user" />
-            <span>Profile</span>
-          </span>
-        }
-      >
+      <SubMenu key="profile" icon={<FeatherIcon icon="user" />} title="Profile">
         <Menu.Item key="26">Profile</Menu.Item>
         <Menu.Item key="settings">
           <NavLink to="/profile/settings/profile">Settings</NavLink>
@@ -152,15 +106,7 @@ const MenueItems = () => {
         <Menu.Item key="30">Forgot Password</Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="pages"
-        title={
-          <span>
-            <FeatherIcon icon="folder" />
-            <span>Pages</span>
-          </span>
-        }
-      >
+      <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">
         <Menu.Item key="team">
           <NavLink to="/pages/team">Team</NavLink>
         </Menu.Item>
@@ -191,15 +137,7 @@ const MenueItems = () => {
       </SubMenu>
       <p className="sidebar-nav-title">Components</p>
 
-      <SubMenu
-        key="components"
-        title={
-          <span>
-            <FeatherIcon icon="layers" />
-            <span>UI Elements</span>
-          </span>
-        }
-      >
+      <SubMenu key="components" icon={<FeatherIcon icon="layers" />} title="UI Elements">
         <Menu.Item key="alerts">
           <NavLink to="/components/alerts">Alerts</NavLink>
         </Menu.Item>
@@ -340,15 +278,7 @@ const MenueItems = () => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="icon"
-        title={
-          <span>
-            <FeatherIcon icon="grid" />
-            <span>Icons</span>
-          </span>
-        }
-      >
+      <SubMenu key="icon" icon={<FeatherIcon icon="grid" />} title="Icons">
         <Menu.Item key="feathers">
           <NavLink to="/icon/feathers">Feather icons (svg)</NavLink>
         </Menu.Item>
@@ -363,15 +293,7 @@ const MenueItems = () => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu
-        key="charts"
-        title={
-          <span>
-            <FeatherIcon icon="bar-chart-2" />
-            <span>Charts</span>
-          </span>
-        }
-      >
+      <SubMenu key="charts" icon={<FeatherIcon icon="bar-chart-2" />} title="Charts">
         <Menu.Item key="chartjs">
           <NavLink to="/charts/chartjs">Chart Js</NavLink>
         </Menu.Item>
@@ -379,15 +301,7 @@ const MenueItems = () => {
           <NavLink to="/charts/google-chart">Google Charts</NavLink>
         </Menu.Item>
 
-        <SubMenu
-          key="recharts"
-          title={
-            <span>
-              <FeatherIcon icon="bar-chart" />
-              <span>Recharts</span>
-            </span>
-          }
-        >
+        <SubMenu key="recharts" icon={<FeatherIcon icon="bar-chart" />} title="Recharts">
           <Menu.Item key="bar">
             <NavLink to="/charts/recharts/bar">Bar Charts</NavLink>
           </Menu.Item>
@@ -415,29 +329,15 @@ const MenueItems = () => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item key="tables">
-        <NavLink to="/tables">
-          <FeatherIcon icon="cpu" />
-          <span>Table</span>
-        </NavLink>
+      <Menu.Item icon={<FeatherIcon icon="cpu" />} key="tables">
+        <NavLink to="/tables">Table</NavLink>
       </Menu.Item>
 
-      <Menu.Item key="forms">
-        <NavLink to="/forms">
-          <FeatherIcon icon="disc" />
-          <span>Forms</span>
-        </NavLink>
+      <Menu.Item icon={<FeatherIcon icon="disc" />} key="forms">
+        <NavLink to="/forms">Forms</NavLink>
       </Menu.Item>
 
-      <SubMenu
-        key="maps"
-        title={
-          <span>
-            <FeatherIcon icon="map" />
-            <span>Maps</span>
-          </span>
-        }
-      >
+      <SubMenu key="maps" icon={<FeatherIcon icon="map" />} title="Maps">
         <Menu.Item key="google">
           <NavLink to="/maps/google">Google Maps</NavLink>
         </Menu.Item>
