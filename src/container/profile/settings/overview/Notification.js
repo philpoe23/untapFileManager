@@ -26,7 +26,7 @@ const Notification = () => {
         }
       >
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <div className="notification-box-single">
               <Cards headless bodyStyle={{ backgroundColor: '#F7F8FA', borderRadius: 10 }}>
                 <div
@@ -86,7 +86,7 @@ const Notification = () => {
             </div>  
           </Col>
 
-          <Col md={24}>
+          <Col xs={24}>
             <div className="notification-box-single">
               <Cards headless bodyStyle={{ backgroundColor: '#F7F8FA', borderRadius: 10 }}>
                 <div

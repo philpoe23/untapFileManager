@@ -51,7 +51,7 @@ const Product = ({ match }) => {
               <Filters />
             </Suspense>
           </Col>
-          <Col xxl={19} xl={17} lg={17} md={14}>
+          <Col xxl={19} lg={17} md={14} xs={24}>
             <TopToolBox>
               <Row gutter={0}>
                 <Col xxl={7} lg={12} xs={24}>

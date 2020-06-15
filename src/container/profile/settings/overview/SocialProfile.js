@@ -29,8 +29,8 @@ const SocialProfile = () => {
       }
     >
       <SocialProfileForm>
-        <Row>
-          <Col md={12} offset={6}>
+        <Row justify="center">
+          <Col xxl={12} xl={14} sm={18} xs={24}>
             <BasicFormWrapper>
               <Form name="social" onFinish={handleSubmit}>
                   <Form.Item name="facebook" label="Facebook">

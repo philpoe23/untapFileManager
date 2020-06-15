@@ -92,11 +92,20 @@ const SettingWrapper = Styled.div`
             top: 45px;
             border: 1px solid #ffffff50;
             border-radius: 6px;
+            @media only screen and (max-width: 991px){
+                top: 50%;
+                right: auto;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
             a{
                 color: #fff;
                 padding: 10px 20px;
                 display: inline-flex;
                 align-items: center;
+                @media only screen and (max-width: 479px){
+                    padding: 5px 10px;
+                }
                 i,
                 svg,
                 img
@@ -127,16 +136,17 @@ const SettingWrapper = Styled.div`
 
 const AccountWrapper = Styled.div`
     .ant-card-body{
-        padding: 30px 0px 25px 0 !important;
+        padding: 30px 25px 25px 25px !important;
+        @media only screen and (max-width: 767px){
+            padding: 20px !important;
+        }
     }
-    .account-form-wrapper{
+    .account-form-top{
         margin-bottom: 26px;
         padding-bottom: 30px; 
         border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
     }
     .account-form{
-        max-width: 500px;
-        margin: 0 auto;
         .ant-row{
             &:not(:last-child){
                 margin-bottom: 0;
@@ -150,11 +160,6 @@ const AccountWrapper = Styled.div`
                     color: ${({theme})=>theme['dark-color']};
             }
         }
-    }
-    .account-closing,
-    .account-actions{
-        max-width: 500px;
-        margin: 0 auto;
     }
     .account-closing{
         .ant-row{
@@ -172,18 +177,25 @@ const AccountWrapper = Styled.div`
         button{
             height: 38px;
             padding: 0 16.75px;
+            @media only screen and (max-width: 991px){
+                margin-top: 14px;
+            }
+            @media only screen and (max-width: 767px){
+                margin-top: 0px;
+            }
+            @media only screen and (max-width: 575px){
+                margin-top: 14px;
+            }
         }
     }
-    .account-bottom{
-        max-width: 500px;
-        margin: 0 auto;
+    .account-action{
         button{
             height: 44px;
         }
         .ant-btn-light{
             font-weight: 400;
             background: ${({theme})=>theme['bg-color-light']};
-            border-colr: ${({theme})=>theme['border-color-light']};
+            border: 1px solid ${({theme})=>theme['border-color-light']};
         }
     }
 `;
@@ -201,6 +213,11 @@ const ChangePasswordWrapper = Styled.div`
         .input-message{
             color: ${({theme})=>theme['light-color']};
             margin: -22px 0 0;
+        }
+        .setting-form-actions{
+            .ant-btn-light{
+                border: 1px solid ${({theme})=>theme['border-color-light']};
+            }
         }
     }
 `;
@@ -307,6 +324,9 @@ const NotificationWrapper = Styled.div`
             nav{
                 li{
                     padding: 15px 25px !important;
+                    @media only screen and (max-width: 575px){
+                        padding: 15px 20px !important;
+                    }
                     &:not(:last-child){
                         border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
                     }
