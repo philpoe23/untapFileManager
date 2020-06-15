@@ -64,10 +64,12 @@ const ProjectSorting = Styled.div`
         color: ${({theme})=>theme['gray-solid']};
         display: flex;
         align-items: center;
+        justify-content: flex-end;
 
         .ant-select{
             padding-left: 10px;
             margin-right: 15px;
+            max-width: 260px;
             .ant-select-selector{
                 border: 0 none;
                 .ant-select-selection-item{
@@ -435,15 +437,15 @@ const TasklistAction = Styled.div`
     }
 `;
 
-export { 
+export {
     ProjectHeader,
-    ProjectSorting, 
-    ProjectCard, 
-    ProjectPagination, 
-    ProjectListTitle, 
-    ProjectListAssignees, 
-    ProjectList, 
-    ProjectDetailsWrapper, 
-    TaskLists, 
-    TasklistAction 
+    ProjectSorting,
+    ProjectCard,
+    ProjectPagination,
+    ProjectListTitle,
+    ProjectListAssignees,
+    ProjectList,
+    ProjectDetailsWrapper,
+    TaskLists,
+    TasklistAction
 };

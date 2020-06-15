@@ -137,7 +137,7 @@ const Business = () => {
                   </div>
                 </Focard>
               </Col>
-              <Col md={12}>
+              <Col md={12} sm={12} xs={24}>
                 <RatioCard>
                   <Cards headless title="Quick Ratio">
                     <div className="ratio-content">
@@ -150,7 +150,7 @@ const Business = () => {
                   </Cards>
                 </RatioCard>
               </Col>
-              <Col md={12}>
+              <Col md={12} sm={12} xs={24}>
                 <RatioCard>
                   <Cards headless title="Current Ratio">
                     <div>
@@ -165,7 +165,7 @@ const Business = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={12}>
+          <Col lg={12} sm={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -265,149 +265,149 @@ const Business = () => {
                 size="large"
               >
                 <Row gutter="25">
-                  <Col md={6}>
-                  <Exlist>
-                    <div>
-                      <p>Total income</p>
-                      <Heading as="h1">
-                        $952,784
-                        <sub>
-                          <span>
-                            <FeatherIcon icon="arrow-up" /> 37%
-                          </span>
-                          Since last month
-                        </sub>
-                      </Heading>
-                    </div>
-                    <div>
-                      <p>Total expenses</p>
-                      <Heading as="h1">
-                        $274,784
-                        <sub className="growth-downward">
-                          <span>
-                            <FeatherIcon icon="arrow-down" /> 25%
-                          </span>
-                          Since last month
-                        </sub>
-                      </Heading>
-                    </div>
-                    <div>
-                      <p>Cost of goods sold</p>
-                      <Heading as="h1">
-                        $532,784
-                        <sub>
-                          <span>
-                            <FeatherIcon icon="arrow-up" /> 25%
-                          </span>
-                          Since last month
-                        </sub>
-                      </Heading>
-                    </div>
-                    <div>
-                      <p>Net profit</p>
-                      <Heading as="h1">
-                        $252,727
-                        <sub>
-                          <span>
-                            <FeatherIcon icon="arrow-up" /> 25%
-                          </span>
-                          Since last month
-                        </sub>
-                      </Heading>
-                    </div>
-                  </Exlist>
-                </Col>
-                <Col md={18}>
-                  <ChartjsBarChartTransparent
-                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                    datasets={[
-                      {
-                        data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                        backgroundColor: '#5F63F280',
-                        hoverBackgroundColor: '#5F63F2',
-                        label: 'Total Income',
-                      },
-                      {
-                        data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                        backgroundColor: '#FF69A580',
-                        hoverBackgroundColor: '#FF69A5',
-                        label: 'Cost of goods sold',
-                      },
-                      {
-                        data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                        backgroundColor: '#FA8B0C80',
-                        hoverBackgroundColor: '#FA8B0C',
-                        label: 'Total expenses',
-                      },
-                      {
-                        data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                        backgroundColor: '#20C99780',
-                        hoverBackgroundColor: '#20C997',
-                        label: 'Net profit',
-                      },
-                    ]}
-                    height={100}
-                    options= {{
-                      maintainAspectRatio: true,
-                      responsive: true,
-                      legend: {
-                        display: true,
-                        position: 'bottom',
-                        labels: {
-                          boxWidth: 6,
+                  <Col lg={6} md={24} sm={24}>
+                    <Exlist>
+                      <div>
+                        <p>Total income</p>
+                        <Heading as="h1">
+                          <span>$952,784</span>
+                          <sub>
+                            <span>
+                              <FeatherIcon icon="arrow-up" /> 37%
+                            </span>
+                            Since last month
+                          </sub>
+                        </Heading>
+                      </div>
+                      <div>
+                        <p>Total expenses</p>
+                        <Heading as="h1">
+                          <span>$274,784</span>
+                          <sub className="growth-downward">
+                            <span>
+                              <FeatherIcon icon="arrow-down" /> 25%
+                            </span>
+                            Since last month
+                          </sub>
+                        </Heading>
+                      </div>
+                      <div>
+                        <p>Cost of goods sold</p>
+                        <Heading as="h1">
+                          <span>$532,784</span>
+                          <sub>
+                            <span>
+                              <FeatherIcon icon="arrow-up" /> 25%
+                            </span>
+                            Since last month
+                          </sub>
+                        </Heading>
+                      </div>
+                      <div>
+                        <p>Net profit</p>
+                        <Heading as="h1">
+                          <span>$252,727</span>
+                          <sub>
+                            <span>
+                              <FeatherIcon icon="arrow-up" /> 25%
+                            </span>
+                            Since last month
+                          </sub>
+                        </Heading>
+                      </div>
+                    </Exlist>
+                  </Col>
+                  <Col lg={18} md={24} sm={24}>
+                    <ChartjsBarChartTransparent
+                      labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                      datasets={[
+                        {
+                          data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                          backgroundColor: '#5F63F280',
+                          hoverBackgroundColor: '#5F63F2',
+                          label: 'Total Income',
+                        },
+                        {
+                          data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                          backgroundColor: '#FF69A580',
+                          hoverBackgroundColor: '#FF69A5',
+                          label: 'Cost of goods sold',
+                        },
+                        {
+                          data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
+                          backgroundColor: '#FA8B0C80',
+                          hoverBackgroundColor: '#FA8B0C',
+                          label: 'Total expenses',
+                        },
+                        {
+                          data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
+                          backgroundColor: '#20C99780',
+                          hoverBackgroundColor: '#20C997',
+                          label: 'Net profit',
+                        },
+                      ]}
+                      height={100}
+                      options= {{
+                        maintainAspectRatio: true,
+                        responsive: true,
+                        legend: {
                           display: true,
-                          usePointStyle: true,
+                          position: 'bottom',
+                          labels: {
+                            boxWidth: 6,
+                            display: true,
+                            usePointStyle: true,
+                          },
                         },
-                      },
-                      layout: {
-                        padding: {
-                          left: '0',
-                          right: 0,
-                          top: 0,
-                          bottom: '0',
+                        layout: {
+                          padding: {
+                            left: '0',
+                            right: 0,
+                            top: 0,
+                            bottom: '0',
+                          },
                         },
-                      },
-                      scales: {
-                        yAxes: [
-                          {
-                            gridLines: {
-                              color: '#e5e9f2',
-                            },
-                            ticks: {
-                              beginAtZero: true,
-                              fontSize: 10,
-                              fontColor: '#182b49',
-                              max: 80,
-                              stepSize: 20,
-                              callback: function(label, index, labels) {
-                                return label + 'k';
+                        scales: {
+                          yAxes: [
+                            {
+                              gridLines: {
+                                color: '#e5e9f2',
+                              },
+                              ticks: {
+                                beginAtZero: true,
+                                fontSize: 10,
+                                fontColor: '#182b49',
+                                max: 80,
+                                stepSize: 20,
+                                callback: function(label, index, labels) {
+                                  return label + 'k';
+                                },
                               },
                             },
-                          },
-                        ],
-                        xAxes: [
-                          {
-                            gridLines: {
-                              display: false,
+                          ],
+                          xAxes: [
+                            {
+                              gridLines: {
+                                display: false,
+                              },
+                              barPercentage: 0.6,
+                              ticks: {
+                                beginAtZero: true,
+                                fontSize: 11,
+                                fontColor: '#182b49',
+                              },
                             },
-                            barPercentage: 0.6,
-                            ticks: {
-                              beginAtZero: true,
-                              fontSize: 11,
-                              fontColor: '#182b49',
-                            },
-                          },
-                        ],
-                      },
-                    }}
-                  />
-                </Col>
+                          ],
+                        },
+                      }}
+                    />
+                  </Col>
                 </Row>
               </Cards>
             </IncomeExpenseWrapper>
 
           </Col>
-          <Col lg={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <Cards title="Account Receivable" more={content}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
@@ -431,7 +431,7 @@ const Business = () => {
               />
             </Cards>
           </Col>
-          <Col lg={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <Cards title="Account Payable" more={content}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}

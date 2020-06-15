@@ -1,5 +1,26 @@
 import Styled from "styled-components";
 
+const ECahrtCard = Styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    .card-chunk{
+        width: 50%;
+        flex: 0 0 50%;
+    }
+    @media (min-width: 992px) and (max-width: 1500px){
+        .card-chunk{
+            width: 100%;
+            flex: 0 0 100%;
+            h1{
+                margin-bottom: 0;
+            }
+            p{
+                margin: 5px 0 20px 0;
+            }
+        }
+    }
+`;
+
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
@@ -160,11 +181,48 @@ const CardGroup = Styled.div`
                     padding: 0 24px 0 24px;
                 }
             }
+            @media only screen and (max-width: 1350px){
+                .ant-col-md-12{
+                    &:first-child{
+                        padding: 0 6px;
+                    }
+                    &:last-child{
+                        padding: 0 6px;
+                    }
+                }
+            }
+            @media only screen and (max-width: 1199px){
+                border-right: 0 none !important;
+                .ant-col-md-12{
+                    &:first-child{
+                        padding: 0 15px;
+                    }
+                    &:last-child{
+                        padding: 0 15px;
+                    }
+                }
+            }
         }
         .ant-col-md-12{
             padding: 0 0 0 24px;
             &:last-child{
                 padding: 0 14px 0 24px;
+            }
+        }
+        @media only screen and (max-width: 1350px){
+            .ant-col-md-12{
+                padding: 0 6px;
+                &:last-child{
+                    padding: 0 6px;
+                }
+            }
+        }
+        @media only screen and (max-width: 1199px){
+            .ant-col-md-12{
+                padding: 0 15px;
+                &:last-child{
+                    padding: 0 15px;
+                }
             }
         }
     }
@@ -214,15 +272,19 @@ const Exlist = Styled.div`
         h1{
             font-size: 22px;
             font-weight: 600;
+            & > span{
+                margin-right: 10px;
+            }
             sub{
                 font-size: 13px;
                 display: inline-flex;
                 align-items: center;
+                line-height: normal;
                 span{
                     display: inline-flex;
                     align-items: center;
                     color: ${({theme})=>theme["success-color"]};
-                    padding: 0 10px;
+                    padding: 0 10px 0 0;
                 }
                 svg{
                     width:12px;
@@ -235,6 +297,22 @@ const Exlist = Styled.div`
             }
         }
     }
+    @media only screen and (max-width: 1199px){
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border-right: 0 none;
+        margin: 0 -15px;
+        div{
+            flex: 0 0 50%;
+            padding: 0 15px;
+        }
+    }
+    @media only screen and (max-width: 480px){
+        div{
+            flex: 0 0 100%;
+        }
+    }
 `;
 
 const OverviewCard = Styled.div`
@@ -244,6 +322,7 @@ const OverviewCard = Styled.div`
     overflow: hidden;
     position: relative;
     z-index: 0;
+    margin-bottom: 30px;
     &:before{
         position: absolute;
         content: '';
@@ -348,12 +427,18 @@ const CardBarChart2 = Styled.div`
     h1{
         margin-bottom: 5px;
     }
+    @media only screen and (max-width: 1500px){
+        h1{
+            font-size: 22px;
+        }
+    }
     & > span{
         font-size: 14px;
         color: ${({theme})=>theme["light-gray-color"]};
     }
     p{
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         margin: 15px 0 0 0;
         .growth-upward, .growth-downward{
@@ -491,6 +576,7 @@ const RevenueChartWrapper = Styled.div`
 `;
 
 export {
+    ECahrtCard,
     Focard,
     CardBarChart,
     CardGroup,

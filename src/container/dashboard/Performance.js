@@ -258,7 +258,7 @@ const Performance = () => {
       <PageHeader ghost title="Website Performance Dashboard" />
       <Main>
         <Row gutter={25}>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <OverviewCard>
               <div className="d-flex align-items-center justify-content-between overview-head">
                 <Heading as="h4">Daily Overview</Heading>
@@ -317,7 +317,7 @@ const Performance = () => {
               </div>
             </OverviewCard>
           </Col>
-          <Col md={16}>
+          <Col lg={16} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -475,8 +475,8 @@ const Performance = () => {
               />
             </Cards>
           </Col>
-          <Col md={16}>
-            <div className="full-width-table">  
+          <Col lg={16} md={12} sm={24} xs={24}>
+            <div className="full-width-table">
               <Cards
                 isbutton={
                   <div className="card-nav">
@@ -502,11 +502,13 @@ const Performance = () => {
                 title="Traffic Channels"
                 size="large"
               >
-                <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                <div class="table-responsive">
+                  <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                </div>
               </Cards>
             </div>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -557,7 +559,7 @@ const Performance = () => {
               </SessionState>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
           <div className="full-width-table">
             <Cards
                 isbutton={
@@ -584,11 +586,13 @@ const Performance = () => {
                 title="Top Landing Pages"
                 size="large"
               >
-                <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                <div className="table-responsive">
+                  <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                </div>
               </Cards>
             </div>
           </Col>
-          <Col md={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -615,12 +619,12 @@ const Performance = () => {
               size="large"
             >
             <Row>
-              <Col md={8}>
+              <Col lg={8} md={8} sm={24} xs={24}>
                 <RegionList>
                   <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
                 </RegionList>
               </Col>
-              <Col md={16}>
+              <Col lg={16} md={16} sm={24} xs={24}>
                 <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
               </Col>
             </Row>

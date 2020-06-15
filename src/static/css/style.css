@@ -251,9 +251,9 @@ ul {
   background: #fff;
 }
 
-.ant-btn-light, 
-.ant-btn-light:hover, 
-.ant-btn-link:hover, 
+.ant-btn-light,
+.ant-btn-light:hover,
+.ant-btn-link:hover,
 .ant-btn-dashed {
   color: #5A5F7D
 }
@@ -687,6 +687,11 @@ ul {
 
 .full-width-table .revenue-table{
   min-height: 580px;
+}
+@media only screen and (max-width: 1500px){
+  .full-width-table .revenue-table{
+    min-height: 100%;
+  }
 }
 
 .full-width-table .top-seller-table{
