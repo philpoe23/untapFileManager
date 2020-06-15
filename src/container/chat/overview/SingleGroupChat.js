@@ -244,4 +244,5 @@ const mapDispatchToProps = dispatch => {
     updateGroupChat: (id, data) => dispatch(updateGroupChat(id, data)),
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(SingleGroupChat);
