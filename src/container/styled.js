@@ -6,6 +6,9 @@ const Main = Styled.div`
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
+    @media only screen and (max-width: 991px){
+        min-height: auto;
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }
@@ -289,6 +292,48 @@ const BasicFormWrapper = Styled.div`
 `;
 
 const CardToolbox = Styled.div`
+    .ant-page-header-heading{
+        @media only screen and (max-width: 991px){
+            flex-flow: column;
+            align-items: center;
+        }
+    }
+
+    .ant-page-header-heading-left{
+        @media only screen and (max-width: 575px){
+            flex-flow: column;
+        }
+        .ant-page-header-back{
+            @media only screen and (max-width: 575px){
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .ant-page-header-heading-title{
+            @media only screen and (max-width: 575px){
+                margin: 10px 0 8px;
+                padding: 0;
+            }
+            &:after{
+                @media only screen and (max-width: 575px){
+                    display: none;
+                } 
+            }
+        }
+        .ant-page-header-heading-sub-title{
+            @media only screen and (max-width: 575px){
+                margin: 0;
+                padding: 0;
+                flex-flow: column;
+            }
+            .title-counter{
+                @media only screen and (max-width: 575px){
+                    margin-bottom: 16px;
+                } 
+            }
+        }
+    }
+
     .ant-page-header-heading-title{
         position: relative;
         padding-right: 24px;
@@ -310,9 +355,15 @@ const CardToolbox = Styled.div`
     }
     .ant-select{
         margin-left: 25px;
+        @media only screen and (max-width: 575px){
+            margin-left: 0;
+        }
         .ant-select-selector{
             height: 46px !important;
             min-width: 350px;
+            @media only screen and (max-width: 991px){
+                min-width: 100%;
+            }
         }
         .ant-select-selection-search-input{
             height: 46px;
@@ -327,6 +378,9 @@ const CardToolbox = Styled.div`
     }
     .btn-add_new{
         height: 40px;
+        @media only screen and (max-width: 991px){
+            margin-top: 10px;
+        }
     }
 `;
 
