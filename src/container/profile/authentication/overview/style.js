@@ -8,6 +8,9 @@ const Aside = Styled.aside`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: left top;
+  @media only screen and (max-width: 767px){
+    height: 100%;
+  }
   .topShape {
     position: absolute;
     top: 0;
@@ -20,21 +23,61 @@ const Aside = Styled.aside`
     left: 0;
     //width: 400px;
   }
+  .auth-side-content{
+    @media only screen and (max-width: 991px){
+      h1{
+        font-size: 20px;
+      }
+    }
+    @media only screen and (max-width: 767px){
+      h1{
+        font-size: 24px;
+        margin-bottom: 28px;
+      }
+    }
+  }
 `;
 
 const Content = Styled.div`
     padding: 100px;
+    @media only screen and (max-width: 1599px){
+      padding: 50px;
+    }
+    @media only screen and (max-width: 991px){
+      padding: 20px;
+    }
+    @media only screen and (max-width: 767px){
+      text-align: center;
+    }
+    .auth-content-figure{
+      @media only screen and (max-width: 1199px){
+        max-width: 420px;
+      }
+      @media only screen and (max-width: 991px){
+        max-width: 100%;
+      }
+    }
 `;
 
 const AuthWrapper = Styled.div`
   height: 100%;
   padding: 40px;
+  @media only screen and (max-width: 1599px){
+    padding: 25px;
+  }
+  
+  @media only screen and (max-width: 767px){
+    text-align: center;
+  }
   .auth-notice{
     text-align: right;
     font-weight: 500;
+    @media only screen and (max-width: 767px){
+      text-align: center;
+      margin-bottom: 10px;
+    }
   }
   .auth-contents{
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,11 +87,20 @@ const AuthWrapper = Styled.div`
         font-size: 24px;
         font-weight: 600;
         margin-bottom: 45px;
+        @media only screen and (max-width: 767px){
+          margin-bottom: 28px;
+        }
       }
       .auth-form-action{
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
+        @media only screen and (max-width: 379px){
+          flex-flow: column;
+          .ant-checkbox-wrapper{
+            margin-bottom: 15px;
+          }
+        }
       }
     }
     .form-divider{
@@ -80,6 +132,9 @@ const AuthWrapper = Styled.div`
       display: flex;
       align-items: center;
       margin: -6px;
+      @media only screen and (max-width: 767px){
+        justify-content: center;
+      }
       li{
         padding:6px;
         a{

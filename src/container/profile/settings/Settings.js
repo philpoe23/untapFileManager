@@ -21,7 +21,7 @@ const Settings = ({ match }) => {
 
       <Main>
         <Row gutter={25}>
-          <Col md={5}>
+          <Col xxl={5} lg={8} md={10} xs={24}>
             <ProfileAuthorBox>
 
               <Cards headless>
@@ -92,7 +92,7 @@ const Settings = ({ match }) => {
               </Cards>
             </ProfileAuthorBox>
           </Col>
-          <Col md={19}>
+          <Col xxl={19} lg={16} md={14} xs={24}>
             <SettingWrapper>
               <div className="cover-image">
                 <img style={{ width: '100%' }} src={require('../../../static/img/profile/CoverImage.svg')} alt="banner" />

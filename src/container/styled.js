@@ -281,7 +281,10 @@ const BasicFormWrapper = Styled.div`
         }
     }
     .setting-form-actions{
-        margin: 48px 0 28px;
+        margin: 48px 0 14px;
+        button{
+            margin-bottom: 14px;
+        }
     }
 `;
 

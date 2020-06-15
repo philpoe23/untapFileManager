@@ -1,8 +1,8 @@
 import Styled from 'styled-components';
 
 const InfoWraper = Styled.div`
-    float: right;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 16px;
     .head-example{

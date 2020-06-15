@@ -71,8 +71,8 @@ const Project = ({ match }) => {
           <Row gutter={25}>
             <Col md={24}>
               <ProjectSorting>
-                <Row gutter={25}>
-                  <Col lg={7}>
+                <div className="project-sort-bar">
+                  <div className="project-sort-nav">
                     <nav>
                       <ul>
                         <li>
@@ -102,14 +102,14 @@ const Project = ({ match }) => {
                         </li>
                       </ul>
                     </nav>
-                  </Col>
-                  <Col lg={6}>
+                  </div>
+                  <div className="project-sort-search">
                     <AutoComplete onSearch={handleSearch} dataSource={notdata} patterns />
-                  </Col>
-                  <Col lg={11}>
+                  </div>
+                  <div className="project-sort-group">
                     <div className="sort-group">
                       <span>Sort By:</span>
-                      <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="category">
+                      <Select onChange={onSorting} defaultValue="category">
                         <Select.Option value="category">Project Category</Select.Option>
                         <Select.Option value="rate">Top Rated</Select.Option>
                         <Select.Option value="popular">Popular</Select.Option>
@@ -125,8 +125,8 @@ const Project = ({ match }) => {
                         </NavLink>
                       </div>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </ProjectSorting>
               <div>
                 <Switch>

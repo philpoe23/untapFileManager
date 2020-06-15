@@ -37,8 +37,8 @@ const Profile = () => {
           </div>
         }
       >
-        <Row>
-          <Col md={12} offset={6}>
+        <Row justify="center">
+          <Col xl={12} lg={16} xs={24}>
             <BasicFormWrapper>
               <Form name="editProfile" onFinish={handleSubmit}>
                 <Form.Item name="name" initialValue="Duran Clayton" label="Name">
@@ -80,15 +80,15 @@ const Profile = () => {
                   <TagInput>
                     <Tag animate onChange={checked} data={state.tags} />
                   </TagInput>
-                    <div className="setting-form-actions">
-                      <Button size="default" htmlType="submit" type="primary">
-                        Update Profile
-                      </Button>
-                      &nbsp; &nbsp;
-                      <Button size="default" onClick={handleCancel} type="light">
-                        Cancel
-                      </Button>
-                    </div>
+                  <div className="setting-form-actions">
+                    <Button size="default" htmlType="submit" type="primary">
+                      Update Profile
+                    </Button>
+                    &nbsp; &nbsp;
+                    <Button size="default" onClick={handleCancel} type="light">
+                      Cancel
+                    </Button>
+                  </div>
                 </Form.Item>
               </Form>
             </BasicFormWrapper>

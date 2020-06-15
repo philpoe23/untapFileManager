@@ -177,12 +177,12 @@ const ShoppingCart = ({ match }) => {
                               <CouponForm>
                                 <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
                                   <Row gutter={15}>
-                                    <Col xs={12} sm={8} lg={4}>
+                                    <Col  lg={4} sm={8} xs={12}>
                                       <Form.Item name="coupon" label="">
                                         <Input placeholder="Coupon Code" />
                                       </Form.Item>
                                     </Col>
-                                    <Col xs={12} sm={8} lg={4}>
+                                    <Col lg={4} sm={8} xs={12}>
                                       <Button htmlType="submit" size="default" type="primary">
                                         Apply Coupon
                                       </Button>

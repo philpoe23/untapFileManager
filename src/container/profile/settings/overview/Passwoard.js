@@ -27,8 +27,8 @@ const Password = () => {
           </div>
         }
       >
-        <Row>
-          <Col md={12} offset={6}>
+        <Row justify="center">
+          <Col lg={12} sm={20} xs={24}>
             <BasicFormWrapper>
               <Form form={form} name="changePassword" onFinish={handleSubmit}>
                 <Form.Item name="old" label="Old Password">
@@ -44,7 +44,7 @@ const Password = () => {
                       Change Password
                     </Button>
                     &nbsp; &nbsp;
-                    <Button onClick={handleCancel} type="default">
+                    <Button size="default" onClick={handleCancel} type="light">
                       Cancel
                     </Button>
                   </div>
