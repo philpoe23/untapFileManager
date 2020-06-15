@@ -20,6 +20,60 @@ const ProjectHeader = Styled.div`
 
 const ProjectSorting = Styled.div`
     margin-bottom: 25px;
+
+    .project-sort-bar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0 -10px;
+        .project-sort-nav,
+        .project-sort-search,
+        .project-sort-group{
+            padding: 0 10px;
+        }
+        .project-sort-group{
+            margin-left: auto;
+        }
+    }
+    @media (max-width: 1500px){
+        .project-sort-search{
+            flex: 0 0 100%;
+            order: 0;
+            margin-bottom: 15px;
+        }
+        .project-sort-nav{
+            order: 1;
+        }
+        .project-sort-group{
+            order: 2;
+        }
+    }
+    @media (max-width: 991px){
+        .project-sort-group{
+            margin-left: unset;
+            flex: 0 0 100%;
+            margin-top: 15px;
+            .sort-group{
+                justify-content: flex-start;
+                .layout-style{
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+    @media (max-width: 575px){
+        .project-sort-group{
+            .sort-group{
+                > span{
+                    display: none;
+                }
+                .ant-select{
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
     nav{
         background: #fff;
         border-radius: 5px;
@@ -69,7 +123,7 @@ const ProjectSorting = Styled.div`
         .ant-select{
             padding-left: 10px;
             margin-right: 15px;
-            max-width: 260px;
+            min-width: 260px;
             .ant-select-selector{
                 border: 0 none;
                 .ant-select-selection-item{
@@ -92,6 +146,22 @@ const ProjectSorting = Styled.div`
                     color: ${({theme})=>theme['primary-color']};
                     background: #fff;
                 }
+            }
+        }
+    }
+    @media (max-width: 400px){
+        .sort-group .ant-select{
+            min-width: 200px;
+        }
+        .project-sort-search{
+            .ant-select-auto-complete{
+                width: 100% !important;
+            }
+        }
+        .project-sort-nav{
+            nav ul{
+                flex-wrap: wrap;
+                justify-content: flex-start;
             }
         }
     }

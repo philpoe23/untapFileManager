@@ -53,7 +53,7 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col md={4} className="align-center-v navbar-brand">
+                <Col md={4} sm={5} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
@@ -61,10 +61,10 @@ const ThemeLayout = WrappedComponent => {
                     <img src={require(`../static/img/logo.png`)} alt="" />
                   </NavLink>
                 </Col>
-                <Col md={6}>
+                <Col md={6} sm={5}>
                   <HeaderSearch />
                 </Col>
-                <Col md={14}>
+                <Col md={14} sm={14}>
                   <AuthInfo />
                 </Col>
               </Row>

@@ -690,11 +690,7 @@ ul {
 .full-width-table .revenue-table{
   min-height: 580px;
 }
-@media only screen and (max-width: 1500px){
-  .full-width-table .revenue-table{
-    min-height: 100%;
-  }
-}
+
 
 .full-width-table .top-seller-table{
   min-height: 405px;
@@ -737,7 +733,12 @@ ul {
   border: 0 none;
 }
 
-/* Responsive Css */
+/* Responsive CSS */
+@media only screen and (max-width: 1500px){
+  .full-width-table .revenue-table{
+    min-height: 100%;
+  }
+}
 
 @media only screen and (max-width: 767px){
   .ant-card-body {
@@ -754,5 +755,8 @@ ul {
   .btn-dec{
     height: 30px;
     width: 30px;
+  }
+  .ant-layout-header{
+    height: auto;
   }
 }
