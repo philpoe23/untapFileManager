@@ -71,7 +71,7 @@ const AutoComplete = props => {
 };
 
 AutoComplete.defaultProps = {
-  width: '200px',
+  width: '350px',
 };
 
 AutoComplete.propTypes = {
