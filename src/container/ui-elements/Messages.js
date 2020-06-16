@@ -37,7 +37,7 @@ const Messages = () => {
       <PageHeader ghost title="Message" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic">
               <MessageStyleWrapper>
                 <Button type="primary" size="large" raised onClick={info}>
@@ -46,14 +46,14 @@ const Messages = () => {
               </MessageStyleWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Customize">
               <MessageStyleWrapper>
                 <Button type="light" outlined size="large" onClick={customSuccess}>Customized display duration</Button>
               </MessageStyleWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Other types of message">
               <Space>
                 <Button type="light" outlined size="large" onClick={success}>Success</Button>
@@ -62,7 +62,7 @@ const Messages = () => {
               </Space>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Loading">
               <MessageStyleWrapper>
                 <Button type="light" outlined size="large" onClick={loadingSuccess}>Display a loading indicator</Button>

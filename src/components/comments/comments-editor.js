@@ -73,7 +73,7 @@ const CommentEditor = () => {
 
   return (
     <div>
-      {comments.length && <CommentList comments={comments} />}
+      {comments.length > 0 && <CommentList comments={comments} />}
       <Comment
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
         content={<Editor onChange={handleChange} onSubmit={handleSubmit} submitting={submitting} value={value} />}

@@ -24,7 +24,7 @@ const Avatars = () => {
       <PageHeader title="Avatar" />
       <Main>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
               <AvatarWraperStyle style={{marginBottom: 10}}>
                 <Avatar size={64} icon={<UserOutlined />} />
@@ -52,7 +52,7 @@ const Avatars = () => {
               </AvatarWraperStyle>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Type">
               <AvatarWraperStyle>
                 <Avatar icon={<UserOutlined />} />

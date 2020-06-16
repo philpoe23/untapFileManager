@@ -12,7 +12,7 @@ const Drawers = () => {
       <PageHeader ghost title="Drawer" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Drawer">
               <Drawer title="Basic Drawer" placement="right">
                 <p>Some contents...</p>
@@ -21,7 +21,7 @@ const Drawers = () => {
               </Drawer>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom placement" caption="The simplest use of Drawer">
               <Drawer customPlacement title="Basic Drawer">
                 <p>Some contents...</p>
@@ -30,7 +30,7 @@ const Drawers = () => {
               </Drawer>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Render in current dom" caption="The simplest use of Drawer">
               <div
                 style={{
@@ -49,12 +49,12 @@ const Drawers = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Submit form in drawer" caption="The simplest use of Drawer">
               <Drawer width={700} btnText="+ New account" title="Basic Drawer">
                 <Form layout="vertical" hideRequiredMark>
                   <Row gutter={16}>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item
                         name="name"
                         label="Name"
@@ -63,7 +63,7 @@ const Drawers = () => {
                         <Input placeholder="Please enter user name" />
                       </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item name="url" label="Url" rules={[{ required: true, message: 'Please enter url' }]}>
                         <Input
                           style={{ width: '100%' }}
@@ -75,7 +75,7 @@ const Drawers = () => {
                     </Col>
                   </Row>
                   <Row gutter={16}>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item
                         name="owner"
                         label="Owner"
@@ -87,7 +87,7 @@ const Drawers = () => {
                         </Select>
                       </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item
                         name="type"
                         label="Type"
@@ -101,7 +101,7 @@ const Drawers = () => {
                     </Col>
                   </Row>
                   <Row gutter={16}>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item
                         name="approver"
                         label="Approver"
@@ -113,7 +113,7 @@ const Drawers = () => {
                         </Select>
                       </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col lg={12} sm={24} xs={24}>
                       <Form.Item
                         name="dateTime"
                         label="DateTime"
@@ -127,7 +127,7 @@ const Drawers = () => {
                     </Col>
                   </Row>
                   <Row gutter={16}>
-                    <Col span={24}>
+                    <Col lg={24} sm={24} xs={24}>
                       <Form.Item
                         name="description"
                         label="Description"
@@ -146,7 +146,7 @@ const Drawers = () => {
               </Drawer>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Multi Label Drawer" caption="The simplest use of Drawer">
               <Drawer
                 title="Basic Drawer"

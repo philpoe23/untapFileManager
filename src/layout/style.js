@@ -1,11 +1,6 @@
 import Styled from 'styled-components';
 
 const Div = Styled.div`
-    .ant-layout-sider{
-        @media only screen and (max-width: 1199px){
-            display: none;
-        }
-    }
     header{
         box-shadow: 0px -15px 25px #888;
         z-index: 1;
@@ -34,22 +29,21 @@ const Div = Styled.div`
             }
             .ant-menu{
                 border-right: 0 none;
-                .ant-menu-submenu{
+
+                .ant-menu-submenu, .ant-menu-item{
+                    .feather{
+                        font-size: 16px;
+                        color: ${({ theme }) => theme['extra-light-color']};
+                        margin-top: 7px;
+                    }
+                    span{
+                        padding-left: 20px;
+                        display: inline-block;
+                        color: ${({ theme }) => theme['dark-color']};
+                        transition: 0.3s ease;
+                    }
                     .ant-menu-submenu-title{
                         padding-left: 15px !important;
-                        > span{
-                            display: flex;
-                            align-items: center;
-                            .feather{
-                                font-size: 16px;
-                                color: ${({ theme }) => theme['extra-light-color']};
-                            }
-                            span{
-                                padding-left: 20px;
-                                display: inline-block;
-                                color: ${({ theme }) => theme['dark-color']};
-                            }
-                        }
                     }
                     .ant-menu-item{
                         padding-left: 48px !important;
@@ -84,6 +78,14 @@ const Div = Styled.div`
                     margin-top: 40px;
                     margin-bottom: 24px;
                 }
+                &.ant-menu-inline-collapsed{
+                    .ant-menu-submenu, .ant-menu-item{
+                        span{
+                            visibility: hidden;
+                            opacity: 0;
+                        }
+                    }
+                }
             }
         }
         .sidebar-nav-title{
@@ -93,17 +95,23 @@ const Div = Styled.div`
             color: #868EAE;
             padding: 0 15px;
         }
+        &.ant-layout-sider-collapsed{
+            & + .atbd-main-layout{
+                margin-left: 80px;
+            }
+        }
     }
 
     .atbd-main-layout{
         margin-left: 280px;
         margin-top: 64px;
-        @media only screen and (max-width: 1199px){
+        transition: 0.3s ease;
+        /* @media only screen and (max-width: 1199px){
             margin-left: 80px !important;
         }
         @media only screen and (max-width: 767px){
             margin-left: 0 !important;
-        }
+        } */
     }
 `;
 
