@@ -47,11 +47,12 @@ const Team = ({ searchData, team }) => {
     <Fragment>
       <CardToolbox>
         <PageHeader
-          ghost
+          backIcon={false}
           title="Team Members"
           subTitle={
             <Fragment>
-              274 Users <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+              <span className="title-counter">274 Users</span>
+              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
             </Fragment>
           }
           buttons={[
@@ -63,11 +64,11 @@ const Team = ({ searchData, team }) => {
       </CardToolbox>
       
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           {team.map(user => {
             const { id, name, designation, img } = user;
             return (
-              <Col key={id} md={4}>
+              <Col key={id} xxl={6} lg={8} sm={12} xs={24}>
                 <UserCard>
                   <div className="card team-card">
                     <Cards headless>

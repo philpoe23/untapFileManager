@@ -32,10 +32,10 @@ const Faq = () => {
     <Fragment>
       <PageHeader ghost title="Frequently Asked Questions" />
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
+        <Row gutter={25}>
+          <Col xxl={6} lg={8} md={10} sm={12}>
             <Row>
-              <Col md={24}>
+              <Col xs={24}>
                 <FaqCategoryBox>
                   <Cards headless>
                     <Badge className="faq-badge" type="light">
@@ -77,7 +77,7 @@ const Faq = () => {
                 </FaqCategoryBox>
               </Col>
 
-              <Col md={24}>
+              <Col xs={24}>
                 <FaqSupportBox>
                   <Cards headless>
                     <figure>
@@ -95,7 +95,7 @@ const Faq = () => {
             </Row>
           </Col>
 
-          <Col md={18}>
+          <Col xxl={18} lg={16} md={14} sm={12}>
             <FaqWrapper>
               <Cards headless title="Using Applications">
                 <Collapse

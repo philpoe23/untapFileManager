@@ -123,11 +123,12 @@ const UserListDataTable = ({ searchData, users }) => {
           title="User List Data Table"
           subTitle={
             <Fragment>
-              274 Users <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+              <span className="title-counter">274 Users </span>
+              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
             </Fragment>
           }
           buttons={[
-            <Button size="default" key="1" type="primary">
+            <Button className="btn-add_new" size="default" key="1" type="primary">
               + Add New User
             </Button>,
           ]}
@@ -138,7 +139,7 @@ const UserListDataTable = ({ searchData, users }) => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless>
-              <TableWrapper>
+              <TableWrapper className="table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}
