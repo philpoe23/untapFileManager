@@ -733,11 +733,23 @@ ul {
 .RichTextEditor__editor___1QqIU .DraftEditor-editorContainer {
   border: 0 none;
 }
+.rdrMonths{
+  flex-wrap: wrap;
+}
+
+
 
 /* Responsive CSS */
 @media only screen and (max-width: 1500px){
   .full-width-table .revenue-table{
     min-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .rdrMonths .rdrMonth{
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 
@@ -759,5 +771,17 @@ ul {
   }
   .ant-layout-header{
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .ant-select{
+    width: 100% !important;
+  }
+  .rdrDefinedRangesWrapper{
+    width: 100% !important;
+  }
+  .rdrDateRangePickerWrapper{
+    flex-wrap: wrap;
   }
 }

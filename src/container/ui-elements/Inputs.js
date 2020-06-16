@@ -12,12 +12,12 @@ const Inputs = () => {
       <PageHeader ghost title="Input" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
               <Input placeholder="Basic usage" />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Three sizes of Input">
               <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
               <br />
@@ -28,7 +28,7 @@ const Inputs = () => {
               <Input size="small" placeholder="small size" prefix={<UserOutlined />} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Textarea">
               <TextArea rows={4} />
             </Cards>

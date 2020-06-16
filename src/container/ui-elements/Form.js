@@ -25,7 +25,7 @@ const Forms = () => {
       <PageHeader ghost title="Form" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Elements of Form" caption="The simplest use of Form">
               <Form layout="vertical" form={form} name="basicforms" onFinish={handleSubmit}>
                 <Form.Item label="Username" name="username">
@@ -52,20 +52,24 @@ const Forms = () => {
                 <Form.Item label="Textarea" name="textarea">
                   <TextArea />
                 </Form.Item>
-                <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
-                <Select
-                  showSearch
-                  style={{ width: 200, marginLeft: '15px' }}
-                  placeholder="Select a person"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  <Option value="jack">Jack</Option>
-                  <Option value="lucy">Lucy</Option>
-                  <Option value="tom">Tom</Option>
-                </Select>
+                <Form.Item label="Cascader" name="Cascader">
+                  <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+                </Form.Item>
+                <Form.Item label="Selectc" name="Selectc">
+                  <Select
+                    showSearch
+                    style={{ width: 200 }}
+                    placeholder="Select a person"
+                    optionFilterProp="children"
+                    filterOption={(input, option) =>
+                      option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    }
+                  >
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="tom">Tom</Option>
+                  </Select>
+                </Form.Item>
                 <Form.Item>
                   <Button htmlType="submit" type="primary" style={{marginTop: "20px"}}>
                     Submit

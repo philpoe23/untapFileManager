@@ -10,17 +10,17 @@ const EmptyData = () => {
       <PageHeader ghost title="Empty" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Empty">
               <Empty />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Chose image" caption="The simplest use of Empty">
               <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Customize" caption="The simplest use of Empty">
               <Empty
                 image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"

@@ -124,7 +124,7 @@ class CustomDateRange extends React.Component {
           value={startValue}
           placeholder="Start"
           onChange={this.onStartChange}
-          onOpenChange={this.handleStartOpenChange}
+          onOpenChange={this.handleStartOpenChange} style={{margin: "5px"}}
         />
 
         <DatePicker
@@ -135,7 +135,7 @@ class CustomDateRange extends React.Component {
           placeholder="End"
           onChange={this.onEndChange}
           open={endOpen}
-          onOpenChange={this.handleEndOpenChange}
+          onOpenChange={this.handleEndOpenChange} style={{margin: "5px"}}
         />
       </div>
     );

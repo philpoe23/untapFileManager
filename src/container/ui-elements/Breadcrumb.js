@@ -82,7 +82,7 @@ const Breadcrumbs = () => {
       <PageHeader title="Breadcrumb" />
       <Main>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic">
               <BreadcrumbWrapperStyle>
                 <Breadcrumb>
@@ -125,7 +125,7 @@ const Breadcrumbs = () => {
               </BreadcrumbWrapperStyle>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="With Icon">
               <BreadcrumbWrapperStyle>
                 <Breadcrumb>
