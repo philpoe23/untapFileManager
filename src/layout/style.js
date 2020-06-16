@@ -96,20 +96,29 @@ const Div = Styled.div`
             padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{
+            .sidebar-nav-title{
+                display: none;
+            }
             & + .atbd-main-layout{
                 margin-left: 80px;
             }
         }
+    }
+    @media only screen and (max-width: 1199px){
+        .ant-layout-sider.ant-layout-sider-collapsed{
+            left: -80px !important;
+        }
+
     }
 
     .atbd-main-layout{
         margin-left: 280px;
         margin-top: 64px;
         transition: 0.3s ease;
-        /* @media only screen and (max-width: 1199px){
-            margin-left: 80px !important;
+        @media only screen and (max-width: 1199px){
+            margin-left: auto !important;
         }
-        @media only screen and (max-width: 767px){
+        /* @media only screen and (max-width: 767px){
             margin-left: 0 !important;
         } */
     }
