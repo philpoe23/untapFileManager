@@ -97,8 +97,8 @@ const AuthWrapper = Styled.div`
         justify-content: space-between;
         @media only screen and (max-width: 379px){
           flex-flow: column;
-          .ant-checkbox-wrapper{
-            margin-bottom: 15px;
+          .forgot-pass-link{
+            margin-top: 15px;
           }
         }
       }
@@ -148,6 +148,10 @@ const AuthWrapper = Styled.div`
           background: ${({theme})=>theme['bg-color-light']};
           color: ${({theme})=>theme['text-color']};
           font-weight: 500;
+          @media only screen and (max-width: 379px){
+            height: 44px;
+            padding: 0 12px;
+          }
           span:not(.anticon){
             display: inline-block;
             margin-left: 5px;

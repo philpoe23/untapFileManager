@@ -77,8 +77,8 @@ const ReChartRadial = () => {
         ghost
       />
       <Main>
-        <Row gutter={15}>
-          <Col md={24}>
+        <Row gutter={25}>
+          <Col xs={24}>
             <Cards title="SIMPLE RADIAL BAR CHART" size="large">
               <RadialBarChart
                 width={900}

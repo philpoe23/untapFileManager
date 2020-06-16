@@ -12,7 +12,7 @@ const ReChartRadar = () => {
       <PageHeader title="Rechats Radar Chart" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="SIMPLE RADAR CHART" size="large">
               <RadarChart cx={300} cy={250} outerRadius={150} width={750} height={500} data={radar}>
                 <PolarGrid />
@@ -22,7 +22,7 @@ const ReChartRadar = () => {
               </RadarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="SPECIFIED DOMAIN RADAR CHART" size="large">
               <RadarChart cx={300} cy={250} outerRadius={150} width={750} height={500} data={radar}>
                 <PolarGrid />

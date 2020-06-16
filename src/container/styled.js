@@ -384,6 +384,15 @@ const CardToolbox = Styled.div`
     }
 `;
 
+const FormGroupWrapper = Styled.div`
+    .ant-card-body{
+        @media only screen and (max-width: 767px){
+            padding: 0 !important;
+        }
+    }
+`;
+
+
 const TableWrapper = Styled.div`
     table{
         thead{
@@ -526,5 +535,6 @@ export {
     MessageStyleWrapper,
     BasicFormWrapper,
     CardToolbox,
+    FormGroupWrapper,
     TableWrapper
 };

@@ -13,37 +13,37 @@ const GoogleMap = () => {
       <PageHeader title="Google Maps" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Basic" size="large">
               <GoogleMaps />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Style Light" size="large">
               <GoogleMaps mapStyles={map_one_styles} />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Style Dark" size="large">
               <GoogleMaps mapStyles={map_style_dark} />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Style Theame Color" size="large">
               <GoogleMaps zoom={2} mapStyles={map_Three_styles} />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Style Color" size="large">
               <GoogleMaps mapStyles={map_two_styles} />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Google Map Style Color" size="large">
               <GoogleMaps
                 mapStyles={map_two_styles}

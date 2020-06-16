@@ -16,10 +16,10 @@ const FeatherSvgIcons = () => {
           <Col md={24}>
             <IconWrapper>
               <Cards title="Simply beautiful open source icons" size="learge">
-                <Row gutter={15}>
+                <Row gutter={25}>
                   {featherIcons.map((icon, index) => {
                     return (
-                      <Col md={6} key={index + 1}>
+                      <Col lg={6} md={8} sm={12} xs={24} key={index + 1}>
                         <Icon className="icon-single">
                           <FeatherIcon icon={icon} size={18} />
                           <span>{icon}</span>

@@ -84,7 +84,7 @@ const ReChartPie = () => {
       <PageHeader title="Rechats Pie Chart" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="TWO LEVEL PIE CHART" size="large">
               <PieChart width={630} height={400}>
                 <Pie data={data01} dataKey="value" cx={325} cy={200} outerRadius={60} fill="#8884d8" />
@@ -101,7 +101,7 @@ const ReChartPie = () => {
               </PieChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="STRAIGHT ANGLE PIE CHART" size="large">
               <PieChart width={630} height={400}>
                 <Pie
@@ -118,7 +118,7 @@ const ReChartPie = () => {
               </PieChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="CUSTOM ACTIVE SHAPE PIE CHART" size="large">
               <PieChart width={630} height={400}>
                 <Pie
@@ -136,7 +136,7 @@ const ReChartPie = () => {
               </PieChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH CUSTOMIZED LABEL" size="large">
               <PieChart width={630} height={400}>
                 <Pie
@@ -156,7 +156,7 @@ const ReChartPie = () => {
               </PieChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="TWO SIMPLE PIE CHART" size="large">
               <PieChart width={630} height={400}>
                 <Pie
@@ -174,7 +174,7 @@ const ReChartPie = () => {
               </PieChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH PADDING ANGLE" size="large">
               <PieChart width={630} height={400} onMouseEnter={onPieEnter}>
                 <Pie

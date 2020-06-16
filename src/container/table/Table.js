@@ -169,13 +169,13 @@ const Tables = () => {
       <PageHeader ghost title="Table" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Basic Usage">
-              <Table pagination={false} dataSource={dataSource} columns={columns} />
+              <Table className="table-responsive" pagination={false} dataSource={dataSource} columns={columns} />
             </Cards>
           </Col>
 
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Selection">
               <div>
                 <Radio.Group
@@ -190,6 +190,7 @@ const Tables = () => {
 
                 <Divider />
                 <Table
+                  className="table-responsive"
                   rowSelection={{
                     type: state.selectionType,
                     ...rowSelection,
@@ -201,14 +202,15 @@ const Tables = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Filter and sorter">
-              <Table pagination={false} columns={columnsSort} dataSource={dataSort} onChange={onChange} />
+              <Table className="table-responsive" pagination={false} columns={columnsSort} dataSource={dataSort} onChange={onChange} />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Pagination">
               <Table
+                className="table-responsive"
                 pagination={{
                   defaultPageSize: 3,
                   total: dataSort.length,
