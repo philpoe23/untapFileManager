@@ -30,8 +30,8 @@ const GoogleChart = () => {
     <Fragment>
       <PageHeader title="Google Chart" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} xs={24}>
             <Cards title="Basic bar chart with multiple series" size="large">
               <GoogleBasicBarChart
                 data={barChartData}
@@ -42,7 +42,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Material Design" size="large">
               <GoogleMaterialBarChart
                 data={materialDesignChart}
@@ -54,7 +54,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Stacked bar chart with multiple series" size="large">
               <GoogleStackedChart
                 data={barChartData}
@@ -65,7 +65,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Custom Colors Bar Chart" size="large">
               <GoogleCustomColorChart
                 data={barChartData}
@@ -77,7 +77,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Combo Chart" size="large">
               <GoogleComboChart
                 data={comboChartData}
@@ -89,7 +89,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Line Chart" size="large">
               <GoogleLineChart
                 data={lineChartData}
@@ -100,7 +100,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Multiple Line Chart" size="large">
               <GoogleMultiLineChart
                 data={MultilineChartData}
@@ -111,7 +111,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Organization Chart" size="large">
               <GoogleOrgChart
                 data={organizationChartData}
@@ -122,7 +122,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Basic Pie Chart" size="large">
               <GoogleBasicPieChart
                 data={pieChartData}
@@ -133,7 +133,7 @@ const GoogleChart = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="3d Pie Chart" size="large">
               <Google3dPieChart
                 data={pieChartData}

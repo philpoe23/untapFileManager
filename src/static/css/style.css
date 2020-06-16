@@ -765,6 +765,10 @@ ul {
   border: 0 none;
 }
 
+.rdrMonths {
+  flex-wrap: wrap;
+}
+
 .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title, .ant-menu-item {
   display: inline-flex;
 }
@@ -774,6 +778,13 @@ ul {
 @media only screen and (max-width: 1500px) {
   .full-width-table .revenue-table {
     min-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .rdrMonths .rdrMonth {
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 
@@ -796,6 +807,17 @@ ul {
   .ant-pagination li.ant-pagination-prev .anticon, .ant-pagination li.ant-pagination-next .anticon {
     vertical-align: -0.25em;
   }
+  .ant-table-pagination {
+    float: none !important;
+    text-align: center;
+  }
+  .ant-table-pagination li:first-child {
+    display: block;
+    margin-bottom: 8px;
+  }
+  .ant-table-pagination li {
+    margin-right: 8px !important;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -808,5 +830,17 @@ ul {
   }
   .ant-layout-header {
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .ant-select {
+    width: 100% !important;
+  }
+  .rdrDefinedRangesWrapper {
+    width: 100% !important;
+  }
+  .rdrDateRangePickerWrapper {
+    flex-wrap: wrap;
   }
 }

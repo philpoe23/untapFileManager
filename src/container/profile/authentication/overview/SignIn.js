@@ -43,7 +43,7 @@ const SignIn = () => {
           </Form.Item>
           <div className="auth-form-action">
             <Checkbox onChange={onChange}>Keep me logged in</Checkbox>
-            <NavLink to="/forgotPassword">Forgot password?</NavLink>
+            <NavLink className="forgot-pass-link" to="/forgotPassword">Forgot password?</NavLink>
           </div>
           <Form.Item>
             <Button htmlType="submit" type="primary" size="large">

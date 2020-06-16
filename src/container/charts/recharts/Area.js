@@ -12,7 +12,7 @@ const ReChartArea = () => {
       <PageHeader title="Rechats Area Chart" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="SIMPLE AREA CHART" size="large" more={false}>
               <AreaChart
                 width={630}
@@ -34,7 +34,7 @@ const ReChartArea = () => {
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="STACKED AREA CHART" size="large" more={false}>
               <AreaChart
                 width={630}
@@ -57,7 +57,7 @@ const ReChartArea = () => {
               </AreaChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="AREACHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <AreaChart
@@ -97,7 +97,7 @@ const ReChartArea = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="synchronized AreaCharts" size="large" more={false}>
               <div>
                 <AreaChart

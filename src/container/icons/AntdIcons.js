@@ -12,7 +12,7 @@ const FeatherSvgIcons = () => {
       <PageHeader title="Antd Icons" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <IconWrapper>
               <Cards title="Simply beautiful open source icons" size="learge">
                 <Row gutter={15}>
@@ -27,7 +27,7 @@ const FeatherSvgIcons = () => {
                     .map((icon, index) => {
                       const CustomTag = Icons[icon];
                       return (
-                        <Col md={6} key={index}>
+                        <Col lg={6} md={12} xs={24} key={index}>
                           <AnIcon className="icon-single">
                             <CustomTag />
                             <span> {icon}</span>

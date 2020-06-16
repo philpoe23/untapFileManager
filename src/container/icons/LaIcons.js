@@ -13,7 +13,7 @@ const FeatherSvgIcons = props => {
       <PageHeader title="Line Awesome Icons" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <IconWrapper>
               <Cards title="Simply beautiful open source icons" size="learge">
                 <Row gutter={15}>
@@ -21,7 +21,7 @@ const FeatherSvgIcons = props => {
                     const CustomTag = Line[icon];
                     console.log(Line);
                     return (
-                      <Col md={6} key={index + 1}>
+                      <Col lg={6} md={12} xs={24} key={index + 1}>
                         <Icon className="icon-single">
                           <CustomTag className="custom-class" component="i" />
                           <span>{icon}</span>
