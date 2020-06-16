@@ -77,7 +77,7 @@ const HeaderSearch = props => {
       )}
       {size <= 600 && (
         <Link onClick={handleHide} to="#">
-          <FeatherIcon icon="search" />
+          {hide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
         </Link>
       )}
     </Fragment>
