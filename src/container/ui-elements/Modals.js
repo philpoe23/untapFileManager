@@ -126,16 +126,16 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showModal} type="primary">
+              <Button onClick={showModal} type="primary" style={{marginRight: '10px'}}>
                 Primary
               </Button>
-              <Button onClick={showModal} type="success">
+              <Button onClick={showModal} type="success" style={{marginRight: '10px'}}>
                 Success
               </Button>
-              <Button onClick={showModal} type="danger">
+              <Button onClick={showModal} type="danger" style={{marginRight: '10px'}}>
                 Danger
               </Button>
-              <Button onClick={showModal} type="warning">
+              <Button onClick={showModal} type="warning" style={{marginRight: '10px'}}>
                 Warning
               </Button>
             </Cards>
@@ -159,16 +159,16 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showColorModal} type="primary">
+              <Button onClick={showColorModal} type="primary" style={{marginRight: '10px'}}>
                 Primary
               </Button>
-              <Button onClick={showColorModal} type="success">
+              <Button onClick={showColorModal} type="success" style={{marginRight: '10px'}}>
                 Success
               </Button>
-              <Button onClick={showColorModal} type="danger">
+              <Button onClick={showColorModal} type="danger" style={{marginRight: '10px'}}>
                 Danger
               </Button>
-              <Button onClick={showColorModal} type="warning">
+              <Button onClick={showColorModal} type="warning" style={{marginRight: '10px'}}>
                 Warning
               </Button>
             </Cards>
@@ -180,22 +180,22 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={success} type="success">
+              <Button onClick={success} type="success" style={{marginRight: '10px'}}>
                 Success
               </Button>
-              <Button onClick={error} type="error">
+              <Button onClick={error} type="error" style={{marginRight: '10px'}}>
                 Error
               </Button>
-              <Button onClick={warning} type="warning">
+              <Button onClick={warning} type="warning" style={{marginRight: '10px'}}>
                 Warning
               </Button>
-              <Button onClick={info} type="info">
+              <Button onClick={info} type="info" style={{marginRight: '10px'}}>
                 Info
               </Button>
-              <Button onClick={selfDestroyed} type="primary">
+              <Button onClick={selfDestroyed} type="primary" style={{marginRight: '10px'}}>
                 Modal Self Destroyed
               </Button>
-              <Button onClick={showConfirm} type="primary">
+              <Button onClick={showConfirm} type="primary" style={{marginRight: '10px'}}>
                 Confirm
               </Button>
             </Cards>

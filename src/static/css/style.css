@@ -735,7 +735,9 @@ ul {
 .rdrMonths{
   flex-wrap: wrap;
 }
-
+.ant-space{
+  flex-wrap: wrap;
+}
 
 
 /* Responsive CSS */
