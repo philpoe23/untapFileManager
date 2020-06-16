@@ -9,6 +9,8 @@ import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 import { updatePrivetChat } from '../../../redux/chat/actionCreator';
+import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
+import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleChat = ({ chat, match, updatePrivetChat }) => {
   const [state, setState] = useState({
@@ -80,21 +82,97 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
   );
 
   return (
-    <Cards title={name} more={content}>
+    <Cards
+      title={
+        <Fragment>
+          <Heading as="h5">{name}</Heading>
+          <p>Active Now</p>
+        </Fragment>
+      }
+      more={content}
+    >
       <ul>
         {singleContent.length ? (
           singleContent.map((mes, index) => {
             const id = mes.time;
             const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
+
             return (
               <div key={index + 1} style={{ overflow: 'hidden' }}>
-                <div>
-                  <Heading as={'h5'}>
+                <div className={mes.email !== me ? 'left' : 'right'}>
+                  {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
+                  <Heading as="h5">
                     {mes.email !== me && name}
                     <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
                   </Heading>
                 </div>
-                <Icon type="smile" />
+
+                <Dropdown
+                  action={['hover']}
+                  content={
+                    <div>
+                      <ul>
+                        <li>
+                          <Link to="#">&#127773;</Link>
+                        </li>
+                        <li>
+                          <Link to="#">&#128116;</Link>
+                        </li>
+                        <li>
+                          <Link to="#">&#128127;</Link>
+                        </li>
+                        <li>
+                          <Link to="#">&#128151;</Link>
+                        </li>
+                        <li>
+                          <Link to="#">&#128400;</Link>
+                        </li>
+                        <li>
+                          <Link to="#">
+                            <MoreOutlined />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  placement="bottomCenter"
+                >
+                  <Link to="#">
+                    <SmileOutlined />
+                  </Link>
+                </Dropdown>
+                <Dropdown
+                  action={['hover']}
+                  content={
+                    <div>
+                      <ul>
+                        <li>
+                          <Link to="#">Copy</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Quote</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Forward</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Report</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  placement="bottomCenter"
+                >
+                  <Link to="#">
+                    <MoreOutlined />
+                  </Link>
+                </Dropdown>
+                {mes.email === me && singleContent.length === index + 1 ? (
+                  <div>
+                    Seen 9:20 PM <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                  </div>
+                ) : null}
+
                 <MessageList>{mes.content}</MessageList>
               </div>
             );

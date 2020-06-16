@@ -4,7 +4,7 @@ import { Main } from '../styled';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import FeatherIcon from 'feather-icons-react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Heading from '../../components/heading/heading';
 import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { Button } from '../../components/buttons/buttons';
@@ -39,9 +39,7 @@ const ShoppingCart = ({ match }) => {
           </FigureCart>
         </div>
       ),
-      price: (
-        <span className="cart-single-price">'$' + 248.66</span>
-      ),
+      price: <span className="cart-single-price">'$' + 248.66</span>,
       quantity: (
         <div className="cart-single-quantity">
           <Button className="btn-dec" type="default">
@@ -53,9 +51,7 @@ const ShoppingCart = ({ match }) => {
           </Button>
         </div>
       ),
-      total: (
-        <span className="cart-single-t-price">'$' + 248.66</span>
-      ),
+      total: <span className="cart-single-t-price">'$' + 248.66</span>,
       action: (
         <div className="table-action">
           <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
@@ -88,9 +84,7 @@ const ShoppingCart = ({ match }) => {
           </FigureCart>
         </div>
       ),
-      price: (
-        <span className="cart-single-price">'$' + 248.66</span>
-      ),
+      price: <span className="cart-single-price">'$' + 248.66</span>,
       quantity: (
         <div className="cart-single-quantity">
           <Button className="btn-dec" type="default">
@@ -102,9 +96,7 @@ const ShoppingCart = ({ match }) => {
           </Button>
         </div>
       ),
-      total: (
-        <span className="cart-single-t-price">'$' + 248.66</span>
-      ),
+      total: <span className="cart-single-t-price">'$' + 248.66</span>,
       action: (
         <div className="table-action">
           <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
@@ -181,7 +173,7 @@ const ShoppingCart = ({ match }) => {
                                   <Table pagination={false} dataSource={dataSource} columns={columns} />
                                 </div>
                               </ProductTable>
-                              
+
                               <CouponForm>
                                 <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
                                   <Row gutter={15}>
@@ -210,19 +202,20 @@ const ShoppingCart = ({ match }) => {
                   <Cards
                     bodyStyle={{
                       backgroundColor: '#F8F9FB',
-                      borderRadius: '20px'
+                      borderRadius: '20px',
                     }}
                     headless
                   >
                     <OrderSummary>
-                      <Heading className="summary-table-title" as="h4">Order Summary</Heading>
-                      <Cards 
+                      <Heading className="summary-table-title" as="h4">
+                        Order Summary
+                      </Heading>
+                      <Cards
                         bodyStyle={{
                           backgroundColor: '#ffffff',
-                          borderRadius: '20px'
+                          borderRadius: '20px',
                         }}
                         headless
-                      
                       >
                         <div className="order-summary-inner">
                           <ul className="summary-list">

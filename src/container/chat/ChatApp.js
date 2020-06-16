@@ -35,6 +35,15 @@ const ChatApp = ({ searchData, match }) => {
 
   const onHandleChange = e => {
     e.preventDefault();
+    const link = e.currentTarget;
+    link
+      .closest('ul')
+      .querySelectorAll('li')
+      .forEach(li => {
+        li.classList.remove('active');
+      });
+
+    link.closest('li').classList.add('active');
     setState({
       ...state,
       chatType: e.currentTarget.getAttribute('data-type'),
@@ -53,7 +62,7 @@ const ChatApp = ({ searchData, match }) => {
                 <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
                 <nav>
                   <UL>
-                    <li>
+                    <li className="active">
                       <Link onClick={onHandleChange} data-type="PrivetChat" to="#">
                         Privet Chat
                       </Link>
