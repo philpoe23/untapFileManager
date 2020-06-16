@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Row, Col, Table } from 'antd';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
-import { Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -37,7 +36,9 @@ const UserListDataTable = ({ searchData, users }) => {
             <img style={{ width: '40px' }} src={require('../../' + img)} alt="" />
           </figure>
           <figcaption>
-            <Heading className="user-name" as="h6">{name}</Heading>
+            <Heading className="user-name" as="h6">
+              {name}
+            </Heading>
             <span className="user-designation">San Francisco, CA</span>
           </figcaption>
         </div>
@@ -48,10 +49,9 @@ const UserListDataTable = ({ searchData, users }) => {
       joinDate: 'January 20, 2020',
       status: <span className={status}>{status}</span>,
       action: (
-
         <div className="table-actions">
           <Fragment>
-            <Button  className="btn-icon" type="primary" to="#" shape="circle">
+            <Button className="btn-icon" type="primary" to="#" shape="circle">
               <FeatherIcon icon="eye" size={16} />
             </Button>
             <Button className="btn-icon" type="info" to="#" shape="circle">
@@ -62,7 +62,6 @@ const UserListDataTable = ({ searchData, users }) => {
             </Button>
           </Fragment>
         </div>
-        
       ),
     });
   });
@@ -124,23 +123,23 @@ const UserListDataTable = ({ searchData, users }) => {
           title="User List Data Table"
           subTitle={
             <Fragment>
-              274 Users <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+              <span className="title-counter">274 Users </span>
+              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
             </Fragment>
           }
           buttons={[
-            <Button size="default" key="1" type="primary">
+            <Button className="btn-add_new" size="default" key="1" type="primary">
               + Add New User
             </Button>,
           ]}
         />
       </CardToolbox>
-      
+
       <Main>
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless>
-
-              <TableWrapper>
+              <TableWrapper className="table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}
@@ -152,7 +151,6 @@ const UserListDataTable = ({ searchData, users }) => {
                   }}
                 />
               </TableWrapper>
-              
             </Cards>
           </Col>
         </Row>

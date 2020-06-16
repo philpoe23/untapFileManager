@@ -13,8 +13,8 @@ const PricingTable = () => {
     <Fragment>
       <PageHeader ghost title="Pricing Table" />
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
+        <Row gutter={25} justify="center">
+          <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="dark">Free Forever</Badge>
               <Heading className="pricing-title" as="h3">Free</Heading>
@@ -25,13 +25,13 @@ const PricingTable = () => {
                 <List text="Limited Boards" />
                 <List text="Basic Project Management" />
               </ListGroup>
-              <Button size="default" type="default">Current Plan</Button>
+              <Button size="default" type="white">Current Plan</Button>
             </PricingCard>
           </Col>
-          <Col md={6}>
+          <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="primary">Basic Plan</Badge>
-              <Heading as="h3">
+              <Heading className="price-amount" as="h3">
                 <sup>$</sup>19 <sub>Per month</sub>
               </Heading>
               <p>For 2 Users</p>
@@ -45,10 +45,10 @@ const PricingTable = () => {
               <Button size="default" type="primary">Get Started</Button>
             </PricingCard>
           </Col>
-          <Col md={6}>
+          <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="secondary">Business</Badge>
-              <Heading as="h3">
+              <Heading className="price-amount" as="h3">
                 <sup>$</sup>39 <sub>Per month</sub>
               </Heading>
               <p>For 10 Users</p>
@@ -63,10 +63,10 @@ const PricingTable = () => {
               <Button size="default" type="secondary">Get Started</Button>
             </PricingCard>
           </Col>
-          <Col md={6}>
+          <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="success">Enterprise</Badge>
-              <Heading as="h3">
+              <Heading className="price-amount" as="h3">
                 <sup>$</sup>79 <sub>Per month</sub>
               </Heading>
               <p>For 50 Users</p>
@@ -82,14 +82,14 @@ const PricingTable = () => {
             </PricingCard>
           </Col>
         </Row>
-        <Row gutter={15}>
-          <Col md={24}>
+        <Row gutter={15} justify="center">
+          <Col xs={24}>
             <Cards headless>
               <Row gutter={15}>
-                <Col md={6}>
-                  <PricingCard>
+                <Col xxl={6} lg={8} sm={12} xs={24}>
+                  <PricingCard style={{marginBottom: 30}}>
                     <Badge type="dark">Free Forever</Badge>
-                    <Heading as="h3">Free</Heading>
+                    <Heading className="price-amount" as="h3">Free</Heading>
                     <p>For Individuals</p>
                     <ListGroup>
                       <List text="100MB File Space" />
@@ -100,8 +100,8 @@ const PricingTable = () => {
                     <Button size="default" type="default">Current Plan</Button>
                   </PricingCard>
                 </Col>
-                <Col md={6}>
-                  <PricingCard>
+                <Col xxl={6} lg={8} sm={12} xs={24}>
+                  <PricingCard style={{marginBottom: 30}}>
                     <Badge type="primary">Basic Plan</Badge>
                     <Heading as="h3">
                       <sup>$</sup>19 <sub>Per month</sub>
@@ -117,8 +117,8 @@ const PricingTable = () => {
                     <Button size="default" type="primary">Get Started</Button>
                   </PricingCard>
                 </Col>
-                <Col md={6}>
-                  <PricingCard>
+                <Col xxl={6} lg={8} sm={12} xs={24}>
+                  <PricingCard style={{marginBottom: 30}}>
                     <Badge type="secondary">Business</Badge>
                     <Heading as="h3">
                       <sup>$</sup>39 <sub>Per month</sub>
@@ -136,7 +136,7 @@ const PricingTable = () => {
                     <Button size="default" type="secondary">Get Started</Button>
                   </PricingCard>
                 </Col>
-                <Col md={6}>
+                <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard>
                     <Badge type="success">Enterprise</Badge>
                     <Heading as="h3">

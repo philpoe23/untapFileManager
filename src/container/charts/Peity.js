@@ -10,7 +10,7 @@ const Peity = () => {
     <Fragment>
       <PageHeader title="Peity Charts" />
       <Main>
-        <Row gutter={24}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="LINE CHART" size="large">
               <Line

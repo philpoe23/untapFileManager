@@ -23,8 +23,8 @@ const Gallery = ({ gallery, galleryFilter, isloading }) => {
     <Fragment>
       <PageHeader ghost title="Gallery" />
       <Main>
-        <Row gutter={15}>
-          <Col md={24}>
+        <Row gutter={25}>
+          <Col xs={24}>
             <GalleryNav>
               <ul>
                 <li>
@@ -56,7 +56,7 @@ const Gallery = ({ gallery, galleryFilter, isloading }) => {
             </GalleryNav>
           </Col>
           {isloading ? (
-            <Col md={24}>
+            <Col xs={24}>
               <div className="spin">
                 <Spin />
               </div>
@@ -65,7 +65,7 @@ const Gallery = ({ gallery, galleryFilter, isloading }) => {
             gallery.map(item => {
               const { id, name, img, category } = item;
               return (
-                <Col key={id} md={6}>
+                <Col key={id} xxl={6} lg={8} sm={12} xs={24}>
                   <GalleryCard style={{marginBottom: '25px'}}>
                     <figure>
                       <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />

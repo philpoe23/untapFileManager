@@ -5,6 +5,11 @@ const PricingCard = Styled.div`
   border-radius: 10px;
   box-shadow: 0px 5px 20px #9299B830;
   padding: 30px;
+  .price-amount{
+    sup{
+      top: -2px;
+    }
+  }
   .pricing-title{
     font-size: 24px;
     font-weight: 600;
@@ -13,6 +18,9 @@ const PricingCard = Styled.div`
   button{
     height: 44px;
     border-radius: 6px;
+    &.ant-btn-white{
+      border: 1px solid #E3E6EF;
+    }
   }
 `;
 
@@ -43,9 +51,13 @@ const Badge = Styled.span`
 
 const GalleryNav = Styled.nav`
   background: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   border-radius: 10px;
   padding: 0px 16px;
+  @media only screen and (max-width: 767px){
+    padding: 0 12px;
+    text-align: center;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -58,6 +70,9 @@ const GalleryNav = Styled.nav`
         padding: 15px 0;
         margin: 0 12px;
         color: ${({theme})=>theme['light-color']};
+        @media only screen and (max-width: 767px){
+          margin: 0 10px;
+        }
         &:after{
           position: absolute;
           left: 0;
@@ -100,6 +115,16 @@ const GalleryCard = Styled.nav`
       font-size: 13px;
       margin-bottom: 0px;
       color: ${({theme})=>theme['light-color']};
+    }
+  }
+`;
+
+const UsercardWrapper = Styled.nav`
+  .user-card-pagination{
+    margin-bottom: 50px;
+    text-align: right;
+    @media only screen and (max-width: 991px){
+      text-align: center;
     }
   }
 `;
@@ -175,6 +200,12 @@ const UserCard = Styled.div`
   .user-card{
     .ant-card-body{
       padding: 30px 25px 18px 25px !important;
+      @media only screen and (max-width: 1599px){
+        padding: 20px  20px 4px !important;
+      }
+      @media only screen and (max-width: 767px){
+        padding: 15px  15px 0px !important;
+      }
     }
     figure{
       img{
@@ -315,9 +346,18 @@ const FaqSupportBox = Styled.div`
   text-align: center;
   .ant-card-body{
     padding: 30px 50px 40px 50px !important;
+    @media only screen and (max-width: 1599px){
+      padding: 30px !important;
+    }
+    @media only screen and (max-width: 991px){
+      padding: 25px !important;
+    }
   }
   figure{
     margin-bottom: 30px;
+    img{
+      width: 100%;
+    }
   }
   h1,
   h2,
@@ -390,6 +430,11 @@ const FaqWrapper = Styled.div`
 `;
 
 const SearchResultWrapper = Styled.div`
+  .ant-select{
+    @media only screen and (max-width: 575px){
+      width: 100% !important;
+    }
+  }
   .ant-select-selector{
     height: 48px !important;
     .ant-select-selection-search{
@@ -398,15 +443,22 @@ const SearchResultWrapper = Styled.div`
         height: 46px !important;
       }
     }
+    .ant-input-affix-wrapper{
+      border: 0 none;
+    }
     .ant-select-selection-search-input {
       border-radius: 100px;
     }
   }
   .search-filter-menu{
-    margin: 20px 0 30px;
+    margin: 22px 0 20px;
+    @media only screen and (max-width: 575px){
+      text-align: center;
+    }
     ul{
       li{
         display: inline-block;
+        margin-bottom: 10px;
         &:not(:last-child){
           margin-right: 10px;
         }
@@ -451,8 +503,12 @@ const ResultList = Styled.div`
   }
   .result-limit{
     text-align: right;
-    color: ${({theme})=>theme['light-color']};
     margin-bottom: 0;
+    color: ${({theme})=>theme['light-color']};
+    @media only screen and (max-width: 767px){
+      text-align: left;
+      margin-top: 10px;
+    }
   }
   .result-list-content{
     border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
@@ -490,6 +546,11 @@ const MaintananceWrapper = Styled.div`
   text-align: center;
   img{
     margin-bottom: 72px;
+    max-width: 400px;
+    width: 100%;
+    @media only screen and (max-width: 575px){
+      margin-bottom: 30px;
+    }
   }
   h1,
   h2,
@@ -516,6 +577,11 @@ const ErrorWrapper = Styled.div`
   text-align: center;
   img{
     margin-bottom: 100px;
+    max-width: 400px;
+    width: 100%;
+    @media only screen and (max-width: 575px){
+      margin-bottom: 30px;
+    }
   }
   .error-text{
     font-size: 60px;
@@ -540,6 +606,7 @@ export {
   GalleryNav, 
   UserCard, 
   GalleryCard, 
+  UsercardWrapper, 
   FaqCategoryBox, 
   FaqSupportBox, 
   FaqWrapper, 

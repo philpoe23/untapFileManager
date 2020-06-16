@@ -335,7 +335,6 @@ ul {
 }
 
 /* pagination */
-
 .ant-pagination .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
   height: 32px !important;
 }
@@ -761,6 +760,34 @@ ul {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+  .ant-pagination .ant-pagination-item,
+  .ant-pagination .ant-pagination-item.ant-pagination-prev,
+  .ant-pagination .ant-pagination-item.ant-pagination-next,
+  .ant-pagination .ant-pagination-jump-prev{
+    margin-right: 5px;
+  }
+  .ant-pagination li.ant-pagination-item,
+  .ant-pagination li.ant-pagination-prev,
+  .ant-pagination li.ant-pagination-next{
+    height: 25px;
+    min-width: 25px;
+    line-height: 22px;
+  }
+  .ant-pagination li.ant-pagination-prev .anticon,
+  .ant-pagination li.ant-pagination-next .anticon{
+    vertical-align: -0.25em;
+  }
+  .ant-table-pagination{
+    float: none !important;
+    text-align: center;
+  }
+  .ant-table-pagination li:first-child{
+    display: block;
+    margin-bottom: 8px;
+  }
+  .ant-table-pagination li{
+    margin-right: 8px !important;
+  }
 }
 
 @media only screen and (max-width: 575px){
@@ -768,6 +795,9 @@ ul {
   .btn-dec{
     height: 30px;
     width: 30px;
+  }
+  .ant-page-header-heading{
+    justify-content: center !important;
   }
   .ant-layout-header{
     height: auto;

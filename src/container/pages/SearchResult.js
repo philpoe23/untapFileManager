@@ -46,11 +46,11 @@ const SearchResult = ({ searchData }) => {
       <PageHeader ghost title="Search Result" />
       <Main>
         <SearchResultWrapper>
-          <Row gutter={15}>
-            <Col md={24}>
+          <Row gutter={25}>
+            <Col xs={24}>
               <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
             </Col>
-            <Col md={24}>
+            <Col xs={24}>
               <div className="search-filter-menu">
                 <ul>
                   <li>
@@ -81,19 +81,19 @@ const SearchResult = ({ searchData }) => {
                 </ul>
               </div>
             </Col>
-            <Col md={24}>
+            <Col xs={24}>
               <ResultList>
                 <Cards headless>
                   <div className="result-list-top">
                     <Row>
-                      <Col md={12}>
+                      <Col md={12} xs={24}>
                         <p className="search-found-text">
                           <span className="result-count">207</span>
                           results found for
                           <span className="result-keyword">“Keyword”</span>
                         </p>
                       </Col>
-                      <Col md={12}>
+                      <Col md={12} xs={24}>
                         <p className="result-limit">Showing 1-10 of 76 results</p>
                       </Col>
                     </Row>

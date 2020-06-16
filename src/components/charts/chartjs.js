@@ -222,7 +222,7 @@ const ChartjsLineChart = props => {
 };
 
 ChartjsLineChart.defaultProps = {
-  height: 415,
+  height: 479,
   width: null,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [

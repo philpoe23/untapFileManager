@@ -13,7 +13,7 @@ const ReChartBar = () => {
       <PageHeader title="Rechats Bar Chart" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="TINY BAR CHART" size="large" more={false}>
               <BarChart width={630} height={400} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -27,7 +27,7 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="STACKED BAR CHART" size="large" more={false}>
               <BarChart
                 width={630}
@@ -50,7 +50,7 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="MIX BAR CHART" size="large" more={false}>
               <BarChart
                 width={630}
@@ -74,7 +74,7 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="POSITIVE AND NEGATIVE BAR CHART" size="large" more={false}>
               <BarChart
                 width={630}
@@ -98,7 +98,7 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="BAR CHART STACKED BY SIGN" size="large" more={false}>
               <BarChart
                 width={630}
@@ -122,7 +122,7 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="BIAXIAL BAR CHART" size="large" more={false}>
               <BarChart
                 width={630}
