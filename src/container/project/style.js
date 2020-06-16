@@ -228,6 +228,7 @@ const ProjectCard = Styled.div`
             padding: 0;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             li{
                 list-style: none;
                 padding: 3px;

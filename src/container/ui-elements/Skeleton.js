@@ -9,18 +9,18 @@ const Skeletons = () => {
     <Fragment>
       <PageHeader ghost title="Skeleton" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Skeleton">
               <Skeleton />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Complex combination" caption="The simplest use of Skeleton">
               <Skeleton avatar paragraph={{ rows: 4 }} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Active Animation" caption="The simplest use of Skeleton">
               <Skeleton active avatar paragraph={{ rows: 4 }} />
             </Cards>

@@ -27,7 +27,7 @@ const Confirme = () => {
       <PageHeader ghost title="Popconfirm" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic">
               <Popconfirm
                 title="Are you sure delete this task?"
@@ -40,7 +40,7 @@ const Confirme = () => {
               </Popconfirm>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Placement">
               <div className="demo">
                 <div className="pop-confirm pop-confirm-top" style={{ marginLeft: 90, whiteSpace: 'nowrap' }}>

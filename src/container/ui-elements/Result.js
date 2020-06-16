@@ -12,7 +12,7 @@ const Results = () => {
       <PageHeader title="Results" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Success" caption="The simplest use of Results">
               <Result
                 status="success"
@@ -28,7 +28,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Info" caption="The simplest use of Results">
               <Result
                 title="Your operation has been executed"
@@ -41,7 +41,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Warning" caption="The simplest use of Results">
               <Result
                 status="warning"
@@ -55,7 +55,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="403" caption="The simplest use of Results">
               <Result
                 status="403"
@@ -66,7 +66,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="404" caption="The simplest use of Results">
               <Result
                 status="404"
@@ -77,7 +77,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="500" caption="The simplest use of Results">
               <Result
                 status="500"
@@ -88,7 +88,7 @@ const Results = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Error" caption="The simplest use of Results">
               <Result
                 status="error"

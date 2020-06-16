@@ -90,14 +90,14 @@ const Notifications = () => {
       <PageHeader ghost title="Notifications" />
       <Main>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Notification">
               <Button type="primary" size="small" onClick={openNotification}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards
               title="Duration after which the notification box is closed"
               caption="The simplest use of Notification"
@@ -107,14 +107,14 @@ const Notifications = () => {
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom close button" caption="The simplest use of Notification">
               <Button type="primary" size="small" onClick={openNotification3}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with icon" caption="The simplest use of Notification">
               <NotificationListWrapper>
 
@@ -134,14 +134,14 @@ const Notifications = () => {
               </NotificationListWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with custom icon" caption="The simplest use of Notification">
               <Button type="primary" size="small" onClick={openNotificationCustomIcon}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with custom Style" caption="The simplest use of Notification">
               <Button type="primary" size="small" onClick={openNotificationCustomStyle}>
                 Open the notification box
@@ -149,7 +149,7 @@ const Notifications = () => {
               ,
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with placement" caption="The simplest use of Notification">
               <NotificationListWrapper>
 
