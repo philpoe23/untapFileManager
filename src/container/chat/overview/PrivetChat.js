@@ -29,16 +29,25 @@ const PrivetChat = ({ chat, match, filterSinglepage }) => {
             const id = content[content.length - 1]['time'];
             const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
             return (
-              <li key={index + 1}>
+              <li key={index + 1} className="chat-link-signle">
                 <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
-                  <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                  <BlockSpan>
-                    {userName}
-                    <span style={{ float: 'right' }}>
-                      {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
-                    </span>
-                  </BlockSpan>
-                  <BlockSpan>{textRefactor(content[content.length - 1]['content'], 5)}</BlockSpan>
+                  <div className="author-figure">
+                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                  </div>
+                  <div className="author-info">
+                    <BlockSpan className="author-name">
+                      {userName}
+                    </BlockSpan>
+                    
+                    <BlockSpan className="author-chatText">
+                      {textRefactor(content[content.length - 1]['content'], 5)}
+                    </BlockSpan>
+                  </div>
+                  <div className="author-chatMeta">
+                    <BlockSpan>
+                        {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
+                    </BlockSpan>
+                  </div>
                 </NavLink>
               </li>
             );

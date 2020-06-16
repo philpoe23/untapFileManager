@@ -776,6 +776,27 @@ ul {
   border: 0 none;
 }
 
+/* ChatBox Dropdwon */
+.atbd-chatbox__messageControl{
+  min-width: 210px;
+}
+
+.atbd-chatbox__messageControl ul li a{
+  padding: 4px 24px;
+}
+
+.atbd-chatbox__emoji ul{
+  display: flex;
+  align-items: center;
+}
+.atbd-chatbox__emoji ul li{
+  display: inline-block;
+}
+.atbd-chatbox__emoji ul li a{
+  font-size: 20px;
+  padding: 4px 8px;
+  background: #fff;
+}
 .rdrMonths {
   flex-wrap: wrap;
 }
