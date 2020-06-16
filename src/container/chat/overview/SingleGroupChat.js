@@ -289,15 +289,17 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
         <Footer>
           <form onSubmit={handleSubmit}>
             <div className="chatbox-reply-form d-flex">
-              <input
-                onChange={handleChange}
-                placeholder="Type your message..."
-                name="chat"
-                id="chat"
-                style={{ width: '100%' }}
-                value={inputValue}
-              />
-              <div className="chatbox-footer-action">
+              <div className="chatbox-reply-input">
+                <input
+                  onChange={handleChange}
+                  placeholder="Type your message..."
+                  name="chat"
+                  id="chat"
+                  style={{ width: '100%' }}
+                  value={inputValue}
+                />
+              </div>
+              <div className="chatbox-reply-action d-flex">
                 <Upload>
                   <Link to="#">
                     <FeatherIcon icon="camera" size={18} />
