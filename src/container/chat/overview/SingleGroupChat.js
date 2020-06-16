@@ -3,7 +3,7 @@ import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Icon, Upload } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import { MessageList, Footer } from '../style';
+import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
@@ -83,153 +83,240 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
   );
 
   return (
-    <Cards
-      title={
-        <div>
-          <Heading as="h5">{name}</Heading>
-          <div className="members">
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
-            <Link to="#">
-              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            </Link>
+    <SingleChatWrapper>
+      <Cards
+        title={
+          <div className="group-chat-header d-flex">
+            <Heading as="h5">{name}</Heading>
+            <div className="members">
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link to="#">
+                <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+            </div>
           </div>
-        </div>
-      }
-      more={content}
-    >
-      <ul>
-        {singleContent.length ? (
-          singleContent.map((mes, index) => {
-            const id = mes.time;
-            const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
-            return (
-              <div key={index + 1} style={{ overflow: 'hidden' }}>
-                <div className={mes.email !== me ? 'left' : 'right'}>
-                  {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
-                  <Heading as="h5">
-                    {mes.email !== me && name}
-                    <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
-                  </Heading>
-                </div>
+        }
+        more={content}
+      >
+        <ul className="atbd-chatbox">
+          {singleContent.length ? (
+            singleContent.map((mes, index) => {
+              const id = mes.time;
+              const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
+              return (
+                <li className="atbd-chatbox__single" key={index + 1} style={{ overflow: 'hidden' }}>
 
-                <Dropdown
-                  action={['hover']}
-                  content={
-                    <div>
-                      <ul>
-                        <li>
-                          <Link to="#">&#127773;</Link>
-                        </li>
-                        <li>
-                          <Link to="#">&#128116;</Link>
-                        </li>
-                        <li>
-                          <Link to="#">&#128127;</Link>
-                        </li>
-                        <li>
-                          <Link to="#">&#128151;</Link>
-                        </li>
-                        <li>
-                          <Link to="#">&#128400;</Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <MoreOutlined />
-                          </Link>
-                        </li>
-                      </ul>
+                  <div className={mes.email !== me ? 'left' : 'right'}>
+
+                    {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
+
+                    <div className="atbd-chatbox__content">
+                      <Heading as="h5" className="atbd-chatbox__name">
+                        {mes.email !== me && name}
+                        <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
+                      </Heading>
+                      {mes.email !== me ? 
+                        <div className="atbd-chatbox__contentInner d-flex">
+                          <div className="atbd-chatbox__message">
+                            <MessageList className="message-box">{mes.content}</MessageList>
+                          </div>
+
+                          <div className="atbd-chatbox__actions">
+                            <Dropdown
+                              action={['hover']}
+                              content={
+                                <div  className="atbd-chatbox__emoji">
+                                  <ul>
+                                    <li>
+                                      <Link to="#">&#127773;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128116;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128127;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128151;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128400;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">
+                                        <MoreOutlined />
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              }
+                              placement="bottomCenter"
+                            >
+                              <Link to="#">
+                                <SmileOutlined />
+                              </Link>
+                            </Dropdown>
+                            <Dropdown
+                              action={['hover']}
+                              content={
+                                <div className="atbd-chatbox__messageControl">
+                                  <ul>
+                                    <li>
+                                      <Link to="#">Copy</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Quote</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Forward</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Report</Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              }
+                              placement="bottomCenter"
+                            >
+                              <Link to="#">
+                                <MoreOutlined />
+                              </Link>
+                            </Dropdown>
+                          </div>
+                        </div>
+                        :
+                        <div className="atbd-chatbox__contentInner d-flex">
+                          <div className="atbd-chatbox__actions">
+                            <Dropdown
+                              action={['hover']}
+                              content={
+                                <div className="atbd-chatbox__emoji">
+                                  <ul>
+                                    <li>
+                                      <Link to="#">&#127773;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128116;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128127;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128151;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">&#128400;</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">
+                                        <MoreOutlined />
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              }
+                              placement="bottomCenter"
+                            >
+                              <Link to="#">
+                                <SmileOutlined />
+                              </Link>
+                            </Dropdown>
+                            <Dropdown
+                              action={['hover']}
+                              content={
+                                <div className="atbd-chatbox__messageControl">
+                                  <ul>
+                                    <li>
+                                      <Link to="#">Copy d</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Quote</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Forward</Link>
+                                    </li>
+                                    <li>
+                                      <Link to="#">Report</Link>
+                                    </li>
+                                  </ul>
+                                </div>
+                              }
+                              placement="bottomCenter"
+                            >
+                              <Link to="#">
+                                <MoreOutlined />
+                              </Link>
+                            </Dropdown>
+                          </div>
+                          <div className="atbd-chatbox__message">
+                            <MessageList className="message-box">{mes.content}</MessageList>
+                          </div>
+                        </div>
+                      }
+                      {singleContent.length === index + 1 ? (
+                        <div className="group-seen">
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                        </div>
+                      ) : null}
                     </div>
-                  }
-                  placement="bottomCenter"
-                >
-                  <Link to="#">
-                    <SmileOutlined />
-                  </Link>
-                </Dropdown>
-                <Dropdown
-                  action={['hover']}
-                  content={
-                    <div>
-                      <ul>
-                        <li>
-                          <Link to="#">Copy</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Quote</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Forward</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Report</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  }
-                  placement="bottomCenter"
-                >
-                  <Link to="#">
-                    <MoreOutlined />
-                  </Link>
-                </Dropdown>
-                {singleContent.length === index + 1 ? (
-                  <div>
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                   </div>
-                ) : null}
-                <MessageList>{mes.content}</MessageList>
+                </li>
+              );
+            })
+          ) : (
+            <p>No data found</p>
+          )}
+        </ul>
+        <Footer>
+          <form onSubmit={handleSubmit}>
+            <div className="chatbox-reply-form d-flex">
+              <input
+                onChange={handleChange}
+                placeholder="Type your message..."
+                name="chat"
+                id="chat"
+                style={{ width: '100%' }}
+                value={inputValue}
+              />
+              <div className="chatbox-footer-action">
+                <Upload>
+                  <Link to="#">
+                    <FeatherIcon icon="camera" size={18} />
+                  </Link>
+                </Upload>
+                <Upload>
+                  <Link to="#">
+                    <FeatherIcon icon="paperclip" size={18} />
+                  </Link>
+                </Upload>
+                <Button onClick={handleSubmit} type="primary">
+                  <FeatherIcon icon="send" size={18} />
+                </Button>
               </div>
-            );
-          })
-        ) : (
-          <p>No data found</p>
-        )}
-      </ul>
-      <Footer>
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={handleChange}
-            placeholder="Type your message..."
-            name="chat"
-            id="chat"
-            style={{ width: '70%' }}
-            value={inputValue}
-          />
-          <Upload>
-            <Link to="#">
-              <FeatherIcon icon="camera" size={18} />
-            </Link>
-          </Upload>
-          <Upload>
-            <Link to="#">
-              <FeatherIcon icon="paperclip" size={18} />
-            </Link>
-          </Upload>
-          <Button onClick={handleSubmit} type="primary">
-            <FeatherIcon icon="send" size={18} />
-          </Button>
-        </form>
-      </Footer>
-    </Cards>
+            </div>
+          </form>
+        </Footer>
+      </Cards>
+    </SingleChatWrapper>
   );
 };
 

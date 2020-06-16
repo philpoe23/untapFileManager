@@ -55,11 +55,13 @@ const ChatApp = ({ searchData, match }) => {
       <PageHeader ghost title="Chat" />
 
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
+        <Row gutter={30}>
+          <Col xxl={7} lg={10} xs={24}>
             <ChatSidebar>
               <Cards headless>
-                <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+                <div className="chatbox-search">
+                  <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+                </div>
                 <nav>
                   <UL>
                     <li className="active">
@@ -91,7 +93,7 @@ const ChatApp = ({ searchData, match }) => {
               </Cards>
             </ChatSidebar>
           </Col>
-          <Col md={18}>
+          <Col xxl={17} lg={14} xs={24}>
             <Switch>
               <Suspense
                 fallback={
