@@ -438,7 +438,6 @@ const Dashbord = () => {
                 title="Twitter Overview"
                 size="large"
               >
-
                 <Row className="line-chart-row">
                   <Col md={10}>
                     <div className="growth-downward">
@@ -581,7 +580,6 @@ const Dashbord = () => {
                 </Row>
               </Cards>
             </LineChartWrapper>
-
           </Col>
           <Col md={8} sm={12} xs={24}>
             <LineChartWrapper>
