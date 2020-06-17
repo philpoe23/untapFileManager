@@ -81,20 +81,20 @@ const Business = () => {
                 <Focard>
                   <div className="forcast-card-box">
                     <Cards headless title="Profit">
-                      <div className="focard-details">
+                      <div className="focard-details growth-downward">
                         <Heading as="h1">$25,872</Heading>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 25%
+                        <p className="focard-status">
+                          <span className="focard-status__percentage">
+                            <FeatherIcon icon="arrow-down" /> 25%
                           </span>
-                          <span> 20,641 (prev)</span>
+                          <span>Since last month</span>
                         </p>
                       </div>
                       <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
                         datasets={[
                           {
-                            data: [30, 10, 25, 25, 10, 30],
+                            data: [30, 10, 20, 25, 20, 30, 15, 25, 15, 10],
                             borderColor: '#5F63F2',
                             borderWidth: 3,
                             fill: true,
@@ -111,20 +111,20 @@ const Business = () => {
                 <Focard>
                   <div className="forcast-card-box">
                     <Cards headless title="Gross Profit">
-                      <div className="focard-details">
+                      <div className="focard-details growth-upward">
                         <Heading as="h1">$25,872</Heading>
-                        <p>
-                          <span>
-                            <FeatherIcon icon="trending-up" /> 25%
+                        <p className="focard-status">
+                          <span className="focard-status__percentage">
+                            <FeatherIcon icon="arrow-up" /> 25%
                           </span>
-                          <span> 20,641 (prev)</span>
+                          <span>Since last month</span>
                         </p>
                       </div>
                       <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
                         datasets={[
                           {
-                            data: [30, 10, 25, 25, 10, 30],
+                            data: [30, 10, 20, 25, 20, 30, 15, 25, 15, 10],
                             borderColor: '#20C997',
                             borderWidth: 3,
                             fill: true,
@@ -153,7 +153,7 @@ const Business = () => {
               <Col md={12} sm={12} xs={24}>
                 <RatioCard>
                   <Cards headless title="Current Ratio">
-                    <div>
+                    <div className="ratio-content">
                       <Heading as="h1">2.4</Heading>
                       <Progress percent={72} status="warning" />
                       <p>
@@ -194,6 +194,7 @@ const Business = () => {
                 </div>
               }
               size="large"
+              more={content}
             >
               <CardBarChart>
                 <div className="card-bar-top d-flex flex-grid">
@@ -217,15 +218,15 @@ const Business = () => {
                   datasets={[
                     {
                       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                      backgroundColor: '#20C99780',
+                      backgroundColor: '#20C99750',
                       hoverBackgroundColor: '#20C997',
-                      label: 'Gained',
+                      label: 'Cash in',
                     },
                     {
                       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                      backgroundColor: '#FF4D4F80',
+                      backgroundColor: '#FF4D4F50',
                       hoverBackgroundColor: '#FF4D4F',
-                      label: 'Lost',
+                      label: 'Cash out',
                     },
                   ]}
                   height={150}
@@ -263,6 +264,7 @@ const Business = () => {
                   </div>
                 }
                 size="large"
+                more={content}
               >
                 <Row gutter="25">
                   <Col lg={6} md={24} sm={24}>
@@ -323,25 +325,25 @@ const Business = () => {
                       datasets={[
                         {
                           data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                          backgroundColor: '#5F63F280',
+                          backgroundColor: '#5F63F240',
                           hoverBackgroundColor: '#5F63F2',
                           label: 'Total Income',
                         },
                         {
                           data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                          backgroundColor: '#FF69A580',
+                          backgroundColor: '#FF69A540',
                           hoverBackgroundColor: '#FF69A5',
                           label: 'Cost of goods sold',
                         },
                         {
                           data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                          backgroundColor: '#FA8B0C80',
+                          backgroundColor: '#FA8B0C40',
                           hoverBackgroundColor: '#FA8B0C',
                           label: 'Total expenses',
                         },
                         {
                           data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                          backgroundColor: '#20C99780',
+                          backgroundColor: '#20C99740',
                           hoverBackgroundColor: '#20C997',
                           label: 'Net profit',
                         },

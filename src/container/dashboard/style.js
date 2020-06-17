@@ -25,13 +25,25 @@ const Focard = Styled.div`
     canvas{
         width: 100% !important;
         margin-top: 65px;
-        min-height: 110px;
+        min-height: 100px;
     }}
     .focard-details{
         &.growth-downward{
             h1{
                 font-size: 30px;
-                margin: 0;
+                margin: 0 0 4px;
+            }
+            .focard-status{
+                .focard-status__percentage{
+                    color: ${({theme})=>theme['danger-color']};
+                }
+            }
+        }
+        &.growth-upward{
+            .focard-status{
+                .focard-status__percentage{
+                    color: ${({theme})=>theme['success-color']};
+                }
             }
         }
         h1{
@@ -43,7 +55,7 @@ const Focard = Styled.div`
             color: #868EAE;
             margin-bottom: 10px;
         }
-        p{
+        .focard-status{
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -52,6 +64,9 @@ const Focard = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 margin: 0 5px;
+                &.focard-status__percentage{
+                    font-weight: 500;
+                }
             }
             span + span{
                 color: #868EAE;
@@ -59,14 +74,8 @@ const Focard = Styled.div`
             }
         }
         svg{
-            color: ${({theme})=>theme['success-color']};
             width: 15px;
             margin-right: 10px;
-        }
-        &.growth-downward{
-            svg{
-                color: ${({theme})=>theme['danger-color']};
-            }
         }
     }
 
@@ -81,7 +90,7 @@ const Focard = Styled.div`
                 }
             }
         }
-
+    }
 
     .forcast-card-box{
         .ant-card-body{
@@ -90,35 +99,46 @@ const Focard = Styled.div`
                 padding: 25px 0 0 25px;
                 font-size: 16px;
                 font-weight: 500;
+                margin-bottom: 26px;
             }
         }
 
         .focard-details{
             margin-top: 15px;
-            padding: 0 25px 25px;
+            padding: 0 25px 22px;
             h1{
                 padding: 0;
                 font-size: 30px;
+                font-weight: 600;
+                margin-bottom: 4px;
             }
             p{
                 margin-bottom: 0;
             }
         }
         canvas{
-            margin-top: 10px;
+            margin-top: 0px;
             border-radius: 0 0 10px 10px;
         }
     }
 `;
 
 const CardBarChart = Styled.div`
+    .chartjs-render-monitor{
+        height: 290px !important;
+    }
     .card-bar-top{
+        margin-left: -20px;
+        .flex-grid-child{
+            padding: 0 20px;
+        }
         p{
             font-size: 14px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: ${({theme})=>theme['light-color']};
         }
         h1{
+            font-size: 24px;
             margin-bottom: 22px;
             sub{
                 bottom: 0;
@@ -146,6 +166,10 @@ const CardGroup = Styled.div`
             font-weight: 500;
             padding: 0 10.5px;
             color: ${({theme})=>theme['gray-color']};
+            border-color: ${({theme})=>theme['border-color-light']};
+            &:before{
+                display: none;
+            }
             &:focus-within{
                 box-shadow: 0 0;
             }
@@ -244,6 +268,16 @@ const CardGroup = Styled.div`
                 }
             }
             tbody{
+                tr{
+                    &:hover{
+                        td{
+                            background: ${({theme})=>theme['bg-color-light']};
+                            .social-name{
+                                color: ${({theme})=>theme['primary-color']};
+                            }
+                        }
+                    }
+                }
                 td{
                     border-right: 1px solid ${({theme})=>theme['border-color-light']};
                     &:first-child{
@@ -251,6 +285,13 @@ const CardGroup = Styled.div`
                     }
                     &:last-child{
                         border-right: 0 none;
+                    }
+                    .traffic-title{
+                        font-weight: 500;
+                        color: ${({theme})=>theme['dark-color']};
+                    }
+                    .social-name{
+                        color: ${({theme})=>theme['info-color']};
                     }
                 }
             }
@@ -277,9 +318,11 @@ const Exlist = Styled.div`
             }
             sub{
                 font-size: 13px;
+                font-weight: 400;
                 display: inline-flex;
                 align-items: center;
                 line-height: normal;
+                color: ${({theme})=>theme["light-color"]};
                 span{
                     display: inline-flex;
                     align-items: center;
@@ -485,6 +528,9 @@ const LineChartWrapper = Styled.div`
         &:not(:last-child){
             margin-bottom: 28px;
         }
+        .border-linechart{
+            border-bottom: 1px solid ${({theme})=>theme["border-color-deep"]};
+        }
     }
 `;
 
@@ -496,18 +542,27 @@ const RatioCard = Styled.div`
         }
     }
     .ratio-content{
-        margin-top: 25px;
+        margin-top: 30px;
         h1{
             margin-bottom: 2px;
             font-size: 36px;
             font-weight: 600;
         }
         .ant-progress{
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            .ant-progress-text{
+                position: absolute;
+                right: 0;
+                bottom: 26px;
+                font-weight: 500;
+            }
         }
         p{
+            color: ${({theme})=>theme["light-color"]};
             margin-bottom: 0;
             strong{
+                font-size: 13px; 
+                color: ${({theme})=>theme["dark-color"]};
                 font-weight: 600;
             }
         }
