@@ -20,41 +20,41 @@ const TimePickers = () => {
       <PageHeader title="Time picker" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Time picker">
               <TimePicker defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Disebled" caption="The simplest use of Time picker">
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="interval option" caption="The simplest use of Time picker">
               <TimePicker minuteStep={15} secondStep={10} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="12 hours" caption="The simplest use of Time picker">
               <TimePicker use12Hours style={{marginRight: "10px"}} />
               <TimePicker use12Hours format="h:mm:ss A" style={{marginRight: "10px"}} />
               <TimePicker use12Hours format="h:mm a" />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Three Size" caption="The simplest use of Time picker">
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} style={{marginRight: "10px"}} />
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" style={{marginRight: "10px"}} />
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Hours and minute" caption="The simplest use of Time picker">
               <TimePicker defaultValue={moment('12:08', format)} format={format} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Addon" caption="The simplest use of Time picker">
               <TimePicker
                 open={state.open}
