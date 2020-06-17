@@ -372,6 +372,10 @@ ul {
   margin: 4px !important;
 }
 
+.ant-table-pagination{ 
+  margin-top: 30px !important;
+}
+
 /* radio style */
 
 .ant-radio-checked .ant-radio-inner {

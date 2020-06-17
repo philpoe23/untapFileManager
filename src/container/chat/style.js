@@ -4,6 +4,9 @@ const ChatWrapper = Styled.div`
   .create-action{
     padding: 0 25px;
     margin-bottom: 18px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
     .btn-add{
       width: 100%;
       height: 44px;
@@ -29,19 +32,24 @@ const Content = Styled.div`
     border-radius: 4px;
     width: 100%;
     margin: 8px 0;
-    box-shadow: 0 0px 0px ${({theme})=>theme["light-color"]}20;
     &:hover{
       right: -10px;
       left: -10px;
       width: calc(100% + 20px);
-      box-shadow: 0 15px 50px ${({theme})=>theme["light-color"]}20;
+      filter: drop-shadow(0 15px 50px ${({theme})=>theme["light-color"]}20);
       a{
         padding: 18px 34px;
+        @media only screen and (max-width: 379px){
+          padding: 18px 30px;
+        }
       }
     }
     a{
       display: flex;
       padding: 18px 24px;
+      @media only screen and (max-width: 379px){
+        padding: 18px 20px;
+      }
     }
     .author-figure{
       margin-right: 15px;
@@ -283,6 +291,9 @@ const ChatSidebar = Styled.div`
   }
   .chatbox-search{
     padding: 0 25px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
   }
   .ant-select-selector{
     height: auto !important;
@@ -298,6 +309,9 @@ const ChatSidebar = Styled.div`
   }
   nav{
     padding: 0 25px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
     ul{
       margin: 0 0 30px 0;
       padding: 25px 0 0 0;

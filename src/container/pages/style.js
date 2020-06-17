@@ -6,9 +6,26 @@ const PricingCard = Styled.div`
   box-shadow: 0px 5px 20px #9299B830;
   padding: 30px;
   .price-amount{
-    sup{
-      top: -2px;
+    font-size: 36px;
+    .currency{
+      font-size: 16px;
+      font-weight: 600;
+      top: -12px;
+      margin-right: 2px;
+      color: ${({theme})=>theme['extra-light-color']};
     }
+    .pricing-validity{
+      font-size: 13px;
+      font-weight: 400;
+      bottom: 0;
+      left: -2px;
+      color: ${({theme})=>theme['light-color']};
+    }
+  }
+  .package-user-type{
+    font-size: 13px;
+    font-weight: 500;
+    color: ${({theme})=>theme['gray-color']};
   }
   .pricing-title{
     font-size: 24px;
