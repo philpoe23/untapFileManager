@@ -10,7 +10,7 @@ const Timelines = () => {
       <PageHeader title="Timelines" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
@@ -20,7 +20,7 @@ const Timelines = () => {
               </Timeline>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Color" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
@@ -48,7 +48,7 @@ const Timelines = () => {
               </Timeline>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Alternate" caption="The simplest use of Timelines">
               <Timeline mode="alternate">
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
@@ -66,7 +66,7 @@ const Timelines = () => {
               </Timeline>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Right alternate" caption="The simplest use of Timelines">
               <Timeline mode="right">
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
@@ -78,7 +78,7 @@ const Timelines = () => {
               </Timeline>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Custom" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>

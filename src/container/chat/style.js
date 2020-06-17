@@ -28,20 +28,32 @@ const Content = Styled.div`
     background: #fff;
     border-radius: 4px;
     width: 100%;
-    margin: 8px 0;
-    box-shadow: 0 0px 0px ${({theme})=>theme["light-color"]}20;
-    &:hover{
+    margin: 0;
+
+    &:before{
+      content: '';
+      position: absolute;
+      width: calc(100% + 20px);
+      height: 100%;
+      background: #fff;
       right: -10px;
       left: -10px;
-      width: calc(100% + 20px);
       box-shadow: 0 15px 50px ${({theme})=>theme["light-color"]}20;
-      a{
-        padding: 18px 34px;
-      }
+      border-radius: 4px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s ease;
+      z-index: 1;
+    }
+    &:hover:before{
+      visibility: visible;
+      opacity: 1;
     }
     a{
       display: flex;
-      padding: 18px 24px;
+      padding: 16px 24px;
+      position: relative;
+      z-index: 1;
     }
     .author-figure{
       margin-right: 15px;
@@ -299,7 +311,7 @@ const ChatSidebar = Styled.div`
   nav{
     padding: 0 25px;
     ul{
-      margin: 0 0 30px 0;
+      margin: 0 0 12px 0;
       padding: 25px 0 0 0;
       display: flex;
       align-items: center;

@@ -10,18 +10,18 @@ const Switches = () => {
       <PageHeader title="Switch" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Switch">
               <Switch defaultChecked />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Size" caption="The simplest use of Switch">
               <Switch defaultChecked style={{marginRight: 20}} />
               <Switch defaultChecked size="small" />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Text and Icon" caption="The simplest use of Switch">
               <div>
                 <Switch checkedChildren="a" unCheckedChildren="b" defaultChecked />
@@ -36,7 +36,7 @@ const Switches = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Loading" caption="The simplest use of Switch">
               <div>
                 <Switch loading defaultChecked />

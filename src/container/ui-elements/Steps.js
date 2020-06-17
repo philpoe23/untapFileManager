@@ -44,7 +44,7 @@ const Stepess = () => {
       <PageHeader title="Steps" />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Basic Step" caption="The simplest use of Steps">
               <Steps size="small" current={1}>
                 <Step title="Finished" />
@@ -53,7 +53,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="With Icon" caption="The simplest use of Steps">
               <Steps>
                 <Step status="finish" title="Login" icon={<Icon type="user" />} />
@@ -63,7 +63,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Switch Step" caption="The simplest use of Steps">
               <Steps
                 isswitch
@@ -87,7 +87,7 @@ const Stepess = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Vertical mini version" caption="The simplest use of Steps">
               <Steps direction="vertical" size="small" current={1}>
                 <Step title="Finished" description="This is a description." />
@@ -96,7 +96,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Error Status" caption="The simplest use of Steps">
               <Steps current={1} status="error">
                 <Step title="Finished" description="This is a description" />
@@ -105,7 +105,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Custom dot style" caption="The simplest use of Steps">
               <Steps current={1} progressDot={customDot}>
                 <Step title="Finished" description="You can hover on the dot." />
@@ -115,7 +115,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Clickable" caption="The simplest use of Steps">
               <Steps current={current} onChange={onChange}>
                 <Step title="Step 1" description="This is a description." />
@@ -132,7 +132,7 @@ const Stepess = () => {
               </Steps>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Navigation Steps" caption="The simplest use of Steps">
               <Steps navigation onChange={onChange}>
                 <Step status="finish" title="Step 1" />
