@@ -407,6 +407,55 @@ const Dashbord = () => {
                       label: 'Lost',
                     },
                   ]}
+                  options={{
+                    maintainAspectRatio: true,
+                    responsive: true,
+                    legend: {
+                      display: true,
+                      position: 'top',
+                      labels: {
+                        boxWidth: 6,
+                        display: true,
+                        usePointStyle: true,
+                      },
+                    },
+                    layout: {
+                      padding: {
+                        left: '0',
+                        right: 0,
+                        top: 0,
+                        bottom: '0',
+                      },
+                    },
+                    scales: {
+                      yAxes: [
+                        {
+                          gridLines: {
+                            color: '#e5e9f2',
+                          },
+                          ticks: {
+                            beginAtZero: true,
+                            fontSize: 10,
+                            fontColor: '#182b49',
+                            max: 80,
+                          },
+                        },
+                      ],
+                      xAxes: [
+                        {
+                          gridLines: {
+                            display: false,
+                          },
+                          barPercentage: 0.6,
+                          ticks: {
+                            beginAtZero: true,
+                            fontSize: 11,
+                            fontColor: '#182b49',
+                          },
+                        },
+                      ],
+                    },
+                  }}
                 />
               </CardBarChart>
             </Cards>

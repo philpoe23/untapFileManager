@@ -76,7 +76,7 @@ const AuthInfo = ({ logOut }) => {
         customLabels={{ US: 'EN-US', GB: 'EN-GB', FR: 'FR', DE: 'DE', IT: 'IT' }}
         defaultCountry="US"
         showSelectedLabel={false}
-        showOptionLabel={false}
+        showOptionLabel={true}
         selectedSize={14}
         optionsSize={14}
       />

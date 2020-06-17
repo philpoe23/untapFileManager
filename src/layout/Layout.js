@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import MenueItems from './sidebar/MenueItems';
-import { NavLink } from 'react-router-dom';
-import { Div } from './style';
+import { NavLink, Link } from 'react-router-dom';
+import { Div, SmallScreenAuthInfo } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 
@@ -17,6 +17,7 @@ const ThemeLayout = WrappedComponent => {
         collapsed: false,
         top: 0,
         width: 0,
+        hide: true,
       };
       this.handleUpdate = this.handleUpdate.bind(this);
       this.renderThumb = this.renderThumb.bind(this);
@@ -54,6 +55,12 @@ const ThemeLayout = WrappedComponent => {
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     }
 
+    onShowHide = () => {
+      this.setState({
+        hide: this.state.hide ? false : true,
+      });
+    };
+
     render() {
       return (
         <Div>
@@ -78,9 +85,22 @@ const ThemeLayout = WrappedComponent => {
                 <Col md={6} sm={5}>
                   <HeaderSearch />
                 </Col>
-                <Col md={14} sm={14}>
-                  <AuthInfo />
-                </Col>
+
+                {this.state.width <= 800 && (
+                  <Link onClick={this.onShowHide} to="#">
+                    <FeatherIcon icon="more-vertical" />
+                  </Link>
+                )}
+
+                {this.state.width > 800 ? (
+                  <Col md={14} sm={14}>
+                    <AuthInfo />
+                  </Col>
+                ) : (
+                  <SmallScreenAuthInfo hide={this.state.hide}>
+                    <AuthInfo />
+                  </SmallScreenAuthInfo>
+                )}
               </Row>
             </Header>
             <Layout>
