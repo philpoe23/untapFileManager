@@ -18,7 +18,7 @@ const PricingTable = () => {
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="dark">Free Forever</Badge>
               <Heading className="pricing-title" as="h3">Free</Heading>
-              <p>For Individuals</p>
+              <span className="package-user-type">For Individuals</span>
               <ListGroup>
                 <List text="100MB File Space" />
                 <List text="2 Active Projects" />
@@ -32,9 +32,9 @@ const PricingTable = () => {
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="primary">Basic Plan</Badge>
               <Heading className="price-amount" as="h3">
-                <sup>$</sup>19 <sub>Per month</sub>
+                <sup className="currency">$</sup>19 <sub className="pricing-validity">Per month</sub>
               </Heading>
-              <p>For 2 Users</p>
+              <span className="package-user-type">For 2 Users</span>
               <ListGroup>
                 <List text="100GB File Space" />
                 <List text="300 Projects" />
@@ -49,9 +49,9 @@ const PricingTable = () => {
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="secondary">Business</Badge>
               <Heading className="price-amount" as="h3">
-                <sup>$</sup>39 <sub>Per month</sub>
+                <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
               </Heading>
-              <p>For 10 Users</p>
+              <span className="package-user-type">For 10 Users</span>
               <ListGroup>
                 <List text="100GB File Space" />
                 <List text="300 Projects" />
@@ -67,9 +67,9 @@ const PricingTable = () => {
             <PricingCard style={{marginBottom: 30}}>
               <Badge type="success">Enterprise</Badge>
               <Heading className="price-amount" as="h3">
-                <sup>$</sup>79 <sub>Per month</sub>
+                <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
               </Heading>
-              <p>For 50 Users</p>
+              <span className="package-user-type">For 50 Users</span>
               <ListGroup>
                 <List text="100GB File Space" />
                 <List text="300 Projects" />
@@ -90,7 +90,7 @@ const PricingTable = () => {
                   <PricingCard style={{marginBottom: 30}}>
                     <Badge type="dark">Free Forever</Badge>
                     <Heading className="price-amount" as="h3">Free</Heading>
-                    <p>For Individuals</p>
+                    <span className="package-user-type">For Individuals</span>
                     <ListGroup>
                       <List text="100MB File Space" />
                       <List text="2 Active Projects" />
@@ -104,9 +104,9 @@ const PricingTable = () => {
                   <PricingCard style={{marginBottom: 30}}>
                     <Badge type="primary">Basic Plan</Badge>
                     <Heading as="h3">
-                      <sup>$</sup>19 <sub>Per month</sub>
+                      <sup className="currency">$</sup> 19 <sub className="pricing-validity">Per month</sub>
                     </Heading>
-                    <p>For 2 Users</p>
+                    <span className="package-user-type">For 2 Users</span>
                     <ListGroup>
                       <List text="100GB File Space" />
                       <List text="300 Projects" />
@@ -121,9 +121,9 @@ const PricingTable = () => {
                   <PricingCard style={{marginBottom: 30}}>
                     <Badge type="secondary">Business</Badge>
                     <Heading as="h3">
-                      <sup>$</sup>39 <sub>Per month</sub>
+                      <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
                     </Heading>
-                    <p>For 10 Users</p>
+                    <span className="package-user-type">For 10 Users</span>
                     
                     <ListGroup>
                       <List text="100GB File Space" />
@@ -140,9 +140,9 @@ const PricingTable = () => {
                   <PricingCard>
                     <Badge type="success">Enterprise</Badge>
                     <Heading as="h3">
-                      <sup>$</sup>79 <sub>Per month</sub>
+                      <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
                     </Heading>
-                    <p>For 50 Users</p>
+                    <span className="package-user-type">For 50 Users</span>
                     <ListGroup>
                       <List text="100GB File Space" />
                       <List text="300 Projects" />

@@ -5,6 +5,13 @@ const InfoWraper = Styled.div`
     justify-content: flex-end;
     align-items: center;
     padding-top: 16px;
+    @media only screen and (max-width: 575px) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff;
+    }
     .head-example{
         text-decoration: none;
         color: ${({ theme }) => theme['text-color-secondary']};

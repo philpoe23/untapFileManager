@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import MenueItems from './sidebar/MenueItems';
-import { NavLink } from 'react-router-dom';
-import { Div } from './style';
+import { NavLink, Link } from 'react-router-dom';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 
@@ -16,14 +16,30 @@ const ThemeLayout = WrappedComponent => {
       this.state = {
         collapsed: false,
         top: 0,
+        width: 0,
+        hide: true,
+        searchHide: true,
       };
       this.handleUpdate = this.handleUpdate.bind(this);
       this.renderThumb = this.renderThumb.bind(this);
+      this.updateDimensions = this.updateDimensions.bind(this);
     }
 
     handleUpdate(values) {
       const { top } = values;
       this.setState({ top });
+    }
+
+    componentDidMount() {
+      window.addEventListener('resize', this.updateDimensions);
+      this.updateDimensions();
+    }
+
+    updateDimensions() {
+      this.setState({
+        width: window.innerWidth,
+        collapsed: window.innerWidth <= 1200 && true,
+      });
     }
 
     toggleCollapsed = () => {
@@ -40,6 +56,19 @@ const ThemeLayout = WrappedComponent => {
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     }
 
+    onShowHide = () => {
+      this.setState({
+        hide: this.state.hide ? false : true,
+      });
+    };
+
+    handleSearchHide = e => {
+      e.preventDefault();
+      this.setState({
+        searchHide: this.state.searchHide ? false : true,
+      });
+    };
+
     render() {
       return (
         <Div>
@@ -53,7 +82,7 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col md={4} sm={5} xs={5} className="align-center-v navbar-brand">
+                <Col md={4} sm={5} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
@@ -61,12 +90,37 @@ const ThemeLayout = WrappedComponent => {
                     <img src={require(`../static/img/logo.png`)} alt="" />
                   </NavLink>
                 </Col>
-                <Col md={6} sm={5} xs={5}>
-                  <HeaderSearch />
-                </Col>
-                <Col md={14} sm={14} xs={14}>
-                  <AuthInfo />
-                </Col>
+
+                {this.state.width > 800 ? (
+                  <Col md={6} sm={5}>
+                    <HeaderSearch />
+                  </Col>
+                ) : (
+                  <SmallScreenSearch hide={this.state.searchHide}>
+                    <HeaderSearch />
+                  </SmallScreenSearch>
+                )}
+
+                {this.state.width > 800 ? (
+                  <Col md={14} sm={14}>
+                    <AuthInfo />
+                  </Col>
+                ) : (
+                  <SmallScreenAuthInfo hide={this.state.hide}>
+                    <AuthInfo />
+                  </SmallScreenAuthInfo>
+                )}
+
+                {this.state.width <= 800 && (
+                  <Fragment>
+                    <Link onClick={this.handleSearchHide} to="#">
+                      {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
+                    </Link>
+                    <Link onClick={this.onShowHide} to="#">
+                      <FeatherIcon icon="more-vertical" />
+                    </Link>
+                  </Fragment>
+                )}
               </Row>
             </Header>
             <Layout>
@@ -86,6 +140,9 @@ const ThemeLayout = WrappedComponent => {
           </Layout>
         </Div>
       );
+    }
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.updateDimensions);
     }
   }
 

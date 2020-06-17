@@ -4,6 +4,9 @@ const ChatWrapper = Styled.div`
   .create-action{
     padding: 0 25px;
     margin-bottom: 18px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
     .btn-add{
       width: 100%;
       height: 44px;
@@ -295,6 +298,9 @@ const ChatSidebar = Styled.div`
   }
   .chatbox-search{
     padding: 0 25px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
   }
   .ant-select-selector{
     height: auto !important;
@@ -310,6 +316,9 @@ const ChatSidebar = Styled.div`
   }
   nav{
     padding: 0 25px;
+    @media only screen and (max-width: 379px){
+      padding: 0 20px;
+    }
     ul{
       margin: 0 0 12px 0;
       padding: 25px 0 0 0;

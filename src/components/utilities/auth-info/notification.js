@@ -1,50 +1,61 @@
 import React, { useEffect } from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Popover } from '../../popup/popup';
-import { readNotificationList } from '../../../redux/notification/actionCreator';
+import Heading from '../../heading/heading';
 
 const NotificationBox = props => {
-  const { notification, readNotification } = props;
-
-  useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      readNotification();
-    }
-    return () => {
-      unmount = true;
-    };
-  }, [readNotification]);
-
   const content = (
     <div>
-      {notification.map(item => {
-        const { id, from } = item;
-        return (
-          <NavLink key={id} to="#">
-            {from}
-          </NavLink>
-        );
-      })}
-      <p>
-        <NavLink style={{ display: 'block', textAlign: 'center' }} to="#">
-          Read more
-        </NavLink>
-      </p>
+      <Heading as="h5">
+        Notifications <Badge count={3}></Badge>
+      </Heading>
+      <ul>
+        <li>
+          <Link to="#">
+            <div>
+              <FeatherIcon icon="hard-drive" />
+              <div>
+                <Heading as="h5">
+                  <span>James</span> Send you a message
+                </Heading>
+                <p>5 hours ago</p>
+                <Badge dot></Badge>
+              </div>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <div>
+              <FeatherIcon icon="share" />
+              <div>
+                <Heading as="h5">
+                  <span>James</span> Send you a message
+                </Heading>
+                <p>5 hours ago</p>
+                <Badge dot></Badge>
+              </div>
+            </div>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="#">See all incoming activity</Link>
+        </li>
+      </ul>
     </div>
   );
 
   return (
     <div className="notification">
-      <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
-          <NavLink to="#" className="head-example">
+          <Link to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
-          </NavLink>
+          </Link>
         </Badge>
       </Popover>
     </div>
@@ -55,16 +66,4 @@ NotificationBox.propTypes = {
   notification: PropTypes.array,
 };
 
-const mapSTateToProps = state => {
-  return {
-    notification: state.notification.data,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    readNotification: () => dispatch(readNotificationList()),
-  };
-};
-
-export default connect(mapSTateToProps, mapDispatchToProps)(NotificationBox);
+export default NotificationBox;
