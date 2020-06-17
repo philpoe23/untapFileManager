@@ -112,11 +112,13 @@ const List = props => {
       <Col md={24}>
         <Cards headless>
           <ProjectList>
-            <Table pagination={false} dataSource={dataSource} columns={columns} />
+            <div className="table-responsive">
+              <Table pagination={false} dataSource={dataSource} columns={columns} />
+            </div>
           </ProjectList>
         </Cards>
       </Col>
-      <Col md={24}>
+      <Col md={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (
             <Pagination

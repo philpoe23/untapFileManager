@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 const Div = Styled.div`
     header{
         box-shadow: 0px -15px 25px #888;
-        z-index: 1;
+        z-index: 9999;
         button{
             padding: 0px 15px 0px 0px;
         }
@@ -136,4 +136,16 @@ const SmallScreenAuthInfo = Styled.div`
                     
 `;
 
-export { Div, SmallScreenAuthInfo };
+const SmallScreenSearch = Styled.div`    
+        background: #fff;
+        width: 100%;
+        position: absolute;
+        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        left: 0;
+        transition: .5s;
+        border-top: 1px solid #eee;
+        opacity: ${({ hide }) => (hide ? 0 : 1)}
+                    
+`;
+
+export { Div, SmallScreenAuthInfo, SmallScreenSearch };

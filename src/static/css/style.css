@@ -1,5 +1,4 @@
 /* Utilitiy classes */
-
 .spin {
   height: 100vh;
   display: flex;
@@ -45,18 +44,22 @@
   text-align: center;
 }
 
-.m-0 {
-  margin: 0 !important;
-}
-
 ul {
   list-style: outside none none;
   margin: 0;
   padding: 0;
 }
 
-/* default card style */
+/* spacing classes */
+.m-0 {
+  margin: 0 !important;
+}
 
+.pb-30{
+  padding-bottom: 30px;
+}
+
+/* default card style */
 .ant-card-body {
   padding: 25px !important;
 }
@@ -878,6 +881,12 @@ ul {
   }
   .ant-table-pagination li {
     margin-right: 8px !important;
+  }
+  .ant-pagination .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: 25px !important;
+  }
+  .ant-pagination .ant-select-single .ant-select-selector .ant-select-selection-item {
+    line-height: 23px !important;
   }
 }
 
