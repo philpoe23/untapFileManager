@@ -106,7 +106,7 @@ const ThemeLayout = WrappedComponent => {
     height: '100vh',
     position: 'fixed',
     left: 0,
-    zIndex: 1,
+    zIndex: 9999,
   };
 
   return LayoutComponent;

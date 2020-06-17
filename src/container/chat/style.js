@@ -314,6 +314,7 @@ const ChatSidebar = Styled.div`
       margin: 0 0 12px 0;
       padding: 25px 0 0 0;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid ${({theme})=>theme['border-color-light']};

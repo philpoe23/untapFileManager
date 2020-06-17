@@ -104,7 +104,7 @@ const Grid = props => {
           </Cards>
         </Col>
       )}
-      <Col md={24}>
+      <Col md={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (
             <Pagination

@@ -37,12 +37,37 @@ const ProjectSorting = Styled.div`
     }
     @media (max-width: 1500px){
         .project-sort-search{
+            .ant-select{
+                width: 237px !important;
+            }
+        }
+        .project-sort-group .sort-group{
+            .ant-select{
+                min-width: 180px;
+            }
+        }
+    }
+    @media (max-width: 1300px){
+        .project-sort-search{
+            .ant-select{
+                width: 145px !important;
+            }
+        }
+    }
+    @media (max-width: 1199px){
+        .project-sort-search{
             flex: 0 0 100%;
             order: 0;
             margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            .ant-select{
+                width: 350px !important;
+            }
         }
         .project-sort-nav{
             order: 1;
+            margin: 0 auto;
         }
         .project-sort-group{
             order: 2;
@@ -283,6 +308,7 @@ const ProjectListAssignees = Styled.div`
 `;
 
 const ProjectList = Styled.div`
+    
     .project-list-progress{
         p{
             margin: 0;
