@@ -136,4 +136,16 @@ const SmallScreenAuthInfo = Styled.div`
                     
 `;
 
-export { Div, SmallScreenAuthInfo };
+const SmallScreenSearch = Styled.div`    
+        background: #fff;
+        width: 100%;
+        position: absolute;
+        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        left: 0;
+        transition: .5s;
+        border-top: 1px solid #eee;
+        opacity: ${({ hide }) => (hide ? 0 : 1)}
+                    
+`;
+
+export { Div, SmallScreenAuthInfo, SmallScreenSearch };

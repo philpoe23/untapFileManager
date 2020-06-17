@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import MenueItems from './sidebar/MenueItems';
 import { NavLink, Link } from 'react-router-dom';
-import { Div, SmallScreenAuthInfo } from './style';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 
@@ -18,6 +18,7 @@ const ThemeLayout = WrappedComponent => {
         top: 0,
         width: 0,
         hide: true,
+        searchHide: true,
       };
       this.handleUpdate = this.handleUpdate.bind(this);
       this.renderThumb = this.renderThumb.bind(this);
@@ -61,6 +62,13 @@ const ThemeLayout = WrappedComponent => {
       });
     };
 
+    handleSearchHide = e => {
+      e.preventDefault();
+      this.setState({
+        searchHide: this.state.searchHide ? false : true,
+      });
+    };
+
     render() {
       return (
         <Div>
@@ -82,14 +90,15 @@ const ThemeLayout = WrappedComponent => {
                     <img src={require(`../static/img/logo.png`)} alt="" />
                   </NavLink>
                 </Col>
-                <Col md={6} sm={5}>
-                  <HeaderSearch />
-                </Col>
 
-                {this.state.width <= 800 && (
-                  <Link onClick={this.onShowHide} to="#">
-                    <FeatherIcon icon="more-vertical" />
-                  </Link>
+                {this.state.width > 800 ? (
+                  <Col md={6} sm={5}>
+                    <HeaderSearch />
+                  </Col>
+                ) : (
+                  <SmallScreenSearch hide={this.state.searchHide}>
+                    <HeaderSearch />
+                  </SmallScreenSearch>
                 )}
 
                 {this.state.width > 800 ? (
@@ -100,6 +109,17 @@ const ThemeLayout = WrappedComponent => {
                   <SmallScreenAuthInfo hide={this.state.hide}>
                     <AuthInfo />
                   </SmallScreenAuthInfo>
+                )}
+
+                {this.state.width <= 800 && (
+                  <Fragment>
+                    <Link onClick={this.handleSearchHide} to="#">
+                      {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
+                    </Link>
+                    <Link onClick={this.onShowHide} to="#">
+                      <FeatherIcon icon="more-vertical" />
+                    </Link>
+                  </Fragment>
                 )}
               </Row>
             </Header>
