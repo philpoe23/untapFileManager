@@ -10,7 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, Pstates, SessionState, RegionList } from './style';
+import { OverviewCard, Pstates, SessionState, RegionList,RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
 
@@ -149,7 +149,9 @@ const landingcolumns = [
 const landingdata = [
   {
     key: '1',
-    pages: 'Homepage',
+    pages: (
+      <span className="page-title">Homepage</span>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -157,7 +159,9 @@ const landingdata = [
   },
   {
     key: '2',
-    pages: 'Our Service',
+    pages: (
+      <span className="page-title">Our Service</span>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -165,7 +169,9 @@ const landingdata = [
   },
   {
     key: '3',
-    pages: 'List of Products',
+    pages: (
+      <span className="page-title">List of Products</span>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -173,7 +179,9 @@ const landingdata = [
   },
   {
     key: '4',
-    pages: 'Contact us',
+    pages: (
+      <span className="page-title">Contact us</span>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -181,7 +189,9 @@ const landingdata = [
   },
   {
     key: '5',
-    pages: 'Products',
+    pages: (
+      <span className="page-title">Products</span>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -275,7 +285,7 @@ const Performance = () => {
                       <Heading as="h2" className="color-primary">5,461</Heading>
                       <p>Users Today</p>
                     </div>
-                    <div className="overview-box-single">
+                    <div className="overview-box-single text-right">
                       <Heading as="h2">8,085</Heading>
                       <p>Expected Users</p>
                     </div>
@@ -288,7 +298,7 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-up" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span style={{ float: 'right' }}>70%</span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>70%</span>
                   </p>
                 </Cards>
               </div>
@@ -300,7 +310,7 @@ const Performance = () => {
                       <Heading as="h2" className="color-info">140</Heading>
                       <p>Goals Today</p>
                     </div>
-                    <div className="overview-box-single">
+                    <div className="overview-box-single text-right">
                       <Heading as="h2">120</Heading>
                       <p>Expected Goals</p>
                     </div>
@@ -311,7 +321,7 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-down" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span style={{ float: 'right' }}>70%</span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>70%</span>
                   </p>
                 </Cards>
               </div>
@@ -501,10 +511,13 @@ const Performance = () => {
                 }
                 title="Traffic Channels"
                 size="large"
+                more={content}
               >
-                <div class="table-responsive">
-                  <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-                </div>
+                <TrafficTableWrapper>
+                  <div class="table-responsive">
+                    <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                  </div>
+                </TrafficTableWrapper>
               </Cards>
             </div>
           </Col>
@@ -585,10 +598,13 @@ const Performance = () => {
                 }
                 title="Top Landing Pages"
                 size="large"
+                more={content}
               >
-                <div className="table-responsive">
-                  <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
-                </div>
+                <LadingPages>
+                  <div className="table-responsive">
+                    <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                  </div>
+                </LadingPages>
               </Cards>
             </div>
           </Col>
@@ -617,15 +633,18 @@ const Performance = () => {
               }
               title="Sessions by Region"
               size="large"
+              more={content}
             >
             <Row>
-              <Col lg={8} md={8} sm={24} xs={24}>
+              <Col lg={10} md={8} sm={24} xs={24}>
                 <RegionList>
                   <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
                 </RegionList>
               </Col>
-              <Col lg={16} md={16} sm={24} xs={24}>
-                <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+              <Col lg={14} md={16} sm={24} xs={24}>
+                <RegionMap>
+                  <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                </RegionMap>
               </Col>
             </Row>
             </Cards>

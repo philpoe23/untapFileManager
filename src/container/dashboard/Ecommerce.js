@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
-import { CardBarChart2, LocationMapWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+import { CardBarChart2, LocationMapWrapper,RevenueWrapper, RevenueChartWrapper, ECahrtCard } from './style';
 
 const content = (
   <Fragment>
@@ -394,7 +394,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#5F63F230',
+                        backgroundColor: '#5F63F210',
                         hoverBackgroundColor: '#5F63F2',
                       },
                     ]}
@@ -425,7 +425,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#FF69A530',
+                        backgroundColor: '#FF69A510',
                         hoverBackgroundColor: '#FF69A5',
                       },
                     ]}
@@ -456,7 +456,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#20C99730',
+                        backgroundColor: '#20C99710',
                         hoverBackgroundColor: '#20C997',
                       },
                     ]}
@@ -487,7 +487,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#2C99FF30',
+                        backgroundColor: '#2C99FF10',
                         hoverBackgroundColor: '#2C99FF',
                       },
                     ]}
@@ -500,109 +500,111 @@ const Ecommerce = () => {
         </Row>
         <Row gutter={25}>
           <Col lg={12} md={12} sm={24} xs={24}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                      Today
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              more={content}
-              title="Total Revenue"
-              size="large"
-            >
-              <Heading as="h1">
-                <span>$72,784</span>
-                <span> $52,240</span>
-              </Heading>
+            <RevenueWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                more={content}
+                title="Total Revenue"
+                size="large"
+              >
+                <Heading className="revenue-count" as="h1">
+                  <span className="currnt-revenue">$72,784</span>
+                  <span className="prev-revenue"> $52,240</span>
+                </Heading>
 
-              <ChartjsAreaChart
-                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                datasets={[
-                  {
-                    data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
-                    borderColor: '#5F63F2',
-                    borderWidth: 3,
-                    fill: true,
-                    backgroundColor: '#5F63F210',
-                    label: 'Current period',
-                  },
-                  {
-                    data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
-                    borderColor: '#C6D0DC',
-                    borderWidth: 2,
-                    fill: false,
-                    backgroundColor: '#00173750',
-                    label: 'Previous period',
-                    borderDash: [10, 5],
-                  },
-                ]}
-                options={{
-                  maintainAspectRatio: true,
-                  legend: {
-                    display: true,
-                    labels: {
+                <ChartjsAreaChart
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                  datasets={[
+                    {
+                      data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
+                      borderColor: '#5F63F2',
+                      borderWidth: 3,
+                      fill: true,
+                      backgroundColor: '#5F63F210',
+                      label: 'Current period',
+                    },
+                    {
+                      data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
+                      borderColor: '#C6D0DC',
+                      borderWidth: 2,
+                      fill: false,
+                      backgroundColor: '#00173750',
+                      label: 'Previous period',
+                      borderDash: [10, 5],
+                    },
+                  ]}
+                  options={{
+                    maintainAspectRatio: true,
+                    legend: {
                       display: true,
-                    },
-                  },
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
-                  },
-                  scales: {
-                    yAxes: [
-                      {
-                        stacked: false,
-                        gridLines: {
-                          display: true,
-                          color: '#e5e9f2',
-                        },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 10,
-                          display: true,
-                        },
+                      labels: {
+                        display: true,
                       },
-                    ],
-                    xAxes: [
-                      {
-                        stacked: true,
-                        gridLines: {
-                          display: false,
-                        },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 11,
-                          display: true,
-                        },
+                    },
+                    elements: {
+                      point: {
+                        radius: 0,
                       },
-                    ],
-                  },
-                }}
-                height={200}
-              />
-            </Cards>
+                    },
+                    scales: {
+                      yAxes: [
+                        {
+                          stacked: false,
+                          gridLines: {
+                            display: true,
+                            color: '#e5e9f2',
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 10,
+                            display: true,
+                          },
+                        },
+                      ],
+                      xAxes: [
+                        {
+                          stacked: true,
+                          gridLines: {
+                            display: false,
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 11,
+                            display: true,
+                          },
+                        },
+                      ],
+                    },
+                  }}
+                  height={200}
+                />
+              </Cards>
+            </RevenueWrapper>
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
             <div className="full-width-table">
