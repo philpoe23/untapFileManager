@@ -125,10 +125,16 @@ const Focard = Styled.div`
 
 const CardBarChart = Styled.div`
     .chartjs-render-monitor{
-        height: 290px !important;
+        height: 308px !important;
     }
     .card-bar-top{
-        margin-left: -20px;
+        &.flex-grid{
+            margin-left: -20px;
+            h1{
+                font-size: 24px;
+                margin-bottom: 22px;
+            }
+        }
         .flex-grid-child{
             padding: 0 20px;
         }
@@ -138,12 +144,11 @@ const CardBarChart = Styled.div`
             color: ${({theme})=>theme['light-color']};
         }
         h1{
-            font-size: 24px;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             sub{
                 bottom: 0;
                 font-size: 14px;
-                margin-left: 10px;
+                margin-left: 8px;
                 color: ${({theme})=>theme['success-color']};
                 svg{
                     margin-right: 4px;
@@ -500,9 +505,6 @@ const RegionList = Styled.div`
                 padding: 5px 20px;
             }
         }
-        tbody{
-            padding: 15px;
-        }
     }
     
 `;
@@ -517,20 +519,9 @@ const RegionMap = Styled.div`
 
 const LadingPages = Styled.div`
     table{
-        thead{
-            tr{
-                th{
-                    padding: 16px 25px;
-                    background: #fff;
-                    border-top: 1px solid ${({theme})=>theme["border-color-light"]};
-                }
-            }
-        }
-
         tbody{
             tr{
                 td{
-                    padding: 16px 25px;
                     .page-title{
                         color: ${({theme})=>theme["primary-color"]};
                     }

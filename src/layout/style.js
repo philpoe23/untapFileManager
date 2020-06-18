@@ -122,13 +122,30 @@ const Div = Styled.div`
             margin-left: 0 !important;
         } */
     }
+
+    // Mobile Actions
+    .mobile-action{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        a{
+            display: inline-flex;
+            color: ${({theme})=>theme['light-color']};
+            &.btn-search{
+                margin-right: 18px;
+            }
+        }
+    }
 `;
 
 const SmallScreenAuthInfo = Styled.div`    
         background: #fff;
         width: 100%;
         position: absolute;
-        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
         left: 0;
         transition: .5s;
         border-top: 1px solid #eee;
@@ -140,7 +157,7 @@ const SmallScreenSearch = Styled.div`
         background: #fff;
         width: 100%;
         position: absolute;
-        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
         left: 0;
         transition: .5s;
         border-top: 1px solid #eee;

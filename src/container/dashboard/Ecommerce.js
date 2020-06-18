@@ -639,7 +639,7 @@ const Ecommerce = () => {
                 title="Source Of Revenue Generated"
                 size="large"
               >
-                <div className="revenue-table table-responsive">
+                <div className="table-bordered revenue-table table-responsive">
                   <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
                 </div>
               </Cards>
@@ -678,7 +678,7 @@ const Ecommerce = () => {
                   size="large"
                   bodypadding="0px"
                 >
-                  <div className="top-seller-table table-responsive">
+                  <div className="table-bordered top-seller-table table-responsive">
                     <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
                   </div>
                 </Cards>

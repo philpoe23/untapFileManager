@@ -1,14 +1,20 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Progress } from 'antd';
+import { Row, Col, Progress, Icon } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
+import { Button } from '../../components/buttons/buttons';
 import { Focard, CardBarChart, Exlist, RatioCard, IncomeExpenseWrapper } from './style';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
+
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import actions from '../../redux/headerSearch/actions';
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -72,7 +78,21 @@ const handleActiveChange = e => {
 const Business = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Finance Dashboard" />
+      <PageHeader 
+        ghost 
+        title="Finance Dashboard" 
+        buttons={[
+          
+          <CalendarButtonPageHeader className="rrrr" key="1" />,
+          <ExportButtonPageHeader key="2" />,
+          <ShareButtonPageHeader key="3" />,
+          <Button key="4" type="primary">
+            <Icon type="plus" />
+            Add New
+          </Button>,
+          // <DateRangePickerOne key="5" />,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col lg={12}>

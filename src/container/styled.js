@@ -115,21 +115,6 @@ const Main = Styled.div`
         min-height: 170px;
         border-radius: 5px;
     }
-
-    .revenue-table,
-    .top-seller-table{
-        table{
-            tr{
-                th{
-                    background: #fff;
-                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
-                    &:last-child{
-                        text-align: left;
-                    }
-                }
-            }
-        }
-    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

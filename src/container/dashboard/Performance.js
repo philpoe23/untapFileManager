@@ -514,7 +514,7 @@ const Performance = () => {
                 more={content}
               >
                 <TrafficTableWrapper>
-                  <div class="table-responsive">
+                  <div class="table-bordered table-responsive">
                     <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
                   </div>
                 </TrafficTableWrapper>
@@ -601,7 +601,7 @@ const Performance = () => {
                 more={content}
               >
                 <LadingPages>
-                  <div className="table-responsive">
+                  <div className="table-bordered table-responsive">
                     <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
                   </div>
                 </LadingPages>

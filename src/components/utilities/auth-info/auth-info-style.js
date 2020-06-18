@@ -5,12 +5,8 @@ const InfoWraper = Styled.div`
     justify-content: flex-end;
     align-items: center;
     padding-top: 16px;
-    @media only screen and (max-width: 575px) {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: #fff;
+    @media only screen and (max-width: 767px) {
+        padding: 16px;
     }
     .head-example{
         text-decoration: none;

@@ -39,10 +39,10 @@ const HeaderSearch = props => {
     <Fragment>
       <Div className="certain-category-search-wrapper" style={{ width: '100%' }}>
         <Row>
-          <Col xs={2} className="text-right">
+          <Col md={2} className="text-right">
             <Icon type="search" className="certain-category-icon" />
           </Col>
-          <Col xs={22}>
+          <Col md={22}>
             <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
               <Input placeholder="Search..." onInput={search} />
             </Popover>

@@ -8,21 +8,22 @@ import Heading from '../../heading/heading';
 
 const MessageBox = props => {
   const content = (
-    <div>
-      <Heading as="h5">
-        Messages <Badge count={3}></Badge>
+    <div className="atbd-top-dropdwon">
+      <Heading className="atbd-top-dropdwon__title" as="h5">
+        <span className="title-text">Messages</span>
+        <Badge count={3}></Badge>
       </Heading>
-      <ul>
+      <ul className="atbd-top-dropdwon__nav">
         <li>
           <Link to="#">
-            <figure>
+            <figure className="atbd-top-dropdwon__content">
               <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
               <figcaption>
                 <Heading as="h5">
                   Software <span>3 hrs ago</span>
                 </Heading>
                 <p>
-                  Lorem ipsum dolor amet cosec...
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                   <span>
                     <Badge count={3}></Badge>
                   </span>
@@ -33,14 +34,14 @@ const MessageBox = props => {
         </li>
         <li>
           <Link to="#">
-            <figure>
+            <figure className="atbd-top-dropdwon__content">
               <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
               <figcaption>
                 <Heading as="h5">
                   Software <span>3 hrs ago</span>
                 </Heading>
                 <p>
-                  Lorem ipsum dolor amet cosec...
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                   <span>
                     <Badge count={3}></Badge>
                   </span>
