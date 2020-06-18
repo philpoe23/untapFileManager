@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoWraper } from './auth-info-style';
+import { InfoWraper , UserDropDwon } from './auth-info-style';
 import Message from './message';
 import Notification from './notification';
 import Settings from './settings';
@@ -22,45 +22,47 @@ const AuthInfo = ({ logOut }) => {
   };
 
   const content = (
-    <div>
-      <figure>
-        <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-        <figcaption>
-          <Heading as="h5">Abdullah Bin Talha</Heading>
-          <p>UI Designe</p>
-        </figcaption>
-      </figure>
-      <ul>
-        <li>
-          <Link to="#">
-            <FeatherIcon icon="user" /> Profile
+    <UserDropDwon>
+      <div className="user-dropdwon">
+          <figure className="user-dropdwon__info">
+            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+            <figcaption>
+              <Heading as="h5">Abdullah Bin Talha</Heading>
+              <p>UI Designe</p>
+            </figcaption>
+          </figure>
+          <ul className="user-dropdwon__links">
+            <li>
+              <Link to="#">
+                <FeatherIcon icon="user" /> Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <FeatherIcon icon="settings" /> Settings
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <FeatherIcon icon="dollar-sign" /> Billing
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <FeatherIcon icon="users" /> Activity
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <FeatherIcon icon="bell" /> Help
+              </Link>
+            </li>
+          </ul>
+          <Link className="user-dropdwon__bottomAction" onClick={SignOut} to="#">
+            <FeatherIcon icon="log-out" /> Sign Out
           </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <FeatherIcon icon="settings" /> Settings
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <FeatherIcon icon="dollar-sign" /> Billing
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <FeatherIcon icon="users" /> Activity
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <FeatherIcon icon="bell" /> Help
-          </Link>
-        </li>
-      </ul>
-      <Link onClick={SignOut} to="#">
-        <FeatherIcon icon="log-out" /> Sign Out
-      </Link>
-    </div>
+      </div>
+    </UserDropDwon>
   );
 
   return (
@@ -82,7 +84,7 @@ const AuthInfo = ({ logOut }) => {
       />
 
       <div className="nav-author">
-        <Popover placement="bottomLeft" content={content} trigger="click">
+        <Popover placement="bottomRight" content={content} trigger="click">
           <NavLink to="#" className="head-example">
             <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
           </NavLink>

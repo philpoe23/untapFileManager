@@ -101,7 +101,7 @@ const Inbox = lazy(() => import('../container/email/Email'));
 const Chat = lazy(() => import('../container/chat/ChatApp'));
 const NotFound = lazy(() => import('../container/pages/404'));
 const Maintenance = lazy(() => import('../container/pages/Maintenance'));
-const Pricing = lazy(() => import('../container/pages/pricingTable'));
+const Pricing = lazy(() => import('../container/pages/PricingTable'));
 const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));
