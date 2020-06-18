@@ -376,7 +376,7 @@ ul {
   margin: 4px !important;
 }
 
-.ant-table-pagination{ 
+.ant-table-pagination{
   margin-top: 30px !important;
 }
 
@@ -879,6 +879,13 @@ ul {
 .ant-menu-submenu-popup .ant-menu-item{
   margin-bottom: 0 !important;
 }
+
+/* page heading */
+.ant-page-header{
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
 
 /* Responsive CSS */
 

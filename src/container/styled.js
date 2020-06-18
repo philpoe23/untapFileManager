@@ -66,7 +66,7 @@ const Main = Styled.div`
     }
 
     .ant-collapse > .ant-collapse-item .ant-collapse-header .ant-collapse-arrow{
-        
+
         font-size: 8px;
     }
 
@@ -172,7 +172,7 @@ const CalendarWrapper = Styled.div`
     .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
         height: 30px !important;
     }
-    .ant-select-single .ant-select-selector .ant-select-selection-item, 
+    .ant-select-single .ant-select-selector .ant-select-selection-item,
     .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
         line-height: 28px !important;
     }
@@ -317,7 +317,7 @@ const CardToolbox = Styled.div`
             &:after{
                 @media only screen and (max-width: 575px){
                     display: none;
-                } 
+                }
             }
         }
         .ant-page-header-heading-sub-title{
@@ -329,7 +329,7 @@ const CardToolbox = Styled.div`
             .title-counter{
                 @media only screen and (max-width: 575px){
                     margin-bottom: 16px;
-                } 
+                }
             }
         }
     }
@@ -481,15 +481,15 @@ const TableWrapper = Styled.div`
                 &:hover{
                     &.ant-btn-primary{
                         color: ${({theme})=>theme['primary-color']};
-                        background: ${({theme})=>theme['primary-color']}10; 
+                        background: ${({theme})=>theme['primary-color']}10;
                     }
                     &.ant-btn-info{
                         color: ${({theme})=>theme['info-color']};
-                        background: ${({theme})=>theme['info-color']}10; 
+                        background: ${({theme})=>theme['info-color']}10;
                     }
                     &.ant-btn-danger{
                         color: ${({theme})=>theme['danger-color']};
-                        background: ${({theme})=>theme['danger-color']}10; 
+                        background: ${({theme})=>theme['danger-color']}10;
                     }
                 }
             }
@@ -519,17 +519,17 @@ const TableWrapper = Styled.div`
 `;
 
 
-export { 
-    Main, 
-    ButtonsGroupWrapper, 
-    BlockButtonsWrapper, 
-    ButtonSizeWrapper, 
-    BtnWithIcon, 
-    AlertList, 
-    AutoCompleteWrapper, 
-    CalendarWrapper, 
-    DatePickerWrapper, 
-    NotificationListWrapper, 
+export {
+    Main,
+    ButtonsGroupWrapper,
+    BlockButtonsWrapper,
+    ButtonSizeWrapper,
+    BtnWithIcon,
+    AlertList,
+    AutoCompleteWrapper,
+    CalendarWrapper,
+    DatePickerWrapper,
+    NotificationListWrapper,
     TagInput,
     PageHeaderWrapper,
     MessageStyleWrapper,
