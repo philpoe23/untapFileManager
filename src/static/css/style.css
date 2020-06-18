@@ -724,6 +724,18 @@ ul {
   z-index: 0;
 }
 
+/* Table */
+.ant-table tr td:last-child,
+.ant-table tr th:last-child{
+  text-align: right;
+}
+.ant-table-tbody > tr > td{
+  border-color: #F1F2F6 !important;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td{
+  background: #F8F9FB !important;
+}
+
 /* Full Width Table */
 
 .full-width-table .ant-card-body {
