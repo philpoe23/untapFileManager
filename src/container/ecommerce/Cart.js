@@ -4,7 +4,7 @@ import { Main } from '../styled';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import FeatherIcon from 'feather-icons-react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import Heading from '../../components/heading/heading';
 import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { Button } from '../../components/buttons/buttons';
@@ -177,7 +177,7 @@ const ShoppingCart = ({ match }) => {
                               <CouponForm>
                                 <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
                                   <Row gutter={15}>
-                                    <Col  lg={4} sm={8} xs={12}>
+                                    <Col lg={4} sm={8} xs={12}>
                                       <Form.Item name="coupon" label="">
                                         <Input placeholder="Coupon Code" />
                                       </Form.Item>
@@ -253,8 +253,10 @@ const ShoppingCart = ({ match }) => {
                             <span className="summary-total-label">Total : </span>
                             <span className="summary-total-amount">{'$' + 507.32}</span>
                           </Heading>
-                          <Button className="btn-proceed" to={match.path + '/checkout'} type="secondary" size="large">
-                            Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
+                          <Button className="btn-proceed" type="secondary" size="large">
+                            <Link to={match.path + '/checkout'}>
+                              Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
+                            </Link>
                           </Button>
                         </div>
                       </Cards>

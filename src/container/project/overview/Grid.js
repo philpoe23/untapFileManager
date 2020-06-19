@@ -47,19 +47,21 @@ const Grid = props => {
                 <Cards headless>
                   <div className="project-title">
                     <h1>
-                        <Link to={'/projectDetails/' + id}>{title}</Link>
-                        <Tag color="#f50">{status}</Tag>
+                      <Link to={'/projectDetails/' + id}>{title}</Link>
+                      <Tag className={status} color="#f50">
+                        {status}
+                      </Tag>
                     </h1>
                     <Dropdown
-                          content={
-                            <Fragment>
-                              <Link to="#">More One</Link>
-                              <Link to="#">More Tow</Link>
-                              <Link to="#">More Three</Link>
-                              <Link to="#">More Four</Link>
-                            </Fragment>
-                          }
-                        >
+                      content={
+                        <Fragment>
+                          <Link to="#">More One</Link>
+                          <Link to="#">More Tow</Link>
+                          <Link to="#">More Three</Link>
+                          <Link to="#">More Four</Link>
+                        </Fragment>
+                      }
+                    >
                       <Link to="#">
                         <FeatherIcon icon="more-horizontal" size={18} />
                       </Link>
@@ -83,13 +85,27 @@ const Grid = props => {
                   <div className="project-assignees">
                     <p>Assigned To</p>
                     <ul>
-                      <li><img src={require(`../../../static/img/users/1.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/2.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/3.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/4.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/5.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/6.png`)} alt="" /></li>
-                      <li><img src={require(`../../../static/img/users/7.png`)} alt="" /></li>
+                      <li>
+                        <img src={require(`../../../static/img/users/1.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/2.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/3.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/4.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/5.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/6.png`)} alt="" />
+                      </li>
+                      <li>
+                        <img src={require(`../../../static/img/users/7.png`)} alt="" />
+                      </li>
                     </ul>
                   </div>
                 </Cards>

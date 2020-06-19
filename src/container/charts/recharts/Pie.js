@@ -1,12 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useLayoutEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
 import { Main } from '../../styled';
 import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts';
-
 import rechartdata from '../../../config/dataService/recharts.json';
+
 const { data01, data02 } = rechartdata;
+
 const renderActiveShape = props => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
@@ -56,10 +57,28 @@ const renderActiveShape = props => {
 const ReChartPie = () => {
   const [state, setState] = useState({
     activeIndex: 0,
+    responsive: 0,
   });
+
+  const { responsive, activeIndex } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width, activeIndex: activeIndex });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, [activeIndex]);
 
   const onPieEnter = (data, index) => {
     setState({
+      ...state,
       activeIndex: index,
     });
   };
@@ -86,13 +105,20 @@ const ReChartPie = () => {
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="TWO LEVEL PIE CHART" size="large">
-              <PieChart width={630} height={400}>
-                <Pie data={data01} dataKey="value" cx={325} cy={200} outerRadius={60} fill="#8884d8" />
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+                <Pie
+                  data={data01}
+                  dataKey="value"
+                  cx={responsive / 2}
+                  cy={responsive / 4}
+                  outerRadius={60}
+                  fill="#8884d8"
+                />
                 <Pie
                   data={data02}
                   dataKey="value"
-                  cx={325}
-                  cy={200}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   innerRadius={70}
                   outerRadius={90}
                   fill="#82ca9d"
@@ -103,14 +129,14 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="STRAIGHT ANGLE PIE CHART" size="large">
-              <PieChart width={630} height={400}>
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
                 <Pie
                   dataKey="value"
                   startAngle={180}
                   endAngle={0}
                   data={data01}
-                  cx={325}
-                  cy={200}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   outerRadius={80}
                   fill="#8884d8"
                   label
@@ -120,13 +146,13 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="CUSTOM ACTIVE SHAPE PIE CHART" size="large">
-              <PieChart width={630} height={400}>
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
                 <Pie
                   activeIndex={state.activeIndex}
                   activeShape={renderActiveShape}
                   data={data01}
-                  cx={325}
-                  cy={200}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   innerRadius={60}
                   outerRadius={80}
                   fill="#8884d8"
@@ -138,11 +164,11 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH CUSTOMIZED LABEL" size="large">
-              <PieChart width={630} height={400}>
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
                 <Pie
                   data={data01}
-                  cx={375}
-                  cy={200}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   labelLine={false}
                   label={renderCustomizedLabel}
                   outerRadius={80}
@@ -158,45 +184,28 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="TWO SIMPLE PIE CHART" size="large">
-              <PieChart width={630} height={400}>
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
                 <Pie
                   dataKey="value"
                   isAnimationActive={false}
                   data={data01}
-                  cx={200}
-                  cy={200}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   outerRadius={80}
                   fill="#8884d8"
                   label
                 />
-                <Pie dataKey="value" data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d" />
                 <Tooltip />
               </PieChart>
             </Cards>
           </Col>
           <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH PADDING ANGLE" size="large">
-              <PieChart width={630} height={400} onMouseEnter={onPieEnter}>
+              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2} onMouseEnter={onPieEnter}>
                 <Pie
                   data={data01}
-                  cx={120}
-                  cy={200}
-                  innerRadius={60}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  paddingAngle={5}
-                  dataKey="value"
-                >
-                  {data01.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Pie
-                  data={data01}
-                  cx={420}
-                  cy={200}
-                  startAngle={180}
-                  endAngle={0}
+                  cx={responsive / 2}
+                  cy={responsive / 4}
                   innerRadius={60}
                   outerRadius={80}
                   fill="#8884d8"

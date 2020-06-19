@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -36,6 +36,25 @@ const CustomizedDot = props => {
   );
 };
 const ReChartLine = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+  });
+  const { responsive } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <Fragment>
       <PageHeader title="Rechats Line Chart" />
@@ -44,8 +63,8 @@ const ReChartLine = () => {
           <Col md={12} xs={24}>
             <Cards title="SIMPLE LINE CHART" size="large" more={false}>
               <LineChart
-                width={630}
-                height={300}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 5,
@@ -68,8 +87,8 @@ const ReChartLine = () => {
             <Cards title="VERTICAL LINE CHART" size="large" more={false}>
               <LineChart
                 layout="vertical"
-                width={630}
-                height={300}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -91,8 +110,8 @@ const ReChartLine = () => {
           <Col md={12} xs={24}>
             <Cards title="CUSTOMIZED DOT LINE CHART" size="large" more={false}>
               <LineChart
-                width={630}
-                height={300}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 5,
@@ -114,8 +133,8 @@ const ReChartLine = () => {
           <Col md={12} xs={24}>
             <Cards title="LINE CHART WITH REFERENCE LINES" size="large" more={false}>
               <LineChart
-                width={630}
-                height={300}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -139,8 +158,8 @@ const ReChartLine = () => {
           <Col md={12} xs={24}>
             <Cards title="DASHED LINE CHART" size="large" more={false}>
               <LineChart
-                width={630}
-                height={300}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 5,

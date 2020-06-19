@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -7,6 +7,25 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import { data, nullchart } from '../../../config/dataService/recharts.json';
 
 const ReChartArea = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+  });
+  const { responsive } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <Fragment>
       <PageHeader title="Rechats Area Chart" />
@@ -15,8 +34,8 @@ const ReChartArea = () => {
           <Col md={12} xs={24}>
             <Cards title="SIMPLE AREA CHART" size="large" more={false}>
               <AreaChart
-                width={630}
-                height={350}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 10,
@@ -37,8 +56,8 @@ const ReChartArea = () => {
           <Col md={12} xs={24}>
             <Cards title="STACKED AREA CHART" size="large" more={false}>
               <AreaChart
-                width={630}
-                height={350}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 10,
@@ -61,8 +80,8 @@ const ReChartArea = () => {
             <Cards title="AREACHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <AreaChart
-                  width={630}
-                  height={350}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={nullchart}
                   margin={{
                     top: 10,
@@ -78,8 +97,8 @@ const ReChartArea = () => {
                   <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </AreaChart>
                 <AreaChart
-                  width={630}
-                  height={350}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   margin={{
                     top: 10,
@@ -101,8 +120,8 @@ const ReChartArea = () => {
             <Cards title="synchronized AreaCharts" size="large" more={false}>
               <div>
                 <AreaChart
-                  width={630}
-                  height={350}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   syncId="anyId"
                   margin={{
@@ -120,8 +139,8 @@ const ReChartArea = () => {
                 </AreaChart>
                 <p>Maybe some other content</p>
                 <AreaChart
-                  width={630}
-                  height={350}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   syncId="anyId"
                   margin={{
