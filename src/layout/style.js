@@ -2,8 +2,8 @@ import Styled from 'styled-components';
 
 const Div = Styled.div`
     header{
-        box-shadow: 0px -15px 25px #888;
-        z-index: 1;
+        box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
+        z-index: 99999;
         button{
             padding: 0px 15px 0px 0px;
         }
@@ -122,17 +122,39 @@ const Div = Styled.div`
             margin-left: 0 !important;
         } */
     }
+
+    // Mobile Actions
+    .mobile-action{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        a{
+            display: inline-flex;
+            color: ${({theme})=>theme['light-color']};
+            &.btn-search{
+                margin-right: 18px;
+            }
+            svg{
+                width: 20px
+                height: 20px;
+            }
+        }
+    }
 `;
 
 const SmallScreenAuthInfo = Styled.div`    
         background: #fff;
         width: 100%;
         position: absolute;
-        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
         left: 0;
-        transition: .5s;
+        transition: .3s;
         border-top: 1px solid #eee;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
+        z-index: ${({ hide }) => (hide ? -1 : 1)}
                     
 `;
 
@@ -140,11 +162,12 @@ const SmallScreenSearch = Styled.div`
         background: #fff;
         width: 100%;
         position: absolute;
-        top: ${({ hide }) => (hide ? '-50px' : '50px')};
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
         left: 0;
-        transition: .5s;
+        transition: .3s;
         border-top: 1px solid #eee;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
+        z-index: ${({ hide }) => (hide ? -1 : 1)}
                     
 `;
 

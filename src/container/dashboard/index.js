@@ -576,7 +576,7 @@ const Dashbord = () => {
                         height={60}
                         datasets={[
                           {
-                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            data: [0, -10, 18, 5, 17, 0, 1, 2, 11, 30, 15, 30],
                             borderColor: '#C6D0DC',
                             borderWidth: 2,
                             fill: false,
@@ -606,7 +606,7 @@ const Dashbord = () => {
                         height={60}
                         datasets={[
                           {
-                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            data: [0, 15, 10, 18, 20, 15, 10, 7, 15, 8, 10, 30],
                             borderColor: '#C6D0DC',
                             borderWidth: 2,
                             fill: false,
@@ -636,7 +636,7 @@ const Dashbord = () => {
                           height={60}
                           datasets={[
                             {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                              data: [0, 10, 0, 15, 0, 18, 0, 10, 12, 18, 25, 30],
                               borderColor: '#C6D0DC',
                               borderWidth: 2,
                               fill: false,
@@ -726,7 +726,7 @@ const Dashbord = () => {
                         height={60}
                         datasets={[
                           {
-                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            data: [0, 12, 7, 18, 5, 12, 17, 12, 18, 30, 25, 35],
                             borderColor: '#C6D0DC',
                             borderWidth: 2,
                             fill: false,
@@ -786,7 +786,7 @@ const Dashbord = () => {
                         height={60}
                         datasets={[
                           {
-                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            data: [0, 8, 10, 17, 9, 12, 13, 18, 20, 27, 30, 34],
                             borderColor: '#C6D0DC',
                             borderWidth: 2,
                             fill: false,
@@ -812,7 +812,7 @@ const Dashbord = () => {
                   </Col>
                   <Col md={14}>
                     <div className="border-linechart">
-                      
+
                       <ChartjsLineChart
                         height={60}
                         datasets={[
@@ -909,7 +909,7 @@ const Dashbord = () => {
                         height={60}
                         datasets={[
                           {
-                            data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                            data: [0, 5, 15, 7, 17, 10, 5, 20, 10, 35, 20, 30],
                             borderColor: '#C6D0DC',
                             borderWidth: 2,
                             fill: false,
@@ -918,7 +918,7 @@ const Dashbord = () => {
                         options={options}
                       />
                     </div>
-                      
+
                     </Col>
                   </Row>
                   <Row className="line-chart-row">

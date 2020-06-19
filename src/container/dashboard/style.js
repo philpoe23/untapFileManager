@@ -125,10 +125,16 @@ const Focard = Styled.div`
 
 const CardBarChart = Styled.div`
     .chartjs-render-monitor{
-        height: 290px !important;
+        height: 308px !important;
     }
     .card-bar-top{
-        margin-left: -20px;
+        &.flex-grid{
+            margin-left: -20px;
+            h1{
+                font-size: 24px;
+                margin-bottom: 22px;
+            }
+        }
         .flex-grid-child{
             padding: 0 20px;
         }
@@ -138,12 +144,11 @@ const CardBarChart = Styled.div`
             color: ${({theme})=>theme['light-color']};
         }
         h1{
-            font-size: 24px;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             sub{
                 bottom: 0;
                 font-size: 14px;
-                margin-left: 10px;
+                margin-left: 8px;
                 color: ${({theme})=>theme['success-color']};
                 svg{
                     margin-right: 4px;
@@ -380,7 +385,13 @@ const OverviewCard = Styled.div`
         .ant-card-body{
             padding: 22px 25px 14px !important;
         }
+        .ant-progress{
+            margin-bottom: 15px;
+        }
         .overview-box-single{
+            h1{
+                margin-bottom: 2px;
+            }
             p{
                 color: ${({theme})=>theme["light-color"]};
             }
@@ -390,6 +401,9 @@ const OverviewCard = Styled.div`
             span{
                 margin-left: 6px;
             }
+        }
+        .overview-box-percentage{
+            font-weight: 500;
         }
     }
     .ant-card{
@@ -420,6 +434,7 @@ const OverviewCard = Styled.div`
         }
         .ant-btn-default{
             background: rgba(255,255,255,0.1);
+            padding: 0px 11px;
             border: 0 none;
             color: #fff;
         }
@@ -430,12 +445,15 @@ const Pstates = Styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: -25px 0 30px;
-    div{
+    margin: -25px 0 25px;
+    >div{
         transition: 0.3s ease;
         padding: 20px;
         &:hover{
             box-shadow: 0 15px 30px rgba(146,153,184,0.15);
+            p{
+                color: ${({theme})=>theme['primary-color']};
+            }
         }
         &.growth-downward{
             background: ${({theme})=>theme['bg-color-light']};
@@ -464,6 +482,53 @@ const SessionState = Styled.div`
 const RegionList = Styled.div`
     max-height: 300px;
     overflow: hidden auto;
+    border: 1px solid ${({theme})=>theme["border-color-light"]};
+    table{
+        tr{
+            &:first-child{
+                td{
+                    padding-top: 15px;
+                }
+            }
+            &:last-child{
+                td{
+                    padding-bottom: 15px;
+                }
+            }
+            th{
+                background: ${({theme})=>theme["bg-color-light"]};
+                padding: 9px 20px;
+                border: 0 none;
+            }
+            td{
+                border: 0 none;
+                padding: 5px 20px;
+            }
+        }
+    }
+    
+`;
+
+const RegionMap = Styled.div`
+    text-align: center;
+    svg{
+        height: 200px;
+        margin: 0 auto;
+    }
+`;
+
+const LadingPages = Styled.div`
+    table{
+        tbody{
+            tr{
+                td{
+                    .page-title{
+                        color: ${({theme})=>theme["primary-color"]};
+                    }
+                }
+            }
+        }
+    }
 `;
 
 const CardBarChart2 = Styled.div`
@@ -483,7 +548,7 @@ const CardBarChart2 = Styled.div`
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin: 15px 0 0 0;
+        margin: 21px 0 0 0;
         .growth-upward, .growth-downward{
             display: inline-flex;
             align-items: center;
@@ -592,6 +657,16 @@ const LocationMapWrapper = Styled.div`
         min-height: 180px;
         border-top: 1px solid ${({theme})=>theme['border-color-light']} !important;
         table{
+            thead{
+                th{
+                    font-size: 12px;
+                    background: #fff;
+                    border: 0 none;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    color: ${({theme})=>theme['light-color']};
+                }
+            }
             tr{
                 &:hover{
                     td{
@@ -614,20 +689,50 @@ const LocationMapWrapper = Styled.div`
                     }
                 }
             }
-            thead{
-                th{
-                    background: #fff;
-                    border: 0 none;
-                    font-weight: 400;
-                    color: ${({theme})=>theme['light-color']}
-                }
-            }
+        }
+    }
+`;
+
+const RevenueWrapper = Styled.div`
+    .revenue-count{
+        text-align: center;
+        span{
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        span + span{
+            margin-left: 15px;
         }
     }
 `;
 
 const RevenueChartWrapper = Styled.div`
+    
+`;
 
+const TrafficTableWrapper = Styled.div`
+    table{
+        min-height: 395px;
+        thead{
+            tr{
+                th{
+                    background: #fff;
+                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
+                    color: ${({theme})=>theme['dark-color']}
+                    padding: 16px 25px;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    padding: 16px 25px;
+                    color: ${({theme})=>theme['gray-color']};
+                }
+            }
+        }
+    }
 `;
 
 export {
@@ -639,6 +744,8 @@ export {
     OverviewCard,
     Pstates,
     SessionState,
+    RegionMap,
+    LadingPages,
     RegionList,
     CardBarChart2,
     SocialMediaWrapper,
@@ -646,5 +753,7 @@ export {
     RatioCard,
     IncomeExpenseWrapper,
     LocationMapWrapper,
-    RevenueChartWrapper
+    RevenueWrapper,
+    RevenueChartWrapper,
+    TrafficTableWrapper
 };

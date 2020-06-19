@@ -39,7 +39,7 @@ const ShoppingCart = ({ match }) => {
           </FigureCart>
         </div>
       ),
-      price: <span className="cart-single-price">'$' + 248.66</span>,
+      price: <span className="cart-single-price">$248.66</span>,
       quantity: (
         <div className="cart-single-quantity">
           <Button className="btn-dec" type="default">
@@ -51,7 +51,7 @@ const ShoppingCart = ({ match }) => {
           </Button>
         </div>
       ),
-      total: <span className="cart-single-t-price">'$' + 248.66</span>,
+      total: <span className="cart-single-t-price">$248.66</span>,
       action: (
         <div className="table-action">
           <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
@@ -84,7 +84,7 @@ const ShoppingCart = ({ match }) => {
           </FigureCart>
         </div>
       ),
-      price: <span className="cart-single-price">'$' + 248.66</span>,
+      price: <span className="cart-single-price">$248.66</span>,
       quantity: (
         <div className="cart-single-quantity">
           <Button className="btn-dec" type="default">
@@ -96,7 +96,7 @@ const ShoppingCart = ({ match }) => {
           </Button>
         </div>
       ),
-      total: <span className="cart-single-t-price">'$' + 248.66</span>,
+      total: <span className="cart-single-t-price">$248.66</span>,
       action: (
         <div className="table-action">
           <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>

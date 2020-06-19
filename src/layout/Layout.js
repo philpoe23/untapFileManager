@@ -97,7 +97,7 @@ const ThemeLayout = WrappedComponent => {
                   </Col>
                 ) : (
                   <SmallScreenSearch hide={this.state.searchHide}>
-                    <HeaderSearch />
+                      <HeaderSearch />
                   </SmallScreenSearch>
                 )}
 
@@ -113,12 +113,14 @@ const ThemeLayout = WrappedComponent => {
 
                 {this.state.width <= 800 && (
                   <Fragment>
-                    <Link onClick={this.handleSearchHide} to="#">
-                      {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
-                    </Link>
-                    <Link onClick={this.onShowHide} to="#">
-                      <FeatherIcon icon="more-vertical" />
-                    </Link>
+                    <div className="mobile-action">
+                      <Link className="btn-search" onClick={this.handleSearchHide} to="#">
+                        {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
+                      </Link>
+                      <Link className="btn-auth" onClick={this.onShowHide} to="#">
+                        <FeatherIcon icon="more-vertical" />
+                      </Link>
+                    </div>
                   </Fragment>
                 )}
               </Row>
@@ -163,7 +165,7 @@ const ThemeLayout = WrappedComponent => {
     height: '100vh',
     position: 'fixed',
     left: 0,
-    zIndex: 1,
+    zIndex: 9999,
   };
 
   return LayoutComponent;
