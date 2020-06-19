@@ -20,16 +20,15 @@ const Div = Styled.div`
 
     /* Sidebar styles */
     .ant-layout-sider{
-        padding-left: 15px;
-        padding-right: 15px;
         .ant-layout-sider-children{
-            padding-bottom: 50px;
+            padding-bottom: 15px;
             >.sidebar-nav-title{
                 margin-top: 8px;
             }
+            
             .ant-menu{
+                overflow-x: hidden;
                 border-right: 0 none;
-
                 .ant-menu-submenu, .ant-menu-item{
                     .feather{
                         font-size: 16px;
@@ -42,15 +41,22 @@ const Div = Styled.div`
                         color: ${({ theme }) => theme['dark-color']};
                         transition: 0.3s ease;
                     }
-                    .ant-menu-submenu-title{
-                        padding-left: 15px !important;
+                }
+                .ant-menu-submenu-inline{
+                    > .ant-menu-submenu-title{
+                        padding: 0 30px !important;
+                        .ant-menu-submenu-arrow{
+                            right: 24px;
+                        }
                     }
                     .ant-menu-item{
                         padding-left: 48px !important;
+                        padding-right: 0 !important;
+                        transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
                     }
                 }
                 .ant-menu-item{
-                    padding-left: 15px !important;
+                    padding: 0 30px !important; 
                     a{
                         display: flex !important;
                         align-items: center;
@@ -79,10 +85,18 @@ const Div = Styled.div`
                     margin-bottom: 24px;
                 }
                 &.ant-menu-inline-collapsed{
+                    .ant-menu-submenu{
+                        text-align: center;
+                        .ant-menu-submenu-title{
+                            padding: 0 20px;
+                        }
+                    }
+                    .ant-menu-item{
+                        padding: 0 28px !important;
+                    }
                     .ant-menu-submenu, .ant-menu-item{
                         span{
-                            visibility: hidden;
-                            opacity: 0;
+                            display: none;
                         }
                     }
                 }
@@ -93,7 +107,7 @@ const Div = Styled.div`
             font-weight: 600;
             text-transform: uppercase;
             color: #868EAE;
-            padding: 0 15px;
+            padding: 0 30px;
         }
         &.ant-layout-sider-collapsed{
             .sidebar-nav-title{
