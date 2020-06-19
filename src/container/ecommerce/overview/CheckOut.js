@@ -160,39 +160,42 @@ const CheckOut = () => {
       <Steps
       isswitch
       current={0}
-      height={400}
       status={status}
       steps={[
         {
           title: 'Create Account',
           content: (
             <BasicFormWrapper>
-
-              <div className="atbd-form-checkout">
-                <Heading as="h4">1. Please Create Your Account</Heading>
-                <Form form={form} name="account">
-                  <Form.Item name="username" label="Username">
-                    <Input placeholder="Username" />
-                  </Form.Item>
-                  <Form.Item name="email" rules={[{ type: 'email' }]} label="Email Address">
-                    <Input placeholder="name@gmail.com" />
-                  </Form.Item>
-                  <Form.Item
-                    name="password"
-                    rules={[
-                      {
-                        min: 6,
-                        message: 'Enter a valid password. Min 6 charecters long.',
-                      },
-                    ]}
-                    label="Password"
-                  >
-                    <Input.Password placeholder="Password" />
-                    <span className="input-message">Enter a valid password. Min 6 characters long</span>
-                  </Form.Item>
-                </Form>
-              </div>
-
+                <div className="atbd-form-checkout">
+                  <Row justify="center">
+                    <Col xl={22}>
+                      <div className="create-account-form">
+                        <Heading as="h4">1. Please Create Your Account</Heading>
+                        <Form form={form} name="account">
+                          <Form.Item name="username" label="Username">
+                            <Input placeholder="Username" />
+                          </Form.Item>
+                          <Form.Item name="email" rules={[{ type: 'email' }]} label="Email Address">
+                            <Input placeholder="name@gmail.com" />
+                          </Form.Item>
+                          <Form.Item
+                            name="password"
+                            rules={[
+                              {
+                                min: 6,
+                                message: 'Enter a valid password. Min 6 charecters long.',
+                              },
+                            ]}
+                            label="Password"
+                          >
+                            <Input.Password placeholder="Password" />
+                            <span className="input-message">Enter a valid password. Min 6 characters long</span>
+                          </Form.Item>
+                        </Form>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
             </BasicFormWrapper>
           ),
         },
@@ -201,37 +204,43 @@ const CheckOut = () => {
           content: (
             <BasicFormWrapper>
               <div className="atbd-form-checkout">
-                <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
-                <Form form={form} name="address">
-                  <Form.Item name="name" label="Contact Name">
-                    <Input placeholder="Ibn adam" />
-                  </Form.Item>
-                  <Form.Item name="company" label="Company Name (Optional)">
-                    <Input placeholder="adam" />
-                  </Form.Item>
-                  <Form.Item name="phone" label="Phone Number">
-                    <Input placeholder="+880" />
-                  </Form.Item>
-                  <Form.Item name="country" initialValue="" label="Country/Region">
-                    <Select style={{ width: '100%' }}>
-                      <Option value="">Please Select</Option>
-                      <Option value="bangladesh">Bangladesh</Option>
-                      <Option value="india">India</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item name="street" label="Street Address">
-                    <Input placeholder="House Number and Street Name" />
-                  </Form.Item>
-                  <Form.Item name="street2" label="">
-                    <Input placeholder="Apartment, Suite, Unit etc." />
-                  </Form.Item>
-                  <Form.Item name="city" label="City">
-                    <Input placeholder="Enter City" />
-                  </Form.Item>
-                  <Form.Item name="zip" label="Zip/Postal Code">
-                    <Input placeholder="Enter Zip" />
-                  </Form.Item>
-                </Form>
+                <Row justify="center">
+                  <Col xl={22}>
+                    <div className="shipping-form">
+                      <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
+                      <Form form={form} name="address">
+                        <Form.Item name="name" label="Contact Name">
+                          <Input placeholder="Ibn adam" />
+                        </Form.Item>
+                        <Form.Item name="company" label="Company Name (Optional)">
+                          <Input placeholder="adam" />
+                        </Form.Item>
+                        <Form.Item name="phone" label="Phone Number">
+                          <Input placeholder="+880" />
+                        </Form.Item>
+                        <Form.Item name="country" initialValue="" label="Country/Region">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">Please Select</Option>
+                            <Option value="bangladesh">Bangladesh</Option>
+                            <Option value="india">India</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item name="street" label="Street Address">
+                          <Input placeholder="House Number and Street Name" />
+                        </Form.Item>
+                        <Form.Item name="street2" label="">
+                          <Input placeholder="Apartment, Suite, Unit etc." />
+                        </Form.Item>
+                        <Form.Item name="city" label="City">
+                          <Input placeholder="Enter City" />
+                        </Form.Item>
+                        <Form.Item name="zip" label="Zip/Postal Code">
+                          <Input placeholder="Enter Zip" />
+                        </Form.Item>
+                      </Form>
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </BasicFormWrapper>
           ),
@@ -241,88 +250,94 @@ const CheckOut = () => {
           content: (
             <BasicFormWrapper>
               <div className="atbd-form-checkout">
-                <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
-                <div className="shipping-selection">
-                  <Radio.Group style={{ width: '100%' }}>
-                    <div className="shipping-selection__card">
-                      <Radio style={{ width: '100%' }} value="card">
-                        <Cards
-                          headless
-                          bodyStyle={{
-                            backgroundColor: '#F8F9FB',
-                            borderRadius: '20px'
-                          }}
-                        >
-                          <div className="supported-card d-flex">
-                            <span>Credit/Debit Card</span>
-                            <div className="supported-card_logos">
-                              <img
-                                style={{ width: '50px' }}
-                                src={require('../../../static/img/cards-logo/ms.png')}
-                                alt=""
-                              />
-                              <img
-                                style={{ width: '50px' }}
-                                src={require('../../../static/img/cards-logo/american-express.png')}
-                                alt=""
-                              />
-                              <img
-                                style={{ width: '50px' }}
-                                src={require('../../../static/img/cards-logo/visa.png')}
-                                alt=""
-                              />
-                            </div>
+                <Row justify="center">
+                  <Col xl={22}>
+                    <div className="payment-method-form">
+                      <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
+                      <div className="shipping-selection">
+                        <Radio.Group style={{ width: '100%' }}>
+                          <div className="shipping-selection__card">
+                            <Radio style={{ width: '100%' }} value="card">
+                              <Cards
+                                headless
+                                bodyStyle={{
+                                  backgroundColor: '#F8F9FB',
+                                  borderRadius: '20px'
+                                }}
+                              >
+                                <div className="supported-card d-flex">
+                                  <span>Credit/Debit Card</span>
+                                  <div className="supported-card_logos">
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/ms.png')}
+                                      alt=""
+                                    />
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/american-express.png')}
+                                      alt=""
+                                    />
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/visa.png')}
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <Cards headless style={{marginBottom: 0}}>
+                                  <Form form={form} name="info">
+                                    <Form.Item name="number" label="Card Number">
+                                      <Input placeholder="6547-8702-6987-2527" />
+                                    </Form.Item>
+                                    <Form.Item name="name" label="Name on Card">
+                                      <Input placeholder="Full name" />
+                                    </Form.Item>
+                                    <Form.Item name="month" initialValue="" label="Expiration Date">
+                                      <Select style={{ width: '100%' }}>
+                                        <Option value="">MM</Option>
+                                        {month.map((month, key) => (
+                                          <Option key={key} value={month}>
+                                            {month}
+                                          </Option>
+                                        ))}
+                                      </Select>
+                                    </Form.Item>
+                                    <Form.Item name="year" initialValue="">
+                                      <Select style={{ width: '100%' }}>
+                                        <Option value="">YY</Option>
+                                        <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
+                                        {month.map((month, key) => (
+                                          <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
+                                            {parseInt(new Date().getFullYear()) + parseInt(month)}
+                                          </Option>
+                                        ))}
+                                      </Select>
+                                    </Form.Item>
+                                    <Form.Item name="cvv" label="CVV">
+                                      <Input style={{ width: '60%' }} placeholder="XXX" />
+                                      <Link className="input-leftText" to="#"> What is this?</Link>
+                                    </Form.Item>
+                                  </Form>
+                                </Cards>
+                              </Cards>
+                            </Radio>
                           </div>
-                          <Cards headless style={{marginBottom: 0}}>
-                            <Form form={form} name="info">
-                              <Form.Item name="number" label="Card Number">
-                                <Input placeholder="6547-8702-6987-2527" />
-                              </Form.Item>
-                              <Form.Item name="name" label="Name on Card">
-                                <Input placeholder="Full name" />
-                              </Form.Item>
-                              <Form.Item name="month" initialValue="" label="Expiration Date">
-                                <Select style={{ width: '100%' }}>
-                                  <Option value="">MM</Option>
-                                  {month.map((month, key) => (
-                                    <Option key={key} value={month}>
-                                      {month}
-                                    </Option>
-                                  ))}
-                                </Select>
-                              </Form.Item>
-                              <Form.Item name="year" initialValue="">
-                                <Select style={{ width: '100%' }}>
-                                  <Option value="">YY</Option>
-                                  <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
-                                  {month.map((month, key) => (
-                                    <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
-                                      {parseInt(new Date().getFullYear()) + parseInt(month)}
-                                    </Option>
-                                  ))}
-                                </Select>
-                              </Form.Item>
-                              <Form.Item name="cvv" label="CVV">
-                                <Input style={{ width: '60%' }} placeholder="XXX" />
-                                <Link className="input-leftText" to="#"> What is this?</Link>
-                              </Form.Item>
-                            </Form>
-                          </Cards>
-                        </Cards>
-                      </Radio>
+                          <div className="shipping-selection__paypal">
+                            <Radio value="payPal" style={{ width: '100%' }}>
+                                Pay With PayPal
+                              </Radio>
+                          </div>
+                          <div className="shipping-selection__cash">
+                            <Radio value="cash" style={{ width: '100%' }}>
+                              Cash on delivery
+                            </Radio>
+                          </div>
+                        </Radio.Group>
+                      </div>
                     </div>
-                    <div className="shipping-selection__paypal">
-                      <Radio value="payPal" style={{ width: '100%' }}>
-                          Pay With PayPal
-                        </Radio>
-                    </div>
-                    <div className="shipping-selection__cash">
-                      <Radio value="cash" style={{ width: '100%' }}>
-                        Cash on delivery
-                      </Radio>
-                    </div>
-                  </Radio.Group>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </BasicFormWrapper>
           ),

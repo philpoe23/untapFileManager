@@ -1,8 +1,10 @@
 import React, { useState, Fragment } from 'react';
-import { Button, message } from 'antd';
+import { Row, Col, Button, message } from 'antd';
 import PropTypes from 'prop-types';
-import { StepsStyle } from './style';
+import { StepsStyle, ActionWrapper } from './style';
+import FeatherIcon from 'feather-icons-react';
 const { Step } = StepsStyle;
+
 
 const Steps = ({
   size,
@@ -78,25 +80,34 @@ const Steps = ({
       </div>
 
       {!isfinished && (
-        <div className="steps-action">
-          {state.currents < steps.length - 1 && (
-            <Button type="primary" onClick={() => next()}>
-              Next
-            </Button>
-          )}
+        <ActionWrapper>
+            <Row justify="center">
+              <Col xs={12}>
+                <div className="steps-action">
+                  {state.currents > 0 && (
+                    <Button className="btn-prev" type="light" style={{ marginLeft: 8 }} onClick={() => prev()}>
+                      <FeatherIcon icon="arrow-left" size={16} />
+                      Previous
+                    </Button>
+                  )}
 
-          {state.currents === steps.length - 1 && (
-            <Button type="primary" onClick={onDone}>
-              Done
-            </Button>
-          )}
+                  {state.currents < steps.length - 1 && (
+                    <Button className="btn-next" size="default" type="primary" onClick={() => next()}>
+                      Save & Next
+                      <FeatherIcon icon="arrow-right" size={16} />
+                    </Button>
+                  )}
 
-          {state.currents > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => prev()}>
-              Previous
-            </Button>
-          )}
-        </div>
+                  {state.currents === steps.length - 1 && (
+                    <Button type="primary" onClick={onDone}>
+                      Done
+                    </Button>
+                  )}
+
+                </div>
+              </Col>
+            </Row>
+        </ActionWrapper>
       )}
     </Fragment>
   );

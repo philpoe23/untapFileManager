@@ -1271,8 +1271,8 @@ const CheckoutWrapper = Styled.div`
             }
         }
     }
-   .atbd-form-checkout{
-       max-width: 540px;
+    .atbd-form-checkout{
+        min-width: 580px;
        h1{
            font-size: 20px;
            font-weight: 500;
