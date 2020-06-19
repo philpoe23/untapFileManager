@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -8,6 +8,25 @@ import rechartdata from '../../../config/dataService/recharts.json';
 const { data } = rechartdata;
 
 const ReChartComposed = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+  });
+  const { responsive } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <Fragment>
       <PageHeader title="Rechats Composed Chart" />
@@ -16,8 +35,8 @@ const ReChartComposed = () => {
           <Col md={12} xs={24}>
             <Cards title="LINE BAR AREA COMPOSED CHART" size="large">
               <ComposedChart
-                width={630}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -42,8 +61,8 @@ const ReChartComposed = () => {
             <Cards title="VERTICAL COMPOSED CHART" size="large">
               <ComposedChart
                 layout="vertical"
-                width={630}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -66,8 +85,8 @@ const ReChartComposed = () => {
           <Col md={12} xs={24}>
             <Cards title="SAME DATA COMPOSED CHART" size="large">
               <ComposedChart
-                width={630}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -89,8 +108,8 @@ const ReChartComposed = () => {
           <Col md={12} xs={24}>
             <Cards title="COMPOSED CHART WITH AXIS LABELS" size="large">
               <ComposedChart
-                width={630}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
