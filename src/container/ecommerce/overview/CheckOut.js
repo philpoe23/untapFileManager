@@ -9,11 +9,14 @@ import FeatherIcon from 'feather-icons-react';
 import { FigureCart } from '../Style';
 
 const { Option } = Select;
-const CheckOut = ({ form }) => {
+const CheckOut = () => {
+  const [form] = Form.useForm();
+
   const [state, setState] = useState({
     status: 'process',
     isfinished: false,
   });
+
   const { status, isfinished } = state;
 
   const next = current => {
@@ -40,7 +43,6 @@ const CheckOut = ({ form }) => {
     });
   };
 
-  const { getFieldDecorator } = form;
   const month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
   const dataSource = [
@@ -127,7 +129,7 @@ const CheckOut = ({ form }) => {
   return (
     <Steps
       isswitch
-      current={3}
+      current={0}
       height={400}
       status={status}
       steps={[
@@ -136,24 +138,24 @@ const CheckOut = ({ form }) => {
           content: (
             <div>
               <Heading as="h4">1. Please Create Your Account</Heading>
-              <Form>
-                <Form.Item label="Username">
-                  {getFieldDecorator('username', {})(<Input placeholder="Username" />)}
+              <Form form={form} name="account">
+                <Form.Item name="username" label="Username">
+                  <Input placeholder="Username" />
                 </Form.Item>
-                <Form.Item label="Email Address">
-                  {getFieldDecorator('email', {
-                    rules: [{ type: 'email' }],
-                  })(<Input placeholder="name@gmail.com" />)}
+                <Form.Item name="email" rules={[{ type: 'email' }]} label="Email Address">
+                  <Input placeholder="name@gmail.com" />
                 </Form.Item>
-                <Form.Item label="Password">
-                  {getFieldDecorator('password', {
-                    rules: [
-                      {
-                        min: 6,
-                        message: 'Enter a valid password. Min 6 charecters long.',
-                      },
-                    ],
-                  })(<Input.Password placeholder="Password" />)}
+                <Form.Item
+                  name="password"
+                  rules={[
+                    {
+                      min: 6,
+                      message: 'Enter a valid password. Min 6 charecters long.',
+                    },
+                  ]}
+                  label="Password"
+                >
+                  <Input.Password placeholder="Password" />
                 </Form.Item>
               </Form>
             </div>
@@ -164,36 +166,34 @@ const CheckOut = ({ form }) => {
           content: (
             <div>
               <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
-              <Form>
-                <Form.Item label="Contact Name">
-                  {getFieldDecorator('name', {})(<Input placeholder="Ibn adam" />)}
+              <Form form={form} name="address">
+                <Form.Item name="name" label="Contact Name">
+                  <Input placeholder="Ibn adam" />
                 </Form.Item>
-                <Form.Item label="Company Name (Optional)">
-                  {getFieldDecorator('company', {})(<Input placeholder="adam" />)}
+                <Form.Item name="company" label="Company Name (Optional)">
+                  <Input placeholder="adam" />
                 </Form.Item>
-                <Form.Item label="Phone Number">
-                  {getFieldDecorator('phone', {})(<Input placeholder="+880" />)}
+                <Form.Item name="phone" label="Phone Number">
+                  <Input placeholder="+880" />
                 </Form.Item>
-                <Form.Item label="Country/Region">
-                  {getFieldDecorator('country', {
-                    initialValue: '',
-                  })(
-                    <Select style={{ width: '100%' }}>
-                      <Option value="">Please Select</Option>
-                      <Option value="bangladesh">Bangladesh</Option>
-                      <Option value="india">India</Option>
-                    </Select>,
-                  )}
+                <Form.Item name="country" initialValue="" label="Country/Region">
+                  <Select style={{ width: '100%' }}>
+                    <Option value="">Please Select</Option>
+                    <Option value="bangladesh">Bangladesh</Option>
+                    <Option value="india">India</Option>
+                  </Select>
                 </Form.Item>
-                <Form.Item label="Street Address">
-                  {getFieldDecorator('street', {})(<Input placeholder="House Number and Street Name" />)}
+                <Form.Item name="street" label="Street Address">
+                  <Input placeholder="House Number and Street Name" />
                 </Form.Item>
-                <Form.Item label="">
-                  {getFieldDecorator('street2', {})(<Input placeholder="Apartment, Suite, Unit etc." />)}
+                <Form.Item name="street2" label="">
+                  <Input placeholder="Apartment, Suite, Unit etc." />
                 </Form.Item>
-                <Form.Item label="City">{getFieldDecorator('city', {})(<Input placeholder="Enter City" />)}</Form.Item>
-                <Form.Item label="Zip/Postal Code">
-                  {getFieldDecorator('street2', {})(<Input placeholder="Enter Zip" />)}
+                <Form.Item name="city" label="City">
+                  <Input placeholder="Enter City" />
+                </Form.Item>
+                <Form.Item name="zip" label="Zip/Postal Code">
+                  <Input placeholder="Enter Zip" />
                 </Form.Item>
               </Form>
             </div>
@@ -231,44 +231,36 @@ const CheckOut = ({ form }) => {
                       />
                     </div>
                     <Cards headless>
-                      <Form>
-                        <Form.Item label="Card Number">
-                          {getFieldDecorator('number', {})(<Input placeholder="6547-8702-6987-2527" />)}
+                      <Form form={form} name="info">
+                        <Form.Item name="number" label="Card Number">
+                          <Input placeholder="6547-8702-6987-2527" />
                         </Form.Item>
-                        <Form.Item label="Name on Card">
-                          {getFieldDecorator('name', {})(<Input placeholder="Full name" />)}
+                        <Form.Item name="name" label="Name on Card">
+                          <Input placeholder="Full name" />
                         </Form.Item>
-                        <Form.Item label="Expiration Date">
-                          {getFieldDecorator('month', {
-                            initialValue: '',
-                          })(
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">MM</Option>
-                              {month.map((month, key) => (
-                                <Option key={key} value={month}>
-                                  {month}
-                                </Option>
-                              ))}
-                            </Select>,
-                          )}
+                        <Form.Item name="month" initialValue="" label="Expiration Date">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">MM</Option>
+                            {month.map((month, key) => (
+                              <Option key={key} value={month}>
+                                {month}
+                              </Option>
+                            ))}
+                          </Select>
                         </Form.Item>
-                        <Form.Item>
-                          {getFieldDecorator('year', {
-                            initialValue: '',
-                          })(
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">YY</Option>
-                              <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
-                              {month.map((month, key) => (
-                                <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
-                                  {parseInt(new Date().getFullYear()) + parseInt(month)}
-                                </Option>
-                              ))}
-                            </Select>,
-                          )}
+                        <Form.Item name="year" initialValue="">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">YY</Option>
+                            <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
+                            {month.map((month, key) => (
+                              <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
+                                {parseInt(new Date().getFullYear()) + parseInt(month)}
+                              </Option>
+                            ))}
+                          </Select>
                         </Form.Item>
-                        <Form.Item label="CVV">
-                          {getFieldDecorator('cvv', {})(<Input style={{ width: '60%' }} placeholder="XXX" />)}
+                        <Form.Item name="cvv" label="CVV">
+                          <Input style={{ width: '60%' }} placeholder="XXX" />
                           <Link to="#"> What is this?</Link>
                         </Form.Item>
                       </Form>
@@ -353,4 +345,4 @@ const CheckOut = ({ form }) => {
   );
 };
 
-export default Form.create({ name: 'checkout' })(CheckOut);
+export default CheckOut;

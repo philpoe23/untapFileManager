@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Row, Col, Table, Progress, Pagination } from 'antd';
 import Heading from '../../../components/heading/heading';
 import { connect } from 'react-redux';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Link } from 'react-router-dom';
 import { ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList } from '../style';
+import { Dropdown } from '../../../components/dropdown/dropdown';
+import FeatherIcon from 'feather-icons-react';
 
 const List = props => {
   const [state, setState] = useState({
@@ -49,27 +51,56 @@ const List = props => {
             <p>{category}</p>
           </ProjectListTitle>
         ),
-        startDate: (<span className="date-started">26 Dec 2019</span>),
-        deadline: (<span className="date-finished">18 Mar 2020</span>),
+        startDate: <span className="date-started">26 Dec 2019</span>,
+        deadline: <span className="date-finished">18 Mar 2020</span>,
         assigned: (
           <ProjectListAssignees>
             <ul>
-              <li><img src={require(`../../../static/img/users/1.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/2.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/3.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/4.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/5.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/6.png`)} alt="" /></li>
-              <li><img src={require(`../../../static/img/users/7.png`)} alt="" /></li>
+              <li>
+                <img src={require(`../../../static/img/users/1.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/2.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/3.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/4.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/5.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/6.png`)} alt="" />
+              </li>
+              <li>
+                <img src={require(`../../../static/img/users/7.png`)} alt="" />
+              </li>
             </ul>
           </ProjectListAssignees>
         ),
-        status: status,
+        status: <span className={status}>{status}</span>,
         completion: (
           <div className="project-list-progress">
             <Progress percent={84} status="active" />
             <p>12/15 Task Completed</p>
           </div>
+        ),
+        action: (
+          <Dropdown
+            content={
+              <Fragment>
+                <Link to="#">View</Link>
+                <Link to="#">Edit</Link>
+                <Link to="#">Delete</Link>
+              </Fragment>
+            }
+          >
+            <Link to="#">
+              <FeatherIcon icon="more-horizontal" size={18} />
+            </Link>
+          </Dropdown>
         ),
       });
     });
@@ -101,9 +132,9 @@ const List = props => {
       key: 'status',
     },
     {
-      title: 'Completion',
-      dataIndex: 'completion',
-      key: 'completion',
+      title: '',
+      dataIndex: 'action',
+      key: 'action',
     },
   ];
 
