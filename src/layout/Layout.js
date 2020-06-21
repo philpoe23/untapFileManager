@@ -59,6 +59,7 @@ const ThemeLayout = WrappedComponent => {
     onShowHide = () => {
       this.setState({
         hide: this.state.hide ? false : true,
+        searchHide: true,
       });
     };
 
@@ -66,6 +67,7 @@ const ThemeLayout = WrappedComponent => {
       e.preventDefault();
       this.setState({
         searchHide: this.state.searchHide ? false : true,
+        hide: true,
       });
     };
 
@@ -97,7 +99,7 @@ const ThemeLayout = WrappedComponent => {
                   </Col>
                 ) : (
                   <SmallScreenSearch hide={this.state.searchHide}>
-                      <HeaderSearch />
+                    <HeaderSearch />
                   </SmallScreenSearch>
                 )}
 
