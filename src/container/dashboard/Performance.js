@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Progress, Table } from 'antd';
+import { Row, Col, Progress, Table, Icon } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
@@ -12,6 +12,10 @@ import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { OverviewCard, Pstates, SessionState, RegionList,RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
+
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 
 const content = (
@@ -265,7 +269,23 @@ const handleActiveChange = e => {
 const Performance = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Website Performance Dashboard" />
+      <PageHeader 
+        ghost 
+        title="Website Performance Dashboard" 
+        buttons={[
+            
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col lg={8} md={12} sm={24} xs={24}>

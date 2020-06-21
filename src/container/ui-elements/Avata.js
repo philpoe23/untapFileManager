@@ -23,7 +23,7 @@ const Avatars = () => {
     <Fragment>
       <PageHeader title="Avatar" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
               <AvatarWraperStyle style={{marginBottom: 10}}>

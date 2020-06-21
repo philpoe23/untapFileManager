@@ -20,7 +20,7 @@ const DatePickers = () => {
     <Fragment>
       <PageHeader title="Date Picker" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <DatePickerWrapper>

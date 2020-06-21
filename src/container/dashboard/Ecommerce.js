@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Table } from 'antd';
+import { Row, Col, Radio, Table,Icon } from 'antd';
+import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -16,6 +17,10 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
 import { CardBarChart2, LocationMapWrapper,RevenueWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const content = (
   <Fragment>
@@ -370,7 +375,24 @@ const handleActiveChange = e => {
 const Ecommerce = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Ecommerce Dashboard" />
+      <PageHeader 
+        ghost 
+        title="Ecommerce Dashboard"
+        buttons={[
+
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+          
+        ]}
+
+      />
       <Main>
         <Row gutter={25}>
           <Col lg={6} md={12} sm={12} xs={24}>

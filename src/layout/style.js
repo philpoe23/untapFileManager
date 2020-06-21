@@ -31,9 +31,10 @@ const Div = Styled.div`
                 border-right: 0 none;
                 .ant-menu-submenu, .ant-menu-item{
                     .feather{
+                        width: 16px;
                         font-size: 16px;
                         color: ${({ theme }) => theme['extra-light-color']};
-                        margin-top: 7px;
+                        margin-top: 11px;
                     }
                     span{
                         padding-left: 20px;
@@ -44,24 +45,53 @@ const Div = Styled.div`
                 }
                 .ant-menu-submenu-inline{
                     > .ant-menu-submenu-title{
-                        padding: 0 30px !important;
+                        padding: 0 15px !important;
+                        svg,
+                        img{
+                            width: 16px;
+                            height: 16px;
+                        }
                         .ant-menu-submenu-arrow{
                             right: 24px;
+                            &:after,
+                            &:before{
+                                width: 8px;
+                                background: #868EAE;
+                                height: 1.25px;
+                            }
+                            &:before{
+                                transform: rotate(45deg) translateY(-4px);
+                            }
+                            &:after{
+                                transform: rotate(-45deg) translateY(4px);
+                            }
+                        }
+                    }
+                    &.ant-menu-submenu-open{
+                        > .ant-menu-submenu-title{
+                            .ant-menu-submenu-arrow{
+                                &:before{
+                                    transform: rotate(45deg) translateX(-4px);
+                                }
+                                &:after{
+                                    transform: rotate(-45deg) translateX(4px);
+                                }
+                            }
                         }
                     }
                     .ant-menu-item{
-                        padding-left: 48px !important;
+                        padding-left: 50px !important;
                         padding-right: 0 !important;
                         transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
                     }
                 }
                 .ant-menu-item{
-                    padding: 0 30px !important; 
+                    padding: 0 15px !important; 
                     a{
                         display: flex !important;
                         align-items: center;
                         .feather{
-                            font-size: 16px;
+                            width: 16px;
                             color: ${({ theme }) => theme['extra-light-color']};
                         }
                         span{
@@ -86,17 +116,18 @@ const Div = Styled.div`
                 }
                 &.ant-menu-inline-collapsed{
                     .ant-menu-submenu{
-                        text-align: center;
+                        text-align: left;
                         .ant-menu-submenu-title{
                             padding: 0 20px;
                         }
                     }
                     .ant-menu-item{
-                        padding: 0 28px !important;
+                        padding: 0 20px !important;
                     }
                     .ant-menu-submenu, .ant-menu-item{
                         span{
-                            display: none;
+                            opacity: 0;
+                            visibility: hidden;
                         }
                     }
                 }
@@ -107,9 +138,10 @@ const Div = Styled.div`
             font-weight: 600;
             text-transform: uppercase;
             color: #868EAE;
-            padding: 0 30px;
+            padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{
+            padding: 15px 10px 55px !important;
             .sidebar-nav-title{
                 display: none;
             }

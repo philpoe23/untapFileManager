@@ -51,7 +51,7 @@ const Badges = () => {
     <Fragment>
       <PageHeader ghost title="Badge" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
               <BadgeWraperStyle>

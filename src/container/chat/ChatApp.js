@@ -1,20 +1,28 @@
 import React, { Fragment, useState, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Spin,Icon } from 'antd';
+import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, Link } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
 import Heading from '../../components/heading/heading';
+import FeatherIcon from 'feather-icons-react';
 
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
 import AllContacts from './overview/AllContacts';
 
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+
+
 const SingleChat = lazy(() => import('./overview/singleChat'));
 const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
+
 
 const ChatApp = ({ searchData, match }) => {
   const [state, setState] = useState({
@@ -52,7 +60,23 @@ const ChatApp = ({ searchData, match }) => {
 
   return (
     <Fragment>
-      <PageHeader ghost title="Chat" />
+      <PageHeader 
+        ghost 
+        title="Chat" 
+        buttons={[
+              
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
 
       <Main>
         <Row gutter={30}>

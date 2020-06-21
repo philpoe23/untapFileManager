@@ -11,7 +11,7 @@ const Alerts = () => {
     <Fragment>
       <PageHeader title="Alerts" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic" size="large">
               <AlertList>

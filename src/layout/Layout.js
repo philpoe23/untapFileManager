@@ -159,7 +159,7 @@ const ThemeLayout = WrappedComponent => {
 
   const SideBarStyle = {
     margin: '64px 0 0 0',
-    padding: '15px 0 55px 0',
+    padding: '15px 15px 55px 15px',
     overflowY: 'auto',
     height: '100vh',
     position: 'fixed',

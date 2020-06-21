@@ -15,6 +15,7 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import actions from '../../redux/headerSearch/actions';
+
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -82,15 +83,17 @@ const Business = () => {
         ghost 
         title="Finance Dashboard" 
         buttons={[
-          
-          <CalendarButtonPageHeader className="rrrr" key="1" />,
-          <ExportButtonPageHeader key="2" />,
-          <ShareButtonPageHeader key="3" />,
-          <Button key="4" type="primary">
-            <Icon type="plus" />
-            Add New
-          </Button>,
-          // <DateRangePickerOne key="5" />,
+
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
         ]}
       />
       <Main>

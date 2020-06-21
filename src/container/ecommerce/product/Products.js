@@ -2,12 +2,17 @@ import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Radio, Spin } from 'antd';
+import { Row, Col, Radio, Spin,Icon } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import { TopToolBox } from '../Style';
 import FeatherIcon from 'feather-icons-react';
 import { sorting } from '../../../redux/product/actionCreator';
+import { Button } from '../../../components/buttons/buttons';
+
+import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
@@ -37,7 +42,23 @@ const Product = ({ match }) => {
 
   return (
     <Fragment>
-      <PageHeader ghost title="Shop" />
+      <PageHeader 
+        ghost 
+        title="Shop" 
+        buttons={[
+            
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
       <Main>
         <Row gutter={30}>
           <Col xxl={5} xl={7} lg={7} md={10} xs={24}>

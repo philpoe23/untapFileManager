@@ -92,7 +92,7 @@ const Steps = ({
                   )}
 
                   {state.currents < steps.length - 1 && (
-                    <Button className="btn-next" size="default" type="primary" onClick={() => next()}>
+                    <Button className="btn-next" type="primary" onClick={() => next()}>
                       Save & Next
                       <FeatherIcon icon="arrow-right" size={16} />
                     </Button>

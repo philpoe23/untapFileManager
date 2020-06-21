@@ -128,6 +128,14 @@ const ButtonsGroupWrapper = Styled.div`
     }
     .button-group-single .ant-btn-light{
         border: 1px solid #E3E6EF;
+        background: #fff;
+        border-right-width: 0px;
+        &:last-child{
+            border-right-width: 1px;
+        }
+        &:hover{
+            background: ${({ theme }) => theme['bg-color-normal']} !important;
+        }
     }
     .ant-btn-group:not(:last-child){
         margin-right: 20px;

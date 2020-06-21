@@ -216,7 +216,7 @@ const EmailNav = Styled.nav`
         box-shadow: 0 10px 40px rgba(146,153,184,0.2);
         padding: 25px 30px;
         width: 330px;
-        margin-left: -45px;
+        margin-left: -25px;
         background: #fff;
         border-radius: 8px;
         @media only screen and (max-width: 1199px){
@@ -541,4 +541,20 @@ const MailRightAction = Styled.div`
   }
 `;
 
-export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MailDetailsWrapper, MessageDetails, MessageReply, MailRightAction };
+const EmailWrapper = Styled.div`
+  .ant-card{
+    .ant-card-body{
+      padding: 0px !important;
+    }
+  }
+
+  .mail-sidebar-top{
+    padding: 30px 30px 0;
+  }
+
+  .mail-sidebar-bottom{
+    padding: 0 15px 25px 15px;
+  }
+`;
+
+export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MailDetailsWrapper, MessageDetails, MessageReply, MailRightAction, EmailWrapper };

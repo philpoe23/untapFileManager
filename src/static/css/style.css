@@ -271,6 +271,16 @@ ul {
   background: #F4F5F7;
 }
 
+.ant-btn-light.btn-outlined{
+  background: transparent;
+}
+
+.ant-btn-light.btn-transparent{
+  background: #F4F5F715;
+}
+.ant-btn-dashed{
+  border-width: 1px;
+}
 .ant-btn-dashed:hover {
   color: #5F63F2;
   border: 1px dashed #5F63F2;
@@ -1063,6 +1073,22 @@ ul {
   padding-right: 30px !important;
 }
 
+.page-header-actions button{
+  font-size: 12px;
+  font-weight: 500;;
+  height: 34px;
+  padding: 0 7.5px;
+  box-shadow: 0 3px 5px #9299B805;
+}
+
+.page-header-actions button + button{
+  margin-left: 8px;
+}
+.page-header-actions button svg{
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
 
 /* Responsive CSS */
 

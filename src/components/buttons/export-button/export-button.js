@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { Icon, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Popover } from '../../popup/popup';
+import { Button } from '../buttons';
 
 const ExportButtonPageHeader = () => {
   const content = (
@@ -31,8 +31,8 @@ const ExportButtonPageHeader = () => {
   );
   return (
     <Popover placement="bottomLeft" title="Export With" content={content} trigger="click">
-      <Button>
-        <Icon type="download" />
+      <Button size="small" type="white">
+        <FeatherIcon icon="download" size={14} />
         Export
       </Button>
     </Popover>

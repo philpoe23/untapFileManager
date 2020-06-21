@@ -199,15 +199,15 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 0 25px 0;
+        padding: 24px 15px 25px 0;
         &.focard-divider{
             border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
             .ant-col-md-12{
                 &:first-child{
-                    padding: 0 0 0 15px;
+                    padding: 0 12px 0 10px;
                 }
                 &:last-child{
-                    padding: 0 24px 0 24px;
+                    padding: 0 12px 0 18px;
                 }
             }
             @media only screen and (max-width: 1350px){

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { Icon, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Popover } from '../../popup/popup';
+import { Button } from '../buttons';
 
 const ShareButtonPageHeader = () => {
   const content = (
@@ -31,8 +31,8 @@ const ShareButtonPageHeader = () => {
   );
   return (
     <Popover placement="bottomLeft" title="Share Link" content={content} trigger="click">
-      <Button key="3">
-        <Icon type="share-alt" />
+      <Button size="small" type="white" key="3">
+        <FeatherIcon icon="share-2" size={14} />
         Share
       </Button>
     </Popover>
