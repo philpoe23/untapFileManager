@@ -24,6 +24,33 @@ const Style = Styled(Table)`
         &:last-child{
           border-top-right-radius: 10px !important;
         }
+        .email-top-search{
+          .ant-select-selector{
+            height: 46px !important;
+          }
+          .ant-select-selection-search{
+            .ant-select-selection-search-input{
+              border-radius: 24px;
+              background: ${({theme})=>theme['bg-color-normal']};
+              border: 0 none;
+              input{
+                height: 44px !important;
+                background: ${({theme})=>theme['bg-color-normal']};
+                &:placeholder{
+                  color: ${({theme})=>theme['extra-light-color']};
+                }
+              }
+              .ant-input-suffix{
+                margin-right: 0;
+                .anticon-search{
+                  svg{
+                    color: ${({theme})=>theme['gray-solid']};
+                  }
+                }
+              }
+            }
+          }
+        }
         .email-top-right{
           justify-content: flex-end;
           a{
@@ -542,9 +569,11 @@ const MailRightAction = Styled.div`
 `;
 
 const EmailWrapper = Styled.div`
-  .ant-card{
-    .ant-card-body{
-      padding: 0px !important;
+  .mail-sideabr{
+    .ant-card{
+      .ant-card-body{
+        padding: 0px !important;
+      }
     }
   }
 

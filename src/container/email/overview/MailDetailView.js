@@ -116,12 +116,12 @@ const Single = props => {
                     <Heading as="h4">{email.userName}</Heading>
                     <Dropdown
                       content={
-                        <div className="mail-props">
-                          <p><span>From:</span> {email.from}</p>
-                          <p><span>To:</span> {email.to}</p>
-                          <p><span>CC:</span> example@gamil.com</p>
-                          <p><span>Date:</span> {moment(email.id).format('LLL')}</p>
-                        </div>
+                        <ul className="mail-props">
+                          <li><span>From:</span> <span>{email.from}</span> </li>
+                          <li><span>To:</span> <span>{email.to}</span> </li>
+                          <li><span>CC:</span> <span>example@gamil.com</span> </li>
+                          <li><span>Date:</span> <span>{moment(email.id).format('LLL')}</span></li>
+                        </ul>
                       }
                     >
                       <Link to="#">

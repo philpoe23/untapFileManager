@@ -55,7 +55,7 @@ const Div = Styled.div`
                             right: 24px;
                             &:after,
                             &:before{
-                                width: 8px;
+                                width: 7px;
                                 background: #868EAE;
                                 height: 1.25px;
                             }
@@ -195,25 +195,28 @@ const SmallScreenAuthInfo = Styled.div`
         background: #fff;
         width: 100%;
         position: absolute;
-        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
+        bottom: ${({ hide }) => (hide ? '-80px' : '-65px')};
         left: 0;
         transition: .3s;
         border-top: 1px solid #eee;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
+        box-shadow: 0 2px 30px #9299b810;
                     
 `;
 
 const SmallScreenSearch = Styled.div`    
         background: #fff;
         width: 100%;
+        height: 40px;
         position: absolute;
-        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
+        bottom: ${({ hide }) => (hide ? '-60px' : '-40px')};
         left: 0;
         transition: .3s;
         border-top: 1px solid #eee;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
+        box-shadow: 0 2px 30px #9299b810;
                     
 `;
 

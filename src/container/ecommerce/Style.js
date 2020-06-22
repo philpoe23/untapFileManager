@@ -952,6 +952,13 @@ const OrderSummary = Styled.div`
         width: 100%;
         height: 50px;
         border-radius: 8px;
+        @media only screen and (max-width: 575px){
+            font-size: 13px;
+        }
+        a{
+            display: flex;
+            align-items: center;
+        }
         i,
         svg{
             margin-left: 6px;
@@ -1173,6 +1180,9 @@ const CheckoutWrapper = Styled.div`
             flex-flow: column;
             align-items: center;
         }
+        @media only screen and (max-width: 480px) {
+            align-items: flex-start;
+        }
     }
     .ant-steps-item-container{
         display: flex;
@@ -1187,14 +1197,32 @@ const CheckoutWrapper = Styled.div`
         @media only screen and (max-width: 767px) {
             font-size: 15px;
         }
+        @media only screen and (max-width: 480px) {
+            flex-flow: row;
+        }
+        .ant-steps-item-tail{
+            @media only screen and (max-width: 480px) {
+                background: #C5CAE1;
+                top: 35px !important;
+                padding: 20px 0 8px !important;
+            }
+        }
+        .ant-steps-item-content{
+            @media only screen and (max-width: 480px) {
+                min-height: auto !important;
+            }
+        }
     }
     .steps-content{
         margin-top: 72px !important;
         @media only screen and (max-width: 1599px) {
             min-height: 252px !important;
         }
-        @media only screen and (max-width: 1199) {
+        @media only screen and (max-width: 1199px) {
             margin-top: 45px !important;
+        }
+        @media only screen and (max-width: 575px) {
+            margin-top: 30px !important;
         }
     }
     .ant-steps-item{
@@ -1271,13 +1299,25 @@ const CheckoutWrapper = Styled.div`
             }
         }
     }
+    .basic-form-inner{
+        width: 580px;
+        @media only screen and (max-width: 575px){
+            width: 100%
+        }
+    }
     .atbd-form-checkout{
-        min-width: 580px;
        h1{
-           font-size: 20px;
-           font-weight: 500;
-           margin-bottom: 46px;
-           color: ${({theme})=>theme['dark-color']};
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 46px;
+            color: ${({theme})=>theme['dark-color']};
+            @media only screen and (max-width: 991px){
+                font-size: 18px;
+                margin-bottom: 22px;
+            }
+            @media only screen and (max-width: 479px){
+                font-size: 16px;
+            }
        }
        .ant-form-item-label{
            label{
@@ -1316,8 +1356,18 @@ const CheckoutWrapper = Styled.div`
                }
            }
            .ant-form-item-control-input-content{
+                input{
+                    @media only screen and (max-width: 479px) {
+                        width: 100% !important;
+                        margin-bottom: 6px;
+                    }
+                }
                .input-leftText{
                    margin-left: 10px;
+                   @media only screen and (max-width: 479px) {
+                        display: block;
+                        margin-left: 0px;
+                    }
                }
            }
            .shipping-selection__card{
@@ -1352,7 +1402,13 @@ const CheckoutWrapper = Styled.div`
                align-items: center;
                justify-content: space-between;
                margin-bottom: 20px;
+                @media only screen and (max-width: 479px) {
+                    flex-flow: column;
+                }
                .supported-card_logos{
+                    @media only screen and (max-width: 479px) {
+                        margin-top: 12px;
+                    }
                    img + img{
                        margin-left: 15px;
                    }
@@ -1371,6 +1427,10 @@ const CheckoutWrapper = Styled.div`
            font-size: 20px;
            font-weight: 500;
            margin-bottom: 45px;
+           @media only screen and (max-width: 479px) {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
        }
        
        .atbd-review-order__single{
@@ -1420,8 +1480,12 @@ const CheckoutWrapper = Styled.div`
                         }
                     }
                     >tr >td{
-                        padding: 8px 0;
+                        padding: 8px 15px;
+                        &:first-child{
+                            padding-left: 0px;
+                        }
                         &:last-child{
+                            padding-left: 0px;
                             text-align: right;
                         }
                     }
@@ -1441,10 +1505,16 @@ const CheckoutWrapper = Styled.div`
             h1{
                 display: flex;
                 justify-content: space-between;
+                @media only screen and (max-width: 479px) {
+                    flex-flow: column;
+                }
                 a{
                     font-size: 14px;
                     display: inline-flex;
                     align-items: center;
+                    @media only screen and (max-width: 479px) {
+                        margin-top: 12px;
+                    }
                     svg{
                         width: 14px;
                         height: 14px;
