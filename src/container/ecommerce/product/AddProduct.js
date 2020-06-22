@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
-import { Main } from '../../styled';
+import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message,Icon } from 'antd';
+import { Main, BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import { AddProductForm } from '../Style';
 import Heading from '../../../components/heading/heading';
+
+import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
 const { Option } = Select;
 const { Dragger } = Upload;
@@ -36,98 +41,126 @@ const AddProduct = () => {
 
   return (
     <Fragment>
-      <PageHeader ghost title="Add Product" />
+      <PageHeader 
+        ghost 
+        title="Add Product" 
+        buttons={[
+                
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless>
-              <Row gutter={25}>
-                <Col md={10} offset={7}>
-                  <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
-                    <Cards headless bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: '20px' }}>
-                      <Row gutter={15}>
-                        <Col md={24}>
-                          <Cards title="About Product">
-                            <Form.Item name="name" label="Product Name">
-                              <Input />
-                            </Form.Item>
-                            <Form.Item name="subtext" label="Sub Text">
-                              <Input />
-                            </Form.Item>
-                            <Form.Item name="category" initialValue="" label="Category">
-                              <Select style={{ width: '100%' }}>
-                                <Option value="">Please Select</Option>
-                                <Option value="wearingClothes">Wearing Clothes</Option>
-                                <Option value="sunglasses">Sunglasses</Option>
-                                <Option value="t-shirt">T-Shirt</Option>
-                              </Select>
-                            </Form.Item>
+              <Row gutter={25} justify="center">
+                <Col xxl={10} md={14} sm={18} xs={24}>
+                  <AddProductForm>
+                    <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
+                      <BasicFormWrapper>
+                        <div className="add-product-block">
+                          <Row gutter={15}>
+                            <Col xs={24}>
+                              <div className="add-product-content">
+                                <Cards title="About Product">
+                                  <Form.Item name="name" label="Product Name">
+                                    <Input />
+                                  </Form.Item>
+                                  <Form.Item name="subtext" label="Sub Text">
+                                    <Input />
+                                  </Form.Item>
+                                  <Form.Item name="category" initialValue="" label="Category">
+                                    <Select style={{ width: '100%' }}>
+                                      <Option value="">Please Select</Option>
+                                      <Option value="wearingClothes">Wearing Clothes</Option>
+                                      <Option value="sunglasses">Sunglasses</Option>
+                                      <Option value="t-shirt">T-Shirt</Option>
+                                    </Select>
+                                  </Form.Item>
 
-                            <Form.Item name="price" label="Price">
-                              <InputNumber
-                                style={{ width: '100%' }}
-                                prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                              />
-                            </Form.Item>
+                                  <Form.Item name="price" label="Price">
+                                    <InputNumber
+                                      style={{ width: '100%' }}
+                                      prefix={<FeatherIcon icon="dollar-sign" size={14} />}
+                                    />
+                                  </Form.Item>
 
-                            <Form.Item name="discount" label="Discount">
-                              <InputNumber
-                                style={{ width: '100%' }}
-                                prefix={<FeatherIcon icon="percent" size={14} />}
-                              />
-                            </Form.Item>
+                                  <Form.Item name="discount" label="Discount">
+                                    <InputNumber
+                                      style={{ width: '100%' }}
+                                      prefix={<FeatherIcon icon="percent" size={14} />}
+                                    />
+                                  </Form.Item>
 
-                            <Form.Item name="status" label="Status">
-                              <Radio.Group>
-                                <Radio value="Published">Published</Radio>
-                                <Radio value="Draft">Draft</Radio>
-                              </Radio.Group>
-                            </Form.Item>
+                                  <Form.Item name="status" label="Status">
+                                    <Radio.Group>
+                                      <Radio value="Published">Published</Radio>
+                                      <Radio value="Draft">Draft</Radio>
+                                    </Radio.Group>
+                                  </Form.Item>
 
-                            <Form.Item name="description" label="Product Description">
-                              <Input.TextArea rows={5} />
-                            </Form.Item>
-                            <Form.Item name="mTitle" label="Meta Title">
-                              <Input />
-                            </Form.Item>
-                            <Form.Item name="mKeyword" label="Meta Keyword">
-                              <Input />
-                            </Form.Item>
-                          </Cards>
-                        </Col>
-                      </Row>
-                    </Cards>
+                                  <Form.Item name="description" label="Product Description">
+                                    <Input.TextArea rows={5} />
+                                  </Form.Item>
+                                  <Form.Item name="mTitle" label="Meta Title">
+                                    <Input />
+                                  </Form.Item>
+                                  <Form.Item name="mKeyword" label="Meta Keyword">
+                                    <Input />
+                                  </Form.Item>
+                                </Cards>
+                              </div>
+                            </Col>
+                          </Row>
+                        </div>
 
-                    <Cards headless bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: '20px' }}>
-                      <Row gutter={15}>
-                        <Col md={24}>
-                          <Cards title="Product Image">
-                            <Dragger {...props}>
-                              <p className="ant-upload-drag-icon">
-                                <FeatherIcon icon="upload" size={50} />
-                              </p>
-                              <Heading as="h4" className="ant-upload-text">
-                                Drag and drop an image
-                              </Heading>
-                              <p className="ant-upload-hint">or Browse to choose a file</p>
-                            </Dragger>
-                          </Cards>
-                        </Col>
-                      </Row>
-                    </Cards>
-                    <Form.Item>
-                      <Button
-                        onClick={() => {
-                          return form.resetFields();
-                        }}
-                      >
-                        Cancel
-                      </Button>
-                      <Button htmlType="submit" type="primary">
-                        Save Product
-                      </Button>
-                    </Form.Item>
-                  </Form>
+                        <div className="add-product-block">
+                          <Row gutter={15}>
+                            <Col md={24}>
+                              <div className="add-product-content">
+                                <Cards title="Product Image">
+                                  <Dragger {...props}>
+                                    <p className="ant-upload-drag-icon">
+                                      <FeatherIcon icon="upload" size={50} />
+                                    </p>
+                                    <Heading as="h4" className="ant-upload-text">
+                                      Drag and drop an image
+                                    </Heading>
+                                    <p className="ant-upload-hint">or <span>Browse</span>  to choose a file</p>
+                                  </Dragger>
+                                </Cards>
+                              </div>
+                            </Col>
+                          </Row>
+                        </div>
+                        <div className="add-form-action">
+                          <Form.Item>
+                            <Button
+                              className="btn-cancel"
+                              size="large"
+                              onClick={() => {
+                                return form.resetFields();
+                              }}
+                            >
+                              Cancel
+                            </Button>
+                            <Button size="large" htmlType="submit" type="primary" raised>
+                              Save Product
+                            </Button>
+                          </Form.Item>
+                        </div>
+                      </BasicFormWrapper>
+                    </Form>
+                  </AddProductForm>
                 </Col>
               </Row>
             </Cards>

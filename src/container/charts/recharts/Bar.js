@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -8,14 +8,33 @@ import rechartdata from '../../../config/dataService/recharts.json';
 const { data, positiveAndnegetive } = rechartdata;
 
 const ReChartBar = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+  });
+  const { responsive } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <Fragment>
       <PageHeader title="Rechats Bar Chart" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} xs={24}>
             <Cards title="TINY BAR CHART" size="large" more={false}>
-              <BarChart width={750} height={400} data={data}>
+              <BarChart width={responsive - (5 * responsive) / 100} height={responsive / 2} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -27,11 +46,11 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="STACKED BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -50,11 +69,11 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="MIX BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,
@@ -74,11 +93,11 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="POSITIVE AND NEGATIVE BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={positiveAndnegetive}
                 margin={{
                   top: 20,
@@ -98,11 +117,11 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="BAR CHART STACKED BY SIGN" size="large" more={false}>
               <BarChart
-                width={750}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={positiveAndnegetive}
                 margin={{
                   top: 20,
@@ -122,11 +141,11 @@ const ReChartBar = () => {
               </BarChart>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="BIAXIAL BAR CHART" size="large" more={false}>
               <BarChart
-                width={750}
-                height={400}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
                 data={data}
                 margin={{
                   top: 20,

@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
+import { Main, TableWrapper } from '../styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Table } from 'antd';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { TopToolBox } from './Style';
 import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
 
@@ -58,23 +58,25 @@ const Orders = () => {
       const { status, orderId, customars, amount, date } = item;
       return dataSource.push({
         key: key + 1,
-        id: orderId,
-        customar: customars,
-        status: status,
-        amount: amount,
-        date: date,
+        id: <span className="order-id">{orderId}</span>,
+        customar: <span className="customer-name">{customars}</span>,
+        status: <span className="status">{status}</span>,
+        amount: <span className="ordered-amount">{amount}</span>,
+        date: <span className="ordered-date">{date}</span>,
         action: (
-          <Fragment>
-            <NavLink to="#">
-              <FeatherIcon icon="eye" size={16} />
-            </NavLink>
-            <NavLink to="#">
-              <FeatherIcon icon="edit" size={16} />
-            </NavLink>
-            <NavLink to="#">
-              <FeatherIcon icon="trash-2" size={16} />
-            </NavLink>
-          </Fragment>
+          <div className="table-actions">
+            <Fragment>
+              <Button className="btn-icon" type="primary" to="#" shape="circle">
+                <FeatherIcon icon="eye" size={16} />
+              </Button>
+              <Button className="btn-icon" type="info" to="#" shape="circle">
+                <FeatherIcon icon="edit" size={16} />
+              </Button>
+              <Button className="btn-icon" type="danger" to="#" shape="circle">
+                <FeatherIcon icon="trash-2" size={16} />
+              </Button>
+            </Fragment>
+          </div>
         ),
       });
     });
@@ -127,36 +129,54 @@ const Orders = () => {
       <Main>
         <Cards headless>
           <Row gutter={15}>
-            <Col md={5}>
-              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
-            </Col>
-            <Col md={15}>
-              Status:
-              <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
-                <Radio.Button value="">All</Radio.Button>
-                {item.length &&
-                  [...new Set(filterKey)].map((item, key) => {
-                    return (
-                      <Radio.Button key={key + 1} value={item}>
-                        {item}
-                      </Radio.Button>
-                    );
-                  })}
-              </Radio.Group>
-            </Col>
-            <Col md={4}>
-              <Button type="default">Export</Button>
-              <Button type="primary">+ Add Order</Button>
-            </Col>
             <Col md={24}>
-              <br />
-              <br />
-              <Table
-                rowSelection={rowSelection}
-                dataSource={dataSource}
-                columns={columns}
-                pagination={{ pageSize: 7 }}
-              />
+              <TopToolBox>
+                <Row gutter={15} className="justify-content-center">
+                  <Col lg={5} xs={24}>
+                    <div className="table-search-box">
+                      <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+                    </div>
+                  </Col>
+                  <Col xxl={15} lg={13} xs={24}>
+                    <div className="table-toolbox-menu">
+                      Status:
+                      <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
+                        <Radio.Button value="">All</Radio.Button>
+                        {item.length &&
+                          [...new Set(filterKey)].map((item, key) => {
+                            return (
+                              <Radio.Button key={key + 1} value={item}>
+                                {item}
+                              </Radio.Button>
+                            );
+                          })}
+                      </Radio.Group>
+                    </div>
+                  </Col>
+                  <Col xxl={4} lg={6} xs={24}>
+                    <div className="table-toolbox-actions">
+                      <Button size="small" type="secondary" transparented>
+                        Export
+                      </Button>
+                      <Button size="small" type="primary">
+                        + Add Order
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              </TopToolBox>
+            </Col>
+          </Row>
+          <Row gutter={15}>
+            <Col md={24}>
+              <TableWrapper className="table-responsive">
+                <Table
+                  rowSelection={rowSelection}
+                  dataSource={dataSource}
+                  columns={columns}
+                  pagination={{ pageSize: 7 }}
+                />
+              </TableWrapper>
             </Col>
           </Row>
         </Cards>

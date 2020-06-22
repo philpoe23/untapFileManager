@@ -20,40 +20,31 @@ const Rating = () => {
       <PageHeader title="Rating" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Rate">
               <Rate />
             </Cards>
-          </Col>
-          <Col md={12}>
             <Cards title="Half Star">
               <Rate allowHalf defaultValue={2.5} />
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Show copywriting">
-              <span>
-                <Rate tooltips={desc} onChange={handleChange} value={value} />
-                {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
-              </span>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Clear Star">
-              <Rate defaultValue={3} />
-              <span className="ant-rate-text">allowClear: true</span>
-              <br />
-              <Rate allowClear={false} defaultValue={3} />
-              <span className="ant-rate-text">allowClear: false</span>
-            </Cards>
-          </Col>
-          <Col md={12}>
             <Cards title="Rater">
               <span>
                 <Rate tooltips={desc} onChange={handleChange} value={value} />
                 &nbsp;&nbsp;
                 {value + ' Star'}
               </span>
+            </Cards>
+          </Col>
+          <Col md={12} sm={12} xs={24}>
+            <Cards title="Clear Star">
+              <Rate disabled defaultValue={2} />
+            </Cards>
+            <Cards title="Clear Star">
+              <Rate defaultValue={3} />
+              <span className="ant-rate-text">allowClear: true</span>
+              <br />
+              <Rate allowClear={false} defaultValue={3} style={{marginTop: 10}}/>
+              <span className="ant-rate-text">allowClear: false</span>
             </Cards>
           </Col>
         </Row>

@@ -24,7 +24,7 @@ const Tags = () => {
       <PageHeader title="Tags" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic" caption="The simplest use of tags">
               <Tag>Tag 1</Tag>
               <Tag>
@@ -38,7 +38,7 @@ const Tags = () => {
               </Tag>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Colorful Tag" caption="The simplest use of tags">
               <h4 style={{ marginBottom: 16 }}>Presets:</h4>
               <div>
@@ -63,7 +63,7 @@ const Tags = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Checkable Tag" caption="The simplest use of tags">
               <Tag checked onChange={checked}>
                 Tag 1
@@ -82,12 +82,12 @@ const Tags = () => {
               </Tag>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Hot Tag" caption="The simplest use of tags">
               <Tag hottags onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Animated Tag" caption="The simplest use of tags">
               <Tag animate onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />
             </Cards>

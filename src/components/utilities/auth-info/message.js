@@ -1,50 +1,124 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Popover } from '../../popup/popup';
-import { readMessageList } from '../../../redux/message/actionCreator';
+import Heading from '../../heading/heading';
 
 const MessageBox = props => {
-  const { message, readMessage } = props;
-
-  useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      readMessage();
-    }
-    return () => {
-      unmount = true;
-    };
-  }, [readMessage]);
-
   const content = (
-    <div>
-      {message.map(item => {
-        const { id, from } = item;
-        return (
-          <NavLink key={id} to="#">
-            {from}
-          </NavLink>
-        );
-      })}
-      <p>
-        <NavLink style={{ display: 'block', textAlign: 'center' }} to="#">
-          Read more
-        </NavLink>
-      </p>
+    <div className="atbd-top-dropdwon">
+      <Heading className="atbd-top-dropdwon__title" as="h5">
+        <span className="title-text">Messages</span>
+        <Badge className="badge-success" count={3}></Badge>
+      </Heading>
+      <ul className="atbd-top-dropdwon__nav">
+        <li>
+          <Link to="#">
+            <figure className="atbd-top-dropdwon__content">
+              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+              <figcaption>
+                <Heading as="h5">
+                  Software <span className="color-success">3 hrs ago</span>
+                </Heading>
+                <p>
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                  <span >
+                    <Badge className="badge-success" count={3}></Badge>
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <figure className="atbd-top-dropdwon__content">
+              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+              <figcaption>
+                <Heading as="h5">
+                  Software <span  className="color-success">3 hrs ago</span>
+                </Heading>
+                <p>
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                  <span>
+                    <Badge className="badge-success" count={3}></Badge>
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <figure className="atbd-top-dropdwon__content">
+              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+              <figcaption>
+                <Heading as="h5">
+                  Software <span  className="color-success">3 hrs ago</span>
+                </Heading>
+                <p>
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                  <span>
+                    <Badge className="badge-success" count={3}></Badge>
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <figure className="atbd-top-dropdwon__content">
+              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+              <figcaption>
+                <Heading as="h5">
+                  Software <span  className="color-success">3 hrs ago</span>
+                </Heading>
+                <p>
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                  <span>
+                    <Badge className="badge-success" count={3}></Badge>
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <figure className="atbd-top-dropdwon__content">
+              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+              <figcaption>
+                <Heading as="h5">
+                  Software <span  className="color-success">3 hrs ago</span>
+                </Heading>
+                <p>
+                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                  <span>
+                    <Badge className="badge-success" count={3}></Badge>
+                  </span>
+                </p>
+              </figcaption>
+            </figure>
+          </Link>
+        </li>
+        <li>
+          
+        </li>
+      </ul>
+      <Link className="btn-seeAll" to="#">See all messages</Link>
     </div>
   );
 
   return (
     <div className="message">
-      <Popover placement="bottomLeft" title="Message List" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
-          <NavLink to="#" className="head-example">
+          <Link to="#" className="head-example">
             <FeatherIcon icon="mail" size={20} />
-          </NavLink>
+          </Link>
         </Badge>
       </Popover>
     </div>
@@ -55,16 +129,4 @@ MessageBox.propTypes = {
   message: PropTypes.array,
 };
 
-const mapSTateToProps = state => {
-  return {
-    message: state.message.data,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    readMessage: () => dispatch(readMessageList()),
-  };
-};
-
-export default connect(mapSTateToProps, mapDispatchToProps)(MessageBox);
+export default MessageBox;

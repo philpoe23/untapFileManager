@@ -23,10 +23,10 @@ const Avatars = () => {
     <Fragment>
       <PageHeader title="Avatar" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-              <AvatarWraperStyle>
+              <AvatarWraperStyle style={{marginBottom: 10}}>
                 <Avatar size={64} icon={<UserOutlined />} />
                 <Avatar size="large" icon={<UserOutlined />} />
                 <Avatar icon={<UserOutlined />} />
@@ -52,7 +52,7 @@ const Avatars = () => {
               </AvatarWraperStyle>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Type">
               <AvatarWraperStyle>
                 <Avatar icon={<UserOutlined />} />

@@ -8,6 +8,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin, Pagination } from 'antd';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
+import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
 
 const MailComposer = lazy(() => import('./MailComposer'));
 
@@ -37,139 +38,171 @@ const Single = props => {
   };
 
   return (
-    <Cards
-      title={
-        <Fragment>
-          <Link onClick={() => history.goBack()} to="#">
-            <FeatherIcon icon="arrow-left" size={14} />
-          </Link>
-          <Tooltip placement="bottom" title="Archive">
-            <FeatherIcon icon="archive" size={18} />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Info">
-            <FeatherIcon icon="alert-octagon" size={18} />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Delete">
-            <FeatherIcon icon="trash" size={18} />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Read">
-            <FeatherIcon icon="book-open" size={18} />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Folder">
-            <FeatherIcon icon="folder" size={18} />
-          </Tooltip>
-        </Fragment>
-      }
-      isbutton={
-        <div>
-          <span>1 - 50 of 235</span>
-          <Pagination onChange={onChange} defaultCurrent={1} total={50} />
-        </div>
-      }
-    >
-      <Row gutter={15}>
-        <Col md={22}>
-          <Heading as="h2">
-            {email.subject}
-            <span> {email.type}</span>
-          </Heading>
-        </Col>
-
-        <Col md={2}>
-          <Link to="#">
-            <FeatherIcon icon="code" size={14} />
-          </Link>
-          <Link to="#">
-            <FeatherIcon icon="printer" size={14} />
-          </Link>
-        </Col>
-
-        <Col md={14}>
-          <img style={{ width: '60px', borderRadius: '50%' }} src={email.img} alt="" />
-          <Heading as="h4">{email.userName}</Heading>
-          <Dropdown
-            content={
-              <div>
-                <p>From : {email.from}</p>
-                <p>To : {email.to}</p>
-                <p>CC : example@gamil.com</p>
-                <p>Date : {moment(email.id).format('LLL')}</p>
-              </div>
-            }
-          >
-            <Link to="#">
-              To {email.to}
-              <FeatherIcon icon="chevron-down" size={14} />
-            </Link>
-          </Dropdown>
-        </Col>
-
-        <Col md={10}>
-          <FeatherIcon icon="paperclip" size={14} />
-          <span> {moment(email.id).format('LLL')} </span>
-          <FeatherIcon icon="star" size={14} /> <FeatherIcon icon="corner-up-left" size={14} />{' '}
-          <FeatherIcon icon="more-vertical" size={14} />
-        </Col>
-
-        <Col md={24}>
-          <p>{email.body}</p>
-
-          <Heading as={'h6'}>
-            Best Regurds <br /> {email.userName}
-          </Heading>
-        </Col>
-
-        <Col md={4}>
-          <figure>
-            <img src={require('../../../static/img/email/2.png')} alt="" />
-            <figcaption>
-              <Heading as="h4">Attached.jpg</Heading>
-              <p>256.5 KB</p>
-            </figcaption>
-          </figure>
-        </Col>
-
-        <Col md={6}>
-          <figure>
-            <img src={require('../../../static/img/email/1.png')} alt="" />
-            <figcaption>
-              <Heading as="h4">Attached.jpg</Heading>
-              <p>256.5 KB</p>
-            </figcaption>
-          </figure>
-        </Col>
-      </Row>
-      <hr />
-
-      <Row gutter={15}>
-        <Col md={24}>
-          <nav>
-            <ul>
-              <li>
-                <FeatherIcon icon="corner-up-left" size={14} />
-                <NavLink to={match.url + '/replay'}>Reply</NavLink>
-              </li>
-              <li>
-                <FeatherIcon icon="corner-up-right" size={14} />
-                <NavLink to={match.url + '/forward'}>Forward</NavLink>
-              </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Suspense
-              fallback={
-                <div className="spin">
-                  <Spin />
+    <MailDetailsWrapper>
+      <Cards
+        title={
+          <Fragment>
+            <MessageAction>
+              <Link onClick={() => history.goBack()} to="#">
+                <FeatherIcon icon="arrow-left" size={14} />
+              </Link>
+              <Tooltip placement="bottom" title="Refresh">
+                <NavLink to="/refresh">
+                  <FeatherIcon icon="rotate-cw" size={18} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip placement="bottom" title="Archive">
+                <NavLink to="/">
+                  <FeatherIcon icon="archive" size={18} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip placement="bottom" title="Info">
+                <NavLink to="/">
+                  <FeatherIcon icon="alert-octagon" size={18} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip placement="bottom" title="Delete">
+                <NavLink to="/">
+                  <FeatherIcon icon="trash" size={18} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip placement="bottom" title="Read">
+                <NavLink to="/">
+                  <FeatherIcon icon="book-open" size={18} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip placement="bottom" title="Folder">
+                <NavLink to="/">
+                  <FeatherIcon icon="folder" size={18} />
+                </NavLink>
+              </Tooltip>
+            </MessageAction>
+          </Fragment>
+        }
+        isbutton={
+          <MailRightAction>
+            <span>1 - 50 of 235</span>
+            {/* <Pagination onChange={onChange} defaultCurrent={1} total={50} /> */}
+          </MailRightAction>
+        }
+      >
+        <Row gutter={15}>
+          <Col>
+            <MessageDetails>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="message-subject">
+                  <Heading as="h2">
+                    {email.subject}
+                    <span> {email.type}</span>
+                  </Heading>
                 </div>
-              }
-            >
-              <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
-            </Suspense>
-          </Switch>
-        </Col>
-      </Row>
-    </Cards>
+
+                <div className="message-action">
+                  <Link to="#" className="ex-coll">
+                    <FeatherIcon icon="chevron-up" size={16} />
+                    <FeatherIcon icon="chevron-down" size={16} />
+                  </Link>
+
+                  <Link to="#">
+                    <FeatherIcon icon="printer" size={16} />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="message-box d-flex justify-content-between align-items-center">
+                <div className="message-author">
+                  <img style={{ width: '60px', borderRadius: '50%' }} src={email.img} alt="" />
+                  <div>
+                    <Heading as="h4">{email.userName}</Heading>
+                    <Dropdown
+                      content={
+                        <div className="mail-props">
+                          <p><span>From:</span> {email.from}</p>
+                          <p><span>To:</span> {email.to}</p>
+                          <p><span>CC:</span> example@gamil.com</p>
+                          <p><span>Date:</span> {moment(email.id).format('LLL')}</p>
+                        </div>
+                      }
+                    >
+                      <Link to="#">
+                        To {email.to}
+                        <FeatherIcon icon="chevron-down" size={14} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>
+
+                <div className="message-excerpt">
+                  <span><FeatherIcon icon="paperclip" /></span>
+                  <span> {moment(email.id).format('LLL')} </span>
+                  <Link to="#"><FeatherIcon icon="star" /></Link>
+                  <Link to="#"><FeatherIcon icon="corner-up-left" /></Link>
+                  <Link to="#"><FeatherIcon icon="more-vertical" /></Link>
+                </div>
+              </div>
+
+              <div className="message-body">
+                <p>{email.body}</p>
+
+                <Heading as={'h6'}>
+                  Best Regurds <br /> {email.userName}
+                </Heading>
+              </div>
+
+              <div className="message-attachments">
+                <figure>
+                  <img src={require('../../../static/img/email/2.png')} alt="" />
+                  <figcaption>
+                    <Heading as="h4">Attached.jpg</Heading>
+                    <p>256.5 KB</p>
+                  </figcaption>
+                </figure>
+
+                <figure>
+                  <img src={require('../../../static/img/email/1.png')} alt="" />
+                  <figcaption>
+                    <Heading as="h4">Attached.jpg</Heading>
+                    <p>256.5 KB</p>
+                  </figcaption>
+                </figure>
+              </div>
+              <hr />
+            </MessageDetails>
+          </Col>
+        </Row>
+
+        <Row gutter={15}>
+          <Col>
+            <MessageReply>
+              <nav>
+                <ul>
+                  <li>
+                    <NavLink to={match.url + '/replay'}><FeatherIcon icon="corner-up-left" size={14} /> Reply</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={match.url + '/forward'}><FeatherIcon icon="corner-up-right" size={14} /> Forward</NavLink>
+                  </li>
+                </ul>
+              </nav>
+
+              <Switch>
+                <Suspense
+                  fallback={
+                    <div className="spin">
+                      <Spin />
+                    </div>
+                  }
+                >
+                  <div className="reply-box">
+                    <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
+                  </div>
+                </Suspense>
+              </Switch>
+            </MessageReply>
+          </Col>
+        </Row>
+      </Cards>
+    </MailDetailsWrapper>
   );
 };
 

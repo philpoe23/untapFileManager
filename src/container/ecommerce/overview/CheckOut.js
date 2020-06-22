@@ -3,17 +3,21 @@ import { Steps } from '../../../components/steps/steps';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
-import { Form, Input, Select, Radio, Table } from 'antd';
+import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
+import { BasicFormWrapper  } from '../../styled';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { FigureCart } from '../Style';
+import { FigureCart, CheckoutWrapper, ProductTable, OrderSummary } from '../Style';
 
 const { Option } = Select;
-const CheckOut = ({ form }) => {
+const CheckOut = () => {
+  const [form] = Form.useForm();
+
   const [state, setState] = useState({
     status: 'process',
     isfinished: false,
   });
+
   const { status, isfinished } = state;
 
   const next = current => {
@@ -40,64 +44,91 @@ const CheckOut = ({ form }) => {
     });
   };
 
-  const { getFieldDecorator } = form;
   const month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
   const dataSource = [
     {
       key: '1',
       product: (
-        <FigureCart>
-          <img style={{ width: 70 }} src={require('../../../static/img/products/1.png')} alt="" />
-          <figcaption>
-            <Heading as="h4">Fiber Base Chair</Heading>
-            <p>Size : Large &nbsp;&nbsp; Color : Brown</p>
-          </figcaption>
-        </FigureCart>
+        <div className="cart-single">
+          <FigureCart>
+            <img style={{ width: 80 }} src={require('../../../static/img/products/1.png')} alt="" />
+            <figcaption>
+              <div className="cart-single__info">
+                <Heading as="h6">Fiber Base Chair</Heading>
+                <ul className="info-list">
+                  <li>
+                    <span className="info-title">Size :</span>
+                    <span>Large</span>
+                  </li>
+                  <li>
+                    <span className="info-title"> Color :</span>
+                    <span>Brown</span>
+                  </li>
+                </ul>
+              </div>
+            </figcaption>
+          </FigureCart>
+        </div>
       ),
-      price: '$' + 248.66,
+      
       quantity: (
-        <div>
-          <Button>
-            <FeatherIcon icon="minus" size={14} />
+        <div className="cart-single-quantity">
+          <Button className="btn-dec" type="default">
+            <FeatherIcon icon="minus" size={12} />
           </Button>
           1
-          <Button>
-            <FeatherIcon icon="plus" size={14} />
+          <Button className="btn-inc" type="default">
+            <FeatherIcon icon="plus" size={12} />
           </Button>
         </div>
       ),
-      total: '$' + 248.66,
+      total: <span className="cart-single-t-price">$248.66</span>,
       action: (
-        <Link to="#">
-          <FeatherIcon icon="trash-2" size={16} />
-        </Link>
+        <div className="table-action">
+          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
+            <FeatherIcon icon="trash-2" size={16} />
+          </Button>
+        </div>
       ),
     },
     {
       key: '2',
       product: (
-        <FigureCart>
-          <img style={{ width: 70 }} src={require('../../../static/img/products/2.png')} alt="" />
-          <figcaption>
-            <Heading as="h4">Fiber Base Chair</Heading>
-            <p>Size : Large &nbsp;&nbsp; Color : Brown</p>
-          </figcaption>
-        </FigureCart>
+        <div className="cart-single">
+          <FigureCart>
+            <img style={{ width: 80 }} src={require('../../../static/img/products/1.png')} alt="" />
+            <figcaption>
+              <div className="cart-single__info">
+                <Heading as="h6">Fiber Base Chair</Heading>
+                <ul className="info-list">
+                  <li>
+                    <span className="info-title">Size :</span>
+                    <span>Large</span>
+                  </li>
+                  <li>
+                    <span className="info-title"> Color :</span>
+                    <span>Brown</span>
+                  </li>
+                </ul>
+              </div>
+            </figcaption>
+          </FigureCart>
+        </div>
       ),
-      price: '$' + 248.66,
+      
       quantity: (
-        <div>
-          <Button>
-            <FeatherIcon icon="minus" size={14} />
+        <div className="cart-single-quantity">
+          <Button className="btn-dec" type="default">
+            <FeatherIcon icon="minus" size={12} />
           </Button>
           1
-          <Button>
-            <FeatherIcon icon="plus" size={14} />
+          <Button className="btn-inc" type="default">
+            <FeatherIcon icon="plus" size={12} />
           </Button>
         </div>
       ),
-      total: '$' + 248.66,
+      total: <span className="cart-single-t-price">$248.66</span>,
     },
   ];
 
@@ -125,223 +156,315 @@ const CheckOut = ({ form }) => {
   ];
 
   return (
-    <Steps
+    <CheckoutWrapper>
+      <Steps
       isswitch
-      current={3}
-      height={400}
+      current={0}
       status={status}
       steps={[
         {
           title: 'Create Account',
           content: (
-            <div>
-              <Heading as="h4">1. Please Create Your Account</Heading>
-              <Form>
-                <Form.Item label="Username">
-                  {getFieldDecorator('username', {})(<Input placeholder="Username" />)}
-                </Form.Item>
-                <Form.Item label="Email Address">
-                  {getFieldDecorator('email', {
-                    rules: [{ type: 'email' }],
-                  })(<Input placeholder="name@gmail.com" />)}
-                </Form.Item>
-                <Form.Item label="Password">
-                  {getFieldDecorator('password', {
-                    rules: [
-                      {
-                        min: 6,
-                        message: 'Enter a valid password. Min 6 charecters long.',
-                      },
-                    ],
-                  })(<Input.Password placeholder="Password" />)}
-                </Form.Item>
-              </Form>
-            </div>
+            <BasicFormWrapper>
+                <div className="atbd-form-checkout">
+                  <Row justify="center">
+                    <Col xl={22}>
+                      <div className="create-account-form">
+                        <Heading as="h4">1. Please Create Your Account</Heading>
+                        <Form form={form} name="account">
+                          <Form.Item name="username" label="Username">
+                            <Input placeholder="Username" />
+                          </Form.Item>
+                          <Form.Item name="email" rules={[{ type: 'email' }]} label="Email Address">
+                            <Input placeholder="name@gmail.com" />
+                          </Form.Item>
+                          <Form.Item
+                            name="password"
+                            rules={[
+                              {
+                                min: 6,
+                                message: 'Enter a valid password. Min 6 charecters long.',
+                              },
+                            ]}
+                            label="Password"
+                          >
+                            <Input.Password placeholder="Password" />
+                            <span className="input-message">Enter a valid password. Min 6 characters long</span>
+                          </Form.Item>
+                        </Form>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+            </BasicFormWrapper>
           ),
         },
         {
           title: 'Shipping Address',
           content: (
-            <div>
-              <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
-              <Form>
-                <Form.Item label="Contact Name">
-                  {getFieldDecorator('name', {})(<Input placeholder="Ibn adam" />)}
-                </Form.Item>
-                <Form.Item label="Company Name (Optional)">
-                  {getFieldDecorator('company', {})(<Input placeholder="adam" />)}
-                </Form.Item>
-                <Form.Item label="Phone Number">
-                  {getFieldDecorator('phone', {})(<Input placeholder="+880" />)}
-                </Form.Item>
-                <Form.Item label="Country/Region">
-                  {getFieldDecorator('country', {
-                    initialValue: '',
-                  })(
-                    <Select style={{ width: '100%' }}>
-                      <Option value="">Please Select</Option>
-                      <Option value="bangladesh">Bangladesh</Option>
-                      <Option value="india">India</Option>
-                    </Select>,
-                  )}
-                </Form.Item>
-                <Form.Item label="Street Address">
-                  {getFieldDecorator('street', {})(<Input placeholder="House Number and Street Name" />)}
-                </Form.Item>
-                <Form.Item label="">
-                  {getFieldDecorator('street2', {})(<Input placeholder="Apartment, Suite, Unit etc." />)}
-                </Form.Item>
-                <Form.Item label="City">{getFieldDecorator('city', {})(<Input placeholder="Enter City" />)}</Form.Item>
-                <Form.Item label="Zip/Postal Code">
-                  {getFieldDecorator('street2', {})(<Input placeholder="Enter Zip" />)}
-                </Form.Item>
-              </Form>
-            </div>
+            <BasicFormWrapper>
+              <div className="atbd-form-checkout">
+                <Row justify="center">
+                  <Col xl={22}>
+                    <div className="shipping-form">
+                      <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
+                      <Form form={form} name="address">
+                        <Form.Item name="name" label="Contact Name">
+                          <Input placeholder="Ibn adam" />
+                        </Form.Item>
+                        <Form.Item name="company" label="Company Name (Optional)">
+                          <Input placeholder="adam" />
+                        </Form.Item>
+                        <Form.Item name="phone" label="Phone Number">
+                          <Input placeholder="+880" />
+                        </Form.Item>
+                        <Form.Item name="country" initialValue="" label="Country/Region">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">Please Select</Option>
+                            <Option value="bangladesh">Bangladesh</Option>
+                            <Option value="india">India</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item name="street" label="Street Address">
+                          <Input placeholder="House Number and Street Name" />
+                        </Form.Item>
+                        <Form.Item name="street2" label="">
+                          <Input placeholder="Apartment, Suite, Unit etc." />
+                        </Form.Item>
+                        <Form.Item name="city" label="City">
+                          <Input placeholder="Enter City" />
+                        </Form.Item>
+                        <Form.Item name="zip" label="Zip/Postal Code">
+                          <Input placeholder="Enter Zip" />
+                        </Form.Item>
+                      </Form>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            </BasicFormWrapper>
           ),
         },
         {
           title: 'Payment Method',
           content: (
-            <div>
-              <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
-              <Radio.Group style={{ width: '100%' }}>
-                <Radio style={{ width: '100%' }} value="card">
-                  <Cards
-                    headless
-                    bodyStyle={{
-                      backgroundColor: '#F8F9FB',
-                    }}
-                  >
-                    <div>
-                      <span>Credit/Debit Card</span>
-                      <img
-                        style={{ width: '40px' }}
-                        src="https://www.mastercard.us/content/dam/mccom/et-ee/logos/logo-mastercard-mobile.svg"
-                        alt=""
-                      />
-                      <img
-                        style={{ width: '40px' }}
-                        src="https://img.favpng.com/21/5/13/american-express-logo-credit-card-payment-png-favpng-8tx6epUgjhQeNcJFzp5fhKgZQ.jpg"
-                        alt=""
-                      />
-                      <img
-                        style={{ width: '40px' }}
-                        src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/363_Visa_Credit_Card_logo-512.png"
-                        alt=""
-                      />
+            <BasicFormWrapper>
+              <div className="atbd-form-checkout">
+                <Row justify="center">
+                  <Col xl={22}>
+                    <div className="payment-method-form">
+                      <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
+                      <div className="shipping-selection">
+                        <Radio.Group style={{ width: '100%' }}>
+                          <div className="shipping-selection__card">
+                            <Radio style={{ width: '100%' }} value="card">
+                              <Cards
+                                headless
+                                bodyStyle={{
+                                  backgroundColor: '#F8F9FB',
+                                  borderRadius: '20px'
+                                }}
+                              >
+                                <div className="supported-card d-flex">
+                                  <span>Credit/Debit Card</span>
+                                  <div className="supported-card_logos">
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/ms.png')}
+                                      alt=""
+                                    />
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/american-express.png')}
+                                      alt=""
+                                    />
+                                    <img
+                                      style={{ width: '50px' }}
+                                      src={require('../../../static/img/cards-logo/visa.png')}
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <Cards headless style={{marginBottom: 0}}>
+                                  <Form form={form} name="info">
+                                    <Form.Item name="number" label="Card Number">
+                                      <Input placeholder="6547-8702-6987-2527" />
+                                    </Form.Item>
+                                    <Form.Item name="name" label="Name on Card">
+                                      <Input placeholder="Full name" />
+                                    </Form.Item>
+                                    <Form.Item name="month" initialValue="" label="Expiration Date">
+                                      <Select style={{ width: '100%' }}>
+                                        <Option value="">MM</Option>
+                                        {month.map((month, key) => (
+                                          <Option key={key} value={month}>
+                                            {month}
+                                          </Option>
+                                        ))}
+                                      </Select>
+                                    </Form.Item>
+                                    <Form.Item name="year" initialValue="">
+                                      <Select style={{ width: '100%' }}>
+                                        <Option value="">YY</Option>
+                                        <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
+                                        {month.map((month, key) => (
+                                          <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
+                                            {parseInt(new Date().getFullYear()) + parseInt(month)}
+                                          </Option>
+                                        ))}
+                                      </Select>
+                                    </Form.Item>
+                                    <Form.Item name="cvv" label="CVV">
+                                      <Input style={{ width: '60%' }} placeholder="XXX" />
+                                      <Link className="input-leftText" to="#"> What is this?</Link>
+                                    </Form.Item>
+                                  </Form>
+                                </Cards>
+                              </Cards>
+                            </Radio>
+                          </div>
+                          <div className="shipping-selection__paypal">
+                            <Radio value="payPal" style={{ width: '100%' }}>
+                                Pay With PayPal
+                              </Radio>
+                          </div>
+                          <div className="shipping-selection__cash">
+                            <Radio value="cash" style={{ width: '100%' }}>
+                              Cash on delivery
+                            </Radio>
+                          </div>
+                        </Radio.Group>
+                      </div>
                     </div>
-                    <Cards headless>
-                      <Form>
-                        <Form.Item label="Card Number">
-                          {getFieldDecorator('number', {})(<Input placeholder="6547-8702-6987-2527" />)}
-                        </Form.Item>
-                        <Form.Item label="Name on Card">
-                          {getFieldDecorator('name', {})(<Input placeholder="Full name" />)}
-                        </Form.Item>
-                        <Form.Item label="Expiration Date">
-                          {getFieldDecorator('month', {
-                            initialValue: '',
-                          })(
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">MM</Option>
-                              {month.map((month, key) => (
-                                <Option key={key} value={month}>
-                                  {month}
-                                </Option>
-                              ))}
-                            </Select>,
-                          )}
-                        </Form.Item>
-                        <Form.Item>
-                          {getFieldDecorator('year', {
-                            initialValue: '',
-                          })(
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">YY</Option>
-                              <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
-                              {month.map((month, key) => (
-                                <Option key={key} value={parseInt(new Date().getFullYear()) + parseInt(month)}>
-                                  {parseInt(new Date().getFullYear()) + parseInt(month)}
-                                </Option>
-                              ))}
-                            </Select>,
-                          )}
-                        </Form.Item>
-                        <Form.Item label="CVV">
-                          {getFieldDecorator('cvv', {})(<Input style={{ width: '60%' }} placeholder="XXX" />)}
-                          <Link to="#"> What is this?</Link>
-                        </Form.Item>
-                      </Form>
-                    </Cards>
-                  </Cards>
-                </Radio>
-                <Radio value="payPal" style={{ width: '100%' }}>
-                  Pay With PayPal
-                </Radio>
-                <Radio value="cash" style={{ width: '100%' }}>
-                  Cash on delivery
-                </Radio>
-              </Radio.Group>
-            </div>
+                  </Col>
+                </Row>
+              </div>
+            </BasicFormWrapper>
           ),
         },
         {
           title: 'Review Order',
           content:
             status !== 'finish' ? (
-              <div style={{ width: '100%' }}>
-                <Heading as="h4">4. Review and confirme Order</Heading>
-                <Cards bodyStyle={{ backgroundColor: '#F8F9FB' }} headless>
-                  <Cards headless>
-                    <div>
-                      <Heading as="h5">
-                        Shipping Information
-                        <Link to="#">
-                          <FeatherIcon icon="edit" />
-                          Edit
-                        </Link>
-                      </Heading>
+              <BasicFormWrapper style={{width: '100%'}}>
+                <div className="atbd-review-order" style={{ width: '100%' }}>
+                  <Heading as="h4">4. Review and confirme Order</Heading>
+                  <Cards bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: 10 }} headless>
+                    <div className="atbd-review-order__single">
+                      <Cards headless>
+                        <div className="atbd-review-order__shippingTitle">
+                          <Heading as="h5">
+                            Shipping Information
+                            <Link to="#">
+                              <FeatherIcon icon="edit" />
+                              Edit
+                            </Link>
+                          </Heading>
+                        </div>
+                        <article className="atbd-review-order__shippingInfo">
+                          <Radio.Group style={{ width: '100%' }}>
+                            <Radio value="ms" style={{ width: '100%' }}>
+                              <div className="shipping-info-text">
+                                <Heading as="h6">Ibn Adam</Heading>
+                                <Heading as="h6">Phone: +61412345678</Heading>
+                                <p>
+                                  795 Folsom Ave, Suite 600 <br />
+                                  San Francisco, CA 94107 <br />
+                                  United States
+                                </p>
+                              </div>
+                            </Radio>
+                          </Radio.Group>
+                          <Link to="#">+ Add New Address</Link>
+                        </article>
+                      </Cards>
                     </div>
-                    <article>
-                      <Heading as="h6">Ibn Adam</Heading>
-                      <Heading as="h6">Phone: +61412345678</Heading>
-                      <p>
-                        795 Folsom Ave, Suite 600 <br />
-                        San Francisco, CA 94107 <br />
-                        United States
-                      </p>
-                      <Link to="#">+ Add New Address</Link>
-                    </article>
-                  </Cards>
-                  <Cards headless>
-                    <div>
-                      <Heading as="h5">Payment Method</Heading>
+                    <div className="atbd-review-order__single">
+                      <Cards headless>
+                        <div>
+                          <Heading as="h5">Payment Method</Heading>
+                        </div>
+                        <Radio.Group style={{ width: '100%' }}>
+                          <Radio value="ms" style={{ width: '100%' }}>
+                            <div className="method-info">
+                              <img
+                                style={{ width: '40px' }}
+                                src="https://www.mastercard.us/content/dam/mccom/et-ee/logos/logo-mastercard-mobile.svg"
+                                alt=""
+                              />
+                              **** **** **** 2597
+                            </div>
+                          </Radio>
+                        </Radio.Group>
+                        <Link className="btn-addCard" to="#">+ Add New Card</Link>
+                      </Cards>
                     </div>
-                    <img
-                      style={{ width: '40px' }}
-                      src="https://www.mastercard.us/content/dam/mccom/et-ee/logos/logo-mastercard-mobile.svg"
-                      alt=""
-                    />
-                    **** **** **** 2597 <br />
-                    <Link to="#">+ Add New Card</Link>
+                    
+                    <div className="atbd-review-order__single">
+                      <Cards headless>
+                        <Fragment>
+                          <ProductTable>
+                            <div className="table-cart table-responsive">
+                              <Table pagination={false} dataSource={dataSource} columns={columns} />
+                            </div>
+                          </ProductTable>
+
+                          <Row justify="end">
+                            <Col xxl={8} xl={5} sm={8} xs={14} offset={10}>
+                              <OrderSummary>
+                                <div className="invoice-summary-inner">
+                                  <ul className="summary-list">
+                                    <li>
+                                      <span className="summary-list-title">Subtotal :</span>
+                                      <span className="summary-list-text">{'$' + 497.32}</span>
+                                    </li>
+                                    <li>
+                                      <span className="summary-list-title">Descount :</span>
+                                      <span className="summary-list-text">{'$' + -20}</span>
+                                    </li>
+                                    <li>
+                                      <span className="summary-list-title">Shipping Charge :</span>
+                                      <span className="summary-list-text">{'$' + 30}</span>
+                                    </li>
+                                  </ul>
+                                  <Heading className="summary-total" as="h4">
+                                    <span className="summary-total-label">Total : </span>
+                                    <span className="summary-total-amount">{'$' + 507.32}</span>
+                                  </Heading>
+                                </div>
+                              </OrderSummary>
+                            </Col>
+                          </Row>
+                        </Fragment>
+                      </Cards>
+                    </div>
                   </Cards>
-                  <Cards headless>
-                    <Fragment>
-                      <Table pagination={false} dataSource={dataSource} columns={columns} />
-                    </Fragment>
-                  </Cards>
-                </Cards>
-              </div>
+                </div>
+              </BasicFormWrapper>
             ) : (
-              <div style={{ width: '100%' }}>
-                <Cards headless bodyStyle={{ backgroundColor: '#FFFFFF' }}>
-                  <Cards headless>
-                    <FeatherIcon icon="check" />
-                    <Heading as="h3">Payment Successful</Heading>
-                    <p>Thank you! We have received your Payment</p>
-                  </Cards>
-                </Cards>
-              </div>
+            
+              <Row justify="start" style={{ width: '100%' }}>
+                <Col xl={20} xs={24}>
+                  <div className="checkout-successful">
+                    <Cards 
+                        headless 
+                        bodyStyle=
+                          {{
+                            backgroundColor: '#F8F9FB',
+                            borderRadius: '20px'
+                          }}
+                        >
+                        <Cards headless>
+                          <span className="icon-success">
+                            <FeatherIcon icon="check" />
+                          </span>
+                          <Heading as="h3">Payment Successful</Heading>
+                          <p>Thank you! We have received your Payment</p>
+                        </Cards>
+                      </Cards>
+                  </div>
+                </Col>
+              </Row>
             ),
         },
       ]}
@@ -350,7 +473,8 @@ const CheckOut = ({ form }) => {
       onDone={done}
       isfinished={isfinished}
     />
+    </CheckoutWrapper>
   );
 };
 
-export default Form.create({ name: 'checkout' })(CheckOut);
+export default CheckOut;

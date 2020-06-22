@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, notification, Icon, Divider } from 'antd';
-import { Main } from '../styled';
+import { Main, NotificationListWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 
@@ -90,80 +90,88 @@ const Notifications = () => {
       <PageHeader ghost title="Notifications" />
       <Main>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Notification">
-              <Button type="primary" onClick={openNotification}>
+              <Button type="primary" size="small" onClick={openNotification}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards
               title="Duration after which the notification box is closed"
               caption="The simplest use of Notification"
             >
-              <Button type="primary" onClick={openNotification2}>
+              <Button type="primary" size="small" onClick={openNotification2}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom close button" caption="The simplest use of Notification">
-              <Button type="primary" onClick={openNotification3}>
+              <Button type="primary" size="small" onClick={openNotification3}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with icon" caption="The simplest use of Notification">
-              <Button type="success" onClick={() => openNotificationWithIcon('success')}>
-                Success
-              </Button>
-              <Button type="info" onClick={() => openNotificationWithIcon('info')}>
-                Info
-              </Button>
-              <Button type="warning" onClick={() => openNotificationWithIcon('warning')}>
-                Warning
-              </Button>
-              <Button type="error" onClick={() => openNotificationWithIcon('error')}>
-                Error
-              </Button>
+              <NotificationListWrapper>
+
+                <Button type="success" size="small" onClick={() => openNotificationWithIcon('success')}>
+                  Success
+                </Button>
+                <Button type="info" size="small" onClick={() => openNotificationWithIcon('info')}>
+                  Info
+                </Button>
+                <Button type="warning" size="small" onClick={() => openNotificationWithIcon('warning')}>
+                  Warning
+                </Button>
+                <Button type="error" size="small" onClick={() => openNotificationWithIcon('error')}>
+                  Error
+                </Button>
+
+              </NotificationListWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with custom icon" caption="The simplest use of Notification">
-              <Button type="primary" onClick={openNotificationCustomIcon}>
+              <Button type="primary" size="small" onClick={openNotificationCustomIcon}>
                 Open the notification box
               </Button>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with custom Style" caption="The simplest use of Notification">
-              <Button type="primary" onClick={openNotificationCustomStyle}>
+              <Button type="primary" size="small" onClick={openNotificationCustomStyle}>
                 Open the notification box
               </Button>
               ,
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with placement" caption="The simplest use of Notification">
-              <Button type="primary" onClick={() => openNotificationPlacement('topLeft')}>
-                <Icon type="radius-upleft" />
-                topLeft
-              </Button>
-              <Button type="primary" onClick={() => openNotificationPlacement('topRight')}>
-                <Icon type="radius-upright" />
-                topRight
-              </Button>
-              <Divider />
-              <Button type="primary" onClick={() => openNotificationPlacement('bottomLeft')}>
-                <Icon type="radius-bottomleft" />
-                bottomLeft
-              </Button>
-              <Button type="primary" onClick={() => openNotificationPlacement('bottomRight')}>
-                <Icon type="radius-bottomright" />
-                bottomRight
-              </Button>
+              <NotificationListWrapper>
+
+                <Button type="primary" size="small" onClick={() => openNotificationPlacement('topLeft')}>
+                  <Icon type="radius-upleft" />
+                  topLeft
+                </Button>
+                <Button type="primary" size="small" onClick={() => openNotificationPlacement('topRight')}>
+                  <Icon type="radius-upright" />
+                  topRight
+                </Button>
+                <Divider />
+                <Button type="primary" size="small" onClick={() => openNotificationPlacement('bottomLeft')}>
+                  <Icon type="radius-bottomleft" />
+                  bottomLeft
+                </Button>
+                <Button type="primary" size="small" onClick={() => openNotificationPlacement('bottomRight')}>
+                  <Icon type="radius-bottomright" />
+                  bottomRight
+                </Button>
+
+              </NotificationListWrapper>
             </Cards>
           </Col>
         </Row>

@@ -1,50 +1,135 @@
 import React, { useEffect } from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Popover } from '../../popup/popup';
-import { readNotificationList } from '../../../redux/notification/actionCreator';
+import Heading from '../../heading/heading';
 
 const NotificationBox = props => {
-  const { notification, readNotification } = props;
-
-  useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      readNotification();
-    }
-    return () => {
-      unmount = true;
-    };
-  }, [readNotification]);
-
   const content = (
-    <div>
-      {notification.map(item => {
-        const { id, from } = item;
-        return (
-          <NavLink key={id} to="#">
-            {from}
-          </NavLink>
-        );
-      })}
-      <p>
-        <NavLink style={{ display: 'block', textAlign: 'center' }} to="#">
-          Read more
-        </NavLink>
-      </p>
+    <div className="atbd-top-dropdwon">
+      <Heading as="h5" className="atbd-top-dropdwon__title">
+        <span className="title-text">Notifications</span>
+        <Badge className="badge-success" count={3}></Badge>
+      </Heading>
+      <ul className="atbd-top-dropdwon__nav notification-list">
+        <li>
+          <Link to="#">
+            <div className="atbd-top-dropdwon__content notifications">
+              <div className="notification-icon bg-primary">
+                <FeatherIcon icon="hard-drive" />
+              </div>
+              <div className="notification-content d-flex">
+                <div className="notification-text">
+                  <Heading as="h5">
+                    <span>James</span> Send you a message
+                  </Heading>
+                  <p>5 hours ago</p>
+                </div>
+                <div className="notification-status">
+                  <Badge dot></Badge>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <div className="atbd-top-dropdwon__content notifications">
+              <div className="notification-icon bg-secondary">
+                <FeatherIcon icon="share" />
+              </div>
+              <div className="notification-content d-flex">
+                <div className="notification-text">
+                  <Heading as="h5">
+                    <span>James</span> Send you a message
+                  </Heading>
+                  <p>5 hours ago</p>
+                </div>
+
+                <div className="notification-status">
+                  <Badge dot></Badge>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <div className="atbd-top-dropdwon__content notifications">
+              <div className="notification-icon bg-secondary">
+                <FeatherIcon icon="share" />
+              </div>
+              <div className="notification-content d-flex">
+                <div className="notification-text">
+                  <Heading as="h5">
+                    <span>James</span> Send you a message
+                  </Heading>
+                  <p>5 hours ago</p>
+                </div>
+
+                <div className="notification-status">
+                  <Badge dot></Badge>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <div className="atbd-top-dropdwon__content notifications">
+              <div className="notification-icon bg-secondary">
+                <FeatherIcon icon="share" />
+              </div>
+              <div className="notification-content d-flex">
+                <div className="notification-text">
+                  <Heading as="h5">
+                    <span>James</span> Send you a message
+                  </Heading>
+                  <p>5 hours ago</p>
+                </div>
+
+                <div className="notification-status">
+                  <Badge dot></Badge>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <div className="atbd-top-dropdwon__content notifications">
+              <div className="notification-icon bg-secondary">
+                <FeatherIcon icon="share" />
+              </div>
+              <div className="notification-content d-flex">
+                <div className="notification-text">
+                  <Heading as="h5">
+                    <span>James</span> Send you a message
+                  </Heading>
+                  <p>5 hours ago</p>
+                </div>
+
+                <div className="notification-status">
+                  <Badge dot></Badge>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </li>
+      </ul>
+      <Link className="btn-seeAll" to="#">See all incoming activity</Link>
     </div>
   );
 
   return (
     <div className="notification">
-      <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} trigger="click">
         <Badge dot={true} offset={[-8, -5]}>
-          <NavLink to="#" className="head-example">
+          <Link to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
-          </NavLink>
+          </Link>
         </Badge>
       </Popover>
     </div>
@@ -55,16 +140,4 @@ NotificationBox.propTypes = {
   notification: PropTypes.array,
 };
 
-const mapSTateToProps = state => {
-  return {
-    notification: state.notification.data,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    readNotification: () => dispatch(readNotificationList()),
-  };
-};
-
-export default connect(mapSTateToProps, mapDispatchToProps)(NotificationBox);
+export default NotificationBox;

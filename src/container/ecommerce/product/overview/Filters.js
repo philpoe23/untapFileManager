@@ -5,6 +5,7 @@ import Heading from '../../../../components/heading/heading';
 import { Slider } from '../../../../components/slider/slider';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { CheckboxGroup } from '../../../../components/checkbox/checkbox';
+import { Sidebar, SidebarSingle } from '../../Style';
 import { Rate } from 'antd';
 import { connect } from 'react-redux';
 import {
@@ -128,58 +129,108 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
       value: 'juice',
     },
   ];
+
   const onChangeCategory = e => {
     e.preventDefault();
     filterByCategory(e.target.getAttribute('data-category'));
   };
+
   return (
-    <Cards
-      title={
-        <span>
-          <FeatherIcon icon="sliders" size={14} />
-          Filters
-        </span>
-      }
-    >
-      <Heading as="h5">Price Range</Heading>
-      <Slider max={1500} onChange={onChange} range defaultValues={[min, max]} />
-      <p>
-        ${min} - ${max}
-      </p>
-      <Heading as="h5">Category</Heading>
+    <Sidebar>
+      <Cards
+        title={
+          <span>
+            <FeatherIcon icon="sliders" size={14} />
+            Filters
+          </span>
+        }
+      >
+        <SidebarSingle style={{ marginBottom: 32 }}>
+          <Heading as="h5">Price Range</Heading>
+          <Slider max={1500} onChange={onChange} range defaultValues={[min, max]} />
+          <p>
+            ${min} - ${max}
+          </p>
+        </SidebarSingle>
+        <SidebarSingle style={{ marginBottom: 32 }}>
+          <Heading as="h5">Category</Heading>
 
-      <nav>
-        <ul>
-          <li>
-            <NavLink onClick={onChangeCategory} data-category="all" to="/category">
-              All
+          <nav>
+            <ul className="atbd-category-list">
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="al;" to="/category">
+                  <span>All</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="accessories" to="/category">
+                  <span>Accessories</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="appliance" to="/category">
+                  <span>Appliances</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="bags" to="/category">
+                  <span>Bags</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="electronic" to="/category">
+                  <span>Electronic</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="entertainment" to="/category">
+                  <span>Entertainment</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="induction" to="/category">
+                  <span>Induction</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={onChangeCategory} data-category="mobile" to="/category">
+                  <span>Mobile Phone</span>
+                  <span className="category-count">25</span>
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+          <div className="sidebar-single__action">
+            <NavLink className="btn-seeMore" to="#">
+              See more
             </NavLink>
-          </li>
-          <li>
-            <NavLink onClick={onChangeCategory} data-category="accessories" to="/category">
-              Accessories <span>25</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink onClick={onChangeCategory} data-category="furniture" to="/category">
-              Furniture <span>25</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink onClick={onChangeCategory} data-category="drinks" to="/category">
-              Drinks <span>25</span>
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <NavLink to="#">See more</NavLink>
-      <Heading as="h5">Brands</Heading>
-      <CheckboxGroup options={optionsBrand} onChange={onChangeBrand} />
+          </div>
+        </SidebarSingle>
 
-      <NavLink to="#">See more</NavLink>
-      <Heading as="h5">Ratings</Heading>
-      <CheckboxGroup options={options} onChange={onChangeRating} />
-    </Cards>
+        <SidebarSingle style={{ marginBottom: 32 }}>
+          <Heading as="h5">Brands</Heading>
+          <CheckboxGroup options={optionsBrand} onChange={onChangeBrand} />
+
+          <div className="sidebar-single__action">
+            <NavLink className="btn-seeMore" to="#">
+              See more
+            </NavLink>
+          </div>
+        </SidebarSingle>
+
+        <SidebarSingle>
+          <Heading as="h5">Ratings</Heading>
+          <CheckboxGroup options={options} onChange={onChangeRating} />
+        </SidebarSingle>
+      </Cards>
+    </Sidebar>
   );
 };
 const mapDispatchToProps = dispatch => {

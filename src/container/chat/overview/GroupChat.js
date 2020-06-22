@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { BlockSpan } from '../style';
+import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
@@ -20,35 +20,51 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
   };
 
   return (
-    <ul>
-      <Button type="default">
-        <FeatherIcon icon="edit" size={14} />
-        Create New Group
-      </Button>
-      {chatData !== undefined &&
-        chatData
-          .sort((a, b) => {
-            return b.time - a.time;
-          })
-          .map((user, index) => {
-            const { groupName, content, id } = user;
-            const time = content[content.length - 1]['time'];
-            const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
-            return (
-              <li key={index + 1}>
-                <NavLink onClick={dataFiltering} data-id={id} to={match.path + '/' + id}>
-                  <BlockSpan>
-                    {groupName}
-                    <span style={{ float: 'right' }}>
-                      {same ? moment(time).format('hh:mm A') : moment(time).format('LL')}
-                    </span>
-                  </BlockSpan>
-                  <BlockSpan>{textRefactor(content[content.length - 1]['content'], 5)}</BlockSpan>
-                </NavLink>
-              </li>
-            );
-          })}
-    </ul>
+    <ChatWrapper>
+      <div className="create-action">
+        <Button className="btn-add" size="default" type="default" shape="circle" block>
+          <FeatherIcon icon="edit" size={14} />
+          Create New Group
+        </Button>
+      </div>
+      
+      <ul>
+        {chatData !== undefined &&
+          chatData
+            .sort((a, b) => {
+              return b.time - a.time;
+            })
+            .map((user, index) => {
+              const { groupName, content, id } = user;
+              const time = content[content.length - 1]['time'];
+              const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
+              return (
+                <li key={index + 1}  className="chat-link-signle">
+                  <NavLink onClick={dataFiltering} data-id={id} to={match.path + '/' + id}>
+                    <div className="author-figure">
+                      <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />
+                    </div>
+                    
+                    <div className="author-info">
+                      <BlockSpan className="author-name">
+                        {groupName}
+                      </BlockSpan>
+                      <BlockSpan className="author-chatText">
+                        {textRefactor(content[content.length - 1]['content'], 5)}
+                      </BlockSpan>
+                    </div>
+                    <div className="author-chatMeta">
+                      <BlockSpan>
+                          {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
+                      </BlockSpan>
+                    </div>
+                  </NavLink>
+                </li>
+              );
+            })}
+      </ul>
+    </ChatWrapper>
+    
   );
 };
 

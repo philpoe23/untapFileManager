@@ -9,6 +9,7 @@ import FeatherIcon from 'feather-icons-react';
 import { Button } from '../../components/buttons/buttons';
 import CreateProject from './overview/CreateProject';
 import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
+import { ProjectHeader, ProjectSorting } from './style';
 
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
@@ -37,6 +38,15 @@ const Project = ({ match }) => {
 
   const onChangeCategory = e => {
     e.preventDefault();
+    const link = e.currentTarget;
+    link
+      .closest('ul')
+      .querySelectorAll('li')
+      .forEach(li => {
+        li.classList.remove('active');
+      });
+
+    link.closest('li').classList.add('active');
     dispatch(filterProjectByStatus(e.currentTarget.getAttribute('data-category')));
   };
 
@@ -54,72 +64,80 @@ const Project = ({ match }) => {
 
   return (
     <Fragment>
-      <PageHeader
-        ghost
-        title="Projects | "
-        subTitle={<Fragment>12 Running Projects</Fragment>}
-        buttons={[
-          <Button onClick={showModal} key="1" type="primary">
-            + Create Projects
-          </Button>,
-        ]}
-      />
+      <ProjectHeader>
+        <PageHeader
+          ghost
+          title="Projects"
+          subTitle={<Fragment>12 Running Projects</Fragment>}
+          buttons={[
+            <Button onClick={showModal} key="1" type="primary" size="default">
+              + Create Projects
+            </Button>,
+          ]}
+        />
+      </ProjectHeader>
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
-            <Row gutter={15}>
-              <Col md={6}>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link onClick={onChangeCategory} data-category="all" to="#">
-                        All
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={onChangeCategory} data-category="progress" to="#">
-                        In Progress
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={onChangeCategory} data-category="complete" to="#">
-                        Complete
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={onChangeCategory} data-category="late" to="#">
-                        Late
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={onChangeCategory} data-category="early" to="#">
-                        Early
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
-              </Col>
-              <Col md={12}>
-                <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
-              </Col>
-              <Col md={6}>
-                Sort By :
-                <Select style={{ width: '70%' }} onChange={onSorting} defaultValue="category">
-                  <Select.Option value="category">Project Category</Select.Option>
-                  <Select.Option value="rate">Top Rated</Select.Option>
-                  <Select.Option value="popular">Popular</Select.Option>
-                  <Select.Option value="time">Newest</Select.Option>
-                  <Select.Option value="price">Price</Select.Option>
-                </Select>
-                <NavLink to={match.path}>
-                  <FeatherIcon icon="grid" size={16} />
-                </NavLink>
-                <NavLink to={match.path + '/list'}>
-                  <FeatherIcon icon="list" size={16} />
-                </NavLink>
-              </Col>
-            </Row>
-            <Row gutter={15}>
+            <ProjectSorting>
+              <div className="project-sort-bar">
+                <div className="project-sort-nav">
+                  <nav>
+                    <ul>
+                      <li className="active">
+                        <Link onClick={onChangeCategory} data-category="all" to="#">
+                          All
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={onChangeCategory} data-category="progress" to="#">
+                          In Progress
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={onChangeCategory} data-category="complete" to="#">
+                          Complete
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={onChangeCategory} data-category="late" to="#">
+                          Late
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={onChangeCategory} data-category="early" to="#">
+                          Early
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div className="project-sort-search">
+                  <AutoComplete onSearch={handleSearch} dataSource={notdata} patterns />
+                </div>
+                <div className="project-sort-group">
+                  <div className="sort-group">
+                    <span>Sort By:</span>
+                    <Select onChange={onSorting} defaultValue="category">
+                      <Select.Option value="category">Project Category</Select.Option>
+                      <Select.Option value="rate">Top Rated</Select.Option>
+                      <Select.Option value="popular">Popular</Select.Option>
+                      <Select.Option value="time">Newest</Select.Option>
+                      <Select.Option value="price">Price</Select.Option>
+                    </Select>
+                    <div className="layout-style">
+                      <NavLink to={match.path}>
+                        <FeatherIcon icon="grid" size={16} />
+                      </NavLink>
+                      <NavLink to={match.path + '/list'}>
+                        <FeatherIcon icon="list" size={16} />
+                      </NavLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ProjectSorting>
+            <div>
               <Switch>
                 <Suspense
                   fallback={
@@ -132,7 +150,7 @@ const Project = ({ match }) => {
                   <Route path={match.path + '/:list'} component={List} />
                 </Suspense>
               </Switch>
-            </Row>
+            </div>
           </Col>
         </Row>
       </Main>

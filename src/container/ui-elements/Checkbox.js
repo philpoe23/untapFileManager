@@ -32,7 +32,7 @@ const Checkboxs = () => {
     <Fragment>
       <PageHeader title="Checkbox" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <Checkbox onChange={onChange}>Checkbox</Checkbox>

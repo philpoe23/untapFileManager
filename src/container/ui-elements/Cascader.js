@@ -32,7 +32,7 @@ const Cascaders = () => {
     <Fragment>
       <PageHeader title="Cascader" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <Cascader onChange={onChange} />
@@ -74,9 +74,14 @@ const Cascaders = () => {
             <Cards title="Change on select">
               <Cascader onChange={onChange} changeOnSelect={true} />
             </Cards>
-            <Cards title="Custom render">
-              <Cascader onChange={onChange} />
-            </Cards>
+            <div className="custom-cascade-render">
+
+              <Cards title="Custom render" style={{width: "100%"}}>
+                <Cascader onChange={onChange} />
+              </Cards>
+              
+            </div>
+            
             <Cards  title="Lazy Load">
               <Cascader onChange={onChangeLoading} loading data={options} />
             </Cards>

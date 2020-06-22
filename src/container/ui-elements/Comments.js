@@ -120,7 +120,7 @@ const Comments = () => {
     <Fragment>
       <PageHeader title="Comments" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
             <Cards title="Basic comment">
               <Comment
@@ -177,7 +177,7 @@ const Comments = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Reply Editor">
               <CommentEditor />
             </Cards>

@@ -7,24 +7,26 @@ const AuthLayout = WraperContent => {
   return () => {
     return (
       <Row>
-        <Col md={8}>
+        <Col xxl={8} xl={9} lg={12} md={8} xs={24}>
           <Aside>
-            <img src={require('../../../static/img/auth/topShape.png')} alt="" className="topShape" />
-            <img src={require('../../../static/img/auth/bottomShape.png')} alt="" className="bottomShape" />
-            <Content>
-              <img src={require('../../../static/img/logo.png')} alt="" />
-              <br />
-              <br />
-              <Heading as="h1">
-                Bootstrap 4 React <br />
-                Web Application
-              </Heading>
-              <img src={require('../../../static/img/auth/Illustration.png')} alt="" />
-            </Content>
+            <div className="auth-side-content">
+              <img src={require('../../../static/img/auth/topShape.png')} alt="" className="topShape" />
+              <img src={require('../../../static/img/auth/bottomShape.png')} alt="" className="bottomShape" />
+              <Content>
+                <img src={require('../../../static/img/logo.png')} alt="" />
+                <br />
+                <br />
+                <Heading as="h1">
+                  Bootstrap 4 React <br />
+                  Web Application
+                </Heading>
+                <img className="auth-content-figure" src={require('../../../static/img/auth/Illustration.png')} alt="" />
+              </Content>
+            </div>
           </Aside>
         </Col>
 
-        <Col md={16}>
+        <Col xxl={16} xl={15} lg={12} md={16} xs={24}>
           <WraperContent />
         </Col>
       </Row>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, message, Space } from 'antd';
-import { Main } from '../styled';
+import { Main, MessageStyleWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 
@@ -37,30 +37,36 @@ const Messages = () => {
       <PageHeader ghost title="Message" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic">
-              <Button type="primary" onClick={info}>
-                Display normal message
-              </Button>
+              <MessageStyleWrapper>
+                <Button type="primary" size="large" raised onClick={info}>
+                  Display normal message
+                </Button>
+              </MessageStyleWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Customize">
-              <Button onClick={customSuccess}>Customized display duration</Button>
+              <MessageStyleWrapper>
+                <Button type="light" outlined size="large" onClick={customSuccess}>Customized display duration</Button>
+              </MessageStyleWrapper>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Other types of message">
               <Space>
-                <Button onClick={success}>Success</Button>
-                <Button onClick={error}>Error</Button>
-                <Button onClick={warning}>Warning</Button>
+                <Button type="light" outlined size="large" onClick={success}>Success</Button>
+                <Button type="light" outlined size="large" onClick={error}>Error</Button>
+                <Button type="light" outlined size="large" onClick={warning}>Warning</Button>
               </Space>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Loading">
-              <Button onClick={loadingSuccess}>Display a loading indicator</Button>
+              <MessageStyleWrapper>
+                <Button type="light" outlined size="large" onClick={loadingSuccess}>Display a loading indicator</Button>
+              </MessageStyleWrapper>
             </Cards>
           </Col>
         </Row>

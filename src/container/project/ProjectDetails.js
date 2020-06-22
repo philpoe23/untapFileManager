@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
@@ -9,6 +9,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { filterSinglepage } from '../../redux/project/actionCreator';
+import { ProjectDetailsWrapper, TaskLists } from './style';
 
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
@@ -26,169 +27,187 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
   const { title, content } = project[0];
 
   return (
-    <Fragment>
+    <ProjectDetailsWrapper>
       <PageHeader
         ghost
         title={
-          <div>
-            <Heading as="h2">
-              {title}
-              <Button type="primary">
-                <FeatherIcon icon="plus" size="14" /> Add Task
-              </Button>
-              <Button type="default">
-                <FeatherIcon icon="check" size="14" /> Mark as Complete
-              </Button>
-            </Heading>
+          <div className="project-header">
+            <Heading as="h2">{title}</Heading>
+            <Button type="primary" size="small">
+              <FeatherIcon icon="plus" size="14" /> Add Task
+            </Button>
+            <Button outlined type="light" size="small">
+              <FeatherIcon icon="check" size="14" /> Mark as Complete
+            </Button>
           </div>
         }
         buttons={[
-          <Link key={1} to="#">
-            <FeatherIcon icon="edit-3" size={14} />
-            Edit
-          </Link>,
-          <Link key={2} to="#">
-            <FeatherIcon icon="trash-2" size={14} />
-            Remove
-          </Link>,
+          <div className="project-action">
+            <Link key={1} to="#" className="project-edit">
+              <FeatherIcon icon="edit-3" size={14} />
+              Edit
+            </Link>
+            <Link key={2} to="#" className="project-remove">
+              <FeatherIcon icon="trash-2" size={14} />
+              Remove
+            </Link>
+          </div>,
         ]}
       />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={6}>
-            <Cards headless bodyStyle={{ backgroundColor: '#20C997' }}>
-              <Heading as="h5">Progress</Heading>
-              <Progress percent={84} status="active" />
-            </Cards>
+            <div className="project-progress">
+              <h3>Progress</h3>
+              <Progress percent={65} status="active" />
+            </div>
             <Cards headless>
-              <Row gutter={15}>
-                <Col xs={6}>
+              <div className="state-single">
+                <div className="color-primary">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={30} />
+                    <FeatherIcon icon="layout" size={25} />
                   </Link>
-                </Col>
-                <Col xs={18}>
+                </div>
+                <div>
                   <Heading as="h5">47</Heading>
                   <p>Total Task</p>
-                </Col>
-              </Row>
-              <Row gutter={15}>
-                <Col xs={6}>
+                </div>
+              </div>
+              <div className="state-single">
+                <div className="color-secondary">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={30} />
+                    <FeatherIcon icon="layout" size={25} />
                   </Link>
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">47</Heading>
-                  <p>Total Task</p>
-                </Col>
-              </Row>
-              <Row gutter={15}>
-                <Col xs={6}>
+                </div>
+                <div>
+                  <Heading as="h5">34</Heading>
+                  <p>Task Completed</p>
+                </div>
+              </div>
+              <div className="state-single">
+                <div className="color-success">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={30} />
+                    <FeatherIcon icon="layout" size={25} />
                   </Link>
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">47</Heading>
-                  <p>Total Task</p>
-                </Col>
-              </Row>
+                </div>
+                <div>
+                  <Heading as="h5">$27,500</Heading>
+                  <p>Spendings</p>
+                </div>
+              </div>
+              <div className="state-single">
+                <div className="color-warning">
+                  <Link to="#">
+                    <FeatherIcon icon="layout" size={25} />
+                  </Link>
+                </div>
+                <div>
+                  <Heading as="h5">250</Heading>
+                  <p>Hours Spent</p>
+                </div>
+              </div>
             </Cards>
           </Col>
           <Col md={12}>
             <Cards title="About Project">
-              {content}
-              <br />
-              <Row gutter={5}>
-                <Col md={5}>
-                  <Heading as="h6">Project owner</Heading>
+              <div className="about-content">
+                <p>{content}</p>
+              </div>
+              <div className="about-project">
+                <div>
+                  <span>Project Owner</span>
                   <p>Peter Jackson</p>
-                </Col>
-                <Col md={5}>
-                  <Heading as="h6">Budget</Heading>
+                </div>
+                <div>
+                  <span>Budget</span>
                   <p>$56,700</p>
-                </Col>
-                <Col md={5}>
-                  <Heading as="h6">Start Date</Heading>
-                  <p>28 Dec 2019</p>
-                </Col>
-                <Col md={5}>
-                  <Heading as="h6">Deadline</Heading>
-                  <p>18 Mar 2020</p>
-                </Col>
-              </Row>
+                </div>
+                <div>
+                  <span>Start Date</span>
+                  <p className="color-primary">28 Dec 2019</p>
+                </div>
+                <div>
+                  <span>Deadline</span>
+                  <p className="color-danger">18 Mar 2020</p>
+                </div>
+              </div>
             </Cards>
           </Col>
           <Col md={6}>
             <Cards
               title="Users"
               isbutton={
-                <Button>
+                <Button outlined type="light" size="small">
                   <FeatherIcon icon="user-plus" size={14} /> Add Users
                 </Button>
               }
             >
-              <Row gutter={15}>
-                <Col xs={6}>
-                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">Meyri Carles</Heading>
-                  <p>Ui Designer</p>
-                </Col>
-              </Row>
-              <Row gutter={15}>
-                <Col xs={6}>
-                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">Meyri Carles</Heading>
-                  <p>Ui Designer</p>
-                </Col>
-              </Row>
-              <Row gutter={15}>
-                <Col xs={6}>
-                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">Meyri Carles</Heading>
-                  <p>Ui Designer</p>
-                </Col>
-              </Row>
-              <Row gutter={15}>
-                <Col xs={6}>
-                  <img style={{ width: '100%' }} src={require(`../../static/img/users/1.png`)} alt="" />
-                </Col>
-                <Col xs={18}>
-                  <Heading as="h5">Meyri Carles</Heading>
-                  <p>Ui Designer</p>
-                </Col>
-              </Row>
+              <div className="project-users">
+                <div className="porject-user-single">
+                  <div>
+                    <img src={require(`../../static/img/users/1.png`)} alt="" />
+                  </div>
+                  <div>
+                    <Heading as="h5">Meyri Carles</Heading>
+                    <p>Ui Designer</p>
+                  </div>
+                </div>
+                <div className="porject-user-single">
+                  <div>
+                    <img src={require(`../../static/img/users/1.png`)} alt="" />
+                  </div>
+                  <div>
+                    <Heading as="h5">Meyri Carles</Heading>
+                    <p>Ui Designer</p>
+                  </div>
+                </div>
+                <div className="porject-user-single">
+                  <div>
+                    <img src={require(`../../static/img/users/1.png`)} alt="" />
+                  </div>
+                  <div>
+                    <Heading as="h5">Meyri Carles</Heading>
+                    <p>Ui Designer</p>
+                  </div>
+                </div>
+                <div className="porject-user-single">
+                  <div>
+                    <img src={require(`../../static/img/users/1.png`)} alt="" />
+                  </div>
+                  <div>
+                    <Heading as="h5">Meyri Carles</Heading>
+                    <p>Ui Designer</p>
+                  </div>
+                </div>
+              </div>
             </Cards>
           </Col>
           <Col md={16}>
-            <Cards
-              title={
-                <nav>
-                  <NavLink to={{ pathname: match.url, state: [{}] }}>Task List</NavLink> &nbsp; &nbsp;
-                  <NavLink to={{ pathname: match.url + '/activities', state: [{}] }}>Activities</NavLink>
-                </nav>
-              }
-            >
-              <Switch>
-                <Suspense
-                  fallback={
-                    <div className="spin">
-                      <Spin />
-                    </div>
-                  }
-                >
-                  <Route exact path={match.url} component={TaskList} />
-                  <Route path={match.url + '/:activities'} component={Activities} />
-                </Suspense>
-              </Switch>
-            </Cards>
+            <TaskLists>
+              <Cards
+                title={
+                  <nav>
+                    <NavLink to={match.url + '/tasklist'}>Task List</NavLink>
+                    &nbsp; &nbsp;
+                    <NavLink to={match.url + '/activities'}>Activities</NavLink>
+                  </nav>
+                }
+              >
+                <Switch>
+                  <Suspense
+                    fallback={
+                      <div className="spin">
+                        <Spin />
+                      </div>
+                    }
+                  >
+                    <Route exact path={match.url} component={TaskList} />
+                    <Route path={match.url + '/tasklist'} component={TaskList} />
+                    <Route path={match.url + '/activities'} component={Activities} />
+                  </Suspense>
+                </Switch>
+              </Cards>
+            </TaskLists>
           </Col>
           <Col md={8}>
             <Cards title="Files">
@@ -197,7 +216,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </ProjectDetailsWrapper>
   );
 };
 

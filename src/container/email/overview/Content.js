@@ -7,6 +7,7 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { EmailAuthor, EmailHeader } from './style';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -47,25 +48,25 @@ const Content = ({ searchData, email }) => {
       return data.push({
         key: id,
         name: (
-          <div>
+          <EmailAuthor>
             <FeatherIcon icon="star" size={18} />
-            <img style={{ width: '32px', height: '32px', borderRadius: '50%' }} src={img} alt={'image' + index} />
+            <img src={img} alt={'image' + index} />
             <Heading as="h5">
               <NavLink to={'/email/single/' + id}>{userName}</NavLink>
             </Heading>
-          </div>
+          </EmailAuthor>
         ),
         email: email,
         status: status,
         content: (
-          <div>
+          <EmailHeader>
             <Heading as="h5">
               {subject} <span>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
-          </div>
+          </EmailHeader>
         ),
-        time: same ? moment(id).format('hh:mm A') : moment(id).format('LL'),
+        time: <span className="email-time">{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>,
       });
     });
 
@@ -140,8 +141,14 @@ const Content = ({ searchData, email }) => {
     {
       title: (
         <Fragment>
-          <FeatherIcon icon="sliders" size={18} />
-          <FeatherIcon icon="more-vertical" size={18} />
+          <div className="email-top-right d-flex align-items-center">
+            <NavLink to="/">
+              <FeatherIcon icon="sliders" size={18} />
+            </NavLink>
+            <NavLink to="/">
+              <FeatherIcon icon="more-vertical" size={18} />
+            </NavLink>
+          </div>
         </Fragment>
       ),
       dataIndex: 'time',
@@ -151,12 +158,8 @@ const Content = ({ searchData, email }) => {
 
   return (
     <Style
-      pagination={{
-        defaultPageSize: 10,
-        total: data.length,
-        showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-        position: 'top',
-      }}
+      className="table-responsive"
+      pagination={true}
       rowSelection={rowSelection}
       columns={columns}
       dataSource={data}

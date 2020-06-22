@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Table } from 'antd';
+import { Row, Col, Radio, Table,Icon } from 'antd';
+import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -14,6 +15,12 @@ import {
 import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
+import { Link } from 'react-router-dom';
+import { CardBarChart2, LocationMapWrapper,RevenueWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const content = (
   <Fragment>
@@ -108,7 +115,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -138,7 +145,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -168,7 +175,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -198,7 +205,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -228,7 +235,7 @@ const revenuedata = [
             fill: false,
           },
         ]}
-        height={20}
+        height={30}
         width={120}
         options={{
           ...options,
@@ -354,286 +361,440 @@ const locationdata = [
   },
 ];
 
+const handleActiveChange = e => {
+  const link = e.currentTarget;
+  link
+    .closest('ul')
+    .querySelectorAll('li')
+    .forEach(li => {
+      li.classList.remove('active');
+    });
+
+  link.closest('li').classList.add('active');
+};
 const Ecommerce = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Ecommerce Dashboard" />
+      <PageHeader 
+        ghost 
+        title="Ecommerce Dashboard"
+        buttons={[
+
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+          
+        ]}
+
+      />
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
+        <Row gutter={25}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
-                  <Heading as="h1">7,461</Heading>
-                  <span>Orders</span>
-                  <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
-                </Col>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
+                  <CardBarChart2>
+                    <Heading as="h1">7,461</Heading>
+                    <span>Orders</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
+                  </CardBarChart2>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#5F63F230',
+                        backgroundColor: '#5F63F210',
                         hoverBackgroundColor: '#5F63F2',
                       },
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
-                  <Heading as="h1">$28,947</Heading>
-                  <span>Revenue</span>
-                  <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
-                </Col>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
+                  <CardBarChart2>
+                    <Heading as="h1">$28,947</Heading>
+                    <span>Revenue</span>
+                    <p>
+                      <span className="growth-downward">
+                        <FeatherIcon icon="arrow-down" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
+                  </CardBarChart2>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#FF69A530',
+                        backgroundColor: '#FF69A510',
                         hoverBackgroundColor: '#FF69A5',
                       },
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
-                  <Heading as="h1">$3,241</Heading>
-                  <span>Avg. order value</span>
-                  <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
-                </Col>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
+                  <CardBarChart2>
+                    <Heading as="h1">$3,241</Heading>
+                    <span>Avg. order value</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
+                  </CardBarChart2>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#20C99730',
+                        backgroundColor: '#20C99710',
                         hoverBackgroundColor: '#20C997',
                       },
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <Row>
-                <Col xs={12}>
-                  <Heading as="h1">45.2k</Heading>
-                  <span>Unique visitors</span>
-                  <p>
-                    <span>
-                      <FeatherIcon icon="arrow-up" /> 25%
-                    </span>
-                    <span>Since last week</span>
-                  </p>
-                </Col>
-                <Col xs={12}>
+              <ECahrtCard>
+                <div className="card-chunk">
+                  <CardBarChart2>
+                    <Heading as="h1">45.2k</Heading>
+                    <span>Unique visitors</span>
+                    <p>
+                      <span className="growth-upward">
+                        <FeatherIcon icon="arrow-up" /> 25%
+                      </span>
+                      <span>Since last week</span>
+                    </p>
+                  </CardBarChart2>
+                </div>
+                <div className="card-chunk">
                   <ChartjsBarChartTransparent
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#2C99FF30',
+                        backgroundColor: '#2C99FF10',
                         hoverBackgroundColor: '#2C99FF',
                       },
                     ]}
                     options={options}
                   />
-                </Col>
-              </Row>
+                </div>
+              </ECahrtCard>
             </Cards>
           </Col>
         </Row>
-        <Row gutter={15}>
-          <Col md={12}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
-              }
-              more={content}
-              title="Total Revenue"
-              size="large"
-            >
-              <Heading as="h1">
-                $72,784 <span> $52,240</span>
-              </Heading>
+        <Row gutter={25}>
+          <Col lg={12} md={12} sm={24} xs={24}>
+            <RevenueWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                more={content}
+                title="Total Revenue"
+                size="large"
+              >
+                <Heading className="revenue-count" as="h1">
+                  <span className="currnt-revenue">$72,784</span>
+                  <span className="prev-revenue"> $52,240</span>
+                </Heading>
 
-              <ChartjsAreaChart
-                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                datasets={[
-                  {
-                    data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
-                    borderColor: '#5F63F2',
-                    borderWidth: 3,
-                    fill: true,
-                    backgroundColor: '#5F63F210',
-                    label: 'Current period',
-                  },
-                  {
-                    data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
-                    borderColor: '#C6D0DC',
-                    borderWidth: 2,
-                    fill: false,
-                    backgroundColor: '#00173750',
-                    label: 'Previous period',
-                    borderDash: [10, 5],
-                  },
-                ]}
-                options={{
-                  maintainAspectRatio: true,
-                  legend: {
-                    display: true,
-                    labels: {
+                <ChartjsAreaChart
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                  datasets={[
+                    {
+                      data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
+                      borderColor: '#5F63F2',
+                      borderWidth: 3,
+                      fill: true,
+                      backgroundColor: '#5F63F210',
+                      label: 'Current period',
+                    },
+                    {
+                      data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
+                      borderColor: '#C6D0DC',
+                      borderWidth: 2,
+                      fill: false,
+                      backgroundColor: '#00173750',
+                      label: 'Previous period',
+                      borderDash: [10, 5],
+                    },
+                  ]}
+                  options={{
+                    maintainAspectRatio: true,
+                    legend: {
                       display: true,
-                    },
-                  },
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
-                  },
-                  scales: {
-                    yAxes: [
-                      {
-                        stacked: false,
-                        gridLines: {
-                          display: true,
-                          color: '#e5e9f2',
-                        },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 10,
-                          display: true,
-                        },
+                      labels: {
+                        display: true,
                       },
-                    ],
-                    xAxes: [
-                      {
-                        stacked: true,
-                        gridLines: {
-                          display: false,
-                        },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 11,
-                          display: true,
-                        },
+                    },
+                    elements: {
+                      point: {
+                        radius: 0,
                       },
-                    ],
-                  },
-                }}
-                height={200}
-              />
-            </Cards>
+                    },
+                    scales: {
+                      yAxes: [
+                        {
+                          stacked: false,
+                          gridLines: {
+                            display: true,
+                            color: '#e5e9f2',
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 10,
+                            display: true,
+                          },
+                        },
+                      ],
+                      xAxes: [
+                        {
+                          stacked: true,
+                          gridLines: {
+                            display: false,
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 11,
+                            display: true,
+                          },
+                        },
+                      ],
+                    },
+                  }}
+                  height={200}
+                />
+              </Cards>
+            </RevenueWrapper>
           </Col>
-          <Col md={12}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                  <Radio.Button value={4}>Year</Radio.Button>
-                </Radio.Group>
-              }
-              more={content}
-              title="Source Of Revenue Generated"
-              size="large"
-            >
-              <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
-            </Cards>
+          <Col lg={12} md={12} sm={24} xs={24}>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                more={content}
+                title="Source Of Revenue Generated"
+                size="large"
+              >
+                <div className="table-bordered revenue-table table-responsive">
+                  <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
+                </div>
+              </Cards>
+            </div>
           </Col>
-          <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Top Selling Products"
-              size="large"
-            >
-              <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
-            </Cards>
+          <Col lg={8} md={12} sm={24} xs={24}>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  }
+                  title="Top Selling Products"
+                  size="large"
+                  bodypadding="0px"
+                >
+                  <div className="table-bordered top-seller-table table-responsive">
+                    <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
+                  </div>
+                </Cards>
+            </div>
+
           </Col>
-          <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Sales By Location"
-              size="large"
-            >
-              <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
-              <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-            </Cards>
+          <Col lg={8} md={12} sm={24} xs={24}>
+            <LocationMapWrapper>
+              <div className="full-width-table">
+                <Cards
+                    isbutton={
+                      <div className="card-nav">
+                        <ul>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                            Today
+                            </Link>
+                          </li>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                              Week
+                            </Link>
+                          </li>
+                          <li className="active">
+                            <Link onClick={handleActiveChange} to="#">
+                              Month
+                            </Link>
+                          </li>
+                          <li>
+                            <Link onClick={handleActiveChange} to="#">
+                              Year
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    }
+                    title="Sales By Location"
+                    size="large"
+                  >
+                    <div className="location-map d-flex justify-content-center">
+                      <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    </div>
+
+                    <div className="location-table">
+                      <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                    </div>
+                  </Cards>
+              </div>
+            </LocationMapWrapper>
           </Col>
-          <Col md={8}>
-            <Cards
-              isbutton={
-                <Radio.Group defaultValue={3}>
-                  <Radio.Button value={1}>Today</Radio.Button>
-                  <Radio.Button value={2}>Week</Radio.Button>
-                  <Radio.Button value={3}>Month</Radio.Button>
-                </Radio.Group>
-              }
-              title="Revenue By Device"
-              size="large"
-            >
-              <ChartjsDonutChart
-                labels={['Desktop', 'Mobile', 'Tablets']}
-                datasets={[
-                  {
-                    data: [5870, 4483, 2420],
-                    backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
-                  },
-                ]}
-              />
-            </Cards>
+          <Col lg={8} md={12} sm={24} xs={24}>
+            <RevenueChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                        Today
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Revenue By Device"
+                size="large"
+              >
+
+                <ChartjsDonutChart
+                  labels={['Desktop', 'Mobile', 'Tablets']}
+                  datasets={[
+                    {
+                      data: [5870, 4483, 2420],
+                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                    },
+                  ]}
+                />
+              </Cards>
+            </RevenueChartWrapper>
           </Col>
         </Row>
       </Main>

@@ -21,7 +21,7 @@ const Carousels = () => {
     <Fragment>
       <PageHeader title="Carousel" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
             <Cards title="Basic">
               <CarouselStyleWraper>

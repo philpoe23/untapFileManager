@@ -1,50 +1,71 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
+import { Row, Col,Icon } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
 import theme from '../../config/theme/customize-antd';
 import Heading from '../../components/heading/heading';
+import FeatherIcon from 'feather-icons-react';
+
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const DashbordBase = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Theme Configuration" />
+      <PageHeader 
+        ghost 
+        title="Theme Configuration"
+        buttons={[
+
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+          
+        ]} 
+      />
       <Main>
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless title="Theame Colors" size="large">
               <Row gutter={15}>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['primary-color']}>Primary</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['secondary-color']}>Secondary</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['success-color']}>Success</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['info-color']}>Info</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['warning-color']}>Warning</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['error-color']}>Error</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['dark-color']}>Dark</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['gray-color']}>Gray</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['light-color']}>Light</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['extra-light-color']}>Extra Light</Palette>
                 </Col>
               </Row>
@@ -53,28 +74,28 @@ const DashbordBase = () => {
           <Col md={24}>
             <Cards headless title="Hover Colors" size="large">
               <Row gutter={15}>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['primary-hover']}>Primary</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['secondary-hover']}>Secondary</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['success-hover']}>Success</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['info-hover']}>Info</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['warning-hover']}>Warning</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['error-hover']}>Error</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['dark-hover']}>Dark</Palette>
                 </Col>
-                <Col md={2}>
+                <Col lg={2}>
                   <Palette colorCode={theme['gray-hover']}>Gray</Palette>
                 </Col>
               </Row>
@@ -157,26 +178,26 @@ const DashbordBase = () => {
             <Cards headless title="Buttons" size="large">
               <Row gutter={15}>
                 <Col md={6}>
-                  <Button type="primary" size="small">
+                  <Button type="primary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Small
                   </Button>
-                  <Button type="primary">Normal</Button>
-                  <Button type="primary" size="large">
+                  <Button type="primary" style={{marginRight: "10px", marginBottom: "10px"}}>Normal</Button>
+                  <Button type="primary" size="large" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Large Button
                   </Button>
-                  <Button outlined type="primary" size="small">
+                  <Button outlined type="primary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Small
                   </Button>
-                  <Button outlined type="primary">
+                  <Button outlined type="primary" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Normal
                   </Button>
-                  <Button outlined type="primary" size="large">
+                  <Button outlined type="primary" size="large" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Large Button
                   </Button>
-                  <Button type="secondary" size="small">
+                  <Button type="secondary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
                     Small
                   </Button>
-                  <Button type="secondary">Normal</Button>
+                  <Button type="secondary" style={{marginRight: "10px", marginBottom: "10px"}}>Normal</Button>
                   <Button type="secondary" size="large">
                     Large Button
                   </Button>
@@ -189,97 +210,97 @@ const DashbordBase = () => {
               <Row gutter={15}>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading>h1. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 30 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 30px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 38 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 38px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading as="h2">h2. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 24 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 24px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 30 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 30px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading as="h3">h3. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 22 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 22px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 27 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 27px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading as="h4">h4. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 20 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 20px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 24 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 24px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading as="h5">h5. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 18 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 18px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 22 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 22px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5}>
+                    <Col md={5} sm={24} xs={24}>
                       <Heading as="h6">h6. Default Heading</Heading>
                     </Col>
-                    <Col md={2}>
-                      <p>Font Size - 16 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Font Size - 16px</p>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={2}>
-                      <p>Line Height - 20 px</p>
+                    <Col md={3} sm={24} xs={24}>
+                      <p>Line Height - 20px</p>
                     </Col>
                   </Row>
                 </Col>

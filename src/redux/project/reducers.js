@@ -26,35 +26,35 @@ const projectReducer = (state = initialStateFilter, action) => {
   switch (type) {
     case FILTER_PROJECT_BEGIN:
       return {
-        ...initialState,
+        ...initialStateFilter,
         loading: true,
       };
     case FILTER_PROJECT_SUCCESS:
       return {
-        ...initialState,
+        ...initialStateFilter,
         data,
         loading: false,
       };
     case FILTER_PROJECT_ERR:
       return {
-        ...initialState,
+        ...initialStateFilter,
         error: err,
         loading: false,
       };
     case SORTING_PROJECT_BEGIN:
       return {
-        ...initialState,
+        ...initialStateFilter,
         loading: true,
       };
     case SORTING_PROJECT_SUCCESS:
       return {
-        ...initialState,
-        data,
+        ...initialStateFilter,
+        data: data,
         loading: false,
       };
     case SORTING_PROJECT_ERR:
       return {
-        ...initialState,
+        ...initialStateFilter,
         error: err,
         loading: false,
       };

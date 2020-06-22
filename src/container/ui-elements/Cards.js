@@ -25,7 +25,7 @@ const CardContainer = () => {
     <Fragment>
       <PageHeader title="Cards" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={24}>
             <Cards title="Basic card" size="large">
               <Col md={8} style={{ padding: 0 }}>
@@ -93,27 +93,8 @@ const CardContainer = () => {
               </Col>
             </Cards>
           </Col>
-
-          {/* <Col md={8}>
-            <Cards title="Default Size Card" size="default">
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Cards>
-          </Col> */}
-          {/* <Col md={8}>
-            <Cards title="Small Size Card" size="small" more={content}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Cards>
-          </Col> */}
         </Row>
-        <Cards title="Simple card" size="large">
+        <Cards title="Card In Column" size="large">
           <div className="columnCardsWrapper">
             <Row gutter={16}>
               <Col span={8}>
@@ -144,14 +125,14 @@ const CardContainer = () => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards title="Grid Card" size="large">
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%' }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
             </Cards>
           </Col>
         </Row>

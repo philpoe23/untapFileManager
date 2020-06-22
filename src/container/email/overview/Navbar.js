@@ -4,6 +4,7 @@ import Title from '../../../components/heading/heading';
 import { Input, Form } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import { EmailNav } from './style';
 
 const EamilNavbar = ({ path }) => {
   const [state, setState] = useState({
@@ -50,72 +51,71 @@ const EamilNavbar = ({ path }) => {
 
   return (
     <Fragment>
-      <nav>
+      <EmailNav>
         <ul>
           <li>
-            <FeatherIcon icon="inbox" size={18} />
-            <NavLink to={path + 'inbox'}>Inbox</NavLink>
-          </li>
-          <li>
-            <FeatherIcon icon="star" size={18} />
-            <NavLink to={path + 'starred'}>Starred</NavLink>
-          </li>
-          <li>
-            <FeatherIcon icon="send" size={18} />
-            <NavLink to={path + 'sent'}>Sent</NavLink>
-          </li>
-          <li>
-            <FeatherIcon icon="edit" size={18} />
-            <NavLink to={path + 'drafts'}>Drafts</NavLink>
-          </li>
-          <li>
-            <FeatherIcon icon="alert-octagon" size={18} />
-            <NavLink to={path + 'spam'}>Spam</NavLink>
-          </li>
-          <li>
-            <FeatherIcon icon="trash" size={18} />
-            <NavLink to={path + 'trash'}>Trash</NavLink>
-          </li>
-        </ul>
-        <p>Labels</p>
-        <ul>
-          {labels.map((label, index) => {
-            return (
-              <li key={index + 1}>
-                <FeatherIcon icon="list" size={18} />
-                <NavLink to={`${path + label}`}>{label}</NavLink>
-              </li>
-            );
-          })}
-
-          <li onClick={addNewLabels}>
-            <FeatherIcon icon="plus" size={18} />
-            <NavLink onClick={addNewLabels} to={path + 'newLabels'}>
-              Add New Labels
+            <NavLink to={path + 'inbox'}>
+              <FeatherIcon icon="inbox" size={18} />
+              Inbox
             </NavLink>
-            {addNewDisplay && (
-              <div>
-                <Form onSubmit={handeleChange}>
-                  <Title label={3}>Add New Label</Title>
-                  <Input
-                    onChange={onLabelChange}
-                    value={newlabel}
-                    name={newlabel}
-                    type="text"
-                    placeholder="Enter label name"
-                  />
-                  <Button onClick={handeleChange} type="primary">
-                    Add Label
-                  </Button>
-                  <Button onClick={cancelAddNewLabels} type="default">
-                    Cancel
-                  </Button>
-                </Form>
-              </div>
-            )}
+          </li>
+          <li>
+            <NavLink to={path + 'starred'}><FeatherIcon icon="star" size={18} /> Starred</NavLink>
+          </li>
+          <li>
+            <NavLink to={path + 'sent'}><FeatherIcon icon="send" size={18} /> Sent</NavLink>
+          </li>
+          <li>
+            <NavLink to={path + 'drafts'}><FeatherIcon icon="edit" size={18} /> Drafts</NavLink>
+          </li>
+          <li>
+            <NavLink to={path + 'spam'}><FeatherIcon icon="alert-octagon" size={18} /> Spam</NavLink>
+          </li>
+          <li>
+            <NavLink to={path + 'trash'}><FeatherIcon icon="trash" size={18} /> Trash</NavLink>
           </li>
         </ul>
-      </nav>
+        <div className="nav-labels">
+          <p>Labels</p>
+          <ul>
+            {labels.map((label, index) => {
+              return (
+                <li key={index + 1}>
+                  <NavLink to={`${path + label}`}><FeatherIcon icon="list" size={18} /> {label}</NavLink>
+                </li>
+              );
+            })}
+
+            <li onClick={addNewLabels}>
+              <NavLink onClick={addNewLabels} to={path + 'newLabels'}>
+                <FeatherIcon icon="plus" size={18} /> Add New Labels
+              </NavLink>
+              {addNewDisplay && (
+                <div className="add-label">
+                  <Form onSubmit={handeleChange}>
+                    <Title label={3}>Add New Label</Title>
+                    <Input
+                      onChange={onLabelChange}
+                      value={newlabel}
+                      name={newlabel}
+                      type="text"
+                      placeholder="Enter label name"
+                    />
+                    <div className="btn-group">
+                      <Button size="default" onClick={handeleChange} type="primary">
+                        Add Label
+                      </Button>
+                      <Button onClick={cancelAddNewLabels} type="default">
+                        Cancel
+                      </Button>
+                    </div>
+                  </Form>
+                </div>
+              )}
+            </li>
+          </ul>
+        </div>
+      </EmailNav>
     </Fragment>
   );
 };

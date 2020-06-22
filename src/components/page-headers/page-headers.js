@@ -15,7 +15,7 @@ const PageHeader = props => {
           style={{
             backgroundColor: 'rgb(244, 245, 247)',
           }}
-          onBack={() => window.history.back()}
+          //onBack={() => window.history.back()}
           title={title}
           subTitle={subTitle}
           breadcrumb={routes && { routes }}

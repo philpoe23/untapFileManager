@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, Select, Radio } from 'antd';
 import { Main } from '../styled';
+import { SelectWrapperStyle } from './ui-elements-styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Option, OptGroup } = Select;
@@ -55,25 +56,29 @@ const Selects = () => {
       <PageHeader ghost title="Select" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="disabled" disabled>
-                  Disabled
-                </Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
-              <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
-                <Option value="lucy">Lucy</Option>
-              </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} loading>
-                <Option value="lucy">Lucy</Option>
-              </Select>
+
+              <SelectWrapperStyle>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
+                  <Option value="jack">Jack</Option>
+                  <Option value="lucy">Lucy</Option>
+                  <Option value="disabled" disabled>
+                    Disabled
+                  </Option>
+                  <Option value="Yiminghe">yiminghe</Option>
+                </Select>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
+                  <Option value="lucy">Lucy</Option>
+                </Select>
+                <Select defaultValue="lucy" style={{ width: 120 }} loading>
+                  <Option value="lucy">Lucy</Option>
+                </Select>
+              </SelectWrapperStyle>
+
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Select Coordinate">
               <Select defaultValue={provinceData[0]} style={{ width: 120 }} onChange={handleProvinceChange}>
                 {provinceData.map(province => (
@@ -87,7 +92,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Search and select">
               <Select
                 showSearch
@@ -102,7 +107,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Multiple select">
               <Select
                 mode="multiple"
@@ -116,7 +121,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Select Size">
               <Radio.Group value={size} onChange={handleSizeChange}>
                 <Radio.Button value="large">Large</Radio.Button>
@@ -152,7 +157,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Tags select">
               <Select mode="tags" style={{ width: '100%' }} placeholder="Please select">
                 <Option value="jack">Jack</Option>
@@ -161,7 +166,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom">
               <Select
                 mode="multiple"
@@ -197,7 +202,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom">
               <Select defaultValue="lucy" style={{ width: 200 }}>
                 <OptGroup label="Manager">
@@ -210,7 +215,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Hide Already Selected">
               <Select
                 mode="multiple"
@@ -227,7 +232,7 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Automatic Completion">
               <Select mode="tags" style={{ width: '100%' }} placeholder="Tags Mode" onChange={handleChange}>
                 {children}

@@ -36,8 +36,8 @@ const AutoCompletess = props => {
     <Fragment>
       <PageHeader title="AutoComplete" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic Usage">
               <AutoCompleteWrapper>
                 <AutoComplete dataSource={dataSource} onSearch={onSearch} />
@@ -52,17 +52,17 @@ const AutoCompletess = props => {
               />
             </Cards>
             <Cards title="Lookup-Patterns - Certain Category">
-              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="35%" patterns />
+              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Customize">
               <AutoCompleteWrapper>
                 <AutoComplete dataSource={dataSource} onSearch={onSearch} />
               </AutoCompleteWrapper>
             </Cards>
             <Cards title="Lookup-Patterns - Uncertain Category">
-              <AutoComplete dataSource={notdata} onSearch={patternSearch} width="35%" patterns patternButtons />
+              <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
             </Cards>
           </Col>
         </Row>

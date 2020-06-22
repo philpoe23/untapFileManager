@@ -30,14 +30,14 @@ const OsMap = () => {
     <Fragment>
       <PageHeader title="Openstreet Maps (Leaflet)" />
       <Main>
-        <Row gutter={15}>
-          <Col md={12}>
+        <Row gutter={25}>
+          <Col md={12} xs={24}>
             <Cards title="Leaflet Basic Map" size="large">
               <LeafletMapBasic latitude={50.797897} longitude={-1.077641} width="100%" height="600px" zoom={15} />
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Leaflet Multiple Icon" size="large">
               <LeafletMapMultipleIcon
                 data={place}
@@ -50,7 +50,7 @@ const OsMap = () => {
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Leaflet Custom Icon" size="large">
               <LeafletMapCustomIcon
                 faIcon="fa fa-thumb-tack fa-3x"
@@ -64,7 +64,7 @@ const OsMap = () => {
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Leaflet Cluster Map" size="large">
               <LeafleteMarkerCluster
                 faIcon="fa fa-thumb-tack fa-3x"

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Progress, Table } from 'antd';
+import { Row, Col, Progress, Table, Icon } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
@@ -10,9 +10,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, Pstates } from './style';
+import { OverviewCard, Pstates, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const content = (
   <Fragment>
@@ -149,7 +152,7 @@ const landingcolumns = [
 const landingdata = [
   {
     key: '1',
-    pages: 'Homepage',
+    pages: <span className="page-title">Homepage</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -157,7 +160,7 @@ const landingdata = [
   },
   {
     key: '2',
-    pages: 'Our Service',
+    pages: <span className="page-title">Our Service</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -165,7 +168,7 @@ const landingdata = [
   },
   {
     key: '3',
-    pages: 'List of Products',
+    pages: <span className="page-title">List of Products</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -173,7 +176,7 @@ const landingdata = [
   },
   {
     key: '4',
-    pages: 'Contact us',
+    pages: <span className="page-title">Contact us</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -181,7 +184,7 @@ const landingdata = [
   },
   {
     key: '5',
-    pages: 'Products',
+    pages: <span className="page-title">Products</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -255,10 +258,24 @@ const handleActiveChange = e => {
 const Performance = () => {
   return (
     <Fragment>
-      <PageHeader ghost title="Website Performance Dashboard" />
+      <PageHeader
+        ghost
+        title="Website Performance Dashboard"
+        buttons={[
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <OverviewCard>
               <div className="d-flex align-items-center justify-content-between overview-head">
                 <Heading as="h4">Daily Overview</Heading>
@@ -268,52 +285,64 @@ const Performance = () => {
                   </Button>
                 </Dropdown>
               </div>
-              <Cards headless>
-                <div className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <Heading as="h2" className="color-primary">5,461</Heading>
-                    <p>Users Today</p>
+              <div className="overview-box">
+                <Cards headless>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="overview-box-single">
+                      <Heading as="h2" className="color-primary">
+                        5,461
+                      </Heading>
+                      <p>Users Today</p>
+                    </div>
+                    <div className="overview-box-single text-right">
+                      <Heading as="h2">8,085</Heading>
+                      <p>Expected Users</p>
+                    </div>
                   </div>
-                  <div>
-                    <Heading as="h2">8,085</Heading>
-                    <p>Expected Users</p>
-                  </div>
-                </div>
 
-                <Progress percent={70} showInfo={false} className="progress-primary" />
+                  <Progress percent={70} showInfo={false} className="progress-primary" />
 
-                <p>
-                  <span className="growth-upward">
-                    <FeatherIcon icon="arrow-up" size={14} />
-                    25% <span>Since yesterday</span>
-                  </span>
-                  <span style={{ float: 'right' }}>70%</span>
-                </p>
-              </Cards>
+                  <p>
+                    <span className="growth-upward">
+                      <FeatherIcon icon="arrow-up" size={14} />
+                      25% <span>Since yesterday</span>
+                    </span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                      70%
+                    </span>
+                  </p>
+                </Cards>
+              </div>
 
-              <Cards headless>
-                <div  className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <Heading as="h2" className="color-info">140</Heading>
-                    <p>Goals Today</p>
+              <div className="overview-box">
+                <Cards headless>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="overview-box-single">
+                      <Heading as="h2" className="color-info">
+                        140
+                      </Heading>
+                      <p>Goals Today</p>
+                    </div>
+                    <div className="overview-box-single text-right">
+                      <Heading as="h2">120</Heading>
+                      <p>Expected Goals</p>
+                    </div>
                   </div>
-                  <div>
-                    <Heading as="h2">120</Heading>
-                    <p>Expected Goals</p>
-                  </div>
-                </div>
-                <Progress percent={70} showInfo={false} />
-                <p>
-                  <span className="growth-downward">
-                    <FeatherIcon icon="arrow-down" size={14} />
-                    25% <span>Since yesterday</span>
-                  </span>
-                  <span style={{ float: 'right' }}>70%</span>
-                </p>
-              </Cards>
+                  <Progress percent={70} showInfo={false} />
+                  <p>
+                    <span className="growth-downward">
+                      <FeatherIcon icon="arrow-down" size={14} />
+                      25% <span>Since yesterday</span>
+                    </span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                      70%
+                    </span>
+                  </p>
+                </Cards>
+              </div>
             </OverviewCard>
           </Col>
-          <Col md={16}>
+          <Col lg={16} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -341,40 +370,48 @@ const Performance = () => {
               size="large"
             >
               <Pstates>
-                <div>
+                <div className="growth-upward">
                   <p>Users</p>
                   <Heading as="h1">
                     72.6k
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 25%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 25%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-upward">
                   <p>Sessions</p>
                   <Heading as="h1">
                     87.2k
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 47%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 47%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-downward">
                   <p>Bounce Rate</p>
                   <Heading as="h1">
                     26.3%
-                    <span>
-                      <FeatherIcon icon="arrow-down" size={14} /> 28%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-down" size={14} /> 28%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
-                <div>
+                <div className="growth-upward">
                   <p>Session Duration</p>
                   <Heading as="h1">
                     2m 18s
-                    <span>
-                      <FeatherIcon icon="arrow-up" size={14} /> 13%
-                    </span>
+                    <sub>
+                      <span>
+                        <FeatherIcon icon="arrow-up" size={14} /> 13%
+                      </span>
+                    </sub>
                   </Heading>
                 </div>
               </Pstates>
@@ -463,36 +500,43 @@ const Performance = () => {
               />
             </Cards>
           </Col>
-          <Col md={16}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Traffic Channels"
-              size="large"
-            >
-              <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-            </Cards>
+          <Col lg={16} md={12} sm={24} xs={24}>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Traffic Channels"
+                size="large"
+                more={content}
+              >
+                <TrafficTableWrapper>
+                  <div class="table-bordered table-responsive">
+                    <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                  </div>
+                </TrafficTableWrapper>
+              </Cards>
+            </div>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -527,50 +571,59 @@ const Performance = () => {
                   },
                 ]}
               />
-              <Heading as="h4">
-                <span>4,483</span>
-                <span>45%</span>
-              </Heading>
-              <Heading as="h4">
-                <span>870</span>
-                <span>30%</span>
-              </Heading>
-              <Heading as="h4">
-                <span>2,420</span>
-                <span>25%</span>
-              </Heading>
-            </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
+              <SessionState className="d-flex justify-content-center">
+                <div>
+                  <span>4,483</span>
+                  <sub>45%</sub>
                 </div>
-              }
-              title="Top Landing Pages"
-              size="large"
-            >
-              <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                <div>
+                  <span>870</span>
+                  <sub>30%</sub>
+                </div>
+                <div>
+                  <span>2,420</span>
+                  <sub>25%</sub>
+                </div>
+              </SessionState>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col lg={12} md={12} sm={24} xs={24}>
+            <div className="full-width-table">
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Top Landing Pages"
+                size="large"
+                more={content}
+              >
+                <LadingPages>
+                  <div className="table-bordered table-responsive">
+                    <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                  </div>
+                </LadingPages>
+              </Cards>
+            </div>
+          </Col>
+          <Col lg={12} md={12} sm={24} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -595,13 +648,20 @@ const Performance = () => {
               }
               title="Sessions by Region"
               size="large"
+              more={content}
             >
-              <Col md={9}>
-                <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
-              </Col>
-              <Col md={15}>
-                <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
-              </Col>
+              <Row>
+                <Col lg={10} md={8} sm={24} xs={24}>
+                  <RegionList>
+                    <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                  </RegionList>
+                </Col>
+                <Col lg={14} md={16} sm={24} xs={24}>
+                  <RegionMap>
+                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                  </RegionMap>
+                </Col>
+              </Row>
             </Cards>
           </Col>
         </Row>

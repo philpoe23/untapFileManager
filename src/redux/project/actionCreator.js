@@ -54,7 +54,10 @@ const sortingProjectByCategory = sortBy => {
       const data = initialState.sort((a, b) => {
         return b[sortBy] - a[sortBy];
       });
-      dispatch(sortingProjectSuccess(data));
+
+      setTimeout(() => {
+        dispatch(sortingProjectSuccess(data));
+      }, 500);
     } catch (err) {
       dispatch(sortingProjectErr(err));
     }

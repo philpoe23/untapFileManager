@@ -2,8 +2,8 @@ import Styled from 'styled-components';
 
 const Div = Styled.div`
     header{
-        box-shadow: 0px -15px 25px #888;
-        z-index: 1;
+        box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
+        z-index: 99999;
         button{
             padding: 0px 15px 0px 0px;
         }
@@ -20,43 +20,78 @@ const Div = Styled.div`
 
     /* Sidebar styles */
     .ant-layout-sider{
-        padding-left: 15px;
-        padding-right: 15px;
         .ant-layout-sider-children{
-            padding-bottom: 50px;
+            padding-bottom: 15px;
             >.sidebar-nav-title{
                 margin-top: 8px;
             }
+            
             .ant-menu{
+                overflow-x: hidden;
                 border-right: 0 none;
-                .ant-menu-submenu{
-                    .ant-menu-submenu-title{
-                        padding-left: 15px !important;
-                        > span{
-                            display: flex;
-                            align-items: center;
-                            .feather{
-                                font-size: 16px;
-                                color: ${({ theme }) => theme['extra-light-color']};
+                .ant-menu-submenu, .ant-menu-item{
+                    .feather{
+                        width: 16px;
+                        font-size: 16px;
+                        color: ${({ theme }) => theme['extra-light-color']};
+                        margin-top: 11px;
+                    }
+                    span{
+                        padding-left: 20px;
+                        display: inline-block;
+                        color: ${({ theme }) => theme['dark-color']};
+                        transition: 0.3s ease;
+                    }
+                }
+                .ant-menu-submenu-inline{
+                    > .ant-menu-submenu-title{
+                        padding: 0 15px !important;
+                        svg,
+                        img{
+                            width: 16px;
+                            height: 16px;
+                        }
+                        .ant-menu-submenu-arrow{
+                            right: 24px;
+                            &:after,
+                            &:before{
+                                width: 8px;
+                                background: #868EAE;
+                                height: 1.25px;
                             }
-                            span{
-                                padding-left: 20px;
-                                display: inline-block;
-                                color: ${({ theme }) => theme['dark-color']};
+                            &:before{
+                                transform: rotate(45deg) translateY(-4px);
+                            }
+                            &:after{
+                                transform: rotate(-45deg) translateY(4px);
+                            }
+                        }
+                    }
+                    &.ant-menu-submenu-open{
+                        > .ant-menu-submenu-title{
+                            .ant-menu-submenu-arrow{
+                                &:before{
+                                    transform: rotate(45deg) translateX(-4px);
+                                }
+                                &:after{
+                                    transform: rotate(-45deg) translateX(4px);
+                                }
                             }
                         }
                     }
                     .ant-menu-item{
-                        padding-left: 48px !important;
+                        padding-left: 50px !important;
+                        padding-right: 0 !important;
+                        transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
                     }
                 }
                 .ant-menu-item{
-                    padding-left: 15px !important;
+                    padding: 0 15px !important; 
                     a{
                         display: flex !important;
                         align-items: center;
                         .feather{
-                            font-size: 16px;
+                            width: 16px;
                             color: ${({ theme }) => theme['extra-light-color']};
                         }
                         span{
@@ -79,6 +114,23 @@ const Div = Styled.div`
                     margin-top: 40px;
                     margin-bottom: 24px;
                 }
+                &.ant-menu-inline-collapsed{
+                    .ant-menu-submenu{
+                        text-align: left;
+                        .ant-menu-submenu-title{
+                            padding: 0 20px;
+                        }
+                    }
+                    .ant-menu-item{
+                        padding: 0 20px !important;
+                    }
+                    .ant-menu-submenu, .ant-menu-item{
+                        span{
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                    }
+                }
             }
         }
         .sidebar-nav-title{
@@ -88,7 +140,81 @@ const Div = Styled.div`
             color: #868EAE;
             padding: 0 15px;
         }
+        &.ant-layout-sider-collapsed{
+            padding: 15px 10px 55px !important;
+            .sidebar-nav-title{
+                display: none;
+            }
+            & + .atbd-main-layout{
+                margin-left: 80px;
+            }
+        }
+    }
+    @media only screen and (max-width: 991px){
+        .ant-layout-sider.ant-layout-sider-collapsed{
+            left: -80px !important;
+        }
+
+    }
+
+    .atbd-main-layout{
+        margin-left: 280px;
+        margin-top: 64px;
+        transition: 0.3s ease;
+        @media only screen and (max-width: 991px){
+            margin-left: auto !important;
+        }
+        /* @media only screen and (max-width: 767px){
+            margin-left: 0 !important;
+        } */
+    }
+
+    // Mobile Actions
+    .mobile-action{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        a{
+            display: inline-flex;
+            color: ${({theme})=>theme['light-color']};
+            &.btn-search{
+                margin-right: 18px;
+            }
+            svg{
+                width: 20px
+                height: 20px;
+            }
+        }
     }
 `;
 
-export { Div };
+const SmallScreenAuthInfo = Styled.div`    
+        background: #fff;
+        width: 100%;
+        position: absolute;
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
+        left: 0;
+        transition: .3s;
+        border-top: 1px solid #eee;
+        opacity: ${({ hide }) => (hide ? 0 : 1)}
+        z-index: ${({ hide }) => (hide ? -1 : 1)}
+                    
+`;
+
+const SmallScreenSearch = Styled.div`    
+        background: #fff;
+        width: 100%;
+        position: absolute;
+        bottom: ${({ hide }) => (hide ? '-60px' : '-65px')};
+        left: 0;
+        transition: .3s;
+        border-top: 1px solid #eee;
+        opacity: ${({ hide }) => (hide ? 0 : 1)}
+        z-index: ${({ hide }) => (hide ? -1 : 1)}
+                    
+`;
+
+export { Div, SmallScreenAuthInfo, SmallScreenSearch };

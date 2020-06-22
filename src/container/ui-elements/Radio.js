@@ -10,30 +10,33 @@ const Radios = () => {
       <PageHeader  title="Radio" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Basic" caption="The simplest use of Radio">
               <Radio>Radio</Radio>
             </Cards>
-          </Col>
-          <Col md={12}>
-            <Cards title="Radio Group" caption="The simplest use of Radio">
-              <Radio.Group>
-                <Radio value={1}>A</Radio>
-                <Radio value={2}>B</Radio>
-                <Radio value={3}>C</Radio>
-                <Radio value={4}>D</Radio>
-              </Radio.Group>
-            </Cards>
-          </Col>
-          <Col md={12}>
+
             <Cards title="Radio Disabled" caption="The simplest use of Radio">
               <Radio.Group defaultValue="b">
-                <Radio value="a" disabled>Disabled</Radio>
-                <Radio value="b" disabled>Disabled</Radio>
+                <div className="ant-radio-vertical">
+                  <Radio value="a" disabled>Disabled</Radio>
+                  <Radio value="b" disabled>Disabled</Radio>
+                </div>
+              </Radio.Group>
+            </Cards>
+
+            <Cards title="Vertical Radio" caption="The simplest use of Radio">
+              <Radio.Group>
+                <div className="ant-radio-vertical">
+                  <Radio value={1}>A</Radio>
+                  <Radio value={2}>B</Radio>
+                  <Radio value={3}>C</Radio>
+                  <Radio value={4}>D</Radio>
+                </div>
               </Radio.Group>
             </Cards>
           </Col>
-          <Col md={12}>
+
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Radio Style" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a">
@@ -62,8 +65,16 @@ const Radios = () => {
                 </Radio.Group>
               </div>
             </Cards>
+            <Cards title="Horizontal Radio" caption="The simplest use of Radio">
+              <Radio.Group>
+                <Radio value={1}>A</Radio>
+                <Radio value={2}>B</Radio>
+                <Radio value={3}>C</Radio>
+                <Radio value={4}>D</Radio>
+              </Radio.Group>
+            </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Radio Size" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a" size="large">

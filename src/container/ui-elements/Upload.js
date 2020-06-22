@@ -112,16 +112,16 @@ const Uploads = () => {
       <PageHeader ghost title="Upload" />
       <Main>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
               <Upload {...props}>
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Click to Upload
                 </Button>
               </Upload>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Complete Control">
               <Upload
                 props={{
@@ -131,13 +131,13 @@ const Uploads = () => {
                 }}
                 fileList={state.fileList}
               >
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Avatar">
               <Upload
                 name="avatar"
@@ -152,7 +152,7 @@ const Uploads = () => {
               </Upload>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Upload Default">
               <Upload
                 props={defaultProps}
@@ -179,7 +179,7 @@ const Uploads = () => {
                   },
                 ]}
               >
-                <Button>
+                <Button size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>

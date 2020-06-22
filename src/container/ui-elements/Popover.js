@@ -14,14 +14,14 @@ const Popovers = () => {
       <PageHeader ghost title="Popovers" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Basic Popover" caption="The simplest use of Popover">
               <Popover placement="bottomLeft">
                 <NavLink to="#">hover me </NavLink>
               </Popover>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Placement" caption="The simplest use of Popover">
               <Popover placement="bottomLeft">
                 <Button type="primary">bottomLeft</Button>
@@ -44,7 +44,7 @@ const Popovers = () => {
               </Popover>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={12} xs={24}>
             <Cards title="Event menu " caption="The simplest use of Popover">
               <Popover action="hover" placement="bottomLeft">
                 <Button type="primary">hover</Button>

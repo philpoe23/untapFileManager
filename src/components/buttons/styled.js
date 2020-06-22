@@ -4,8 +4,8 @@ const ButtonGroup = Button.Group;
 
 const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[type + '-color']};
-border-width: 1px;
-border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
+border-width: 0px;
+// border-color: ${({ type, theme }) => (type !== 'default' ? theme[type + '-color'] : theme[type + '-color'])};
 border-style: ${({ type }) => (type !== 'dashed' ? 'solid' : 'dashed')};
 color: ${({ type }) => type !== 'default' && '#ffffff'};
 display: inline-flex;
@@ -18,7 +18,7 @@ font-weight: 500;
 box-shadow: 0 0;
 &:hover, &:focus {
     background: ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
-    border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
+    // border: 1px solid ${({ type, theme }) => type !== 'default' && theme[type + '-hover']};
     color: ${({ type }) => type !== 'default' && '#ffffff'};
 }
 i,
@@ -47,9 +47,9 @@ const outline = (theme, type) => {
       color: ${type !== 'default' && theme[type + '-color']};
 
       &:hover, &:focus {
-          background: ${type !== 'default' && theme[type + '-hover']};
-          border: 1px solid ${type !== 'default' && theme[type + '-hover']};
-          color: ${type !== 'default' && '#ffffff'};
+        background: transparent;
+        border: 1px solid ${type !== 'default' && theme[type + '-hover']};
+        color: ${type !== 'default' && theme[type + '-hover']};
       }
   `;
 };

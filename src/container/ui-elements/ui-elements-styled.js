@@ -2,8 +2,13 @@ import Styled from 'styled-components';
 
 const DropdownStyle = Styled.div`
   .ant-card-body .ant-btn {
-      margin-right: 8px;
-      margin-bottom: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      height: 36px;
+      font-weight: 400;
+      border-color: #E3E6EF;
+      padding: 0px 19px;
+      border-radius: 5px;
   }
 `;
 
@@ -146,6 +151,15 @@ const BreadcrumbWrapperStyle = Styled.div`
   .ant-breadcrumb >span:last-child .ant-breadcrumb-link{
     color: #9299B8;
   }
+  .demo-nav{
+    height: 48px;
+    line-height: 48px;
+    padding: 0 10px;
+  }
+  .demo-nav a{
+    padding: 0 12px;
+    color: #5F63F2;
+  }
 `;
 
 const BadgeDynamicStyle = Styled.div`
@@ -181,6 +195,9 @@ const CardStyleWrapper = Styled.div`
 .ant-card.ant-card-bordered .ant-card-head{
   background: #fff;
 }
+.ant-card-head-wrapper .ant-card-extra a{
+  color: #5F63F2;
+}
 .ant-card-body{
   padding: 22px 25px 15px 25px !important
 }
@@ -213,6 +230,10 @@ const CasCaderStyleWrapper = Styled.div`
   }
 `;
 
+const SelectWrapperStyle = Styled.div`
+  
+`;
+
 export {
   DropdownStyle,
   SpinerWraperStyle,
@@ -226,4 +247,5 @@ export {
   BadgeDynamicStyle,
   CardStyleWrapper,
   CasCaderStyleWrapper,
+  SelectWrapperStyle
 };

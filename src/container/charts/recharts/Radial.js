@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Row, Col, Icon } from 'antd';
@@ -60,6 +60,25 @@ const data = [
 ];
 
 const ReChartRadial = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+  });
+  const { responsive } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const element = document.querySelector('.recharts-wrapper');
+      const width =
+        element !== null
+          ? element.closest('.ant-card-body').clientWidth
+          : document.querySelector('.ant-card-body').clientWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <Fragment>
       <PageHeader
@@ -77,14 +96,14 @@ const ReChartRadial = () => {
         ghost
       />
       <Main>
-        <Row gutter={15}>
-          <Col md={24}>
+        <Row gutter={25}>
+          <Col xs={24}>
             <Cards title="SIMPLE RADIAL BAR CHART" size="large">
               <RadialBarChart
-                width={900}
-                height={400}
-                cx={700}
-                cy={150}
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
+                cx={responsive / 3}
+                cy={responsive / 5}
                 innerRadius={20}
                 outerRadius={140}
                 barSize={10}
@@ -99,8 +118,8 @@ const ReChartRadial = () => {
                 />
                 <Legend
                   iconSize={10}
-                  width={120}
-                  height={140}
+                  width={responsive / 9}
+                  height={responsive / 8}
                   layout="vertical"
                   verticalAlign="middle"
                   wrapperStyle={style}

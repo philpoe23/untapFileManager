@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col, DatePicker } from 'antd';
-import { Main } from '../styled';
+import { Main, DatePickerWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import moment from 'moment';
 import { DateRangePickerOne, CustomDateRange } from '../../components/datePicker/datePicker';
@@ -20,44 +20,88 @@ const DatePickers = () => {
     <Fragment>
       <PageHeader title="Date Picker" />
       <Main>
-        <Row gutter={15}>
+        <Row gutter={25}>
           <Col md={12}>
-            <Cards headless title="Basic" caption="The simplest use of Date picker">
-              <DatePicker onChange={onChange} />
-              <br />
-              <MonthPicker onChange={onChange} placeholder="Select month" />
-              <br />
-              <RangePicker onChange={onChange} />
-              <br />
-              <WeekPicker onChange={onChange} placeholder="Select week" />
+            <Cards title="Basic">
+              <DatePickerWrapper>
+                <DatePicker onChange={onChange} />
+                <br />
+                <MonthPicker onChange={onChange} placeholder="Select month" />
+                <br />
+                <RangePicker onChange={onChange} />
+                <br />
+                <WeekPicker onChange={onChange} placeholder="Select week" />
+              </DatePickerWrapper>
             </Cards>
+
+            <Cards title="Date Format">
+              <DatePickerWrapper>
+                <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
+                <br />
+                <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+                <br />
+                <MonthPicker defaultValue={moment('2015/01', monthFormat)} format={monthFormat} />
+                <br />
+                <RangePicker
+                  defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
+                  format={dateFormat}
+                />
+              </DatePickerWrapper>
+            </Cards>
+
+            <Cards title="Disabled">
+              <DatePickerWrapper>
+                <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
+                <br />
+                <MonthPicker defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
+                <br />
+                <RangePicker
+                  defaultValue={[moment('2015-06-06', dateFormat), moment('2015-06-06', dateFormat)]}
+                  disabled
+                />
+              </DatePickerWrapper>
+            </Cards>
+
           </Col>
           <Col md={12}>
-            <Cards headless title="Date Format" caption="The simplest use of Date picker">
-              <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
-              <br />
-              <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
-              <br />
-              <MonthPicker defaultValue={moment('2015/01', monthFormat)} format={monthFormat} />
-              <br />
-              <RangePicker
-                defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-                format={dateFormat}
-              />
-            </Cards>
+              <Cards title="Preset Ranges">
+                <DatePickerWrapper>
+                  <RangePicker
+                    ranges={{
+                      Today: [moment(), moment()],
+                      'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    }}
+                    onChange={onChange}
+                  />
+                  <br />
+                  <RangePicker
+                    ranges={{
+                      Today: [moment(), moment()],
+                      'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    }}
+                    showTime
+                    format="YYYY/MM/DD HH:mm:ss"
+                    onChange={onChange}
+                  />
+
+                </DatePickerWrapper>
+              </Cards>
+
+              <Cards title="Extra Footer">
+                <DatePickerWrapper>
+                  <DatePicker renderExtraFooter={() => 'extra footer'} />
+                  <br />
+                  <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
+                  <br />
+                  <RangePicker renderExtraFooter={() => 'extra footer'} />
+                  <br />
+                  <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
+                  <br />
+                  <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
+                </DatePickerWrapper>
+              </Cards>
           </Col>
-          <Col md={12}>
-            <Cards headless title="Disabled" caption="The simplest use of Date picker">
-              <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
-              <br />
-              <MonthPicker defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
-              <br />
-              <RangePicker
-                defaultValue={[moment('2015-06-06', dateFormat), moment('2015-06-06', dateFormat)]}
-                disabled
-              />
-            </Cards>
-          </Col>
+          
           <Col md={12}>
             <Cards headless title="Custom Date Range" caption="The simplest use of Date picker">
               <CustomDateRange />

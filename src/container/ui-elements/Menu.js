@@ -28,7 +28,7 @@ const Menus = () => {
       <PageHeader ghost title="Menu" />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Top Navigation">
               <Menu onClick={handleClick} selectedKeys={[state.current]} mode="horizontal">
                 <Menu.Item key="mail" icon={<MailOutlined />}>
@@ -55,7 +55,7 @@ const Menus = () => {
               </Menu>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Vertical Menu">
               <Menu onClick={onVerticleHandleClick} style={{ width: 256 }} mode="vertical">
                 <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
@@ -93,7 +93,7 @@ const Menus = () => {
               </Menu>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} sm={24} xs={24}>
             <Cards title="Current Sub Menu">
               <Menu
                 onClick={onVerticleHandleClick}

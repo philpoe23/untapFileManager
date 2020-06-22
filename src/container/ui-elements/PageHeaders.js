@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Row, Col, Icon } from 'antd';
-import { Main } from '../styled';
+import { Main, PageHeaderWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Button } from '../../components/buttons/buttons';
@@ -43,17 +43,19 @@ const PageHeaders = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Basic header" caption="The simplest use of Page header">
-              <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" />
+              <PageHeaderWrapper>
+                <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle"/>
+              </PageHeaderWrapper>
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Custom header" caption="The simplest use of Page header">
               <PageHeader ghost title="Title" subTitle="This is a subtitle" />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Custom header" caption="The simplest use of Page header">
               <PageHeader
                 ghost
@@ -72,12 +74,12 @@ const PageHeaders = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
               <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" routes={routes} />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col md={24} sm={24} xs={24}>
             <Cards title="Extra content header" caption="The simplest use of Extra content header">
               <PageHeader
                 bgColor="#fff"
