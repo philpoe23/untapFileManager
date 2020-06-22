@@ -1108,6 +1108,12 @@ ul {
   }
 }
 
+@media only screen and (max-width: 1199px) {
+  .ant-page-header{
+    padding: 0 15px;
+  }
+}
+
 @media only screen and (max-width: 991px) {
   .rdrMonths .rdrMonth {
     width: 100%;
@@ -1138,7 +1144,7 @@ ul {
     float: none !important;
     text-align: center;
   }
-  .ant-table-pagination li:first-child {
+  .ant-table-pagination li.ant-pagination-total-text {
     display: block;
     margin-bottom: 8px;
   }

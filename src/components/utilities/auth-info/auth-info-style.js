@@ -4,10 +4,7 @@ const InfoWraper = Styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 16px;
-    @media only screen and (max-width: 767px) {
-        padding: 16px;
-    }
+    padding: 16px 0;
     .head-example{
         text-decoration: none;
         color: ${({ theme }) => theme['text-color-secondary']};

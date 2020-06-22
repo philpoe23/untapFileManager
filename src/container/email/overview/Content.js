@@ -67,7 +67,7 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a download href={require('../../../static/img/email/' + item)}>
+                  <a className="btn-attatchment" download href={require('../../../static/img/email/' + item)}>
                     <FeatherIcon icon="paperclip" size={14} />
                     {item}
                   </a>

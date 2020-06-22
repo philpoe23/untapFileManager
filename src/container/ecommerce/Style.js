@@ -921,6 +921,7 @@ const OrderSummary = Styled.div`
             }
         }
         .ant-form-item-control-input-content{
+            display: flex;
             input{
                 margin: 0 6px 15px 0;
                 height: 40px;

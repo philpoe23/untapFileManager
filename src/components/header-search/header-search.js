@@ -43,7 +43,7 @@ const HeaderSearch = props => {
             <Icon type="search" className="certain-category-icon" />
           </Col>
           <Col md={22} xs={24}>
-            <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
+              <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
               <Input placeholder="Search..." onInput={search} />
             </Popover>
           </Col>

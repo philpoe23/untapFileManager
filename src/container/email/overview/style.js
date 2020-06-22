@@ -372,6 +372,24 @@ const EmailHeader = Styled.div`
     margin: 0;
     color: ${({theme})=>theme['gray-color']};
   }
+  .btn-attatchment{
+    font-size: 13px;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 22px;
+    border-radius: 15px;
+    color: ${({theme})=>theme['gray-solid']};
+    background: ${({theme})=>theme['bg-color-normal']};
+    i,
+    svg{
+      margin-right: 6px;
+    }
+  }
+  a + a{
+    margin-left: 15px;
+  }
 `;
 
 const MessageDetails = Styled.div`
