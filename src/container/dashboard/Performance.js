@@ -10,13 +10,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, Pstates, SessionState, RegionList,RegionMap, LadingPages, TrafficTableWrapper } from './style';
+import { OverviewCard, Pstates, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-
 
 const content = (
   <Fragment>
@@ -153,9 +152,7 @@ const landingcolumns = [
 const landingdata = [
   {
     key: '1',
-    pages: (
-      <span className="page-title">Homepage</span>
-    ),
+    pages: <span className="page-title">Homepage</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -163,9 +160,7 @@ const landingdata = [
   },
   {
     key: '2',
-    pages: (
-      <span className="page-title">Our Service</span>
-    ),
+    pages: <span className="page-title">Our Service</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -173,9 +168,7 @@ const landingdata = [
   },
   {
     key: '3',
-    pages: (
-      <span className="page-title">List of Products</span>
-    ),
+    pages: <span className="page-title">List of Products</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -183,9 +176,7 @@ const landingdata = [
   },
   {
     key: '4',
-    pages: (
-      <span className="page-title">Contact us</span>
-    ),
+    pages: <span className="page-title">Contact us</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -193,9 +184,7 @@ const landingdata = [
   },
   {
     key: '5',
-    pages: (
-      <span className="page-title">Products</span>
-    ),
+    pages: <span className="page-title">Products</span>,
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -269,11 +258,10 @@ const handleActiveChange = e => {
 const Performance = () => {
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Website Performance Dashboard" 
+      <PageHeader
+        ghost
+        title="Website Performance Dashboard"
         buttons={[
-            
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -282,8 +270,7 @@ const Performance = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
@@ -302,7 +289,9 @@ const Performance = () => {
                 <Cards headless>
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="overview-box-single">
-                      <Heading as="h2" className="color-primary">5,461</Heading>
+                      <Heading as="h2" className="color-primary">
+                        5,461
+                      </Heading>
                       <p>Users Today</p>
                     </div>
                     <div className="overview-box-single text-right">
@@ -318,7 +307,9 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-up" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span className="overview-box-percentage" style={{ float: 'right' }}>70%</span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                      70%
+                    </span>
                   </p>
                 </Cards>
               </div>
@@ -327,7 +318,9 @@ const Performance = () => {
                 <Cards headless>
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="overview-box-single">
-                      <Heading as="h2" className="color-info">140</Heading>
+                      <Heading as="h2" className="color-info">
+                        140
+                      </Heading>
                       <p>Goals Today</p>
                     </div>
                     <div className="overview-box-single text-right">
@@ -341,7 +334,9 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-down" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span className="overview-box-percentage" style={{ float: 'right' }}>70%</span>
+                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                      70%
+                    </span>
                   </p>
                 </Cards>
               </div>
@@ -593,8 +588,8 @@ const Performance = () => {
             </Cards>
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
-          <div className="full-width-table">
-            <Cards
+            <div className="full-width-table">
+              <Cards
                 isbutton={
                   <div className="card-nav">
                     <ul>
@@ -655,18 +650,18 @@ const Performance = () => {
               size="large"
               more={content}
             >
-            <Row>
-              <Col lg={10} md={8} sm={24} xs={24}>
-                <RegionList>
-                  <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
-                </RegionList>
-              </Col>
-              <Col lg={14} md={16} sm={24} xs={24}>
-                <RegionMap>
-                  <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
-                </RegionMap>
-              </Col>
-            </Row>
+              <Row>
+                <Col lg={10} md={8} sm={24} xs={24}>
+                  <RegionList>
+                    <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                  </RegionList>
+                </Col>
+                <Col lg={14} md={16} sm={24} xs={24}>
+                  <RegionMap>
+                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                  </RegionMap>
+                </Col>
+              </Row>
             </Cards>
           </Col>
         </Row>
