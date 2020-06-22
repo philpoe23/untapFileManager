@@ -165,10 +165,10 @@ const CheckOut = () => {
         {
           title: 'Create Account',
           content: (
-            <BasicFormWrapper>
+            <BasicFormWrapper className="basic-form-inner">
                 <div className="atbd-form-checkout">
                   <Row justify="center">
-                    <Col xl={22}>
+                    <Col sm={22} xs={24}>
                       <div className="create-account-form">
                         <Heading as="h4">1. Please Create Your Account</Heading>
                         <Form form={form} name="account">
@@ -202,10 +202,10 @@ const CheckOut = () => {
         {
           title: 'Shipping Address',
           content: (
-            <BasicFormWrapper>
+            <BasicFormWrapper className="basic-form-inner">
               <div className="atbd-form-checkout">
                 <Row justify="center">
-                  <Col xl={22}>
+                  <Col sm={22} xs={24}>
                     <div className="shipping-form">
                       <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
                       <Form form={form} name="address">
@@ -248,10 +248,10 @@ const CheckOut = () => {
         {
           title: 'Payment Method',
           content: (
-            <BasicFormWrapper>
+            <BasicFormWrapper className="basic-form-inner">
               <div className="atbd-form-checkout">
                 <Row justify="center">
-                  <Col xl={22}>
+                  <Col sm={22} xs={24}>
                     <div className="payment-method-form">
                       <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
                       <div className="shipping-selection">
@@ -410,7 +410,7 @@ const CheckOut = () => {
                           </ProductTable>
 
                           <Row justify="end">
-                            <Col xxl={8} xl={5} sm={8} xs={14} offset={10}>
+                            <Col xxl={8} xl={5} md={9} sm={14} xs={24} offset={10}>
                               <OrderSummary>
                                 <div className="invoice-summary-inner">
                                   <ul className="summary-list">

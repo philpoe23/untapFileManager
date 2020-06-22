@@ -580,21 +580,25 @@ ul {
 /* mail props dropdown */
 
 .mail-props {
-  padding: 25px;
+  padding: 5px 25px;
   border: 0 none;
   background: #fff;
-  box-shadow: 0 5px 40px rgba(146, 153, 184, 0.25);
+  /* box-shadow: 0 5px 40px rgba(146, 153, 184, 0.25); */
 }
 
-.mail-props p {
+.mail-props li {
+  display: flex;
   margin-bottom: 5px;
 }
-
-.mail-props p:last-child {
+.mail-props li span:first-child{
+  margin-right: 50px;
+  min-width: 40px;
+}
+.mail-props li:last-child {
   margin-bottom: 0;
 }
 
-.mail-props p span {
+.mail-props li span {
   color: #9299b8;
 }
 

@@ -81,32 +81,40 @@ const Steps = ({
 
       {!isfinished && (
         <ActionWrapper>
-            <Row justify="center">
-              <Col xs={12}>
-                <div className="steps-action">
-                  {state.currents > 0 && (
-                    <Button className="btn-prev" type="light" style={{ marginLeft: 8 }} onClick={() => prev()}>
-                      <FeatherIcon icon="arrow-left" size={16} />
-                      Previous
-                    </Button>
-                  )}
+            {/* <Row justify="center">
+              <Col sm={17} xs={24}> */}
+                <div className="step-action-wrap">
+                  <div className="step-action-inner">
+                    <Row>
+                      <Col xs={24}>
+                        <div className="steps-action">
+                          {state.currents > 0 && (
+                            <Button className="btn-prev" type="light" onClick={() => prev()}>
+                              <FeatherIcon icon="arrow-left" size={16} />
+                              Previous
+                            </Button>
+                          )}
 
-                  {state.currents < steps.length - 1 && (
-                    <Button className="btn-next" type="primary" onClick={() => next()}>
-                      Save & Next
-                      <FeatherIcon icon="arrow-right" size={16} />
-                    </Button>
-                  )}
+                          {state.currents < steps.length - 1 && (
+                            <Button className="btn-next" type="primary" onClick={() => next()}>
+                              Save & Next
+                              <FeatherIcon icon="arrow-right" size={16} />
+                            </Button>
+                          )}
 
-                  {state.currents === steps.length - 1 && (
-                    <Button type="primary" onClick={onDone}>
-                      Done
-                    </Button>
-                  )}
+                          {state.currents === steps.length - 1 && (
+                            <Button type="primary" onClick={onDone}>
+                              Done
+                            </Button>
+                          )}
 
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
                 </div>
-              </Col>
-            </Row>
+              {/* </Col>
+            </Row> */}
         </ActionWrapper>
       )}
     </Fragment>

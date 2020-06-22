@@ -61,17 +61,19 @@ const Email = ({ match }) => {
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
             <Col lg={7} xl={5}>
-              <Cards headless>
-                <div className="mail-sidebar-top">
-                  <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                    + Compose
-                  </Button>
-                </div>
+              <div className="mail-sideabr">
+                <Cards headless>
+                  <div className="mail-sidebar-top">
+                    <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
+                      + Compose
+                    </Button>
+                  </div>
 
-                <div className="mail-sidebar-bottom">
-                  <EamilNavbar path={path} />
-                </div>
-              </Cards>
+                  <div className="mail-sidebar-bottom">
+                    <EamilNavbar path={path} />
+                  </div>
+                </Cards>
+              </div>
             </Col>
 
             <Col lg={17} xl={19}>
