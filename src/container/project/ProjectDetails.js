@@ -187,7 +187,8 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <Cards
                 title={
                   <nav>
-                    <NavLink to={match.url}>Task List</NavLink> &nbsp; &nbsp;
+                    <NavLink to={match.url + '/tasklist'}>Task List</NavLink>
+                    &nbsp; &nbsp;
                     <NavLink to={match.url + '/activities'}>Activities</NavLink>
                   </nav>
                 }
@@ -201,6 +202,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                     }
                   >
                     <Route exact path={match.url} component={TaskList} />
+                    <Route path={match.url + '/tasklist'} component={TaskList} />
                     <Route path={match.url + '/activities'} component={Activities} />
                   </Suspense>
                 </Switch>
