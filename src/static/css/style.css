@@ -937,6 +937,12 @@ ul {
   color: #5A5F7D;
 }
 
+.ant-dropdown a i,
+.ant-dropdown a svg,
+.ant-dropdown a img{
+  margin-right: 8px;
+}
+
 .ant-dropdown div {
   box-shadow: 0 0;
   border-radius: 5px;
@@ -1153,7 +1159,12 @@ ul {
     width: 30px;
   }
   .ant-page-header-heading {
+    flex-flow: column;
+    align-items: center;
     justify-content: center !important;
+  }
+  .ant-page-header-heading-extra{
+    margin: 12px 0 4px !important;
   }
   .ant-layout-header {
     height: auto;

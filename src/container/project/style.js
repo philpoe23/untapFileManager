@@ -326,13 +326,30 @@ const ProjectDetailsWrapper = Styled.div`
     .project-header{
         display: flex;
         align-items: center;
+        @media only screen and (max-width: 575px) {
+            flex-flow: column;
+            button{
+                margin: 15px 0 0;
+            }
+        }
         h1{
             margin-right: 20px;
             margin-bottom: 0;
             font-size: 20px;
+            @media only screen and (max-width: 575px) {
+                margin: 0;
+            }
         }
         button{
+            font-size: 12px;
+            font-weight: 500;
             margin-right: 10px;
+            height: 35px;
+            padding: 0px 13.5px;
+            &.btn-markComplete{
+                background: #fff;
+                border-color: ${({theme})=>theme['border-color-deep']};
+            }
         }
     }
     .project-action{
@@ -348,6 +365,11 @@ const ProjectDetailsWrapper = Styled.div`
             align-items: center;
             justify-content: center;
             margin: 0 5px;
+            box-shadow: 0 3px 5px ${({theme})=>theme['gray-solid']}05;
+            svg,
+            img{
+                margin-right: 6px;
+            }
         }
         .project-edit{
             color: ${({theme})=>theme['primary-color']};
@@ -359,7 +381,7 @@ const ProjectDetailsWrapper = Styled.div`
     .project-progress{
         border-radius: 10px;
         background: ${({theme})=>theme['success-color']};
-        padding: 25px;
+        padding: 20px 25px 20px;
         margin-bottom: 25px;
         h3{
             color: #fff;
@@ -374,6 +396,12 @@ const ProjectDetailsWrapper = Styled.div`
             color: #fff;
             font-weight: 500;
         }
+    }
+    .about-project-wrapper{
+        min-height: 485px;
+        background: #fff;
+        border-radius: 10px;
+        margin-bottom: 25px;
     }
     .state-single{
         display: flex;
@@ -444,9 +472,13 @@ const ProjectDetailsWrapper = Styled.div`
         }
     }
     .about-project{
-        margin: 50px -40px 0;
+        margin: 42px -40px 0;
         display: flex;
         align-items: center;
+        @media only screen and (max-width: 991px) {
+            flex-flow: column;
+            align-items: flex-start;
+        }
         div{
             margin: 0 40px;
             span{
@@ -456,11 +488,20 @@ const ProjectDetailsWrapper = Styled.div`
                 margin-bottom: 3px;
             }
             p{
-                font-weight: 600;
+                font-weight: 500;
             }
         }
     }
+    .project-users-wrapper{
+        .btn-addUser{
+            padding: 0px 12.6px;
+            font-size: 12px;
+            font-weight: 500;
+            border-color: ${({theme})=>theme['border-color-light']};
+        }
+    }
     .project-users{
+        min-height: 368px;
         .porject-user-single{
             display: flex;
             align-items: center;
@@ -491,21 +532,93 @@ const ProjectDetailsWrapper = Styled.div`
             }
         }
     }
+
+    .file-list{
+        min-height: 385px;
+        .file-list__single{
+            justify-content: space-between;
+            align-items: center;
+            &:not(:last-child){
+                margin-bottom: 18px;
+            }
+            span{
+                display: block;
+                font-size: 12px;
+                line-height: 1.42;
+                &.file-name{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: ${({theme})=>theme['dark-color']};
+                }
+                &.file-size{
+                    color: ${({theme})=>theme['gray-solid']};
+                }
+                &.file-content-action{
+                    a{
+                        font-weight: 500;
+                        color: ${({theme})=>theme['primary-color']};
+                    }
+                    a + a{
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        .file-single-info{
+            width: 50%;
+            align-items: center;
+            .file-single-logo{
+                margin-right: 16px;
+                img{
+                    max-width: 42px;
+                }
+            }
+        }
+        .file-single-action{
+            .ant-dropdown-trigger {
+                color: ${({theme})=>theme['extra-light-color']};
+            }
+        }
+    }
+
+    .dropdown-more{
+        a{
+            font-size: 13px;
+            svg,
+            i.
+            img{
+                margin-right: 8px;
+            }
+        }
+    }
 `;
 
 const TaskLists = Styled.div`
+    .ant-card{
+        .ant-card-head{
+            border-color: ${({theme})=>theme['border-color-light']};
+            margin-bottom: 0;
+        }
+        .ant-card-body{
+            padding: 0 !important;
+        }
+    }
     nav{
         a{
             font-size: 14px;
             font-weight: 500;
             color: ${({theme})=>theme['gray-solid']};
             position: relative;
+            padding: 20px 0px;
+            &:not(:last-child){
+                margin-right: 18px;
+            }
             &:before{
                 position: absolute;
                 content: '';
                 width: 100%;
                 left: 0;
-                bottom: -22px;
+                bottom: -2px;
                 height: 1px;
 
             }
@@ -514,6 +627,95 @@ const TaskLists = Styled.div`
                 &:before{
                     background: ${({theme})=>theme['primary-color']};
                 }
+            }
+        }
+    }
+    table{
+        .ant-checkbox-checked{
+            .ant-checkbox-inner{
+                background: ${({theme})=>theme['success-color']};
+                border-color: ${({theme})=>theme['success-color']};
+            }
+            &:after{
+                border-color: ${({theme})=>theme['success-color']};
+            }
+        }
+        tr{
+            th{
+                background: #fff;
+                border-bottom: 0;
+                padding: 10px;
+                &:first-child{
+                    padding-left: 25px;
+                }
+                .ant-checkbox-indeterminate {
+                    .ant-checkbox-inner{
+                        &:after{
+                            background: ${({theme})=>theme['success-color']};
+                        }
+                    }
+                }
+            }
+            &:hover{
+                td{
+                    background: #fff;
+                }
+            }
+        }
+        .ant-table-tbody{
+            > tr.ant-table-row{
+                &.ant-table-row-selected{
+                    > td{
+                        background: #fff;
+                    }
+                    .task-title{
+                        text-decoration: line-through;
+                    }
+                }
+                > td{
+                    padding: 10px;
+                    border-bottom: 0;
+                    &:first-child{
+                        padding-left: 25px;
+                    }
+                    &:last-child{
+                        padding-right: 25px;
+                    }
+                    .task-title{
+                        color: ${({theme})=>theme['gray-color']}; 
+                    }
+                    .task-created{
+                        font-size: 12px;
+                        color: ${({theme})=>theme['gray-color']};
+                    }
+                    .ant-checkbox{
+                        &:hover{
+                            .ant-checkbox-inner{
+                                border-color: ${({theme})=>theme['success-color']};
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    box-shadow: 0 15px 50px ${({theme})=>theme['gray-solid']}20;
+                    > td{
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .tasklist-action{
+        margin: 18px 25px 25px;
+        button{
+            width: 100%;
+            text-align: left;
+            justify-content: flex-start;
+            font-size: 12px;
+            font-weight: 500;
+            &.ant-btn-primary{
+                background: ${({theme})=>theme['primary-color']}08;
             }
         }
     }
@@ -534,6 +736,85 @@ const TasklistAction = Styled.div`
     }
 `;
 
+const ActivitiesWrapper = Styled.div`
+    padding: 25px;
+    min-height: 435px;
+    .activity-block{
+        &:not(:last-child){
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+        }
+    }
+    .activity-dateMeta{
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        background: ${({theme})=>theme['bg-color-light']};
+        border: 1px solid ${({theme})=>theme['border-color-light']};
+        @media only screen and (max-width: 575px) {
+            height: auto;
+            padding: 30px 0px;
+            margin-bottom: 25px;
+        }
+        h1{
+            font-size: 18px;
+            margin-bottom: 0px;
+        }
+        .activity-month{
+            color: ${({theme})=>theme['gray-color']};
+        }
+    }
+
+    .activity-single{
+        &:not(:last-child){
+            margin-bottom: 25px;
+        }
+        .activity-icon{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            margin: 4px 10px 0 0;
+            &.bg-primary{
+                background: ${({theme})=>theme['primary-color']}15;
+                color: ${({theme})=>theme['primary-color']};
+            }
+            &.bg-secondary{
+                background: ${({theme})=>theme['secondary-color']}15;
+                color: ${({theme})=>theme['secondary-color']};
+            }
+            &.bg-success{
+                background: ${({theme})=>theme['success-color']}15;
+                color: ${({theme})=>theme['success-color']};
+            }
+        }
+        img{
+            margin-right: 12px;
+        }
+        .activity-title{
+            font-size: 14px;
+            font-weight: 500;
+            margin: -4px 0 0;
+            span{
+                font-weight: 400;
+                margin: 0 2px;
+                color: ${({theme})=>theme['gray-solid']};
+            }
+        }
+        .activity-timeMeta{
+            font-size: 12px;
+            margin-bottom: 0;
+            color: ${({theme})=>theme['extra-light-color']};
+        }
+    }
+`;
+
 export {
     ProjectHeader,
     ProjectSorting,
@@ -544,5 +825,6 @@ export {
     ProjectList,
     ProjectDetailsWrapper,
     TaskLists,
-    TasklistAction
+    TasklistAction,
+    ActivitiesWrapper
 };

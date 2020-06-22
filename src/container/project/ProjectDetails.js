@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { Fragment, lazy, Suspense, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import Heading from '../../components/heading/heading';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { Dropdown } from '../../components/dropdown/dropdown';
 import { filterSinglepage } from '../../redux/project/actionCreator';
 import { ProjectDetailsWrapper, TaskLists } from './style';
 
@@ -36,7 +37,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
             <Button type="primary" size="small">
               <FeatherIcon icon="plus" size="14" /> Add Task
             </Button>
-            <Button outlined type="light" size="small">
+            <Button className="btn-markComplete" outlined type="white" size="small">
               <FeatherIcon icon="check" size="14" /> Mark as Complete
             </Button>
           </div>
@@ -56,7 +57,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
       />
       <Main>
         <Row gutter={25}>
-          <Col md={6}>
+          <Col xxl={6} xl={8} xs={24}>
             <div className="project-progress">
               <h3>Progress</h3>
               <Progress percent={65} status="active" />
@@ -65,7 +66,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <div className="state-single">
                 <div className="color-primary">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={25} />
+                    <FeatherIcon icon="list" size={25} />
                   </Link>
                 </div>
                 <div>
@@ -76,7 +77,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <div className="state-single">
                 <div className="color-secondary">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={25} />
+                    <FeatherIcon icon="pie-chart" size={25} />
                   </Link>
                 </div>
                 <div>
@@ -98,7 +99,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <div className="state-single">
                 <div className="color-warning">
                   <Link to="#">
-                    <FeatherIcon icon="layout" size={25} />
+                    <FeatherIcon icon="clock" size={25} />
                   </Link>
                 </div>
                 <div>
@@ -108,81 +109,94 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               </div>
             </Cards>
           </Col>
-          <Col md={12}>
-            <Cards title="About Project">
-              <div className="about-content">
-                <p>{content}</p>
-              </div>
-              <div className="about-project">
-                <div>
-                  <span>Project Owner</span>
-                  <p>Peter Jackson</p>
+          <Col xxl={12} xl={16} xs={24}>
+            <div className="about-project-wrapper">
+              <Cards title="About Project">
+                <div className="about-content">
+                  <p>{content}</p>
                 </div>
-                <div>
-                  <span>Budget</span>
-                  <p>$56,700</p>
+                <div className="about-project">
+                  <div>
+                    <span>Project Owner</span>
+                    <p>Peter Jackson</p>
+                  </div>
+                  <div>
+                    <span>Budget</span>
+                    <p>$56,700</p>
+                  </div>
+                  <div>
+                    <span>Start Date</span>
+                    <p className="color-primary">28 Dec 2019</p>
+                  </div>
+                  <div>
+                    <span>Deadline</span>
+                    <p className="color-danger">18 Mar 2020</p>
+                  </div>
                 </div>
-                <div>
-                  <span>Start Date</span>
-                  <p className="color-primary">28 Dec 2019</p>
-                </div>
-                <div>
-                  <span>Deadline</span>
-                  <p className="color-danger">18 Mar 2020</p>
-                </div>
-              </div>
-            </Cards>
+              </Cards>
+            </div>
           </Col>
-          <Col md={6}>
-            <Cards
-              title="Users"
-              isbutton={
-                <Button outlined type="light" size="small">
-                  <FeatherIcon icon="user-plus" size={14} /> Add Users
-                </Button>
-              }
-            >
-              <div className="project-users">
-                <div className="porject-user-single">
-                  <div>
-                    <img src={require(`../../static/img/users/1.png`)} alt="" />
+          <Col xxl={6} lg={9} xs={24}>
+            <div className="project-users-wrapper">
+              <Cards
+                title="Users"
+                isbutton={
+                  <Button className="btn-addUser" outlined type="white" size="small">
+                    <FeatherIcon icon="user-plus" size={14} /> Add Users
+                  </Button>
+                }
+              >
+                <div className="project-users">
+                  <div className="porject-user-single">
+                    <div>
+                      <img src={require(`../../static/img/users/1.png`)} alt="" />
+                    </div>
+                    <div>
+                      <Heading as="h5">Meyri Carles</Heading>
+                      <p>Web Developer</p>
+                    </div>
                   </div>
-                  <div>
-                    <Heading as="h5">Meyri Carles</Heading>
-                    <p>Ui Designer</p>
+                  <div className="porject-user-single">
+                    <div>
+                      <img src={require(`../../static/img/users/3.png`)} alt="" />
+                    </div>
+                    <div>
+                      <Heading as="h5">Tuhin Molla</Heading>
+                      <p>Project Manager</p>
+                    </div>
+                  </div>
+                  <div className="porject-user-single">
+                    <div>
+                      <img src={require(`../../static/img/users/9.jpg`)} alt="" />
+                    </div>
+                    <div>
+                      <Heading as="h5">Billal Hossain</Heading>
+                      <p>App Developer</p>
+                    </div>
+                  </div>
+                  <div className="porject-user-single">
+                    <div>
+                      <img src={require(`../../static/img/users/4.png`)} alt="" />
+                    </div>
+                    <div>
+                      <Heading as="h5">Khalid Hasan</Heading>
+                      <p>App Developer</p>
+                    </div>
+                  </div>
+                  <div className="porject-user-single">
+                    <div>
+                      <img src={require(`../../static/img/users/5.png`)} alt="" />
+                    </div>
+                    <div>
+                      <Heading as="h5">Meyri Carles</Heading>
+                      <p>Ui Designer</p>
+                    </div>
                   </div>
                 </div>
-                <div className="porject-user-single">
-                  <div>
-                    <img src={require(`../../static/img/users/1.png`)} alt="" />
-                  </div>
-                  <div>
-                    <Heading as="h5">Meyri Carles</Heading>
-                    <p>Ui Designer</p>
-                  </div>
-                </div>
-                <div className="porject-user-single">
-                  <div>
-                    <img src={require(`../../static/img/users/1.png`)} alt="" />
-                  </div>
-                  <div>
-                    <Heading as="h5">Meyri Carles</Heading>
-                    <p>Ui Designer</p>
-                  </div>
-                </div>
-                <div className="porject-user-single">
-                  <div>
-                    <img src={require(`../../static/img/users/1.png`)} alt="" />
-                  </div>
-                  <div>
-                    <Heading as="h5">Meyri Carles</Heading>
-                    <p>Ui Designer</p>
-                  </div>
-                </div>
-              </div>
-            </Cards>
+              </Cards>
+            </div>
           </Col>
-          <Col md={16}>
+          <Col xxl={16} lg={15} xs={24}>
             <TaskLists>
               <Cards
                 title={
@@ -209,9 +223,205 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               </Cards>
             </TaskLists>
           </Col>
-          <Col md={8}>
+          <Col xxl={8} xs={24}>
             <Cards title="Files">
-              <Row></Row>
+              <div className="file-list">
+                <div className="file-list__single d-flex">
+                  <div className="file-single-info d-flex">
+                    <div className="file-single-logo">
+                      <img src={require(`../../static/img/files/zip.png`)} alt="File Logo"/>
+                    </div>
+                    <div className="file-single__content">
+                      <span className="file-name">Main-admin-design.zip</span>
+                      <span className="file-size">7.05 MB</span>
+                      <span className="file-content-action">
+                        <Link to={'/'}>Download</Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="file-single-action">
+                    <Dropdown
+                      content={
+                        <Fragment>
+                          <Link to="#">
+                            <FeatherIcon icon="eye" size={14} />
+                            View
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="edit" size={14} />
+                            Edit
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="trash-2" size={14} />
+                            Delete
+                          </Link>
+                        </Fragment>
+                      }
+                    >
+                      <Link to="#">
+                        <FeatherIcon icon="more-horizontal" size={16} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>{/* End of .file-list__single */}
+                <div className="file-list__single d-flex">
+                  <div className="file-single-info d-flex">
+                    <div className="file-single-logo">
+                      <img src={require(`../../static/img/files/pdf.png`)} alt="File Logo"/>
+                    </div>
+                    <div className="file-single__content">
+                      <span className="file-name">Product-guidelines.pdf</span>
+                      <span className="file-size">522 KB</span>
+                      <span className="file-content-action">
+                        <Link to={'/'}>View</Link>
+                        <Link to={'/'}>Download</Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="file-single-action">
+                    <Dropdown
+                      content={
+                        <Fragment>
+                          <Link to="#">
+                            <FeatherIcon icon="eye" size={14} />
+                            View
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="edit" size={14} />
+                            Edit
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="trash-2" size={14} />
+                            Delete
+                          </Link>
+                        </Fragment>
+                      }
+                    >
+                      <Link to="#">
+                        <FeatherIcon icon="more-horizontal" size={16} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>{/* End of .file-list__single */}
+                <div className="file-list__single d-flex">
+                  <div className="file-single-info d-flex">
+                    <div className="file-single-logo">
+                      <img src={require(`../../static/img/files/psd.png`)} alt="File Logo"/>
+                    </div>
+                    <div className="file-single__content">
+                      <span className="file-name">admin-wireframe.psd</span>
+                      <span className="file-size">2.05 MB</span>
+                      <span className="file-content-action">
+                        <Link to={'/'}>Download</Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="file-single-action">
+                    <Dropdown
+                      content={
+                        <Fragment>
+                          <Link to="#">
+                            <FeatherIcon icon="eye" size={14} />
+                            View
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="edit" size={14} />
+                            Edit
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="trash-2" size={14} />
+                            Delete
+                          </Link>
+                        </Fragment>
+                      }
+                    >
+                      <Link to="#">
+                        <FeatherIcon icon="more-horizontal" size={16} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>{/* End of .file-list__single */}
+                <div className="file-list__single d-flex">
+                  <div className="file-single-info d-flex">
+                    <div className="file-single-logo">
+                      <img src={require(`../../static/img/files/jpg.png`)} alt="File Logo"/>
+                    </div>
+                    <div className="file-single__content">
+                      <span className="file-name">Wirefram-escreenshots.jpg</span>
+                      <span className="file-size">522 KB</span>
+                      <span className="file-content-action">
+                        <Link to={'/'}>View</Link>
+                        <Link to={'/'}>Download</Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="file-single-action">
+                    <Dropdown
+                      content={
+                        <Fragment>
+                          <Link to="#">
+                            <FeatherIcon icon="eye" size={14} />
+                            View
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="edit" size={14} />
+                            Edit
+                          </Link>
+                          <Link to="#">
+                            <FeatherIcon icon="trash-2" size={14} />
+                            Delete
+                          </Link>
+                        </Fragment>
+                      }
+                    >
+                      <Link to="#">
+                        <FeatherIcon icon="more-horizontal" size={16} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>{/* End of .file-list__single */}
+                <div className="file-list__single d-flex">
+                  <div className="file-single-info d-flex">
+                    <div className="file-single-logo">
+                      <img src={require(`../../static/img/files/png.png`)} alt="File Logo"/>
+                    </div>
+                    <div className="file-single__content">
+                      <span className="file-name">Logo.png</span>
+                      <span className="file-size">522 KB</span>
+                      <span className="file-content-action">
+                        <Link to={'/'}>View</Link>
+                        <Link to={'/'}>Download</Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="file-single-action">
+                    <Dropdown
+                      content={
+                        <div className="dropdown-more">
+                          <Fragment>
+                            <Link to="#">
+                              <FeatherIcon icon="eye" size={14} />
+                              Viewt
+                            </Link>
+                            <Link to="#">
+                              <FeatherIcon icon="edit" size={14} />
+                              Edit
+                            </Link>
+                            <Link to="#">
+                              <FeatherIcon icon="trash-2" size={14} />
+                              Delete
+                            </Link>
+                          </Fragment>
+                        </div>
+                      }
+                    >
+                      <Link to="#">
+                        <FeatherIcon icon="more-horizontal" size={16} />
+                      </Link>
+                    </Dropdown>
+                  </div>
+                </div>{/* End of .file-list__single */}
+              </div>
             </Cards>
           </Col>
         </Row>
