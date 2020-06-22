@@ -8,6 +8,7 @@ import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { EmailAuthor, EmailHeader } from './style';
+import { Link } from 'react-router-dom';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -42,7 +43,7 @@ const Content = ({ searchData, email }) => {
   const data = [];
   emails !== undefined &&
     emails.map((inbox, index) => {
-      const { id, type, email, userName, status, img, subject, body } = inbox;
+      const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
       return data.push({
@@ -64,6 +65,13 @@ const Content = ({ searchData, email }) => {
               {subject} <span>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
+            {attach.length &&
+              attach.map(item => (
+                <a download href={require('../../../static/img/email/' + item)}>
+                  <FeatherIcon icon="paperclip" size={14} />
+                  {item}
+                </a>
+              ))}
           </EmailHeader>
         ),
         time: <span className="email-time">{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>,
