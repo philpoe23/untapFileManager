@@ -65,13 +65,14 @@ const Content = ({ searchData, email }) => {
               {subject} <span>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
-            {attach.length &&
-              attach.map(item => (
-                <a download href={require('../../../static/img/email/' + item)}>
-                  <FeatherIcon icon="paperclip" size={14} />
-                  {item}
-                </a>
-              ))}
+            {attach.length
+              ? attach.map(item => (
+                  <a download href={require('../../../static/img/email/' + item)}>
+                    <FeatherIcon icon="paperclip" size={14} />
+                    {item}
+                  </a>
+                ))
+              : null}
           </EmailHeader>
         ),
         time: <span className="email-time">{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>,
