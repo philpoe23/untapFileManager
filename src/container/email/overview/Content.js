@@ -62,7 +62,7 @@ const Content = ({ searchData, email }) => {
         content: (
           <EmailHeader>
             <Heading as="h5">
-              {subject} <span>{type}</span>
+              {subject} <span className='mail-badge'>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
             {attach.length
@@ -172,7 +172,7 @@ const Content = ({ searchData, email }) => {
   return (
     <Style
       className="table-responsive"
-      pagination={true}
+      pagination={false}
       rowSelection={rowSelection}
       columns={columns}
       dataSource={data}

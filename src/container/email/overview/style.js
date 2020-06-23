@@ -8,10 +8,19 @@ const Style = Styled(Table)`
   }
   .ant-table{
     border-radius: 10px;
-    .ant-table-selection-extra{
-      @media only screen and (max-width: 991px){
-        right: -15px;   
+    tr{
+      th,
+      td{
+        &:first-child{
+          padding-left: 30px;
+        }
+        &:last-child{
+          padding-right: 30px;
+        }
       }
+    }
+    .ant-table-selection-extra{
+      right: -15px;   
     }
   }
   .ant-table-thead{
@@ -25,6 +34,10 @@ const Style = Styled(Table)`
           border-top-right-radius: 10px !important;
         }
         .email-top-search{
+          .ant-select{
+            float: right;
+            max-width: 350px;
+          }
           .ant-select-selector{
             height: 46px !important;
           }
@@ -65,9 +78,21 @@ const Style = Styled(Table)`
   }
   
   .ant-table-tbody{
+    .ant-table-cell{
+      white-space: normal !important;
+    }
     >tr{
       &:hover{
         box-shadow: 0 15px 40px ${({theme})=>theme['gray-solid']}15;
+        h1{
+          color: ${({theme})=>theme['dark-color']};
+          a{
+            color: ${({theme})=>theme['dark-color']};
+          }
+        }
+        .email-time{
+          color: ${({theme})=>theme['dark-color']};
+        }
         >td{
           background: #fff !important;
         }
@@ -79,6 +104,7 @@ const Style = Styled(Table)`
         .email-time{
           font-size: 13px;
           font-weight: 500;
+          color: ${({theme})=>theme['gray-color']};
         }
       }
     }
@@ -255,6 +281,7 @@ const EmailNav = Styled.nav`
           line-height: 20px;
           margin-bottom: 16px;
           font-weight: 500;
+          transition: .3s;
         }
         input{
           height: 44px;
@@ -356,17 +383,31 @@ const EmailAuthor = Styled.div`
   h1{
     margin: 0;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     a{
-      color: ${({theme})=>theme['dark-color']};
+      color: ${({theme})=>theme['gray-color']};
+      transition: .3s;
     }
   }
 `;
 
 const EmailHeader = Styled.div`
+  min-width: 660px;
   h1{
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    transition: .3s;
+    color: ${({theme})=>theme['gray-color']};
+  }
+  .mail-badge{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    height: 20px;
+    padding: 0 12px;
+    border-radius: 3px;
+    background: ${({theme})=>theme['primary-color']}10;
   }
   p{
     margin: 0;
