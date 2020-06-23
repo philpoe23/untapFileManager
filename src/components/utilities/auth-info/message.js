@@ -5,8 +5,17 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Popover } from '../../popup/popup';
 import Heading from '../../heading/heading';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const MessageBox = props => {
+  const renderThumb = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: 'rgba(35, 49, 86, 0.8)',
+    };
+    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+  };
+
   const content = (
     <div className="atbd-top-dropdwon">
       <Heading className="atbd-top-dropdwon__title" as="h5">
@@ -14,101 +23,103 @@ const MessageBox = props => {
         <Badge className="badge-success" count={3}></Badge>
       </Heading>
       <ul className="atbd-top-dropdwon__nav">
-        <li>
-          <Link to="#">
-            <figure className="atbd-top-dropdwon__content">
-              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
-              <figcaption>
-                <Heading as="h5">
-                  Software <span className="color-success">3 hrs ago</span>
-                </Heading>
-                <p>
-                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
-                  <span >
-                    <Badge className="badge-success" count={3}></Badge>
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <figure className="atbd-top-dropdwon__content">
-              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
-              <figcaption>
-                <Heading as="h5">
-                  Software <span  className="color-success">3 hrs ago</span>
-                </Heading>
-                <p>
-                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
-                  <span>
-                    <Badge className="badge-success" count={3}></Badge>
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <figure className="atbd-top-dropdwon__content">
-              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
-              <figcaption>
-                <Heading as="h5">
-                  Software <span  className="color-success">3 hrs ago</span>
-                </Heading>
-                <p>
-                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
-                  <span>
-                    <Badge className="badge-success" count={3}></Badge>
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <figure className="atbd-top-dropdwon__content">
-              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
-              <figcaption>
-                <Heading as="h5">
-                  Software <span  className="color-success">3 hrs ago</span>
-                </Heading>
-                <p>
-                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
-                  <span>
-                    <Badge className="badge-success" count={3}></Badge>
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <figure className="atbd-top-dropdwon__content">
-              <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
-              <figcaption>
-                <Heading as="h5">
-                  Software <span  className="color-success">3 hrs ago</span>
-                </Heading>
-                <p>
-                  <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
-                  <span>
-                    <Badge className="badge-success" count={3}></Badge>
-                  </span>
-                </p>
-              </figcaption>
-            </figure>
-          </Link>
-        </li>
-        <li>
-          
-        </li>
+        <Scrollbars renderThumbVertical={renderThumb}>
+          <li>
+            <Link to="#">
+              <figure className="atbd-top-dropdwon__content">
+                <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+                <figcaption>
+                  <Heading as="h5">
+                    Software <span className="color-success">3 hrs ago</span>
+                  </Heading>
+                  <p>
+                    <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                    <span>
+                      <Badge className="badge-success" count={3}></Badge>
+                    </span>
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <figure className="atbd-top-dropdwon__content">
+                <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+                <figcaption>
+                  <Heading as="h5">
+                    Software <span className="color-success">3 hrs ago</span>
+                  </Heading>
+                  <p>
+                    <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                    <span>
+                      <Badge className="badge-success" count={3}></Badge>
+                    </span>
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <figure className="atbd-top-dropdwon__content">
+                <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+                <figcaption>
+                  <Heading as="h5">
+                    Software <span className="color-success">3 hrs ago</span>
+                  </Heading>
+                  <p>
+                    <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                    <span>
+                      <Badge className="badge-success" count={3}></Badge>
+                    </span>
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <figure className="atbd-top-dropdwon__content">
+                <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+                <figcaption>
+                  <Heading as="h5">
+                    Software <span className="color-success">3 hrs ago</span>
+                  </Heading>
+                  <p>
+                    <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                    <span>
+                      <Badge className="badge-success" count={3}></Badge>
+                    </span>
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <figure className="atbd-top-dropdwon__content">
+                <img src={require('../../../static/img/avatar/NoPath.png')} alt="" />
+                <figcaption>
+                  <Heading as="h5">
+                    Software <span className="color-success">3 hrs ago</span>
+                  </Heading>
+                  <p>
+                    <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
+                    <span>
+                      <Badge className="badge-success" count={3}></Badge>
+                    </span>
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
+          </li>
+          <li></li>
+        </Scrollbars>
       </ul>
-      <Link className="btn-seeAll" to="#">See all messages</Link>
+      <Link className="btn-seeAll" to="#">
+        See all messages
+      </Link>
     </div>
   );
 
