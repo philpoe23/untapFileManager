@@ -6,6 +6,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -21,7 +22,6 @@ const ThemeLayout = WrappedComponent => {
         searchHide: true,
       };
       this.handleUpdate = this.handleUpdate.bind(this);
-      this.renderThumb = this.renderThumb.bind(this);
       this.updateDimensions = this.updateDimensions.bind(this);
     }
 
@@ -48,14 +48,6 @@ const ThemeLayout = WrappedComponent => {
       });
     };
 
-    renderThumb({ style, ...props }) {
-      const thumbStyle = {
-        backgroundColor: `#EFF0F3`,
-        borderRadius: '20px',
-      };
-      return <div style={{ ...style, ...thumbStyle }} {...props} />;
-    }
-
     onShowHide = () => {
       this.setState({
         hide: this.state.hide ? false : true,
@@ -69,6 +61,14 @@ const ThemeLayout = WrappedComponent => {
         searchHide: this.state.searchHide ? false : true,
         hide: true,
       });
+    };
+
+    renderThumb = ({ style, ...props }) => {
+      const thumbStyle = {
+        borderRadius: 6,
+        backgroundColor: 'rgba(35, 49, 86, 0.8)',
+      };
+      return <div style={{ ...style, ...thumbStyle }} {...props} />;
     };
 
     render() {
@@ -129,10 +129,16 @@ const ThemeLayout = WrappedComponent => {
             </Header>
             <Layout>
               <Sider width={280} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
-                <div className="glider-scrollable" data="ss-container">
+                <Scrollbars
+                  autoHide
+                  autoHideTimeout={500}
+                  autoHideDuration={200}
+                  renderThumbHorizontal={this.renderThumb}
+                  renderThumbVertical={this.renderThumb}
+                >
                   <p className="sidebar-nav-title">MAIN MENU</p>
                   <MenueItems />
-                </div>
+                </Scrollbars>
               </Sider>
               <Layout className="atbd-main-layout">
                 <Content>
