@@ -502,10 +502,78 @@ const MessageDetails = Styled.div`
       justify-content: center;
     }
     figure{
+      position: relative;
       border: 1px solid ${({theme})=>theme["border-color-light"]};
       border-radius: 10px;
       padding: 10px;
       margin: 0 5px;
+      &:hover{
+        box-shadow: 0 10px 20px ${({theme})=>theme["gray-solid"]}10;
+        .attatchment-image{
+          &:after{
+            height: 100%;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        .attatchment-hover{
+          opacity: 1;
+          visibility: visible
+        }
+      }
+      .attatchment-image{
+        position: relative;
+        &:after{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 0%;
+          border-radius: 10px;
+          content: '';
+          opacity: 0;
+          visibility: hidden;
+          transition: .3s ease-in;
+          background: ${({theme})=>theme["dark-color"]}50;
+        }
+      }
+      .attatchment-hover{
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: .35s;
+        .btn-link{
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          &:after{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #fff;
+            opacity: .20;
+            content: '';
+          }
+          svg,
+          img{
+            width: 14.5px;
+            color: #fff;
+          }
+        }
+        .btn-link + .btn-link{
+          margin-left: 10px;
+        }
+      }
       figcaption{
         margin-top: 10px;
         h1{

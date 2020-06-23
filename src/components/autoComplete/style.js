@@ -25,9 +25,6 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     .ant-input-affix-wrapper input{
         height: 38px !important;
     }
-    .ant-input-affix-wrapper .ant-input-suffix{
-        margin-right: -10px;
-    }
     .ant-input-affix-wrapper .ant-input-suffix .search-btn{
         border-radius: 0 4px 4px 0;
     }

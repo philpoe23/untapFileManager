@@ -151,7 +151,13 @@ const Single = props => {
 
               <div className="message-attachments">
                 <figure>
-                  <img src={require('../../../static/img/email/2.png')} alt="" />
+                  <div className="attatchment-image">
+                    <img src={require('../../../static/img/email/2.png')} alt="" />
+                  </div>
+                  <div className="attatchment-hover">
+                    <Link className="btn-link" to="#"><FeatherIcon icon="download" /></Link>
+                    <Link className="btn-link" to="#"><FeatherIcon icon="share-2" /></Link>
+                  </div>
                   <figcaption>
                     <Heading as="h4">Attached.jpg</Heading>
                     <p>256.5 KB</p>
@@ -159,7 +165,13 @@ const Single = props => {
                 </figure>
 
                 <figure>
-                  <img src={require('../../../static/img/email/1.png')} alt="" />
+                  <div className="attatchment-image">
+                    <img src={require('../../../static/img/email/1.png')} alt="" />
+                  </div>
+                  <div className="attatchment-hover">
+                    <Link className="btn-link" to="#"><FeatherIcon icon="download" /></Link>
+                    <Link className="btn-link" to="#"><FeatherIcon icon="share-2" /></Link>
+                  </div>
                   <figcaption>
                     <Heading as="h4">Attached.jpg</Heading>
                     <p>256.5 KB</p>

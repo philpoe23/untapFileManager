@@ -128,10 +128,12 @@ const Div = Styled.div`
                         text-align: left;
                         .ant-menu-submenu-title{
                             padding: 0 20px;
+                            justify-content: center;
                         }
                     }
                     .ant-menu-item{
                         padding: 0 20px !important;
+                        justify-content: center;
                     }
                     .ant-menu-submenu, .ant-menu-item{
                         span{
@@ -149,7 +151,7 @@ const Div = Styled.div`
             padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{
-            padding: 15px 10px 55px !important;
+            padding: 15px 0px 55px !important;
             .sidebar-nav-title{
                 display: none;
             }

@@ -58,10 +58,27 @@ const SidebarSingle = Styled.div`
     }
     .ant-checkbox-group{
         .ant-checkbox-group-item{
-            display: block;
+            display: flex;
+            align-items: center;
             color: ${({theme})=>theme['gray-color']};
             &:not(:last-child){
                 margin-bottom: 10px;
+            }
+            &.ant-checkbox-wrapper{
+                margin-right: 0;
+            }
+            >span + span{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .rating-left{
+                    min-width: 150px;
+                }
+                .rating-right{
+                    text-align: right;
+                    min-width: 60px;
+                }
             }
         }
     }
