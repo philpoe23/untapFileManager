@@ -138,7 +138,7 @@ const GalleryCard = Styled.nav`
 
 const UsercardWrapper = Styled.nav`
   .user-card-pagination{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: right;
     @media only screen and (max-width: 991px){
       text-align: center;

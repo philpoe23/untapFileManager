@@ -10,6 +10,9 @@ import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { Button } from '../../components/buttons/buttons';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const ShoppingCart = ({ match }) => {
   const [form] = Form.useForm();
@@ -147,7 +150,23 @@ const ShoppingCart = ({ match }) => {
 
   return (
     <Fragment>
-      <PageHeader ghost title="Shopping Cart" />
+      <PageHeader 
+        ghost 
+        title="Shopping Cart" 
+        buttons={[
+            
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
       <Main>
         <Row gutter={15}>
           <Col md={24}>

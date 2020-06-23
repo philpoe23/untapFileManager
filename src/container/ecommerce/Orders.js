@@ -10,6 +10,10 @@ import { TopToolBox } from './Style';
 import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
 
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+
 const Orders = () => {
   const dispatch = useDispatch();
   const { searchData, orders } = useSelector(state => {
@@ -125,7 +129,23 @@ const Orders = () => {
 
   return (
     <Fragment>
-      <PageHeader ghost title="Orders" />
+      <PageHeader 
+        ghost 
+        title="Orders"
+        buttons={[
+            
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>
+
+        ]}
+      />
       <Main>
         <Cards headless>
           <Row gutter={15}>

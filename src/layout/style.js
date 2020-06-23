@@ -34,7 +34,6 @@ const Div = Styled.div`
                         width: 16px;
                         font-size: 16px;
                         color: ${({ theme }) => theme['extra-light-color']};
-                        margin-top: 11px;
                     }
                     span{
                         padding-left: 20px;
@@ -43,8 +42,16 @@ const Div = Styled.div`
                         transition: 0.3s ease;
                     }
                 }
+                .ant-menu-submenu{
+                    .ant-menu-submenu-title{
+                        display: flex;
+                        align-items: center;
+                    }
+                }
                 .ant-menu-submenu-inline{
                     > .ant-menu-submenu-title{
+                        display: flex;
+                        align-items: center;
                         padding: 0 15px !important;
                         svg,
                         img{
@@ -86,6 +93,8 @@ const Div = Styled.div`
                     }
                 }
                 .ant-menu-item{
+                    display: flex;
+                    align-items: center;
                     padding: 0 15px !important; 
                     a{
                         display: flex !important;
@@ -119,15 +128,16 @@ const Div = Styled.div`
                         text-align: left;
                         .ant-menu-submenu-title{
                             padding: 0 20px;
+                            justify-content: center;
                         }
                     }
                     .ant-menu-item{
                         padding: 0 20px !important;
+                        justify-content: center;
                     }
                     .ant-menu-submenu, .ant-menu-item{
                         span{
-                            opacity: 0;
-                            visibility: hidden;
+                            display: none;
                         }
                     }
                 }
@@ -141,7 +151,7 @@ const Div = Styled.div`
             padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{
-            padding: 15px 10px 55px !important;
+            padding: 15px 0px 55px !important;
             .sidebar-nav-title{
                 display: none;
             }
@@ -194,8 +204,9 @@ const Div = Styled.div`
 const SmallScreenAuthInfo = Styled.div`    
         background: #fff;
         width: 100%;
-        position: absolute;
-        bottom: ${({ hide }) => (hide ? '-80px' : '-65px')};
+        position: fixed;
+        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
+        top: 0;
         left: 0;
         transition: .3s;
         border-top: 1px solid #eee;
@@ -209,13 +220,14 @@ const SmallScreenSearch = Styled.div`
         background: #fff;
         width: 100%;
         height: 40px;
-        position: absolute;
-        bottom: ${({ hide }) => (hide ? '-60px' : '-40px')};
+        position: fixed;
+        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
+        top: 0;
         left: 0;
         transition: .3s;
         border-top: 1px solid #eee;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
-        z-index: ${({ hide }) => (hide ? -1 : 1)}
+        z-index: ${({ hide }) => (hide ? -1 : 999)}
         box-shadow: 0 2px 30px #9299b810;
                     
 `;

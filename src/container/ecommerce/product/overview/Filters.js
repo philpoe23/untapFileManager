@@ -39,8 +39,10 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     {
       label: (
         <Fragment>
-          <Rate allowHalf defaultValue={5} disabled />
-          <span>25</span>
+          <span className="rating-left">
+            <Rate allowHalf defaultValue={5} disabled />
+          </span>
+          <span className="rating-right">25</span>
         </Fragment>
       ),
       value: 5,
@@ -48,11 +50,11 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     {
       label: (
         <Fragment>
-          <span>
+          <span className="rating-left">
             <Rate allowHalf defaultValue={4} disabled />
             and up
           </span>
-          <span>25</span>
+          <span className="rating-right">25</span>
         </Fragment>
       ),
       value: 4,
@@ -60,11 +62,11 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     {
       label: (
         <Fragment>
-          <span>
+          <span className="rating-left">
             <Rate allowHalf defaultValue={3} disabled />
             and up
           </span>
-          <span>25</span>
+          <span className="rating-right">25</span>
         </Fragment>
       ),
       value: 3,
@@ -72,11 +74,11 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     {
       label: (
         <Fragment>
-          <span>
+          <span className="rating-left">
             <Rate allowHalf defaultValue={2} disabled />
             and up
           </span>
-          <span>25</span>
+          <span className="rating-right">25</span>
         </Fragment>
       ),
       value: 2,
@@ -84,11 +86,11 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     {
       label: (
         <Fragment>
-          <span>
+          <span className="rating-left">
             <Rate allowHalf defaultValue={1} disabled />
             and up
           </span>
-          <span>25</span>
+          <span className="rating-right">25</span>
         </Fragment>
       ),
       value: 1,

@@ -98,9 +98,7 @@ const ThemeLayout = WrappedComponent => {
                     <HeaderSearch />
                   </Col>
                 ) : (
-                  <SmallScreenSearch hide={this.state.searchHide}>
-                    <HeaderSearch />
-                  </SmallScreenSearch>
+                  <div></div>
                 )}
 
                 {this.state.width > 800 ? (
@@ -108,9 +106,7 @@ const ThemeLayout = WrappedComponent => {
                     <AuthInfo />
                   </Col>
                 ) : (
-                  <SmallScreenAuthInfo hide={this.state.hide}>
-                    <AuthInfo />
-                  </SmallScreenAuthInfo>
+                  <div></div>
                 )}
 
                 {this.state.width <= 800 && (
@@ -127,6 +123,19 @@ const ThemeLayout = WrappedComponent => {
                 )}
               </Row>
             </Header>
+            {this.state.width < 800 ? (
+              <div className="small-screen-headerRight">
+                <SmallScreenSearch hide={this.state.searchHide}>
+                  <HeaderSearch />
+                </SmallScreenSearch>
+                <SmallScreenAuthInfo hide={this.state.hide}>
+                  <AuthInfo />
+                </SmallScreenAuthInfo>
+              </div>
+              
+              ) : (
+                ''
+              )}
             <Layout>
               <Sider width={280} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
                 <Scrollbars

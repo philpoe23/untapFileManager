@@ -102,7 +102,7 @@ const List = ({ productsAll, isloader }) => {
           <Heading as="h1">Data Not Found</Heading>
         </Col>
       )}
-      <Col xs={24}>
+      <Col xs={24} className="pb-30">
         {products.length ? (
           <PaginationWrapper style={{marginTop: 20}}>
               <Pagination
