@@ -8,7 +8,6 @@ import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { EmailAuthor, EmailHeader } from './style';
-import { Link } from 'react-router-dom';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -25,7 +24,9 @@ const Content = ({ searchData, email }) => {
   }, [email]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data =
+      searchData !== undefined &&
+      searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
