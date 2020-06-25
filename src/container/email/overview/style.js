@@ -304,6 +304,10 @@ const EmailNav = Styled.nav`
           margin-right: 20px;
           color: ${({theme})=>theme["extra-light-color"]};
         }
+        &.active{
+          background: rgba(95,99,242,0.1);
+          color: ${({theme})=>theme["primary-color"]};
+        }
       }
 
       &:hover{
@@ -311,6 +315,11 @@ const EmailNav = Styled.nav`
           background: rgba(95,99,242,0.1);
           color: ${({theme})=>theme["primary-color"]};
         }
+      }
+      .nav-text{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
       }
       .add-label{
         box-shadow: 0 10px 40px rgba(146,153,184,0.2);
