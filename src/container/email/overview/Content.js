@@ -147,6 +147,7 @@ const Content = ({ searchData, email }) => {
       title: (
         <div className="email-top-search">
           <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />
+          
         </div>
       ),
       dataIndex: 'content',
@@ -155,12 +156,23 @@ const Content = ({ searchData, email }) => {
       title: (
         <Fragment>
           <div className="email-top-right d-flex align-items-center">
-            <NavLink to="/">
-              <FeatherIcon icon="sliders" size={18} />
-            </NavLink>
-            <NavLink to="/">
-              <FeatherIcon icon="more-vertical" size={18} />
-            </NavLink>
+            <span className="page-number">1 - 50 of 235</span>
+            <div className="pagination-slider">
+              <a className="btn-paging" href="#">
+                <FeatherIcon icon="chevron-left" size={14} />
+              </a>
+              <a className="btn-paging" href="#">
+                <FeatherIcon icon="chevron-right" size={14} />
+              </a>
+            </div>
+            <div className="email-extra">
+              <NavLink to="/">
+                <FeatherIcon icon="sliders" size={18} />
+              </NavLink>
+              <NavLink to="/">
+                <FeatherIcon icon="more-vertical" size={18} />
+              </NavLink>
+            </div>
           </div>
         </Fragment>
       ),

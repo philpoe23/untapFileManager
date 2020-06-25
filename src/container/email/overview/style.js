@@ -34,8 +34,10 @@ const Style = Styled(Table)`
           border-top-right-radius: 10px !important;
         }
         .email-top-search{
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
           .ant-select{
-            float: right;
             max-width: 350px;
           }
           .ant-select-selector{
@@ -66,10 +68,34 @@ const Style = Styled(Table)`
         }
         .email-top-right{
           justify-content: flex-end;
-          a{
-            color: ${({theme})=>theme['gray-solid']};
-            &:not(:last-child){
-              margin-right: 25px;
+          .email-extra{
+            a{
+              color: ${({theme})=>theme['gray-solid']};
+              &:not(:last-child){
+                margin-right: 25px;
+              }
+            }
+          }
+          .page-number{
+            display: inline-block
+            font-size: 14px;
+            color: ${({theme})=>theme['light-color']};
+          }
+          .pagination-slider{
+            margin: 0 20px 0 15px;
+            .btn-paging{
+              display: inline-flex;
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              align-items: center;
+              justify-content: center;
+              &:hover{
+                background: ${({theme})=>theme['primary-color']}10;
+              }
+              svg{
+                color: ${({theme})=>theme['light-color']};
+              }
             }
           }
         }
@@ -98,8 +124,12 @@ const Style = Styled(Table)`
         }
       }
       >td{
+        vertical-align: top;
         &:last-child{
           text-align: right;
+        }
+        .ant-checkbox-wrapper{
+          margin-top: 5px;
         }
         .email-time{
           font-size: 13px;
@@ -159,6 +189,39 @@ const MailBox = Styled.div`
   @media only screen and (max-width: 575px){
     right: 0;
   }
+  input,
+  .react-tagsinput{
+    border: 0 none;
+    border-bottom: 1px solid ${({theme})=>theme["border-color-light"]};
+  }
+  .react-tagsinput{
+    padding-left: 0;
+    border-bottom: 1px solid ${({theme})=>theme["border-color-light"]} !important;
+    input{
+      border: 0 none;
+    }
+    .react-tagsinput-tag{
+      padding: 5px 16px;
+      border: 0 none;
+      border-radius: 16px;
+      color: ${({theme})=>theme["gray-color"]};
+      background: ${({theme})=>theme["bg-color-normal"]};
+      .react-tagsinput-remove{
+        margin-left: 8px;
+        color: ${({theme})=>theme["light-color"]};
+      }
+    }
+  }
+  input{
+    padding: 15px 0;
+    &:focus{
+      box-shadow: 0 0;
+    }
+    &:placeholder{
+      color: ${({theme})=>theme["light-color"]};
+    }
+  }
+
   .header {
     padding: 20px;
     color: #fff;
@@ -187,23 +250,6 @@ const MailBox = Styled.div`
       @media only screen and (max-width: 575px){
         padding: 0px 15px;
       }
-      input,
-      .react-tagsinput{
-        border: 0 none;
-        border-bottom: 1px solid ${({theme})=>theme["border-color-light"]};
-      }
-      .react-tagsinput{
-        padding-left: 0;
-        input{
-          border: 0 none;
-        }
-      }
-      input{
-        padding: 15px 0;
-        &:focus{
-          box-shadow: 0 0;
-        }
-      }
       >div{
         box-shadow: 0 0;
         border: none;
@@ -218,7 +264,8 @@ const MailBox = Styled.div`
   }
   .fotter {
     border-top: 1px solid ${({theme})=>theme["border-color-light"]};
-    padding: 20px 0 0;
+    padding: 20px 0 30px;
+    margin: 0 30px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -392,7 +439,7 @@ const EmailAuthor = Styled.div`
 `;
 
 const EmailHeader = Styled.div`
-  min-width: 660px;
+  min-width: 540px;
   h1{
     font-size: 14px;
     font-weight: 500;
@@ -670,20 +717,22 @@ const MessageReply = Styled.div`
   }
   .RichTextEditor__root___2QXK-{
     border: 0 none;
-    padding: 15px 30px;
+    padding: 15px 0px;
     @media only screen and (max-width: 575px){
-      padding: 15px;
+      padding: 15px 0;
     }
     .public-DraftEditor-content{
       min-height: 120px;
     }
   }
   .reply-box{
+    > div{
+      border: 1px solid ${({theme})=>theme["border-color-light"]};
+    }
     .fotter{
-      margin: 15px 30px 0;
-      padding-bottom: 15px;
+      margin: 0 30px 0;
       @media only screen and (max-width: 575px){
-        margin: 15px 15px 0
+        margin: 0 15px 0
       }
     }
   }

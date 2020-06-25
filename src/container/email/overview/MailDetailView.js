@@ -184,7 +184,7 @@ const Single = props => {
         </Row>
 
         <Row gutter={15}>
-          <Col>
+          <Col xs={24}>
             <MessageReply>
               <nav>
                 <ul>

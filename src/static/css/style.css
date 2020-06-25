@@ -617,15 +617,14 @@ ul {
   align-items: center;
 }
 .atbd-top-dropdwon{
-  max-width: 340px;
+  width: 340px;
 }
 .atbd-top-dropdwon .atbd-top-dropdwon__title .title-text{
   margin-right: 10px;
 }
 .atbd-top-dropdwon .atbd-top-dropdwon__nav{
   height: 260px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .atbd-top-dropdwon .atbd-top-dropdwon__nav.notification-list{
   padding: 0 10px;
