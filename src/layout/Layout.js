@@ -66,7 +66,7 @@ const ThemeLayout = WrappedComponent => {
     renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
         borderRadius: 6,
-        backgroundColor: 'rgba(35, 49, 86, 0.8)',
+        backgroundColor: '#F1F2F6',
       };
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     };
@@ -139,6 +139,7 @@ const ThemeLayout = WrappedComponent => {
             <Layout>
               <Sider width={280} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
                 <Scrollbars
+                  className="custom-scrollbar"
                   autoHide
                   autoHideTimeout={500}
                   autoHideDuration={200}

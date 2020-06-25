@@ -46,20 +46,9 @@ const Compose = ({ close }) => {
 
       <div className="body">
         <div className="group">
-          <TagsInput
-            inputProps={{
-              placeholder: 'To',
-            }}
-            value={state.tags}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="group">
           <Input placeholder="Subject" type="text" />
         </div>
-        <div className="group">
-          <MailComposer onSend={onMailSend} onChange={onChange} />
-        </div>
+        <MailComposer onSend={onMailSend} onChange={onChange} />
       </div>
     </MailBox>
   );
