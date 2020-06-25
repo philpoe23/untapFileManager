@@ -46,20 +46,20 @@ const Style = Styled(Table)`
           .ant-select-selection-search{
             .ant-select-selection-search-input{
               border-radius: 24px;
-              background: ${({theme})=>theme['bg-color-normal']};
+              background: ${({ theme }) => theme['bg-color-normal']};
               border: 0 none;
               input{
                 height: 44px !important;
-                background: ${({theme})=>theme['bg-color-normal']};
+                background: ${({ theme }) => theme['bg-color-normal']};
                 &:placeholder{
-                  color: ${({theme})=>theme['extra-light-color']};
+                  color: ${({ theme }) => theme['extra-light-color']};
                 }
               }
               .ant-input-suffix{
                 margin-right: 0;
                 .anticon-search{
                   svg{
-                    color: ${({theme})=>theme['gray-solid']};
+                    color: ${({ theme }) => theme['gray-solid']};
                   }
                 }
               }
@@ -70,7 +70,7 @@ const Style = Styled(Table)`
           justify-content: flex-end;
           .email-extra{
             a{
-              color: ${({theme})=>theme['gray-solid']};
+              color: ${({ theme }) => theme['gray-solid']};
               &:not(:last-child){
                 margin-right: 25px;
               }
@@ -79,7 +79,7 @@ const Style = Styled(Table)`
           .page-number{
             display: inline-block
             font-size: 14px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
           }
           .pagination-slider{
             margin: 0 20px 0 15px;
@@ -91,10 +91,10 @@ const Style = Styled(Table)`
               align-items: center;
               justify-content: center;
               &:hover{
-                background: ${({theme})=>theme['primary-color']}10;
+                background: ${({ theme }) => theme['primary-color']}10;
               }
               svg{
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
               }
             }
           }
@@ -109,15 +109,15 @@ const Style = Styled(Table)`
     }
     >tr{
       &:hover{
-        box-shadow: 0 15px 40px ${({theme})=>theme['gray-solid']}15;
+        box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}15;
         h1{
-          color: ${({theme})=>theme['dark-color']};
+          color: ${({ theme }) => theme['dark-color']};
           a{
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
           }
         }
         .email-time{
-          color: ${({theme})=>theme['dark-color']};
+          color: ${({ theme }) => theme['dark-color']};
         }
         >td{
           background: #fff !important;
@@ -134,7 +134,7 @@ const Style = Styled(Table)`
         .email-time{
           font-size: 13px;
           font-weight: 500;
-          color: ${({theme})=>theme['gray-color']};
+          color: ${({ theme }) => theme['gray-color']};
         }
       }
     }
@@ -192,11 +192,11 @@ const MailBox = Styled.div`
   input,
   .react-tagsinput{
     border: 0 none;
-    border-bottom: 1px solid ${({theme})=>theme["border-color-light"]};
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
   }
   .react-tagsinput{
     padding-left: 0;
-    border-bottom: 1px solid ${({theme})=>theme["border-color-light"]} !important;
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']} !important;
     input{
       border: 0 none;
     }
@@ -204,11 +204,11 @@ const MailBox = Styled.div`
       padding: 5px 16px;
       border: 0 none;
       border-radius: 16px;
-      color: ${({theme})=>theme["gray-color"]};
-      background: ${({theme})=>theme["bg-color-normal"]};
+      color: ${({ theme }) => theme['gray-color']};
+      background: ${({ theme }) => theme['bg-color-normal']};
       .react-tagsinput-remove{
         margin-left: 8px;
-        color: ${({theme})=>theme["light-color"]};
+        color: ${({ theme }) => theme['light-color']};
       }
     }
   }
@@ -218,7 +218,7 @@ const MailBox = Styled.div`
       box-shadow: 0 0;
     }
     &:placeholder{
-      color: ${({theme})=>theme["light-color"]};
+      color: ${({ theme }) => theme['light-color']};
     }
   }
 
@@ -229,7 +229,7 @@ const MailBox = Styled.div`
     display: flex;
     algn-items: center;
     justify-content: space-between;
-    background: ${({theme})=>theme["dark-color"]};
+    background: ${({ theme }) => theme['dark-color']};
     p {
       margin: 0;
       padding: 0;
@@ -263,7 +263,7 @@ const MailBox = Styled.div`
     }
   }
   .fotter {
-    border-top: 1px solid ${({theme})=>theme["border-color-light"]};
+    border-top: 1px solid ${({ theme }) => theme['border-color-light']};
     padding: 20px 0 30px;
     margin: 0 30px 0;
     display: flex;
@@ -274,13 +274,13 @@ const MailBox = Styled.div`
       a{
         margin-right: 20px;
         svg{
-          color: ${({theme})=>theme['light-color']};
+          color: ${({ theme }) => theme['light-color']};
         }
       }
     }
     .right{
       a{
-        color: ${({theme})=>theme['light-color']};
+        color: ${({ theme }) => theme['light-color']};
       }
     }
   }
@@ -299,17 +299,17 @@ const EmailNav = Styled.nav`
         align-items: center;
         transition: 0.3s ease;
         border-radius: 4px;
-        color: ${({theme})=>theme["gray-color"]};
+        color: ${({ theme }) => theme['gray-color']};
         svg{
           margin-right: 20px;
-          color: ${({theme})=>theme["extra-light-color"]};
+          color: ${({ theme }) => theme['extra-light-color']};
         }
       }
 
       &:hover{
         a{
           background: rgba(95,99,242,0.1);
-          color: ${({theme})=>theme["primary-color"]};
+          color: ${({ theme }) => theme['primary-color']};
         }
       }
       .add-label{
@@ -332,7 +332,7 @@ const EmailNav = Styled.nav`
         }
         input{
           height: 44px;
-          border: 1px solid ${({theme})=>theme["border-color-light"]};
+          border: 1px solid ${({ theme }) => theme['border-color-light']};
         }
         .btn-group{
           margin-top: 15px;
@@ -346,7 +346,7 @@ const EmailNav = Styled.nav`
           }
           .ant-btn-default{
             padding: 0 12px;
-            color: ${({theme})=>theme["light-color"]};
+            color: ${({ theme }) => theme['light-color']};
           }
         }
       }
@@ -402,12 +402,12 @@ const MessageAction = Styled.div`
     margin: 0 5px;
     transition: 0.3s ease;
     svg{
-      color: ${({theme})=>theme['gray-solid']};
+      color: ${({ theme }) => theme['gray-solid']};
     }
     &:hover{
       background: rgba(95,99,242,0.05);
       svg{
-        color: ${({theme})=>theme['primary-color']};
+        color: ${({ theme }) => theme['primary-color']};
       }
     }
   }
@@ -417,7 +417,7 @@ const EmailAuthor = Styled.div`
   display: flex;
   align-items: center;
   svg{
-    color: ${({theme})=>theme['extra-light-color']};
+    color: ${({ theme }) => theme['extra-light-color']};
   }
   img{
     width: 32px;
@@ -432,7 +432,7 @@ const EmailAuthor = Styled.div`
     font-size: 14px;
     font-weight: 500;
     a{
-      color: ${({theme})=>theme['gray-color']};
+      color: ${({ theme }) => theme['gray-color']};
       transition: .3s;
     }
   }
@@ -444,7 +444,7 @@ const EmailHeader = Styled.div`
     font-size: 14px;
     font-weight: 500;
     transition: .3s;
-    color: ${({theme})=>theme['gray-color']};
+    color: ${({ theme }) => theme['gray-color']};
   }
   .mail-badge{
     display: inline-block;
@@ -454,11 +454,11 @@ const EmailHeader = Styled.div`
     height: 20px;
     padding: 0 12px;
     border-radius: 3px;
-    background: ${({theme})=>theme['primary-color']}10;
+    background: ${({ theme }) => theme['primary-color']}10;
   }
   p{
     margin: 0;
-    color: ${({theme})=>theme['gray-color']};
+    color: ${({ theme }) => theme['gray-color']};
   }
   .btn-attatchment{
     font-size: 13px;
@@ -468,8 +468,8 @@ const EmailHeader = Styled.div`
     height: 30px;
     padding: 0 22px;
     border-radius: 15px;
-    color: ${({theme})=>theme['gray-solid']};
-    background: ${({theme})=>theme['bg-color-normal']};
+    color: ${({ theme }) => theme['gray-solid']};
+    background: ${({ theme }) => theme['bg-color-normal']};
     i,
     svg{
       margin-right: 6px;
@@ -504,7 +504,7 @@ const MessageDetails = Styled.div`
       height: 38px;
       border-radius: 50%;
       transition: 0.3s ease;
-      color: ${({theme})=>theme["gray-solid"]};
+      color: ${({ theme }) => theme['gray-solid']};
       svg{
         margin: -3px 0;
       }
@@ -529,7 +529,7 @@ const MessageDetails = Styled.div`
       a{
         display: flex;
         align-items: center;
-        color: ${({theme})=>theme["gray-solid"]};
+        color: ${({ theme }) => theme['gray-solid']};
       }
     }
 
@@ -544,7 +544,7 @@ const MessageDetails = Styled.div`
     span, a{
       display: block;
       padding: 0 15px;
-      color: ${({theme})=>theme["gray-solid"]};
+      color: ${({ theme }) => theme['gray-solid']};
       @media only screen and (max-width: 767px){
         padding: 0 8px;
       }
@@ -568,13 +568,13 @@ const MessageDetails = Styled.div`
       margin-top: 18px;
     }
     p{
-      color: ${({theme})=>theme["gray-color"]};
+      color: ${({ theme }) => theme['gray-color']};
       font-size: 15px;
       margin-bottom: 40px;
     }
     h1{
       font-size: 15px;
-      color: ${({theme})=>theme["gray-color"]};
+      color: ${({ theme }) => theme['gray-color']};
       font-weight: normal;
       line-height: 30px;
     }
@@ -591,12 +591,12 @@ const MessageDetails = Styled.div`
     }
     figure{
       position: relative;
-      border: 1px solid ${({theme})=>theme["border-color-light"]};
+      border: 1px solid ${({ theme }) => theme['border-color-light']};
       border-radius: 10px;
       padding: 10px;
       margin: 0 5px;
       &:hover{
-        box-shadow: 0 10px 20px ${({theme})=>theme["gray-solid"]}10;
+        box-shadow: 0 10px 20px ${({ theme }) => theme['gray-solid']}10;
         .attatchment-image{
           &:after{
             height: 100%;
@@ -622,7 +622,7 @@ const MessageDetails = Styled.div`
           opacity: 0;
           visibility: hidden;
           transition: .3s ease-in;
-          background: ${({theme})=>theme["dark-color"]}50;
+          background: ${({ theme }) => theme['dark-color']}50;
         }
       }
       .attatchment-hover{
@@ -670,7 +670,7 @@ const MessageDetails = Styled.div`
         }
         p{
           font-size: 12px;
-          color: ${({theme})=>theme["gray-solid"]};
+          color: ${({ theme }) => theme['gray-solid']};
           margin:0;
         }
       }
@@ -681,7 +681,7 @@ const MessageDetails = Styled.div`
     margin-bottom: 30px;
     border: 0 none;
     height: 1px;
-    background: ${({theme})=>theme["border-color-light"]};
+    background: ${({ theme }) => theme['border-color-light']};
   }
 `;
 
@@ -700,16 +700,16 @@ const MessageReply = Styled.div`
       li{
         padding: 0 5px;
         a{
-          border: 1px solid ${({theme})=>theme["border-color-light"]};
+          border: 1px solid ${({ theme }) => theme['border-color-light']};
           line-height: 44px;
           display: inline-block;
           padding: 0 20px;
           font-size: 14px;
           font-weight: 600;
-          color: ${({theme})=>theme["gray-color"]};
+          color: ${({ theme }) => theme['gray-color']};
           border-radius: 4px;
           &:hover{
-            color: ${({theme})=>theme["primary-color"]};
+            color: ${({ theme }) => theme['primary-color']};
           }
         }
       }
@@ -727,7 +727,7 @@ const MessageReply = Styled.div`
   }
   .reply-box{
     > div{
-      border: 1px solid ${({theme})=>theme["border-color-light"]};
+      border: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     .fotter{
       margin: 0 30px 0;
@@ -740,7 +740,7 @@ const MessageReply = Styled.div`
 
 const MailRightAction = Styled.div`
   span{
-    color: ${({theme})=>theme["light-color"]};
+    color: ${({ theme }) => theme['light-color']};
   }
 `;
 
@@ -762,4 +762,22 @@ const EmailWrapper = Styled.div`
   }
 `;
 
-export { Style, MailBox, EmailNav, MessageAction, EmailAuthor, EmailHeader, MailDetailsWrapper, MessageDetails, MessageReply, MailRightAction, EmailWrapper };
+const MailSideBar = Styled.div`
+  display: ${({ collapsed }) => (!collapsed ? 'none' : 'block')}
+
+`;
+
+export {
+  Style,
+  MailBox,
+  EmailNav,
+  MessageAction,
+  MailSideBar,
+  EmailAuthor,
+  EmailHeader,
+  MailDetailsWrapper,
+  MessageDetails,
+  MessageReply,
+  MailRightAction,
+  EmailWrapper,
+};

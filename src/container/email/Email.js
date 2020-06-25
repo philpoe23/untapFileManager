@@ -1,4 +1,4 @@
-import React, { Fragment, useState, lazy, Suspense } from 'react';
+import React, { Fragment, useState, lazy, Suspense, useLayoutEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Spin, Icon } from 'antd';
@@ -16,7 +16,7 @@ const Starred = lazy(() => import('./overview/Starred'));
 const Trash = lazy(() => import('./overview/Trash'));
 const Spam = lazy(() => import('./overview/Spam'));
 const MailDetailView = lazy(() => import('./overview/MailDetailView'));
-import { EmailWrapper } from './overview/style';
+import { EmailWrapper, MailSideBar } from './overview/style';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -24,6 +24,28 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 const Email = ({ match }) => {
   const [isMailEditorOpen, setMailEditorStatus] = useState(false);
+  const [state, setState] = useState({
+    responsive: 0,
+    collapsed: false,
+  });
+  const { responsive, collapsed } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const width = window.innerWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  const toggleCollapsed = () => {
+    setState({
+      ...state,
+      collapsed: !collapsed,
+    });
+  };
 
   const toggleMailComposer = e => {
     setMailEditorStatus(!isMailEditorOpen);
@@ -36,12 +58,10 @@ const Email = ({ match }) => {
   const path = match.path.split(':')[0];
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title={match.params.page} 
-
+      <PageHeader
+        ghost
+        title={match.params.page}
         buttons={[
-            
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -50,10 +70,8 @@ const Email = ({ match }) => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
-
       />
       {isMailEditorOpen && <ComposeMail close={closeMailComposr} />}
 
@@ -61,19 +79,41 @@ const Email = ({ match }) => {
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
             <Col lg={7} xl={5}>
-              <div className="mail-sideabr">
-                <Cards headless>
-                  <div className="mail-sidebar-top">
-                    <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                      + Compose
-                    </Button>
-                  </div>
+              {responsive <= 800 && (
+                <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
+                  <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
+                </Button>
+              )}
 
-                  <div className="mail-sidebar-bottom">
-                    <EamilNavbar path={path} />
-                  </div>
-                </Cards>
-              </div>
+              {responsive > 800 ? (
+                <div className="mail-sideabr">
+                  <Cards headless>
+                    <div className="mail-sidebar-top">
+                      <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
+                        + Compose
+                      </Button>
+                    </div>
+
+                    <div className="mail-sidebar-bottom">
+                      <EamilNavbar path={path} />
+                    </div>
+                  </Cards>
+                </div>
+              ) : (
+                <MailSideBar collapsed={collapsed} className="mail-sideabr">
+                  <Cards headless>
+                    <div className="mail-sidebar-top">
+                      <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
+                        + Compose
+                      </Button>
+                    </div>
+
+                    <div className="mail-sidebar-bottom">
+                      <EamilNavbar path={path} />
+                    </div>
+                  </Cards>
+                </MailSideBar>
+              )}
             </Col>
 
             <Col lg={17} xl={19}>
