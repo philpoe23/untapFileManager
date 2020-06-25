@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col,Icon } from 'antd';
+import { Row, Col } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
@@ -16,11 +16,10 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const DashbordBase = () => {
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
+      <PageHeader
+        ghost
         title="Theme Configuration"
         buttons={[
-
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -29,9 +28,8 @@ const DashbordBase = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-          
-        ]} 
+          </div>,
+        ]}
       />
       <Main>
         <Row gutter={15}>
@@ -178,26 +176,30 @@ const DashbordBase = () => {
             <Cards headless title="Buttons" size="large">
               <Row gutter={15}>
                 <Col md={6}>
-                  <Button type="primary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
+                  <Button type="primary" size="small" style={{ marginRight: '10px', marginBottom: '10px' }}>
                     Small
                   </Button>
-                  <Button type="primary" style={{marginRight: "10px", marginBottom: "10px"}}>Normal</Button>
-                  <Button type="primary" size="large" style={{marginRight: "10px", marginBottom: "10px"}}>
-                    Large Button
-                  </Button>
-                  <Button outlined type="primary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
-                    Small
-                  </Button>
-                  <Button outlined type="primary" style={{marginRight: "10px", marginBottom: "10px"}}>
+                  <Button type="primary" style={{ marginRight: '10px', marginBottom: '10px' }}>
                     Normal
                   </Button>
-                  <Button outlined type="primary" size="large" style={{marginRight: "10px", marginBottom: "10px"}}>
+                  <Button type="primary" size="large" style={{ marginRight: '10px', marginBottom: '10px' }}>
                     Large Button
                   </Button>
-                  <Button type="secondary" size="small" style={{marginRight: "10px", marginBottom: "10px"}}>
+                  <Button outlined type="primary" size="small" style={{ marginRight: '10px', marginBottom: '10px' }}>
                     Small
                   </Button>
-                  <Button type="secondary" style={{marginRight: "10px", marginBottom: "10px"}}>Normal</Button>
+                  <Button outlined type="primary" style={{ marginRight: '10px', marginBottom: '10px' }}>
+                    Normal
+                  </Button>
+                  <Button outlined type="primary" size="large" style={{ marginRight: '10px', marginBottom: '10px' }}>
+                    Large Button
+                  </Button>
+                  <Button type="secondary" size="small" style={{ marginRight: '10px', marginBottom: '10px' }}>
+                    Small
+                  </Button>
+                  <Button type="secondary" style={{ marginRight: '10px', marginBottom: '10px' }}>
+                    Normal
+                  </Button>
                   <Button type="secondary" size="large">
                     Large Button
                   </Button>

@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Rate, Icon } from 'antd';
+import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../../components/heading/heading';
 import { filterSinglepage } from '../../../redux/product/actionCreator';
@@ -64,11 +64,9 @@ const ProductDetails = ({ match }) => {
   return (
     <Fragment>
       <PageHeader
-
-        ghost 
+        ghost
         title="Product Details"
         buttons={[
-                    
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -77,8 +75,7 @@ const ProductDetails = ({ match }) => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
@@ -88,7 +85,6 @@ const ProductDetails = ({ match }) => {
               <Row gutter={30}>
                 <Col xs={24} lg={10}>
                   <div className="product-details-box__left pdbl">
-
                     <figure>
                       <img style={{ width: '100%' }} src={require(`../../../${img}`)} alt="" />
                     </figure>
@@ -106,7 +102,11 @@ const ProductDetails = ({ match }) => {
                                       <div className="pdbl__image">
                                         <figure>
                                           <NavLink to={`/ecommerce/productDetails/${product.id}`}>
-                                            <img style={{ width: '100%' }} src={require(`../../../${product.img}`)} alt="" />
+                                            <img
+                                              style={{ width: '100%' }}
+                                              src={require(`../../../${product.img}`)}
+                                              alt=""
+                                            />
                                           </NavLink>
                                         </figure>
                                       </div>
@@ -118,16 +118,24 @@ const ProductDetails = ({ match }) => {
                       </Row>
                     </div>
                   </div>
-                  
                 </Col>
                 <Col xs={24} lg={14}>
                   <div className="product-details-box__right pdbr">
-                    <Heading className="pdbr__title" as="h2">{name}</Heading>
-                    <Rate allowHalf defaultValue={rate} disabled /> 
+                    <Heading className="pdbr__title" as="h2">
+                      {name}
+                    </Heading>
+                    <Rate allowHalf defaultValue={rate} disabled />
                     <span className="pdbr__rating">{rate}</span>
                     <span className="pdbr__review-count"> 778 Reviews</span>
-                    <p><span className="pdbr__brand-text">Brand :</span> <span className="pdbr__brand-name">{brand}</span></p>
-                    <Heading className="pdbr__new-price" as="h3"> <span className="pdbr__currancy">$</span><span className="pdbr__price">{price}</span> </Heading>
+                    <p>
+                      <span className="pdbr__brand-text">Brand :</span>{' '}
+                      <span className="pdbr__brand-name">{brand}</span>
+                    </p>
+                    <Heading className="pdbr__new-price" as="h3">
+                      {' '}
+                      <span className="pdbr__currancy">$</span>
+                      <span className="pdbr__price">{price}</span>{' '}
+                    </Heading>
                     {oldPrice && (
                       <Heading className="pdbr__old-price" as="h6">
                         <del>${oldPrice}</del> <span className="pdbr__offer-price">30% Off</span>
@@ -135,16 +143,18 @@ const ProductDetails = ({ match }) => {
                     )}
                     <p className="pdbr__desc">{description}</p>
                     <div className="pdbr__current-status">
-                      <p> <span className="current-status-title">Available:</span> 
+                      <p>
+                        {' '}
+                        <span className="current-status-title">Available:</span>
                         <span className="stock-status in-stock"> In Stock</span>
                       </p>
-                      <p> 
+                      <p>
                         <span className="current-status-title"> Shipping: </span>
-                        <span className="shipping-cost">Free</span> 
+                        <span className="shipping-cost">Free</span>
                       </p>
                       <p className="pdbr__quantity">
                         <span className="current-status-title">Quantity:</span>
-                        
+
                         <Button className="btn-inc" onClick={decrementQuantity} type="default">
                           -
                         </Button>
@@ -155,10 +165,12 @@ const ProductDetails = ({ match }) => {
                         <span className="pdbr__availability">540 pieces available</span>
                       </p>
                     </div>
-                    
+
                     <div className="pdbr__Actions d-flex align-items-center">
                       <div className="pdbr__product-action">
-                        <Button size="default" type="primary">Buy Now</Button>
+                        <Button size="default" type="primary">
+                          Buy Now
+                        </Button>
                         <Button size="default" type="secondary">
                           <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
                         </Button>
@@ -187,9 +199,7 @@ const ProductDetails = ({ match }) => {
                     <ul className="pdbr__list">
                       <li>
                         <span>Category:</span>
-                        <span>
-                          {category}
-                        </span>
+                        <span>{category}</span>
                       </li>
                     </ul>
                     <ul className="pdbr__list">
@@ -199,7 +209,6 @@ const ProductDetails = ({ match }) => {
                       </li>
                     </ul>
                   </div>
-                  
                 </Col>
               </Row>
             </div>

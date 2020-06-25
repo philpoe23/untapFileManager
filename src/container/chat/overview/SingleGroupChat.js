@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Icon, Upload } from 'antd';
+import { Upload } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
@@ -119,9 +119,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
                 <li className="atbd-chatbox__single" key={index + 1} style={{ overflow: 'hidden' }}>
-
                   <div className={mes.email !== me ? 'left' : 'right'}>
-
                     {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
 
                     <div className="atbd-chatbox__content">
@@ -129,7 +127,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
                         {mes.email !== me && name}
                         <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
                       </Heading>
-                      {mes.email !== me ? 
+                      {mes.email !== me ? (
                         <div className="atbd-chatbox__contentInner d-flex">
                           <div className="atbd-chatbox__message">
                             <MessageList className="message-box">{mes.content}</MessageList>
@@ -139,22 +137,32 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
                             <Dropdown
                               action={['hover']}
                               content={
-                                <div  className="atbd-chatbox__emoji">
+                                <div className="atbd-chatbox__emoji">
                                   <ul>
                                     <li>
-                                      <Link to="#">&#127773;</Link>
+                                      <Link to="#">
+                                        <span role="img">&#127773;</span>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <Link to="#">&#128116;</Link>
+                                      <Link to="#">
+                                        <span role="img">&#128116;</span>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <Link to="#">&#128127;</Link>
+                                      <Link to="#">
+                                        <span role="img">&#128127;</span>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <Link to="#">&#128151;</Link>
+                                      <Link to="#">
+                                        <span role="img">&#128151;</span>
+                                      </Link>
                                     </li>
                                     <li>
-                                      <Link to="#">&#128400;</Link>
+                                      <Link to="#">
+                                        <span role="img">&#128400;</span>
+                                      </Link>
                                     </li>
                                     <li>
                                       <Link to="#">
@@ -198,7 +206,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
                             </Dropdown>
                           </div>
                         </div>
-                        :
+                      ) : (
                         <div className="atbd-chatbox__contentInner d-flex">
                           <div className="atbd-chatbox__actions">
                             <Dropdown
@@ -266,7 +274,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
                             <MessageList className="message-box">{mes.content}</MessageList>
                           </div>
                         </div>
-                      }
+                      )}
                       {singleContent.length === index + 1 ? (
                         <div className="group-seen">
                           <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />

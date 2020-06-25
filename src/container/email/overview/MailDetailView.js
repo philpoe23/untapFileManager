@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
-import { Tooltip, Row, Col, Spin, Pagination } from 'antd';
+import { Tooltip, Row, Col, Spin } from 'antd';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
 import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
@@ -27,10 +27,6 @@ const Single = props => {
       unmounted = true;
     };
   }, [match.params.id, dispatch]);
-
-  const onChange = pageNumber => {
-    console.log('Page: ', pageNumber);
-  };
 
   const replyMail = async replyMessage => {
     // hit replyMail api
@@ -117,10 +113,18 @@ const Single = props => {
                     <Dropdown
                       content={
                         <ul className="mail-props">
-                          <li><span>From:</span> <span>{email.from}</span> </li>
-                          <li><span>To:</span> <span>{email.to}</span> </li>
-                          <li><span>CC:</span> <span>example@gamil.com</span> </li>
-                          <li><span>Date:</span> <span>{moment(email.id).format('LLL')}</span></li>
+                          <li>
+                            <span>From:</span> <span>{email.from}</span>{' '}
+                          </li>
+                          <li>
+                            <span>To:</span> <span>{email.to}</span>{' '}
+                          </li>
+                          <li>
+                            <span>CC:</span> <span>example@gamil.com</span>{' '}
+                          </li>
+                          <li>
+                            <span>Date:</span> <span>{moment(email.id).format('LLL')}</span>
+                          </li>
                         </ul>
                       }
                     >
@@ -133,11 +137,19 @@ const Single = props => {
                 </div>
 
                 <div className="message-excerpt">
-                  <span><FeatherIcon icon="paperclip" /></span>
+                  <span>
+                    <FeatherIcon icon="paperclip" />
+                  </span>
                   <span> {moment(email.id).format('LLL')} </span>
-                  <Link to="#"><FeatherIcon icon="star" /></Link>
-                  <Link to="#"><FeatherIcon icon="corner-up-left" /></Link>
-                  <Link to="#"><FeatherIcon icon="more-vertical" /></Link>
+                  <Link to="#">
+                    <FeatherIcon icon="star" />
+                  </Link>
+                  <Link to="#">
+                    <FeatherIcon icon="corner-up-left" />
+                  </Link>
+                  <Link to="#">
+                    <FeatherIcon icon="more-vertical" />
+                  </Link>
                 </div>
               </div>
 
@@ -155,8 +167,12 @@ const Single = props => {
                     <img src={require('../../../static/img/email/2.png')} alt="" />
                   </div>
                   <div className="attatchment-hover">
-                    <Link className="btn-link" to="#"><FeatherIcon icon="download" /></Link>
-                    <Link className="btn-link" to="#"><FeatherIcon icon="share-2" /></Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="download" />
+                    </Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="share-2" />
+                    </Link>
                   </div>
                   <figcaption>
                     <Heading as="h4">Attached.jpg</Heading>
@@ -169,8 +185,12 @@ const Single = props => {
                     <img src={require('../../../static/img/email/1.png')} alt="" />
                   </div>
                   <div className="attatchment-hover">
-                    <Link className="btn-link" to="#"><FeatherIcon icon="download" /></Link>
-                    <Link className="btn-link" to="#"><FeatherIcon icon="share-2" /></Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="download" />
+                    </Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="share-2" />
+                    </Link>
                   </div>
                   <figcaption>
                     <Heading as="h4">Attached.jpg</Heading>
@@ -189,10 +209,14 @@ const Single = props => {
               <nav>
                 <ul>
                   <li>
-                    <NavLink to={match.url + '/replay'}><FeatherIcon icon="corner-up-left" size={14} /> Reply</NavLink>
+                    <NavLink to={match.url + '/replay'}>
+                      <FeatherIcon icon="corner-up-left" size={14} /> Reply
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={match.url + '/forward'}><FeatherIcon icon="corner-up-right" size={14} /> Forward</NavLink>
+                    <NavLink to={match.url + '/forward'}>
+                      <FeatherIcon icon="corner-up-right" size={14} /> Forward
+                    </NavLink>
                   </li>
                 </ul>
               </nav>
@@ -206,7 +230,10 @@ const Single = props => {
                   }
                 >
                   <div className="reply-box">
-                    <Route path={match.url + '/replay'} render={props => <MailComposer {...props} onSend={replyMail} />} />
+                    <Route
+                      path={match.url + '/replay'}
+                      render={props => <MailComposer {...props} onSend={replyMail} />}
+                    />
                   </div>
                 </Suspense>
               </Switch>

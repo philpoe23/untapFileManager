@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message, Icon } from 'antd';
+import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
 import { Main, BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
@@ -52,11 +52,10 @@ const EditProduct = () => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Edit Product" 
+      <PageHeader
+        ghost
+        title="Edit Product"
         buttons={[
-                  
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -65,8 +64,7 @@ const EditProduct = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
@@ -153,7 +151,7 @@ const EditProduct = () => {
                               </Cards>
                             </Col>
                           </Row>
-                        </div>   
+                        </div>
                         <div className="add-form-action">
                           <Form.Item>
                             <Button
@@ -171,7 +169,6 @@ const EditProduct = () => {
                           </Form.Item>
                         </div>
                       </BasicFormWrapper>
-                         
                     </Form>
                   </AddProductForm>
                 </Col>

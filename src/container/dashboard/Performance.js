@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Progress, Table, Icon } from 'antd';
+import { Row, Col, Progress, Table } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';

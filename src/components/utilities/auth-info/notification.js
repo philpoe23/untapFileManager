@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,7 @@ const NotificationBox = props => {
     };
     return <div style={{ ...style, ...thumbStyle }} {...props} />;
   };
+
   const content = (
     <div className="atbd-top-dropdwon">
       <Heading as="h5" className="atbd-top-dropdwon__title">
@@ -129,7 +130,9 @@ const NotificationBox = props => {
           </li>
         </ul>
       </Scrollbars>
-      <Link className="btn-seeAll" to="#">See all incoming activity</Link>
+      <Link className="btn-seeAll" to="#">
+        See all incoming activity
+      </Link>
     </div>
   );
 
