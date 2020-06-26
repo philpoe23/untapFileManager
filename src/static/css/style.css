@@ -59,6 +59,10 @@ ul {
   padding-bottom: 30px;
 }
 
+.pr-0{
+  padding-right: 0 !important;
+}
+
 /* default card style */
 .ant-card-body {
   padding: 25px !important;
@@ -1179,16 +1183,58 @@ ul {
     height: 30px;
     width: 30px;
   }
+  .ant-page-header{
+    padding: 16px 20px !important;
+  }
   .ant-page-header-heading {
     flex-flow: column;
     align-items: center;
     justify-content: center !important;
   }
   .ant-page-header-heading-extra{
+    white-space: normal !important;
     margin: 12px 0 4px !important;
+  }
+
+  .ant-page-header-heading-extra .page-header-actions{
+    white-space: normal !important;
+    text-align: center;
+    margin-bottom: -15px;
+  }
+  .ant-page-header-heading-extra .page-header-actions button{
+    margin-bottom: 15px;
   }
   .ant-layout-header {
     height: auto;
+  }
+
+  /* Card Heading */
+
+  .ant-card-head-wrapper{
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .ant-card-head-wrapper .ant-card-extra{
+    float: none;
+    margin: 0;
+    flex-flow: column;
+  }
+  .ant-card-head-wrapper .ant-card-extra .ant-dropdown-trigger {
+    margin: 15px 0 0;
+  }
+
+  .ant-card-head-wrapper .ant-card-head-title{
+    padding: 18px 0 0px !important;
+  }
+
+  .card-nav ul li.active:before {
+    display: none;
+  }
+
+  .ant-card-head-title >div{
+    display: flex;
+    flex-flow: column;
   }
 }
 

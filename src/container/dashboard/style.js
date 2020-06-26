@@ -26,6 +26,9 @@ const Focard = Styled.div`
         width: 100% !important;
         margin-top: 65px;
         min-height: 100px;
+        @media only screen and (max-width: 1199px){
+            margin-top: 45px;
+        }
     }}
     .focard-details{
         &.growth-downward{
@@ -200,57 +203,80 @@ const CardGroup = Styled.div`
     .focard-wrapper{
         margin: 0 -12px;
         padding: 24px 15px 25px 0;
-        &.focard-divider{
-            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
-            .ant-col-md-12{
-                &:first-child{
-                    padding: 0 12px 0 10px;
-                }
-                &:last-child{
-                    padding: 0 12px 0 18px;
-                }
-            }
-            @media only screen and (max-width: 1350px){
-                .ant-col-md-12{
-                    &:first-child{
-                        padding: 0 6px;
-                    }
-                    &:last-child{
-                        padding: 0 6px;
-                    }
-                }
-            }
-            @media only screen and (max-width: 1199px){
-                border-right: 0 none !important;
-                .ant-col-md-12{
-                    &:first-child{
-                        padding: 0 15px;
-                    }
-                    &:last-child{
-                        padding: 0 15px;
-                    }
-                }
-            }
+        @media only screen and (max-width: 1199px){
+            margin: 0;
         }
         .ant-col-md-12{
             padding: 0 0 0 24px;
+            @media only screen and (max-width: 1350px){
+                padding: 0 6px;
+            }
+            @media only screen and (max-width: 575px){
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+            }
+            &:first-child{
+                @media only screen and (max-width: 1350px){
+                    padding-left: 20px;
+                    padding-right: 0;
+                }
+                @media only screen and (max-width: 1199px){
+                    padding: 0 12px 0 0; 
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
+                }
+            }
             &:last-child{
                 padding: 0 14px 0 24px;
-            }
-        }
-        @media only screen and (max-width: 1350px){
-            .ant-col-md-12{
-                padding: 0 6px;
-                &:last-child{
-                    padding: 0 6px;
+                @media only screen and (max-width: 1350px){
+                    &:last-child{
+                        padding: 0 6px 0 14px;
+                    }
+                }
+                @media only screen and (max-width: 1199px){
+                    &:last-child{
+                        padding: 0 0 0 12px;
+                        @media only screen and (max-width: 575px){
+                            padding: 0;
+                        }
+                    }
                 }
             }
         }
-        @media only screen and (max-width: 1199px){
+        
+        &.focard-divider{
+            padding-left: 5px;
+            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
+            @media only screen and (max-width: 1199px){
+                border-right: 0 none !important;
+                padding: 0;
+            }
             .ant-col-md-12{
-                padding: 0 15px;
+                &:first-child{
+                    padding: 0 12px 0 10px;
+                    @media only screen and (max-width: 1350px){
+                        padding: 0 6px;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        padding: 0 12px 0 0;
+                    }
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
+                }
                 &:last-child{
-                    padding: 0 15px;
+                    padding: 0 12px 0 15px;
+                    @media only screen and (max-width: 1350px){
+                        padding: 0 6px;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        padding: 0 0 0 12px;
+                    }
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
                 }
             }
         }

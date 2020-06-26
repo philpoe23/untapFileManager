@@ -95,7 +95,7 @@ const Business = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col lg={12}>
+          <Col xxl={12} xs={24}>
             <Row gutter={25}>
               <Col md={12}>
                 <Focard>
@@ -185,7 +185,7 @@ const Business = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={12} sm={24}>
+          <Col xxl={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -287,7 +287,7 @@ const Business = () => {
                 more={content}
               >
                 <Row gutter="25">
-                  <Col lg={6} md={24} sm={24}>
+                  <Col xxl={6} sm={24}>
                     <Exlist>
                       <div>
                         <p>Total income</p>
@@ -339,7 +339,7 @@ const Business = () => {
                       </div>
                     </Exlist>
                   </Col>
-                  <Col lg={18} md={24} sm={24}>
+                  <Col xxl={18} sm={24}>
                     <ChartjsBarChartTransparent
                       labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                       datasets={[
