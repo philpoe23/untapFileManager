@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Bar, HorizontalBar, Line, Pie, Doughnut } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const ChartjsBarChart = props => {
   const { labels, datasets, options, height } = props;
@@ -574,11 +575,28 @@ ChartjsPieChart.propTypes = {
 
 const ChartjsDonutChart = props => {
   const { labels, datasets, options, height } = props;
+  const chartRef = useRef();
+  const [legend, setLegend] = useState();
+
+  useEffect(() => {
+    if (chartRef.current) {
+      const customLegend = chartRef.current.chartInstance.generateLegend();
+      console.log(customLegend);
+      setLegend(customLegend);
+    }
+  }, []);
+
   const data = {
     labels,
     datasets,
   };
-  return <Doughnut data={data} height={height} options={options} />;
+
+  return (
+    <>
+      <Doughnut ref={chartRef} data={data} height={height} options={options} />
+      <div dangerouslySetInnerHTML={{ __html: legend }} />
+    </>
+  );
 };
 
 ChartjsDonutChart.defaultProps = {
@@ -595,13 +613,16 @@ ChartjsDonutChart.defaultProps = {
     maintainAspectRatio: true,
     responsive: true,
     legend: {
-      display: true,
+      display: false,
       position: 'bottom',
-      labels: {
-        boxWidth: 6,
-        display: true,
-        usePointStyle: true,
-      },
+    },
+    legendCallback: chart => {
+      const labels = chart.data.labels.reduce((prev, curent, i) => {
+        return `${prev}<li><span class="doughnutLabelColor" style="background-color:${chart.data.datasets[0].backgroundColor[i]}"></span><span class="doughnutLabe">${curent}</span></li>`;
+      }, '');
+      const generatedLegend = `<ul class="${chart.id}-legend">${labels}</ul>`;
+
+      return generatedLegend;
     },
     animation: {
       animateScale: true,
