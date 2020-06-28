@@ -1005,12 +1005,20 @@ ul {
   border-radius: 10px !important;
 }
 
-.full-width-table .revenue-table {
-  min-height: 580px;
-}
-
 .full-width-table .top-seller-table {
   min-height: 405px;
+}
+
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell{
+  white-space: normal;
+  padding: 16px 15px;
+}
+
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell:first-child{
+  padding-left: 25px;
+}
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell:last-child{
+  padding-right: 25px;
 }
 
 /* Table Responsive */
@@ -1216,12 +1224,13 @@ ul {
   }
 
   .ant-card-head-wrapper .ant-card-extra{
+    padding: 10px 0 16px;
     float: none;
     margin: 0;
     flex-flow: column;
   }
   .ant-card-head-wrapper .ant-card-extra .ant-dropdown-trigger {
-    margin: 15px 0 0;
+    margin: 8px 0 0;
   }
 
   .ant-card-head-wrapper .ant-card-head-title{
@@ -1235,6 +1244,10 @@ ul {
   .ant-card-head-title >div{
     display: flex;
     flex-flow: column;
+    align-items: center;
+  }
+  .ant-card-head-title >div span{
+    margin: 8px 0 0;
   }
 }
 

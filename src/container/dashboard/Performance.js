@@ -10,7 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, Pstates, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
+import { OverviewCard, PerfomenceChartWrapper, Pstates, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
@@ -274,8 +274,8 @@ const Performance = () => {
         ]}
       />
       <Main>
-        <Row gutter={25}>
-          <Col lg={8} md={12} sm={24} xs={24}>
+        <Row justify="center" gutter={25}>
+          <Col xxl={8} xl={10} lg={12} xs={24}>
             <OverviewCard>
               <div className="d-flex align-items-center justify-content-between overview-head">
                 <Heading as="h4">Daily Overview</Heading>
@@ -342,165 +342,167 @@ const Performance = () => {
               </div>
             </OverviewCard>
           </Col>
-          <Col lg={16} md={12} sm={24} xs={24}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              more={content}
-              title="Website Performance"
-              size="large"
-            >
-              <Pstates>
-                <div className="growth-upward">
-                  <p>Users</p>
-                  <Heading as="h1">
-                    72.6k
-                    <sub>
-                      <span>
-                        <FeatherIcon icon="arrow-up" size={14} /> 25%
-                      </span>
-                    </sub>
-                  </Heading>
-                </div>
-                <div className="growth-upward">
-                  <p>Sessions</p>
-                  <Heading as="h1">
-                    87.2k
-                    <sub>
-                      <span>
-                        <FeatherIcon icon="arrow-up" size={14} /> 47%
-                      </span>
-                    </sub>
-                  </Heading>
-                </div>
-                <div className="growth-downward">
-                  <p>Bounce Rate</p>
-                  <Heading as="h1">
-                    26.3%
-                    <sub>
-                      <span>
-                        <FeatherIcon icon="arrow-down" size={14} /> 28%
-                      </span>
-                    </sub>
-                  </Heading>
-                </div>
-                <div className="growth-upward">
-                  <p>Session Duration</p>
-                  <Heading as="h1">
-                    2m 18s
-                    <sub>
-                      <span>
-                        <FeatherIcon icon="arrow-up" size={14} /> 13%
-                      </span>
-                    </sub>
-                  </Heading>
-                </div>
-              </Pstates>
+          <Col xxl={16} xl={14} lg={12} xs={24}>
+            <PerfomenceChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                more={content}
+                title="Website Performance"
+                size="large"
+              >
+                <Pstates>
+                  <div className="growth-upward">
+                    <p>Users</p>
+                    <Heading as="h1">
+                      72.6k
+                      <sub>
+                        <span>
+                          <FeatherIcon icon="arrow-up" size={14} /> 25%
+                        </span>
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div className="growth-upward">
+                    <p>Sessions</p>
+                    <Heading as="h1">
+                      87.2k
+                      <sub>
+                        <span>
+                          <FeatherIcon icon="arrow-up" size={14} /> 47%
+                        </span>
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div className="growth-downward">
+                    <p>Bounce Rate</p>
+                    <Heading as="h1">
+                      26.3%
+                      <sub>
+                        <span>
+                          <FeatherIcon icon="arrow-down" size={14} /> 28%
+                        </span>
+                      </sub>
+                    </Heading>
+                  </div>
+                  <div className="growth-upward">
+                    <p>Session Duration</p>
+                    <Heading as="h1">
+                      2m 18s
+                      <sub>
+                        <span>
+                          <FeatherIcon icon="arrow-up" size={14} /> 13%
+                        </span>
+                      </sub>
+                    </Heading>
+                  </div>
+                </Pstates>
 
-              <ChartjsAreaChart
-                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                datasets={[
-                  {
-                    data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
-                    borderColor: '#5F63F2',
-                    borderWidth: 5,
-                    fill: true,
-                    backgroundColor: '#5F63F210',
-                    label: 'Current period',
-                    pointStyle: 'circle',
-                    pointRadius: '0',
-                    hoverRadius: '9',
-                    pointBorderColor: '#fff',
-                    pointBackgroundColor: '#5F63F2',
-                    hoverBorderWidth: 5,
-                  },
-                  {
-                    data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
-                    borderColor: '#C6D0DC',
-                    borderWidth: 2,
-                    fill: false,
-                    backgroundColor: '#00173750',
-                    label: 'Previous period',
-                    borderDash: [10, 5],
-                    pointRadius: '0',
-                    hoverRadius: '0',
-                  },
-                ]}
-                options={{
-                  maintainAspectRatio: true,
-                  legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                      boxWidth: 6,
-                      display: true,
-                      usePointStyle: true,
+                <ChartjsAreaChart
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                  datasets={[
+                    {
+                      data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
+                      borderColor: '#5F63F2',
+                      borderWidth: 5,
+                      fill: true,
+                      backgroundColor: '#5F63F210',
+                      label: 'Current period',
+                      pointStyle: 'circle',
+                      pointRadius: '0',
+                      hoverRadius: '9',
+                      pointBorderColor: '#fff',
+                      pointBackgroundColor: '#5F63F2',
+                      hoverBorderWidth: 5,
                     },
-                  },
-                  hover: {
-                    mode: 'index',
-                    intersect: false,
-                  },
-                  scales: {
-                    yAxes: [
-                      {
-                        stacked: false,
-                        gridLines: {
-                          display: true,
-                          color: '#e5e9f2',
-                        },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 14,
-                          display: true,
-                          suggestedMin: 50,
-                          suggestedMax: 80,
-                          stepSize: 20,
-                          callback: function(label, index, labels) {
-                            return label + 'k';
+                    {
+                      data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
+                      borderColor: '#C6D0DC',
+                      borderWidth: 2,
+                      fill: false,
+                      backgroundColor: '#00173750',
+                      label: 'Previous period',
+                      borderDash: [10, 5],
+                      pointRadius: '0',
+                      hoverRadius: '0',
+                    },
+                  ]}
+                  options={{
+                    maintainAspectRatio: true,
+                    legend: {
+                      display: true,
+                      position: 'bottom',
+                      labels: {
+                        boxWidth: 6,
+                        display: true,
+                        usePointStyle: true,
+                      },
+                    },
+                    hover: {
+                      mode: 'index',
+                      intersect: false,
+                    },
+                    scales: {
+                      yAxes: [
+                        {
+                          stacked: false,
+                          gridLines: {
+                            display: true,
+                            color: '#e5e9f2',
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 14,
+                            display: true,
+                            suggestedMin: 50,
+                            suggestedMax: 80,
+                            stepSize: 20,
+                            callback: function(label, index, labels) {
+                              return label + 'k';
+                            },
                           },
                         },
-                      },
-                    ],
-                    xAxes: [
-                      {
-                        stacked: true,
-                        gridLines: {
-                          display: false,
+                      ],
+                      xAxes: [
+                        {
+                          stacked: true,
+                          gridLines: {
+                            display: false,
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            fontSize: 11,
+                            display: true,
+                          },
                         },
-                        ticks: {
-                          beginAtZero: false,
-                          fontSize: 11,
-                          display: true,
-                        },
-                      },
-                    ],
-                  },
-                }}
-                height={100}
-              />
-            </Cards>
+                      ],
+                    },
+                  }}
+                  height={100}
+                />
+              </Cards>
+            </PerfomenceChartWrapper>
           </Col>
-          <Col lg={16} md={12} sm={24} xs={24}>
+          <Col lg={16} md={12} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -536,7 +538,7 @@ const Performance = () => {
               </Cards>
             </div>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col lg={8} md={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -562,15 +564,18 @@ const Performance = () => {
               title="Sessions By Device"
               size="large"
             >
-              <ChartjsDonutChart
-                labels={['Desktop', 'Mobile', 'Tablets']}
-                datasets={[
-                  {
-                    data: [5870, 4483, 2420],
-                    backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
-                  },
-                ]}
-              />
+              <div className="ccc">
+                <ChartjsDonutChart
+                  labels={['Desktop', 'Mobile', 'Tablets']}
+                  datasets={[
+                    {
+                      data: [5870, 4483, 2420],
+                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                    },
+                  ]}
+                />
+              </div>
+              
               <SessionState className="d-flex justify-content-center">
                 <div>
                   <span>4,483</span>
@@ -587,7 +592,7 @@ const Performance = () => {
               </SessionState>
             </Cards>
           </Col>
-          <Col lg={12} md={12} sm={24} xs={24}>
+          <Col lg={12} md={12} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -623,7 +628,7 @@ const Performance = () => {
               </Cards>
             </div>
           </Col>
-          <Col lg={12} md={12} sm={24} xs={24}>
+          <Col lg={12} md={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -651,12 +656,12 @@ const Performance = () => {
               more={content}
             >
               <Row>
-                <Col lg={10} md={8} sm={24} xs={24}>
+                <Col xxl={10} md={8} sm={24} xs={24}>
                   <RegionList>
                     <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
                   </RegionList>
                 </Col>
-                <Col lg={14} md={16} sm={24} xs={24}>
+                <Col xxl={14} md={16} sm={24} xs={24}>
                   <RegionMap>
                     <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
                   </RegionMap>

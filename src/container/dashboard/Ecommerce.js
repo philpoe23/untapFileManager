@@ -16,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
-import { CardBarChart2, LocationMapWrapper, RevenueWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+import { CardBarChart2, LocationMapWrapper, RevenueWrapper, RevenueTableWrapper, RevenueChartWrapper, ECahrtCard } from './style';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -392,7 +392,7 @@ const Ecommerce = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -423,7 +423,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -454,7 +454,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -485,7 +485,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -518,7 +518,7 @@ const Ecommerce = () => {
           </Col>
         </Row>
         <Row gutter={25}>
-          <Col lg={12} md={12} sm={24} xs={24}>
+          <Col xxl={12} xs={24}>
             <RevenueWrapper>
               <Cards
                 isbutton={
@@ -620,51 +620,53 @@ const Ecommerce = () => {
                       ],
                     },
                   }}
-                  height={200}
+                  height={120}
                 />
               </Cards>
             </RevenueWrapper>
           </Col>
-          <Col lg={12} md={12} sm={24} xs={24}>
-            <div className="full-width-table">
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                          Today
-                        </Link>
-                      </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
+          <Col xxl={12} xs={24}>
+            <RevenueTableWrapper>
+              <div className="full-width-table">
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Today
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className="active">
+                          <Link onClick={handleActiveChange} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  more={content}
+                  title="Source Of Revenue Generated"
+                  size="large"
+                >
+                  <div className="table-bordered revenue-table table-responsive">
+                    <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
                   </div>
-                }
-                more={content}
-                title="Source Of Revenue Generated"
-                size="large"
-              >
-                <div className="table-bordered revenue-table table-responsive">
-                  <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
-                </div>
-              </Cards>
-            </div>
+                </Cards>
+              </div>
+            </RevenueTableWrapper>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col xxl={8} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -703,7 +705,7 @@ const Ecommerce = () => {
               </Cards>
             </div>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col xxl={8} lg={12} xs={24}>
             <LocationMapWrapper>
               <div className="full-width-table">
                 <Cards
@@ -747,7 +749,7 @@ const Ecommerce = () => {
               </div>
             </LocationMapWrapper>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col xxl={8} lg={12} xs={24}>
             <RevenueChartWrapper>
               <Cards
                 isbutton={
