@@ -7,7 +7,7 @@ const ECahrtCard = Styled.div`
         width: 50%;
         flex: 0 0 50%;
     }
-    @media (min-width: 992px) and (max-width: 1500px){
+    @media only screen and (max-width: 379px){
         .card-chunk{
             width: 100%;
             flex: 0 0 100%;
@@ -26,6 +26,9 @@ const Focard = Styled.div`
         width: 100% !important;
         margin-top: 65px;
         min-height: 100px;
+        @media only screen and (max-width: 1199px){
+            margin-top: 45px;
+        }
     }}
     .focard-details{
         &.growth-downward{
@@ -130,6 +133,9 @@ const CardBarChart = Styled.div`
     .card-bar-top{
         &.flex-grid{
             margin-left: -20px;
+            @media only screen and (max-width: 575px) {
+                flex-flow: column;
+            }
             h1{
                 font-size: 24px;
                 margin-bottom: 22px;
@@ -200,57 +206,80 @@ const CardGroup = Styled.div`
     .focard-wrapper{
         margin: 0 -12px;
         padding: 24px 15px 25px 0;
-        &.focard-divider{
-            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
-            .ant-col-md-12{
-                &:first-child{
-                    padding: 0 12px 0 10px;
-                }
-                &:last-child{
-                    padding: 0 12px 0 18px;
-                }
-            }
-            @media only screen and (max-width: 1350px){
-                .ant-col-md-12{
-                    &:first-child{
-                        padding: 0 6px;
-                    }
-                    &:last-child{
-                        padding: 0 6px;
-                    }
-                }
-            }
-            @media only screen and (max-width: 1199px){
-                border-right: 0 none !important;
-                .ant-col-md-12{
-                    &:first-child{
-                        padding: 0 15px;
-                    }
-                    &:last-child{
-                        padding: 0 15px;
-                    }
-                }
-            }
+        @media only screen and (max-width: 1199px){
+            margin: 0;
         }
         .ant-col-md-12{
             padding: 0 0 0 24px;
+            @media only screen and (max-width: 1350px){
+                padding: 0 6px;
+            }
+            @media only screen and (max-width: 575px){
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+            }
+            &:first-child{
+                @media only screen and (max-width: 1350px){
+                    padding-left: 20px;
+                    padding-right: 0;
+                }
+                @media only screen and (max-width: 1199px){
+                    padding: 0 12px 0 0; 
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
+                }
+            }
             &:last-child{
                 padding: 0 14px 0 24px;
-            }
-        }
-        @media only screen and (max-width: 1350px){
-            .ant-col-md-12{
-                padding: 0 6px;
-                &:last-child{
-                    padding: 0 6px;
+                @media only screen and (max-width: 1350px){
+                    &:last-child{
+                        padding: 0 6px 0 14px;
+                    }
+                }
+                @media only screen and (max-width: 1199px){
+                    &:last-child{
+                        padding: 0 0 0 12px;
+                        @media only screen and (max-width: 575px){
+                            padding: 0;
+                        }
+                    }
                 }
             }
         }
-        @media only screen and (max-width: 1199px){
+        
+        &.focard-divider{
+            padding-left: 5px;
+            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
+            @media only screen and (max-width: 1199px){
+                border-right: 0 none !important;
+                padding: 0;
+            }
             .ant-col-md-12{
-                padding: 0 15px;
+                &:first-child{
+                    padding: 0 12px 0 10px;
+                    @media only screen and (max-width: 1350px){
+                        padding: 0 6px;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        padding: 0 12px 0 0;
+                    }
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
+                }
                 &:last-child{
-                    padding: 0 15px;
+                    padding: 0 12px 0 15px;
+                    @media only screen and (max-width: 1350px){
+                        padding: 0 6px;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        padding: 0 0 0 12px;
+                    }
+                    @media only screen and (max-width: 575px){
+                        padding: 0;
+                    }
                 }
             }
         }
@@ -441,14 +470,32 @@ const OverviewCard = Styled.div`
     }
 `;
 
+const PerfomenceChartWrapper = Styled.div`
+    canvas{
+        min-height: 325px
+        @media only screen and (max-width: 1599px){
+            min-height: 215px;
+        }
+        @media only screen and (max-width: 767px){
+            min-height: 100%;
+        }
+    }
+`;
+
 const Pstates = Styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     margin: -25px 0 25px;
+    @media only screen and (max-width: 767px){
+        flex-flow: column;
+    }
     >div{
         transition: 0.3s ease;
         padding: 20px;
+        @media only screen and (max-width: 1599px){
+            flex: 0 0 50%;
+        }
         &:hover{
             box-shadow: 0 15px 30px rgba(146,153,184,0.15);
             p{
@@ -532,6 +579,9 @@ const LadingPages = Styled.div`
 `;
 
 const CardBarChart2 = Styled.div`
+    @media only screen and (max-width: 379px){
+        text-align: center
+    }
     h1{
         margin-bottom: 5px;
     }
@@ -549,11 +599,15 @@ const CardBarChart2 = Styled.div`
         flex-wrap: wrap;
         align-items: center;
         margin: 21px 0 0 0;
+        @media only screen and (max-width: 379px){
+            justify-content: center;
+        }
         .growth-upward, .growth-downward{
             display: inline-flex;
             align-items: center;
             padding-right: 10px;
             font-weight: 600;
+            
             svg{
                 width: 15px;
             }
@@ -649,6 +703,10 @@ const LocationMapWrapper = Styled.div`
         svg{
             width: 300px;
             height: 166px;
+            @media only screen and (max-width: 991px){
+               height: 100%;
+               width: auto;
+            }
         }
     }
     .location-table{
@@ -694,6 +752,13 @@ const LocationMapWrapper = Styled.div`
 `;
 
 const RevenueWrapper = Styled.div`
+    >.ant-card{
+        min-height: 455px;
+        @media only screen and (max-width: 1599px){
+            min-height: 100%;
+        }
+    }
+
     .revenue-count{
         text-align: center;
         span{
@@ -703,6 +768,31 @@ const RevenueWrapper = Styled.div`
 
         span + span{
             margin-left: 15px;
+        }
+    }
+`;
+
+const RevenueTableWrapper = Styled.div`
+
+    .full-width-table{
+        >.ant-card{
+            min-height: 455px;
+            @media only screen and (max-width: 1599px){
+                min-height: 100%;
+            }
+        }
+    }
+    .revenue-table{
+        .ant-table-content{
+            .ant-table-cell{
+                padding: 10px 20px;
+                &:first-child{
+                    padding-left: 25px;
+                }
+                &:last-child{
+                    padding-right: 25px;
+                }
+            }
         }
     }
 `;
@@ -742,6 +832,7 @@ export {
     CardGroup,
     Exlist,
     OverviewCard,
+    PerfomenceChartWrapper,
     Pstates,
     SessionState,
     RegionMap,
@@ -754,6 +845,7 @@ export {
     IncomeExpenseWrapper,
     LocationMapWrapper,
     RevenueWrapper,
+    RevenueTableWrapper,
     RevenueChartWrapper,
     TrafficTableWrapper
 };

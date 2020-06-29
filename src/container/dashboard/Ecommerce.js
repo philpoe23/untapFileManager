@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Table,Icon } from 'antd';
+import { Row, Col, Table } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -16,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
-import { CardBarChart2, LocationMapWrapper,RevenueWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+import { CardBarChart2, LocationMapWrapper, RevenueWrapper, RevenueTableWrapper, RevenueChartWrapper, ECahrtCard } from './style';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -375,11 +375,10 @@ const handleActiveChange = e => {
 const Ecommerce = () => {
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
+      <PageHeader
+        ghost
         title="Ecommerce Dashboard"
         buttons={[
-
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -388,14 +387,12 @@ const Ecommerce = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-          
+          </div>,
         ]}
-
       />
       <Main>
         <Row gutter={25}>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -426,7 +423,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -457,7 +454,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -488,7 +485,7 @@ const Ecommerce = () => {
               </ECahrtCard>
             </Cards>
           </Col>
-          <Col lg={6} md={12} sm={12} xs={24}>
+          <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <ECahrtCard>
                 <div className="card-chunk">
@@ -521,7 +518,7 @@ const Ecommerce = () => {
           </Col>
         </Row>
         <Row gutter={25}>
-          <Col lg={12} md={12} sm={24} xs={24}>
+          <Col xxl={12} xs={24}>
             <RevenueWrapper>
               <Cards
                 isbutton={
@@ -529,7 +526,7 @@ const Ecommerce = () => {
                     <ul>
                       <li>
                         <Link onClick={handleActiveChange} to="#">
-                        Today
+                          Today
                         </Link>
                       </li>
                       <li>
@@ -623,12 +620,53 @@ const Ecommerce = () => {
                       ],
                     },
                   }}
-                  height={200}
+                  height={120}
                 />
               </Cards>
             </RevenueWrapper>
           </Col>
-          <Col lg={12} md={12} sm={24} xs={24}>
+          <Col xxl={12} xs={24}>
+            <RevenueTableWrapper>
+              <div className="full-width-table">
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Today
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className="active">
+                          <Link onClick={handleActiveChange} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  more={content}
+                  title="Source Of Revenue Generated"
+                  size="large"
+                >
+                  <div className="table-bordered revenue-table table-responsive">
+                    <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
+                  </div>
+                </Cards>
+              </div>
+            </RevenueTableWrapper>
+          </Col>
+          <Col xxl={8} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -636,7 +674,7 @@ const Ecommerce = () => {
                     <ul>
                       <li>
                         <Link onClick={handleActiveChange} to="#">
-                        Today
+                          Today
                         </Link>
                       </li>
                       <li>
@@ -657,101 +695,61 @@ const Ecommerce = () => {
                     </ul>
                   </div>
                 }
-                more={content}
-                title="Source Of Revenue Generated"
+                title="Top Selling Products"
                 size="large"
+                bodypadding="0px"
               >
-                <div className="table-bordered revenue-table table-responsive">
-                  <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
+                <div className="table-bordered top-seller-table table-responsive">
+                  <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
                 </div>
               </Cards>
             </div>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
-            <div className="full-width-table">
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                        Today
-                        </Link>
-                      </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  }
-                  title="Top Selling Products"
-                  size="large"
-                  bodypadding="0px"
-                >
-                  <div className="table-bordered top-seller-table table-responsive">
-                    <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
-                  </div>
-                </Cards>
-            </div>
-
-          </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col xxl={8} lg={12} xs={24}>
             <LocationMapWrapper>
               <div className="full-width-table">
                 <Cards
-                    isbutton={
-                      <div className="card-nav">
-                        <ul>
-                          <li>
-                            <Link onClick={handleActiveChange} to="#">
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
                             Today
-                            </Link>
-                          </li>
-                          <li>
-                            <Link onClick={handleActiveChange} to="#">
-                              Week
-                            </Link>
-                          </li>
-                          <li className="active">
-                            <Link onClick={handleActiveChange} to="#">
-                              Month
-                            </Link>
-                          </li>
-                          <li>
-                            <Link onClick={handleActiveChange} to="#">
-                              Year
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    }
-                    title="Sales By Location"
-                    size="large"
-                  >
-                    <div className="location-map d-flex justify-content-center">
-                      <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className="active">
+                          <Link onClick={handleActiveChange} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li>
+                          <Link onClick={handleActiveChange} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
                     </div>
+                  }
+                  title="Sales By Location"
+                  size="large"
+                >
+                  <div className="location-map d-flex justify-content-center">
+                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                  </div>
 
-                    <div className="location-table">
-                      <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
-                    </div>
-                  </Cards>
+                  <div className="location-table">
+                    <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                  </div>
+                </Cards>
               </div>
             </LocationMapWrapper>
           </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
+          <Col xxl={8} lg={12} xs={24}>
             <RevenueChartWrapper>
               <Cards
                 isbutton={
@@ -759,7 +757,7 @@ const Ecommerce = () => {
                     <ul>
                       <li>
                         <Link onClick={handleActiveChange} to="#">
-                        Today
+                          Today
                         </Link>
                       </li>
                       <li>
@@ -783,7 +781,6 @@ const Ecommerce = () => {
                 title="Revenue By Device"
                 size="large"
               >
-
                 <ChartjsDonutChart
                   labels={['Desktop', 'Mobile', 'Tablets']}
                   datasets={[

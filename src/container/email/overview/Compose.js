@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
-import TagsInput from 'react-tagsinput';
-import 'react-tagsinput/react-tagsinput.css';
 import { Input } from 'antd';
 import propTypes from 'prop-types';
 import MailComposer from './MailComposer';
@@ -17,10 +15,6 @@ const Compose = ({ close }) => {
 
   const onChange = value => {
     setState({ ...state, value });
-  };
-
-  const handleChange = tags => {
-    setState({ ...state, tags });
   };
 
   const toggleSize = e => {

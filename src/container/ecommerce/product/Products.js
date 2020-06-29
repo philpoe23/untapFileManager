@@ -2,7 +2,7 @@ import React, { Fragment, lazy, useState, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Radio, Spin,Icon } from 'antd';
+import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import { TopToolBox } from '../Style';
@@ -42,11 +42,10 @@ const Product = ({ match }) => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Shop" 
+      <PageHeader
+        ghost
+        title="Shop"
         buttons={[
-            
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -55,8 +54,7 @@ const Product = ({ match }) => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
@@ -105,7 +103,7 @@ const Product = ({ match }) => {
                 </Col>
               </Row>
             </TopToolBox>
-            
+
             <Switch>
               <Suspense
                 fallback={

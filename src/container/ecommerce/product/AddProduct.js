@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message,Icon } from 'antd';
+import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
 import { Main, BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
@@ -41,11 +41,10 @@ const AddProduct = () => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Add Product" 
+      <PageHeader
+        ghost
+        title="Add Product"
         buttons={[
-                
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -54,8 +53,7 @@ const AddProduct = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
@@ -135,7 +133,9 @@ const AddProduct = () => {
                                     <Heading as="h4" className="ant-upload-text">
                                       Drag and drop an image
                                     </Heading>
-                                    <p className="ant-upload-hint">or <span>Browse</span>  to choose a file</p>
+                                    <p className="ant-upload-hint">
+                                      or <span>Browse</span> to choose a file
+                                    </p>
                                   </Dragger>
                                 </Cards>
                               </div>

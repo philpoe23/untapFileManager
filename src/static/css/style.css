@@ -59,6 +59,10 @@ ul {
   padding-bottom: 30px;
 }
 
+.pr-0{
+  padding-right: 0 !important;
+}
+
 /* default card style */
 .ant-card-body {
   padding: 25px !important;
@@ -808,6 +812,22 @@ ul {
   background: #20C997;
 }
 
+.badge{
+  font-size: 11px;
+  font-weight: 500;
+  padding: 0 6.5px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.badge.badge-primary{
+  background: #5F63F210;
+  color: #5F63F2;
+}
+
 /* Cascade Styles */
 
 .custom-cascade-render .ant-cascader-picker {
@@ -985,12 +1005,20 @@ ul {
   border-radius: 10px !important;
 }
 
-.full-width-table .revenue-table {
-  min-height: 580px;
-}
-
 .full-width-table .top-seller-table {
   min-height: 405px;
+}
+
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell{
+  white-space: normal;
+  padding: 16px 15px;
+}
+
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell:first-child{
+  padding-left: 25px;
+}
+.full-width-table .top-seller-table .ant-table-content .ant-table-cell:last-child{
+  padding-right: 25px;
 }
 
 /* Table Responsive */
@@ -1163,16 +1191,63 @@ ul {
     height: 30px;
     width: 30px;
   }
+  .ant-page-header{
+    padding: 16px 20px !important;
+  }
   .ant-page-header-heading {
     flex-flow: column;
     align-items: center;
     justify-content: center !important;
   }
   .ant-page-header-heading-extra{
+    white-space: normal !important;
     margin: 12px 0 4px !important;
+  }
+
+  .ant-page-header-heading-extra .page-header-actions{
+    white-space: normal !important;
+    text-align: center;
+    margin-bottom: -15px;
+  }
+  .ant-page-header-heading-extra .page-header-actions button{
+    margin-bottom: 15px;
   }
   .ant-layout-header {
     height: auto;
+  }
+
+  /* Card Heading */
+
+  .ant-card-head-wrapper{
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .ant-card-head-wrapper .ant-card-extra{
+    padding: 10px 0 16px;
+    float: none;
+    margin: 0;
+    flex-flow: column;
+  }
+  .ant-card-head-wrapper .ant-card-extra .ant-dropdown-trigger {
+    margin: 8px 0 0;
+  }
+
+  .ant-card-head-wrapper .ant-card-head-title{
+    padding: 18px 0 0px !important;
+  }
+
+  .card-nav ul li.active:before {
+    display: none;
+  }
+
+  .ant-card-head-title >div{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .ant-card-head-title >div span{
+    margin: 8px 0 0;
   }
 }
 

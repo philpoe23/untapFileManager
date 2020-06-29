@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Progress, Icon } from 'antd';
+import { Row, Col, Progress } from 'antd';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -14,7 +14,6 @@ import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import actions from '../../redux/headerSearch/actions';
 
 const content = (
   <Fragment>
@@ -83,7 +82,6 @@ const Business = () => {
         ghost
         title="Finance Dashboard"
         buttons={[
-
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -92,13 +90,12 @@ const Business = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
         <Row gutter={25}>
-          <Col lg={12}>
+          <Col xxl={12} xs={24}>
             <Row gutter={25}>
               <Col md={12}>
                 <Focard>
@@ -114,7 +111,7 @@ const Business = () => {
                         </p>
                       </div>
                       <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                         datasets={[
                           {
                             data: [30, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -144,7 +141,7 @@ const Business = () => {
                         </p>
                       </div>
                       <ChartjsAreaChart
-                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                         datasets={[
                           {
                             data: [30, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -188,7 +185,7 @@ const Business = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={12} sm={24}>
+          <Col xxl={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -290,7 +287,7 @@ const Business = () => {
                 more={content}
               >
                 <Row gutter="25">
-                  <Col lg={6} md={24} sm={24}>
+                  <Col xxl={6} sm={24}>
                     <Exlist>
                       <div>
                         <p>Total income</p>
@@ -342,7 +339,7 @@ const Business = () => {
                       </div>
                     </Exlist>
                   </Col>
-                  <Col lg={18} md={24} sm={24}>
+                  <Col xxl={18} sm={24}>
                     <ChartjsBarChartTransparent
                       labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                       datasets={[
@@ -372,7 +369,7 @@ const Business = () => {
                         },
                       ]}
                       height={100}
-                      options= {{
+                      options={{
                         maintainAspectRatio: true,
                         responsive: true,
                         legend: {
@@ -430,7 +427,6 @@ const Business = () => {
                 </Row>
               </Cards>
             </IncomeExpenseWrapper>
-
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
             <Cards title="Account Receivable" more={content}>

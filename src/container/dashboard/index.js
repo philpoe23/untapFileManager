@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Table,Icon } from 'antd';
+import { Row, Col, Radio, Table } from 'antd';
 import { SocialMediaContent } from '../../components/social-media/overview';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
@@ -127,33 +127,17 @@ const Dashbord = () => {
   const data = [
     {
       key: '1',
-      network: (
-        <span className="traffic-title">Social Network</span>
-      ),
-      users: (
-        <span className="traffic-title">Users</span>
-      ),
-      newUsers: (
-        <span className="traffic-title">New Users</span>
-      ),
-      sessions: (
-        <span className="traffic-title">Sessions</span>
-      ),
-      bounceRate: (
-        <span className="traffic-title">Bounce Rate</span>
-      ),
-      pages: (
-        <span className="traffic-title">Pages / Sessio</span>
-      ),
-      avg: (
-        <span className="traffic-title">Avg. Session Duration</span>
-      ),
+      network: <span className="traffic-title">Social Network</span>,
+      users: <span className="traffic-title">Users</span>,
+      newUsers: <span className="traffic-title">New Users</span>,
+      sessions: <span className="traffic-title">Sessions</span>,
+      bounceRate: <span className="traffic-title">Bounce Rate</span>,
+      pages: <span className="traffic-title">Pages / Sessio</span>,
+      avg: <span className="traffic-title">Avg. Session Duration</span>,
     },
     {
       key: '2',
-      network: (
-        <span className="social-name">Facebook</span>
-      ),
+      network: <span className="social-name">Facebook</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -163,9 +147,7 @@ const Dashbord = () => {
     },
     {
       key: '3',
-      network: (
-        <span className="social-name">Twitter</span>
-      ),
+      network: <span className="social-name">Twitter</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -175,9 +157,7 @@ const Dashbord = () => {
     },
     {
       key: '4',
-      network: (
-        <span className="social-name">Linkdin</span>
-      ),
+      network: <span className="social-name">Linkdin</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -187,9 +167,7 @@ const Dashbord = () => {
     },
     {
       key: '5',
-      network: (
-        <span className="social-name">Youtube</span>
-      ),
+      network: <span className="social-name">Youtube</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -199,9 +177,7 @@ const Dashbord = () => {
     },
     {
       key: '6',
-      network: (
-        <span className="social-name">Pinterest</span>
-      ),
+      network: <span className="social-name">Pinterest</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -211,9 +187,7 @@ const Dashbord = () => {
     },
     {
       key: '7',
-      network: (
-        <span className="social-name">Google+</span>
-      ),
+      network: <span className="social-name">Google+</span>,
       users: '3,397',
       newUsers: '422',
       sessions: '2,584',
@@ -225,11 +199,10 @@ const Dashbord = () => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Social Media Dashboard" 
+      <PageHeader
+        ghost
+        title="Social Media Dashboard"
         buttons={[
-
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -238,32 +211,36 @@ const Dashbord = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-          
+          </div>,
         ]}
       />
       <Main>
-        <Row gutter={25}>
-          <Col md={8} sm={24} xs={24}>
+        <Row justify="center" gutter={25}>
+          <Col xxl={8} lg={24} xs={24}>
             <SocialMediaWrapper>
               <Cards title="Social Media Overview" size="large">
                 <Row gutter={25}>
-                  <Col md={8}>
+                  <Col xxl={8} md={4} xs={8}>
                     <SocialMediaContent icon="facebook" bgColor="#2366B8" title="5,461" subTitle="Likes" />
                   </Col>
-                  <Col md={8}>
+                  <Col xxl={8} md={4} xs={8}>
                     <SocialMediaContent icon="twitter" bgColor="#00ABE4" title="5,461" subTitle="Followers" />
                   </Col>
-                  <Col md={8}>
-                    <SocialMediaContent icon="instagram" bgColor="linear-gradient(to top, #ffc107 0%,#f44336 31%,#9c27b0 65%,#9c27b0 100%)"  title="5,461" subTitle="Followers" />
+                  <Col xxl={8} md={4} xs={8}>
+                    <SocialMediaContent
+                      icon="instagram"
+                      bgColor="linear-gradient(to top, #ffc107 0%,#f44336 31%,#9c27b0 65%,#9c27b0 100%)"
+                      title="5,461"
+                      subTitle="Followers"
+                    />
                   </Col>
-                  <Col md={8}>
+                  <Col xxl={8} md={4} xs={8}>
                     <SocialMediaContent icon="youtube-play" bgColor="#E32212" title="5,461" subTitle="Subscribers" />
                   </Col>
-                  <Col md={8}>
+                  <Col xxl={8} md={4} xs={8}>
                     <SocialMediaContent icon="pinterest-p" bgColor="#E32212" title="5,461" subTitle="Followers" />
                   </Col>
-                  <Col md={8}>
+                  <Col xxl={8} md={4} xs={8}>
                     <SocialMediaContent icon="linkedin" bgColor="#007CBC" title="5,461" subTitle="Followers" />
                   </Col>
                 </Row>
@@ -271,7 +248,7 @@ const Dashbord = () => {
             </SocialMediaWrapper>
           </Col>
 
-          <Col md={16} xs={24}>
+          <Col xxl={16} xs={24}>
             <CardGroup>
               <div className="forcast-overview">
                 <Cards
@@ -305,7 +282,7 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
                                   data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -333,7 +310,7 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
                                   data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -350,7 +327,7 @@ const Dashbord = () => {
                       </Row>
                     </Col>
                     <Col xl={12} md={24}>
-                      <Row className="focard-wrapper">
+                      <Row className="focard-wrapper pr-0">
                         <Col md={12} sm={12}>
                           <Focard>
                             <div className="focard-details growth-downward">
@@ -365,7 +342,7 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
                                   data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -393,7 +370,7 @@ const Dashbord = () => {
                               </p>
                             </div>
                             <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep' ,'Oct']}
+                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
                                   data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
@@ -415,7 +392,7 @@ const Dashbord = () => {
             </CardGroup>
           </Col>
 
-          <Col md={8} sm={12} xs={24}>
+          <Col xxl={8} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -521,7 +498,7 @@ const Dashbord = () => {
               </CardBarChart>
             </Cards>
           </Col>
-          <Col md={8} sm={12} xs={24}>
+          <Col xxl={8} md={8} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -549,7 +526,7 @@ const Dashbord = () => {
                 size="large"
               >
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-downward">
                       <p>Tweets</p>
                       <Heading as="h4">
@@ -561,7 +538,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -579,7 +556,7 @@ const Dashbord = () => {
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Tweet impressions</p>
                       <Heading as="h4">
@@ -591,7 +568,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -609,7 +586,7 @@ const Dashbord = () => {
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Retweets</p>
                       <Heading as="h4">
@@ -621,9 +598,9 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
-                  <div className="border-linechart">
-                    <ChartjsLineChart
+                  <Col xxl={14} xs={24}>
+                    <div className="border-linechart">
+                      <ChartjsLineChart
                         height={60}
                         datasets={[
                           {
@@ -635,11 +612,11 @@ const Dashbord = () => {
                         ]}
                         options={options}
                       />
-                  </div>
+                    </div>
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Engagement rate</p>
                       <Heading as="h4">
@@ -651,25 +628,25 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 0, 15, 0, 18, 0, 10, 12, 18, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={options}
-                        />
+                        height={60}
+                        datasets={[
+                          {
+                            data: [0, 10, 0, 15, 0, 18, 0, 10, 12, 18, 25, 30],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 2,
+                            fill: false,
+                          },
+                        ]}
+                        options={options}
+                      />
                     </div>
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>New followers</p>
                       <Heading as="h4">
@@ -681,7 +658,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -701,7 +678,7 @@ const Dashbord = () => {
               </Cards>
             </LineChartWrapper>
           </Col>
-          <Col md={8} sm={12} xs={24}>
+          <Col xxl={8} md={8} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -729,7 +706,7 @@ const Dashbord = () => {
                 size="large"
               >
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Post</p>
                       <Heading as="h4">
@@ -741,7 +718,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -759,7 +736,7 @@ const Dashbord = () => {
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Like</p>
                       <Heading as="h4">
@@ -771,7 +748,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -789,7 +766,7 @@ const Dashbord = () => {
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Comments</p>
                       <Heading as="h4">
@@ -801,7 +778,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -819,7 +796,7 @@ const Dashbord = () => {
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>New Followers</p>
                       <Heading as="h4">
@@ -831,9 +808,8 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
-
                       <ChartjsLineChart
                         height={60}
                         datasets={[
@@ -846,12 +822,11 @@ const Dashbord = () => {
                         ]}
                         options={options}
                       />
-
                     </div>
                   </Col>
                 </Row>
                 <Row className="line-chart-row">
-                  <Col md={10}>
+                  <Col xxl={10} xs={24}>
                     <div className="growth-upward">
                       <p>Following</p>
                       <Heading as="h4">
@@ -863,7 +838,7 @@ const Dashbord = () => {
                       </Heading>
                     </div>
                   </Col>
-                  <Col md={14}>
+                  <Col xxl={14} xs={24}>
                     <div className="border-linechart">
                       <ChartjsLineChart
                         height={60}
@@ -883,7 +858,7 @@ const Dashbord = () => {
               </Cards>
             </LineChartWrapper>
           </Col>
-          <Col md={8} sm={12} xs={24}>
+          <Col xxl={8} md={8} xs={24}>
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -912,7 +887,7 @@ const Dashbord = () => {
               >
                 <div className="linkedin-chart-wrap">
                   <Row className="line-chart-row">
-                    <Col md={10}>
+                    <Col xxl={10} xs={24}>
                       <div className="growth-upward">
                         <p>Clicks</p>
                         <Heading as="h4">
@@ -924,26 +899,25 @@ const Dashbord = () => {
                         </Heading>
                       </div>
                     </Col>
-                    <Col md={14}>
-                    <div className="border-linechart">
-                      <ChartjsLineChart
-                        height={60}
-                        datasets={[
-                          {
-                            data: [0, 5, 15, 7, 17, 10, 5, 20, 10, 35, 20, 30],
-                            borderColor: '#C6D0DC',
-                            borderWidth: 2,
-                            fill: false,
-                          },
-                        ]}
-                        options={options}
-                      />
-                    </div>
-
+                    <Col xxl={14} xs={24}>
+                      <div className="border-linechart">
+                        <ChartjsLineChart
+                          height={60}
+                          datasets={[
+                            {
+                              data: [0, 5, 15, 7, 17, 10, 5, 20, 10, 35, 20, 30],
+                              borderColor: '#C6D0DC',
+                              borderWidth: 2,
+                              fill: false,
+                            },
+                          ]}
+                          options={options}
+                        />
+                      </div>
                     </Col>
                   </Row>
                   <Row className="line-chart-row">
-                    <Col md={10}>
+                    <Col xxl={10} xs={24}>
                       <div className="growth-upward">
                         <p>Like</p>
                         <Heading as="h4">
@@ -955,9 +929,9 @@ const Dashbord = () => {
                         </Heading>
                       </div>
                     </Col>
-                    <Col md={14}>
-                    <div className="border-linechart">
-                      <ChartjsLineChart
+                    <Col xxl={14} xs={24}>
+                      <div className="border-linechart">
+                        <ChartjsLineChart
                           height={60}
                           datasets={[
                             {
@@ -969,11 +943,11 @@ const Dashbord = () => {
                           ]}
                           options={options}
                         />
-                    </div>
+                      </div>
                     </Col>
                   </Row>
                   <Row className="line-chart-row">
-                    <Col md={10}>
+                    <Col xxl={10} xs={24}>
                       <div className="growth-upward">
                         <p>Comments</p>
                         <Heading as="h4">
@@ -985,25 +959,25 @@ const Dashbord = () => {
                         </Heading>
                       </div>
                     </Col>
-                    <Col md={14}>
+                    <Col xxl={14} xs={24}>
                       <div className="border-linechart">
                         <ChartjsLineChart
-                            height={60}
-                            datasets={[
-                              {
-                                data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                                borderColor: '#C6D0DC',
-                                borderWidth: 2,
-                                fill: false,
-                              },
-                            ]}
-                            options={options}
-                          />
+                          height={60}
+                          datasets={[
+                            {
+                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                              borderColor: '#C6D0DC',
+                              borderWidth: 2,
+                              fill: false,
+                            },
+                          ]}
+                          options={options}
+                        />
                       </div>
                     </Col>
                   </Row>
                   <Row className="line-chart-row">
-                    <Col md={10}>
+                    <Col xxl={10} xs={24}>
                       <div className="growth-upward">
                         <p>New Followers</p>
                         <Heading as="h4">
@@ -1015,25 +989,25 @@ const Dashbord = () => {
                         </Heading>
                       </div>
                     </Col>
-                    <Col md={14}>
+                    <Col xxl={14} xs={24}>
                       <div className="border-linechart">
                         <ChartjsLineChart
-                            height={60}
-                            datasets={[
-                              {
-                                data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                                borderColor: '#C6D0DC',
-                                borderWidth: 2,
-                                fill: false,
-                              },
-                            ]}
-                            options={options}
-                          />
+                          height={60}
+                          datasets={[
+                            {
+                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                              borderColor: '#C6D0DC',
+                              borderWidth: 2,
+                              fill: false,
+                            },
+                          ]}
+                          options={options}
+                        />
                       </div>
                     </Col>
                   </Row>
                   <Row className="line-chart-row">
-                    <Col md={10}>
+                    <Col xxl={10} xs={24}>
                       <div className="growth-upward">
                         <p>Following</p>
                         <Heading as="h4">
@@ -1045,20 +1019,20 @@ const Dashbord = () => {
                         </Heading>
                       </div>
                     </Col>
-                    <Col md={14}>
+                    <Col xxl={14} xs={24}>
                       <div className="border-linechart">
                         <ChartjsLineChart
-                            height={60}
-                            datasets={[
-                              {
-                                data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                                borderColor: '#C6D0DC',
-                                borderWidth: 2,
-                                fill: false,
-                              },
-                            ]}
-                            options={options}
-                          />
+                          height={60}
+                          datasets={[
+                            {
+                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
+                              borderColor: '#C6D0DC',
+                              borderWidth: 2,
+                              fill: false,
+                            },
+                          ]}
+                          options={options}
+                        />
                       </div>
                     </Col>
                   </Row>
@@ -1066,7 +1040,7 @@ const Dashbord = () => {
               </Cards>
             </LineChartWrapper>
           </Col>
-          <Col md={16} sm={24} xs={24}>
+          <Col xxl={16} xs={24}>
             <CardGroup>
               <div className="full-width-table">
                 <Cards

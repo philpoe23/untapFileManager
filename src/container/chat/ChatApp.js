@@ -1,7 +1,7 @@
 import React, { Fragment, useState, lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Spin,Icon } from 'antd';
+import { Row, Col, Spin } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
@@ -19,10 +19,8 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-
 const SingleChat = lazy(() => import('./overview/singleChat'));
 const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
-
 
 const ChatApp = ({ searchData, match }) => {
   const [state, setState] = useState({
@@ -60,11 +58,10 @@ const ChatApp = ({ searchData, match }) => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Chat" 
+      <PageHeader
+        ghost
+        title="Chat"
         buttons={[
-              
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -73,8 +70,7 @@ const ChatApp = ({ searchData, match }) => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
 

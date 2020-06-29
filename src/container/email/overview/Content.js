@@ -6,9 +6,8 @@ import FeatherIcon from 'feather-icons-react';
 import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../Helper';
 import moment from 'moment';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { EmailAuthor, EmailHeader } from './style';
-import { Link } from 'react-router-dom';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -25,7 +24,9 @@ const Content = ({ searchData, email }) => {
   }, [email]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data =
+      searchData !== undefined &&
+      searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
@@ -62,7 +63,7 @@ const Content = ({ searchData, email }) => {
         content: (
           <EmailHeader>
             <Heading as="h5">
-              {subject} <span className='mail-badge'>{type}</span>
+              {subject} <span className="mail-badge">{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
             {attach.length
@@ -147,7 +148,6 @@ const Content = ({ searchData, email }) => {
       title: (
         <div className="email-top-search">
           <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />
-          
         </div>
       ),
       dataIndex: 'content',
@@ -158,12 +158,12 @@ const Content = ({ searchData, email }) => {
           <div className="email-top-right d-flex align-items-center">
             <span className="page-number">1 - 50 of 235</span>
             <div className="pagination-slider">
-              <a className="btn-paging" href="#">
+              <Link className="btn-paging" to="#">
                 <FeatherIcon icon="chevron-left" size={14} />
-              </a>
-              <a className="btn-paging" href="#">
+              </Link>
+              <Link className="btn-paging" to="#">
                 <FeatherIcon icon="chevron-right" size={14} />
-              </a>
+              </Link>
             </div>
             <div className="email-extra">
               <NavLink to="/">

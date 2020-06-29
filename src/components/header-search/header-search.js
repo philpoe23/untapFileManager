@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import { Icon, Input, Row, Col } from 'antd';
 import { Div } from './header-search-style';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import PropTypes from 'prop-types';
 import { Popover } from '../popup/popup';
-import { Button } from '../buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 
 const HeaderSearch = props => {
   const dispatch = useDispatch();
@@ -43,7 +41,7 @@ const HeaderSearch = props => {
             <Icon type="search" className="certain-category-icon" />
           </Col>
           <Col md={22} xs={24}>
-              <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
+            <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
               <Input placeholder="Search..." onInput={search} />
             </Popover>
           </Col>
