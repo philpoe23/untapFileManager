@@ -7,9 +7,9 @@ import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import FeatherIcon from 'feather-icons-react';
-import theme from '../../config/theme/customize-antd';
+import { theme } from '../../config/theme/themeVariables';
 
-const Buttons = () => { 
+const Buttons = () => {
   return (
     <Fragment>
       <PageHeader title="Button" />
@@ -48,7 +48,7 @@ const Buttons = () => {
                 White
               </Button>
             </Cards>
-            
+
             <Cards title="Light Color" size="large">
               <Button size="default" transparented type="primary">
                 Primary
@@ -229,14 +229,14 @@ const Buttons = () => {
                   <Row>
                     <BtnWithIcon>
                       <BtnGroup>
-                          <Button size="small" type="primary" className="active">
-                            <LeftOutlined />
-                            Go Back
-                          </Button>
-                          <Button size="small" type="primary">
-                            Go Forward
-                            <RightOutlined />
-                          </Button>
+                        <Button size="small" type="primary" className="active">
+                          <LeftOutlined />
+                          Go Back
+                        </Button>
+                        <Button size="small" type="primary">
+                          Go Forward
+                          <RightOutlined />
+                        </Button>
                       </BtnGroup>
                     </BtnWithIcon>
                   </Row>
@@ -434,7 +434,7 @@ const Buttons = () => {
                 Default
               </Button>
               <Button className="btn-icon" size="default" shape="round" type="primary">
-                  <FeatherIcon icon="layers" />
+                <FeatherIcon icon="layers" />
               </Button>
               <Button className="btn-icon" size="default" outlined shape="round" type="primary">
                 <FeatherIcon icon="layers" />
@@ -443,7 +443,7 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
               </Button>
               <Button className="btn-icon" size="default" shape="round" type="light">
-              <FeatherIcon icon="layers" />
+                <FeatherIcon icon="layers" />
               </Button>
             </Cards>
 

@@ -1,6 +1,6 @@
 const { override, addLessLoader, fixBabelImports } = require('customize-cra');
 const hotLoader = require('react-app-rewire-hot-loader');
-const theme = require('./src/config/theme/customize-antd');
+const { theme } = require('./src/config/theme/themeVariables');
 
 const supportMjs = () => webpackConfig => {
   webpackConfig.module.rules.push({
@@ -14,6 +14,7 @@ const supportMjs = () => webpackConfig => {
 module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
+
     modifyVars: {
       ...theme,
     },

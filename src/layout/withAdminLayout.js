@@ -7,8 +7,31 @@ import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme } from '../config/theme/themeVariables';
+import config from '../config/config';
 
 const { Header, Footer, Sider, Content } = Layout;
+const { darkMode } = config;
+
+const footerStyle = {
+  padding: '24px 50px',
+  color: 'rgba(0, 0, 0, 0.65)',
+  fontSize: '14px',
+  background: 'rgba(255, 255, 255, .90)',
+  width: '100%',
+  boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
+};
+
+const SideBarStyle = {
+  margin: '64px 0 0 0',
+  padding: '15px 15px 55px 15px',
+  overflowY: 'auto',
+  height: '100vh',
+  position: 'fixed',
+  left: 0,
+  zIndex: 9999,
+};
 
 const ThemeLayout = WrappedComponent => {
   class LayoutComponent extends Component {
@@ -73,7 +96,7 @@ const ThemeLayout = WrappedComponent => {
 
     render() {
       return (
-        <Div>
+        <Div darkMode={darkMode}>
           <Layout>
             <Header
               style={{
@@ -123,6 +146,7 @@ const ThemeLayout = WrappedComponent => {
                 )}
               </Row>
             </Header>
+
             {this.state.width < 800 ? (
               <div className="small-screen-headerRight">
                 <SmallScreenSearch hide={this.state.searchHide}>
@@ -132,24 +156,30 @@ const ThemeLayout = WrappedComponent => {
                   <AuthInfo />
                 </SmallScreenAuthInfo>
               </div>
-              
-              ) : (
-                ''
-              )}
+            ) : (
+              ''
+            )}
             <Layout>
-              <Sider width={280} style={SideBarStyle} collapsed={this.state.collapsed} theme="light">
-                <Scrollbars
-                  className="custom-scrollbar"
-                  autoHide
-                  autoHideTimeout={500}
-                  autoHideDuration={200}
-                  renderThumbHorizontal={this.renderThumb}
-                  renderThumbVertical={this.renderThumb}
+              <ThemeProvider theme={darkTheme}>
+                <Sider
+                  width={280}
+                  style={SideBarStyle}
+                  collapsed={this.state.collapsed}
+                  theme={!darkMode ? 'light' : 'dark'}
                 >
-                  <p className="sidebar-nav-title">MAIN MENU</p>
-                  <MenueItems />
-                </Scrollbars>
-              </Sider>
+                  <Scrollbars
+                    className="custom-scrollbar"
+                    autoHide
+                    autoHideTimeout={500}
+                    autoHideDuration={200}
+                    renderThumbHorizontal={this.renderThumb}
+                    renderThumbVertical={this.renderThumb}
+                  >
+                    <p className="sidebar-nav-title">MAIN MENU</p>
+                    <MenueItems darkMode={darkMode} />
+                  </Scrollbars>
+                </Sider>
+              </ThemeProvider>
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
@@ -165,25 +195,6 @@ const ThemeLayout = WrappedComponent => {
       window.removeEventListener('resize', this.updateDimensions);
     }
   }
-
-  const footerStyle = {
-    padding: '24px 50px',
-    color: 'rgba(0, 0, 0, 0.65)',
-    fontSize: '14px',
-    background: 'rgba(255, 255, 255, .90)',
-    width: '100%',
-    boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
-  };
-
-  const SideBarStyle = {
-    margin: '64px 0 0 0',
-    padding: '15px 15px 55px 15px',
-    overflowY: 'auto',
-    height: '100vh',
-    position: 'fixed',
-    left: 0,
-    zIndex: 9999,
-  };
 
   return LayoutComponent;
 };

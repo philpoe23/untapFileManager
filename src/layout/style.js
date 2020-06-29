@@ -4,6 +4,7 @@ const Div = Styled.div`
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         z-index: 99999;
+        ${({ darkMode }) => (darkMode ? `background:#000;` : '')}
         button{
             padding: 0px 15px 0px 0px;
         }
@@ -20,6 +21,9 @@ const Div = Styled.div`
 
     /* Sidebar styles */
     .ant-layout-sider{
+        &.ant-layout-sider-dark{
+            background: #000;
+        }
         .ant-layout-sider-children{
             padding-bottom: 15px;
             >.sidebar-nav-title{
@@ -189,7 +193,7 @@ const Div = Styled.div`
         align-items: center;
         a{
             display: inline-flex;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
             &.btn-search{
                 margin-right: 18px;
             }
