@@ -79,9 +79,9 @@ const handleActiveChange = e => {
 const Business = () => {
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Finance Dashboard" 
+      <PageHeader
+        ghost
+        title="Finance Dashboard"
         buttons={[
 
           <div className="page-header-actions">
