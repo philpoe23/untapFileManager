@@ -129,16 +129,24 @@ const Focard = Styled.div`
 const CardBarChart = Styled.div`
     .chartjs-render-monitor{
         height: 308px !important;
+        @media only screen and (max-width: 1199px) {
+            height: 100% !important;
+        }
     }
     .card-bar-top{
         &.flex-grid{
             margin-left: -20px;
             @media only screen and (max-width: 575px) {
                 flex-flow: column;
+                align-items: center;
+                text-align: center;
             }
             h1{
                 font-size: 24px;
                 margin-bottom: 22px;
+                @media only screen and (max-width: 1199px) {
+                    font-size: 20px;
+                }
             }
         }
         .flex-grid-child{
@@ -337,8 +345,31 @@ const Exlist = Styled.div`
     padding: 25px 0 0;
     height: 100%;
     border-right: 1px solid ${({theme})=>theme['border-color-light']};
+    @media only screen and (max-width: 1599px){
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border-right: 0 none;
+        margin: 0 -15px;
+        padding: 15px 0 0;
+       
+    }
     div{
         margin-bottom: 25px;
+        @media only screen and (max-width: 1599px){
+            flex: 0 0 25%;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        @media only screen and (max-width: 1199px){
+            flex: 0 0 50%;
+            padding: 5px 15px;
+            margin-bottom: 5px;
+        }
+        @media only screen and (max-width: 575px){
+            flex: 0 0 100%;
+            text-align: center;
+        }
         p{
             font-size: 14px;
             color: ${({theme})=>theme["light-gray-color"]};
@@ -347,8 +378,15 @@ const Exlist = Styled.div`
         h1{
             font-size: 22px;
             font-weight: 600;
+            margin-bottom: 0;
+            @media only screen and (max-width: 991px){
+                font-size: 20px;
+            }
             & > span{
                 margin-right: 10px;
+                @media only screen and (max-width: 1599px){
+                    display: block;
+                }
             }
             sub{
                 font-size: 13px;
@@ -372,22 +410,6 @@ const Exlist = Styled.div`
                     }
                 }
             }
-        }
-    }
-    @media only screen and (max-width: 1199px){
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        border-right: 0 none;
-        margin: 0 -15px;
-        div{
-            flex: 0 0 50%;
-            padding: 0 15px;
-        }
-    }
-    @media only screen and (max-width: 480px){
-        div{
-            flex: 0 0 100%;
         }
     }
 `;
@@ -508,14 +530,72 @@ const Pstates = Styled.div`
     }
 `;
 
+const SessionChartWrapper = Styled.div`
+    min-height: 510px;
+    background: #fff;
+    border-radius: 10px;
+    @media only screen and (max-width: 1599px){
+        min-height: 440px;
+    }
+    .session-chart-inner{
+        ul{
+            display: flex;
+            max-width: 365px;
+            margin: 40px auto 6px auto;
+            li{
+                width: 33.33%;
+                text-align: center;
+                position: relative;
+                .doughnutLabelColor{
+                    position: absolute;
+                    display: block;
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 14px;
+                    @media only screen and (max-width: 1400px){
+                        left: 5px;
+                    }
+                    @media only screen and (max-width: 1300px){
+                        left: 0;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        left: 15px;
+                    }
+                    @media only screen and (max-width: 379px){
+                        left: 0;
+                    }
+                }
+                .doughnutLabe{
+                    color: ${({theme})=>theme["gray-color"]};
+                }
+            }
+        }
+    }
+`;
+
 const SessionState = Styled.div`
-    margin: 0 0 15px -15px;
+    // margin: 0 0 15px -15px;
+    max-width: 365px;
+    margin: 0 auto;
     div{
-        padding: 0 15px;
+        width: 33.33%;
+        text-align: center;
         span{
             font-size: 18px;
             font-weight: 600;
             display: inline-block;
+            @media only screen and (max-width: 1300px){
+                display: block;
+            }
+            @media only screen and (max-width: 1199px){
+                display: inline-block;
+            }
+            @media only screen and (max-width: 379px){
+                display: block;
+            }
         }
         sub{
             bottom: 0;
@@ -558,13 +638,32 @@ const RegionList = Styled.div`
 
 const RegionMap = Styled.div`
     text-align: center;
+    height: 100%;
+    margin-top: 25px;
     svg{
-        height: 200px;
+        height: 230px;
         margin: 0 auto;
+        @media only screen and (max-width: 479){
+            width: 280px;
+        }
     }
 `;
 
 const LadingPages = Styled.div`
+    @media only screen and (max-width: 1599px){
+        min-height: 380px;
+    }
+    @media only screen and (max-width: 1199px){
+        min-height: 100%;
+    }
+    .ant-table-content{
+        .ant-table-cell{
+            white-space: normal !important;
+            @media only screen and (max-width: 991px){
+                white-space: nowrap !important;
+            }
+        }
+    }
     table{
         tbody{
             tr{
@@ -694,6 +793,9 @@ const IncomeExpenseWrapper = Styled.div`
     }
     canvas{
         padding: 20px 0;
+        @media only screen and (max-width: 1599px){
+            padding-top: 5px;
+        }
     }
 `;
 
@@ -802,8 +904,19 @@ const RevenueChartWrapper = Styled.div`
 `;
 
 const TrafficTableWrapper = Styled.div`
+    min-height: 450px;
+    @media only screen and (max-width: 1199px){
+        min-height: 100%;
+    }
+    .ant-table-content{
+        .ant-table-cell{
+            white-space: normal !important;
+            @media only screen and (max-width: 991px){
+                white-space: nowrap !important;
+            }
+        }
+    }
     table{
-        min-height: 395px;
         thead{
             tr{
                 th{
@@ -834,6 +947,7 @@ export {
     OverviewCard,
     PerfomenceChartWrapper,
     Pstates,
+    SessionChartWrapper,
     SessionState,
     RegionMap,
     LadingPages,

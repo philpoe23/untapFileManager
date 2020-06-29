@@ -10,8 +10,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, PerfomenceChartWrapper, Pstates, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
+import { OverviewCard, PerfomenceChartWrapper, Pstates, SessionChartWrapper, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -255,7 +256,17 @@ const handleActiveChange = e => {
   link.closest('li').classList.add('active');
 };
 
+
+
 const Performance = () => {
+  const renderThumb = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+      height: '220px'
+    };
+    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+  };
   return (
     <Fragment>
       <PageHeader
@@ -502,7 +513,7 @@ const Performance = () => {
               </Cards>
             </PerfomenceChartWrapper>
           </Col>
-          <Col lg={16} md={12} xs={24}>
+          <Col xxl={16} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -538,7 +549,8 @@ const Performance = () => {
               </Cards>
             </div>
           </Col>
-          <Col lg={8} md={12} xs={24}>
+          <Col xxl={8} xl={8} xs={24}>
+          <SessionChartWrapper>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -564,35 +576,36 @@ const Performance = () => {
               title="Sessions By Device"
               size="large"
             >
-              <div className="ccc">
-                <ChartjsDonutChart
-                  labels={['Desktop', 'Mobile', 'Tablets']}
-                  datasets={[
-                    {
-                      data: [5870, 4483, 2420],
-                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
-                    },
-                  ]}
-                />
-              </div>
-              
-              <SessionState className="d-flex justify-content-center">
-                <div>
-                  <span>4,483</span>
-                  <sub>45%</sub>
+                <div className="session-chart-inner">
+                  <ChartjsDonutChart
+                    labels={['Desktop', 'Mobile', 'Tablets']}
+                    datasets={[
+                      {
+                        data: [5870, 4483, 2420],
+                        backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                      },
+                    ]}
+                  />
+                  
+                  <SessionState className="d-flex justify-content-center">
+                    <div>
+                      <span>4,483</span>
+                      <sub>45%</sub>
+                    </div>
+                    <div>
+                      <span>5870</span>
+                      <sub>30%</sub>
+                    </div>
+                    <div>
+                      <span>2,420</span>
+                      <sub>25%</sub>
+                    </div>
+                  </SessionState>
                 </div>
-                <div>
-                  <span>870</span>
-                  <sub>30%</sub>
-                </div>
-                <div>
-                  <span>2,420</span>
-                  <sub>25%</sub>
-                </div>
-              </SessionState>
             </Cards>
+            </SessionChartWrapper>
           </Col>
-          <Col lg={12} md={12} xs={24}>
+          <Col xxl={12} xl={16} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={
@@ -628,7 +641,7 @@ const Performance = () => {
               </Cards>
             </div>
           </Col>
-          <Col lg={12} md={12} xs={24}>
+          <Col xxl={12} xs={24}>
             <Cards
               isbutton={
                 <div className="card-nav">
@@ -656,12 +669,16 @@ const Performance = () => {
               more={content}
             >
               <Row>
-                <Col xxl={10} md={8} sm={24} xs={24}>
+                <Col xxl={10} md={11}  xs={24}>
+                
                   <RegionList>
-                    <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                    <Scrollbars autoHeight autoHeightMin={280} autoHide renderThumbVertical={renderThumb}>
+                      <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                    </Scrollbars>
                   </RegionList>
+                
                 </Col>
-                <Col xxl={14} md={16} sm={24} xs={24}>
+                <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
                     <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
                   </RegionMap>
