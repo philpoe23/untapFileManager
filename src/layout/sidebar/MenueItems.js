@@ -4,12 +4,13 @@ import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 const { SubMenu } = Menu;
 
-const MenueItems = () => {
+const MenueItems = ({ darkMode }) => {
   const pathArray = window.location.pathname.split('/');
 
   return (
     <Menu
       mode="inline"
+      theme={darkMode && 'dark'}
       defaultSelectedKeys={[`${pathArray[1] === '' ? 'home' : pathArray.length === 2 ? pathArray[1] : pathArray[2]}`]}
       defaultOpenKeys={[`${pathArray[1] !== '' ? pathArray[1] : 'dashboard'}`]}
     >

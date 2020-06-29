@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
-import theme from '../../config/theme/customize-antd';
+import { theme } from '../../config/theme/themeVariables';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 

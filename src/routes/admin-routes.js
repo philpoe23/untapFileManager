@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
-import ThemeLayout from '../layout/Layout';
+import withAdminLayout from '../layout/withAdminLayout';
 
 const Dashboard = lazy(() => import('../container/dashboard'));
 const DashboardBase = lazy(() => import('../container/dashboard/DashboardBase'));
@@ -230,4 +230,4 @@ const AdminRoutes = () => {
   );
 };
 
-export default ThemeLayout(AdminRoutes);
+export default withAdminLayout(AdminRoutes);

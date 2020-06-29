@@ -11,7 +11,7 @@ const Div = Styled.div`
     }
     .certain-category-icon{
         font-size: 16px;
-        color: ${({theme})=>theme["gray-color"]}
+        color: ${({ theme }) => theme['gray-color']}
     }
 `;
 
