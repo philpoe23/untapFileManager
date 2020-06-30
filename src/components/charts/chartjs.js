@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Bar, HorizontalBar, Line, Pie, Doughnut } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import useChartData from '../../hooks/useChartData';
 
 const ChartjsBarChart = props => {
   const { labels, datasets, options, height } = props;
@@ -296,11 +297,31 @@ ChartjsLineChart.propTypes = {
 
 const ChartjsAreaChart = props => {
   const { labels, datasets, options, height, layout } = props;
+
   const data = {
     labels,
     datasets,
   };
-  return <Line data={data} height={height} options={{ ...options, ...layout }} />;
+
+  console.log(datasets);
+  return (
+    <div>
+      <Line data={data} height={height} options={{ ...options, ...layout }} />
+
+      <div>
+        {datasets.map(item => {
+          const { label, backgroundColor } = item;
+
+          return (
+            <>
+              <span style={{ display: 'inline-block', height: '20px', width: '20px', backgroundColor }}></span>
+              <p>{label}</p>
+            </>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 ChartjsAreaChart.defaultProps = {
@@ -572,31 +593,27 @@ ChartjsPieChart.propTypes = {
   labels: PropTypes.array.isRequired,
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
+/**
+ * 
+ *  {const labels = chart.data.labels.reduce((prev, curent, i) => {
+        return `${prev}<li><span class="doughnutLabelColor" style="background-color:${chart.data.datasets[0].backgroundColor[i]}"></span><span class="doughnutLabe">${curent}</span></li>`;
+      }, '');
+      const generatedLegend = `<ul class="${chart.id}-legend">${labels}</ul>`;
+
+      return generatedLegend;} props 
+ */
 
 const ChartjsDonutChart = props => {
   const { labels, datasets, options, height } = props;
-  const chartRef = useRef();
-  const [legend, setLegend] = useState();
-
-  useEffect(() => {
-    if (chartRef.current) {
-      const customLegend = chartRef.current.chartInstance.generateLegend();
-      console.log(customLegend);
-      setLegend(customLegend);
-    }
-  }, []);
-
+  const { ref, chartData } = useChartData();
   const data = {
     labels,
     datasets,
   };
 
-  return (
-    <>
-      <Doughnut ref={chartRef} data={data} height={height} options={options} />
-      <div dangerouslySetInnerHTML={{ __html: legend }} />
-    </>
-  );
+  console.log(chartData);
+
+  return <Doughnut ref={ref} data={data} height={height} options={options} />;
 };
 
 ChartjsDonutChart.defaultProps = {
@@ -615,14 +632,6 @@ ChartjsDonutChart.defaultProps = {
     legend: {
       display: false,
       position: 'bottom',
-    },
-    legendCallback: chart => {
-      const labels = chart.data.labels.reduce((prev, curent, i) => {
-        return `${prev}<li><span class="doughnutLabelColor" style="background-color:${chart.data.datasets[0].backgroundColor[i]}"></span><span class="doughnutLabe">${curent}</span></li>`;
-      }, '');
-      const generatedLegend = `<ul class="${chart.id}-legend">${labels}</ul>`;
-
-      return generatedLegend;
     },
     animation: {
       animateScale: true,

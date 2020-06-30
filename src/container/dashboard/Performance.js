@@ -10,7 +10,17 @@ import { NavLink, Link } from 'react-router-dom';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
-import { OverviewCard, PerfomenceChartWrapper, Pstates, SessionChartWrapper, SessionState, RegionList, RegionMap, LadingPages, TrafficTableWrapper } from './style';
+import {
+  OverviewCard,
+  PerfomenceChartWrapper,
+  Pstates,
+  SessionChartWrapper,
+  SessionState,
+  RegionList,
+  RegionMap,
+  LadingPages,
+  TrafficTableWrapper,
+} from './style';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -256,14 +266,12 @@ const handleActiveChange = e => {
   link.closest('li').classList.add('active');
 };
 
-
-
 const Performance = () => {
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
-      height: '220px'
+      height: '220px',
     };
     return <div style={{ ...style, ...thumbStyle }} {...props} />;
   };
@@ -550,32 +558,32 @@ const Performance = () => {
             </div>
           </Col>
           <Col xxl={8} xl={8} xs={24}>
-          <SessionChartWrapper>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Sessions By Device"
-              size="large"
-            >
+            <SessionChartWrapper>
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className="active">
+                        <Link onClick={handleActiveChange} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={handleActiveChange} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                }
+                title="Sessions By Device"
+                size="large"
+              >
                 <div className="session-chart-inner">
                   <ChartjsDonutChart
                     labels={['Desktop', 'Mobile', 'Tablets']}
@@ -586,7 +594,7 @@ const Performance = () => {
                       },
                     ]}
                   />
-                  
+
                   <SessionState className="d-flex justify-content-center">
                     <div>
                       <span>4,483</span>
@@ -602,7 +610,7 @@ const Performance = () => {
                     </div>
                   </SessionState>
                 </div>
-            </Cards>
+              </Cards>
             </SessionChartWrapper>
           </Col>
           <Col xxl={12} xl={16} xs={24}>
@@ -669,14 +677,12 @@ const Performance = () => {
               more={content}
             >
               <Row>
-                <Col xxl={10} md={11}  xs={24}>
-                
+                <Col xxl={10} md={11} xs={24}>
                   <RegionList>
                     <Scrollbars autoHeight autoHeightMin={280} autoHide renderThumbVertical={renderThumb}>
                       <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
                     </Scrollbars>
                   </RegionList>
-                
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
