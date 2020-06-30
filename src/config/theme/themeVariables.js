@@ -21,7 +21,7 @@ const primaryColor = '#5F63F2',
   lightHover = '#e2e6ea',
   whiteColor = '#ffffff',
   dashColor = '#E3E6EF',
-  whiteHover = '#5A5F7D', 
+  whiteHover = '#5A5F7D',
   extraLightColor = '#ADB4D2',
   dangerColor = '#FF4D4F',
   dangerHover = '#E30D0F',
@@ -61,7 +61,7 @@ const theme = {
   'light-hover': lightHover, // info state color
   'white-color': whiteColor, // info state color
   'white-hover': whiteHover, // info state color
-  'dash-color': dashColor, // info state color 
+  'dash-color': dashColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
   'danger-hover': dangerHover,
@@ -127,10 +127,10 @@ const theme = {
 
   // alert
   'alert-success-border-color': successColor,
-  'alert-success-bg-color': successColor+15,
-  'alert-error-bg-color': errorColor+15,
-  'alert-warning-bg-color': warningColor+15,
-  'alert-info-bg-color': infoColor+15,
+  'alert-success-bg-color': successColor + 15,
+  'alert-error-bg-color': errorColor + 15,
+  'alert-warning-bg-color': warningColor + 15,
+  'alert-info-bg-color': infoColor + 15,
 
   //radio btn
   'radio-button-checked-bg': primaryColor,
@@ -150,7 +150,7 @@ const theme = {
   'slider-handle-size': '16px',
 
   //input
-  'input-height-base': "48px",
+  'input-height-base': '48px',
   'input-border-color': borderColorNormal,
   'input-height-sm': '30px',
   'input-height-lg': '50px',
@@ -159,7 +159,7 @@ const theme = {
   'rate-star-color': warningColor,
   'rate-star-size': '13px',
 
-  // Switch 
+  // Switch
   'switch-min-width': '35px',
   'switch-sm-min-width': '30px',
   'switch-height': '18px',
@@ -180,8 +180,13 @@ const theme = {
   // Tags
   'tag-default-bg': '#EFF0F3',
   'tag-default-color': darkColor,
-  'tag-font-size': '11px'
-
+  'tag-font-size': '11px',
 };
 
-module.exports = theme;
+const darkTheme = {
+  ...theme,
+  'primary-color': 'red',
+  backgroundColor: '#000',
+};
+
+module.exports = { theme, darkTheme };

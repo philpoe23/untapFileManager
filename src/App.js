@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import FrontendRoutes from './routes/frontend-routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './static/css/style.css';
-import theme from './config/theme/customize-antd';
+import { theme } from './config/theme/themeVariables';
 
 function App({ auth }) {
   const [state, setState] = useState({

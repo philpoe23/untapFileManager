@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
-import theme from '../../config/theme/customize-antd';
+import { theme } from '../../config/theme/themeVariables';
 const VectorMaps = () => {
   return (
     <Fragment>

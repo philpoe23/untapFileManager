@@ -1,4 +1,4 @@
-import theme from '../theme/customize-antd';
+import { theme } from '../theme/themeVariables';
 
 const mapdata = {
   apiKey: 'AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c',
