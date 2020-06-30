@@ -87,7 +87,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
       <Cards
         title={
           <div className="group-chat-header d-flex">
-            <Heading as="h5">{name}</Heading>
+            <Heading as="h5">{name}+faming</Heading>
             <div className="members">
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />

@@ -43,7 +43,7 @@ const MenueItems = ({ darkMode }) => {
       </SubMenu>
 
       <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
-        <NavLink to="/chat/rofiq@gmail.com">Chat</NavLink>
+        <NavLink to="/chat/private">Chat</NavLink>
       </Menu.Item>
 
       <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">

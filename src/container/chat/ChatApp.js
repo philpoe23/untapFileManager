@@ -6,7 +6,7 @@ import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
 import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
@@ -39,23 +39,6 @@ const ChatApp = ({ searchData, match }) => {
     });
   };
 
-  const onHandleChange = e => {
-    e.preventDefault();
-    const link = e.currentTarget;
-    link
-      .closest('ul')
-      .querySelectorAll('li')
-      .forEach(li => {
-        li.classList.remove('active');
-      });
-
-    link.closest('li').classList.add('active');
-    setState({
-      ...state,
-      chatType: e.currentTarget.getAttribute('data-type'),
-    });
-  };
-
   return (
     <Fragment>
       <PageHeader
@@ -84,31 +67,29 @@ const ChatApp = ({ searchData, match }) => {
                 </div>
                 <nav>
                   <UL>
-                    <li className="active">
-                      <Link onClick={onHandleChange} data-type="PrivetChat" to="#">
+                    <li>
+                      <NavLink activeClassName="active" to={match.path + '/private'}>
                         Privet Chat
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link onClick={onHandleChange} data-type="GroupChat" to="#">
+                      <NavLink activeClassName="active" to={match.path + '/group'}>
                         Group Chat
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link onClick={onHandleChange} data-type="AllContacts" to="#">
+                      <NavLink activeClassName="active" to={match.path + '/all'}>
                         All Contacts
-                      </Link>
+                      </NavLink>
                     </li>
                   </UL>
                 </nav>
                 <Content>
-                  {chatType === 'PrivetChat' ? (
-                    <PrivetChat match={match} />
-                  ) : chatType === 'GroupChat' ? (
-                    <GroupChat match={match} />
-                  ) : (
-                    <AllContacts match={match} />
-                  )}
+                  <Switch>
+                    <Route path={match.path + '/private'} component={PrivetChat} />
+                    <Route path={match.path + '/group'} component={GroupChat} />
+                    <Route path={match.path + '/all'} component={AllContacts} />
+                  </Switch>
                 </Content>
               </Cards>
             </ChatSidebar>
@@ -123,7 +104,6 @@ const ChatApp = ({ searchData, match }) => {
                 }
               >
                 <Route
-                  exact
                   path={match.path}
                   component={() => {
                     return (
@@ -133,11 +113,9 @@ const ChatApp = ({ searchData, match }) => {
                     );
                   }}
                 />
-                {chatType !== 'GroupChat' ? (
-                  <Route path={match.path + '/:id'} component={SingleChat} />
-                ) : (
-                  <Route path={match.path + '/:id'} component={SingleGroup} />
-                )}
+                <Route path={match.path} component={SingleChat} />
+                <Route path={match.path + '/:type/:id'} component={SingleChat} />
+                <Route path={match.path + '/group/:id'} component={SingleGroup} />
               </Suspense>
             </Switch>
           </Col>

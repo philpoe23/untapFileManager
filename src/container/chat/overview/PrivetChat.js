@@ -35,18 +35,14 @@ const PrivetChat = ({ chat, match, filterSinglepage }) => {
                     <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                   </div>
                   <div className="author-info">
-                    <BlockSpan className="author-name">
-                      {userName}
-                    </BlockSpan>
-                    
+                    <BlockSpan className="author-name">{userName}</BlockSpan>
+
                     <BlockSpan className="author-chatText">
                       {textRefactor(content[content.length - 1]['content'], 5)}
                     </BlockSpan>
                   </div>
                   <div className="author-chatMeta">
-                    <BlockSpan>
-                        {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
-                    </BlockSpan>
+                    <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</BlockSpan>
                   </div>
                 </NavLink>
               </li>
