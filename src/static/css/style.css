@@ -1091,7 +1091,6 @@ ul {
   flex-wrap: wrap;
 }
 
-
 .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title,
 .ant-menu-item {
   display: inline-flex;
@@ -1125,6 +1124,26 @@ ul {
   width: 12px;
   height: 12px;
   margin-right: 2px;
+}
+
+/* Layout Css */
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub,
+.ant-menu.ant-menu-dark{
+  background: #272B41;
+}
+
+.ant-menu-dark .ant-menu-item a{
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.ant-menu-dark .ant-menu-submenu span{
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: rgba(255, 255, 255, .05);
 }
 
 /* Responsive CSS */

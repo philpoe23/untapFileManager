@@ -3,10 +3,25 @@ import Styled from 'styled-components';
 const Div = Styled.div`
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
+        ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
         z-index: 99999;
-        ${({ darkMode }) => (darkMode ? `background:#000;` : '')}
         button{
             padding: 0px 15px 0px 0px;
+        }
+
+        .ant-btn-link{
+            ${({ darkMode }) => (darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : '')}
+        }
+
+        .head-example{
+            ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
+        }
+
+        .certain-category-search-wrapper{
+            ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
+            input{
+                ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
+            }
         }
     }
     .ant-layout-sider-children {
@@ -22,7 +37,7 @@ const Div = Styled.div`
     /* Sidebar styles */
     .ant-layout-sider{
         &.ant-layout-sider-dark{
-            background: #000;
+            background: ${({ theme }) => theme['dark-color']};;
         }
         .ant-layout-sider-children{
             padding-bottom: 15px;
@@ -81,6 +96,7 @@ const Div = Styled.div`
                     &.ant-menu-submenu-open{
                         > .ant-menu-submenu-title{
                             .ant-menu-submenu-arrow{
+                                transform: translateY(2px);
                                 &:before{
                                     transform: rotate(45deg) translateX(-4px);
                                 }
@@ -99,7 +115,11 @@ const Div = Styled.div`
                 .ant-menu-item{
                     display: flex;
                     align-items: center;
-                    padding: 0 15px !important; 
+                    padding: 0 15px !important;
+                    &.ant-menu-item-active{
+                        border-radius: 4px;
+                        ${({ darkMode }) => (darkMode ? `background-color: rgba(255, 255, 255, .05);` : '')};
+                    }
                     a{
                         display: flex !important;
                         align-items: center;
@@ -121,6 +141,10 @@ const Div = Styled.div`
                         &:after{
                             content: none;
                         }
+                    }
+                    &.ant-menu-submenu-active{
+                        border-radius: 4px;
+                        ${({ darkMode }) => (darkMode ? `background-color: rgba(255, 255, 255, .05);` : '')};
                     }
                 }
                 .sidebar-nav-title{
@@ -151,7 +175,7 @@ const Div = Styled.div`
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            color: #868EAE;
+            ${({ darkMode }) => (darkMode ? `color: rgba(255, 255, 255, .38);` : '#868EAE;')};
             padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{
