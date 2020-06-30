@@ -19,6 +19,8 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
     filterSinglepageGroup(e.currentTarget.getAttribute('data-id'));
   };
 
+  console.log(match);
+
   return (
     <ChatWrapper>
       <div className="create-action">
@@ -27,7 +29,7 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
           Create New Group
         </Button>
       </div>
-      
+
       <ul>
         {chatData !== undefined &&
           chatData
@@ -39,24 +41,20 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
               const time = content[content.length - 1]['time'];
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
-                <li key={index + 1}  className="chat-link-signle">
+                <li key={index + 1} className="chat-link-signle">
                   <NavLink onClick={dataFiltering} data-id={id} to={match.path + '/' + id}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />
                     </div>
-                    
+
                     <div className="author-info">
-                      <BlockSpan className="author-name">
-                        {groupName}
-                      </BlockSpan>
+                      <BlockSpan className="author-name">{groupName}</BlockSpan>
                       <BlockSpan className="author-chatText">
                         {textRefactor(content[content.length - 1]['content'], 5)}
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">
-                      <BlockSpan>
-                          {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
-                      </BlockSpan>
+                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</BlockSpan>
                     </div>
                   </NavLink>
                 </li>
@@ -64,7 +62,6 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
             })}
       </ul>
     </ChatWrapper>
-    
   );
 };
 

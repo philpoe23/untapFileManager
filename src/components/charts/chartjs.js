@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Bar, HorizontalBar, Line, Pie, Doughnut } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+
 import useChartData from '../../hooks/useChartData';
 
 const ChartjsBarChart = props => {
