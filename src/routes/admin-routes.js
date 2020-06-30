@@ -101,7 +101,7 @@ const Inbox = lazy(() => import('../container/email/Email'));
 const Chat = lazy(() => import('../container/chat/ChatApp'));
 const NotFound = lazy(() => import('../container/pages/404'));
 const Maintenance = lazy(() => import('../container/pages/Maintenance'));
-const Pricing = lazy(() => import('../container/pages/pricingTable'));
+const Pricing = lazy(() => import('../container/pages/PricingTable'));
 const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));
@@ -215,7 +215,7 @@ const AdminRoutes = () => {
         <Route path="/chat" component={Chat} />
         <Route path="/pages/404" component={NotFound} />
         <Route path="/pages/maintenance" component={Maintenance} />
-        <Route path="/pages/pricing" component={Pricing} />
+        <Route path="/pages/Pricing" component={Pricing} />
         <Route path="/pages/gallery" component={Gallery} />
         <Route path="/pages/faq" component={Faq} />
         <Route path="/pages/search" component={Search} />
