@@ -6,9 +6,8 @@ import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
-import { Switch, Route, Link, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 
 import PrivetChat from './overview/PrivetChat';
@@ -29,7 +28,7 @@ const ChatApp = ({ searchData, match }) => {
     chatType: 'PrivetChat',
   });
 
-  const { notdata, chatType } = state;
+  const { notdata } = state;
 
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -103,7 +102,7 @@ const ChatApp = ({ searchData, match }) => {
                   </div>
                 }
               >
-                <Route path={match.path}/>
+                <Route path={match.path} />
                 <Route path={match.path} component={SingleChat} />
                 <Route path={match.path + '/:type/:id'} component={SingleChat} />
                 <Route path={match.path + '/group/:id'} component={SingleGroup} />
