@@ -3,10 +3,8 @@ import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 const { SubMenu } = Menu;
-
 const MenueItems = ({ darkMode }) => {
   const pathArray = window.location.pathname.split('/');
-
   return (
     <Menu
       mode="inline"
@@ -87,6 +85,15 @@ const MenueItems = ({ darkMode }) => {
       <Menu.Item icon={<FeatherIcon icon="target" />} key="project">
         <NavLink to="/project">Project</NavLink>
       </Menu.Item>
+
+      <SubMenu key="firestore" icon={<FeatherIcon icon="database" />} title="Firestore Crud">
+        <Menu.Item key="view">
+          <NavLink to="/firestore/view">View All</NavLink>
+        </Menu.Item>
+        <Menu.Item key="add">
+          <NavLink to="/firestore/add">Add New</NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
         <Menu.Item key="20">Sidebar with User</Menu.Item>
