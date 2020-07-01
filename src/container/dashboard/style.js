@@ -494,6 +494,7 @@ const OverviewCard = Styled.div`
 
 const PerfomenceChartWrapper = Styled.div`
     canvas{
+        margin-top: 20px;
         min-height: 325px
         @media only screen and (max-width: 1599px){
             min-height: 215px;
@@ -579,8 +580,8 @@ const SessionChartWrapper = Styled.div`
 const SessionState = Styled.div`
     // margin: 0 0 15px -15px;
     max-width: 365px;
-    margin: 0 auto;
-    div{
+    margin: 42px auto auto;
+    >div{
         width: 33.33%;
         text-align: center;
         span{
@@ -602,6 +603,32 @@ const SessionState = Styled.div`
             left: 5px;
             font-size: 13px;
             color: ${({theme})=>theme["light-gray-color"]};
+        }
+    }
+    
+    .session-single{
+        text-align: center;
+        .label{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            color: ${({theme})=>theme["gray-color"]};
+            .label-dot{
+                margin-right: 8px;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                &.dot-success{
+                    background: ${({theme})=>theme["success-color"]};
+                }
+                &.dot-info{
+                    background: ${({theme})=>theme["info-color"]};
+                }
+                &.dot-warning{
+                    background: ${({theme})=>theme["warning-color"]};
+                }
+            }
         }
     }
 `;
@@ -854,6 +881,7 @@ const LocationMapWrapper = Styled.div`
 `;
 
 const RevenueWrapper = Styled.div`
+    
     >.ant-card{
         min-height: 455px;
         @media only screen and (max-width: 1599px){
@@ -862,14 +890,14 @@ const RevenueWrapper = Styled.div`
     }
 
     .revenue-count{
-        text-align: center;
+        margin-bottom: 0;
         span{
             font-size: 24px;
             font-weight: 600;
         }
 
         span + span{
-            margin-left: 15px;
+            margin-left: 50px;
         }
     }
 `;

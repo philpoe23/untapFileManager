@@ -162,6 +162,33 @@ ul {
   color: #20C997;
 }
 
+/* Chart */
+
+.chart-label{
+  display: flex;
+}
+
+.chart-label .label-dot{
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chart-label .chart-label__single{
+  align-items: center;
+}
+
+.chart-label .chart-label__single:not(:last-child){
+  margin-right: 40px;
+}
+
+.chart-label .chart-label__single p{
+  margin: 0;
+  color: #868EAE;
+}
+
 /* progressbars */
 
 .ant-progress {
@@ -1080,9 +1107,13 @@ ul {
   display: inline-block;
 }
 .atbd-chatbox__emoji ul li a{
+  display: block;
   font-size: 20px;
   padding: 4px 8px;
   background: #fff;
+}
+.atbd-chatbox__emoji ul li a svg{
+  margin: 0;
 }
 .rdrMonths {
   flex-wrap: wrap;

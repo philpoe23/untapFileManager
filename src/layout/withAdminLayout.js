@@ -89,7 +89,8 @@ const ThemeLayout = WrappedComponent => {
     renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
         borderRadius: 6,
-        backgroundColor: '#F1F2F6',
+        backgroundColor: darkMode ? '#ffffff16':'#F1F2F6',
+        
       };
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     };

@@ -595,16 +595,28 @@ const Performance = () => {
                     ]}
                   />
 
-                  <SessionState className="d-flex justify-content-center">
-                    <div>
+                  <SessionState className="session-wrap d-flex justify-content-center">
+                    <div className="session-single">
+                      <div className="label">
+                        <span className="label-dot dot-success"></span>
+                        Desktop
+                      </div>
                       <span>4,483</span>
                       <sub>45%</sub>
                     </div>
-                    <div>
+                    <div className="session-single">
+                      <div className="label">
+                        <span className="label-dot dot-info"></span>
+                        Mobile
+                      </div>
                       <span>5870</span>
                       <sub>30%</sub>
                     </div>
-                    <div>
+                    <div className="session-single">
+                      <div className="label">
+                        <span className="label-dot dot-warning"></span>
+                        Tablets
+                      </div>
                       <span>2,420</span>
                       <sub>25%</sub>
                     </div>

@@ -103,16 +103,7 @@ const ChatApp = ({ searchData, match }) => {
                   </div>
                 }
               >
-                <Route
-                  path={match.path}
-                  component={() => {
-                    return (
-                      <Cards headless>
-                        <Heading>Welcome to our Chating Service</Heading>
-                      </Cards>
-                    );
-                  }}
-                />
+                <Route path={match.path}/>
                 <Route path={match.path} component={SingleChat} />
                 <Route path={match.path + '/:type/:id'} component={SingleChat} />
                 <Route path={match.path + '/group/:id'} component={SingleGroup} />

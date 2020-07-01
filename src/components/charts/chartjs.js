@@ -306,20 +306,21 @@ const ChartjsAreaChart = props => {
   console.log(datasets);
   return (
     <div>
-      <Line data={data} height={height} options={{ ...options, ...layout }} />
-
-      <div>
+      <div className="chart-label">
         {datasets.map(item => {
           const { label, backgroundColor } = item;
 
           return (
-            <>
-              <span style={{ display: 'inline-block', height: '20px', width: '20px', backgroundColor }}></span>
+            <div className="chart-label__single d-flex">
+              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }}></span>
               <p>{label}</p>
-            </>
+            </div>
           );
         })}
       </div>
+
+      <Line data={data} height={height} options={{ ...options, ...layout }} />
+
     </div>
   );
 };

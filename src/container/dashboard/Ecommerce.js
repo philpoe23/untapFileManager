@@ -786,7 +786,7 @@ const Ecommerce = () => {
                   datasets={[
                     {
                       data: [5870, 4483, 2420],
-                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                      backgroundColor: ['#560bd0', '#007bff', '#00cccc']
                     },
                   ]}
                 />

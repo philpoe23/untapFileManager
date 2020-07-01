@@ -343,12 +343,10 @@ const ChatSidebar = Styled.div`
             height: 1px;
             content: '';
             opacity: 0;
-            visibility: 0;
+            visibility: hidden;
             background: ${({theme})=>theme['primary-color']};
           }
-        }
-        &.active{
-          a{
+          &.active{
             color: ${({theme})=>theme['primary-color']};
             &:after{
               opacity: 1;

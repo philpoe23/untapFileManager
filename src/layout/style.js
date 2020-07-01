@@ -37,7 +37,20 @@ const Div = Styled.div`
     /* Sidebar styles */
     .ant-layout-sider{
         &.ant-layout-sider-dark{
-            background: ${({ theme }) => theme['dark-color']};;
+            background: ${({ theme }) => theme['dark-color']};
+            padding: 15px 0 55px !important;
+            .ant-layout-sider-children{
+                .ant-menu{
+                    .ant-menu-submenu-inline{
+                        > .ant-menu-submenu-title{
+                            padding: 0 30px !important;
+                        }
+                    }
+                    .ant-menu-item{
+                        padding: 0 30px !important;
+                    }
+                }
+            }
         }
         .ant-layout-sider-children{
             padding-bottom: 15px;
@@ -86,22 +99,22 @@ const Div = Styled.div`
                                 height: 1.25px;
                             }
                             &:before{
-                                transform: rotate(45deg) translateY(-4px);
+                                transform: rotate(45deg) translateY(-3.3px);
                             }
                             &:after{
-                                transform: rotate(-45deg) translateY(4px);
+                                transform: rotate(-45deg) translateY(3.3px);
                             }
                         }
                     }
                     &.ant-menu-submenu-open{
                         > .ant-menu-submenu-title{
                             .ant-menu-submenu-arrow{
-                                transform: translateY(2px);
+                                transform: translateY(4px);
                                 &:before{
-                                    transform: rotate(45deg) translateX(-4px);
+                                    transform: rotate(45deg) translateX(-3.3px);
                                 }
                                 &:after{
-                                    transform: rotate(-45deg) translateX(4px);
+                                    transform: rotate(-45deg) translateX(3.3px);
                                 }
                             }
                         }
