@@ -468,7 +468,7 @@ const Performance = () => {
                   options={{
                     maintainAspectRatio: true,
                     legend: {
-                      display: true,
+                      display: false,
                       position: 'bottom',
                       labels: {
                         boxWidth: 6,
@@ -516,7 +516,7 @@ const Performance = () => {
                       ],
                     },
                   }}
-                  height={100}
+                  height={90}
                 />
               </Cards>
             </PerfomenceChartWrapper>
@@ -597,7 +597,7 @@ const Performance = () => {
 
                   <SessionState className="session-wrap d-flex justify-content-center">
                     <div className="session-single">
-                      <div className="label">
+                      <div className="chart-label">
                         <span className="label-dot dot-success"></span>
                         Desktop
                       </div>
@@ -605,7 +605,7 @@ const Performance = () => {
                       <sub>45%</sub>
                     </div>
                     <div className="session-single">
-                      <div className="label">
+                      <div className="chart-label">
                         <span className="label-dot dot-info"></span>
                         Mobile
                       </div>
@@ -613,7 +613,7 @@ const Performance = () => {
                       <sub>30%</sub>
                     </div>
                     <div className="session-single">
-                      <div className="label">
+                      <div className="chart-label">
                         <span className="label-dot dot-warning"></span>
                         Tablets
                       </div>

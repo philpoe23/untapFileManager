@@ -79,13 +79,13 @@ const Email = ({ match }) => {
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
             <Col lg={7} xl={5}>
-              {responsive <= 800 && (
+              {responsive <= 991 && (
                 <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                 </Button>
               )}
 
-              {responsive > 800 ? (
+              {responsive > 991 ? (
                 <div className="mail-sideabr">
                   <Cards headless>
                     <div className="mail-sidebar-top">

@@ -495,9 +495,15 @@ const OverviewCard = Styled.div`
 const PerfomenceChartWrapper = Styled.div`
     canvas{
         margin-top: 20px;
-        min-height: 325px
+        max-height: 280px;
         @media only screen and (max-width: 1599px){
-            min-height: 215px;
+            max-height: 175px;
+        }
+        @media only screen and (max-width: 1400px){
+            min-height: 175px;
+        }
+        @media only screen and (max-width: 1199px){
+            min-height: 195px;
         }
         @media only screen and (max-width: 767px){
             min-height: 100%;
@@ -608,28 +614,6 @@ const SessionState = Styled.div`
     
     .session-single{
         text-align: center;
-        .label{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-            color: ${({theme})=>theme["gray-color"]};
-            .label-dot{
-                margin-right: 8px;
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
-                &.dot-success{
-                    background: ${({theme})=>theme["success-color"]};
-                }
-                &.dot-info{
-                    background: ${({theme})=>theme["info-color"]};
-                }
-                &.dot-warning{
-                    background: ${({theme})=>theme["warning-color"]};
-                }
-            }
-        }
     }
 `;
 
@@ -831,7 +815,7 @@ const LocationMapWrapper = Styled.div`
         padding: 20px 0;
         svg{
             width: 300px;
-            height: 166px;
+            height: 215px;
             @media only screen and (max-width: 991px){
                height: 100%;
                width: auto;
@@ -906,7 +890,7 @@ const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 455px;
+            min-height: 460px;
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }
@@ -928,7 +912,35 @@ const RevenueTableWrapper = Styled.div`
 `;
 
 const RevenueChartWrapper = Styled.div`
-    
+    .revenue-chat-label{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .chart-label{
+            &:not(:last-child){
+                margin-bottom: 12px;
+            }
+            .label-dot{
+                &.dot-Desktop{
+                    background: #20C997;
+                }
+                &.dot-Mobile{
+                    background: #5F63F2;
+                }
+                &.dot-Tablets{
+                    background: #FA8B0C;
+                }
+            }
+        }
+    }
+    .revenue-chart-data{
+        p{
+            margin-bottom: 14px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
 `;
 
 const TrafficTableWrapper = Styled.div`

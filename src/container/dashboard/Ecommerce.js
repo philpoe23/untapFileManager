@@ -10,7 +10,7 @@ import {
   ChartjsAreaChart,
   ChartjsBarChartTransparent,
   ChartjsLineChart,
-  ChartjsDonutChart,
+  ChartjsDonutChart2,
 } from '../../components/charts/chartjs';
 import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
@@ -580,7 +580,7 @@ const Ecommerce = () => {
                   options={{
                     maintainAspectRatio: true,
                     legend: {
-                      display: true,
+                      display: false,
                       labels: {
                         display: true,
                       },
@@ -781,7 +781,7 @@ const Ecommerce = () => {
                 title="Revenue By Device"
                 size="large"
               >
-                <ChartjsDonutChart
+                <ChartjsDonutChart2
                   labels={['Desktop', 'Mobile', 'Tablets']}
                   datasets={[
                     {
