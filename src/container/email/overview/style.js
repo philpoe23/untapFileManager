@@ -754,7 +754,22 @@ const MailRightAction = Styled.div`
 `;
 
 const EmailWrapper = Styled.div`
+  .ant-btn-link{
+    background: transparent !important;
+    &:focus{
+      color: ${({ theme }) => theme['primary-color']};
+    }
+  }
   .mail-sideabr{
+    @media only screen and (max-width: 991px){
+      background: #fff;
+      position: fixed;
+      left: 0;
+      top: 60px;
+      width: 280px;
+      height: 100%;
+      z-index: 99;
+    }
     .ant-card{
       .ant-card-body{
         padding: 0px !important;

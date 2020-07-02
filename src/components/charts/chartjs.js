@@ -609,12 +609,20 @@ const ChartjsDonutChart = props => {
   const { ref, chartData } = useChartData();
   const data = {
     labels,
-    datasets,
+    datasets
   };
 
-  console.log(chartData);
+  console.log(datasets);
 
-  return <Doughnut ref={ref} data={data} height={height} options={options} />;
+  return (
+    <div>
+
+      <Doughnut ref={ref} data={data} height={height} options={options} />
+
+    </div>
+  );
+
+  
 };
 
 ChartjsDonutChart.defaultProps = {
@@ -647,8 +655,97 @@ ChartjsDonutChart.propTypes = {
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
 
+
+
+
+
+
+const ChartjsDonutChart2 = props => {
+  const { labels, datasets, options, height } = props;
+  const { ref, chartData } = useChartData();
+  const data = {
+    labels,
+    datasets
+  };
+
+  console.log(datasets);
+
+  return (
+    <div>
+      <Doughnut ref={ref} data={data} height={height} options={options} />
+
+      <div className="align-center-v justify-content-between">
+        
+        <div className="revenue-chat-label">
+          {labels.map(label => {
+            return (
+              <div className="chart-label">
+                
+                <span className={`label-dot dot-${label}`}></span>
+                {label}
+              </div>
+            );
+          })}
+        </div>
+        
+        <div className="revenue-chart-data">
+          {datasets.map(item => {
+            const { data, backgroundColor } = item;
+            return (
+              <div>
+                {data.map(value => {
+                  console.log(value);
+                  return(
+                    <>
+                      <p>${value}</p>
+                    </>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+    </div>
+  );
+
+  
+};
+
+ChartjsDonutChart2.defaultProps = {
+  height: 200,
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+  datasets: [
+    {
+      data: [20, 20, 30, 5, 25],
+      backgroundColor: ['#560bd0', '#007bff', '#00cccc', '#cbe0e3', '#74de00'],
+    },
+  ],
+
+  options: {
+    maintainAspectRatio: true,
+    responsive: true,
+    legend: {
+      display: false,
+      position: 'bottom',
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+    },
+  },
+};
+
+ChartjsDonutChart2.propTypes = {
+  height: PropTypes.number.isRequired,
+  labels: PropTypes.array.isRequired,
+  datasets: PropTypes.arrayOf(PropTypes.object),
+};
+
 export {
   ChartjsDonutChart,
+  ChartjsDonutChart2,
   ChartjsPieChart,
   ChartjsBarChartGrad,
   ChartjsBarChartTransparent,

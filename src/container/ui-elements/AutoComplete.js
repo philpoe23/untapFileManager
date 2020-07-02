@@ -36,36 +36,41 @@ const AutoCompletess = props => {
     <Fragment>
       <PageHeader title="AutoComplete" />
       <Main>
-        <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Basic Usage">
-              <AutoCompleteWrapper>
-                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
-                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
-              </AutoCompleteWrapper>
-            </Cards>
-            <Cards title="Customize Input Component">
-              <AutoComplete
-                customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
-                dataSource={dataSource}
-                onSearch={onSearch}
-              />
-            </Cards>
-            <Cards title="Lookup-Patterns - Certain Category">
-              <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
-            </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Customize">
-              <AutoCompleteWrapper>
-                <AutoComplete dataSource={dataSource} onSearch={onSearch} />
-              </AutoCompleteWrapper>
-            </Cards>
-            <Cards title="Lookup-Patterns - Uncertain Category">
-              <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
-            </Cards>
-          </Col>
-        </Row>
+        <AutoCompleteWrapper>
+          <Row gutter={25}>
+            <Col md={12} sm={24} xs={24}>
+              <Cards title="Basic Usage">
+                  <div className="auto-complete-input">
+                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                  </div>
+              </Cards>
+              <Cards title="Customize Input Component">
+                <div className="auto-complete-input">
+                  <AutoComplete
+                    customComponent={<TextArea placeholder="input here" className="custom" style={{ height: 50 }} />}
+                    dataSource={dataSource}
+                    onSearch={onSearch}
+                  />
+                </div>
+              </Cards>
+              <Cards title="Lookup-Patterns - Certain Category">
+                <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+              </Cards>
+            </Col>
+            <Col md={12} sm={24} xs={24}>
+              <div className="auto-complete-input">
+                <Cards title="Customize">
+                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                </Cards>
+              </div>
+              
+              <Cards title="Lookup-Patterns - Uncertain Category">
+                  <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
+                </Cards>
+            </Col>
+          </Row>
+        </AutoCompleteWrapper>
       </Main>
     </Fragment>
   );

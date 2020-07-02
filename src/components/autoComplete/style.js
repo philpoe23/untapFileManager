@@ -16,6 +16,9 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     .ant-select-selector input{
         height: 33px !important;
     }
+    .ant-select-selection-search{
+        width: auto !important;
+    }
     .ant-select-selection-search textarea.ant-input{
         padding: 12px 20px;
     }

@@ -1033,7 +1033,7 @@ ul {
 }
 
 .full-width-table .top-seller-table {
-  min-height: 405px;
+  min-height: 450px;
 }
 
 .full-width-table .top-seller-table .ant-table-content .ant-table-cell{
@@ -1175,6 +1175,36 @@ ul {
 
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
   background-color: rgba(255, 255, 255, .05);
+}
+
+/* Chart Label */
+
+.chart-label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  color: #5A5F7D;
+  
+}
+
+.chart-label .label-dot{
+  margin-right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.chart-label .label-dot.dot-success{
+  background: #20C997;
+}
+
+.chart-label .label-dot.dot-info{
+  background: #5F63F2;
+}
+
+.chart-label .label-dot.dot-warning{
+  background: #FA8B0C;
 }
 
 /* Responsive CSS */

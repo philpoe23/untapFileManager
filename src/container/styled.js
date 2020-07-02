@@ -174,6 +174,11 @@ const AutoCompleteWrapper = Styled.div`
     .ant-select:not(:last-child){
         margin-bottom: 20px;
     }
+    .auto-complete-input{
+        .ant-select{
+            width: 200px !important;
+        }
+    }
 `;
 
 const CalendarWrapper = Styled.div`
