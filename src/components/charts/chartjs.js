@@ -320,7 +320,6 @@ const ChartjsAreaChart = props => {
       </div>
 
       <Line data={data} height={height} options={{ ...options, ...layout }} />
-
     </div>
   );
 };
