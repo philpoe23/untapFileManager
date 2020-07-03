@@ -11,8 +11,8 @@ const ChatWrapper = Styled.div`
       width: 100%;
       height: 44px;
       text-align: center;
-      border: 1px solid ${({theme})=>theme["border-color-light"]};
-      background: ${({theme})=>theme["bg-color-light"]};
+      border: 1px solid ${({ theme }) => theme['border-color-light']};
+      background: ${({ theme }) => theme['bg-color-light']};
     }
   }
 `;
@@ -41,7 +41,7 @@ const Content = Styled.div`
       background: #fff;
       right: -10px;
       left: -10px;
-      box-shadow: 0 15px 50px ${({theme})=>theme["light-color"]}20;
+      box-shadow: 0 15px 50px ${({ theme }) => theme['light-color']}20;
       border-radius: 4px;
       visibility: hidden;
       opacity: 0;
@@ -67,10 +67,10 @@ const Content = Styled.div`
       flex: .76;
       .author-name{
         font-weight: 600;
-        color: ${({theme})=>theme["dark-color"]};
+        color: ${({ theme }) => theme['dark-color']};
       }
       .author-chatText{
-        color: ${({theme})=>theme["light-color"]};
+        color: ${({ theme }) => theme['light-color']};
       }
     }
     .author-chatMeta{
@@ -78,7 +78,7 @@ const Content = Styled.div`
       span{
         text-align: right;
         font-size: 12px;
-        color: ${({theme})=>theme["light-color"]};
+        color: ${({ theme }) => theme['light-color']};
       }
     }
   }
@@ -291,7 +291,6 @@ const Footer = Styled.div`
   }
 `;
 
-
 const ChatSidebar = Styled.div`
   .ant-card-body{
     padding: 25px 0 !important;
@@ -307,10 +306,10 @@ const ChatSidebar = Styled.div`
   }
   .ant-select-single .ant-select-selector .ant-select-selection-search-input{
     border-radius: 23px;
-    background: ${({theme})=>theme["bg-color-normal"]};
+    background: ${({ theme }) => theme['bg-color-normal']};
     border: 0 none;
     input{
-      background: ${({theme})=>theme["bg-color-normal"]};
+      background: ${({ theme }) => theme['bg-color-normal']};
       height: 46px !important;
     }
   }
@@ -326,7 +325,7 @@ const ChatSidebar = Styled.div`
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+      border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
       li{
         padding: 0;
         a{
@@ -334,7 +333,7 @@ const ChatSidebar = Styled.div`
           display: block;
           padding: 0 0 18px;
           font-weight: 500;
-          color: ${({theme})=>theme['gray-solid']};
+          color: ${({ theme }) => theme['gray-solid']};
           &:after{
             position: absolute;
             left: 0;
@@ -344,10 +343,10 @@ const ChatSidebar = Styled.div`
             content: '';
             opacity: 0;
             visibility: hidden;
-            background: ${({theme})=>theme['primary-color']};
+            background: ${({ theme }) => theme['primary-color']};
           }
           &.active{
-            color: ${({theme})=>theme['primary-color']};
+            color: ${({ theme }) => theme['primary-color']};
             &:after{
               opacity: 1;
               visibility: visible;
