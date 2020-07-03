@@ -8,9 +8,7 @@ import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
-
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
 import AllContacts from './overview/AllContacts';
