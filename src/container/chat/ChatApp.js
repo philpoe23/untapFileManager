@@ -8,9 +8,7 @@ import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
-
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
 import AllContacts from './overview/AllContacts';
@@ -24,18 +22,17 @@ const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
 
 const ChatApp = ({ searchData, match }) => {
   const [state, setState] = useState({
-    notdata: searchData,
+    search: searchData,
     me: 'woadud@gmail.com',
-    chatType: 'PrivetChat',
   });
 
-  const { notdata, chatType } = state;
+  const { notdata } = state;
 
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      search: data,
     });
   };
 
@@ -103,7 +100,7 @@ const ChatApp = ({ searchData, match }) => {
                   </div>
                 }
               >
-                <Route path={match.path}/>
+                <Route path={match.path} />
                 <Route path={match.path} component={SingleChat} />
                 <Route path={match.path + '/:type/:id'} component={SingleChat} />
                 <Route path={match.path + '/group/:id'} component={SingleGroup} />

@@ -25,10 +25,10 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
         <Button className="btn-add" size="default" type="default" shape="circle" block>
           <FeatherIcon icon="user-plus" size={14} />
           Add New Contact
-        </Button> 
+        </Button>
       </div>
       <ul>
-        {chatData !== undefined &&
+        {chatData &&
           chatData
             .sort((a, b) => {
               return b.time - a.time;
@@ -44,18 +44,14 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
                       <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                     </div>
                     <div className="author-info">
-                      <BlockSpan className="author-name">
-                        {userName}
-                      </BlockSpan>
-                      
+                      <BlockSpan className="author-name">{userName}</BlockSpan>
+
                       <BlockSpan className="author-chatText">
                         {textRefactor(content[content.length - 1]['content'], 5)}
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">
-                      <BlockSpan>
-                          {same ? moment(id).format('hh:mm A') : moment(id).format('LL')}
-                      </BlockSpan>
+                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</BlockSpan>
                     </div>
                   </NavLink>
                 </li>

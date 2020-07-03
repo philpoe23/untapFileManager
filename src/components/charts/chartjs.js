@@ -320,7 +320,6 @@ const ChartjsAreaChart = props => {
       </div>
 
       <Line data={data} height={height} options={{ ...options, ...layout }} />
-
     </div>
   );
 };
@@ -609,20 +608,16 @@ const ChartjsDonutChart = props => {
   const { ref, chartData } = useChartData();
   const data = {
     labels,
-    datasets
+    datasets,
   };
 
   console.log(datasets);
 
   return (
     <div>
-
       <Doughnut ref={ref} data={data} height={height} options={options} />
-
     </div>
   );
-
-  
 };
 
 ChartjsDonutChart.defaultProps = {
@@ -655,17 +650,12 @@ ChartjsDonutChart.propTypes = {
   datasets: PropTypes.arrayOf(PropTypes.object),
 };
 
-
-
-
-
-
 const ChartjsDonutChart2 = props => {
   const { labels, datasets, options, height } = props;
   const { ref, chartData } = useChartData();
   const data = {
     labels,
-    datasets
+    datasets,
   };
 
   console.log(datasets);
@@ -675,19 +665,17 @@ const ChartjsDonutChart2 = props => {
       <Doughnut ref={ref} data={data} height={height} options={options} />
 
       <div className="align-center-v justify-content-between">
-        
         <div className="revenue-chat-label">
           {labels.map(label => {
             return (
               <div className="chart-label">
-                
                 <span className={`label-dot dot-${label}`}></span>
                 {label}
               </div>
             );
           })}
         </div>
-        
+
         <div className="revenue-chart-data">
           {datasets.map(item => {
             const { data, backgroundColor } = item;
@@ -695,7 +683,7 @@ const ChartjsDonutChart2 = props => {
               <div>
                 {data.map(value => {
                   console.log(value);
-                  return(
+                  return (
                     <>
                       <p>${value}</p>
                     </>
@@ -706,11 +694,8 @@ const ChartjsDonutChart2 = props => {
           })}
         </div>
       </div>
-
     </div>
   );
-
-  
 };
 
 ChartjsDonutChart2.defaultProps = {

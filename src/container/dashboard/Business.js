@@ -63,6 +63,9 @@ const options = {
   },
 };
 
+/**
+ * @todo Direct dom manupulation discouraged
+ */
 const handleActiveChange = e => {
   const link = e.currentTarget;
   link

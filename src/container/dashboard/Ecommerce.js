@@ -16,12 +16,22 @@ import { NavLink } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import worldLowRes from '../../config/dataService/vector.json';
 import { Link } from 'react-router-dom';
-import { CardBarChart2, LocationMapWrapper, RevenueWrapper, RevenueTableWrapper, RevenueChartWrapper, ECahrtCard } from './style';
+import {
+  CardBarChart2,
+  LocationMapWrapper,
+  RevenueWrapper,
+  RevenueTableWrapper,
+  RevenueChartWrapper,
+  ECahrtCard,
+} from './style';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
+/**
+ * @todo arbitary naming
+ */
 const content = (
   <Fragment>
     <NavLink to="#">
@@ -35,6 +45,7 @@ const content = (
     </NavLink>
   </Fragment>
 );
+
 const options = {
   legend: {
     display: false,
@@ -786,7 +797,7 @@ const Ecommerce = () => {
                   datasets={[
                     {
                       data: [5870, 4483, 2420],
-                      backgroundColor: ['#560bd0', '#007bff', '#00cccc']
+                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
                     },
                   ]}
                 />
