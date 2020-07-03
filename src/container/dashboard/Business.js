@@ -63,6 +63,9 @@ const options = {
   },
 };
 
+/**
+ * @todo Direct dom manupulation discouraged
+ */
 const handleActiveChange = e => {
   const link = e.currentTarget;
   link
@@ -249,7 +252,6 @@ const Business = () => {
                       label: 'Cash out',
                     },
                   ]}
-                  height={150}
                 />
               </CardBarChart>
             </Cards>

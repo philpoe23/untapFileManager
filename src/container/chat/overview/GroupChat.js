@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../Helper';
@@ -8,18 +8,13 @@ import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 
-const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
-  const [state] = useState({
-    chatData: chat,
-  });
+const GroupChat = ({ match }) => {
+  const chatData = useSelector(state => state.groupChat.data);
+  const dispatch = useDispatch();
 
-  const { chatData } = state;
-
-  const dataFiltering = e => {
-    filterSinglepageGroup(e.currentTarget.getAttribute('data-id'));
+  const dataFiltering = email => {
+    dispatch(filterSinglepageGroup(email));
   };
-
-  console.log(match);
 
   return (
     <ChatWrapper>
@@ -31,7 +26,7 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
       </div>
 
       <ul>
-        {chatData !== undefined &&
+        {chatData &&
           chatData
             .sort((a, b) => {
               return b.time - a.time;
@@ -42,7 +37,7 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
                 <li key={index + 1} className="chat-link-signle">
-                  <NavLink onClick={dataFiltering} data-id={id} to={match.path + '/' + id}>
+                  <NavLink onClick={() => dataFiltering(id)} to={match.path + '/' + id}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />
                     </div>
@@ -65,16 +60,4 @@ const GroupChat = ({ chat, match, filterSinglepageGroup }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepageGroup: paramsId => dispatch(filterSinglepageGroup(paramsId)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    chat: state.groupChat.data,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GroupChat);
+export default GroupChat;

@@ -32,6 +32,9 @@ const Orders = () => {
   const { notdata, item, selectedRowKeys } = state;
   const filterKey = ['Shipped', 'Awaiting Shipment', 'Canceled'];
 
+  /**
+   * @todo purpose
+   */
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -129,11 +132,10 @@ const Orders = () => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
+      <PageHeader
+        ghost
         title="Orders"
         buttons={[
-            
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -142,8 +144,7 @@ const Orders = () => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>

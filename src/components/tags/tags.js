@@ -1,5 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { Input, Icon } from 'antd';
+/**
+ * @todo package evaluation
+ */
 import { TweenOneGroup } from 'rc-tween-one';
 import PropTypes from 'prop-types';
 import { TagStyle } from './style';

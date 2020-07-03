@@ -23,6 +23,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
 
   const { singleContent, name, me, inputValue } = state;
 
+  // ?
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {

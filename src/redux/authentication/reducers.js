@@ -8,6 +8,10 @@ const initState = {
   error: null,
 };
 
+/**
+ *
+ * @todo impure state mutation/explaination
+ */
 const Reducer = (state = initState, action) => {
   const { type, data, err } = action;
   switch (type) {

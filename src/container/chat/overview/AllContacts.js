@@ -28,7 +28,7 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
         </Button>
       </div>
       <ul>
-        {chatData !== undefined &&
+        {chatData &&
           chatData
             .sort((a, b) => {
               return b.time - a.time;

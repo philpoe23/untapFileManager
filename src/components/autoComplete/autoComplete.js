@@ -13,9 +13,7 @@ const AutoComplete = props => {
   const { customComponent, patterns, patternButtons, width, onSearch, dataSource } = props;
 
   const content =
-    dataSource !== undefined &&
-    dataSource.length !== undefined &&
-    dataSource.length > 0 &&
+    dataSource?.length > 0 &&
     dataSource.map(group => {
       const { title, count, id } = group;
       return (
