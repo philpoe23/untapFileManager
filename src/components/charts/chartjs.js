@@ -312,7 +312,7 @@ const ChartjsAreaChart = props => {
 
           return (
             <div className="chart-label__single d-flex">
-              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }}></span>
+              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }} />
               <p>{label}</p>
             </div>
           );
@@ -669,7 +669,7 @@ const ChartjsDonutChart2 = props => {
           {labels.map(label => {
             return (
               <div className="chart-label">
-                <span className={`label-dot dot-${label}`}></span>
+                <span className={`label-dot dot-${label}`} />
                 {label}
               </div>
             );

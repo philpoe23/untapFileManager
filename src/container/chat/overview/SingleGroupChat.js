@@ -1,15 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Upload } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
+import moment from 'moment';
+import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
-import moment from 'moment';
 import { updateGroupChat } from '../../../redux/chat/actionCreator';
-import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
@@ -66,7 +66,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
   };
 
   const content = (
-    <Fragment>
+    <>
       <NavLink to="#">
         <FeatherIcon icon="users" size={14} />
         <span>Create new group</span>
@@ -79,7 +79,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
         <FeatherIcon icon="slash" size={14} />
         <span>Block & Report</span>
       </NavLink>
-    </Fragment>
+    </>
   );
 
   return (

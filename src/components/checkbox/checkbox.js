@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CheckboxStyle } from './style';
+
 const CheckboxGroup = CheckboxStyle.Group;
 
 const Checkbox = props => {

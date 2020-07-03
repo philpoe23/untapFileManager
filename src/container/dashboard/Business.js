@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Progress } from 'antd';
-import { Main } from '../styled';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
-import { Button } from '../../components/buttons/buttons';
 import { Focard, CardBarChart, Exlist, RatioCard, IncomeExpenseWrapper } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { Main } from '../styled';
+import Heading from '../../components/heading/heading';
+import { Button } from '../../components/buttons/buttons';
 
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
 
@@ -16,7 +16,7 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const content = (
-  <Fragment>
+  <>
     <NavLink to="#">
       <span>More one</span>
     </NavLink>
@@ -26,7 +26,7 @@ const content = (
     <NavLink to="#">
       <span>More three</span>
     </NavLink>
-  </Fragment>
+  </>
 );
 
 const options = {
@@ -80,7 +80,7 @@ const handleActiveChange = e => {
 
 const Business = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Finance Dashboard"
@@ -404,8 +404,8 @@ const Business = () => {
                                 fontColor: '#182b49',
                                 max: 80,
                                 stepSize: 20,
-                                callback: function(label, index, labels) {
-                                  return label + 'k';
+                                callback(label, index, labels) {
+                                  return `${label}k`;
                                 },
                               },
                             },
@@ -481,7 +481,7 @@ const Business = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
