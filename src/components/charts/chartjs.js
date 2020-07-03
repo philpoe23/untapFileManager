@@ -325,7 +325,7 @@ const ChartjsAreaChart = props => {
 };
 
 ChartjsAreaChart.defaultProps = {
-  height: 200,
+  height: 250,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [
     {
@@ -414,6 +414,7 @@ const ChartjsBarChartTransparent = props => {
 };
 
 ChartjsBarChartTransparent.defaultProps = {
+  height: 202,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [
     {

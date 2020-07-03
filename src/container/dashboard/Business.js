@@ -252,6 +252,7 @@ const Business = () => {
                       label: 'Cash out',
                     },
                   ]}
+                  height={126}
                 />
               </CardBarChart>
             </Cards>
