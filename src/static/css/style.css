@@ -561,7 +561,7 @@ ul {
 /* popover */
 .ant-popover {
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
 }
 .ant-popover-inner {
   padding: 15px;
@@ -1205,6 +1205,12 @@ ul {
 
 .chart-label .label-dot.dot-warning{
   background: #FA8B0C;
+}
+
+/* NOtification CSS */
+
+.ant-notification{
+  z-index: 99999 !important;
 }
 
 /* Responsive CSS */

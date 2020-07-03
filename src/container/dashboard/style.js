@@ -25,7 +25,6 @@ const Focard = Styled.div`
     canvas{
         width: 100% !important;
         margin-top: 65px;
-        min-height: 100px;
         @media only screen and (max-width: 1199px){
             margin-top: 45px;
         }
@@ -127,12 +126,6 @@ const Focard = Styled.div`
 `;
 
 const CardBarChart = Styled.div`
-    .chartjs-render-monitor{
-        height: 308px !important;
-        @media only screen and (max-width: 1199px) {
-            height: 100% !important;
-        }
-    }
     .card-bar-top{
         &.flex-grid{
             margin-left: -20px;
@@ -493,21 +486,8 @@ const OverviewCard = Styled.div`
 `;
 
 const PerfomenceChartWrapper = Styled.div`
-    canvas{
+    .perfomance-lineChart{
         margin-top: 20px;
-        max-height: 280px;
-        @media only screen and (max-width: 1599px){
-            max-height: 175px;
-        }
-        @media only screen and (max-width: 1400px){
-            min-height: 175px;
-        }
-        @media only screen and (max-width: 1199px){
-            min-height: 195px;
-        }
-        @media only screen and (max-width: 767px){
-            min-height: 100%;
-        }
     }
 `;
 
@@ -654,7 +634,7 @@ const RegionMap = Styled.div`
     svg{
         height: 230px;
         margin: 0 auto;
-        @media only screen and (max-width: 479){
+        @media only screen and (max-width: 479px){
             width: 280px;
         }
     }
@@ -890,7 +870,7 @@ const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 460px;
+            min-height: 465px;
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }

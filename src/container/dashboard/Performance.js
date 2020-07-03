@@ -436,88 +436,90 @@ const Performance = () => {
                   </div>
                 </Pstates>
 
-                <ChartjsAreaChart
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                  datasets={[
-                    {
-                      data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
-                      borderColor: '#5F63F2',
-                      borderWidth: 5,
-                      fill: true,
-                      backgroundColor: '#5F63F210',
-                      label: 'Current period',
-                      pointStyle: 'circle',
-                      pointRadius: '0',
-                      hoverRadius: '9',
-                      pointBorderColor: '#fff',
-                      pointBackgroundColor: '#5F63F2',
-                      hoverBorderWidth: 5,
-                    },
-                    {
-                      data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
-                      borderColor: '#C6D0DC',
-                      borderWidth: 2,
-                      fill: false,
-                      backgroundColor: '#00173750',
-                      label: 'Previous period',
-                      borderDash: [10, 5],
-                      pointRadius: '0',
-                      hoverRadius: '0',
-                    },
-                  ]}
-                  options={{
-                    maintainAspectRatio: true,
-                    legend: {
-                      display: false,
-                      position: 'bottom',
-                      labels: {
-                        boxWidth: 6,
-                        display: true,
-                        usePointStyle: true,
+                <div className="perfomance-lineChart">
+                  <ChartjsAreaChart
+                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                    datasets={[
+                      {
+                        data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
+                        borderColor: '#5F63F2',
+                        borderWidth: 5,
+                        fill: true,
+                        backgroundColor: '#5F63F210',
+                        label: 'Current period',
+                        pointStyle: 'circle',
+                        pointRadius: '0',
+                        hoverRadius: '9',
+                        pointBorderColor: '#fff',
+                        pointBackgroundColor: '#5F63F2',
+                        hoverBorderWidth: 5,
                       },
-                    },
-                    hover: {
-                      mode: 'index',
-                      intersect: false,
-                    },
-                    scales: {
-                      yAxes: [
-                        {
-                          stacked: false,
-                          gridLines: {
-                            display: true,
-                            color: '#e5e9f2',
-                          },
-                          ticks: {
-                            beginAtZero: false,
-                            fontSize: 14,
-                            display: true,
-                            suggestedMin: 50,
-                            suggestedMax: 80,
-                            stepSize: 20,
-                            callback: function(label, index, labels) {
-                              return label + 'k';
+                      {
+                        data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
+                        borderColor: '#C6D0DC',
+                        borderWidth: 2,
+                        fill: false,
+                        backgroundColor: '#00173750',
+                        label: 'Previous period',
+                        borderDash: [10, 5],
+                        pointRadius: '0',
+                        hoverRadius: '0',
+                      },
+                    ]}
+                    options={{
+                      maintainAspectRatio: true,
+                      legend: {
+                        display: false,
+                        position: 'bottom',
+                        labels: {
+                          boxWidth: 6,
+                          display: true,
+                          usePointStyle: true,
+                        },
+                      },
+                      hover: {
+                        mode: 'index',
+                        intersect: false,
+                      },
+                      scales: {
+                        yAxes: [
+                          {
+                            stacked: false,
+                            gridLines: {
+                              display: true,
+                              color: '#e5e9f2',
+                            },
+                            ticks: {
+                              beginAtZero: false,
+                              fontSize: 14,
+                              display: true,
+                              suggestedMin: 50,
+                              suggestedMax: 80,
+                              stepSize: 20,
+                              callback: function(label, index, labels) {
+                                return label + 'k';
+                              },
                             },
                           },
-                        },
-                      ],
-                      xAxes: [
-                        {
-                          stacked: true,
-                          gridLines: {
-                            display: false,
+                        ],
+                        xAxes: [
+                          {
+                            stacked: true,
+                            gridLines: {
+                              display: false,
+                            },
+                            ticks: {
+                              beginAtZero: false,
+                              fontSize: 11,
+                              display: true,
+                            },
                           },
-                          ticks: {
-                            beginAtZero: false,
-                            fontSize: 11,
-                            display: true,
-                          },
-                        },
-                      ],
-                    },
-                  }}
-                  height={90}
-                />
+                        ],
+                      },
+                    }}
+                    height={90}
+                  />
+                </div>
               </Cards>
             </PerfomenceChartWrapper>
           </Col>
