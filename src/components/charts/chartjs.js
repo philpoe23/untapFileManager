@@ -605,7 +605,7 @@ ChartjsPieChart.propTypes = {
 
 const ChartjsDonutChart = props => {
   const { labels, datasets, options, height } = props;
-  const { ref, chartData } = useChartData();
+  const { ref } = useChartData();
   const data = {
     labels,
     datasets,
@@ -652,13 +652,11 @@ ChartjsDonutChart.propTypes = {
 
 const ChartjsDonutChart2 = props => {
   const { labels, datasets, options, height } = props;
-  const { ref, chartData } = useChartData();
+  const { ref } = useChartData();
   const data = {
     labels,
     datasets,
   };
-
-  console.log(datasets);
 
   return (
     <div>
@@ -678,7 +676,7 @@ const ChartjsDonutChart2 = props => {
 
         <div className="revenue-chart-data">
           {datasets.map(item => {
-            const { data, backgroundColor } = item;
+            const { data } = item;
             return (
               <div>
                 {data.map(value => {

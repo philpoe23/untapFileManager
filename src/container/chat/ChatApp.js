@@ -6,7 +6,7 @@ import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
-import { Switch, Route, Link, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import { UL, Content, ChatSidebar } from './style';
 import FeatherIcon from 'feather-icons-react';
 import PrivetChat from './overview/PrivetChat';
