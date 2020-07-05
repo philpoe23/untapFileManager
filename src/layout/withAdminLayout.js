@@ -89,8 +89,7 @@ const ThemeLayout = WrappedComponent => {
     renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
         borderRadius: 6,
-        backgroundColor: darkMode ? '#ffffff16':'#F1F2F6',
-        
+        backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
       };
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     };
@@ -108,7 +107,7 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col md={4} sm={5} className="align-center-v navbar-brand">
+                <Col md={4} sm={5} xs={12} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
                     <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
                   </Button>
@@ -117,23 +116,15 @@ const ThemeLayout = WrappedComponent => {
                   </NavLink>
                 </Col>
 
-                {this.state.width > 800 ? (
-                  <Col md={6} sm={5}>
-                    <HeaderSearch />
-                  </Col>
-                ) : (
-                  <div></div>
-                )}
+                <Col md={6} sm={0} xs={0}>
+                  <HeaderSearch />
+                </Col>
 
-                {this.state.width > 800 ? (
-                  <Col md={14} sm={14}>
-                    <AuthInfo />
-                  </Col>
-                ) : (
-                  <div></div>
-                )}
+                <Col md={14} sm={0} xs={0}>
+                  <AuthInfo />
+                </Col>
 
-                {this.state.width <= 800 && (
+                <Col md={0} sm={19} xs={12}>
                   <Fragment>
                     <div className="mobile-action">
                       <Link className="btn-search" onClick={this.handleSearchHide} to="#">
@@ -144,22 +135,20 @@ const ThemeLayout = WrappedComponent => {
                       </Link>
                     </div>
                   </Fragment>
-                )}
+                </Col>
+                <Col md={0} sm={24} xs={24}>
+                  <div className="small-screen-headerRight">
+                    <SmallScreenSearch hide={this.state.searchHide}>
+                      <HeaderSearch />
+                    </SmallScreenSearch>
+                    <SmallScreenAuthInfo hide={this.state.hide}>
+                      <AuthInfo />
+                    </SmallScreenAuthInfo>
+                  </div>
+                </Col>
               </Row>
             </Header>
 
-            {this.state.width < 800 ? (
-              <div className="small-screen-headerRight">
-                <SmallScreenSearch hide={this.state.searchHide}>
-                  <HeaderSearch />
-                </SmallScreenSearch>
-                <SmallScreenAuthInfo hide={this.state.hide}>
-                  <AuthInfo />
-                </SmallScreenAuthInfo>
-              </div>
-            ) : (
-              ''
-            )}
             <Layout>
               <ThemeProvider theme={darkTheme}>
                 <Sider

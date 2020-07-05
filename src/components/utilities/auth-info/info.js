@@ -1,68 +1,101 @@
-import React from 'react';
-import { InfoWraper , UserDropDwon } from './auth-info-style';
+import React, { useState } from 'react';
+import { InfoWraper, UserDropDwon } from './auth-info-style';
 import Message from './message';
 import Notification from './notification';
 import Settings from './settings';
 import Support from './support';
-import ReactFlagsSelect from 'react-flags-select';
 import { Avatar } from 'antd';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Popover } from '../../popup/popup';
-//import css module
-import 'react-flags-select/css/react-flags-select.css';
+import { Dropdown } from '../../dropdown/dropdown';
+
 import { logOut } from '../../../redux/authentication/actionCreator';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Heading from '../../heading/heading';
 import FeatherIcon from 'feather-icons-react';
 
-const AuthInfo = ({ logOut }) => {
+const AuthInfo = () => {
+  const dispatch = useDispatch();
+  const [state, setState] = useState({
+    flag: 'english',
+  });
+  const { flag } = state;
+
   const SignOut = e => {
     e.preventDefault();
-    logOut();
+    dispatch(logOut());
   };
 
-  const content = (
+  const userContent = (
     <UserDropDwon>
       <div className="user-dropdwon">
-          <figure className="user-dropdwon__info">
-            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-            <figcaption>
-              <Heading as="h5">Abdullah Bin Talha</Heading>
-              <p>UI Designe</p>
-            </figcaption>
-          </figure>
-          <ul className="user-dropdwon__links">
-            <li>
-              <Link to="#">
-                <FeatherIcon icon="user" /> Profile
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <FeatherIcon icon="settings" /> Settings
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <FeatherIcon icon="dollar-sign" /> Billing
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <FeatherIcon icon="users" /> Activity
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <FeatherIcon icon="bell" /> Help
-              </Link>
-            </li>
-          </ul>
-          <Link className="user-dropdwon__bottomAction" onClick={SignOut} to="#">
-            <FeatherIcon icon="log-out" /> Sign Out
-          </Link>
+        <figure className="user-dropdwon__info">
+          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+          <figcaption>
+            <Heading as="h5">Abdullah Bin Talha</Heading>
+            <p>UI Designe</p>
+          </figcaption>
+        </figure>
+        <ul className="user-dropdwon__links">
+          <li>
+            <Link to="#">
+              <FeatherIcon icon="user" /> Profile
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <FeatherIcon icon="settings" /> Settings
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <FeatherIcon icon="dollar-sign" /> Billing
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <FeatherIcon icon="users" /> Activity
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <FeatherIcon icon="bell" /> Help
+            </Link>
+          </li>
+        </ul>
+        <Link className="user-dropdwon__bottomAction" onClick={SignOut} to="#">
+          <FeatherIcon icon="log-out" /> Sign Out
+        </Link>
       </div>
     </UserDropDwon>
+  );
+
+  const onFlagChangeHandle = value => {
+    setState({
+      ...state,
+      flag: value,
+    });
+  };
+
+  const country = (
+    <>
+      <Link onClick={() => onFlagChangeHandle('english')} to="#">
+        <img src={require('../../../static/img/flag/english.png')} alt="" />
+        <span>English</span>
+      </Link>
+      <Link onClick={() => onFlagChangeHandle('germany')} to="#">
+        <img src={require('../../../static/img/flag/germany.png')} alt="" />
+        <span>Germany</span>
+      </Link>
+      <Link onClick={() => onFlagChangeHandle('spain')} to="#">
+        <img src={require('../../../static/img/flag/spain.png')} alt="" />
+        <span>Spain</span>
+      </Link>
+      <Link onClick={() => onFlagChangeHandle('turky')} to="#">
+        <img src={require('../../../static/img/flag/turky.png')} alt="" />
+        <span>Turky</span>
+      </Link>
+    </>
   );
 
   return (
@@ -72,32 +105,23 @@ const AuthInfo = ({ logOut }) => {
 
       <Settings />
       <Support />
-
-      <ReactFlagsSelect
-        countries={['US', 'GB', 'FR', 'DE', 'IT']}
-        customLabels={{ US: 'EN-US', GB: 'EN-GB', FR: 'FR', DE: 'DE', IT: 'IT' }}
-        defaultCountry="US"
-        showSelectedLabel={false}
-        showOptionLabel={true}
-        selectedSize={14}
-        optionsSize={14}
-      />
+      <div className="nav-author">
+        <Dropdown placement="bottomRight" content={country} trigger="click">
+          <Link to="#" className="head-example">
+            <img src={require(`../../../static/img/flag/${flag}.png`)} alt="" />
+          </Link>
+        </Dropdown>
+      </div>
 
       <div className="nav-author">
-        <Popover placement="bottomRight" content={content} trigger="click">
-          <NavLink to="#" className="head-example">
+        <Popover placement="bottomRight" content={userContent} trigger="click">
+          <Link to="#" className="head-example">
             <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
-          </NavLink>
+          </Link>
         </Popover>
       </div>
     </InfoWraper>
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logOut: () => dispatch(logOut()),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(AuthInfo);
+export default AuthInfo;

@@ -1,11 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { Input, Icon } from 'antd';
-/**
- * @todo package evaluation
- */
-import { TweenOneGroup } from 'rc-tween-one';
 import PropTypes from 'prop-types';
 import { TagStyle } from './style';
+
 const { CheckableTag } = TagStyle;
 
 const Tag = props => {
@@ -134,23 +131,7 @@ const AnimatedTags = props => {
 
   return (
     <div>
-      <div style={{ marginBottom: 16 }}>
-        <TweenOneGroup
-          enter={{
-            scale: 0.8,
-            opacity: 0,
-            type: 'from',
-            duration: 100,
-            onComplete: e => {
-              e.target.style = '';
-            },
-          }}
-          leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
-          appear={false}
-        >
-          {tagChild}
-        </TweenOneGroup>
-      </div>
+      <div style={{ marginBottom: 16 }}>{tagChild}</div>
 
       {inputVisible && (
         <Input

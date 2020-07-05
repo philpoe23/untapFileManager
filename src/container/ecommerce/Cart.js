@@ -9,11 +9,11 @@ import Heading from '../../components/heading/heading';
 import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { Button } from '../../components/buttons/buttons';
 
-const Checkout = lazy(() => import('./overview/CheckOut'));
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
+const Checkout = lazy(() => import('./overview/CheckOut'));
 const ShoppingCart = ({ match }) => {
   const [form] = Form.useForm();
 
@@ -150,11 +150,10 @@ const ShoppingCart = ({ match }) => {
 
   return (
     <Fragment>
-      <PageHeader 
-        ghost 
-        title="Shopping Cart" 
+      <PageHeader
+        ghost
+        title="Shopping Cart"
         buttons={[
-            
           <div className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
@@ -163,8 +162,7 @@ const ShoppingCart = ({ match }) => {
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
-          </div>
-
+          </div>,
         ]}
       />
       <Main>
