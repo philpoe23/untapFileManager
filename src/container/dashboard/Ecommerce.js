@@ -1,21 +1,8 @@
 import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Table } from 'antd';
-import { Button } from '../../components/buttons/buttons';
-import { Main } from '../styled';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
-import {
-  ChartjsAreaChart,
-  ChartjsBarChartTransparent,
-  ChartjsLineChart,
-  ChartjsDonutChart2,
-} from '../../components/charts/chartjs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { VectorMap } from '@south-paw/react-vector-maps';
-import worldLowRes from '../../config/dataService/vector.json';
-import { Link } from 'react-router-dom';
 import {
   CardBarChart2,
   LocationMapWrapper,
@@ -24,6 +11,18 @@ import {
   RevenueChartWrapper,
   ECahrtCard,
 } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { Button } from '../../components/buttons/buttons';
+import { Main } from '../styled';
+import Heading from '../../components/heading/heading';
+import {
+  ChartjsAreaChart,
+  ChartjsBarChartTransparent,
+  ChartjsLineChart,
+  ChartjsDonutChart2,
+} from '../../components/charts/chartjs';
+import worldLowRes from '../../config/dataService/vector.json';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -33,7 +32,7 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
  * @todo arbitary naming
  */
 const content = (
-  <Fragment>
+  <>
     <NavLink to="#">
       <span>More one</span>
     </NavLink>
@@ -43,7 +42,7 @@ const content = (
     <NavLink to="#">
       <span>More three</span>
     </NavLink>
-  </Fragment>
+  </>
 );
 
 const options = {
@@ -385,7 +384,7 @@ const handleActiveChange = e => {
 };
 const Ecommerce = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Ecommerce Dashboard"
@@ -806,7 +805,7 @@ const Ecommerce = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

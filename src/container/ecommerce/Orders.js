@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper } from '../styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { TopToolBox } from './Style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, TableWrapper } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { TopToolBox } from './Style';
-import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
@@ -72,7 +72,7 @@ const Orders = () => {
         date: <span className="ordered-date">{date}</span>,
         action: (
           <div className="table-actions">
-            <Fragment>
+            <>
               <Button className="btn-icon" type="primary" to="#" shape="circle">
                 <FeatherIcon icon="eye" size={16} />
               </Button>
@@ -82,7 +82,7 @@ const Orders = () => {
               <Button className="btn-icon" type="danger" to="#" shape="circle">
                 <FeatherIcon icon="trash-2" size={16} />
               </Button>
-            </Fragment>
+            </>
           </div>
         ),
       });
@@ -131,7 +131,7 @@ const Orders = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Orders"
@@ -202,7 +202,7 @@ const Orders = () => {
           </Row>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

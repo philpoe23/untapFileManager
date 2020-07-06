@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store';
 import AdminRoutes from './routes/admin-routes';
-import { connect } from 'react-redux';
+
 import FrontendRoutes from './routes/frontend-routes';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './static/css/style.css';
 import { theme } from './config/theme/themeVariables';
 
