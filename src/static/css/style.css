@@ -577,6 +577,11 @@ ul {
   color: #5A5F7D;
 }
 
+/* Drawer */
+
+.ant-drawer{
+  z-index: 99999;
+}
 /* Select Dropdwon */
 
 .ant-select-dropdown {
