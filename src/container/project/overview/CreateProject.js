@@ -17,15 +17,11 @@ const CreateProject = ({ visible, onCancel }) => {
   });
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (visible) {
       setState({
         visible: visible,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [visible]);
 
   const handleOk = values => {

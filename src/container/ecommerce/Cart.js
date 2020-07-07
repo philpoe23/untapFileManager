@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
@@ -14,10 +14,11 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
+
 const ShoppingCart = ({ match }) => {
   const [form] = Form.useForm();
 
-  const dataSource = [
+  const productTableData = [
     {
       key: '1',
       product: (
@@ -110,7 +111,7 @@ const ShoppingCart = ({ match }) => {
     },
   ];
 
-  const columns = [
+  const productTableColumns = [
     {
       title: 'Product',
       dataIndex: 'product',
@@ -149,7 +150,7 @@ const ShoppingCart = ({ match }) => {
   const { Option } = Select;
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Shopping Cart"
@@ -184,10 +185,14 @@ const ShoppingCart = ({ match }) => {
                         path={match.path}
                         component={() => {
                           return (
-                            <Fragment>
+                            <>
                               <ProductTable>
                                 <div className="table-cart table-responsive">
-                                  <Table pagination={false} dataSource={dataSource} columns={columns} />
+                                  <Table
+                                    pagination={false}
+                                    dataSource={productTableData}
+                                    columns={productTableColumns}
+                                  />
                                 </div>
                               </ProductTable>
 
@@ -207,7 +212,7 @@ const ShoppingCart = ({ match }) => {
                                   </Row>
                                 </Form>
                               </CouponForm>
-                            </Fragment>
+                            </>
                           );
                         }}
                       />
@@ -285,7 +290,7 @@ const ShoppingCart = ({ match }) => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

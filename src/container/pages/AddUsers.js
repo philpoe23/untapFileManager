@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Spin } from 'antd';
@@ -12,7 +12,7 @@ const Social = lazy(() => import('./overview/Social'));
 
 const AddNew = ({ match }) => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Add User" />
       <Main>
         <Row gutter={15}>
@@ -60,7 +60,7 @@ const AddNew = ({ match }) => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

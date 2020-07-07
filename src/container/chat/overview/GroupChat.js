@@ -12,8 +12,8 @@ const GroupChat = ({ match }) => {
   const chatData = useSelector(state => state.groupChat.data);
   const dispatch = useDispatch();
 
-  const dataFiltering = email => {
-    dispatch(filterSinglepageGroup(email));
+  const dataFiltering = id => {
+    dispatch(filterSinglepageGroup(id));
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper } from '../styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,15 +36,11 @@ const Orders = () => {
    * @todo purpose
    */
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (orders) {
       setState({
         item: orders,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [orders]);
 
   const handleSearch = searchText => {
@@ -72,7 +68,7 @@ const Orders = () => {
         date: <span className="ordered-date">{date}</span>,
         action: (
           <div className="table-actions">
-            <Fragment>
+            <>
               <Button className="btn-icon" type="primary" to="#" shape="circle">
                 <FeatherIcon icon="eye" size={16} />
               </Button>
@@ -82,7 +78,7 @@ const Orders = () => {
               <Button className="btn-icon" type="danger" to="#" shape="circle">
                 <FeatherIcon icon="trash-2" size={16} />
               </Button>
-            </Fragment>
+            </>
           </div>
         ),
       });
@@ -131,7 +127,7 @@ const Orders = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Orders"
@@ -202,7 +198,7 @@ const Orders = () => {
           </Row>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

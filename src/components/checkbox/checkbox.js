@@ -23,13 +23,9 @@ const Checkbox = props => {
   };
 
   useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      onChangeTriger && onChangeTriger(state.checkedList);
+    if (onChangeTriger) {
+      onChangeTriger(state.checkedList);
     }
-    return () => {
-      unmount = true;
-    };
     // eslint-disable-next-line
   }, [state]);
 

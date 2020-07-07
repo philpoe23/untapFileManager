@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -8,7 +8,7 @@ import worldLowRes from '../../config/dataService/vector.json';
 import { theme } from '../../config/theme/themeVariables';
 const VectorMaps = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Vector Maps" />
       <Main>
         <Row gutter={25}>
@@ -19,7 +19,7 @@ const VectorMaps = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

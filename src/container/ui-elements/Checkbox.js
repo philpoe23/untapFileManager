@@ -15,13 +15,9 @@ const Checkboxs = () => {
   };
 
   useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
+    if (state) {
       console.log(state);
     }
-    return () => {
-      unmount = true;
-    };
   });
 
   const onChange = (checked, value) => {

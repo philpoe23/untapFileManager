@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Table } from 'antd';
@@ -32,7 +32,7 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 /**
  * @todo arbitary naming
  */
-const content = (
+const moreContent = (
   <Fragment>
     <NavLink to="#">
       <span>More one</span>
@@ -46,7 +46,7 @@ const content = (
   </Fragment>
 );
 
-const options = {
+const chartOptions = {
   legend: {
     display: false,
     labels: {
@@ -129,7 +129,7 @@ const revenuedata = [
         height={30}
         width={120}
         options={{
-          ...options,
+          ...chartOptions,
           elements: {
             point: {
               radius: 0,
@@ -159,7 +159,7 @@ const revenuedata = [
         height={30}
         width={120}
         options={{
-          ...options,
+          ...chartOptions,
           elements: {
             point: {
               radius: 0,
@@ -189,7 +189,7 @@ const revenuedata = [
         height={30}
         width={120}
         options={{
-          ...options,
+          ...chartOptions,
           elements: {
             point: {
               radius: 0,
@@ -219,7 +219,7 @@ const revenuedata = [
         height={30}
         width={120}
         options={{
-          ...options,
+          ...chartOptions,
           elements: {
             point: {
               radius: 0,
@@ -249,7 +249,7 @@ const revenuedata = [
         height={30}
         width={120}
         options={{
-          ...options,
+          ...chartOptions,
           elements: {
             point: {
               radius: 0,
@@ -372,18 +372,50 @@ const locationdata = [
   },
 ];
 
-const handleActiveChange = e => {
-  const link = e.currentTarget;
-  link
-    .closest('ul')
-    .querySelectorAll('li')
-    .forEach(li => {
-      li.classList.remove('active');
-    });
-
-  link.closest('li').classList.add('active');
-};
 const Ecommerce = () => {
+  const [state, setState] = useState({
+    revenue: 'month',
+    generated: 'month',
+    products: 'month',
+    location: 'month',
+    device: 'month',
+  });
+
+  const handleActiveChangeRevenue = value => {
+    setState({
+      ...state,
+      revenue: value,
+    });
+  };
+
+  const handleActiveChangeGenerated = value => {
+    setState({
+      ...state,
+      generated: value,
+    });
+  };
+
+  const handleActiveChangeProducts = value => {
+    setState({
+      ...state,
+      products: value,
+    });
+  };
+
+  const handleActiveChangeLocation = value => {
+    setState({
+      ...state,
+      location: value,
+    });
+  };
+
+  const handleActiveChangeDevice = value => {
+    setState({
+      ...state,
+      device: value,
+    });
+  };
+
   return (
     <Fragment>
       <PageHeader
@@ -428,7 +460,7 @@ const Ecommerce = () => {
                         hoverBackgroundColor: '#5F63F2',
                       },
                     ]}
-                    options={options}
+                    options={chartOptions}
                   />
                 </div>
               </ECahrtCard>
@@ -459,7 +491,7 @@ const Ecommerce = () => {
                         hoverBackgroundColor: '#FF69A5',
                       },
                     ]}
-                    options={options}
+                    options={chartOptions}
                   />
                 </div>
               </ECahrtCard>
@@ -490,7 +522,7 @@ const Ecommerce = () => {
                         hoverBackgroundColor: '#20C997',
                       },
                     ]}
-                    options={options}
+                    options={chartOptions}
                   />
                 </div>
               </ECahrtCard>
@@ -521,7 +553,7 @@ const Ecommerce = () => {
                         hoverBackgroundColor: '#2C99FF',
                       },
                     ]}
-                    options={options}
+                    options={chartOptions}
                   />
                 </div>
               </ECahrtCard>
@@ -535,30 +567,30 @@ const Ecommerce = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.renevue === "today" && "active"}>
+                        <Link onClick={()=>handleActiveChangeRevenue("today")} to="#">
                           Today
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.renevue === "week" && "active"}>
+                        <Link onClick={()=>handleActiveChangeRevenue("week")} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.renevue === "month" && "active"}>
+                        <Link onClick={()=>handleActiveChangeRevenue("month")} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.renevue === "year" && "active"}>
+                        <Link onClick={()=>handleActiveChangeRevenue("year")} to="#">
                           Year
                         </Link>
                       </li>
                     </ul>
                   </div>
                 }
-                more={content}
+                more={moreContent}
                 title="Total Revenue"
                 size="large"
               >
@@ -643,30 +675,30 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Today
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Week
-                          </Link>
-                        </li>
-                        <li className="active">
-                          <Link onClick={handleActiveChange} to="#">
-                            Month
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Year
-                          </Link>
-                        </li>
-                      </ul>
+                      <li className={state.generated === "today" && "active"}>
+                        <Link onClick={()=>handleActiveChangeGenerated("today")} to="#">
+                          Today
+                        </Link>
+                      </li>
+                      <li className={state.generated === "week" && "active"}>
+                        <Link onClick={()=>handleActiveChangeGenerated("week")} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className={state.generated === "month" && "active"}>
+                        <Link onClick={()=>handleActiveChangeGenerated("month")} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li className={state.generated === "year" && "active"}>
+                        <Link onClick={()=>handleActiveChangeGenerated("year")} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                     </div>
                   }
-                  more={content}
+                  more={moreContent}
                   title="Source Of Revenue Generated"
                   size="large"
                 >
@@ -683,23 +715,23 @@ const Ecommerce = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.products === "today" && "active"}>
+                        <Link onClick={()=>handleActiveChangeProducts("today")} to="#">
                           Today
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.products === "week" && "active"}>
+                        <Link onClick={()=>handleActiveChangeProducts("week")} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.products === "month" && "active"}>
+                        <Link onClick={()=>handleActiveChangeProducts("month")} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.products === "year" && "active"}>
+                        <Link onClick={()=>handleActiveChangeProducts("year")} to="#">
                           Year
                         </Link>
                       </li>
@@ -723,27 +755,27 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Today
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Week
-                          </Link>
-                        </li>
-                        <li className="active">
-                          <Link onClick={handleActiveChange} to="#">
-                            Month
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={handleActiveChange} to="#">
-                            Year
-                          </Link>
-                        </li>
-                      </ul>
+                      <li className={state.location === "today" && "active"}>
+                        <Link onClick={()=>handleActiveChangeLocation("today")} to="#">
+                          Today
+                        </Link>
+                      </li>
+                      <li className={state.location === "week" && "active"}>
+                        <Link onClick={()=>handleActiveChangeLocation("week")} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className={state.location === "month" && "active"}>
+                        <Link onClick={()=>handleActiveChangeLocation("month")} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li className={state.location === "year" && "active"}>
+                        <Link onClick={()=>handleActiveChangeLocation("year")} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                     </div>
                   }
                   title="Sales By Location"
@@ -766,23 +798,23 @@ const Ecommerce = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === "today" && "active"}>
+                        <Link onClick={()=>handleActiveChangeDevice("today")} to="#">
                           Today
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === "week" && "active"}>
+                        <Link onClick={()=>handleActiveChangeDevice("week")} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === "month" && "active"}>
+                        <Link onClick={()=>handleActiveChangeDevice("month")} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === "year" && "active"}>
+                        <Link onClick={()=>handleActiveChangeDevice("year")} to="#">
                           Year
                         </Link>
                       </li>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
 import { Main } from '../styled';
@@ -10,7 +10,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 
 const PricingTable = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Pricing Table" />
       <Main>
         <Row gutter={25} justify="center">
@@ -179,7 +179,7 @@ const PricingTable = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

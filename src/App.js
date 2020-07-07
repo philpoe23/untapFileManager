@@ -17,15 +17,11 @@ function App({ auth }) {
   const { isLogedIn } = state;
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (auth) {
       setState({
         isLogedIn: auth,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [auth]);
 
   return (

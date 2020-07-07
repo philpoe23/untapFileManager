@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { Row, Col, Upload, Spin } from 'antd';
@@ -16,14 +16,13 @@ const Notification = lazy(() => import('./overview/Notification'));
 
 const Settings = ({ match }) => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Profile Settings" />
 
       <Main>
         <Row gutter={25}>
           <Col xxl={5} lg={8} md={10} xs={24}>
             <ProfileAuthorBox>
-
               <Cards headless>
                 <div className="author-info">
                   <figure>
@@ -95,7 +94,11 @@ const Settings = ({ match }) => {
           <Col xxl={19} lg={16} md={14} xs={24}>
             <SettingWrapper>
               <div className="cover-image">
-                <img style={{ width: '100%' }} src={require('../../../static/img/profile/CoverImage.svg')} alt="banner" />
+                <img
+                  style={{ width: '100%' }}
+                  src={require('../../../static/img/profile/CoverImage.svg')}
+                  alt="banner"
+                />
                 <Upload>
                   <Link to="#">
                     <FeatherIcon icon="camera" size={16} /> Change Cover
@@ -121,7 +124,7 @@ const Settings = ({ match }) => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

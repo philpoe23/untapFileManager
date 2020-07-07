@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col } from 'antd';
@@ -9,7 +9,7 @@ const { map_one_styles, map_style_dark, map_two_styles, map_Three_styles } = map
 
 const GoogleMap = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Google Maps" />
       <Main>
         <Row gutter={25}>
@@ -70,7 +70,7 @@ const GoogleMap = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

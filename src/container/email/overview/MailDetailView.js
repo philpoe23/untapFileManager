@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { filterSinglepage } from '../../../redux/email/actionCreator';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,14 +18,10 @@ const Single = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (filterSinglepage) {
       const id = parseInt(match.params.id);
       dispatch(filterSinglepage(id));
     }
-    return () => {
-      unmounted = true;
-    };
   }, [match.params.id, dispatch]);
 
   const replyMail = async replyMessage => {
@@ -37,7 +33,7 @@ const Single = props => {
     <MailDetailsWrapper>
       <Cards
         title={
-          <Fragment>
+          <>
             <MessageAction>
               <Link onClick={() => history.goBack()} to="#">
                 <FeatherIcon icon="arrow-left" size={14} />
@@ -73,7 +69,7 @@ const Single = props => {
                 </NavLink>
               </Tooltip>
             </MessageAction>
-          </Fragment>
+          </>
         }
         isbutton={
           <MailRightAction>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper } from '../styled';
 import { useSelector } from 'react-redux';
@@ -28,15 +28,11 @@ const Sellers = () => {
   const { notdata, selectedRowKeys, item } = state;
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (sellers) {
       setState({
         item: sellers,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [sellers]);
 
   const handleSearch = searchText => {
@@ -55,10 +51,10 @@ const Sellers = () => {
         key: id,
         name: (
           <div className="seller-info">
-            <Fragment>
+            <>
               <img src={require('../../' + img)} alt="" />
               {name}
-            </Fragment>
+            </>
           </div>
         ),
         store: storeName,
@@ -66,14 +62,14 @@ const Sellers = () => {
         date: date,
         action: (
           <div className="table-actions">
-            <Fragment>
+            <>
               <Button className="btn-icon" type="info" to="#" shape="circle">
                 <FeatherIcon icon="edit" size={16} />
               </Button>
               <Button className="btn-icon" type="danger" to="#" shape="circle">
                 <FeatherIcon icon="trash-2" size={16} />
               </Button>
-            </Fragment>
+            </>
           </div>
         ),
       });
@@ -122,23 +118,21 @@ const Sellers = () => {
   };
 
   return (
-    <Fragment>
-      <PageHeader 
-      ghost
-      title="Sellers" 
-      buttons={[
-            
-        <div className="page-header-actions">
-          <CalendarButtonPageHeader key="1" />
-          <ExportButtonPageHeader key="2" />
-          <ShareButtonPageHeader key="3" />
-          <Button size="small" key="4" type="primary">
-            <FeatherIcon icon="plus" size={14} />
-            Add New
-          </Button>
-        </div>
-
-      ]}
+    <>
+      <PageHeader
+        ghost
+        title="Sellers"
+        buttons={[
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
       />
       <Main>
         <Cards headless>
@@ -178,7 +172,7 @@ const Sellers = () => {
           </Row>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

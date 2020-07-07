@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import Title from '../../../components/heading/heading';
 import { Input, Form } from 'antd';
@@ -50,7 +50,7 @@ const EamilNavbar = ({ path }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <EmailNav>
         <ul>
           <li>
@@ -63,19 +63,50 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'starred'}><FeatherIcon icon="star" size={18} /> <span className="nav-text"> <span>Starred</span> </span></NavLink>
+            <NavLink to={path + 'starred'}>
+              <FeatherIcon icon="star" size={18} />{' '}
+              <span className="nav-text">
+                {' '}
+                <span>Starred</span>{' '}
+              </span>
+            </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'sent'}><FeatherIcon icon="send" size={18} /><span className="nav-text"> <span>Sent</span> </span> </NavLink>
+            <NavLink to={path + 'sent'}>
+              <FeatherIcon icon="send" size={18} />
+              <span className="nav-text">
+                {' '}
+                <span>Sent</span>{' '}
+              </span>{' '}
+            </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'drafts'}><FeatherIcon icon="edit" size={18} /><span className="nav-text"> <span>Drafts</span> </span> <span className="badge badge-primary">12</span></NavLink>
+            <NavLink to={path + 'drafts'}>
+              <FeatherIcon icon="edit" size={18} />
+              <span className="nav-text">
+                {' '}
+                <span>Drafts</span>{' '}
+              </span>{' '}
+              <span className="badge badge-primary">12</span>
+            </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'spam'}><FeatherIcon icon="alert-octagon" size={18} /><span className="nav-text"> <span>Spam</span> </span> </NavLink>
+            <NavLink to={path + 'spam'}>
+              <FeatherIcon icon="alert-octagon" size={18} />
+              <span className="nav-text">
+                {' '}
+                <span>Spam</span>{' '}
+              </span>{' '}
+            </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'trash'}><FeatherIcon icon="trash" size={18} /><span className="nav-text"> <span>Trash</span> </span> </NavLink>
+            <NavLink to={path + 'trash'}>
+              <FeatherIcon icon="trash" size={18} />
+              <span className="nav-text">
+                {' '}
+                <span>Trash</span>{' '}
+              </span>{' '}
+            </NavLink>
           </li>
         </ul>
         <div className="nav-labels">
@@ -84,7 +115,9 @@ const EamilNavbar = ({ path }) => {
             {labels.map((label, index) => {
               return (
                 <li key={index + 1}>
-                  <NavLink to={`${path + label}`}><FeatherIcon icon="list" size={18} /> {label}</NavLink>
+                  <NavLink to={`${path + label}`}>
+                    <FeatherIcon icon="list" size={18} /> {label}
+                  </NavLink>
                 </li>
               );
             })}
@@ -119,7 +152,7 @@ const EamilNavbar = ({ path }) => {
           </ul>
         </div>
       </EmailNav>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../Helper';
@@ -8,7 +8,10 @@ import { filterSinglepage } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 
-const AllContacts = ({ chat, match, filterSinglepage }) => {
+const AllContacts = ({ match }) => {
+  const dispatch = useDispatch();
+  const chat = useSelector(state => state.chat.data);
+
   const [state] = useState({
     chatData: chat,
   });
@@ -16,7 +19,7 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
   const { chatData } = state;
 
   const dataFiltering = e => {
-    filterSinglepage(e.currentTarget.getAttribute('data-email'));
+    dispatch(filterSinglepage(e.currentTarget.getAttribute('data-email')));
   };
 
   return (
@@ -62,16 +65,4 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: paramsId => dispatch(filterSinglepage(paramsId)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    chat: state.chat.data,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllContacts);
+export default AllContacts;

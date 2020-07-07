@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,14 +30,9 @@ const ProductDetails = ({ match }) => {
   });
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (filterSinglepage) {
       dispatch(filterSinglepage(parseInt(match.params.id)));
     }
-
-    return () => {
-      unmounted = true;
-    };
   }, [match.params.id, dispatch]);
 
   const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
@@ -62,7 +57,7 @@ const ProductDetails = ({ match }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Product Details"
@@ -215,7 +210,7 @@ const ProductDetails = ({ match }) => {
           </ProductDetailsWrapper>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

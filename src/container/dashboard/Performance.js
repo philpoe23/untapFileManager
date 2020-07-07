@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Progress, Table } from 'antd';
@@ -28,7 +28,7 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const content = (
+const moreContent = (
   <Fragment>
     <NavLink to="#">
       <span>More one</span>
@@ -254,19 +254,50 @@ const regiondata = [
   },
 ];
 
-const handleActiveChange = e => {
-  const link = e.currentTarget;
-  link
-    .closest('ul')
-    .querySelectorAll('li')
-    .forEach(li => {
-      li.classList.remove('active');
-    });
-
-  link.closest('li').classList.add('active');
-};
-
 const Performance = () => {
+  const [state, setState] = useState({
+    performance: 'month',
+    traffic: 'month',
+    device: 'month',
+    landing: 'month',
+    region: 'month',
+  });
+
+  const handleActiveChangePerformance = value => {
+    setState({
+      ...state,
+      performance: value,
+    });
+  };
+
+  const handleActiveChangeTraffic = value => {
+    setState({
+      ...state,
+      traffic: value,
+    });
+  };
+
+  const handleActiveChangeDevice = value => {
+    setState({
+      ...state,
+      device: value,
+    });
+  };
+
+  const handleActiveChangeLanding = value => {
+    setState({
+      ...state,
+      landing: value,
+    });
+  };
+
+  const handleActiveChangeRegion = value => {
+    setState({
+      ...state,
+      region: value,
+    });
+  };
+
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
@@ -367,25 +398,25 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.performance === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangePerformance('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.performance === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangePerformance('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.performance === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangePerformance('year')} to="#">
                           Year
                         </Link>
                       </li>
                     </ul>
                   </div>
                 }
-                more={content}
+                more={moreContent}
                 title="Website Performance"
                 size="large"
               >
@@ -529,18 +560,18 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.traffic === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTraffic('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.traffic === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTraffic('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.traffic === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTraffic('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -549,7 +580,7 @@ const Performance = () => {
                 }
                 title="Traffic Channels"
                 size="large"
-                more={content}
+                more={moreContent}
               >
                 <TrafficTableWrapper>
                   <div class="table-bordered table-responsive">
@@ -565,18 +596,18 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeDevice('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeDevice('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.device === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeDevice('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -633,18 +664,18 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.landing === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLanding('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.landing === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLanding('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.landing === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLanding('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -653,7 +684,7 @@ const Performance = () => {
                 }
                 title="Top Landing Pages"
                 size="large"
-                more={content}
+                more={moreContent}
               >
                 <LadingPages>
                   <div className="table-bordered table-responsive">
@@ -668,18 +699,18 @@ const Performance = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.region === 'week' && 'active'}>
+                      <Link onClick={() => handleActiveChangeRegion('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.region === 'month' && 'active'}>
+                      <Link onClick={() => handleActiveChangeRegion('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.region === 'year' && 'active'}>
+                      <Link onClick={() => handleActiveChangeRegion('year')} to="#">
                         Year
                       </Link>
                     </li>
@@ -688,7 +719,7 @@ const Performance = () => {
               }
               title="Sessions by Region"
               size="large"
-              more={content}
+              more={moreContent}
             >
               <Row>
                 <Col xxl={10} md={11} xs={24}>

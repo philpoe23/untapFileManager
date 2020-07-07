@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Radio, Table } from 'antd';
@@ -15,83 +15,106 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const options = {
-  layout: {
-    padding: {
-      left: '-10',
-      right: '20px',
-      top: 0,
-      bottom: '-60',
-    },
-  },
-  legend: {
-    display: false,
-    labels: {
-      display: false,
-    },
-  },
-  elements: {
-    point: {
-      radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-    },
-    line: {
-      tension: 0,
-    },
-  },
-  scales: {
-    yAxes: [
-      {
-        stacked: true,
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-    ],
-    xAxes: [
-      {
-        stacked: true,
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-    ],
-  },
-};
-
-const content = (
-  <Fragment>
-    <NavLink to="#">
-      <span>2 years</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>3 years</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>4 years</span>
-    </NavLink>
-  </Fragment>
-);
-
-const handleActiveChange = e => {
-  const link = e.currentTarget;
-  link
-    .closest('ul')
-    .querySelectorAll('li')
-    .forEach(li => {
-      li.classList.remove('active');
-    });
-
-  link.closest('li').classList.add('active');
-};
-
 const Dashbord = () => {
-  const columns = [
+  const [state, setState] = useState({
+    youtubeSbscribeTabActive: 'month',
+    twitterOverviewTabActive: 'month',
+    instagramOverviewTabActive: 'month',
+    linkdinOverviewTabActive: 'month',
+  });
+
+  const chartOptions = {
+    layout: {
+      padding: {
+        left: '-10',
+        right: '20px',
+        top: 0,
+        bottom: '-60',
+      },
+    },
+    legend: {
+      display: false,
+      labels: {
+        display: false,
+      },
+    },
+    elements: {
+      point: {
+        radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+      },
+      line: {
+        tension: 0,
+      },
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: true,
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+    },
+  };
+
+  const moreContent = (
+    <>
+      <NavLink to="#">
+        <span>2 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>3 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>4 years</span>
+      </NavLink>
+    </>
+  );
+
+  const handleActiveChangeYoutube = value => {
+    setState({
+      ...state,
+      youtubeSbscribeTabActive: value,
+    });
+  };
+
+  const handleActiveChangeTwitter = value => {
+    setState({
+      ...state,
+      twitterOverviewTabActive: value,
+    });
+  };
+
+  const handleActiveChangeInstagram = value => {
+    setState({
+      ...state,
+      instagramOverviewTabActive: value,
+    });
+  };
+
+  const handleActiveChangeLinkdin = value => {
+    setState({
+      ...state,
+      linkdinOverviewTabActive: value,
+    });
+  };
+
+  const trafficTablecolumns = [
     {
       dataIndex: 'network',
       key: 'network',
@@ -124,7 +147,7 @@ const Dashbord = () => {
     },
   ];
 
-  const data = [
+  const trafficTabledata = [
     {
       key: '1',
       network: <span className="traffic-title">Social Network</span>,
@@ -397,18 +420,18 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.youtubeSbscribeTabActive === 'week' && 'active'}>
+                      <Link onClick={() => handleActiveChangeYoutube('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.youtubeSbscribeTabActive === 'month' && 'active'}>
+                      <Link onClick={() => handleActiveChangeYoutube('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.youtubeSbscribeTabActive === 'year' && 'active'}>
+                      <Link onClick={() => handleActiveChangeYoutube('year')} to="#">
                         Year
                       </Link>
                     </li>
@@ -504,18 +527,18 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.twitterOverviewTabActive === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTwitter('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.twitterOverviewTabActive === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTwitter('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.twitterOverviewTabActive === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeTwitter('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -550,7 +573,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -580,7 +603,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -610,7 +633,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -640,7 +663,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -670,7 +693,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -684,18 +707,18 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.instagramOverviewTabActive === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeInstagram('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.instagramOverviewTabActive === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeInstagram('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.instagramOverviewTabActive === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeInstagram('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -730,7 +753,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -760,7 +783,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -790,7 +813,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -820,7 +843,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -850,7 +873,7 @@ const Dashbord = () => {
                             fill: false,
                           },
                         ]}
-                        options={options}
+                        options={chartOptions}
                       />
                     </div>
                   </Col>
@@ -864,18 +887,18 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.linkdinOverviewTabActive === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLinkdin('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.linkdinOverviewTabActive === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLinkdin('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link to="#" onClick={handleActiveChange}>
+                      <li className={state.linkdinOverviewTabActive === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeLinkdin('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -911,7 +934,7 @@ const Dashbord = () => {
                               fill: false,
                             },
                           ]}
-                          options={options}
+                          options={chartOptions}
                         />
                       </div>
                     </Col>
@@ -941,7 +964,7 @@ const Dashbord = () => {
                               fill: false,
                             },
                           ]}
-                          options={options}
+                          options={chartOptions}
                         />
                       </div>
                     </Col>
@@ -971,7 +994,7 @@ const Dashbord = () => {
                               fill: false,
                             },
                           ]}
-                          options={options}
+                          options={chartOptions}
                         />
                       </div>
                     </Col>
@@ -1001,7 +1024,7 @@ const Dashbord = () => {
                               fill: false,
                             },
                           ]}
-                          options={options}
+                          options={chartOptions}
                         />
                       </div>
                     </Col>
@@ -1031,7 +1054,7 @@ const Dashbord = () => {
                               fill: false,
                             },
                           ]}
-                          options={options}
+                          options={chartOptions}
                         />
                       </div>
                     </Col>
@@ -1056,10 +1079,10 @@ const Dashbord = () => {
                   }
                   title="Social Traffic Metrics"
                   size="large"
-                  more={content}
+                  more={moreContent}
                 >
                   <div className="traffic-table table-responsive">
-                    <Table columns={columns} dataSource={data} pagination={false} />
+                    <Table columns={trafficTablecolumns} dataSource={trafficTabledata} pagination={false} />
                   </div>
                 </Cards>
               </div>

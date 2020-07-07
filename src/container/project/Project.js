@@ -21,6 +21,7 @@ const Project = ({ match }) => {
   const [state, setState] = useState({
     notdata: searchData,
     visible: false,
+    categoryActive: 'all',
   });
 
   const { notdata, visible } = state;
@@ -36,18 +37,12 @@ const Project = ({ match }) => {
     dispatch(sortingProjectByCategory(selectedItems));
   };
 
-  const onChangeCategory = e => {
-    e.preventDefault();
-    const link = e.currentTarget;
-    link
-      .closest('ul')
-      .querySelectorAll('li')
-      .forEach(li => {
-        li.classList.remove('active');
-      });
-
-    link.closest('li').classList.add('active');
-    dispatch(filterProjectByStatus(e.currentTarget.getAttribute('data-category')));
+  const onChangeCategory = value => {
+    setState({
+      ...state,
+      categoryActive: value,
+    });
+    dispatch(filterProjectByStatus(value));
   };
 
   const showModal = e => {
@@ -84,28 +79,28 @@ const Project = ({ match }) => {
                 <div className="project-sort-nav">
                   <nav>
                     <ul>
-                      <li className="active">
-                        <Link onClick={onChangeCategory} data-category="all" to="#">
+                      <li className={state.categoryActive === 'all' && 'active'}>
+                        <Link onClick={() => onChangeCategory('all')} to="#">
                           All
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="progress" to="#">
+                      <li className={state.categoryActive === 'progress' && 'active'}>
+                        <Link onClick={() => onChangeCategory('progress')} to="#">
                           In Progress
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="complete" to="#">
+                      <li className={state.categoryActive === 'complete' && 'active'}>
+                        <Link onClick={() => onChangeCategory('complete')} to="#">
                           Complete
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="late" to="#">
+                      <li className={state.categoryActive === 'late' && 'active'}>
+                        <Link onClick={() => onChangeCategory('late')} to="#">
                           Late
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="early" to="#">
+                      <li className={state.categoryActive === 'early' && 'active'}>
+                        <Link onClick={() => onChangeCategory('early')} to="#">
                           Early
                         </Link>
                       </li>

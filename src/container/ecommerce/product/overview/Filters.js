@@ -1,13 +1,13 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import Heading from '../../../../components/heading/heading';
 import { Slider } from '../../../../components/slider/slider';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { CheckboxGroup } from '../../../../components/checkbox/checkbox';
 import { Sidebar, SidebarSingle } from '../../Style';
 import { Rate } from 'antd';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   filterByPriceRange,
   filterByRating,
@@ -15,11 +15,13 @@ import {
   filterByCategory,
 } from '../../../../redux/product/actionCreator';
 
-const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }) => {
+const Filters = () => {
   const [state, setState] = useState({
     min: 0,
     max: 1500,
   });
+  const dispatch = useDispatch();
+
   const { min, max } = state;
   const onChange = value => {
     setState({
@@ -27,71 +29,71 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
       min: value[0],
       max: value[1],
     });
-    priceRange(value);
+    dispatch(filterByPriceRange(value));
   };
   const onChangeRating = (checkValue, value) => {
-    filterByRating([checkValue]);
+    dispatch(filterByRating([checkValue]));
   };
   const onChangeBrand = (checkValue, value) => {
-    filterByBrand([checkValue]);
+    dispatch(filterByBrand([checkValue]));
   };
   const options = [
     {
       label: (
-        <Fragment>
+        <>
           <span className="rating-left">
             <Rate allowHalf defaultValue={5} disabled />
           </span>
           <span className="rating-right">25</span>
-        </Fragment>
+        </>
       ),
       value: 5,
     },
     {
       label: (
-        <Fragment>
+        <>
           <span className="rating-left">
             <Rate allowHalf defaultValue={4} disabled />
             and up
           </span>
           <span className="rating-right">25</span>
-        </Fragment>
+        </>
       ),
       value: 4,
     },
     {
       label: (
-        <Fragment>
+        <>
           <span className="rating-left">
             <Rate allowHalf defaultValue={3} disabled />
             and up
           </span>
           <span className="rating-right">25</span>
-        </Fragment>
+        </>
       ),
       value: 3,
     },
     {
       label: (
-        <Fragment>
+        <>
           <span className="rating-left">
             <Rate allowHalf defaultValue={2} disabled />
             and up
           </span>
           <span className="rating-right">25</span>
-        </Fragment>
+        </>
       ),
       value: 2,
     },
     {
       label: (
-        <Fragment>
+        <>
           <span className="rating-left">
             <Rate allowHalf defaultValue={1} disabled />
             and up
           </span>
           <span className="rating-right">25</span>
-        </Fragment>
+        </>
       ),
       value: 1,
     },
@@ -100,41 +102,40 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
   const optionsBrand = [
     {
       label: (
-        <Fragment>
+        <>
           Cup <span>25</span>
-        </Fragment>
+        </>
       ),
       value: 'cup',
     },
     {
       label: (
-        <Fragment>
+        <>
           Plate <span>25</span>
-        </Fragment>
+        </>
       ),
       value: 'plate',
     },
     {
       label: (
-        <Fragment>
+        <>
           Chair <span>25</span>
-        </Fragment>
+        </>
       ),
       value: 'chair',
     },
     {
       label: (
-        <Fragment>
+        <>
           Juice <span>25</span>
-        </Fragment>
+        </>
       ),
       value: 'juice',
     },
   ];
 
-  const onChangeCategory = e => {
-    e.preventDefault();
-    filterByCategory(e.target.getAttribute('data-category'));
+  const onChangeCategory = value => {
+    dispatch(filterByCategory(value));
   };
 
   return (
@@ -160,59 +161,59 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
           <nav>
             <ul className="atbd-category-list">
               <li>
-                <NavLink onClick={onChangeCategory} data-category="al;" to="/category">
+                <Link onClick={() => onChangeCategory('all')} to="#">
                   <span>All</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="accessories" to="/category">
+                <Link onClick={() => onChangeCategory('accessories')} to="#">
                   <span>Accessories</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="appliance" to="/category">
+                <Link onClick={() => onChangeCategory('appliance')} to="#">
                   <span>Appliances</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="bags" to="/category">
+                <Link onClick={() => onChangeCategory('bags')} to="#">
                   <span>Bags</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="electronic" to="/category">
+                <Link onClick={() => onChangeCategory('electronic')} to="#">
                   <span>Electronic</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="entertainment" to="/category">
+                <Link onClick={() => onChangeCategory('entertainment')} to="#">
                   <span>Entertainment</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="induction" to="/category">
+                <Link onClick={() => onChangeCategory('induction')} to="#">
                   <span>Induction</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink onClick={onChangeCategory} data-category="mobile" to="/category">
+                <Link onClick={() => onChangeCategory('mobile')} to="#">
                   <span>Mobile Phone</span>
                   <span className="category-count">25</span>
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </nav>
           <div className="sidebar-single__action">
-            <NavLink className="btn-seeMore" to="#">
+            <Link className="btn-seeMore" to="#">
               See more
-            </NavLink>
+            </Link>
           </div>
         </SidebarSingle>
 
@@ -221,9 +222,9 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
           <CheckboxGroup options={optionsBrand} onChange={onChangeBrand} />
 
           <div className="sidebar-single__action">
-            <NavLink className="btn-seeMore" to="#">
+            <Link className="btn-seeMore" to="#">
               See more
-            </NavLink>
+            </Link>
           </div>
         </SidebarSingle>
 
@@ -235,12 +236,5 @@ const Filters = ({ priceRange, filterByRating, filterByBrand, filterByCategory }
     </Sidebar>
   );
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    priceRange: range => dispatch(filterByPriceRange(range)),
-    filterByRating: range => dispatch(filterByRating(range)),
-    filterByBrand: brand => dispatch(filterByBrand(brand)),
-    filterByCategory: category => dispatch(filterByCategory(category)),
-  };
-};
-export default connect(null, mapDispatchToProps)(Filters);
+
+export default Filters;

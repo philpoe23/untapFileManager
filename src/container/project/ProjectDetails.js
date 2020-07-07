@@ -1,7 +1,7 @@
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Progress, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../components/heading/heading';
@@ -15,16 +15,16 @@ import { ProjectDetailsWrapper, TaskLists } from './style';
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
 
-const ProjectDetails = ({ match, project, filterSinglepage }) => {
+const ProjectDetails = ({ match }) => {
+  const dispatch = useDispatch();
+  const project = useSelector(state => state.project.data);
+
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      filterSinglepage(parseInt(match.params.id));
+    if (filterSinglepage) {
+      dispatch(filterSinglepage(parseInt(match.params.id)));
     }
-    return () => {
-      unmounted = true;
-    };
-  }, [match.params.id, filterSinglepage]);
+  }, [match.params.id, dispatch]);
+
   const { title, content } = project[0];
 
   return (
@@ -229,7 +229,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/zip.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/zip.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Main-admin-design.zip</span>
@@ -242,7 +242,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -255,7 +255,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -263,11 +263,12 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/pdf.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/pdf.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Product-guidelines.pdf</span>
@@ -281,7 +282,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -294,7 +295,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -302,11 +303,12 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/psd.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/psd.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">admin-wireframe.psd</span>
@@ -319,7 +321,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -332,7 +334,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -340,11 +342,12 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/jpg.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/jpg.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Wirefram-escreenshots.jpg</span>
@@ -358,7 +361,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -371,7 +374,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -379,11 +382,12 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/png.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/png.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Logo.png</span>
@@ -398,7 +402,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                     <Dropdown
                       content={
                         <div className="dropdown-more">
-                          <Fragment>
+                          <>
                             <Link to="#">
                               <FeatherIcon icon="eye" size={14} />
                               Viewt
@@ -411,7 +415,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                               <FeatherIcon icon="trash-2" size={14} />
                               Delete
                             </Link>
-                          </Fragment>
+                          </>
                         </div>
                       }
                     >
@@ -420,7 +424,8 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
               </div>
             </Cards>
           </Col>
@@ -430,17 +435,4 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: id => dispatch(filterSinglepage(id)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    project: state.project.data,
-    // products: state.products,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default ProjectDetails;
