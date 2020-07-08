@@ -156,7 +156,7 @@ const AdminRoutes = () => {
         <Route path="/charts/peity" component={Peity} />
 
         <Route path="/maps/google" component={GoogleMaps} />
-        <Route path="/maps/leaflet" component={Osm} />
+        <Route path="/maps/Leaflet" component={Osm} />
         <Route path="/maps/vector" component={Vector} />
         <Route path="/icon/feathers" component={Feathers} />
         <Route path="/icon/font-awesome" component={Fa} />
