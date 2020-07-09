@@ -138,10 +138,10 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
-                    <SmallScreenSearch hide={this.state.searchHide}>
+                    <SmallScreenSearch hide={this.state.searchHide} darkMode={darkMode}>
                       <HeaderSearch />
                     </SmallScreenSearch>
-                    <SmallScreenAuthInfo hide={this.state.hide}>
+                    <SmallScreenAuthInfo hide={this.state.hide} darkMode={darkMode}>
                       <AuthInfo />
                     </SmallScreenAuthInfo>
                   </div>

@@ -148,11 +148,11 @@ ul {
   left: 5px;
   bottom: 0;
 }
-
+/* 
 .growth-downward h1, .growth-upward h1 {
   font-size: 22px;
   margin: 6px 0 0;
-}
+} */
 
 .growth-downward h1 sub {
   color: #FF4D4F;

@@ -33,7 +33,6 @@ const Focard = Styled.div`
         &.growth-downward{
             h1{
                 font-size: 30px;
-                margin: 0 0 4px;
             }
             .focard-status{
                 .focard-status__percentage{
@@ -168,7 +167,7 @@ const CardBarChart = Styled.div`
 const CardGroup = Styled.div`
     .forcast-overview{
         .ant-card-body{
-            padding: 0 25px !important;
+            padding: 0 24px !important;
         }
     }
     .card-radio{
@@ -206,12 +205,12 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 15px 25px 0;
+        padding: 24px 0 25px 12px;
         @media only screen and (max-width: 1199px){
             margin: 0;
         }
         .ant-col-md-12{
-            padding: 0 0 0 24px;
+            padding: 0 12px 0 12px;
             @media only screen and (max-width: 1350px){
                 padding: 0 6px;
             }
@@ -233,7 +232,7 @@ const CardGroup = Styled.div`
                 }
             }
             &:last-child{
-                padding: 0 14px 0 24px;
+                padding: 0 12px 0 12px;
                 @media only screen and (max-width: 1350px){
                     &:last-child{
                         padding: 0 6px 0 14px;
@@ -251,7 +250,8 @@ const CardGroup = Styled.div`
         }
         
         &.focard-divider{
-            padding-left: 5px;
+            padding-left: 0;
+            padding-right: 15px;
             border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
             @media only screen and (max-width: 1199px){
                 border-right: 0 none !important;
@@ -259,7 +259,7 @@ const CardGroup = Styled.div`
             }
             .ant-col-md-12{
                 &:first-child{
-                    padding: 0 12px 0 10px;
+                    padding: 0 12px 0 12px;
                     @media only screen and (max-width: 1350px){
                         padding: 0 6px;
                     }
@@ -271,7 +271,7 @@ const CardGroup = Styled.div`
                     }
                 }
                 &:last-child{
-                    padding: 0 12px 0 15px;
+                    padding: 0 12px 0 12px;
                     @media only screen and (max-width: 1350px){
                         padding: 0 6px;
                     }
@@ -515,6 +515,12 @@ const Pstates = Styled.div`
             background: ${({theme})=>theme['bg-color-light']};
         }
     }
+    .growth-upward,
+    .growth-downward{
+        h1{
+            font-size: 24px;
+        }
+    }
 `;
 
 const SessionChartWrapper = Styled.div`
@@ -733,12 +739,26 @@ const LineChartWrapper = Styled.div`
     .linkedin-chart-wrap{
         min-height: 392px;
     }
+    .growth-upward,
+    .growth-downward{
+        line-height: 2.2;
+        h1{
+            margin-bottom: 0;
+        }
+    }
     .line-chart-row{
         &:not(:last-child){
             margin-bottom: 28px;
         }
         .border-linechart{
             border-bottom: 1px solid ${({theme})=>theme["border-color-deep"]};
+        }
+    }
+    .overview-container{
+        .line-chart-row{
+            &:not(:last-child){
+                margin-bottom: 18px;
+            }
         }
     }
 `;
