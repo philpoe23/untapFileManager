@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BlockSpan } from '../style';
-import { textRefactor } from '../../../Helper';
 import moment from 'moment';
-import { filterSinglepage } from '../../../redux/chat/actionCreator';
 import { useDispatch, useSelector } from 'react-redux';
+import { BlockSpan } from '../style';
+import { textRefactor } from '../../../components/utilities/utilities';
+import { filterSinglepage } from '../../../redux/chat/actionCreator';
 
 const PrivateChat = ({ match }) => {
   const dispatch = useDispatch();
@@ -24,11 +24,11 @@ const PrivateChat = ({ match }) => {
           })
           .map((user, index) => {
             const { userName, content, email } = user;
-            const id = content[content.length - 1]['time'];
+            const id = content[content.length - 1].time;
             const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
             return (
               <li key={index + 1} className="chat-link-signle">
-                <NavLink onClick={() => dataFiltering(email)} to={match.path + '/' + email}>
+                <NavLink onClick={() => dataFiltering(email)} to={`${match.path}/${email}`}>
                   <div className="author-figure">
                     <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                   </div>
@@ -36,7 +36,7 @@ const PrivateChat = ({ match }) => {
                     <BlockSpan className="author-name">{userName}</BlockSpan>
 
                     <BlockSpan className="author-chatText">
-                      {textRefactor(content[content.length - 1]['content'], 5)}
+                      {textRefactor(content[content.length - 1].content, 5)}
                     </BlockSpan>
                   </div>
                   <div className="author-chatMeta">

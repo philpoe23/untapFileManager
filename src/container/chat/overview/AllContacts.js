@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { BlockSpan, ChatWrapper } from '../style';
-import { textRefactor } from '../../../Helper';
 import moment from 'moment';
+import FeatherIcon from 'feather-icons-react';
+import { BlockSpan, ChatWrapper } from '../style';
+import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepage } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 
 const AllContacts = ({ match }) => {
   const dispatch = useDispatch();
@@ -38,11 +38,11 @@ const AllContacts = ({ match }) => {
             })
             .map((user, index) => {
               const { userName, content, email } = user;
-              const id = content[content.length - 1]['time'];
+              const id = content[content.length - 1].time;
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
                 <li key={index + 1} className="chat-link-signle">
-                  <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
+                  <NavLink onClick={dataFiltering} data-email={email} to={`${match.path}/${email}`}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                     </div>
@@ -50,7 +50,7 @@ const AllContacts = ({ match }) => {
                       <BlockSpan className="author-name">{userName}</BlockSpan>
 
                       <BlockSpan className="author-chatText">
-                        {textRefactor(content[content.length - 1]['content'], 5)}
+                        {textRefactor(content[content.length - 1].content, 5)}
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">

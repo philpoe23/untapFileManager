@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
 import { BlockSpan, ChatWrapper } from '../style';
-import { textRefactor } from '../../../Helper';
+import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
 

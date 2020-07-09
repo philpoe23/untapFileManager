@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Progress, Pagination, Tag } from 'antd';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
-import { Link } from 'react-router-dom';
-import { textRefactor } from '../../../Helper';
+import { textRefactor } from '../../../components/utilities/utilities';
 import { ProjectCard, ProjectPagination } from '../style';
 
-const Grid = props => {
+const Grid = () => {
   const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
     projects: project,
@@ -36,15 +36,15 @@ const Grid = props => {
   return (
     <Row gutter={25}>
       {projects.length ? (
-        projects.map(project => {
-          const { id, title, status, content } = project;
+        projects.map(value => {
+          const { id, title, status, content } = value;
           return (
             <Col key={id} md={8}>
               <ProjectCard>
                 <Cards headless>
                   <div className="project-title">
                     <h1>
-                      <Link to={'/projectDetails/' + id}>{title}</Link>
+                      <Link to={`/projectDetails/${id}`}>{title}</Link>
                       <Tag className={status} color="#f50">
                         {status}
                       </Tag>
