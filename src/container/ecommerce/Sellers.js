@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper } from '../styled';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { TopToolBox } from './Style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, TableWrapper } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { TopToolBox } from './Style';
-import FeatherIcon from 'feather-icons-react';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -36,7 +36,7 @@ const Sellers = () => {
   }, [sellers]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
@@ -45,21 +45,21 @@ const Sellers = () => {
 
   const dataSource = [];
   sellers.length &&
-    item.map(item => {
-      const { storeName, id, name, amount, date, img } = item;
+    item.map(value => {
+      const { storeName, id, name, amount, date, img } = value;
       return dataSource.push({
         key: id,
         name: (
           <div className="seller-info">
             <>
-              <img src={require('../../' + img)} alt="" />
+              <img src={require(`../../${img}`)} alt="" />
               {name}
             </>
           </div>
         ),
         store: storeName,
-        amount: amount,
-        date: date,
+        amount,
+        date,
         action: (
           <div className="table-actions">
             <>
@@ -108,8 +108,8 @@ const Sellers = () => {
     },
   ];
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -145,7 +145,7 @@ const Sellers = () => {
                       <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col xxl={15} lg={5} xs={24}></Col>
+                  <Col xxl={15} lg={5} xs={24} />
                   <Col xxl={4} lg={9} xs={24}>
                     <div className="table-toolbox-actions">
                       <Button size="small" type="secondary" transparented>

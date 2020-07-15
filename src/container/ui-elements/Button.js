@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import FeatherIcon from 'feather-icons-react';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnWithIcon } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import FeatherIcon from 'feather-icons-react';
 import { theme } from '../../config/theme/themeVariables';
 
 const Buttons = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Button" />
       <Main className="button-example">
         <Row gutter={25}>
@@ -468,7 +468,7 @@ const Buttons = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

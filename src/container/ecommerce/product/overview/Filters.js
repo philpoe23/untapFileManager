@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Rate } from 'antd';
+import { useDispatch } from 'react-redux';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import Heading from '../../../../components/heading/heading';
 import { Slider } from '../../../../components/slider/slider';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { CheckboxGroup } from '../../../../components/checkbox/checkbox';
 import { Sidebar, SidebarSingle } from '../../Style';
-import { Rate } from 'antd';
-import { useDispatch } from 'react-redux';
 import {
   filterByPriceRange,
   filterByRating,
@@ -31,10 +31,10 @@ const Filters = () => {
     });
     dispatch(filterByPriceRange(value));
   };
-  const onChangeRating = (checkValue, value) => {
+  const onChangeRating = checkValue => {
     dispatch(filterByRating([checkValue]));
   };
-  const onChangeBrand = (checkValue, value) => {
+  const onChangeBrand = checkValue => {
     dispatch(filterByBrand([checkValue]));
   };
   const options = [

@@ -1,12 +1,12 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Comment, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import CommentEditor from '../../components/comments/comments-editor';
-import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
 
 const Comments = () => {
   const [state, setState] = useState({
@@ -117,7 +117,7 @@ const Comments = () => {
   );
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Comments" />
       <Main>
         <Row gutter={25}>
@@ -184,7 +184,7 @@ const Comments = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

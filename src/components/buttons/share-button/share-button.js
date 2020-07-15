@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Popover } from '../../popup/popup';
@@ -6,7 +6,7 @@ import { Button } from '../buttons';
 
 const ShareButtonPageHeader = () => {
   const content = (
-    <Fragment>
+    <>
       <NavLink to="#">
         <FeatherIcon size={16} icon="facebook" />
         <span>Facebook</span>
@@ -27,7 +27,7 @@ const ShareButtonPageHeader = () => {
         <FeatherIcon size={16} icon="instagram" />
         <span>Instagram</span>
       </NavLink>
-    </Fragment>
+    </>
   );
   return (
     <Popover placement="bottomLeft" title="Share Link" content={content} trigger="click">

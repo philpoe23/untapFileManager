@@ -1,7 +1,7 @@
 import React from 'react';
-import { MainWraper, SocialIcon } from './overview-style';
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
+import { MainWraper, SocialIcon } from './overview-style';
 import Heading from '../heading/heading';
 
 const SocialMediaContent = props => {

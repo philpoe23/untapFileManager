@@ -1,9 +1,9 @@
 import React from 'react';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Row, Col, Form, Input, Button } from 'antd';
+import { ChangePasswordWrapper } from './style';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { BasicFormWrapper } from '../../../styled';
 import Heading from '../../../../components/heading/heading';
-import { ChangePasswordWrapper } from './style';
 
 const Password = () => {
   const [form] = Form.useForm();
@@ -18,7 +18,6 @@ const Password = () => {
 
   return (
     <ChangePasswordWrapper>
-
       <Cards
         title={
           <div className="setting-card-title">
@@ -54,7 +53,6 @@ const Password = () => {
           </Col>
         </Row>
       </Cards>
-
     </ChangePasswordWrapper>
   );
 };

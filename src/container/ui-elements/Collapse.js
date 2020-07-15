@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Collapse } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { RightOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 const Collapses = () => {
@@ -20,7 +20,7 @@ const Collapses = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Collapse" />
       <Main>
         <Row gutter={25}>
@@ -171,7 +171,7 @@ const Collapses = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,17 +1,17 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { Row, Col, Spin } from 'antd';
-import { Button } from '../../components/buttons/buttons';
-import { Main } from '../styled';
 import { useSelector } from 'react-redux';
-import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Switch, Route, NavLink } from 'react-router-dom';
-import { UL, Content, ChatSidebar } from './style';
 import FeatherIcon from 'feather-icons-react';
+import { UL, Content, ChatSidebar } from './style';
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
 import AllContacts from './overview/AllContacts';
+import { AutoComplete } from '../../components/autoComplete/autoComplete';
+import { Main } from '../styled';
+import { Button } from '../../components/buttons/buttons';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { PageHeader } from '../../components/page-headers/page-headers';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -66,17 +66,17 @@ const ChatApp = ({ match }) => {
                 <nav>
                   <UL>
                     <li>
-                      <NavLink activeClassName="active" to={match.path + '/private'}>
+                      <NavLink activeClassName="active" to={`${match.path}/private`}>
                         Privet Chat
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink activeClassName="active" to={match.path + '/group'}>
+                      <NavLink activeClassName="active" to={`${match.path}/group`}>
                         Group Chat
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink activeClassName="active" to={match.path + '/all'}>
+                      <NavLink activeClassName="active" to={`${match.path}/all`}>
                         All Contacts
                       </NavLink>
                     </li>
@@ -84,9 +84,9 @@ const ChatApp = ({ match }) => {
                 </nav>
                 <Content>
                   <Switch>
-                    <Route path={match.path + '/private'} component={PrivetChat} />
-                    <Route path={match.path + '/group'} component={GroupChat} />
-                    <Route path={match.path + '/all'} component={AllContacts} />
+                    <Route path={`${match.path}/private`} component={PrivetChat} />
+                    <Route path={`${match.path}/group`} component={GroupChat} />
+                    <Route path={`${match.path}/all`} component={AllContacts} />
                   </Switch>
                 </Content>
               </Cards>
@@ -103,8 +103,8 @@ const ChatApp = ({ match }) => {
               >
                 <Route path={match.path} />
                 <Route path={match.path} component={SingleChat} />
-                <Route path={match.path + '/:type/:id'} component={SingleChat} />
-                <Route path={match.path + '/group/:id'} component={SingleGroup} />
+                <Route path={`${match.path}/:type/:id`} component={SingleChat} />
+                <Route path={`${match.path}/group/:id`} component={SingleGroup} />
               </Suspense>
             </Switch>
           </Col>

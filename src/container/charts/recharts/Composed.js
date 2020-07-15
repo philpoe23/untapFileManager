@@ -1,10 +1,11 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import { Row, Col } from 'antd';
+import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import rechartdata from '../../../config/dataService/recharts.json';
+
 const { data } = rechartdata;
 
 const ReChartComposed = () => {
@@ -28,7 +29,7 @@ const ReChartComposed = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Rechats Composed Chart" />
       <Main>
         <Row gutter={25}>
@@ -131,7 +132,7 @@ const ReChartComposed = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

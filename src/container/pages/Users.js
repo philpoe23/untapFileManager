@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, CardToolbox } from '../styled';
 import { useSelector } from 'react-redux';
 import { Row, Col, Pagination } from 'antd';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { UsercardWrapper, UserCard } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, CardToolbox } from '../styled';
+import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { UsercardWrapper, UserCard } from './style';
 
 const Users = () => {
   const { searchData, users } = useSelector(state => {
@@ -23,7 +23,7 @@ const Users = () => {
     notdata: searchData,
   });
 
-  let { notdata } = state;
+  const { notdata } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -71,7 +71,7 @@ const Users = () => {
                     <div className="card user-card">
                       <Cards headless>
                         <figure>
-                          <img src={require('../../' + img)} alt="" />
+                          <img src={require(`../../${img}`)} alt="" />
                         </figure>
                         <figcaption>
                           <div className="card__content">

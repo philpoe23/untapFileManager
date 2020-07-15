@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Tooltip } from 'antd';
 import { NavLink } from 'react-router-dom';
+import propTypes from 'prop-types';
 import { MessageAction } from './style';
 
 const Topbar = ({ refreshState }) => {
   return (
-    <Fragment>
+    <>
       <MessageAction>
         <Tooltip placement="bottom" title="Refresh">
           <NavLink onClick={refreshState} to="/refresh">
@@ -39,8 +40,12 @@ const Topbar = ({ refreshState }) => {
           </NavLink>
         </Tooltip>
       </MessageAction>
-    </Fragment>
+    </>
   );
+};
+
+Topbar.propTypes = {
+  refreshState: propTypes.func.isRequired,
 };
 
 export default Topbar;

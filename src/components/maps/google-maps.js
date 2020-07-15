@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
-import { GmapWraper } from './map-style';
 import PropTypes from 'prop-types';
+import { GmapWraper } from './map-style';
 
 const apiKey = 'AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c';
 const GoogleMaps = GoogleApiWrapper({
   apiKey,
-})(props => {
-  const { latitude, longitude, google, width, height, zoom, mapStyles, place, styles, infoWindow } = props;
+})(property => {
+  const { latitude, longitude, google, width, height, zoom, mapStyles, place, styles, infoWindow } = property;
   const [state, setState] = useState({
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
   });
 
-  const onMarkerClick = (props, marker, e) =>
+  const onMarkerClick = (props, marker) =>
     setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -48,10 +48,10 @@ const GoogleMaps = GoogleApiWrapper({
         height="400px"
       >
         {place !== undefined ? (
-          place.map((item, key) => {
+          place.map(item => {
             return (
               <Marker
-                key={key + 1}
+                key={item.id}
                 onClick={onMarkerClick}
                 position={{ lat: item.latitude, lng: item.longitude }}
                 icon={require(`../../static/img/map/mpc.png`)}

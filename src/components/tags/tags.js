@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Input, Icon } from 'antd';
 import PropTypes from 'prop-types';
 import { TagStyle } from './style';
@@ -11,51 +11,51 @@ const Tag = props => {
     selectedTags: [],
   });
 
-  const { closable, onClose, color, checked, onChange, data, hottags, animate } = props;
+  const { closable, onClose, color, checked, onChange, data, hottags, animate, children } = props;
   const tagsFromServer = data;
 
   const log = e => {
     onClose(e);
   };
 
-  const handleChange = checked => {
-    setState({ ...state, checked });
-    onChange && onChange(checked);
+  const handleChange = checke => {
+    setState({ ...state, checke });
+    if (onChange) onChange(checke);
   };
 
-  const handleChangeHot = (tag, checked) => {
+  const handleChangeHot = (tag, checke) => {
     const { selectedTags } = state;
-    const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
+    const nextSelectedTags = checke ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
     // console.log('You are interested in: ', nextSelectedTags);
     setState({
       ...state,
       selectedTags: nextSelectedTags,
     });
-    onChange && onChange(nextSelectedTags);
+    if (onChange) onChange(nextSelectedTags);
   };
 
   const { selectedTags } = state;
 
   return checked ? (
-    <CheckableTag {...props} checked={state.checked} onChange={handleChange} />
+    <CheckableTag props={props} checked={state.checked} onChange={handleChange} />
   ) : hottags ? (
-    <Fragment>
+    <>
       <span style={{ marginRight: 8 }}>Categories:</span>
       {tagsFromServer.map(tag => (
         <CheckableTag
           key={tag}
           checked={selectedTags.indexOf(tag) > -1}
-          onChange={checked => handleChangeHot(tag, checked)}
+          onChange={checke => handleChangeHot(tag, checke)}
         >
           {tag}
         </CheckableTag>
       ))}
-    </Fragment>
+    </>
   ) : animate ? (
     <AnimatedTags data={data} onChange={onChange} />
   ) : (
     <TagStyle closable={closable} onClose={log} color={color}>
-      {props.children}
+      {children}
     </TagStyle>
   );
 };
@@ -69,6 +69,7 @@ Tag.propTypes = {
   onChange: PropTypes.func,
   hottags: PropTypes.bool,
   animate: PropTypes.bool,
+  children: PropTypes.object,
 };
 
 const AnimatedTags = props => {
@@ -79,7 +80,7 @@ const AnimatedTags = props => {
     const tags = state.tags.filter(tag => tag !== removedTag);
     // console.log(tags);
     setState({ tags });
-    onChange && onChange(tags);
+    if (onChange) onChange(tags);
   };
 
   const showInput = () => {
@@ -97,7 +98,7 @@ const AnimatedTags = props => {
       tags = [...tags, inputValue];
     }
 
-    onChange && onChange(tags);
+    if (onChange) onChange(tags);
     setState({
       ...state,
       tags,

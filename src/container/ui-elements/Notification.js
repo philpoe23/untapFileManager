@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, notification, Icon, Divider } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, NotificationListWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
@@ -86,7 +86,7 @@ const Notifications = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Notifications" />
       <Main>
         <Row gutter={15}>
@@ -117,7 +117,6 @@ const Notifications = () => {
           <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with icon" caption="The simplest use of Notification">
               <NotificationListWrapper>
-
                 <Button type="success" size="small" onClick={() => openNotificationWithIcon('success')}>
                   Success
                 </Button>
@@ -130,7 +129,6 @@ const Notifications = () => {
                 <Button type="error" size="small" onClick={() => openNotificationWithIcon('error')}>
                   Error
                 </Button>
-
               </NotificationListWrapper>
             </Cards>
           </Col>
@@ -152,7 +150,6 @@ const Notifications = () => {
           <Col md={12} sm={12} xs={24}>
             <Cards title="Notification with placement" caption="The simplest use of Notification">
               <NotificationListWrapper>
-
                 <Button type="primary" size="small" onClick={() => openNotificationPlacement('topLeft')}>
                   <Icon type="radius-upleft" />
                   topLeft
@@ -170,13 +167,12 @@ const Notifications = () => {
                   <Icon type="radius-bottomright" />
                   bottomRight
                 </Button>
-
               </NotificationListWrapper>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Card } from 'antd';
-import { Main } from '../styled';
-import { CardStyleWrapper } from './ui-elements-styled';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink } from 'react-router-dom';
+import { CardStyleWrapper } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const content = (
-  <Fragment>
+  <>
     <NavLink to="#">
       <span>More one</span>
     </NavLink>
@@ -17,12 +17,12 @@ const content = (
     <NavLink to="#">
       <span>More three</span>
     </NavLink>
-  </Fragment>
+  </>
 );
 
 const CardContainer = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Cards" />
       <Main>
         <Row gutter={25}>
@@ -30,28 +30,14 @@ const CardContainer = () => {
             <Cards title="Basic card" size="large">
               <Col md={8} style={{ padding: 0 }}>
                 <CardStyleWrapper>
-                  <Cards
-                    title="Default Size Card"
-                    border={true}
-                    size="default"
-                    moreText
-                    more={content}
-                    style={{ width: 400 }}
-                  >
+                  <Cards title="Default Size Card" border size="default" moreText more={content} style={{ width: 400 }}>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
                   </Cards>
-                  <Cards
-                    title="Small size card"
-                    border={true}
-                    size="small"
-                    moreText
-                    more={content}
-                    style={{ width: 400 }}
-                  >
+                  <Cards title="Small size card" border size="small" moreText more={content} style={{ width: 400 }}>
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
@@ -84,7 +70,7 @@ const CardContainer = () => {
             <Cards title="Simple card" size="large">
               <Col md={8} style={{ padding: 0, marginBottom: '-20px' }}>
                 <CardStyleWrapper>
-                  <Cards headless border={true} size="default">
+                  <Cards headless border size="default">
                     <p>Card content</p>
                     <p>Card content</p>
                     <p>Card content</p>
@@ -137,7 +123,7 @@ const CardContainer = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

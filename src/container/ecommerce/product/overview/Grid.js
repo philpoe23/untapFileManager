@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Rate, Pagination, Spin } from 'antd';
-import Heading from '../../../../components/heading/heading';
-import { Button } from '../../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { ProductCard, PaginationWrapper } from '../../Style';
 import { useSelector } from 'react-redux';
+import Heading from '../../../../components/heading/heading';
+import { Button } from '../../../../components/buttons/buttons';
+import { ProductCard, PaginationWrapper } from '../../Style';
 
 const Grid = () => {
   const { productsAll, isloader } = useSelector(state => {
@@ -37,7 +37,7 @@ const Grid = () => {
     // You can create pagination in here
     console.log(current, pageSize);
   };
-
+  // @Todo Nested Ternary
   return (
     <Row gutter={30}>
       {isloader ? (
@@ -50,7 +50,7 @@ const Grid = () => {
             <Col xxl={6} lg={12} xs={24} key={id}>
               <ProductCard style={{ marginBottom: 30 }}>
                 <figure>
-                  <img src={require(`../../../../${img}`)} alt={'img' + id} />
+                  <img src={require(`../../../../${img}`)} alt={`img${id}`} />
                 </figure>
                 <figcaption>
                   <NavLink className="btn-heart" to="#">
@@ -67,10 +67,10 @@ const Grid = () => {
                   <p className="product-single-price">
                     <span className="product-single-price__new">${price} </span>
                     {oldPrice && (
-                      <Fragment>
+                      <>
                         <del className="product-single-price__old"> ${oldPrice} </del>
                         <span className="product-single-price__offer"> 60% Off</span>
-                      </Fragment>
+                      </>
                     )}
                   </p>
                   <div className="product-single-rating">

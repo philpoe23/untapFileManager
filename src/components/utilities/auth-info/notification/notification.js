@@ -3,7 +3,6 @@ import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Popover } from '../../../popup/popup';
 import { readNotificationList } from '../../../../redux/notification/actionCreator';
 
@@ -38,7 +37,7 @@ const NotificationBox = () => {
   return (
     <div className="notification" style={{ marginTop: 10 }}>
       <Popover placement="bottomLeft" title="Notification List" content={popoverContent} trigger="click">
-        <Badge dot={true} offset={[-8, -5]}>
+        <Badge dot offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
           </NavLink>
@@ -46,11 +45,6 @@ const NotificationBox = () => {
       </Popover>
     </div>
   );
-};
-
-NotificationBox.propTypes = {
-  readNotification: PropTypes.func,
-  notification: PropTypes.array,
 };
 
 export default NotificationBox;

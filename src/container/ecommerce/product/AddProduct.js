@@ -1,10 +1,10 @@
 import React from 'react';
+import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
 import { Main, BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 import { AddProductForm } from '../Style';
 import Heading from '../../../components/heading/heading';
 
@@ -127,7 +127,7 @@ const AddProduct = () => {
                             <Col md={24}>
                               <div className="add-product-content">
                                 <Cards title="Product Image">
-                                  <Dragger {...fileUploadProps}>
+                                  <Dragger fileUploadProps={fileUploadProps}>
                                     <p className="ant-upload-drag-icon">
                                       <FeatherIcon icon="upload" size={50} />
                                     </p>

@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Radio } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Radios = () => {
   return (
-    <Fragment>
-      <PageHeader  title="Radio" />
+    <>
+      <PageHeader title="Radio" />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={24} xs={24}>
@@ -18,8 +18,12 @@ const Radios = () => {
             <Cards title="Radio Disabled" caption="The simplest use of Radio">
               <Radio.Group defaultValue="b">
                 <div className="ant-radio-vertical">
-                  <Radio value="a" disabled>Disabled</Radio>
-                  <Radio value="b" disabled>Disabled</Radio>
+                  <Radio value="a" disabled>
+                    Disabled
+                  </Radio>
+                  <Radio value="b" disabled>
+                    Disabled
+                  </Radio>
                 </div>
               </Radio.Group>
             </Cards>
@@ -104,7 +108,7 @@ const Radios = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

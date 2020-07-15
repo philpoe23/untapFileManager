@@ -1,8 +1,8 @@
 import React from 'react';
 import { Input, Button } from 'antd';
-import { AutoCompleteStyled } from './style';
 import PropTypes from 'prop-types';
 import { SearchOutlined } from '@ant-design/icons';
+import { AutoCompleteStyled } from './style';
 
 const { Option } = AutoCompleteStyled;
 const onSelect = value => {
@@ -29,7 +29,7 @@ const AutoComplete = props => {
   };
 
   return customComponent ? (
-    <AutoCompleteStyled dataSource={dataSource} style={{ width: width }} onSelect={onSelect} onSearch={onSearching}>
+    <AutoCompleteStyled dataSource={dataSource} style={{ width }} onSelect={onSelect} onSearch={onSearching}>
       {customComponent}
     </AutoCompleteStyled>
   ) : patterns ? (
@@ -39,7 +39,7 @@ const AutoComplete = props => {
       dropdownMatchSelectWidth={false}
       dropdownStyle={{ width: 300 }}
       size="large"
-      style={{ width: width }}
+      style={{ width }}
       dataSource={content}
       placeholder="input here"
       optionLabelProp="value"
@@ -60,7 +60,7 @@ const AutoComplete = props => {
   ) : (
     <AutoCompleteStyled
       dataSource={dataSource}
-      style={{ width: width }}
+      style={{ width }}
       onSelect={onSelect}
       onSearch={onSearching}
       placeholder="input here"
@@ -77,6 +77,8 @@ AutoComplete.propTypes = {
   patterns: PropTypes.bool,
   patternButtons: PropTypes.bool,
   width: PropTypes.string,
+  onSearch: PropTypes.func,
+  dataSource: PropTypes.array,
 };
 
 export { AutoComplete };

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Radio } from 'antd';
 import PropTypes from 'prop-types';
 import { DrawerStyle } from './style';
@@ -10,7 +10,7 @@ const Drawer = props => {
   const { width, title, placement, children, customPlacement, render, childDrawer, childTitle, btnText } = props;
   const [state, setState] = useState({
     visible: false,
-    placement: placement ? placement : 'right',
+    placement: placement || 'right',
     childrenDrawer: false,
   });
 
@@ -50,7 +50,7 @@ const Drawer = props => {
   };
 
   return (
-    <Fragment>
+    <>
       {customPlacement && (
         <RadioGroup style={{ marginRight: 8 }} defaultValue={placement} onChange={onChange}>
           <Radio value="top">top</Radio>
@@ -70,14 +70,14 @@ const Drawer = props => {
         closable={false}
         onClose={onClose}
         visible={state.visible}
-        getContainer={!render ? true : false}
+        getContainer={!render}
         style={{ position: !render ? 'fixed' : 'absolute' }}
         width={width}
       >
         {!childDrawer ? (
           children
         ) : (
-          <Fragment>
+          <>
             <Button type="primary" onClick={showChildrenDrawer}>
               Two-level drawer
             </Button>
@@ -118,14 +118,14 @@ const Drawer = props => {
                 Submit
               </Button>
             </div>
-          </Fragment>
+          </>
         )}
       </DrawerStyle>
-    </Fragment>
+    </>
   );
 };
 
-Drawer.defaultProps = { 
+Drawer.defaultProps = {
   btnText: 'Open',
   width: 320,
 };

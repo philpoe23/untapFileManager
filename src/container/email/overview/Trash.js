@@ -1,23 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import EmailContent from './Content';
-import { connect } from 'react-redux';
 
-const Trash = ({ searchData, email }) => {
+const Trash = () => {
+  const { searchData, email } = useSelector(state => {
+    return {
+      searchData: state.headerSearchData,
+      email: state.email.allMessage,
+    };
+  });
   return (
     <EmailContent
-      email={email.filter(email => {
-        return email.type === 'trash';
+      email={email.filter(value => {
+        return value.type === 'trash';
       })}
       searchData={searchData}
     />
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    email: state.email.allMessage,
-  };
-};
-
-export default connect(mapStateToProps)(Trash);
+export default Trash;

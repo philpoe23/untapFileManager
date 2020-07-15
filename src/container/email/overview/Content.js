@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import propTypes from 'prop-types';
 import { Style, EmailAuthor, EmailHeader } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
@@ -42,7 +43,7 @@ const Content = ({ searchData, email }) => {
 
   const data = [];
   emails !== undefined &&
-    emails.map((inbox, index) => {
+    emails.map(inbox => {
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
@@ -51,7 +52,7 @@ const Content = ({ searchData, email }) => {
         name: (
           <EmailAuthor>
             <FeatherIcon icon="star" size={18} />
-            <img src={img} alt={`image${index}`} />
+            <img src={img} alt="" />
             <Heading as="h5">
               <NavLink to={`/email/single/${id}`}>{userName}</NavLink>
             </Heading>
@@ -86,20 +87,20 @@ const Content = ({ searchData, email }) => {
     });
   };
 
-  const onRowSelection = (filterObj, changableRowKeys) => {
+  const onRowSelection = filterObj => {
     const { filter, byValue } = filterObj;
 
     const newSelectedRowKeys = emails
-      .filter(email => {
-        return email[filter] == byValue;
+      .filter(value => {
+        return value[filter] == byValue;
       })
       .map(item => item.id);
 
     setState({ ...state, selectedRowKeys: newSelectedRowKeys });
   };
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -110,7 +111,7 @@ const Content = ({ searchData, email }) => {
       {
         key: 'all',
         text: 'All',
-        onSelect: changableRowKeys => {
+        onSelect: () => {
           const newSelectedRowKeys = email.map(item => item.id);
           setState({ ...state, selectedRowKeys: newSelectedRowKeys });
         },
@@ -190,6 +191,10 @@ const Content = ({ searchData, email }) => {
       onChange={handleChange}
     />
   );
+};
+Content.propTypes = {
+  searchData: propTypes.array.isRequired,
+  email: propTypes.array.isRequired,
 };
 
 export default Content;

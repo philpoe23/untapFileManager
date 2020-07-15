@@ -1,6 +1,7 @@
 import React from 'react';
-import { ListStyle } from './style';
 import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
+import { ListStyle } from './style';
 
 const List = props => {
   const { text } = props;
@@ -14,5 +15,7 @@ const List = props => {
     </ListStyle>
   );
 };
-
+List.propTypes = {
+  text: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
+};
 export { List };

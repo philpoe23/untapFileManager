@@ -10,7 +10,6 @@ const PrivateChat = ({ match }) => {
   const dispatch = useDispatch();
   const chatData = useSelector(state => state.chat.data);
 
-  console.log(chatData);
   const dataFiltering = email => {
     dispatch(filterSinglepage(email));
   };
@@ -22,12 +21,12 @@ const PrivateChat = ({ match }) => {
           .sort((a, b) => {
             return b.time - a.time;
           })
-          .map((user, index) => {
+          .map(user => {
             const { userName, content, email } = user;
             const id = content[content.length - 1].time;
             const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
             return (
-              <li key={index + 1} className="chat-link-signle">
+              <li key={id} className="chat-link-signle">
                 <NavLink onClick={() => dataFiltering(email)} to={`${match.path}/${email}`}>
                   <div className="author-figure">
                     <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />

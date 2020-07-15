@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper } from '../styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { TopToolBox } from './Style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, TableWrapper } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { TopToolBox } from './Style';
-import FeatherIcon from 'feather-icons-react';
 import { orderFilter } from '../../redux/orders/actionCreator';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
@@ -34,6 +34,7 @@ const Orders = () => {
 
   /**
    * @todo purpose
+   * @todo ternary issue
    */
   useEffect(() => {
     if (orders) {
@@ -44,7 +45,7 @@ const Orders = () => {
   }, [orders]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
@@ -57,8 +58,8 @@ const Orders = () => {
 
   const dataSource = [];
   orders.length &&
-    orders.map((item, key) => {
-      const { status, orderId, customars, amount, date } = item;
+    orders.map((value, key) => {
+      const { status, orderId, customars, amount, date } = value;
       return dataSource.push({
         key: key + 1,
         id: <span className="order-id">{orderId}</span>,
@@ -117,8 +118,8 @@ const Orders = () => {
     },
   ];
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -160,10 +161,10 @@ const Orders = () => {
                       <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
                         <Radio.Button value="">All</Radio.Button>
                         {item.length &&
-                          [...new Set(filterKey)].map((item, key) => {
+                          [...new Set(filterKey)].map(value => {
                             return (
-                              <Radio.Button key={key + 1} value={item}>
-                                {item}
+                              <Radio.Button key={value} value={value}>
+                                {value}
                               </Radio.Button>
                             );
                           })}

@@ -408,7 +408,7 @@ const Business = () => {
                                 fontColor: '#182b49',
                                 max: 80,
                                 stepSize: 20,
-                                callback(label, index, labels) {
+                                callback(label) {
                                   return `${label}k`;
                                 },
                               },

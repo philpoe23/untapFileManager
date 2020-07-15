@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ButtonStyledGroup, ButtonStyled } from './styled';
 import PropTypes from 'prop-types';
+import { ButtonStyledGroup, ButtonStyled } from './styled';
 
 const Button = props => {
   const {
@@ -16,6 +16,7 @@ const Button = props => {
     color,
     social,
     load,
+    children,
     ...rest
   } = props;
   const [state, setState] = useState({
@@ -42,9 +43,9 @@ const Button = props => {
       social={social}
       onClick={load && enterLoading}
       loading={state.loading}
-      {...rest}
+      rest={rest}
     >
-      {props.children}
+      {children}
     </ButtonStyled>
   );
 };
@@ -66,10 +67,15 @@ Button.propTypes = {
   social: PropTypes.bool,
   load: PropTypes.bool,
   ghost: PropTypes.bool,
+  children: PropTypes.object,
 };
 
-const BtnGroup = props => {
-  return <ButtonStyledGroup>{props.children}</ButtonStyledGroup>;
+const BtnGroup = ({ children }) => {
+  return <ButtonStyledGroup>{children}</ButtonStyledGroup>;
+};
+
+BtnGroup.propTypes = {
+  children: PropTypes.object,
 };
 
 export { Button, BtnGroup };

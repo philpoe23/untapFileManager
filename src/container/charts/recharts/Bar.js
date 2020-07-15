@@ -1,10 +1,11 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import { Row, Col } from 'antd';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine } from 'recharts';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine } from 'recharts';
 import rechartdata from '../../../config/dataService/recharts.json';
+
 const { data, positiveAndnegetive } = rechartdata;
 
 const ReChartBar = () => {
@@ -28,7 +29,7 @@ const ReChartBar = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Rechats Bar Chart" />
       <Main>
         <Row gutter={25}>
@@ -172,7 +173,7 @@ const ReChartBar = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

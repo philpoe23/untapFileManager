@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Table } from 'antd';
 import { Link } from 'react-router-dom';
@@ -14,12 +14,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -32,7 +39,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -49,12 +56,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -67,7 +81,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -84,12 +98,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -102,7 +123,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -119,12 +140,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -137,7 +165,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -154,12 +182,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -172,7 +207,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -189,12 +224,19 @@ const TaskList = () => {
       component: (
         <TasklistAction>
           <span className="task-created">09:20 AM </span>
-          <img className="task-author" style={{ width: '30px' }} src={require('../../../static/img/users/1.png')} alt="" />
-          <span className="task-move"><FeatherIcon icon="move" size={16} /></span>
+          <img
+            className="task-author"
+            style={{ width: '30px' }}
+            src={require('../../../static/img/users/1.png')}
+            alt=""
+          />
+          <span className="task-move">
+            <FeatherIcon icon="move" size={16} />
+          </span>
           <div className="task-action">
             <Dropdown
               content={
-                <Fragment>
+                <>
                   <Link to="#">
                     <FeatherIcon icon="eye" size={14} />
                     View
@@ -207,7 +249,7 @@ const TaskList = () => {
                     <FeatherIcon icon="trash-2" size={14} />
                     Delete
                   </Link>
-                </Fragment>
+                </>
               }
             >
               <Link to="#">
@@ -241,14 +283,16 @@ const TaskList = () => {
     }),
   };
 
-  return <div className="task-list-inner table-responsive">
-          <Table pagination={false} rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
-            <div className="tasklist-action">
-              <Button type="primary" size="large" transparented>
-                <FeatherIcon icon="plus" size="14" /> Add New Task
-              </Button>
-            </div>
-          </div>;
+  return (
+    <div className="task-list-inner table-responsive">
+      <Table pagination={false} rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
+      <div className="tasklist-action">
+        <Button type="primary" size="large" transparented>
+          <FeatherIcon icon="plus" size="14" /> Add New Task
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 export default TaskList;

@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
-import { Content, PopoverStyle } from './style';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { Content, PopoverStyle } from './style';
 
 const Popover = props => {
-  const { content, placement, title, action } = props;
+  const { content, placement, title, action, children } = props;
   const content1 = <Content>{content}</Content>;
 
   return (
     <PopoverStyle placement={placement} title={title} content={content1} trigger={action}>
-      {props.children}
+      {children}
     </PopoverStyle>
   );
 };
 
 const content = (
-  <Fragment>
+  <>
     <Link to="#">
       <FeatherIcon size={16} icon="check" />
       <span>Btn Dropdown one</span>
@@ -30,13 +30,13 @@ const content = (
       <FeatherIcon size={16} icon="check" />
       <span>Btn Dropdown three</span>
     </Link>
-  </Fragment>
+  </>
 );
 
 Popover.defaultProps = {
   action: 'hover',
   placement: 'bottomCenter',
-  content: content,
+  content,
 };
 
 Popover.propTypes = {
@@ -44,6 +44,7 @@ Popover.propTypes = {
   title: PropTypes.string,
   action: PropTypes.string,
   content: PropTypes.object,
+  children: PropTypes.object,
 };
 
 export { Popover };

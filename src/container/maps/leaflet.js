@@ -1,7 +1,7 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import {
   LeafletMapBasic,

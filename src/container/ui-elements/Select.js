@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Select, Radio } from 'antd';
-import { Main } from '../styled';
 import { SelectWrapperStyle } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Option, OptGroup } = Select;
@@ -25,7 +25,7 @@ const Selects = () => {
   };
 
   const children = [];
-  for (let i = 10; i < 36; i++) {
+  for (let i = 10; i < 36; i += 1) {
     children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
   }
 
@@ -39,28 +39,27 @@ const Selects = () => {
   const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
   const handleProvinceChange = value => {
-    this.setState({
+    setState({
       cities: cityData[value],
       secondCity: cityData[value][0],
     });
   };
 
   const onSecondCityChange = value => {
-    this.setState({
+    setState({
       secondCity: value,
     });
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Select" />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-
               <SelectWrapperStyle>
-                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }}>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: '10px' }}>
                   <Option value="jack">Jack</Option>
                   <Option value="lucy">Lucy</Option>
                   <Option value="disabled" disabled>
@@ -68,14 +67,13 @@ const Selects = () => {
                   </Option>
                   <Option value="Yiminghe">yiminghe</Option>
                 </Select>
-                <Select defaultValue="lucy" style={{ width: 120, marginRight: "10px" }} disabled>
+                <Select defaultValue="lucy" style={{ width: 120, marginRight: '10px' }} disabled>
                   <Option value="lucy">Lucy</Option>
                 </Select>
                 <Select defaultValue="lucy" style={{ width: 120 }} loading>
                   <Option value="lucy">Lucy</Option>
                 </Select>
               </SelectWrapperStyle>
-
             </Cards>
           </Col>
           <Col md={12} sm={12} xs={24}>
@@ -241,7 +239,7 @@ const Selects = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

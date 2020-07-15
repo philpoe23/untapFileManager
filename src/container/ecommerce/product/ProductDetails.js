@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
 import { filterSinglepage } from '../../../redux/product/actionCreator';
 import { ProductDetailsWrapper } from '../Style';
-import { NavLink } from 'react-router-dom';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
-
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
@@ -212,6 +212,10 @@ const ProductDetails = ({ match }) => {
       </Main>
     </>
   );
+};
+
+ProductDetails.propTypes = {
+  match: PropTypes.object.isRequired,
 };
 
 export default ProductDetails;

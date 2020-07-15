@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Result, Button, Icon, Typography } from 'antd';
+import { NavLink } from 'react-router-dom';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { NavLink } from 'react-router-dom';
 
 const { Paragraph, Text } = Typography;
 const Results = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Results" />
       <Main>
         <Row gutter={25}>
@@ -18,7 +18,7 @@ const Results = () => {
                 status="success"
                 title="Successfully Purchased Cloud Server ECS!"
                 subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={[
                   <Button type="primary" key="console">
                     Go Console
@@ -32,7 +32,7 @@ const Results = () => {
             <Cards title="Info" caption="The simplest use of Results">
               <Result
                 title="Your operation has been executed"
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={
                   <Button type="primary" key="console">
                     Go Console
@@ -46,7 +46,7 @@ const Results = () => {
               <Result
                 status="warning"
                 title="There are some problems with your operation."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={
                   <Button type="primary" key="console">
                     Go Console
@@ -61,7 +61,7 @@ const Results = () => {
                 status="403"
                 title="403"
                 subTitle="Sorry, you are not authorized to access this page."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={<Button type="primary">Back Home</Button>}
               />
             </Cards>
@@ -72,7 +72,7 @@ const Results = () => {
                 status="404"
                 title="404"
                 subTitle="Sorry, the page you visited does not exist."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={<Button type="primary">Back Home</Button>}
               />
             </Cards>
@@ -83,7 +83,7 @@ const Results = () => {
                 status="500"
                 title="500"
                 subTitle="Sorry, the server is wrong."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={<Button type="primary">Back Home</Button>}
               />
             </Cards>
@@ -94,7 +94,7 @@ const Results = () => {
                 status="error"
                 title="Submission Failed"
                 subTitle="Please check and modify the following information before resubmitting."
-                style={{padding: 0}}
+                style={{ padding: 0 }}
                 extra={[
                   <Button type="primary" key="console">
                     Go Console
@@ -127,7 +127,7 @@ const Results = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

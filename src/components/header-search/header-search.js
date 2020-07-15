@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Icon, Input, Row, Col } from 'antd';
-import { Div } from './header-search-style';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import PropTypes from 'prop-types';
+import { Div } from './header-search-style';
+import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import { Popover } from '../popup/popup';
 
-const HeaderSearch = props => {
+const HeaderSearch = () => {
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
 
@@ -34,7 +34,7 @@ const HeaderSearch = props => {
   );
 
   return (
-    <Fragment>
+    <>
       <Div className="certain-category-search-wrapper" style={{ width: '100%' }}>
         <Row>
           <Col md={2} className="text-right">
@@ -47,7 +47,7 @@ const HeaderSearch = props => {
           </Col>
         </Row>
       </Div>
-    </Fragment>
+    </>
   );
 };
 

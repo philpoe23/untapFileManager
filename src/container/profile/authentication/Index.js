@@ -20,7 +20,11 @@ const AuthLayout = WraperContent => {
                   Bootstrap 4 React <br />
                   Web Application
                 </Heading>
-                <img className="auth-content-figure" src={require('../../../static/img/auth/Illustration.png')} alt="" />
+                <img
+                  className="auth-content-figure"
+                  src={require('../../../static/img/auth/Illustration.png')}
+                  alt=""
+                />
               </Content>
             </div>
           </Aside>

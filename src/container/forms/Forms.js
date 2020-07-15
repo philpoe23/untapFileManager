@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main, FormGroupWrapper } from '../styled';
 import SignIn from '../profile/authentication/overview/SignIn';
 import Signup from '../profile/authentication/overview/Signup';
@@ -9,7 +9,7 @@ import ForgotPasswrod from '../profile/authentication/overview/ForgotPasswrod';
 
 const Forms = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Forms" />
       <Main>
         <FormGroupWrapper>
@@ -32,7 +32,7 @@ const Forms = () => {
           </Row>
         </FormGroupWrapper>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

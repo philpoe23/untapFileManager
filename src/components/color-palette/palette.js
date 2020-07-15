@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { ColorPalette } from './style';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { ColorPalette } from './style';
 
 const Palette = props => {
-  const { colorCode, bordered, content, bg, gradient, direction } = props;
+  const { colorCode, bordered, content, bg, gradient, direction, children } = props;
 
   return (
-    <Fragment>
+    <>
       <ColorPalette
         isgrad={gradient}
         direction={direction}
@@ -15,10 +15,10 @@ const Palette = props => {
         isbordered={bordered}
         type={colorCode}
       >
-        <span>{props.children}</span> {content && <span>{!gradient ? colorCode : colorCode[1]}</span>}
+        <span>{children}</span> {content && <span>{!gradient ? colorCode : colorCode[1]}</span>}
       </ColorPalette>
       {!content && colorCode}
-    </Fragment>
+    </>
   );
 };
 
@@ -29,6 +29,7 @@ Palette.propTypes = {
   bg: PropTypes.bool,
   gradient: PropTypes.bool,
   direction: PropTypes.string,
+  children: PropTypes.object,
 };
 
 export default Palette;

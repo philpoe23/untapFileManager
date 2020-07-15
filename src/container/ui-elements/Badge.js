@@ -1,11 +1,17 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Badge, Switch } from 'antd';
-import { Main } from '../styled';
-import { Cards } from '../../components/cards/frame/cards-frame';
-import { BadgeWraperStyle, BadgeStandAloneStyle, BadgeOverflowStyle, BadgeRedStyle, BadgeDynamicStyle } from './ui-elements-styled';
 import { NavLink, Link } from 'react-router-dom';
 import { ClockCircleOutlined, BellOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import {
+  BadgeWraperStyle,
+  BadgeStandAloneStyle,
+  BadgeOverflowStyle,
+  BadgeRedStyle,
+  BadgeDynamicStyle,
+} from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { BtnGroup, Button } from '../../components/buttons/buttons';
 
 const colors = [
@@ -48,7 +54,7 @@ const Badges = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Badge" />
       <Main>
         <Row gutter={25}>
@@ -98,7 +104,7 @@ const Badges = () => {
 
             <Cards title="Status">
               <BadgeWraperStyle>
-                <div style={{marginBottom: 10}}>
+                <div style={{ marginBottom: 10 }}>
                   {colors.map(color => (
                     <Badge key={color} color={color} />
                   ))}
@@ -117,12 +123,12 @@ const Badges = () => {
             <Cards title="Standalone">
               <BadgeWraperStyle>
                 <BadgeStandAloneStyle>
-                  <Badge count={25}></Badge>
+                  <Badge count={25} />
                   <Badge
                     count={4}
                     style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }}
-                  ></Badge>
-                  <Badge count={109} style={{ backgroundColor: '#52c41a' }}></Badge>
+                  />
+                  <Badge count={109} style={{ backgroundColor: '#52c41a' }} />
                 </BadgeStandAloneStyle>
               </BadgeWraperStyle>
             </Cards>
@@ -171,7 +177,7 @@ const Badges = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

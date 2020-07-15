@@ -1,9 +1,9 @@
 import React from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
+import { PricingCard, ListGroup, Badge } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import { PricingCard, ListGroup, Badge } from './style';
 import { List } from '../../components/pricing/pricing';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';

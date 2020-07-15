@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Comment, Avatar, Form, List, Input } from 'antd';
-import { Button } from '../../components/buttons/buttons';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import { Button } from '../buttons/buttons';
 
 const { TextArea } = Input;
 
@@ -10,9 +11,13 @@ const CommentList = ({ comments }) => (
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
     itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
+    renderItem={props => <Comment props={props} />}
   />
 );
+
+CommentList.propTypes = {
+  comments: PropTypes.array,
+};
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <div>
@@ -26,6 +31,13 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
     </Form.Item>
   </div>
 );
+
+Editor.propTypes = {
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  submitting: PropTypes.func,
+  value: PropTypes.string,
+};
 
 const CommentEditor = () => {
   const [state, setState] = useState({

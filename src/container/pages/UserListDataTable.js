@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper, CardToolbox } from '../styled';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, TableWrapper, CardToolbox } from '../styled';
+import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -21,7 +21,7 @@ const UserListDataTable = () => {
     notdata: searchData,
   });
 
-  let { notdata } = state;
+  const { notdata } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -41,7 +41,7 @@ const UserListDataTable = () => {
       user: (
         <div className="user-info">
           <figure>
-            <img style={{ width: '40px' }} src={require('../../' + img)} alt="" />
+            <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
           </figure>
           <figcaption>
             <Heading className="user-name" as="h6">

@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Form, Select, Input, InputNumber } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Cascader } from '../../components/cascader/cascader';
@@ -21,7 +21,7 @@ const Forms = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Form" />
       <Main>
         <Row gutter={25}>
@@ -71,7 +71,7 @@ const Forms = () => {
                   </Select>
                 </Form.Item>
                 <Form.Item>
-                  <Button htmlType="submit" type="primary" style={{marginTop: "20px"}}>
+                  <Button htmlType="submit" type="primary" style={{ marginTop: '20px' }}>
                     Submit
                   </Button>
                 </Form.Item>
@@ -80,7 +80,7 @@ const Forms = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

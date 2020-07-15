@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import React, { Component } from 'react';
 import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -47,9 +48,9 @@ class DateRangePickerOne extends Component {
       <ItemWraper>
         <DateRangePicker
           onChange={this.handleRangeChange.bind(this, 'dateRangePicker')}
-          showSelectionPreview={true}
+          showSelectionPreview
           moveRangeOnFirstSelection={false}
-          className={'PreviewArea'}
+          className="PreviewArea"
           months={2}
           ranges={[this.state.dateRangePicker.selection]}
           direction="horizontal"
@@ -66,6 +67,7 @@ class DateRangePickerOne extends Component {
 }
 
 class CustomDateRange extends React.Component {
+  // eslint-disable-next-line react/state-in-constructor
   state = {
     startValue: null,
     endValue: null,
@@ -124,7 +126,8 @@ class CustomDateRange extends React.Component {
           value={startValue}
           placeholder="Start"
           onChange={this.onStartChange}
-          onOpenChange={this.handleStartOpenChange} style={{margin: "5px"}}
+          onOpenChange={this.handleStartOpenChange}
+          style={{ margin: '5px' }}
         />
 
         <DatePicker
@@ -135,7 +138,8 @@ class CustomDateRange extends React.Component {
           placeholder="End"
           onChange={this.onEndChange}
           open={endOpen}
-          onOpenChange={this.handleEndOpenChange} style={{margin: "5px"}}
+          onOpenChange={this.handleEndOpenChange}
+          style={{ margin: '5px' }}
         />
       </div>
     );

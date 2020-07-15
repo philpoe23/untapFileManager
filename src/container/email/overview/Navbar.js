@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import Title from '../../../components/heading/heading';
 import { Input, Form } from 'antd';
-import { Button } from '../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import propTypes from 'prop-types';
 import { EmailNav } from './style';
+import { Button } from '../../../components/buttons/buttons';
+import Title from '../../../components/heading/heading';
 
 const EamilNavbar = ({ path }) => {
   const [state, setState] = useState({
@@ -54,7 +55,7 @@ const EamilNavbar = ({ path }) => {
       <EmailNav>
         <ul>
           <li>
-            <NavLink to={path + 'inbox'}>
+            <NavLink to={`${path}inbox`}>
               <FeatherIcon icon="inbox" size={18} />
               <span className="nav-text">
                 <span>Inbox</span>
@@ -63,7 +64,7 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'starred'}>
+            <NavLink to={`${path}starred`}>
               <FeatherIcon icon="star" size={18} />{' '}
               <span className="nav-text">
                 {' '}
@@ -72,7 +73,7 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'sent'}>
+            <NavLink to={`${path}sent`}>
               <FeatherIcon icon="send" size={18} />
               <span className="nav-text">
                 {' '}
@@ -81,7 +82,7 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'drafts'}>
+            <NavLink to={`${path}drafts`}>
               <FeatherIcon icon="edit" size={18} />
               <span className="nav-text">
                 {' '}
@@ -91,7 +92,7 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'spam'}>
+            <NavLink to={`${path}spam`}>
               <FeatherIcon icon="alert-octagon" size={18} />
               <span className="nav-text">
                 {' '}
@@ -100,7 +101,7 @@ const EamilNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={path + 'trash'}>
+            <NavLink to={`${path}trash`}>
               <FeatherIcon icon="trash" size={18} />
               <span className="nav-text">
                 {' '}
@@ -112,9 +113,9 @@ const EamilNavbar = ({ path }) => {
         <div className="nav-labels">
           <p>Labels</p>
           <ul>
-            {labels.map((label, index) => {
+            {labels.map(label => {
               return (
-                <li key={index + 1}>
+                <li key={label}>
                   <NavLink to={`${path + label}`}>
                     <FeatherIcon icon="list" size={18} /> {label}
                   </NavLink>
@@ -122,8 +123,8 @@ const EamilNavbar = ({ path }) => {
               );
             })}
 
-            <li onClick={addNewLabels}>
-              <NavLink onClick={addNewLabels} to={path + 'newLabels'}>
+            <li onKeyPress={() => {}} onClick={addNewLabels} role="menuitem">
+              <NavLink onClick={addNewLabels} to={`${path}newLabels`}>
                 <FeatherIcon icon="plus" size={18} /> Add New Labels
               </NavLink>
               {addNewDisplay && (
@@ -154,6 +155,10 @@ const EamilNavbar = ({ path }) => {
       </EmailNav>
     </>
   );
+};
+
+EamilNavbar.propTypes = {
+  path: propTypes.string.isRequired,
 };
 
 export default EamilNavbar;

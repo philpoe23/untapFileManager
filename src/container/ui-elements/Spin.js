@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import { SpinerWraperStyle } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { SpinerWraperStyle } from './ui-elements-styled';
-import { LoadingOutlined } from '@ant-design/icons';
+
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} />;
 
 const Spiner = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Spin" />
       <Main>
         <Row gutter={25}>
@@ -41,7 +42,7 @@ const Spiner = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

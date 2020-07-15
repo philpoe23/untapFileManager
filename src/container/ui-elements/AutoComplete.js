@@ -1,14 +1,14 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Input } from 'antd';
-import { Main , AutoCompleteWrapper } from '../styled';
+import { useSelector } from 'react-redux';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, AutoCompleteWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { connect } from 'react-redux';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 
 const { TextArea } = Input;
-const AutoCompletess = props => {
-  const { searchData } = props;
+const AutoCompletess = () => {
+  const searchData = useSelector(state => state.headerSearchData);
 
   const [state, setState] = useState({
     dataSource: [],
@@ -19,7 +19,11 @@ const AutoCompletess = props => {
   const onSearch = searchText => {
     let arrayData = [];
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
-    data.length ? data.map(item => arrayData.push(item.title)) : (arrayData = ['Data Not Found!']);
+    if (data.length) {
+      data.map(item => arrayData.push(item.title));
+    } else {
+      arrayData = ['Data Not Found!'];
+    }
     setState({
       dataSource: !searchText ? [] : arrayData,
     });
@@ -33,17 +37,17 @@ const AutoCompletess = props => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="AutoComplete" />
       <Main>
         <AutoCompleteWrapper>
           <Row gutter={25}>
             <Col md={12} sm={24} xs={24}>
               <Cards title="Basic Usage">
-                  <div className="auto-complete-input">
-                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
-                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
-                  </div>
+                <div className="auto-complete-input">
+                  <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                  <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                </div>
               </Cards>
               <Cards title="Customize Input Component">
                 <div className="auto-complete-input">
@@ -61,25 +65,19 @@ const AutoCompletess = props => {
             <Col md={12} sm={24} xs={24}>
               <div className="auto-complete-input">
                 <Cards title="Customize">
-                    <AutoComplete dataSource={dataSource} onSearch={onSearch} />
+                  <AutoComplete dataSource={dataSource} onSearch={onSearch} />
                 </Cards>
               </div>
-              
+
               <Cards title="Lookup-Patterns - Uncertain Category">
-                  <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
-                </Cards>
+                <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
+              </Cards>
             </Col>
           </Row>
         </AutoCompleteWrapper>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-  };
-};
-
-export default connect(mapStateToProps)(AutoCompletess);
+export default AutoCompletess;

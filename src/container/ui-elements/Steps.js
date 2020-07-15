@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Icon, Divider } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Popover } from '../../components/popup/popup';
@@ -26,21 +26,21 @@ const Stepess = () => {
 
   const { current } = state;
 
-  const onChange = current => {
-    console.log('onChange:', current);
-    setState({ current });
+  const onChange = currentValue => {
+    console.log('onChange:', currentValue);
+    setState({ currentValue });
   };
 
-  const next = current => {
-    console.log('onChange:', current);
+  const next = currentValue => {
+    console.log('onChange:', currentValue);
   };
 
-  const prev = current => {
-    console.log('onChange:', current);
+  const prev = currentValue => {
+    console.log('onChange:', currentValue);
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Steps" />
       <Main>
         <Row gutter={25}>
@@ -149,7 +149,7 @@ const Stepess = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

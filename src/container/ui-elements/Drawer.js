@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Form, Col, Row, Input, Select, DatePicker } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Drawer } from '../../components/drawer/drawer';
@@ -8,7 +8,7 @@ import { Drawer } from '../../components/drawer/drawer';
 const { Option } = Select;
 const Drawers = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Drawer" />
       <Main>
         <Row gutter={25}>
@@ -152,11 +152,11 @@ const Drawers = () => {
                 title="Basic Drawer"
                 childTitle="Lavel Two"
                 childDrawer={
-                  <Fragment>
+                  <>
                     <p>Some contents...</p>
                     <p>Some contents...</p>
                     <p>Some contents...</p>
-                  </Fragment>
+                  </>
                 }
               >
                 <p>Some contents...</p>
@@ -167,7 +167,7 @@ const Drawers = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

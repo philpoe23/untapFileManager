@@ -1,15 +1,17 @@
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { GmapWraper } from './map-style';
 import PropTypes from 'prop-types';
 import 'leaflet/dist/leaflet.css';
+// eslint-disable-next-line import/no-unresolved
 import 'leaflet/dist/leaflet.css?url=false';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import L from 'leaflet';
+import { GmapWraper } from './map-style';
 
+// eslint-disable-next-line no-underscore-dangle
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -25,7 +27,10 @@ const LeafletMapBasic = props => {
   return (
     <GmapWraper width={width} height={height}>
       <Map center={position} zoom={zoom}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
         <Marker position={position}>
           <Popup>
             A pretty CSS3 popup.
@@ -52,7 +57,10 @@ const LeafletMapMultipleIcon = props => {
   return (
     <GmapWraper width={width} height={height}>
       <Map center={position} zoom={zoom}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
         {data.map(item => {
           return (
             <Marker key={item.id} position={item.position}>
@@ -81,7 +89,7 @@ LeafletMapMultipleIcon.propTypes = {
 const LeafletMapCustomIcon = props => {
   const { latitude, longitude, width, height, zoom, faIcon } = props;
   const fontAwesomeIcon = L.divIcon({
-    html: '<i style="color: #2880CA" class="' + faIcon + '"></i>',
+    html: `<i style="color: #2880CA" class="${faIcon}"></i>`,
     iconSize: [20, 20],
     className: 'myDivIcon',
   });
@@ -89,7 +97,10 @@ const LeafletMapCustomIcon = props => {
   return (
     <GmapWraper width={width} height={height}>
       <Map center={position} zoom={zoom}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
         <Marker position={position} icon={fontAwesomeIcon}>
           <Popup>
             A pretty CSS3 popup.
@@ -117,7 +128,10 @@ const LeafleteMarkerCluster = props => {
   return (
     <GmapWraper width={width} height={height}>
       <Map center={position} zoom={zoom} className="markercluster-map" maxZoom={18}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
         <MarkerClusterGroup>
           {data.map(item => {
             return (

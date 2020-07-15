@@ -1,12 +1,12 @@
 import React from 'react';
+import { Row, Col, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { InvoiceHeader, InvoiceLetterBox, InvoiceAction, ProductTable, OrderSummary } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { Row, Col, Table } from 'antd';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
-import { InvoiceHeader, InvoiceLetterBox, InvoiceAction, ProductTable, OrderSummary } from './Style';
-import FeatherIcon from 'feather-icons-react';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -184,20 +184,20 @@ const Invoice = () => {
                       <ul className="summary-list">
                         <li>
                           <span className="summary-list-title">Subtotal :</span>
-                          <span className="summary-list-text">{'$' + 497.32}</span>
+                          <span className="summary-list-text">{`$${497.32}`}</span>
                         </li>
                         <li>
                           <span className="summary-list-title">Descount :</span>
-                          <span className="summary-list-text">{'$' + -20}</span>
+                          <span className="summary-list-text">{`$${-20}`}</span>
                         </li>
                         <li>
                           <span className="summary-list-title">Shipping Charge :</span>
-                          <span className="summary-list-text">{'$' + 30}</span>
+                          <span className="summary-list-text">{`$${30}`}</span>
                         </li>
                       </ul>
                       <Heading className="summary-total" as="h4">
                         <span className="summary-total-label">Total : </span>
-                        <span className="summary-total-amount">{'$' + 507.32}</span>
+                        <span className="summary-total-amount">{`$${507.32}`}</span>
                       </Heading>
                     </div>
                   </OrderSummary>

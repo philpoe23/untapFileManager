@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Form, Input, DatePicker, Radio } from 'antd';
-import { Button } from '../../../components/buttons/buttons';
 import { Link } from 'react-router-dom';
+import { Button } from '../../../components/buttons/buttons';
 import Heading from '../../../components/heading/heading';
 
 const dateFormat = 'MM/DD/YYYY';
@@ -52,7 +52,7 @@ const Work = () => {
               Cancel
             </Button>
             <Button htmlType="submit" type="primary">
-              <Link to={'/pages/add-user/social'}>Next</Link>
+              <Link to="/pages/add-user/social">Next</Link>
             </Button>
           </Form.Item>
         </Form>

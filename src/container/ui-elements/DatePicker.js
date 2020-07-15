@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, DatePicker } from 'antd';
+import moment from 'moment';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, DatePickerWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import moment from 'moment';
 import { DateRangePickerOne, CustomDateRange } from '../../components/datePicker/datePicker';
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
@@ -17,7 +17,7 @@ const DatePickers = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Date Picker" />
       <Main>
         <Row gutter={25}>
@@ -61,47 +61,45 @@ const DatePickers = () => {
                 />
               </DatePickerWrapper>
             </Cards>
-
           </Col>
           <Col md={12}>
-              <Cards title="Preset Ranges">
-                <DatePickerWrapper>
-                  <RangePicker
-                    ranges={{
-                      Today: [moment(), moment()],
-                      'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    }}
-                    onChange={onChange}
-                  />
-                  <br />
-                  <RangePicker
-                    ranges={{
-                      Today: [moment(), moment()],
-                      'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    }}
-                    showTime
-                    format="YYYY/MM/DD HH:mm:ss"
-                    onChange={onChange}
-                  />
+            <Cards title="Preset Ranges">
+              <DatePickerWrapper>
+                <RangePicker
+                  ranges={{
+                    Today: [moment(), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                  }}
+                  onChange={onChange}
+                />
+                <br />
+                <RangePicker
+                  ranges={{
+                    Today: [moment(), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                  }}
+                  showTime
+                  format="YYYY/MM/DD HH:mm:ss"
+                  onChange={onChange}
+                />
+              </DatePickerWrapper>
+            </Cards>
 
-                </DatePickerWrapper>
-              </Cards>
-
-              <Cards title="Extra Footer">
-                <DatePickerWrapper>
-                  <DatePicker renderExtraFooter={() => 'extra footer'} />
-                  <br />
-                  <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
-                  <br />
-                  <RangePicker renderExtraFooter={() => 'extra footer'} />
-                  <br />
-                  <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
-                  <br />
-                  <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
-                </DatePickerWrapper>
-              </Cards>
+            <Cards title="Extra Footer">
+              <DatePickerWrapper>
+                <DatePicker renderExtraFooter={() => 'extra footer'} />
+                <br />
+                <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
+                <br />
+                <RangePicker renderExtraFooter={() => 'extra footer'} />
+                <br />
+                <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
+                <br />
+                <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
+              </DatePickerWrapper>
+            </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards headless title="Custom Date Range" caption="The simplest use of Date picker">
               <CustomDateRange />
@@ -114,7 +112,7 @@ const DatePickers = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ const GoogleBasicBarChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
         hAxis: {
           title: 'Total',
@@ -47,8 +47,8 @@ const GoogleMaterialBarChart = props => {
       data={data}
       options={{
         chart: {
-          title: title,
-          subtitle: subtitle,
+          title,
+          subtitle,
         },
       }}
       // For tests
@@ -73,7 +73,7 @@ const GoogleStackedChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
         isStacked: true,
         hAxis: {
@@ -106,9 +106,9 @@ const GoogleCustomColorChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
-        colors: colors,
+        colors,
         hAxis: {
           title: 'Total',
           minValue: 0,
@@ -140,9 +140,9 @@ const GoogleComboChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
-        colors: colors,
+        colors,
         seriesType: 'bars',
         series: { 5: { type: 'line' } },
       }}
@@ -251,7 +251,7 @@ const GoogleBasicPieChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
       }}
       // For tests
@@ -276,7 +276,7 @@ const Google3dPieChart = props => {
       loader={<div>Loading Chart</div>}
       data={data}
       options={{
-        title: title,
+        title,
         chartArea: { width: chartArea },
         is3D: true,
       }}
@@ -292,4 +292,15 @@ Google3dPieChart.propTypes = {
   title: PropTypes.string.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
-export { Google3dPieChart, GoogleBasicPieChart, GoogleOrgChart, GoogleMultiLineChart, GoogleLineChart, GoogleComboChart, GoogleCustomColorChart, GoogleStackedChart, GoogleMaterialBarChart, GoogleBasicBarChart };
+export {
+  Google3dPieChart,
+  GoogleBasicPieChart,
+  GoogleOrgChart,
+  GoogleMultiLineChart,
+  GoogleLineChart,
+  GoogleComboChart,
+  GoogleCustomColorChart,
+  GoogleStackedChart,
+  GoogleMaterialBarChart,
+  GoogleBasicBarChart,
+};

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import { Main, PageHeaderWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -26,7 +26,7 @@ const routes = [
 
 const PageHeaders = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         buttons={[
@@ -46,7 +46,7 @@ const PageHeaders = () => {
           <Col md={24} sm={24} xs={24}>
             <Cards title="Basic header" caption="The simplest use of Page header">
               <PageHeaderWrapper>
-                <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle"/>
+                <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" />
               </PageHeaderWrapper>
             </Cards>
           </Col>
@@ -102,7 +102,7 @@ const PageHeaders = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

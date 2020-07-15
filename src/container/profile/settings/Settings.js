@@ -1,11 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
 import { Row, Col, Upload, Spin } from 'antd';
-import { ProfileAuthorBox, SettingWrapper } from './overview/style';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { ProfileAuthorBox, SettingWrapper } from './overview/style';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Main } from '../../styled';
+import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const Profile = lazy(() => import('./overview/Profile'));
@@ -44,19 +45,19 @@ const Settings = ({ match }) => {
                 <nav className="settings-menmulist">
                   <ul>
                     <li>
-                      <NavLink to={match.path + '/profile'}>
+                      <NavLink to={`${match.path}/profile`}>
                         <FeatherIcon icon="user" size={14} />
                         Edit Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/account'}>
+                      <NavLink to={`${match.path}/account`}>
                         <FeatherIcon icon="settings" size={14} />
                         Account Settings
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/password'}>
+                      <NavLink to={`${match.path}/password`}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="14"
@@ -75,13 +76,13 @@ const Settings = ({ match }) => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/social'}>
+                      <NavLink to={`${match.path}/social`}>
                         <FeatherIcon icon="users" size={14} />
                         Social Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/notification'}>
+                      <NavLink to={`${match.path}/notification`}>
                         <FeatherIcon icon="bell" size={14} />
                         Notification
                       </NavLink>
@@ -113,11 +114,11 @@ const Settings = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={match.path + '/profile'} component={Profile} />
-                  <Route path={match.path + '/account'} component={Account} />
-                  <Route path={match.path + '/password'} component={Password} />
-                  <Route path={match.path + '/social'} component={SocialProfiles} />
-                  <Route path={match.path + '/notification'} component={Notification} />
+                  <Route path={`${match.path}/profile`} component={Profile} />
+                  <Route path={`${match.path}/account`} component={Account} />
+                  <Route path={`${match.path}/password`} component={Password} />
+                  <Route path={`${match.path}/social`} component={SocialProfiles} />
+                  <Route path={`${match.path}/notification`} component={Notification} />
                 </Suspense>
               </Switch>
             </SettingWrapper>
@@ -126,6 +127,10 @@ const Settings = ({ match }) => {
       </Main>
     </>
   );
+};
+
+Settings.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Settings;

@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { GridStyle, GridStyleGutter, GridStyleOffset } from './GridStyled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { GridStyle, GridStyleGutter, GridStyleOffset } from './GridStyled';
 
 const Grid = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Grid" />
       <Main>
         <Row gutter={15}>
@@ -198,7 +198,7 @@ const Grid = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

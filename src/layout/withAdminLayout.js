@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import MenueItems from './sidebar/MenueItems';
 import { NavLink, Link } from 'react-router-dom';
+import { Scrollbars } from 'react-custom-scrollbars';
+import { ThemeProvider } from 'styled-components';
+import MenueItems from './sidebar/MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { Scrollbars } from 'react-custom-scrollbars';
-import { ThemeProvider } from 'styled-components';
 import { darkTheme } from '../config/theme/themeVariables';
 import config from '../config/config';
 
@@ -39,8 +39,6 @@ const ThemeLayout = WrappedComponent => {
       super(props);
       this.state = {
         collapsed: false,
-        top: 0,
-        width: 0,
         hide: true,
         searchHide: true,
       };
@@ -60,7 +58,6 @@ const ThemeLayout = WrappedComponent => {
 
     updateDimensions() {
       this.setState({
-        width: window.innerWidth,
         collapsed: window.innerWidth <= 1200 && true,
       });
     }
@@ -73,7 +70,7 @@ const ThemeLayout = WrappedComponent => {
 
     onShowHide = () => {
       this.setState({
-        hide: this.state.hide ? false : true,
+        hide: !this.state.hide,
         searchHide: true,
       });
     };
@@ -81,7 +78,7 @@ const ThemeLayout = WrappedComponent => {
     handleSearchHide = e => {
       e.preventDefault();
       this.setState({
-        searchHide: this.state.searchHide ? false : true,
+        searchHide: !this.state.searchHide,
         hide: true,
       });
     };
@@ -125,7 +122,7 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col md={0} sm={19} xs={12}>
-                  <Fragment>
+                  <>
                     <div className="mobile-action">
                       <Link className="btn-search" onClick={this.handleSearchHide} to="#">
                         {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
@@ -134,7 +131,7 @@ const ThemeLayout = WrappedComponent => {
                         <FeatherIcon icon="more-vertical" />
                       </Link>
                     </div>
-                  </Fragment>
+                  </>
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
@@ -181,6 +178,7 @@ const ThemeLayout = WrappedComponent => {
         </Div>
       );
     }
+
     componentWillUnmount() {
       window.removeEventListener('resize', this.updateDimensions);
     }

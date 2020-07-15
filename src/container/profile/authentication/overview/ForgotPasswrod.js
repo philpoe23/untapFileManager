@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import Heading from '../../../../components/heading/heading';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
+import Heading from '../../../../components/heading/heading';
 
 const ForgotPassword = () => {
   const handleSubmit = values => {
@@ -14,7 +14,9 @@ const ForgotPassword = () => {
       <div className="auth-contents">
         <Form name="forgotpass" onFinish={handleSubmit} layout="vertical">
           <Heading as="h3">Forgot Password?</Heading>
-          <p>Enter the email address you used when you joined and we’ll send you instructions to reset your password.</p>
+          <p>
+            Enter the email address you used when you joined and we’ll send you instructions to reset your password.
+          </p>
           <Form.Item
             label="Email Address"
             name="email"

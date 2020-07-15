@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
+import * as Icons from '@ant-design/icons';
+import { AnIcon, IconWrapper } from './IconStyled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
-import { AnIcon, IconWrapper } from './IconStyled';
-import * as Icons from '@ant-design/icons';
 
 const FeatherSvgIcons = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Antd Icons" />
       <Main>
         <Row gutter={15}>
@@ -24,10 +24,10 @@ const FeatherSvgIcons = () => {
                         item !== 'getTwoToneColor' &&
                         item !== 'createFromIconfontCN',
                     )
-                    .map((icon, index) => {
+                    .map(icon => {
                       const CustomTag = Icons[icon];
                       return (
-                        <Col lg={6} md={12} xs={24} key={index}>
+                        <Col lg={6} md={12} xs={24} key={icon}>
                           <AnIcon className="icon-single">
                             <CustomTag />
                             <span> {icon}</span>
@@ -41,7 +41,7 @@ const FeatherSvgIcons = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

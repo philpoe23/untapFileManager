@@ -1,15 +1,16 @@
-import React, { Fragment, lazy, useState, Suspense } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
+import React, { lazy, useState, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Spin, Select } from 'antd';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
-import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import { Button } from '../../components/buttons/buttons';
+import propTypes from 'prop-types';
 import CreateProject from './overview/CreateProject';
-import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
 import { ProjectHeader, ProjectSorting } from './style';
+import { AutoComplete } from '../../components/autoComplete/autoComplete';
+import { Button } from '../../components/buttons/buttons';
+import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
+import { Main } from '../styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
@@ -45,25 +46,25 @@ const Project = ({ match }) => {
     dispatch(filterProjectByStatus(value));
   };
 
-  const showModal = e => {
+  const showModal = () => {
     setState({
       visible: true,
     });
   };
 
-  const onCancel = e => {
+  const onCancel = () => {
     setState({
       visible: false,
     });
   };
 
   return (
-    <Fragment>
+    <>
       <ProjectHeader>
         <PageHeader
           ghost
           title="Projects"
-          subTitle={<Fragment>12 Running Projects</Fragment>}
+          subTitle={<>12 Running Projects</>}
           buttons={[
             <Button onClick={showModal} key="1" type="primary" size="default">
               + Create Projects
@@ -124,7 +125,7 @@ const Project = ({ match }) => {
                       <NavLink to={match.path}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={match.path + '/list'}>
+                      <NavLink to={`${match.path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -142,7 +143,7 @@ const Project = ({ match }) => {
                   }
                 >
                   <Route exact path={match.path} component={Grid} />
-                  <Route path={match.path + '/:list'} component={List} />
+                  <Route path={`${match.path}/:list`} component={List} />
                 </Suspense>
               </Switch>
             </div>
@@ -150,8 +151,12 @@ const Project = ({ match }) => {
         </Row>
       </Main>
       <CreateProject onCancel={onCancel} visible={visible} />
-    </Fragment>
+    </>
   );
+};
+
+Project.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Project;

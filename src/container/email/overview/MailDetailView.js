@@ -1,14 +1,15 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { filterSinglepage } from '../../../redux/email/actionCreator';
 import { useSelector, useDispatch } from 'react-redux';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin } from 'antd';
-import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
+import propTypes from 'prop-types';
 import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
+import { Dropdown } from '../../../components/dropdown/dropdown';
+import Heading from '../../../components/heading/heading';
+import { filterSinglepage } from '../../../redux/email/actionCreator';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const MailComposer = lazy(() => import('./MailComposer'));
 
@@ -19,7 +20,7 @@ const Single = props => {
 
   useEffect(() => {
     if (filterSinglepage) {
-      const id = parseInt(match.params.id);
+      const id = parseInt(match.params.id, 10);
       dispatch(filterSinglepage(id));
     }
   }, [match.params.id, dispatch]);
@@ -152,7 +153,7 @@ const Single = props => {
               <div className="message-body">
                 <p>{email.body}</p>
 
-                <Heading as={'h6'}>
+                <Heading as="h6">
                   Best Regurds <br /> {email.userName}
                 </Heading>
               </div>
@@ -205,12 +206,12 @@ const Single = props => {
               <nav>
                 <ul>
                   <li>
-                    <NavLink to={match.url + '/replay'}>
+                    <NavLink to={`${match.url}/replay`}>
                       <FeatherIcon icon="corner-up-left" size={14} /> Reply
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={match.url + '/forward'}>
+                    <NavLink to={`${match.url}/forward`}>
                       <FeatherIcon icon="corner-up-right" size={14} /> Forward
                     </NavLink>
                   </li>
@@ -227,8 +228,8 @@ const Single = props => {
                 >
                   <div className="reply-box">
                     <Route
-                      path={match.url + '/replay'}
-                      render={props => <MailComposer {...props} onSend={replyMail} />}
+                      path={`${match.url}/replay`}
+                      render={value => <MailComposer props={value} onSend={replyMail} />}
                     />
                   </div>
                 </Suspense>
@@ -239,6 +240,11 @@ const Single = props => {
       </Cards>
     </MailDetailsWrapper>
   );
+};
+
+Single.propTypes = {
+  match: propTypes.object.isRequired,
+  history: propTypes.object.isRequired,
 };
 
 export default Single;

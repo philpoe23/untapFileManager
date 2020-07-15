@@ -2,6 +2,8 @@ import React from 'react';
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import propTypes from 'prop-types';
+
 const { SubMenu } = Menu;
 
 const MenueItems = ({ darkMode }) => {
@@ -11,6 +13,7 @@ const MenueItems = ({ darkMode }) => {
     <Menu
       mode="inline"
       theme={darkMode && 'dark'}
+      // eslint-disable-next-line no-nested-ternary
       defaultSelectedKeys={[`${pathArray[1] === '' ? 'home' : pathArray.length === 2 ? pathArray[1] : pathArray[2]}`]}
       defaultOpenKeys={[`${pathArray[1] !== '' ? pathArray[1] : 'dashboard'}`]}
     >
@@ -352,4 +355,9 @@ const MenueItems = ({ darkMode }) => {
     </Menu>
   );
 };
+
+MenueItems.propTypes = {
+  darkMode: propTypes.string.isRequired,
+};
+
 export default MenueItems;

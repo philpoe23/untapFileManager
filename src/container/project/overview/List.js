@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, Progress, Pagination } from 'antd';
-import Heading from '../../../components/heading/heading';
 import { useSelector } from 'react-redux';
-import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
+import Heading from '../../../components/heading/heading';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList } from '../style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
-import FeatherIcon from 'feather-icons-react';
 
-const List = props => {
+const List = () => {
   const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
     projects: project,
@@ -35,8 +35,8 @@ const List = props => {
   const dataSource = [];
 
   projects.length &&
-    projects.map(project => {
-      const { id, title, status, category } = project;
+    projects.map(value => {
+      const { id, title, status, category } = value;
       return dataSource.push({
         key: id,
         project: (

@@ -2,7 +2,7 @@ import { theme } from '../theme/themeVariables';
 
 const mapdata = {
   apiKey: 'AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c',
-  map_one_styles: [
+  mapOneStyles: [
     {
       featureType: 'water',
       elementType: 'geometry',
@@ -178,7 +178,7 @@ const mapdata = {
       ],
     },
   ],
-  map_two_styles: [
+  mapTwoStyles: [
     {
       featureType: 'all',
       elementType: 'labels.text.fill',
@@ -366,7 +366,7 @@ const mapdata = {
       ],
     },
   ],
-  map_Three_styles: [
+  mapThreeStyles: [
     {
       featureType: 'all',
       elementType: 'labels.text.fill',
@@ -438,7 +438,7 @@ const mapdata = {
       elementType: 'geometry',
       stylers: [
         {
-          color: theme['primary-color'] + '90',
+          color: `${theme['primary-color']}90`,
         },
       ],
     },
@@ -482,7 +482,7 @@ const mapdata = {
       ],
     },
   ],
-  map_style_dark: [
+  mapStyleDark: [
     {
       featureType: 'all',
       elementType: 'labels.text.fill',
@@ -605,4 +605,4 @@ const mapdata = {
     left: 0,
   },
 };
-export { mapdata };
+export default mapdata;

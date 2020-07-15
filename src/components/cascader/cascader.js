@@ -53,7 +53,7 @@ const Cascader = props => {
       showSearch={isShowSearch && { filter }}
       loadData={loadData}
       placeholder={placeholder}
-      changeOnSelect={loading ? true : false}
+      changeOnSelect={!!loading}
     />
   );
 };

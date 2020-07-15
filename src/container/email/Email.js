@@ -1,15 +1,15 @@
-import React, { Fragment, useState, lazy, Suspense, useLayoutEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Cards } from '../../components/cards/frame/cards-frame';
+import React, { useState, lazy, Suspense, useLayoutEffect } from 'react';
 import { Row, Col, Spin } from 'antd';
-import { Main } from '../styled';
-import EamilNavbar from './overview/Navbar';
-import { Button } from '../../components/buttons/buttons';
-import ComposeMail from './overview/Compose';
 import { Switch, Route } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import propTypes from 'prop-types';
+import EamilNavbar from './overview/Navbar';
+import ComposeMail from './overview/Compose';
 import { EmailWrapper, MailSideBar } from './overview/style';
-
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { Main } from '../styled';
+import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -47,17 +47,17 @@ const Email = ({ match }) => {
     });
   };
 
-  const toggleMailComposer = e => {
+  const toggleMailComposer = () => {
     setMailEditorStatus(!isMailEditorOpen);
   };
 
-  const closeMailComposr = e => {
+  const closeMailComposr = () => {
     setMailEditorStatus(false);
   };
 
   const path = match.path.split(':')[0];
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title={match.params.page}
@@ -125,21 +125,25 @@ const Email = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={path + 'inbox'} component={Inbox} />
-                  <Route path={path + 'sent'} component={Sent} />
-                  <Route path={path + 'drafts'} component={Draft} />
-                  <Route path={path + 'starred'} component={Starred} />
-                  <Route path={path + 'spam'} component={Spam} />
-                  <Route path={path + 'trash'} component={Trash} />
-                  <Route path={path + 'single/:id'} component={MailDetailView} />
+                  <Route path={`${path}inbox`} component={Inbox} />
+                  <Route path={`${path}sent`} component={Sent} />
+                  <Route path={`${path}drafts`} component={Draft} />
+                  <Route path={`${path}starred`} component={Starred} />
+                  <Route path={`${path}spam`} component={Spam} />
+                  <Route path={`${path}trash`} component={Trash} />
+                  <Route path={`${path}single/:id`} component={MailDetailView} />
                 </Suspense>
               </Switch>
             </Col>
           </Row>
         </EmailWrapper>
       </Main>
-    </Fragment>
+    </>
   );
+};
+
+Email.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Email;

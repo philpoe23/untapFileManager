@@ -1,15 +1,15 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { Row, Col, Radio, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { NavLink, Link } from 'react-router-dom';
+import { Focard, CardBarChart, CardGroup, SocialMediaWrapper, LineChartWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Radio, Table } from 'antd';
 import { SocialMediaContent } from '../../components/social-media/overview';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import FeatherIcon from 'feather-icons-react';
 import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '../../components/charts/chartjs';
-import { NavLink, Link } from 'react-router-dom';
-import { Focard, CardBarChart, CardGroup, SocialMediaWrapper, LineChartWrapper } from './style';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -221,7 +221,7 @@ const Dashbord = () => {
   ];
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Social Media Dashboard"
@@ -704,7 +704,6 @@ const Dashbord = () => {
             </LineChartWrapper>
           </Col>
           <Col xxl={8} md={8} xs={24}>
-          
             <LineChartWrapper>
               <Cards
                 isbutton={
@@ -1095,7 +1094,7 @@ const Dashbord = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

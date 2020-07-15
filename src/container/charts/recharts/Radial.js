@@ -1,10 +1,10 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import { Row, Col, Icon } from 'antd';
+import { RadialBarChart, RadialBar, Legend } from 'recharts';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Icon } from 'antd';
 import { Main } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
-import { RadialBarChart, RadialBar, Legend } from 'recharts';
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
@@ -80,7 +80,7 @@ const ReChartRadial = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         title="Rechats Radial Chart"
         buttons={[
@@ -129,7 +129,7 @@ const ReChartRadial = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

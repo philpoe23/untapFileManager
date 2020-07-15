@@ -1,7 +1,7 @@
 import React from 'react';
+import { MaintananceWrapper } from './style';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import { MaintananceWrapper } from './style';
 
 const Maintenance = () => {
   return (
@@ -10,8 +10,8 @@ const Maintenance = () => {
         <img src={require(`../../static/img/pages/maintenance.svg`)} alt="maintenance" />
         <Heading as="h3">We are currently performing maintenance</Heading>
         <p>
-          We're making the system more awesome. <br />
-          We'll be back shortly.
+          We&rsquo;re making the system more awesome. <br />
+          We&rsquo;ll be back shortly.
         </p>
       </MaintananceWrapper>
     </Main>

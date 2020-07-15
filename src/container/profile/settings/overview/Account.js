@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Row, Col, Form, Input } from 'antd';
+import { AccountWrapper } from './style';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Button } from '../../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../../styled';
 import Heading from '../../../../components/heading/heading';
-import { AccountWrapper } from './style';
 
 const Account = () => {
   const [form] = Form.useForm();
@@ -49,8 +49,15 @@ const Account = () => {
                         <Form.Item name="username" initialValue={state.name} label="Username">
                           <Input onChange={handleChange} />
                         </Form.Item>
-                        <p>Your Dashboard URL: http://dashboard.com/<span>{state.name}</span></p>
-                        <Form.Item name="email" initialValue="contact@example.com" rules={[{ type: 'email' }]} label="Email">
+                        <p>
+                          Your Dashboard URL: http://dashboard.com/<span>{state.name}</span>
+                        </p>
+                        <Form.Item
+                          name="email"
+                          initialValue="contact@example.com"
+                          rules={[{ type: 'email' }]}
+                          label="Email"
+                        >
                           <Input />
                         </Form.Item>
                       </div>
@@ -64,11 +71,15 @@ const Account = () => {
                       <div className="account-closing">
                         <Row>
                           <Col lg={18} md={24} sm={18} xs={24}>
-                            <Heading className="account-closing__title" as="h4">Close Account</Heading>
+                            <Heading className="account-closing__title" as="h4">
+                              Close Account
+                            </Heading>
                             <p>Delete Your Account and Account data</p>
                           </Col>
                           <Col lg={6} md={24} sm={6} xs={24}>
-                            <Button size="small" type="danger">Close Account</Button>
+                            <Button size="small" type="danger">
+                              Close Account
+                            </Button>
                           </Col>
                         </Row>
                       </div>

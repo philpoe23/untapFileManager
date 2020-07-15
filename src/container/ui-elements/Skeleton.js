@@ -1,12 +1,12 @@
- import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Skeleton } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Skeletons = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Skeleton" />
       <Main>
         <Row gutter={25}>
@@ -27,7 +27,7 @@ const Skeletons = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

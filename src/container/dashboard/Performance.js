@@ -1,15 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Cards } from '../../components/cards/frame/cards-frame';
+import React, { useState } from 'react';
 import { Row, Col, Progress, Table } from 'antd';
-import { Main } from '../styled';
-import Heading from '../../components/heading/heading';
 import { VectorMap } from '@south-paw/react-vector-maps';
-import worldLowRes from '../../config/dataService/vector.json';
 import { NavLink, Link } from 'react-router-dom';
-import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
-import { Button } from '../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
+import { Scrollbars } from 'react-custom-scrollbars';
+import PropTypes from 'prop-types';
 import {
   OverviewCard,
   PerfomenceChartWrapper,
@@ -21,15 +16,21 @@ import {
   LadingPages,
   TrafficTableWrapper,
 } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Cards } from '../../components/cards/frame/cards-frame';
+import { Main } from '../styled';
+import Heading from '../../components/heading/heading';
+import worldLowRes from '../../config/dataService/vector.json';
+import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
+import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const moreContent = (
-  <Fragment>
+  <>
     <NavLink to="#">
       <span>More one</span>
     </NavLink>
@@ -39,7 +40,7 @@ const moreContent = (
     <NavLink to="#">
       <span>More three</span>
     </NavLink>
-  </Fragment>
+  </>
 );
 
 const locationcolumns = [
@@ -304,10 +305,15 @@ const Performance = () => {
       backgroundColor: '#F1F2F6',
       height: '220px',
     };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
   };
+
+  renderThumb.propTypes = {
+    style: PropTypes.object.isRequired,
+  };
+
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Website Performance Dashboard"
@@ -527,8 +533,8 @@ const Performance = () => {
                               suggestedMin: 50,
                               suggestedMax: 80,
                               stepSize: 20,
-                              callback: function(label, index, labels) {
-                                return label + 'k';
+                              callback(label) {
+                                return `${label}k`;
                               },
                             },
                           },
@@ -583,7 +589,7 @@ const Performance = () => {
                 more={moreContent}
               >
                 <TrafficTableWrapper>
-                  <div class="table-bordered table-responsive">
+                  <div className="table-bordered table-responsive">
                     <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
                   </div>
                 </TrafficTableWrapper>
@@ -631,7 +637,7 @@ const Performance = () => {
                   <SessionState className="session-wrap d-flex justify-content-center">
                     <div className="session-single">
                       <div className="chart-label">
-                        <span className="label-dot dot-success"></span>
+                        <span className="label-dot dot-success" />
                         Desktop
                       </div>
                       <span>4,483</span>
@@ -639,7 +645,7 @@ const Performance = () => {
                     </div>
                     <div className="session-single">
                       <div className="chart-label">
-                        <span className="label-dot dot-info"></span>
+                        <span className="label-dot dot-info" />
                         Mobile
                       </div>
                       <span>5870</span>
@@ -647,7 +653,7 @@ const Performance = () => {
                     </div>
                     <div className="session-single">
                       <div className="chart-label">
-                        <span className="label-dot dot-warning"></span>
+                        <span className="label-dot dot-warning" />
                         Tablets
                       </div>
                       <span>2,420</span>
@@ -731,7 +737,7 @@ const Performance = () => {
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
-                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    <VectorMap worldLowRes={worldLowRes} fill="#E3E6EF" stroke="white" />
                   </RegionMap>
                 </Col>
               </Row>
@@ -739,7 +745,7 @@ const Performance = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,21 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { PageHeaderStyle } from './style';
 
 const PageHeader = props => {
   const { title, subTitle, routes, buttons, ghost, bgColor } = props;
   return (
-    <Fragment>
+    <>
       <div
         style={{
-          backgroundColor: bgColor ? bgColor : '#F4F5F7'
+          backgroundColor: bgColor || '#F4F5F7',
         }}
       >
         <PageHeaderStyle
           style={{
             backgroundColor: 'rgb(244, 245, 247)',
           }}
-          //onBack={() => window.history.back()}
+          // onBack={() => window.history.back()}
           title={title}
           subTitle={subTitle}
           breadcrumb={routes && { routes }}
@@ -23,7 +23,7 @@ const PageHeader = props => {
           ghost={ghost}
         />
       </div>
-    </Fragment>
+    </>
   );
 };
 

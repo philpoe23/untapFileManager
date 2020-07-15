@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Rate, Pagination, Spin } from 'antd';
-import Heading from '../../../../components/heading/heading';
-import { Button } from '../../../../components/buttons/buttons';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { ProductCard, PaginationWrapper } from '../../Style';
 import { useSelector } from 'react-redux';
+import Heading from '../../../../components/heading/heading';
+import { Button } from '../../../../components/buttons/buttons';
+import { ProductCard, PaginationWrapper } from '../../Style';
 
 const List = () => {
   const { productsAll, isloader } = useSelector(state => {

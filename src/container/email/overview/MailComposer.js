@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { Button } from '../../../components/buttons/buttons';
 import { NavLink } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { MailBox } from './style';
+import { Button } from '../../../components/buttons/buttons';
 
 const MailComposer = ({ onChange, onSend }) => {
   const [state, setState] = useState({
@@ -44,27 +45,31 @@ const MailComposer = ({ onChange, onSend }) => {
           <RichTextEditor value={state.value} onChange={onChanges} />
         </div>
       </div>
-        
+
       <div className="fotter">
         <div className="left d-flex align-items-center">
           <Button size="default" type="primary" onClick={onSubmit} raised>
             Send
           </Button>
-          <NavLink to='/'>
+          <NavLink to="/">
             <FeatherIcon icon="paperclip" size={18} />
           </NavLink>
-          <NavLink to='/'>
+          <NavLink to="/">
             <FeatherIcon icon="alert-circle" size={18} />
           </NavLink>
         </div>
         <div className="right">
-          <NavLink to='/'>
+          <NavLink to="/">
             <FeatherIcon icon="trash-2" size={18} />
           </NavLink>
         </div>
       </div>
     </MailBox>
   );
+};
+MailComposer.propTypes = {
+  onChange: propTypes.func.isRequired,
+  onSend: propTypes.func.isRequired,
 };
 
 export default MailComposer;

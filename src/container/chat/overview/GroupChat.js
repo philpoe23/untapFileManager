@@ -31,12 +31,12 @@ const GroupChat = ({ match }) => {
             .sort((a, b) => {
               return b.time - a.time;
             })
-            .map((user, index) => {
+            .map(user => {
               const { groupName, content, id } = user;
               const { time } = content[content.length - 1];
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
-                <li key={index + 1} className="chat-link-signle">
+                <li key={id} className="chat-link-signle">
                   <NavLink onClick={() => dataFiltering(id)} to={`${match.path}/${id}`}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />

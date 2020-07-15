@@ -1,16 +1,17 @@
 import React, { lazy, Suspense, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Progress, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import Heading from '../../components/heading/heading';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { ProjectDetailsWrapper, TaskLists } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import Heading from '../../components/heading/heading';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { filterSinglepage } from '../../redux/project/actionCreator';
-import { ProjectDetailsWrapper, TaskLists } from './style';
 
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
@@ -21,7 +22,7 @@ const ProjectDetails = ({ match }) => {
 
   useEffect(() => {
     if (filterSinglepage) {
-      dispatch(filterSinglepage(parseInt(match.params.id)));
+      dispatch(filterSinglepage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
 
@@ -201,9 +202,9 @@ const ProjectDetails = ({ match }) => {
               <Cards
                 title={
                   <nav>
-                    <NavLink to={match.url + '/tasklist'}>Task List</NavLink>
+                    <NavLink to={`${match.url}/tasklist`}>Task List</NavLink>
                     &nbsp; &nbsp;
-                    <NavLink to={match.url + '/activities'}>Activities</NavLink>
+                    <NavLink to={`${match.url}/activities`}>Activities</NavLink>
                   </nav>
                 }
               >
@@ -216,8 +217,8 @@ const ProjectDetails = ({ match }) => {
                     }
                   >
                     <Route exact path={match.url} component={TaskList} />
-                    <Route path={match.url + '/tasklist'} component={TaskList} />
-                    <Route path={match.url + '/activities'} component={Activities} />
+                    <Route path={`${match.url}/tasklist`} component={TaskList} />
+                    <Route path={`${match.url}/activities`} component={Activities} />
                   </Suspense>
                 </Switch>
               </Cards>
@@ -235,7 +236,7 @@ const ProjectDetails = ({ match }) => {
                       <span className="file-name">Main-admin-design.zip</span>
                       <span className="file-size">7.05 MB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -274,8 +275,8 @@ const ProjectDetails = ({ match }) => {
                       <span className="file-name">Product-guidelines.pdf</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -314,7 +315,7 @@ const ProjectDetails = ({ match }) => {
                       <span className="file-name">admin-wireframe.psd</span>
                       <span className="file-size">2.05 MB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -353,8 +354,8 @@ const ProjectDetails = ({ match }) => {
                       <span className="file-name">Wirefram-escreenshots.jpg</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -393,8 +394,8 @@ const ProjectDetails = ({ match }) => {
                       <span className="file-name">Logo.png</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -433,6 +434,10 @@ const ProjectDetails = ({ match }) => {
       </Main>
     </ProjectDetailsWrapper>
   );
+};
+
+ProjectDetails.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default ProjectDetails;

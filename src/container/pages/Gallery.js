@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Spin } from 'antd';
-import Heading from '../../components/heading/heading';
 import { Link } from 'react-router-dom';
 import { GalleryNav, GalleryCard } from './style';
+import Heading from '../../components/heading/heading';
+import { Main } from '../styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { galleryFilter } from '../../redux/gallary/actionCreator';
 
 const Gallery = () => {
@@ -94,7 +94,7 @@ const Gallery = () => {
                 <Col key={id} xxl={6} lg={8} sm={12} xs={24}>
                   <GalleryCard style={{ marginBottom: '25px' }}>
                     <figure>
-                      <img style={{ width: '100%' }} src={require('../../' + img)} alt="" />
+                      <img style={{ width: '100%' }} src={require(`../../${img}`)} alt="" />
                       <figcaption>
                         <div className="gallery-single-content">
                           <Heading className="gallery-single-title" as="h4">

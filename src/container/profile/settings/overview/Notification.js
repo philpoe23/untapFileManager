@@ -1,10 +1,10 @@
 import React from 'react';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Row, Col, Switch } from 'antd';
-import { Button } from '../../../../components/buttons/buttons';
-import Heading from '../../../../components/heading/heading';
 import { Link } from 'react-router-dom';
 import { NotificationWrapper } from './style';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
+import { Button } from '../../../../components/buttons/buttons';
+import Heading from '../../../../components/heading/heading';
 
 const listStyle = {
   display: 'flex',
@@ -38,8 +38,12 @@ const Notification = () => {
                   }}
                   className="notification-header"
                 >
-                  <Heading className="notification-header__text" as="h4">Notifications</Heading>
-                  <Link className="btn-toggle" to="#">Toggle all</Link>
+                  <Heading className="notification-header__text" as="h4">
+                    Notifications
+                  </Heading>
+                  <Link className="btn-toggle" to="#">
+                    Toggle all
+                  </Link>
                 </div>
                 <div className="notification-body">
                   <Cards headless>
@@ -52,38 +56,46 @@ const Notification = () => {
                       >
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Company News</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Company News
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
                           <Switch defaultChecked={false} />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Meetups Near you</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Meetups Near you
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
-                          <Switch defaultChecked={true} />
+                          <Switch defaultChecked />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Opportunities</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Opportunities
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
                           <Switch defaultChecked={false} />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Weekly News Letters</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Weekly News Letters
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
-                          <Switch defaultChecked={true} />
+                          <Switch defaultChecked />
                         </li>
                       </ul>
                     </nav>
                   </Cards>
                 </div>
               </Cards>
-            </div>  
+            </div>
           </Col>
 
           <Col xs={24}>
@@ -98,11 +110,15 @@ const Notification = () => {
                   }}
                   className="notification-header"
                 >
-                  <Heading className="notification-header__text" as="h4">Account Activity</Heading>
-                  <Link className="btn-toggle" to="#">Toggle all</Link>
+                  <Heading className="notification-header__text" as="h4">
+                    Account Activity
+                  </Heading>
+                  <Link className="btn-toggle" to="#">
+                    Toggle all
+                  </Link>
                 </div>
                 <div className="notification-body">
-                <Cards headless>
+                  <Cards headless>
                     <nav>
                       <ul
                         style={{
@@ -112,48 +128,59 @@ const Notification = () => {
                       >
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Company News</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Company News
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
                           <Switch defaultChecked={false} />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Meetups Near you</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Meetups Near you
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
-                          <Switch defaultChecked={true} />
+                          <Switch defaultChecked />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Opportunities</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Opportunities
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
                           <Switch defaultChecked={false} />
                         </li>
                         <li style={listStyle}>
                           <div className="notification-list-single">
-                            <Heading className="notification-list-single__title" as="h4">Weekly News Letters</Heading>
+                            <Heading className="notification-list-single__title" as="h4">
+                              Weekly News Letters
+                            </Heading>
                             <p>Get Company News, announcements, and product updates</p>
                           </div>
-                          <Switch defaultChecked={true} />
+                          <Switch defaultChecked />
                         </li>
                       </ul>
                     </nav>
-                </Cards>
+                  </Cards>
                 </div>
               </Cards>
             </div>
           </Col>
         </Row>
         <div className="notification-actions">
-          <Button size="default" type="primary">Update Social Profile</Button>
+          <Button size="default" type="primary">
+            Update Social Profile
+          </Button>
           &nbsp; &nbsp;
-          <Button size="default" type="light">Cancel</Button>
+          <Button size="default" type="light">
+            Cancel
+          </Button>
         </div>
       </Cards>
     </NotificationWrapper>
-    
   );
 };
 
