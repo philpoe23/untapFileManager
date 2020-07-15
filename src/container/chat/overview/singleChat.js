@@ -1,16 +1,20 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React, { useState, useEffect } from 'react';
 import { Upload } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
+import moment from 'moment';
+import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
-import moment from 'moment';
 import { updatePrivetChat } from '../../../redux/chat/actionCreator';
-import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
+
+// @Todo props validation
+// @Todo valid Link
+// @Todo valid require()
 
 const SingleChat = ({ chat, match, updatePrivetChat }) => {
   const [state, setState] = useState({
@@ -66,7 +70,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
   };
 
   const content = (
-    <Fragment>
+    <>
       <NavLink to="#">
         <FeatherIcon icon="users" size={14} />
         <span>Create new group</span>
@@ -79,17 +83,17 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
         <FeatherIcon icon="slash" size={14} />
         <span>Block & Report</span>
       </NavLink>
-    </Fragment>
+    </>
   );
 
   return (
     <SingleChatWrapper>
       <Cards
         title={
-          <Fragment>
+          <>
             <Heading as="h5">{name}</Heading>
             <p>Active Now</p>
-          </Fragment>
+          </>
         }
         more={content}
       >
@@ -100,7 +104,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
 
               return (
-                <li className="atbd-chatbox__single" key={index + 1} style={{ overflow: 'hidden' }}>
+                <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                   <div className={mes.email !== me ? 'left' : 'right'}>
                     {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
 

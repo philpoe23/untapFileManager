@@ -1,6 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Checkbox } from '../../components/checkbox/checkbox';
@@ -15,21 +15,17 @@ const Checkboxs = () => {
   };
 
   useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
+    if (state) {
       console.log(state);
     }
-    return () => {
-      unmount = true;
-    };
   });
 
-  const onChange = (checked, value) => {
+  const onChange = checked => {
     console.log(`checked = ${checked}`);
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Checkbox" />
       <Main>
         <Row gutter={25}>
@@ -58,7 +54,7 @@ const Checkboxs = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

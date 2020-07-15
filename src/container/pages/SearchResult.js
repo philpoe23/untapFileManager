@@ -1,17 +1,19 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Row, Col, Pagination } from 'antd';
+import { Link } from 'react-router-dom';
+import { SearchResultWrapper, ResultList } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
-import { connect } from 'react-redux';
-import { Row, Col, Pagination } from 'antd';
 import Heading from '../../components/heading/heading';
-import { Link } from 'react-router-dom';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { SearchResultWrapper, ResultList } from './style';
 
-const SearchResult = ({ searchData }) => {
+const SearchResult = () => {
+  const searchData = useSelector(state => state.headerSearchData);
   const [state, setState] = useState({
     notdata: searchData,
+    activeClass: 'all',
   });
   const { notdata } = state;
 
@@ -23,13 +25,11 @@ const SearchResult = ({ searchData }) => {
     });
   };
 
-  const handleChange = e => {
-    e.preventDefault();
-    e.target
-      .closest('ul')
-      .querySelector('a.active')
-      .classList.remove('active');
-    e.target.classList.add('active');
+  const handleChange = value => {
+    setState({
+      ...state,
+      activeClass: value,
+    });
   };
 
   const onShowSizeChange = (current, pageSize) => {
@@ -42,7 +42,7 @@ const SearchResult = ({ searchData }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Search Result" />
       <Main>
         <SearchResultWrapper>
@@ -54,27 +54,47 @@ const SearchResult = ({ searchData }) => {
               <div className="search-filter-menu">
                 <ul>
                   <li>
-                    <Link className="active" onClick={handleChange} data-filter="" to="#">
+                    <Link
+                      className={state.activeClass === 'all' && 'active'}
+                      onClick={() => handleChange('all')}
+                      to="#"
+                    >
                       All
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={handleChange} data-filter="webDesign" to="#">
+                    <Link
+                      className={state.activeClass === 'webDesign' && 'active'}
+                      onClick={() => handleChange('webDesign')}
+                      to="#"
+                    >
                       Web Design
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={handleChange} data-filter="uiDesign" to="#">
+                    <Link
+                      className={state.activeClass === 'uiDesign' && 'active'}
+                      onClick={() => handleChange('uiDesign')}
+                      to="#"
+                    >
                       UI Design
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={handleChange} data-filter="wireframe" to="#">
+                    <Link
+                      className={state.activeClass === 'wireframe' && 'active'}
+                      onClick={() => handleChange('wireframe')}
+                      to="#"
+                    >
                       Wireframe
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={handleChange} data-filter="Presentation" to="#">
+                    <Link
+                      className={state.activeClass === 'presentation' && 'active'}
+                      onClick={() => handleChange('presentation')}
+                      to="#"
+                    >
                       Presentation
                     </Link>
                   </li>
@@ -104,59 +124,83 @@ const SearchResult = ({ searchData }) => {
                         <nav>
                           <ul>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                             <li>
-                              <Heading className="result-list-title" as="h6"><span className="search-keyword">Keyword</span> installing lorem multi vendor marketplace</Heading>
+                              <Heading className="result-list-title" as="h6">
+                                <span className="search-keyword">Keyword</span> installing lorem multi vendor
+                                marketplace
+                              </Heading>
                               <p>
-                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing elitr, sed
-                                diam nonumy eirmod...
+                                Lorem ipsum dolor amet consetetur get up and running with a world-class sadipscing
+                                elitr, sed diam nonumy eirmod...
                               </p>
                             </li>
                           </ul>
@@ -178,20 +222,8 @@ const SearchResult = ({ searchData }) => {
           </Row>
         </SearchResultWrapper>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //galleryFilter: (column, value) => dispatch(galleryFilter(column, value)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);
+export default SearchResult;

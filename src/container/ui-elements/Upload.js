@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Upload, message } from 'antd';
 import { UploadOutlined, LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
@@ -66,13 +66,13 @@ const Uploads = () => {
 
   const onHandleChange = info => {
     if (info.file.status === 'uploading') {
-      this.setState({ ...state, loading: true });
+      setState({ ...state, loading: true });
       return;
     }
     if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, imageUrl =>
-        this.setState({
+        setState({
           imageUrl,
           loading: false,
         }),
@@ -91,6 +91,7 @@ const Uploads = () => {
     fileList = fileList.map(file => {
       if (file.response) {
         // Component will show file.url as link
+        // eslint-disable-next-line no-param-reassign
         file.url = file.response.url;
       }
       return file;
@@ -108,13 +109,13 @@ const Uploads = () => {
   const { imageUrl } = state;
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Upload" />
       <Main>
         <Row gutter={15}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-              <Upload {...props}>
+              <Upload props={props}>
                 <Button size="large" type="light" outlined>
                   <UploadOutlined /> Click to Upload
                 </Button>
@@ -187,7 +188,7 @@ const Uploads = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

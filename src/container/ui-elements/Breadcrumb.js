@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Breadcrumb, Icon, Menu, Alert } from 'antd';
-import { BreadcrumbWrapperStyle } from './ui-elements-styled';
-import { Main } from '../styled';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { NavLink, HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import { HomeOutlined } from '@ant-design/icons';
+import propTypes from 'prop-types';
+import { BreadcrumbWrapperStyle } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import { Cards } from '../../components/cards/frame/cards-frame';
+
 const menu = (
   <Menu>
     <Menu.Item>
@@ -78,7 +80,7 @@ const Breadcrumbs = () => {
   });
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Breadcrumb" />
       <Main>
         <Row gutter={25}>
@@ -180,8 +182,12 @@ const Breadcrumbs = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
+};
+
+Breadcrumbs.propTypes = {
+  location: propTypes.object.isRequired,
 };
 
 export default Breadcrumbs;

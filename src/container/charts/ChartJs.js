@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import {
   ChartjsBarChart,
@@ -16,13 +16,13 @@ import {
 
 const ChartJs = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Chart Js" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="Bar Chart" size="large">
-              <ChartjsBarChart className={'foo'} style={{ marginBottom: '20px' }} />
+              <ChartjsBarChart className="foo" style={{ marginBottom: '20px' }} />
             </Cards>
 
             <Cards title="Stacked Chart" size="large">
@@ -56,7 +56,7 @@ const ChartJs = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

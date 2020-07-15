@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Statistic, Button, Icon } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -13,7 +13,7 @@ const Statistics = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Statistics" />
       <Main>
         <Row gutter={25}>
@@ -25,7 +25,7 @@ const Statistics = () => {
                 </Col>
                 <Col span={12}>
                   <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
-                  <Button style={{ marginTop: 16,fontSize: 14 }} size="large" type="primary" raised>
+                  <Button style={{ marginTop: 16, fontSize: 14 }} size="large" type="primary" raised>
                     Recharge
                   </Button>
                 </Col>
@@ -84,7 +84,7 @@ const Statistics = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

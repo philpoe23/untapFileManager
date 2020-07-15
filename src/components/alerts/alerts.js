@@ -1,6 +1,6 @@
 import React from 'react';
-import { Style } from './styled';
 import PropTypes from 'prop-types';
+import { Style } from './styled';
 
 const Alert = props => {
   const { type, icon, message, description, showIcon, outlined, closable, closeText } = props;

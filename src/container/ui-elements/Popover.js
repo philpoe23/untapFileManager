@@ -1,11 +1,11 @@
 import React from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
 import { Row, Col } from 'antd';
+import { NavLink } from 'react-router-dom';
+import { DropdownStyle } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { DropdownStyle } from './ui-elements-styled';
 import { Button } from '../../components/buttons/buttons';
-import { NavLink } from 'react-router-dom';
 import { Popover } from '../../components/popup/popup';
 
 const Popovers = () => {

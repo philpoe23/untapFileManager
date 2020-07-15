@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import Styled from 'styled-components';
 
 const ECahrtCard = Styled.div`
     display: flex;
@@ -33,18 +33,17 @@ const Focard = Styled.div`
         &.growth-downward{
             h1{
                 font-size: 30px;
-                margin: 0 0 4px;
             }
             .focard-status{
                 .focard-status__percentage{
-                    color: ${({theme})=>theme['danger-color']};
+                    color: ${({ theme }) => theme['danger-color']};
                 }
             }
         }
         &.growth-upward{
             .focard-status{
                 .focard-status__percentage{
-                    color: ${({theme})=>theme['success-color']};
+                    color: ${({ theme }) => theme['success-color']};
                 }
             }
         }
@@ -148,7 +147,7 @@ const CardBarChart = Styled.div`
         p{
             font-size: 14px;
             margin-bottom: 8px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
         h1{
             margin-bottom: 18px;
@@ -156,7 +155,7 @@ const CardBarChart = Styled.div`
                 bottom: 0;
                 font-size: 14px;
                 margin-left: 8px;
-                color: ${({theme})=>theme['success-color']};
+                color: ${({ theme }) => theme['success-color']};
                 svg{
                     margin-right: 4px;
                 }
@@ -168,7 +167,7 @@ const CardBarChart = Styled.div`
 const CardGroup = Styled.div`
     .forcast-overview{
         .ant-card-body{
-            padding: 0 25px !important;
+            padding: 0 24px !important;
         }
     }
     .card-radio{
@@ -177,8 +176,8 @@ const CardGroup = Styled.div`
             font-size: 12px;
             font-weight: 500;
             padding: 0 10.5px;
-            color: ${({theme})=>theme['gray-color']};
-            border-color: ${({theme})=>theme['border-color-light']};
+            color: ${({ theme }) => theme['gray-color']};
+            border-color: ${({ theme }) => theme['border-color-light']};
             &:before{
                 display: none;
             }
@@ -193,25 +192,25 @@ const CardGroup = Styled.div`
             }
             &.ant-radio-button-wrapper-checked{
                 color: #fff !important;
-                background: ${({theme})=>theme['primary-color']} !important;
+                background: ${({ theme }) => theme['primary-color']} !important;
                 &:hover{
                     color: #fff !important;
-                    background: ${({theme})=>theme['primary-color']} !important;
+                    background: ${({ theme }) => theme['primary-color']} !important;
                 }
             }
             &:hover{
-                background: ${({theme})=>theme['bg-color-normal']} !important;
+                background: ${({ theme }) => theme['bg-color-normal']} !important;
             }
         }
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 15px 25px 0;
+        padding: 24px 0 25px 12px;
         @media only screen and (max-width: 1199px){
             margin: 0;
         }
         .ant-col-md-12{
-            padding: 0 0 0 24px;
+            padding: 0 12px 0 12px;
             @media only screen and (max-width: 1350px){
                 padding: 0 6px;
             }
@@ -233,7 +232,7 @@ const CardGroup = Styled.div`
                 }
             }
             &:last-child{
-                padding: 0 14px 0 24px;
+                padding: 0 12px 0 12px;
                 @media only screen and (max-width: 1350px){
                     &:last-child{
                         padding: 0 6px 0 14px;
@@ -251,15 +250,16 @@ const CardGroup = Styled.div`
         }
         
         &.focard-divider{
-            padding-left: 5px;
-            border-right: 1px solid ${({theme})=>theme['border-color-light']} !important;
+            padding-left: 0;
+            padding-right: 15px;
+            border-right: 1px solid ${({ theme }) => theme['border-color-light']} !important;
             @media only screen and (max-width: 1199px){
                 border-right: 0 none !important;
                 padding: 0;
             }
             .ant-col-md-12{
                 &:first-child{
-                    padding: 0 12px 0 10px;
+                    padding: 0 12px 0 12px;
                     @media only screen and (max-width: 1350px){
                         padding: 0 6px;
                     }
@@ -271,7 +271,7 @@ const CardGroup = Styled.div`
                     }
                 }
                 &:last-child{
-                    padding: 0 12px 0 15px;
+                    padding: 0 12px 0 12px;
                     @media only screen and (max-width: 1350px){
                         padding: 0 6px;
                     }
@@ -295,10 +295,10 @@ const CardGroup = Styled.div`
             thead{
                 th{
                     &:nth-child(2){
-                        border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
                     }
                     &:nth-child(4){
-                        border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
                     }
                 }
             }
@@ -306,15 +306,15 @@ const CardGroup = Styled.div`
                 tr{
                     &:hover{
                         td{
-                            background: ${({theme})=>theme['bg-color-light']};
+                            background: ${({ theme }) => theme['bg-color-light']};
                             .social-name{
-                                color: ${({theme})=>theme['primary-color']};
+                                color: ${({ theme }) => theme['primary-color']};
                             }
                         }
                     }
                 }
                 td{
-                    border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
                     &:first-child{
                         border-left: 0 none;
                     }
@@ -323,10 +323,10 @@ const CardGroup = Styled.div`
                     }
                     .traffic-title{
                         font-weight: 500;
-                        color: ${({theme})=>theme['dark-color']};
+                        color: ${({ theme }) => theme['dark-color']};
                     }
                     .social-name{
-                        color: ${({theme})=>theme['info-color']};
+                        color: ${({ theme }) => theme['info-color']};
                     }
                 }
             }
@@ -337,7 +337,7 @@ const CardGroup = Styled.div`
 const Exlist = Styled.div`
     padding: 25px 0 0;
     height: 100%;
-    border-right: 1px solid ${({theme})=>theme['border-color-light']};
+    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
     @media only screen and (max-width: 1599px){
         display: flex;
         align-items: center;
@@ -365,7 +365,7 @@ const Exlist = Styled.div`
         }
         p{
             font-size: 14px;
-            color: ${({theme})=>theme["light-gray-color"]};
+            color: ${({ theme }) => theme['light-gray-color']};
             margin-bottom:0;
         }
         h1{
@@ -387,11 +387,11 @@ const Exlist = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 line-height: normal;
-                color: ${({theme})=>theme["light-color"]};
+                color: ${({ theme }) => theme['light-color']};
                 span{
                     display: inline-flex;
                     align-items: center;
-                    color: ${({theme})=>theme["success-color"]};
+                    color: ${({ theme }) => theme['success-color']};
                     padding: 0 10px 0 0;
                 }
                 svg{
@@ -399,7 +399,7 @@ const Exlist = Styled.div`
                 }
                 &.growth-downward{
                     span{
-                        color: ${({theme})=>theme["danger-color"]};
+                        color: ${({ theme }) => theme['danger-color']};
                     }
                 }
             }
@@ -420,7 +420,8 @@ const OverviewCard = Styled.div`
         content: '';
         width: 100%;
         height: 215px;
-        background:linear-gradient(45deg, ${({theme})=>theme["secondary-color"]}, ${({theme})=>theme["warning-color"]});
+        background:linear-gradient(45deg, ${({ theme }) => theme['secondary-color']}, ${({ theme }) =>
+  theme['warning-color']});
         left:0;
         top:0;
         z-index:-1;
@@ -437,7 +438,7 @@ const OverviewCard = Styled.div`
                 margin-bottom: 2px;
             }
             p{
-                color: ${({theme})=>theme["light-color"]};
+                color: ${({ theme }) => theme['light-color']};
             }
         }
         .growth-downward,
@@ -453,18 +454,18 @@ const OverviewCard = Styled.div`
     .ant-card{
         box-shadow: 0 10px 30px rgba(146,153,184,0.15);
         .growth-upward{
-            color: ${({theme})=>theme["success-color"]};
+            color: ${({ theme }) => theme['success-color']};
             font-weight: 600;
             span{
-                color: ${({theme})=>theme["light-gray-color"]};
+                color: ${({ theme }) => theme['light-gray-color']};
                 font-weight: 400;
             }
         }
         .growth-downward{
-            color: ${({theme})=>theme["danger-color"]};
+            color: ${({ theme }) => theme['danger-color']};
             font-weight: 600;
             span{
-                color: ${({theme})=>theme["light-gray-color"]};
+                color: ${({ theme }) => theme['light-gray-color']};
                 font-weight: 400;
             }
         }
@@ -508,11 +509,17 @@ const Pstates = Styled.div`
         &:hover{
             box-shadow: 0 15px 30px rgba(146,153,184,0.15);
             p{
-                color: ${({theme})=>theme['primary-color']};
+                color: ${({ theme }) => theme['primary-color']};
             }
         }
         &.growth-downward{
-            background: ${({theme})=>theme['bg-color-light']};
+            background: ${({ theme }) => theme['bg-color-light']};
+        }
+    }
+    .growth-upward,
+    .growth-downward{
+        h1{
+            font-size: 24px;
         }
     }
 `;
@@ -556,7 +563,7 @@ const SessionChartWrapper = Styled.div`
                     }
                 }
                 .doughnutLabe{
-                    color: ${({theme})=>theme["gray-color"]};
+                    color: ${({ theme }) => theme['gray-color']};
                 }
             }
         }
@@ -588,7 +595,7 @@ const SessionState = Styled.div`
             bottom: 0;
             left: 5px;
             font-size: 13px;
-            color: ${({theme})=>theme["light-gray-color"]};
+            color: ${({ theme }) => theme['light-gray-color']};
         }
     }
     
@@ -600,7 +607,7 @@ const SessionState = Styled.div`
 const RegionList = Styled.div`
     max-height: 300px;
     overflow: hidden auto;
-    border: 1px solid ${({theme})=>theme["border-color-light"]};
+    border: 1px solid ${({ theme }) => theme['border-color-light']};
     table{
         tr{
             &:first-child{
@@ -614,7 +621,7 @@ const RegionList = Styled.div`
                 }
             }
             th{
-                background: ${({theme})=>theme["bg-color-light"]};
+                background: ${({ theme }) => theme['bg-color-light']};
                 padding: 9px 20px;
                 border: 0 none;
             }
@@ -660,7 +667,7 @@ const LadingPages = Styled.div`
             tr{
                 td{
                     .page-title{
-                        color: ${({theme})=>theme["primary-color"]};
+                        color: ${({ theme }) => theme['primary-color']};
                     }
                 }
             }
@@ -682,7 +689,7 @@ const CardBarChart2 = Styled.div`
     }
     & > span{
         font-size: 14px;
-        color: ${({theme})=>theme["light-gray-color"]};
+        color: ${({ theme }) => theme['light-gray-color']};
     }
     p{
         display: flex;
@@ -703,25 +710,24 @@ const CardBarChart2 = Styled.div`
             }
         }
         .growth-upward{
-            color: ${({theme})=>theme["success-color"]};
+            color: ${({ theme }) => theme['success-color']};
             svg{
-                color: ${({theme})=>theme["success-color"]};
+                color: ${({ theme }) => theme['success-color']};
             }
         }
         .growth-downward{
-            color: ${({theme})=>theme["danger-color"]};
+            color: ${({ theme }) => theme['danger-color']};
             svg{
-                color: ${({theme})=>theme["danger-color"]};
+                color: ${({ theme }) => theme['danger-color']};
             }
         }
         span{
-            color: ${({theme})=>theme["light-gray-color"]};
+            color: ${({ theme }) => theme['light-gray-color']};
             font-size: 13px;
             display: inline-block;
         }
     }
 `;
-
 
 const SocialMediaWrapper = Styled.div`
     .ant-card-body{
@@ -733,12 +739,26 @@ const LineChartWrapper = Styled.div`
     .linkedin-chart-wrap{
         min-height: 392px;
     }
+    .growth-upward,
+    .growth-downward{
+        line-height: 2.2;
+        h1{
+            margin-bottom: 0;
+        }
+    }
     .line-chart-row{
         &:not(:last-child){
             margin-bottom: 28px;
         }
         .border-linechart{
-            border-bottom: 1px solid ${({theme})=>theme["border-color-deep"]};
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-deep']};
+        }
+    }
+    .overview-container{
+        .line-chart-row{
+            &:not(:last-child){
+                margin-bottom: 18px;
+            }
         }
     }
 `;
@@ -767,11 +787,11 @@ const RatioCard = Styled.div`
             }
         }
         p{
-            color: ${({theme})=>theme["light-color"]};
+            color: ${({ theme }) => theme['light-color']};
             margin-bottom: 0;
             strong{
                 font-size: 13px; 
-                color: ${({theme})=>theme["dark-color"]};
+                color: ${({ theme }) => theme['dark-color']};
                 font-weight: 600;
             }
         }
@@ -806,7 +826,7 @@ const LocationMapWrapper = Styled.div`
         margin: 0 25px 15px;
         padding-top: 12px;
         min-height: 180px;
-        border-top: 1px solid ${({theme})=>theme['border-color-light']} !important;
+        border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
         table{
             thead{
                 th{
@@ -815,7 +835,7 @@ const LocationMapWrapper = Styled.div`
                     border: 0 none;
                     font-weight: 400;
                     text-transform: uppercase;
-                    color: ${({theme})=>theme['light-color']};
+                    color: ${({ theme }) => theme['light-color']};
                 }
             }
             tr{
@@ -826,7 +846,7 @@ const LocationMapWrapper = Styled.div`
                 }
                 td{
                     border: 0 none;
-                    color: ${({theme})=>theme['gray-color']}
+                    color: ${({ theme }) => theme['gray-color']}
                 }
                 th,
                 td{
@@ -941,8 +961,8 @@ const TrafficTableWrapper = Styled.div`
             tr{
                 th{
                     background: #fff;
-                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
-                    color: ${({theme})=>theme['dark-color']}
+                    border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+                    color: ${({ theme }) => theme['dark-color']}
                     padding: 16px 25px;
                 }
             }
@@ -951,7 +971,7 @@ const TrafficTableWrapper = Styled.div`
             tr{
                 td{
                     padding: 16px 25px;
-                    color: ${({theme})=>theme['gray-color']};
+                    color: ${({ theme }) => theme['gray-color']};
                 }
             }
         }
@@ -959,27 +979,27 @@ const TrafficTableWrapper = Styled.div`
 `;
 
 export {
-    ECahrtCard,
-    Focard,
-    CardBarChart,
-    CardGroup,
-    Exlist,
-    OverviewCard,
-    PerfomenceChartWrapper,
-    Pstates,
-    SessionChartWrapper,
-    SessionState,
-    RegionMap,
-    LadingPages,
-    RegionList,
-    CardBarChart2,
-    SocialMediaWrapper,
-    LineChartWrapper,
-    RatioCard,
-    IncomeExpenseWrapper,
-    LocationMapWrapper,
-    RevenueWrapper,
-    RevenueTableWrapper,
-    RevenueChartWrapper,
-    TrafficTableWrapper
+  ECahrtCard,
+  Focard,
+  CardBarChart,
+  CardGroup,
+  Exlist,
+  OverviewCard,
+  PerfomenceChartWrapper,
+  Pstates,
+  SessionChartWrapper,
+  SessionState,
+  RegionMap,
+  LadingPages,
+  RegionList,
+  CardBarChart2,
+  SocialMediaWrapper,
+  LineChartWrapper,
+  RatioCard,
+  IncomeExpenseWrapper,
+  LocationMapWrapper,
+  RevenueWrapper,
+  RevenueTableWrapper,
+  RevenueChartWrapper,
+  TrafficTableWrapper,
 };

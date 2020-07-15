@@ -1,15 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { CardFrame } from './style';
 import PropTypes from 'prop-types';
+import { CardFrame } from './style';
 import Heading from '../../heading/heading';
 import { Dropdown } from '../../dropdown/dropdown';
 
 const Cards = props => {
-  const { title, more, moreText, size, headless, caption, isbutton, bodyStyle, headStyle, border, bodypadding } = props;
+  const {
+    title,
+    children,
+    more,
+    moreText,
+    size,
+    headless,
+    caption,
+    isbutton,
+    bodyStyle,
+    headStyle,
+    border,
+    bodypadding,
+  } = props;
   return (
-    <Fragment>
+    <>
       {!headless ? (
         <CardFrame
           size={size}
@@ -19,7 +32,7 @@ const Cards = props => {
           bordered={border}
           bodypadding={bodypadding && bodypadding}
           extra={
-            <Fragment>
+            <>
               {more && (
                 <Dropdown content={more} placement="bottomCenter">
                   <NavLink to="#">{!moreText ? <FeatherIcon icon="more-horizontal" /> : 'More'}</NavLink>
@@ -27,11 +40,11 @@ const Cards = props => {
               )}
 
               {isbutton && isbutton}
-            </Fragment>
+            </>
           }
           style={{ width: '100%' }}
         >
-          {props.children}
+          {children}
         </CardFrame>
       ) : (
         <CardFrame
@@ -43,10 +56,10 @@ const Cards = props => {
         >
           {title && <Heading as="h4">{title}</Heading>}
           {caption && <p>{caption}</p>}
-          {props.children}
+          {children}
         </CardFrame>
       )}
-    </Fragment>
+    </>
   );
 };
 
@@ -66,6 +79,7 @@ Cards.propTypes = {
   caption: PropTypes.string,
   bodypadding: PropTypes.string,
   moreText: PropTypes.bool,
+  children: PropTypes.object,
 };
 
 export { Cards };

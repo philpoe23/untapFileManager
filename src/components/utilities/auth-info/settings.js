@@ -1,11 +1,10 @@
 import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
-import { Popover } from '../../popup/popup';
 import { Row, Col } from 'antd';
-import Heading from '../../heading/heading';
-
 import { SettingDropdwon } from './auth-info-style';
+import { Popover } from '../../popup/popup';
+import Heading from '../../heading/heading';
 
 const Settings = () => {
   const content = (

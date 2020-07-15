@@ -10,7 +10,8 @@ const Div = Styled.div`
         }
 
         .ant-btn-link{
-            ${({ darkMode }) => (darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : '')}
+            ${({ darkMode }) =>
+              darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : ''}
         }
 
         .head-example{
@@ -19,8 +20,12 @@ const Div = Styled.div`
 
         .certain-category-search-wrapper{
             ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
+            @media only screen and (max-width: 767px){
+                padding: 0 15px;
+            }
             input{
                 ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
+                color: #fff;
             }
         }
     }
@@ -243,30 +248,29 @@ const Div = Styled.div`
 `;
 
 const SmallScreenAuthInfo = Styled.div`    
-        background: #fff;
+        ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
         left: 0;
         transition: .3s;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
         box-shadow: 0 2px 30px #9299b810;
                     
 `;
 
-const SmallScreenSearch = Styled.div`    
-        background: #fff;
+const SmallScreenSearch = Styled.div`
+        ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
-        height: 40px;
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
         left: 0;
         transition: .3s;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}
         box-shadow: 0 2px 30px #9299b810;

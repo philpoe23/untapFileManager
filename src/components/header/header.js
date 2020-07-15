@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../config/theme/themeVariables';
 import { H1 } from './style';
+import { theme } from '../../config/theme/themeVariables';
 
 const Header = ({ name }) => {
   return (

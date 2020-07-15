@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import {
   barChartData,
@@ -27,7 +27,7 @@ import {
 
 const GoogleChart = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Google Chart" />
       <Main>
         <Row gutter={25}>
@@ -146,7 +146,7 @@ const GoogleChart = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 export default GoogleChart;

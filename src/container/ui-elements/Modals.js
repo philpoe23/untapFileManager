@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
@@ -104,7 +104,7 @@ const Modals = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Modals" />
       <Main>
         <Row gutter={15}>
@@ -126,16 +126,16 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showModal} type="primary" style={{margin: '5px', marginLeft: '0'}}>
+              <Button onClick={showModal} type="primary" style={{ margin: '5px', marginLeft: '0' }}>
                 Primary
               </Button>
-              <Button onClick={showModal} type="success" style={{margin: '5px'}}>
+              <Button onClick={showModal} type="success" style={{ margin: '5px' }}>
                 Success
               </Button>
-              <Button onClick={showModal} type="danger" style={{margin: '5px'}}>
+              <Button onClick={showModal} type="danger" style={{ margin: '5px' }}>
                 Danger
               </Button>
-              <Button onClick={showModal} type="warning" style={{margin: '5px'}}>
+              <Button onClick={showModal} type="warning" style={{ margin: '5px' }}>
                 Warning
               </Button>
             </Cards>
@@ -159,16 +159,16 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showColorModal} type="primary" style={{margin: '5px', marginLeft: 0}}>
+              <Button onClick={showColorModal} type="primary" style={{ margin: '5px', marginLeft: 0 }}>
                 Primary
               </Button>
-              <Button onClick={showColorModal} type="success" style={{margin: '5px'}}>
+              <Button onClick={showColorModal} type="success" style={{ margin: '5px' }}>
                 Success
               </Button>
-              <Button onClick={showColorModal} type="danger" style={{margin: '5px'}}>
+              <Button onClick={showColorModal} type="danger" style={{ margin: '5px' }}>
                 Danger
               </Button>
-              <Button onClick={showColorModal} type="warning" style={{margin: '5px'}}>
+              <Button onClick={showColorModal} type="warning" style={{ margin: '5px' }}>
                 Warning
               </Button>
             </Cards>
@@ -180,29 +180,29 @@ const Modals = () => {
                 interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
                 to get user feedback or display information. Additionally
               </p>
-              <Button onClick={success} type="success" style={{margin: '5px', marginLeft: 0}}>
+              <Button onClick={success} type="success" style={{ margin: '5px', marginLeft: 0 }}>
                 Success
               </Button>
-              <Button onClick={error} type="error" style={{margin: '5px'}}>
+              <Button onClick={error} type="error" style={{ margin: '5px' }}>
                 Error
               </Button>
-              <Button onClick={warning} type="warning" style={{margin: '5px'}}>
+              <Button onClick={warning} type="warning" style={{ margin: '5px' }}>
                 Warning
               </Button>
-              <Button onClick={info} type="info" style={{margin: '5px'}}>
+              <Button onClick={info} type="info" style={{ margin: '5px' }}>
                 Info
               </Button>
-              <Button onClick={selfDestroyed} type="primary" style={{margin: '5px'}}>
+              <Button onClick={selfDestroyed} type="primary" style={{ margin: '5px' }}>
                 Modal Self Destroyed
               </Button>
-              <Button onClick={showConfirm} type="primary" style={{margin: '5px'}}>
+              <Button onClick={showConfirm} type="primary" style={{ margin: '5px' }}>
                 Confirm
               </Button>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

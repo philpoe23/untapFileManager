@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { InputNumber, Icon, Row, Col } from 'antd';
-import { IconWrapper, SliderStyle } from './style';
 import PropTypes from 'prop-types';
+import { IconWrapper, SliderStyle } from './style';
 
 const Slider = props => {
   const {
@@ -28,6 +28,7 @@ const Slider = props => {
   });
 
   const onChanges = value => {
+    // eslint-disable-next-line no-restricted-globals
     if (isNaN(value)) {
       return;
     }
@@ -36,12 +37,12 @@ const Slider = props => {
       ...state,
       inputValue: value,
     });
-    onChange && onChange(value);
+    if (onChange) onChange(value);
   };
 
   const handleChange = value => {
     setState({ ...state, value });
-    onChange && onChange(value);
+    if (onChange) onChange(value);
   };
 
   const { inputValue, value, mini, maxi } = state;
@@ -49,8 +50,8 @@ const Slider = props => {
   const preColor = value >= mid ? '' : 'rgba(0, 0, 0, .45)';
   const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
 
-  const onAfterChanges = value => {
-    onAfterChange && onAfterChange(value);
+  const onAfterChanges = values => {
+    if (onAfterChange) onAfterChange(values);
   };
 
   return input ? (
@@ -84,7 +85,7 @@ const Slider = props => {
   ) : (
     <SliderStyle
       marks={marks}
-      defaultValue={defaultValue ? defaultValue : defaultValues}
+      defaultValue={defaultValue || defaultValues}
       range={range}
       step={step}
       vertical={vertical}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Progress } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
@@ -15,70 +15,74 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const content = (
-  <>
-    <NavLink to="#">
-      <span>More one</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More two</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More three</span>
-    </NavLink>
-  </>
-);
-
-const options = {
-  legend: {
-    display: false,
-    labels: {
-      display: false,
-    },
-  },
-  scales: {
-    yAxes: [
-      {
-        stacked: true,
-        gridLines: {
-          display: true,
-        },
-        ticks: {
-          display: true,
-        },
-      },
-    ],
-    xAxes: [
-      {
-        stacked: true,
-        barPercentage: 1,
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          display: true,
-        },
-      },
-    ],
-  },
-};
-
-/**
- * @todo Direct dom manupulation discouraged
- */
-const handleActiveChange = e => {
-  const link = e.currentTarget;
-  link
-    .closest('ul')
-    .querySelectorAll('li')
-    .forEach(li => {
-      li.classList.remove('active');
-    });
-
-  link.closest('li').classList.add('active');
-};
-
 const Business = () => {
+  const [state, setState] = useState({
+    cashFlowActive: 'month',
+    incomeFlowActive: 'month',
+  });
+
+  const moreContent = (
+    <>
+      <NavLink to="#">
+        <span>More one</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>More two</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>More three</span>
+      </NavLink>
+    </>
+  );
+
+  const lineChartOptions = {
+    legend: {
+      display: false,
+      labels: {
+        display: false,
+      },
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: true,
+          gridLines: {
+            display: true,
+          },
+          ticks: {
+            display: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+          barPercentage: 1,
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: true,
+          },
+        },
+      ],
+    },
+  };
+
+  const handleActiveChangeCash = value => {
+    setState({
+      ...state,
+      cashFlowActive: value,
+    });
+  };
+
+  const handleActiveChangeIncome = value => {
+    setState({
+      ...state,
+      incomeFlowActive: value,
+    });
+  };
+
   return (
     <>
       <PageHeader
@@ -193,18 +197,18 @@ const Business = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.cashFlowActive === 'week' && 'active'}>
+                      <Link onClick={() => handleActiveChangeCash('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className="active">
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.cashFlowActive === 'month' && 'active'}>
+                      <Link onClick={() => handleActiveChangeCash('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li>
-                      <Link onClick={handleActiveChange} to="#">
+                    <li className={state.cashFlowActive === 'year' && 'active'}>
+                      <Link onClick={() => handleActiveChangeCash('year')} to="#">
                         Year
                       </Link>
                     </li>
@@ -217,7 +221,7 @@ const Business = () => {
                 </div>
               }
               size="large"
-              more={content}
+              more={moreContent}
             >
               <CardBarChart>
                 <div className="card-bar-top d-flex flex-grid">
@@ -263,18 +267,18 @@ const Business = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.incomeFlowActive === 'week' && 'active'}>
+                        <Link onClick={() => handleActiveChangeIncome('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className="active">
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.incomeFlowActive === 'month' && 'active'}>
+                        <Link onClick={() => handleActiveChangeIncome('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={handleActiveChange} to="#">
+                      <li className={state.incomeFlowActive === 'year' && 'active'}>
+                        <Link onClick={() => handleActiveChangeIncome('year')} to="#">
                           Year
                         </Link>
                       </li>
@@ -287,7 +291,7 @@ const Business = () => {
                   </div>
                 }
                 size="large"
-                more={content}
+                more={moreContent}
               >
                 <Row gutter="25">
                   <Col xxl={6} sm={24}>
@@ -404,7 +408,7 @@ const Business = () => {
                                 fontColor: '#182b49',
                                 max: 80,
                                 stepSize: 20,
-                                callback(label, index, labels) {
+                                callback(label) {
                                   return `${label}k`;
                                 },
                               },
@@ -432,7 +436,7 @@ const Business = () => {
             </IncomeExpenseWrapper>
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
-            <Cards title="Account Receivable" more={content}>
+            <Cards title="Account Receivable" more={moreContent}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
                 datasets={[
@@ -445,7 +449,7 @@ const Business = () => {
                 ]}
                 height={100}
                 options={{
-                  ...options,
+                  ...lineChartOptions,
                   elements: {
                     point: {
                       radius: 0,
@@ -456,7 +460,7 @@ const Business = () => {
             </Cards>
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
-            <Cards title="Account Payable" more={content}>
+            <Cards title="Account Payable" more={moreContent}>
               <ChartjsLineChart
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
                 datasets={[
@@ -469,7 +473,7 @@ const Business = () => {
                 ]}
                 height={100}
                 options={{
-                  ...options,
+                  ...lineChartOptions,
                   elements: {
                     point: {
                       radius: 0,

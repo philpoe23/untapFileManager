@@ -1,9 +1,9 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import { Row, Col } from 'antd';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend } from 'recharts';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend } from 'recharts';
 import { radar } from '../../../config/dataService/recharts.json';
 
 const ReChartRadar = () => {
@@ -27,7 +27,7 @@ const ReChartRadar = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Rechats Radar Chart" />
       <Main>
         <Row gutter={25}>
@@ -69,7 +69,7 @@ const ReChartRadar = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

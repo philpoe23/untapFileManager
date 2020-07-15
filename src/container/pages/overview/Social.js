@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col, Form, Input, Button } from 'antd';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import Heading from '../../../components/heading/heading';
 
 const SocialProfile = () => {
   const [form] = Form.useForm();
@@ -37,7 +37,7 @@ const SocialProfile = () => {
 
           <Form.Item>
             <Button htmlType="submit">
-              <Link to={'/pages/add-user/work'}>Back</Link>
+              <Link to="/pages/add-user/work">Back</Link>
             </Button>
             &nbsp; &nbsp;
             <Button onClick={handleSubmit} type="primary">

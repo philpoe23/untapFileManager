@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { CasCaderStyleWrapper } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { CasCaderStyleWrapper } from './ui-elements-styled';
 import { Cascader } from '../../components/cascader/cascader';
 
 const options = [
@@ -29,7 +29,7 @@ const Cascaders = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Cascader" />
       <Main>
         <Row gutter={25}>
@@ -63,7 +63,7 @@ const Cascaders = () => {
               <Cascader fieldNames={{ label: 'name', value: 'code', children: 'items' }} onChange={onChange} />
             </Cards>
           </Col>
-          
+
           <Col md={12}>
             <Cards title="Default Value">
               <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
@@ -72,23 +72,21 @@ const Cascaders = () => {
               <Cascader onChange={onChange} trigger="hover" />
             </Cards>
             <Cards title="Change on select">
-              <Cascader onChange={onChange} changeOnSelect={true} />
+              <Cascader onChange={onChange} changeOnSelect />
             </Cards>
             <div className="custom-cascade-render">
-
-              <Cards title="Custom render" style={{width: "100%"}}>
+              <Cards title="Custom render" style={{ width: '100%' }}>
                 <Cascader onChange={onChange} />
               </Cards>
-              
             </div>
-            
-            <Cards  title="Lazy Load">
+
+            <Cards title="Lazy Load">
               <Cascader onChange={onChangeLoading} loading data={options} />
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

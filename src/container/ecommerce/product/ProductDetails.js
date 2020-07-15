@@ -1,16 +1,16 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
 import { filterSinglepage } from '../../../redux/product/actionCreator';
 import { ProductDetailsWrapper } from '../Style';
-import { NavLink } from 'react-router-dom';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
-
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
@@ -30,14 +30,9 @@ const ProductDetails = ({ match }) => {
   });
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (filterSinglepage) {
       dispatch(filterSinglepage(parseInt(match.params.id)));
     }
-
-    return () => {
-      unmounted = true;
-    };
   }, [match.params.id, dispatch]);
 
   const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
@@ -62,7 +57,7 @@ const ProductDetails = ({ match }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Product Details"
@@ -215,8 +210,12 @@ const ProductDetails = ({ match }) => {
           </ProductDetailsWrapper>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
+};
+
+ProductDetails.propTypes = {
+  match: PropTypes.object.isRequired,
 };
 
 export default ProductDetails;

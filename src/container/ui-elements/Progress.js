@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Progress, Button, Tooltip } from 'antd';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+
 const ButtonGroup = Button.Group;
 
 const ProgressBar = () => {
@@ -28,7 +29,7 @@ const ProgressBar = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Progress Bar" />
       <Main>
         <Row gutter={25}>
@@ -163,7 +164,7 @@ const ProgressBar = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

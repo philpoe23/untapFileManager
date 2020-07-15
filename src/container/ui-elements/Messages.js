@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, message, Space } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, MessageStyleWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
@@ -33,7 +33,7 @@ const Messages = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Message" />
       <Main>
         <Row gutter={25}>
@@ -49,29 +49,39 @@ const Messages = () => {
           <Col md={12} sm={24} xs={24}>
             <Cards title="Customize">
               <MessageStyleWrapper>
-                <Button type="light" outlined size="large" onClick={customSuccess}>Customized display duration</Button>
+                <Button type="light" outlined size="large" onClick={customSuccess}>
+                  Customized display duration
+                </Button>
               </MessageStyleWrapper>
             </Cards>
           </Col>
           <Col md={12} sm={24} xs={24}>
             <Cards title="Other types of message">
               <Space>
-                <Button type="light" outlined size="large" onClick={success}>Success</Button>
-                <Button type="light" outlined size="large" onClick={error}>Error</Button>
-                <Button type="light" outlined size="large" onClick={warning}>Warning</Button>
+                <Button type="light" outlined size="large" onClick={success}>
+                  Success
+                </Button>
+                <Button type="light" outlined size="large" onClick={error}>
+                  Error
+                </Button>
+                <Button type="light" outlined size="large" onClick={warning}>
+                  Warning
+                </Button>
               </Space>
             </Cards>
           </Col>
           <Col md={12} sm={24} xs={24}>
             <Cards title="Loading">
               <MessageStyleWrapper>
-                <Button type="light" outlined size="large" onClick={loadingSuccess}>Display a loading indicator</Button>
+                <Button type="light" outlined size="large" onClick={loadingSuccess}>
+                  Display a loading indicator
+                </Button>
               </MessageStyleWrapper>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

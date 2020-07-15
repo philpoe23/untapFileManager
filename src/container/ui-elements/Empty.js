@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Empty, Button } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const EmptyData = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Empty" />
       <Main>
         <Row gutter={25}>
@@ -28,9 +28,9 @@ const EmptyData = () => {
                   height: 60,
                 }}
                 description={
-                    <span>
-                      Customize <a href="#API">Description</a>
-                    </span>
+                  <span>
+                    Customize <a href="#API">Description</a>
+                  </span>
                 }
               >
                 <Button type="primary">Create Now</Button>
@@ -39,7 +39,7 @@ const EmptyData = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

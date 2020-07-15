@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col, DatePicker } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { Main } from './styled';
 import { PageHeader } from '../components/page-headers/page-headers';
 import { Cards } from '../components/cards/frame/cards-frame';
-import { Row, Col, DatePicker } from 'antd';
-import { Main } from './styled';
 import Heading from '../components/heading/heading';
-import FeatherIcon from 'feather-icons-react';
 import { Button } from '../components/buttons/buttons';
 
 const Calendar = () => {
@@ -13,7 +13,7 @@ const Calendar = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Calendar" />
       <Main>
         <Row gutter={15}>
@@ -21,7 +21,7 @@ const Calendar = () => {
             <Button type="secondary">+ Create New Event</Button>
             <br />
             <br />
-            <DatePicker onChange={onChange} open={true} inputReadOnly={true} />
+            <DatePicker onChange={onChange} open inputReadOnly />
             <br />
             <br />
             <br />
@@ -54,7 +54,7 @@ const Calendar = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Carousel, Radio } from 'antd';
+import { CarouselStyleWraper } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { CarouselStyleWraper } from './ui-elements-styled';
 
 const Carousels = () => {
   const onChange = (a, b, c) => {
@@ -18,7 +18,7 @@ const Carousels = () => {
   const { dotPosition } = state;
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Carousel" />
       <Main>
         <Row gutter={25}>
@@ -107,7 +107,7 @@ const Carousels = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

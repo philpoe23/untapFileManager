@@ -1,31 +1,27 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, Progress, Pagination } from 'antd';
-import Heading from '../../../components/heading/heading';
-import { connect } from 'react-redux';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
+import Heading from '../../../components/heading/heading';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList } from '../style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
-import FeatherIcon from 'feather-icons-react';
 
-const List = props => {
+const List = () => {
+  const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
-    projects: props.projects,
+    projects: project,
   });
-
   const { projects } = state;
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (project) {
       setState({
-        projects: props.projects,
+        projects: project,
       });
     }
-    return () => {
-      unmounted = true;
-    };
-  }, [props]);
+  }, [project]);
 
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
@@ -39,8 +35,8 @@ const List = props => {
   const dataSource = [];
 
   projects.length &&
-    projects.map(project => {
-      const { id, title, status, category } = project;
+    projects.map(value => {
+      const { id, title, status, category } = value;
       return dataSource.push({
         key: id,
         project: (
@@ -90,11 +86,11 @@ const List = props => {
         action: (
           <Dropdown
             content={
-              <Fragment>
+              <>
                 <Link to="#">View</Link>
                 <Link to="#">Edit</Link>
                 <Link to="#">Delete</Link>
-              </Fragment>
+              </>
             }
           >
             <Link to="#">
@@ -167,10 +163,4 @@ const List = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    projects: state.projects.data,
-  };
-};
-
-export default connect(mapStateToProps)(List);
+export default List;

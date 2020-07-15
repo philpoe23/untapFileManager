@@ -1,11 +1,12 @@
-import React, { Fragment, lazy, Suspense } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
+import React, { lazy, Suspense } from 'react';
 import { Row, Col, Upload, Spin } from 'antd';
-import { ProfileAuthorBox, SettingWrapper } from './overview/style';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { ProfileAuthorBox, SettingWrapper } from './overview/style';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Main } from '../../styled';
+import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const Profile = lazy(() => import('./overview/Profile'));
@@ -16,14 +17,13 @@ const Notification = lazy(() => import('./overview/Notification'));
 
 const Settings = ({ match }) => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Profile Settings" />
 
       <Main>
         <Row gutter={25}>
           <Col xxl={5} lg={8} md={10} xs={24}>
             <ProfileAuthorBox>
-
               <Cards headless>
                 <div className="author-info">
                   <figure>
@@ -45,19 +45,19 @@ const Settings = ({ match }) => {
                 <nav className="settings-menmulist">
                   <ul>
                     <li>
-                      <NavLink to={match.path + '/profile'}>
+                      <NavLink to={`${match.path}/profile`}>
                         <FeatherIcon icon="user" size={14} />
                         Edit Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/account'}>
+                      <NavLink to={`${match.path}/account`}>
                         <FeatherIcon icon="settings" size={14} />
                         Account Settings
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/password'}>
+                      <NavLink to={`${match.path}/password`}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="14"
@@ -76,13 +76,13 @@ const Settings = ({ match }) => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/social'}>
+                      <NavLink to={`${match.path}/social`}>
                         <FeatherIcon icon="users" size={14} />
                         Social Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={match.path + '/notification'}>
+                      <NavLink to={`${match.path}/notification`}>
                         <FeatherIcon icon="bell" size={14} />
                         Notification
                       </NavLink>
@@ -95,7 +95,11 @@ const Settings = ({ match }) => {
           <Col xxl={19} lg={16} md={14} xs={24}>
             <SettingWrapper>
               <div className="cover-image">
-                <img style={{ width: '100%' }} src={require('../../../static/img/profile/CoverImage.svg')} alt="banner" />
+                <img
+                  style={{ width: '100%' }}
+                  src={require('../../../static/img/profile/CoverImage.svg')}
+                  alt="banner"
+                />
                 <Upload>
                   <Link to="#">
                     <FeatherIcon icon="camera" size={16} /> Change Cover
@@ -110,19 +114,23 @@ const Settings = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={match.path + '/profile'} component={Profile} />
-                  <Route path={match.path + '/account'} component={Account} />
-                  <Route path={match.path + '/password'} component={Password} />
-                  <Route path={match.path + '/social'} component={SocialProfiles} />
-                  <Route path={match.path + '/notification'} component={Notification} />
+                  <Route path={`${match.path}/profile`} component={Profile} />
+                  <Route path={`${match.path}/account`} component={Account} />
+                  <Route path={`${match.path}/password`} component={Password} />
+                  <Route path={`${match.path}/social`} component={SocialProfiles} />
+                  <Route path={`${match.path}/notification`} component={Notification} />
                 </Suspense>
               </Switch>
             </SettingWrapper>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
+};
+
+Settings.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Settings;

@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Timeline, Icon } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Timelines = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Timelines" />
       <Main>
         <Row gutter={25}>
@@ -92,7 +92,7 @@ const Timelines = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

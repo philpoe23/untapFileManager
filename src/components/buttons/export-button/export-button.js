@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Popover } from '../../popup/popup';
@@ -6,7 +6,7 @@ import { Button } from '../buttons';
 
 const ExportButtonPageHeader = () => {
   const content = (
-    <Fragment>
+    <>
       <NavLink to="#">
         <FeatherIcon size={16} icon="printer" />
         <span>Printer</span>
@@ -27,7 +27,7 @@ const ExportButtonPageHeader = () => {
         <FeatherIcon size={16} icon="file" />
         <span>CSV</span>
       </NavLink>
-    </Fragment>
+    </>
   );
   return (
     <Popover placement="bottomLeft" title="Export With" content={content} trigger="click">

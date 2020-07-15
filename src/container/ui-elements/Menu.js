@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Menu } from 'antd';
-import { Main } from '../styled';
-import { Cards } from '../../components/cards/frame/cards-frame';
 import { Link } from 'react-router-dom';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { SubMenu } = Menu;
 const Menus = () => {
@@ -24,7 +24,7 @@ const Menus = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Menu" />
       <Main>
         <Row gutter={25}>
@@ -120,14 +120,14 @@ const Menus = () => {
                     <Menu.Item key="4">Option 4</Menu.Item>
                   </Menu.ItemGroup>
                 </SubMenu>
-                <SubMenu 
-                key="sub2" 
-                title={
-                  <span>
+                <SubMenu
+                  key="sub2"
+                  title={
+                    <span>
                       <AppstoreOutlined />
                       <span>Navigation Two</span>
                     </span>
-                }
+                  }
                 >
                   <Menu.Item key="5">Option 5</Menu.Item>
                   <Menu.Item key="6">Option 6</Menu.Item>
@@ -155,7 +155,7 @@ const Menus = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Rate } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -16,7 +16,7 @@ const Rating = () => {
 
   const { value } = state;
   return (
-    <Fragment>
+    <>
       <PageHeader title="Rating" />
       <Main>
         <Row gutter={25}>
@@ -31,7 +31,7 @@ const Rating = () => {
               <span>
                 <Rate tooltips={desc} onChange={handleChange} value={value} />
                 &nbsp;&nbsp;
-                {value + ' Star'}
+                {`${value} Star`}
               </span>
             </Cards>
           </Col>
@@ -43,13 +43,13 @@ const Rating = () => {
               <Rate defaultValue={3} />
               <span className="ant-rate-text">allowClear: true</span>
               <br />
-              <Rate allowClear={false} defaultValue={3} style={{marginTop: 10}}/>
+              <Rate allowClear={false} defaultValue={3} style={{ marginTop: 10 }} />
               <span className="ant-rate-text">allowClear: false</span>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

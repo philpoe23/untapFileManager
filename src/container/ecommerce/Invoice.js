@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { InvoiceHeader, InvoiceLetterBox, InvoiceAction, ProductTable, OrderSummary } from './Style';
@@ -12,7 +12,7 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Invoice = () => {
-  const dataSource = [
+  const invoiceTableData = [
     {
       key: '1',
       row: '1',
@@ -65,7 +65,7 @@ const Invoice = () => {
     },
   ];
 
-  const columns = [
+  const invoiceTableColumns = [
     {
       title: '#',
       dataIndex: 'row',
@@ -173,7 +173,7 @@ const Invoice = () => {
               <br />
               <ProductTable>
                 <div className="table-invoice table-responsive">
-                  <Table dataSource={dataSource} columns={columns} pagination={false} />
+                  <Table dataSource={invoiceTableData} columns={invoiceTableColumns} pagination={false} />
                 </div>
               </ProductTable>
 

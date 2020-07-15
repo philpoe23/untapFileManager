@@ -1,13 +1,13 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import { Style } from './style';
-import Topbar from './Topbar';
-import { AutoComplete } from '../../../components/autoComplete/autoComplete';
+import React, { useState, useEffect } from 'react';
 import FeatherIcon from 'feather-icons-react';
-import Heading from '../../../components/heading/heading';
-import { textRefactor } from '../../../Helper';
 import moment from 'moment';
 import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { EmailAuthor, EmailHeader } from './style';
+import propTypes from 'prop-types';
+import { Style, EmailAuthor, EmailHeader } from './style';
+import Topbar from './Topbar';
+import { AutoComplete } from '../../../components/autoComplete/autoComplete';
+import Heading from '../../../components/heading/heading';
+import { textRefactor } from '../../../components/utilities/utilities';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -15,7 +15,7 @@ const Content = ({ searchData, email }) => {
     notdata: searchData,
     emails: email,
   });
-  let { selectedRowKeys, notdata, emails } = state;
+  const { selectedRowKeys, notdata, emails } = state;
 
   useEffect(() => {
     setState({
@@ -43,7 +43,7 @@ const Content = ({ searchData, email }) => {
 
   const data = [];
   emails !== undefined &&
-    emails.map((inbox, index) => {
+    emails.map(inbox => {
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
@@ -52,14 +52,14 @@ const Content = ({ searchData, email }) => {
         name: (
           <EmailAuthor>
             <FeatherIcon icon="star" size={18} />
-            <img src={img} alt={'image' + index} />
+            <img src={img} alt="" />
             <Heading as="h5">
-              <NavLink to={'/email/single/' + id}>{userName}</NavLink>
+              <NavLink to={`/email/single/${id}`}>{userName}</NavLink>
             </Heading>
           </EmailAuthor>
         ),
-        email: email,
-        status: status,
+        email,
+        status,
         content: (
           <EmailHeader>
             <Heading as="h5">
@@ -68,7 +68,7 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a className="btn-attatchment" download href={require('../../../static/img/email/' + item)}>
+                  <a className="btn-attatchment" download href={require(`../../../static/img/email/${item}`)}>
                     <FeatherIcon icon="paperclip" size={14} />
                     {item}
                   </a>
@@ -87,20 +87,20 @@ const Content = ({ searchData, email }) => {
     });
   };
 
-  const onRowSelection = (filterObj, changableRowKeys) => {
+  const onRowSelection = filterObj => {
     const { filter, byValue } = filterObj;
 
     const newSelectedRowKeys = emails
-      .filter(email => {
-        return email[filter] == byValue;
+      .filter(value => {
+        return value[filter] == byValue;
       })
       .map(item => item.id);
 
     setState({ ...state, selectedRowKeys: newSelectedRowKeys });
   };
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -111,8 +111,8 @@ const Content = ({ searchData, email }) => {
       {
         key: 'all',
         text: 'All',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = email.map(item => item.id);
+        onSelect: () => {
+          const newSelectedRowKeys = email.map(item => item.id);
           setState({ ...state, selectedRowKeys: newSelectedRowKeys });
         },
       },
@@ -154,7 +154,7 @@ const Content = ({ searchData, email }) => {
     },
     {
       title: (
-        <Fragment>
+        <>
           <div className="email-top-right d-flex align-items-center">
             <span className="page-number">1 - 50 of 235</span>
             <div className="pagination-slider">
@@ -174,7 +174,7 @@ const Content = ({ searchData, email }) => {
               </NavLink>
             </div>
           </div>
-        </Fragment>
+        </>
       ),
       dataIndex: 'time',
       key: 'time',
@@ -191,6 +191,10 @@ const Content = ({ searchData, email }) => {
       onChange={handleChange}
     />
   );
+};
+Content.propTypes = {
+  searchData: propTypes.array.isRequired,
+  email: propTypes.array.isRequired,
 };
 
 export default Content;

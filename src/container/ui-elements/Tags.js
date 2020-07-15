@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Tag } from '../../components/tags/tags';
 
 const Tags = () => {
-  const log = e => {
-    //console.log(e);
+  const log = () => {
+    // console.log(e);
   };
 
-  const checked = checked => {
-    console.log(checked);
+  const checked = checke => {
+    console.log(checke);
   };
 
   const preventDefault = e => {
@@ -20,7 +20,7 @@ const Tags = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Tags" />
       <Main>
         <Row gutter={25}>
@@ -94,7 +94,7 @@ const Tags = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

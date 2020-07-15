@@ -1,21 +1,29 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, CardToolbox } from '../styled';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Row, Col, Pagination } from 'antd';
-import Heading from '../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { UsercardWrapper, UserCard } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, CardToolbox } from '../styled';
+import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { UsercardWrapper, UserCard } from './style';
 
-const Users = ({ searchData, users }) => {
+const Users = () => {
+  const { searchData, users } = useSelector(state => {
+    return {
+      searchData: state.headerSearchData,
+      users: state.users,
+    };
+  });
+
   const [state, setState] = useState({
     notdata: searchData,
   });
-  let { notdata } = state;
+
+  const { notdata } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -34,19 +42,19 @@ const Users = ({ searchData, users }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <CardToolbox>
         <PageHeader
           ghost
           title="Users Card"
           subTitle={
-            <Fragment>
+            <>
               <span className="title-counter">274 Users </span>
               <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
-            </Fragment>
+            </>
           }
           buttons={[
-            <Button  className="btn-add_new" size="default" type="primary" key="1">
+            <Button className="btn-add_new" size="default" type="primary" key="1">
               <Link to="/pages/add-user">+ Add New User</Link>
             </Button>,
           ]}
@@ -63,7 +71,7 @@ const Users = ({ searchData, users }) => {
                     <div className="card user-card">
                       <Cards headless>
                         <figure>
-                          <img src={require('../../' + img)} alt="" />
+                          <img src={require(`../../${img}`)} alt="" />
                         </figure>
                         <figcaption>
                           <div className="card__content">
@@ -72,7 +80,7 @@ const Users = ({ searchData, users }) => {
                             </Heading>
                             <p className="card__designation">{designation}</p>
                           </div>
-                          
+
                           <div className="card__actions">
                             <Button size="default" type="white">
                               <FeatherIcon icon="mail" size={14} />
@@ -87,19 +95,25 @@ const Users = ({ searchData, users }) => {
                             <Row gutter={15}>
                               <Col xs={8}>
                                 <div className="info-single">
-                                  <Heading className="info-single__title" as="h2">$72,572</Heading>
+                                  <Heading className="info-single__title" as="h2">
+                                    $72,572
+                                  </Heading>
                                   <p>Total Revenue</p>
                                 </div>
                               </Col>
                               <Col xs={8}>
                                 <div className="info-single">
-                                  <Heading className="info-single__title" as="h2">3,257</Heading>
+                                  <Heading className="info-single__title" as="h2">
+                                    3,257
+                                  </Heading>
                                   <p>Orders</p>
                                 </div>
                               </Col>
                               <Col xs={8}>
                                 <div className="info-single">
-                                  <Heading className="info-single__title" as="h2">74</Heading>
+                                  <Heading className="info-single__title" as="h2">
+                                    74
+                                  </Heading>
                                   <p>Products</p>
                                 </div>
                               </Col>
@@ -126,15 +140,8 @@ const Users = ({ searchData, users }) => {
           </Row>
         </UsercardWrapper>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    users: state.users,
-  };
-};
-
-export default connect(mapStateToProps)(Users);
+export default Users;

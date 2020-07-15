@@ -69,9 +69,10 @@ ChartjsBarChart.defaultProps = {
 };
 
 ChartjsBarChart.propTypes = {
-  labels: PropTypes.array.isRequired,
-  height: PropTypes.number.isRequired,
+  labels: PropTypes.array,
+  height: PropTypes.number,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 const ChartjsHorizontalChart = props => {
@@ -138,9 +139,10 @@ ChartjsHorizontalChart.defaultProps = {
 };
 
 ChartjsHorizontalChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 const ChartjsStackedChart = props => {
@@ -212,6 +214,7 @@ ChartjsStackedChart.propTypes = {
   height: PropTypes.number,
   labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 const ChartjsLineChart = props => {
@@ -288,11 +291,12 @@ ChartjsLineChart.defaultProps = {
 };
 
 ChartjsLineChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
   width: PropTypes.number,
+  options: PropTypes.object,
 };
 
 const ChartjsAreaChart = props => {
@@ -402,6 +406,7 @@ ChartjsAreaChart.propTypes = {
   labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
+  options: PropTypes.object,
 };
 
 const ChartjsBarChartTransparent = props => {
@@ -414,7 +419,7 @@ const ChartjsBarChartTransparent = props => {
 };
 
 ChartjsBarChartTransparent.defaultProps = {
-  height: 202,
+  height: 176,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [
     {
@@ -484,6 +489,8 @@ ChartjsBarChartTransparent.propTypes = {
   height: PropTypes.number,
   labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
+  layout: PropTypes.object,
 };
 
 const ChartjsBarChartGrad = props => {
@@ -556,6 +563,14 @@ ChartjsBarChartGrad.defaultProps = {
   },
 };
 
+ChartjsBarChartGrad.propTypes = {
+  height: PropTypes.number,
+  labels: PropTypes.array,
+  datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
+  layout: PropTypes.object,
+};
+
 const ChartjsPieChart = props => {
   const { labels, datasets, options, height } = props;
   const data = {
@@ -589,9 +604,10 @@ ChartjsPieChart.defaultProps = {
 };
 
 ChartjsPieChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 /**
  * 
@@ -645,22 +661,23 @@ ChartjsDonutChart.defaultProps = {
 };
 
 ChartjsDonutChart.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 const ChartjsDonutChart2 = props => {
   const { labels, datasets, options, height } = props;
   const { ref } = useChartData();
-  const data = {
+  const dataInfo = {
     labels,
     datasets,
   };
 
   return (
     <div>
-      <Doughnut ref={ref} data={data} height={height} options={options} />
+      <Doughnut ref={ref} data={dataInfo} height={height} options={options} />
 
       <div className="align-center-v justify-content-between">
         <div className="revenue-chat-label">
@@ -721,9 +738,10 @@ ChartjsDonutChart2.defaultProps = {
 };
 
 ChartjsDonutChart2.propTypes = {
-  height: PropTypes.number.isRequired,
-  labels: PropTypes.array.isRequired,
+  height: PropTypes.number,
+  labels: PropTypes.array,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 export {

@@ -3,9 +3,9 @@ import { hot } from 'react-hot-loader/root';
 import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
+import propTypes from 'prop-types';
 import store from './redux/store';
 import AdminRoutes from './routes/admin-routes';
-
 import FrontendRoutes from './routes/frontend-routes';
 import './static/css/style.css';
 import { theme } from './config/theme/themeVariables';
@@ -17,15 +17,11 @@ function App({ auth }) {
   const { isLogedIn } = state;
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (auth) {
       setState({
         isLogedIn: auth,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [auth]);
 
   return (
@@ -41,6 +37,9 @@ const mapStateToProps = state => {
   };
 };
 
+App.propTypes = {
+  auth: propTypes.oneOf([true, false, null]).isRequired,
+};
 const MyApp = connect(mapStateToProps)(App);
 
 const StoreReturn = () => {

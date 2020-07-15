@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import {
   LeafletMapBasic,
@@ -27,7 +27,7 @@ const place = [
 
 const OsMap = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Openstreet Maps (Leaflet)" />
       <Main>
         <Row gutter={25}>
@@ -79,7 +79,7 @@ const OsMap = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

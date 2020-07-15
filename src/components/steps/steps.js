@@ -1,10 +1,10 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Button, message } from 'antd';
 import PropTypes from 'prop-types';
-import { StepsStyle, ActionWrapper } from './style';
 import FeatherIcon from 'feather-icons-react';
-const { Step } = StepsStyle;
+import { StepsStyle, ActionWrapper } from './style';
 
+const { Step } = StepsStyle;
 
 const Steps = ({
   size,
@@ -46,11 +46,11 @@ const Steps = ({
     boxShadow: '0px -1px 0 0 #e8e8e8 inset',
   };
 
-  //console.log(steps);
-  const onChanges = current => {
+  // console.log(steps);
+  const onChanges = curr => {
     // console.log('onChange:', current);
-    setState({ currents: current });
-    onChange && onChange(current);
+    setState({ currents: curr });
+    if (onChange) onChange(curr);
   };
 
   return !isswitch ? (
@@ -67,7 +67,7 @@ const Steps = ({
       {children}
     </StepsStyle>
   ) : (
-    <Fragment>
+    <>
       <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
         {steps !== undefined && steps.map(item => <Step key={item.title} title={item.title} />)}
       </StepsStyle>
@@ -81,43 +81,42 @@ const Steps = ({
 
       {!isfinished && (
         <ActionWrapper>
-            {/* <Row justify="center">
+          {/* <Row justify="center">
               <Col sm={17} xs={24}> */}
-                <div className="step-action-wrap">
-                  <div className="step-action-inner">
-                    <Row>
-                      <Col xs={24}>
-                        <div className="steps-action">
-                          {state.currents > 0 && (
-                            <Button className="btn-prev" type="light" onClick={() => prev()}>
-                              <FeatherIcon icon="arrow-left" size={16} />
-                              Previous
-                            </Button>
-                          )}
+          <div className="step-action-wrap">
+            <div className="step-action-inner">
+              <Row>
+                <Col xs={24}>
+                  <div className="steps-action">
+                    {state.currents > 0 && (
+                      <Button className="btn-prev" type="light" onClick={() => prev()}>
+                        <FeatherIcon icon="arrow-left" size={16} />
+                        Previous
+                      </Button>
+                    )}
 
-                          {state.currents < steps.length - 1 && (
-                            <Button className="btn-next" type="primary" onClick={() => next()}>
-                              Save & Next
-                              <FeatherIcon icon="arrow-right" size={16} />
-                            </Button>
-                          )}
+                    {state.currents < steps.length - 1 && (
+                      <Button className="btn-next" type="primary" onClick={() => next()}>
+                        Save & Next
+                        <FeatherIcon icon="arrow-right" size={16} />
+                      </Button>
+                    )}
 
-                          {state.currents === steps.length - 1 && (
-                            <Button type="primary" onClick={onDone}>
-                              Done
-                            </Button>
-                          )}
-
-                        </div>
-                      </Col>
-                    </Row>
+                    {state.currents === steps.length - 1 && (
+                      <Button type="primary" onClick={onDone}>
+                        Done
+                      </Button>
+                    )}
                   </div>
-                </div>
-              {/* </Col>
+                </Col>
+              </Row>
+            </div>
+          </div>
+          {/* </Col>
             </Row> */}
         </ActionWrapper>
       )}
-    </Fragment>
+    </>
   );
 };
 
@@ -143,6 +142,7 @@ Steps.propTypes = {
   onDone: PropTypes.func,
   onChange: PropTypes.func,
   height: PropTypes.number,
+  children: PropTypes.object,
 };
 
 export { Step, Steps };

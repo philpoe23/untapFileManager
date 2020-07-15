@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
 import { BlockSpan, ChatWrapper } from '../style';
-import { textRefactor } from '../../../Helper';
+import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
 
@@ -12,8 +12,8 @@ const GroupChat = ({ match }) => {
   const chatData = useSelector(state => state.groupChat.data);
   const dispatch = useDispatch();
 
-  const dataFiltering = email => {
-    dispatch(filterSinglepageGroup(email));
+  const dataFiltering = id => {
+    dispatch(filterSinglepageGroup(id));
   };
 
   return (
@@ -31,12 +31,12 @@ const GroupChat = ({ match }) => {
             .sort((a, b) => {
               return b.time - a.time;
             })
-            .map((user, index) => {
+            .map(user => {
               const { groupName, content, id } = user;
               const { time } = content[content.length - 1];
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
-                <li key={index + 1} className="chat-link-signle">
+                <li key={id} className="chat-link-signle">
                   <NavLink onClick={() => dataFiltering(id)} to={`${match.path}/${id}`}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />

@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { UserOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 const Inputs = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Input" />
       <Main>
         <Row gutter={25}>
@@ -35,7 +35,7 @@ const Inputs = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

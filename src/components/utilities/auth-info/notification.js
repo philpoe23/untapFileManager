@@ -3,24 +3,28 @@ import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Popover } from '../../popup/popup';
 import Heading from '../../heading/heading';
-import { Scrollbars } from 'react-custom-scrollbars';
 
-const NotificationBox = props => {
+const NotificationBox = () => {
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
     };
-    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
+
+  renderThumb.propTypes = {
+    style: PropTypes.object,
   };
 
   const content = (
     <div className="atbd-top-dropdwon">
       <Heading as="h5" className="atbd-top-dropdwon__title">
         <span className="title-text">Notifications</span>
-        <Badge className="badge-success" count={3}></Badge>
+        <Badge className="badge-success" count={3} />
       </Heading>
       <Scrollbars autoHeight autoHide renderThumbVertical={renderThumb}>
         <ul className="atbd-top-dropdwon__nav notification-list">
@@ -38,7 +42,7 @@ const NotificationBox = props => {
                     <p>5 hours ago</p>
                   </div>
                   <div className="notification-status">
-                    <Badge dot></Badge>
+                    <Badge dot />
                   </div>
                 </div>
               </div>
@@ -59,7 +63,7 @@ const NotificationBox = props => {
                   </div>
 
                   <div className="notification-status">
-                    <Badge dot></Badge>
+                    <Badge dot />
                   </div>
                 </div>
               </div>
@@ -80,7 +84,7 @@ const NotificationBox = props => {
                   </div>
 
                   <div className="notification-status">
-                    <Badge dot></Badge>
+                    <Badge dot />
                   </div>
                 </div>
               </div>
@@ -101,7 +105,7 @@ const NotificationBox = props => {
                   </div>
 
                   <div className="notification-status">
-                    <Badge dot></Badge>
+                    <Badge dot />
                   </div>
                 </div>
               </div>
@@ -122,7 +126,7 @@ const NotificationBox = props => {
                   </div>
 
                   <div className="notification-status">
-                    <Badge dot></Badge>
+                    <Badge dot />
                   </div>
                 </div>
               </div>
@@ -139,7 +143,7 @@ const NotificationBox = props => {
   return (
     <div className="notification">
       <Popover placement="bottomLeft" content={content} trigger="click">
-        <Badge dot={true} offset={[-8, -5]}>
+        <Badge dot offset={[-8, -5]}>
           <Link to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
           </Link>
@@ -147,10 +151,6 @@ const NotificationBox = props => {
       </Popover>
     </div>
   );
-};
-
-NotificationBox.propTypes = {
-  notification: PropTypes.array,
 };
 
 export default NotificationBox;

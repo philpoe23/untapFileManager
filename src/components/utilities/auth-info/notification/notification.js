@@ -2,23 +2,21 @@ import React, { useEffect } from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { Popover } from '../../../popup/popup';
 import { readNotificationList } from '../../../../redux/notification/actionCreator';
 
-const NotificationBox = props => {
-  const { notification, readNotification } = props;
+const NotificationBox = () => {
+  const dispatch = useDispatch();
+  const notification = useSelector(state => state.notification.data);
+
   useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      readNotification();
+    if (readNotificationList) {
+      dispatch(readNotificationList());
     }
-    return () => {
-      unmount = true;
-    };
   });
-  const content = (
+
+  const popoverContent = (
     <div>
       {notification.map(item => {
         const { id, from } = item;
@@ -35,10 +33,11 @@ const NotificationBox = props => {
       </p>
     </div>
   );
+
   return (
     <div className="notification" style={{ marginTop: 10 }}>
-      <Popover placement="bottomLeft" title="Notification List" content={content} trigger="click">
-        <Badge dot={true} offset={[-8, -5]}>
+      <Popover placement="bottomLeft" title="Notification List" content={popoverContent} trigger="click">
+        <Badge dot offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />
           </NavLink>
@@ -48,18 +47,4 @@ const NotificationBox = props => {
   );
 };
 
-NotificationBox.propTypes = {
-  readNotification: PropTypes.func,
-  notification: PropTypes.array,
-};
-const mapSTateToProps = state => {
-  return {
-    notification: state.notification.data,
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    readNotification: () => dispatch(readNotificationList()),
-  };
-};
-export default connect(mapSTateToProps, mapDispatchToProps)(NotificationBox);
+export default NotificationBox;

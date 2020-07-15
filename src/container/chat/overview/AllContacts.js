@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { BlockSpan, ChatWrapper } from '../style';
-import { textRefactor } from '../../../Helper';
 import moment from 'moment';
+import FeatherIcon from 'feather-icons-react';
+import { BlockSpan, ChatWrapper } from '../style';
+import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepage } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 
-const AllContacts = ({ chat, match, filterSinglepage }) => {
+const AllContacts = ({ match }) => {
+  const dispatch = useDispatch();
+  const chat = useSelector(state => state.chat.data);
+
   const [state] = useState({
     chatData: chat,
   });
@@ -16,7 +19,7 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
   const { chatData } = state;
 
   const dataFiltering = e => {
-    filterSinglepage(e.currentTarget.getAttribute('data-email'));
+    dispatch(filterSinglepage(e.currentTarget.getAttribute('data-email')));
   };
 
   return (
@@ -33,13 +36,13 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
             .sort((a, b) => {
               return b.time - a.time;
             })
-            .map((user, index) => {
+            .map(user => {
               const { userName, content, email } = user;
-              const id = content[content.length - 1]['time'];
+              const id = content[content.length - 1].time;
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
-                <li key={index + 1} className="chat-link-signle">
-                  <NavLink onClick={dataFiltering} data-email={email} to={match.path + '/' + email}>
+                <li key={id} className="chat-link-signle">
+                  <NavLink onClick={dataFiltering} data-email={email} to={`${match.path}/${email}`}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                     </div>
@@ -47,7 +50,7 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
                       <BlockSpan className="author-name">{userName}</BlockSpan>
 
                       <BlockSpan className="author-chatText">
-                        {textRefactor(content[content.length - 1]['content'], 5)}
+                        {textRefactor(content[content.length - 1].content, 5)}
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">
@@ -62,16 +65,4 @@ const AllContacts = ({ chat, match, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: paramsId => dispatch(filterSinglepage(paramsId)),
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    chat: state.chat.data,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllContacts);
+export default AllContacts;

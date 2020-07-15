@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import MenueItems from './sidebar/MenueItems';
 import { NavLink, Link } from 'react-router-dom';
+import { Scrollbars } from 'react-custom-scrollbars';
+import { ThemeProvider } from 'styled-components';
+import MenueItems from './sidebar/MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { Scrollbars } from 'react-custom-scrollbars';
-import { ThemeProvider } from 'styled-components';
 import { darkTheme } from '../config/theme/themeVariables';
 import config from '../config/config';
 
@@ -39,8 +39,6 @@ const ThemeLayout = WrappedComponent => {
       super(props);
       this.state = {
         collapsed: false,
-        top: 0,
-        width: 0,
         hide: true,
         searchHide: true,
       };
@@ -48,53 +46,61 @@ const ThemeLayout = WrappedComponent => {
       this.updateDimensions = this.updateDimensions.bind(this);
     }
 
-    handleUpdate(values) {
-      const { top } = values;
-      this.setState({ top });
-    }
-
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
       this.updateDimensions();
     }
 
-    updateDimensions() {
-      this.setState({
-        width: window.innerWidth,
-        collapsed: window.innerWidth <= 1200 && true,
-      });
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.updateDimensions);
     }
 
     toggleCollapsed = () => {
+      const { collapsed } = this.state;
       this.setState({
-        collapsed: !this.state.collapsed,
+        collapsed: !collapsed,
       });
     };
 
     onShowHide = () => {
+      const { hide } = this.state;
       this.setState({
-        hide: this.state.hide ? false : true,
+        hide: !hide,
         searchHide: true,
       });
     };
 
     handleSearchHide = e => {
       e.preventDefault();
+      const { searchHide } = this.state;
       this.setState({
-        searchHide: this.state.searchHide ? false : true,
+        searchHide: !searchHide,
         hide: true,
       });
     };
+
+    updateDimensions() {
+      this.setState({
+        collapsed: window.innerWidth <= 1200 && true,
+      });
+    }
+
+    handleUpdate(values) {
+      const { top } = values;
+      this.setState({ top });
+    }
 
     renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
         borderRadius: 6,
         backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
       };
+      // eslint-disable-next-line react/jsx-props-no-spreading
       return <div style={{ ...style, ...thumbStyle }} {...props} />;
     };
 
     render() {
+      const { collapsed, searchHide, hide } = this.state;
       return (
         <Div darkMode={darkMode}>
           <Layout>
@@ -109,7 +115,7 @@ const ThemeLayout = WrappedComponent => {
               <Row>
                 <Col md={4} sm={5} xs={12} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
-                    <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
+                    <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
                   <NavLink to="/">
                     <img src={require(`../static/img/logo.png`)} alt="" />
@@ -125,23 +131,23 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col md={0} sm={19} xs={12}>
-                  <Fragment>
+                  <>
                     <div className="mobile-action">
                       <Link className="btn-search" onClick={this.handleSearchHide} to="#">
-                        {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
+                        {searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
                       </Link>
                       <Link className="btn-auth" onClick={this.onShowHide} to="#">
                         <FeatherIcon icon="more-vertical" />
                       </Link>
                     </div>
-                  </Fragment>
+                  </>
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
-                    <SmallScreenSearch hide={this.state.searchHide}>
+                    <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
                       <HeaderSearch />
                     </SmallScreenSearch>
-                    <SmallScreenAuthInfo hide={this.state.hide}>
+                    <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
                       <AuthInfo />
                     </SmallScreenAuthInfo>
                   </div>
@@ -151,12 +157,7 @@ const ThemeLayout = WrappedComponent => {
 
             <Layout>
               <ThemeProvider theme={darkTheme}>
-                <Sider
-                  width={280}
-                  style={SideBarStyle}
-                  collapsed={this.state.collapsed}
-                  theme={!darkMode ? 'light' : 'dark'}
-                >
+                <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
                   <Scrollbars
                     className="custom-scrollbar"
                     autoHide
@@ -180,9 +181,6 @@ const ThemeLayout = WrappedComponent => {
           </Layout>
         </Div>
       );
-    }
-    componentWillUnmount() {
-      window.removeEventListener('resize', this.updateDimensions);
     }
   }
 

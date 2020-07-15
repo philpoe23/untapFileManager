@@ -1,30 +1,31 @@
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
-import { connect } from 'react-redux';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Progress, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import Heading from '../../components/heading/heading';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { ProjectDetailsWrapper, TaskLists } from './style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main } from '../styled';
+import Heading from '../../components/heading/heading';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { filterSinglepage } from '../../redux/project/actionCreator';
-import { ProjectDetailsWrapper, TaskLists } from './style';
 
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
 
-const ProjectDetails = ({ match, project, filterSinglepage }) => {
+const ProjectDetails = ({ match }) => {
+  const dispatch = useDispatch();
+  const project = useSelector(state => state.project.data);
+
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      filterSinglepage(parseInt(match.params.id));
+    if (filterSinglepage) {
+      dispatch(filterSinglepage(parseInt(match.params.id, 10)));
     }
-    return () => {
-      unmounted = true;
-    };
-  }, [match.params.id, filterSinglepage]);
+  }, [match.params.id, dispatch]);
+
   const { title, content } = project[0];
 
   return (
@@ -201,9 +202,9 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
               <Cards
                 title={
                   <nav>
-                    <NavLink to={match.url + '/tasklist'}>Task List</NavLink>
+                    <NavLink to={`${match.url}/tasklist`}>Task List</NavLink>
                     &nbsp; &nbsp;
-                    <NavLink to={match.url + '/activities'}>Activities</NavLink>
+                    <NavLink to={`${match.url}/activities`}>Activities</NavLink>
                   </nav>
                 }
               >
@@ -216,8 +217,8 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                     }
                   >
                     <Route exact path={match.url} component={TaskList} />
-                    <Route path={match.url + '/tasklist'} component={TaskList} />
-                    <Route path={match.url + '/activities'} component={Activities} />
+                    <Route path={`${match.url}/tasklist`} component={TaskList} />
+                    <Route path={`${match.url}/activities`} component={Activities} />
                   </Suspense>
                 </Switch>
               </Cards>
@@ -229,20 +230,20 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/zip.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/zip.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Main-admin-design.zip</span>
                       <span className="file-size">7.05 MB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -255,7 +256,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -263,25 +264,26 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/pdf.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/pdf.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Product-guidelines.pdf</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -294,7 +296,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -302,24 +304,25 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/psd.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/psd.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">admin-wireframe.psd</span>
                       <span className="file-size">2.05 MB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -332,7 +335,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -340,25 +343,26 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/jpg.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/jpg.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Wirefram-escreenshots.jpg</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
                   <div className="file-single-action">
                     <Dropdown
                       content={
-                        <Fragment>
+                        <>
                           <Link to="#">
                             <FeatherIcon icon="eye" size={14} />
                             View
@@ -371,7 +375,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                             <FeatherIcon icon="trash-2" size={14} />
                             Delete
                           </Link>
-                        </Fragment>
+                        </>
                       }
                     >
                       <Link to="#">
@@ -379,18 +383,19 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
                 <div className="file-list__single d-flex">
                   <div className="file-single-info d-flex">
                     <div className="file-single-logo">
-                      <img src={require(`../../static/img/files/png.png`)} alt="File Logo"/>
+                      <img src={require(`../../static/img/files/png.png`)} alt="File Logo" />
                     </div>
                     <div className="file-single__content">
                       <span className="file-name">Logo.png</span>
                       <span className="file-size">522 KB</span>
                       <span className="file-content-action">
-                        <Link to={'/'}>View</Link>
-                        <Link to={'/'}>Download</Link>
+                        <Link to="/">View</Link>
+                        <Link to="/">Download</Link>
                       </span>
                     </div>
                   </div>
@@ -398,7 +403,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                     <Dropdown
                       content={
                         <div className="dropdown-more">
-                          <Fragment>
+                          <>
                             <Link to="#">
                               <FeatherIcon icon="eye" size={14} />
                               Viewt
@@ -411,7 +416,7 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                               <FeatherIcon icon="trash-2" size={14} />
                               Delete
                             </Link>
-                          </Fragment>
+                          </>
                         </div>
                       }
                     >
@@ -420,7 +425,8 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
                       </Link>
                     </Dropdown>
                   </div>
-                </div>{/* End of .file-list__single */}
+                </div>
+                {/* End of .file-list__single */}
               </div>
             </Cards>
           </Col>
@@ -430,17 +436,8 @@ const ProjectDetails = ({ match, project, filterSinglepage }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    filterSinglepage: id => dispatch(filterSinglepage(id)),
-  };
+ProjectDetails.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-    project: state.project.data,
-    // products: state.products,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default ProjectDetails;

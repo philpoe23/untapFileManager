@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Tab } from '../../components/tabs/tabs';
 import { data, dataIcon, icon } from '../../config/dataService/tab-data.json';
 
 const Tabs = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Tabs" />
       <Main>
         <Row gutter={25}>
@@ -35,7 +35,7 @@ const Tabs = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

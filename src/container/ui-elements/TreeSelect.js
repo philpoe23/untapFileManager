@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, TreeSelect } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -105,7 +105,7 @@ const TreeSelects = () => {
   const { asyncTreeData } = state;
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="TreeSelect" />
       <Main>
         <Row gutter={25}>
@@ -192,7 +192,7 @@ const TreeSelects = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

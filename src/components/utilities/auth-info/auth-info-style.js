@@ -70,13 +70,13 @@ const InfoWraper = Styled.div`
             padding: 12px 0;
             background: #fff;
             border: 0 none;
-            box-shadow: 0 5px 30px ${({theme})=>theme['gray-solid']}15;
+            box-shadow: 0 5px 30px ${({ theme }) => theme['gray-solid']}15;
             li{
                 &:first-child{
                     margin-top: 12px;
                 }
                 &:hover{
-                    background: ${({theme})=>theme['primary-color']}05;
+                    background: ${({ theme }) => theme['primary-color']}05;
                 }
                 span{
                     display: flex !important;
@@ -87,7 +87,7 @@ const InfoWraper = Styled.div`
                     }
                     span{
                         font-weight: 500;
-                        color: ${({theme})=>theme['gray-color']};
+                        color: ${({ theme }) => theme['gray-color']};
                         padding: 0;
                         margin-left: 10px;
                     }
@@ -112,7 +112,7 @@ const SettingDropdwon = Styled.div`
                 top: 0;
                 width: 100%;
                 height: 100%;
-                box-shadow: 0 5px 20px ${({theme})=>theme['gray-solid']}15;
+                box-shadow: 0 5px 20px ${({ theme }) => theme['gray-solid']}15;
                 z-index: 1;
                 content: '';
                 opacity: 0;
@@ -131,7 +131,7 @@ const SettingDropdwon = Styled.div`
             }
             p{
                 margin-bottom: 0;
-                color: ${({theme})=>theme['gray-solid']};
+                color: ${({ theme }) => theme['gray-solid']};
             }
             img{
                 margin-right: 16px;
@@ -150,16 +150,16 @@ const NestedDropdwon = Styled.div`
             h1{
                 font-size: 14px;
                 font-weight: 400;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
             }
             li{
                 a{
                     font-weight: 500;
                     padding: 4px 16px;
-                    color: ${({theme})=>theme['dark-color']};
+                    color: ${({ theme }) => theme['dark-color']};
                     &:hover{
                         background: #fff;
-                        color: ${({theme})=>theme['primary-color']};
+                        color: ${({ theme }) => theme['primary-color']};
                     }
                 }
             }
@@ -176,7 +176,7 @@ const UserDropDwon = Styled.div`
             padding: 20px 25px;
             border-radius: 8px;
             margin-bottom: 12px;
-            background: ${({theme})=>theme['bg-color-normal']};
+            background: ${({ theme }) => theme['bg-color-normal']};
             img{
                 margin-right: 15px;
             }
@@ -184,12 +184,12 @@ const UserDropDwon = Styled.div`
                 h1{
                     font-size: 14px;
                     margin-bottom: 2px;
-                    color:  ${({theme})=>theme['dark-color']};
+                    color:  ${({ theme }) => theme['dark-color']};
                 }
                 p{
                     margin-bottom: 0px;
                     font-size: 13px;
-                    color: ${({theme})=>theme['gray-solid']};
+                    color: ${({ theme }) => theme['gray-solid']};
                 }
             }
         }
@@ -203,10 +203,10 @@ const UserDropDwon = Styled.div`
                 padding: 10px 12px;
                 font-size: 14px;
                 transition: .3s;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
                 &:hover{
-                    background: ${({theme})=>theme['primary-color']}05;
-                    color: ${({theme})=>theme['primary-color']};
+                    background: ${({ theme }) => theme['primary-color']}05;
+                    color: ${({ theme }) => theme['primary-color']};
                     padding-left: 22px;
                 }
                 svg{
@@ -230,8 +230,8 @@ const UserDropDwon = Styled.div`
             bottom: -15px;
             border-radius: 0 0 6px 6px;
             padding: 15px 0;
-            background: ${({theme})=>theme['bg-color-light']};
-            color: ${({theme})=>theme['light-light']};
+            background: ${({ theme }) => theme['bg-color-light']};
+            color: ${({ theme }) => theme['light-light']};
             svg{
                 width: 15px;
                 height: 15px;

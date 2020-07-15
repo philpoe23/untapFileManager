@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Calendar, Badge } from 'antd';
 import moment from 'moment';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, CalendarWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -63,6 +63,7 @@ const Calendars = () => {
     if (value.month() === 8) {
       return 1394;
     }
+    return true;
   };
 
   const monthCellRender = value => {
@@ -76,31 +77,27 @@ const Calendars = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Calendar" />
       <Main>
         <Row gutter={25}>
           <Col md={24}>
             <Cards title="Basic">
               <CalendarWrapper>
-
                 <Calendar onPanelChange={onPanelChange} />
-
               </CalendarWrapper>
             </Cards>
           </Col>
           <Col md={24}>
             <Cards title="Notice Calendar">
               <CalendarWrapper>
-
                 <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
-
               </CalendarWrapper>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

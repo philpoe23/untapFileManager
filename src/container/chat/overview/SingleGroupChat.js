@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Upload } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';

@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
+import { Row, Col } from 'antd';
+import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts';
+import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../../styled';
-import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts';
 import rechartdata from '../../../config/dataService/recharts.json';
 
 const { data01, data02 } = rechartdata;
@@ -54,6 +55,20 @@ const renderActiveShape = props => {
   );
 };
 
+renderActiveShape.propTypes = {
+  cx: PropTypes.number.isRequired,
+  cy: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  midAngle: PropTypes.number.isRequired,
+  innerRadius: PropTypes.number.isRequired,
+  outerRadius: PropTypes.number.isRequired,
+  startAngle: PropTypes.number.isRequired,
+  endAngle: PropTypes.number.isRequired,
+  fill: PropTypes.string.isRequired,
+  payload: PropTypes.number.isRequired,
+  percent: PropTypes.number.isRequired,
+};
+
 const ReChartPie = () => {
   const [state, setState] = useState({
     activeIndex: 0,
@@ -69,7 +84,7 @@ const ReChartPie = () => {
         element !== null
           ? element.closest('.ant-card-body').clientWidth
           : document.querySelector('.ant-card-body').clientWidth;
-      setState({ responsive: width, activeIndex: activeIndex });
+      setState({ responsive: width, activeIndex });
     }
     window.addEventListener('resize', updateSize);
     updateSize();
@@ -87,7 +102,7 @@ const ReChartPie = () => {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -98,8 +113,16 @@ const ReChartPie = () => {
       </text>
     );
   };
+  renderCustomizedLabel.propTypes = {
+    cx: PropTypes.number.isRequired,
+    cy: PropTypes.number.isRequired,
+    midAngle: PropTypes.number.isRequired,
+    innerRadius: PropTypes.number.isRequired,
+    outerRadius: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  };
   return (
-    <Fragment>
+    <>
       <PageHeader title="Rechats Pie Chart" />
       <Main>
         <Row gutter={25}>
@@ -175,9 +198,9 @@ const ReChartPie = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {data01.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
+                  {data01.map((entry, index) => {
+                    return <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />;
+                  })}
                 </Pie>
               </PieChart>
             </Cards>
@@ -213,7 +236,7 @@ const ReChartPie = () => {
                   dataKey="value"
                 >
                   {data01.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
               </PieChart>
@@ -221,7 +244,7 @@ const ReChartPie = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

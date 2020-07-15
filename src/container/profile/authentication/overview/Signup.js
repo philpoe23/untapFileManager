@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import Heading from '../../../../components/heading/heading';
-import { Checkbox } from '../../../../components/checkbox/checkbox';
 import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
+import { Checkbox } from '../../../../components/checkbox/checkbox';
+import Heading from '../../../../components/heading/heading';
 
 const SignUp = () => {
   const handleSubmit = values => {
     console.log('Received values of form: ', values);
   };
 
-  const onChange = (checked, value) => {
+  const onChange = checked => {
     console.log(`checked = ${checked}`);
   };
 
@@ -22,7 +22,9 @@ const SignUp = () => {
       </p>
       <div className="auth-contents">
         <Form name="register" onFinish={handleSubmit} layout="vertical">
-          <Heading as="h3">Sign Up to <span>Admin</span></Heading>
+          <Heading as="h3">
+            Sign Up to <span>Admin</span>
+          </Heading>
           <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please input your Full name!' }]}>
             <Input placeholder="Full name" />
           </Form.Item>
@@ -57,11 +59,25 @@ const SignUp = () => {
               Create Account
             </Button>
           </Form.Item>
-          <p className="form-divider"><span>Or</span></p>
+          <p className="form-divider">
+            <span>Or</span>
+          </p>
           <ul className="social-login">
-            <li><a href="/"><GoogleOutlined /> <span>Sign in with Google</span></a></li>
-            <li><a href="/"><FacebookOutlined /></a></li>
-            <li><a href="/"><TwitterOutlined /></a></li>
+            <li>
+              <a href="/">
+                <GoogleOutlined /> <span>Sign in with Google</span>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <FacebookOutlined />
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <TwitterOutlined />
+              </a>
+            </li>
           </ul>
         </Form>
       </div>

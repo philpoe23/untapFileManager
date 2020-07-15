@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
@@ -34,21 +34,18 @@ const Orders = () => {
 
   /**
    * @todo purpose
+   * @todo ternary issue
    */
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (orders) {
       setState({
         item: orders,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [orders]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
@@ -60,9 +57,9 @@ const Orders = () => {
   };
 
   const dataSource = [];
-  orders.length &&
-    orders.map((item, key) => {
-      const { status, orderId, customars, amount, date } = item;
+  if (orders.length) {
+    orders.map((value, key) => {
+      const { status, orderId, customars, amount, date } = value;
       return dataSource.push({
         key: key + 1,
         id: <span className="order-id">{orderId}</span>,
@@ -87,6 +84,7 @@ const Orders = () => {
         ),
       });
     });
+  }
 
   const columns = [
     {
@@ -121,8 +119,8 @@ const Orders = () => {
     },
   ];
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -164,10 +162,10 @@ const Orders = () => {
                       <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
                         <Radio.Button value="">All</Radio.Button>
                         {item.length &&
-                          [...new Set(filterKey)].map((item, key) => {
+                          [...new Set(filterKey)].map(value => {
                             return (
-                              <Radio.Button key={key + 1} value={item}>
-                                {item}
+                              <Radio.Button key={value} value={value}>
+                                {value}
                               </Radio.Button>
                             );
                           })}

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Pagination } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
-const Paginations = props => {
+const Paginations = () => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
@@ -14,7 +14,7 @@ const Paginations = props => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Paginations" />
       <Main>
         <Row gutter={25}>
@@ -40,7 +40,7 @@ const Paginations = props => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

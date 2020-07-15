@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, List } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -14,7 +14,7 @@ const Lists = () => {
   ];
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="List" />
       <Main>
         <Row gutter={25}>
@@ -31,7 +31,7 @@ const Lists = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

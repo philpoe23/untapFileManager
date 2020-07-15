@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col, Switch, Icon } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Switches = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Switch" />
       <Main>
         <Row gutter={25}>
@@ -17,7 +17,7 @@ const Switches = () => {
           </Col>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Size" caption="The simplest use of Switch">
-              <Switch defaultChecked style={{marginRight: 20}} />
+              <Switch defaultChecked style={{ marginRight: 20 }} />
               <Switch defaultChecked size="small" />
             </Cards>
           </Col>
@@ -47,7 +47,7 @@ const Switches = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

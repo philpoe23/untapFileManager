@@ -1,14 +1,15 @@
-import React, { useEffect, Fragment, lazy, Suspense } from 'react';
-import { Cards } from '../../../components/cards/frame/cards-frame';
-import { filterSinglepage } from '../../../redux/email/actionCreator';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Heading from '../../../components/heading/heading';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin } from 'antd';
-import { Dropdown } from '../../../components/dropdown/dropdown';
 import moment from 'moment';
+import propTypes from 'prop-types';
 import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
+import { Dropdown } from '../../../components/dropdown/dropdown';
+import Heading from '../../../components/heading/heading';
+import { filterSinglepage } from '../../../redux/email/actionCreator';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const MailComposer = lazy(() => import('./MailComposer'));
 
@@ -18,14 +19,10 @@ const Single = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      const id = parseInt(match.params.id);
+    if (filterSinglepage) {
+      const id = parseInt(match.params.id, 10);
       dispatch(filterSinglepage(id));
     }
-    return () => {
-      unmounted = true;
-    };
   }, [match.params.id, dispatch]);
 
   const replyMail = async replyMessage => {
@@ -37,7 +34,7 @@ const Single = props => {
     <MailDetailsWrapper>
       <Cards
         title={
-          <Fragment>
+          <>
             <MessageAction>
               <Link onClick={() => history.goBack()} to="#">
                 <FeatherIcon icon="arrow-left" size={14} />
@@ -73,7 +70,7 @@ const Single = props => {
                 </NavLink>
               </Tooltip>
             </MessageAction>
-          </Fragment>
+          </>
         }
         isbutton={
           <MailRightAction>
@@ -156,7 +153,7 @@ const Single = props => {
               <div className="message-body">
                 <p>{email.body}</p>
 
-                <Heading as={'h6'}>
+                <Heading as="h6">
                   Best Regurds <br /> {email.userName}
                 </Heading>
               </div>
@@ -209,12 +206,12 @@ const Single = props => {
               <nav>
                 <ul>
                   <li>
-                    <NavLink to={match.url + '/replay'}>
+                    <NavLink to={`${match.url}/replay`}>
                       <FeatherIcon icon="corner-up-left" size={14} /> Reply
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={match.url + '/forward'}>
+                    <NavLink to={`${match.url}/forward`}>
                       <FeatherIcon icon="corner-up-right" size={14} /> Forward
                     </NavLink>
                   </li>
@@ -231,8 +228,8 @@ const Single = props => {
                 >
                   <div className="reply-box">
                     <Route
-                      path={match.url + '/replay'}
-                      render={props => <MailComposer {...props} onSend={replyMail} />}
+                      path={`${match.url}/replay`}
+                      render={value => <MailComposer props={value} onSend={replyMail} />}
                     />
                   </div>
                 </Suspense>
@@ -243,6 +240,11 @@ const Single = props => {
       </Cards>
     </MailDetailsWrapper>
   );
+};
+
+Single.propTypes = {
+  match: propTypes.object.isRequired,
+  history: propTypes.object.isRequired,
 };
 
 export default Single;

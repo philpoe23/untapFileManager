@@ -1,19 +1,27 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Row, Col, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox } from '../styled';
-import { connect } from 'react-redux';
-import { Row, Col, Table } from 'antd';
 import Heading from '../../components/heading/heading';
-import FeatherIcon from 'feather-icons-react';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
-const UserListDataTable = ({ searchData, users }) => {
+const UserListDataTable = () => {
+  const { searchData, users } = useSelector(state => {
+    return {
+      searchData: state.headerSearchData,
+      users: state.users,
+    };
+  });
+
   const [state, setState] = useState({
     notdata: searchData,
   });
-  let { notdata } = state;
+
+  const { notdata } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -23,17 +31,17 @@ const UserListDataTable = ({ searchData, users }) => {
     });
   };
 
-  const dataSource = [];
+  const usersTableData = [];
 
   users.map(user => {
     const { id, name, designation, img, status } = user;
 
-    return dataSource.push({
+    return usersTableData.push({
       key: id,
       user: (
         <div className="user-info">
           <figure>
-            <img style={{ width: '40px' }} src={require('../../' + img)} alt="" />
+            <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
           </figure>
           <figcaption>
             <Heading className="user-name" as="h6">
@@ -50,7 +58,7 @@ const UserListDataTable = ({ searchData, users }) => {
       status: <span className={status}>{status}</span>,
       action: (
         <div className="table-actions">
-          <Fragment>
+          <>
             <Button className="btn-icon" type="primary" to="#" shape="circle">
               <FeatherIcon icon="eye" size={16} />
             </Button>
@@ -60,13 +68,13 @@ const UserListDataTable = ({ searchData, users }) => {
             <Button className="btn-icon" type="danger" to="#" shape="circle">
               <FeatherIcon icon="trash-2" size={16} />
             </Button>
-          </Fragment>
+          </>
         </div>
       ),
     });
   });
 
-  const columns = [
+  const usersTableColumns = [
     {
       title: 'User',
       dataIndex: 'user',
@@ -116,16 +124,16 @@ const UserListDataTable = ({ searchData, users }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <CardToolbox>
         <PageHeader
           ghost
           title="User List Data Table"
           subTitle={
-            <Fragment>
+            <>
               <span className="title-counter">274 Users </span>
               <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
-            </Fragment>
+            </>
           }
           buttons={[
             <Button className="btn-add_new" size="default" key="1" type="primary">
@@ -142,11 +150,11 @@ const UserListDataTable = ({ searchData, users }) => {
               <TableWrapper className="table-responsive">
                 <Table
                   rowSelection={rowSelection}
-                  dataSource={dataSource}
-                  columns={columns}
+                  dataSource={usersTableData}
+                  columns={usersTableColumns}
                   pagination={{
                     defaultPageSize: 5,
-                    total: dataSource.length,
+                    total: usersTableData.length,
                     showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
                   }}
                 />
@@ -155,15 +163,8 @@ const UserListDataTable = ({ searchData, users }) => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    searchData: state.headerSearchData,
-    users: state.users,
-  };
-};
-
-export default connect(mapStateToProps)(UserListDataTable);
+export default UserListDataTable;

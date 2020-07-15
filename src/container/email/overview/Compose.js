@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { MailBox } from './style';
 import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import { Input } from 'antd';
 import propTypes from 'prop-types';
+import { MailBox } from './style';
 import MailComposer from './MailComposer';
 
 const Compose = ({ close }) => {
@@ -17,7 +17,7 @@ const Compose = ({ close }) => {
     setState({ ...state, value });
   };
 
-  const toggleSize = e => {
+  const toggleSize = () => {
     return setState({
       ...state,
       size: state.size === 'small' ? 'big' : 'small',
@@ -25,7 +25,7 @@ const Compose = ({ close }) => {
   };
 
   const onMailSend = async () => {
-    //hit the mail sender api
+    // hit the mail sender api
   };
 
   return (
@@ -50,7 +50,6 @@ const Compose = ({ close }) => {
 
 Compose.propTypes = {
   close: propTypes.func.isRequired,
-  onChange: propTypes.func,
 };
 
 Compose.default = {

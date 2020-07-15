@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, Avatar, Icon, Badge } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { AvatarWraperStyle } from './ui-elements-styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { AvatarWraperStyle } from './ui-elements-styled';
-import { UserOutlined } from '@ant-design/icons';
 import { Button } from '../../components/buttons/buttons';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
@@ -20,13 +20,13 @@ const Avatars = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Avatar" />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-              <AvatarWraperStyle style={{marginBottom: 10}}>
+              <AvatarWraperStyle style={{ marginBottom: 10 }}>
                 <Avatar size={64} icon={<UserOutlined />} />
                 <Avatar size="large" icon={<UserOutlined />} />
                 <Avatar icon={<UserOutlined />} />
@@ -45,7 +45,11 @@ const Avatars = () => {
                   <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
                     {user}
                   </Avatar>
-                  <Button size="extra-small" style={{ margin: '0 10px', verticalAlign: 'middle', color: '#ADB4D2' }} onClick={changeUser}>
+                  <Button
+                    size="extra-small"
+                    style={{ margin: '0 10px', verticalAlign: 'middle', color: '#ADB4D2' }}
+                    onClick={changeUser}
+                  >
                     Change
                   </Button>
                 </div>
@@ -81,7 +85,7 @@ const Avatars = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

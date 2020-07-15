@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React from 'react';
 import { Row, Col } from 'antd';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Slider } from '../../components/slider/slider';
@@ -33,13 +33,13 @@ const Sliders = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Sliders" />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={24} xs={24}>
             <Cards title="Basic" caption="The simplest use of slider">
-              <Slider onChange={onChange} defaultValue={30}/>
+              <Slider onChange={onChange} defaultValue={30} />
               <Slider onChange={onChange} range defaultValues={[20, 50]} />
             </Cards>
           </Col>
@@ -98,7 +98,7 @@ const Sliders = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

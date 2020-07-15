@@ -1,8 +1,9 @@
 import React from 'react';
 import { Row, Col, Form, Input, Upload, Select } from 'antd';
-import { Button } from '../../../components/buttons/buttons';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import propTypes from 'prop-types';
+import { Button } from '../../../components/buttons/buttons';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
@@ -79,13 +80,17 @@ const Info = ({ match }) => {
               Cancel
             </Button>
             <Button htmlType="submit" type="primary">
-              <Link to={match.path + '/work'}>Next</Link>
+              <Link to={`${match.path}/work`}>Next</Link>
             </Button>
           </Form.Item>
         </Form>
       </Col>
     </Row>
   );
+};
+
+Info.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Info;

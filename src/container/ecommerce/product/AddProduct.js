@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
-import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
 import { Main, BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
-import FeatherIcon from 'feather-icons-react';
 import { AddProductForm } from '../Style';
 import Heading from '../../../components/heading/heading';
 
@@ -17,7 +17,8 @@ const { Dragger } = Upload;
 
 const AddProduct = () => {
   const [form] = Form.useForm();
-  const props = {
+
+  const fileUploadProps = {
     name: 'file',
     multiple: true,
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -40,7 +41,7 @@ const AddProduct = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Add Product"
@@ -126,7 +127,7 @@ const AddProduct = () => {
                             <Col md={24}>
                               <div className="add-product-content">
                                 <Cards title="Product Image">
-                                  <Dragger {...props}>
+                                  <Dragger fileUploadProps={fileUploadProps}>
                                     <p className="ant-upload-drag-icon">
                                       <FeatherIcon icon="upload" size={50} />
                                     </p>
@@ -167,7 +168,7 @@ const AddProduct = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

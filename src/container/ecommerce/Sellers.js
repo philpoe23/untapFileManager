@@ -1,13 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper } from '../styled';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import { TopToolBox } from './Style';
+import { PageHeader } from '../../components/page-headers/page-headers';
+import { Main, TableWrapper } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { TopToolBox } from './Style';
-import FeatherIcon from 'feather-icons-react';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -28,19 +28,15 @@ const Sellers = () => {
   const { notdata, selectedRowKeys, item } = state;
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (sellers) {
       setState({
         item: sellers,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [sellers]);
 
   const handleSearch = searchText => {
-    const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+    const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
       notdata: data,
@@ -49,31 +45,31 @@ const Sellers = () => {
 
   const dataSource = [];
   sellers.length &&
-    item.map(item => {
-      const { storeName, id, name, amount, date, img } = item;
+    item.map(value => {
+      const { storeName, id, name, amount, date, img } = value;
       return dataSource.push({
         key: id,
         name: (
           <div className="seller-info">
-            <Fragment>
-              <img src={require('../../' + img)} alt="" />
+            <>
+              <img src={require(`../../${img}`)} alt="" />
               {name}
-            </Fragment>
+            </>
           </div>
         ),
         store: storeName,
-        amount: amount,
-        date: date,
+        amount,
+        date,
         action: (
           <div className="table-actions">
-            <Fragment>
+            <>
               <Button className="btn-icon" type="info" to="#" shape="circle">
                 <FeatherIcon icon="edit" size={16} />
               </Button>
               <Button className="btn-icon" type="danger" to="#" shape="circle">
                 <FeatherIcon icon="trash-2" size={16} />
               </Button>
-            </Fragment>
+            </>
           </div>
         ),
       });
@@ -112,8 +108,8 @@ const Sellers = () => {
     },
   ];
 
-  const onSelectChange = selectedRowKeys => {
-    setState({ ...state, selectedRowKeys });
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKey });
   };
 
   const rowSelection = {
@@ -122,23 +118,21 @@ const Sellers = () => {
   };
 
   return (
-    <Fragment>
-      <PageHeader 
-      ghost
-      title="Sellers" 
-      buttons={[
-            
-        <div className="page-header-actions">
-          <CalendarButtonPageHeader key="1" />
-          <ExportButtonPageHeader key="2" />
-          <ShareButtonPageHeader key="3" />
-          <Button size="small" key="4" type="primary">
-            <FeatherIcon icon="plus" size={14} />
-            Add New
-          </Button>
-        </div>
-
-      ]}
+    <>
+      <PageHeader
+        ghost
+        title="Sellers"
+        buttons={[
+          <div className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" key="4" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
       />
       <Main>
         <Cards headless>
@@ -151,7 +145,7 @@ const Sellers = () => {
                       <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col xxl={15} lg={5} xs={24}></Col>
+                  <Col xxl={15} lg={5} xs={24} />
                   <Col xxl={4} lg={9} xs={24}>
                     <div className="table-toolbox-actions">
                       <Button size="small" type="secondary" transparented>
@@ -178,7 +172,7 @@ const Sellers = () => {
           </Row>
         </Cards>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

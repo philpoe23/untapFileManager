@@ -1,15 +1,15 @@
-import React, { Fragment, lazy, useState, Suspense } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Main } from '../../styled';
+import React, { lazy, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Main } from '../../styled';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import { TopToolBox } from '../Style';
-import FeatherIcon from 'feather-icons-react';
 import { sorting } from '../../../redux/product/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
-
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
@@ -41,7 +41,7 @@ const Product = ({ match }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Shop"
@@ -83,7 +83,7 @@ const Product = ({ match }) => {
                   <div className="product-list-action d-flex justify-content-between align-items-center">
                     <div className="product-list-action__tab">
                       Sort By :
-                      <Radio.Group onChange={onSorting} defaultValue={'rate'}>
+                      <Radio.Group onChange={onSorting} defaultValue="rate">
                         <Radio.Button value="rate">Top Rated</Radio.Button>
                         <Radio.Button value="popular">Popular</Radio.Button>
                         <Radio.Button value="time">Newest</Radio.Button>
@@ -95,7 +95,7 @@ const Product = ({ match }) => {
                       <NavLink to={match.path}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={match.path + '/list'}>
+                      <NavLink to={`${match.path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -113,14 +113,16 @@ const Product = ({ match }) => {
                 }
               >
                 <Route exact path={match.path} component={Grid} />
-                <Route path={match.path + '/:list'} component={List} />
+                <Route path={`${match.path}/:list`} component={List} />
               </Suspense>
             </Switch>
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
-
+Product.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 export default Product;

@@ -2,25 +2,21 @@ import React, { useEffect } from 'react';
 import { Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { Popover } from '../../../popup/popup';
 import { readMessageList } from '../../../../redux/message/actionCreator';
 
-const MessageBox = props => {
-  const { message, readMessage } = props;
+const MessageBox = () => {
+  const dispatch = useDispatch();
+  const message = useSelector(state => state.message.data);
 
   useEffect(() => {
-    let unmount = false;
-    if (!unmount) {
-      readMessage();
+    if (readMessageList) {
+      dispatch(readMessageList());
     }
-    return () => {
-      unmount = true;
-    };
   });
 
-  const content = (
+  const popoverContent = (
     <div>
       {message.map(item => {
         const { id, from } = item;
@@ -40,8 +36,8 @@ const MessageBox = props => {
 
   return (
     <div className="message" style={{ marginTop: 10 }}>
-      <Popover placement="bottomLeft" title="Message List" content={content} trigger="click">
-        <Badge dot={true} offset={[-8, -5]}>
+      <Popover placement="bottomLeft" title="Message List" content={popoverContent} trigger="click">
+        <Badge dot offset={[-8, -5]}>
           <NavLink to="#" className="head-example">
             <FeatherIcon icon="mail" size={20} />
           </NavLink>
@@ -51,18 +47,4 @@ const MessageBox = props => {
   );
 };
 
-MessageBox.propTypes = {
-  readMessage: PropTypes.func,
-  message: PropTypes.array,
-};
-const mapSTateToProps = state => {
-  return {
-    message: state.message.data,
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    readMessage: () => dispatch(readMessageList()),
-  };
-};
-export default connect(mapSTateToProps, mapDispatchToProps)(MessageBox);
+export default MessageBox;

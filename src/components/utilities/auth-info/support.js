@@ -1,10 +1,9 @@
 import React from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { NestedDropdwon } from './auth-info-style';
 import { Popover } from '../../popup/popup';
 import Heading from '../../heading/heading';
-
-import { NestedDropdwon } from './auth-info-style';
 
 const Support = () => {
   const content = (

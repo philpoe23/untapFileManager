@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Form, Input, Select, Col, Row, DatePicker } from 'antd';
+import propTypes from 'prop-types';
 import { Button } from '../../../components/buttons/buttons';
 import { Modal } from '../../../components/modals/antd-modals';
-import { Form, Input, Select, Col, Row, DatePicker } from 'antd';
 import { CheckboxGroup } from '../../../components/checkbox/checkbox';
 
 const { Option } = Select;
@@ -11,21 +12,17 @@ const CreateProject = ({ visible, onCancel }) => {
   const [form] = Form.useForm();
 
   const [state, setState] = useState({
-    visible: visible,
+    visible,
     modalType: 'primary',
     checked: [],
   });
 
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (visible) {
       setState({
-        visible: visible,
+        visible,
       });
     }
-    return () => {
-      unmounted = true;
-    };
   }, [visible]);
 
   const handleOk = values => {
@@ -107,6 +104,11 @@ const CreateProject = ({ visible, onCancel }) => {
       </Form>
     </Modal>
   );
+};
+
+CreateProject.propTypes = {
+  visible: propTypes.bool.isRequired,
+  onCancel: propTypes.func.isRequired,
 };
 
 export default CreateProject;

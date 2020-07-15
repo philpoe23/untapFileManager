@@ -1,15 +1,16 @@
-import React, { Fragment, lazy, useState, Suspense } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
+import React, { lazy, useState, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Spin, Select } from 'antd';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
-import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import FeatherIcon from 'feather-icons-react';
-import { Button } from '../../components/buttons/buttons';
+import propTypes from 'prop-types';
 import CreateProject from './overview/CreateProject';
-import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
 import { ProjectHeader, ProjectSorting } from './style';
+import { AutoComplete } from '../../components/autoComplete/autoComplete';
+import { Button } from '../../components/buttons/buttons';
+import { filterProjectByStatus, sortingProjectByCategory } from '../../redux/project/actionCreator';
+import { Main } from '../styled';
+import { PageHeader } from '../../components/page-headers/page-headers';
 
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
@@ -21,6 +22,7 @@ const Project = ({ match }) => {
   const [state, setState] = useState({
     notdata: searchData,
     visible: false,
+    categoryActive: 'all',
   });
 
   const { notdata, visible } = state;
@@ -36,39 +38,33 @@ const Project = ({ match }) => {
     dispatch(sortingProjectByCategory(selectedItems));
   };
 
-  const onChangeCategory = e => {
-    e.preventDefault();
-    const link = e.currentTarget;
-    link
-      .closest('ul')
-      .querySelectorAll('li')
-      .forEach(li => {
-        li.classList.remove('active');
-      });
-
-    link.closest('li').classList.add('active');
-    dispatch(filterProjectByStatus(e.currentTarget.getAttribute('data-category')));
+  const onChangeCategory = value => {
+    setState({
+      ...state,
+      categoryActive: value,
+    });
+    dispatch(filterProjectByStatus(value));
   };
 
-  const showModal = e => {
+  const showModal = () => {
     setState({
       visible: true,
     });
   };
 
-  const onCancel = e => {
+  const onCancel = () => {
     setState({
       visible: false,
     });
   };
 
   return (
-    <Fragment>
+    <>
       <ProjectHeader>
         <PageHeader
           ghost
           title="Projects"
-          subTitle={<Fragment>12 Running Projects</Fragment>}
+          subTitle={<>12 Running Projects</>}
           buttons={[
             <Button onClick={showModal} key="1" type="primary" size="default">
               + Create Projects
@@ -84,28 +80,28 @@ const Project = ({ match }) => {
                 <div className="project-sort-nav">
                   <nav>
                     <ul>
-                      <li className="active">
-                        <Link onClick={onChangeCategory} data-category="all" to="#">
+                      <li className={state.categoryActive === 'all' && 'active'}>
+                        <Link onClick={() => onChangeCategory('all')} to="#">
                           All
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="progress" to="#">
+                      <li className={state.categoryActive === 'progress' && 'active'}>
+                        <Link onClick={() => onChangeCategory('progress')} to="#">
                           In Progress
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="complete" to="#">
+                      <li className={state.categoryActive === 'complete' && 'active'}>
+                        <Link onClick={() => onChangeCategory('complete')} to="#">
                           Complete
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="late" to="#">
+                      <li className={state.categoryActive === 'late' && 'active'}>
+                        <Link onClick={() => onChangeCategory('late')} to="#">
                           Late
                         </Link>
                       </li>
-                      <li>
-                        <Link onClick={onChangeCategory} data-category="early" to="#">
+                      <li className={state.categoryActive === 'early' && 'active'}>
+                        <Link onClick={() => onChangeCategory('early')} to="#">
                           Early
                         </Link>
                       </li>
@@ -129,7 +125,7 @@ const Project = ({ match }) => {
                       <NavLink to={match.path}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={match.path + '/list'}>
+                      <NavLink to={`${match.path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -147,7 +143,7 @@ const Project = ({ match }) => {
                   }
                 >
                   <Route exact path={match.path} component={Grid} />
-                  <Route path={match.path + '/:list'} component={List} />
+                  <Route path={`${match.path}/:list`} component={List} />
                 </Suspense>
               </Switch>
             </div>
@@ -155,8 +151,12 @@ const Project = ({ match }) => {
         </Row>
       </Main>
       <CreateProject onCancel={onCancel} visible={visible} />
-    </Fragment>
+    </>
   );
+};
+
+Project.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Project;

@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../components/page-headers/page-headers';
+import React, { useState } from 'react';
 import { Row, Col, TimePicker, Button } from 'antd';
 import moment from 'moment';
+import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
@@ -16,7 +16,7 @@ const TimePickers = () => {
   const handleClose = () => setState({ open: false });
 
   return (
-    <Fragment>
+    <>
       <PageHeader title="Time picker" />
       <Main>
         <Row gutter={25}>
@@ -37,15 +37,15 @@ const TimePickers = () => {
           </Col>
           <Col md={12} sm={12} xs={24}>
             <Cards title="12 hours" caption="The simplest use of Time picker">
-              <TimePicker use12Hours style={{marginRight: "10px"}} />
-              <TimePicker use12Hours format="h:mm:ss A" style={{marginRight: "10px"}} />
+              <TimePicker use12Hours style={{ marginRight: '10px' }} />
+              <TimePicker use12Hours format="h:mm:ss A" style={{ marginRight: '10px' }} />
               <TimePicker use12Hours format="h:mm a" />
             </Cards>
           </Col>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Three Size" caption="The simplest use of Time picker">
-              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} style={{marginRight: "10px"}} />
-              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" style={{marginRight: "10px"}} />
+              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} style={{ marginRight: '10px' }} />
+              <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" style={{ marginRight: '10px' }} />
               <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
             </Cards>
           </Col>
@@ -69,7 +69,7 @@ const TimePickers = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

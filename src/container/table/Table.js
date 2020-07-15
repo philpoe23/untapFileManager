@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { Row, Col, Table, Radio, Divider } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col, Table, Radio, Divider } from 'antd';
 import { Main } from '../styled';
 
 const Tables = () => {
@@ -165,7 +165,7 @@ const Tables = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <PageHeader ghost title="Table" />
       <Main>
         <Row gutter={15}>
@@ -204,7 +204,13 @@ const Tables = () => {
           </Col>
           <Col xs={24}>
             <Cards title="Filter and sorter">
-              <Table className="table-responsive" pagination={false} columns={columnsSort} dataSource={dataSort} onChange={onChange} />
+              <Table
+                className="table-responsive"
+                pagination={false}
+                columns={columnsSort}
+                dataSource={dataSort}
+                onChange={onChange}
+              />
             </Cards>
           </Col>
           <Col xs={24}>
@@ -224,7 +230,7 @@ const Tables = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Main } from '../styled';
 import { GoogleMaps } from '../../components/maps/google-maps';
-import { mapdata } from '../../config/map/google-maps-styles';
-const { map_one_styles, map_style_dark, map_two_styles, map_Three_styles } = mapdata;
+import mapdata from '../../config/map/google-maps-styles';
+
+const { mapOneStyles, mapStyleDark, mapTwoStyles, mapThreeStyles } = mapdata;
 
 const GoogleMap = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader title="Google Maps" />
       <Main>
         <Row gutter={25}>
@@ -21,32 +22,32 @@ const GoogleMap = () => {
 
           <Col md={12} xs={24}>
             <Cards title="Google Map Style Light" size="large">
-              <GoogleMaps mapStyles={map_one_styles} />
+              <GoogleMaps mapStyles={mapOneStyles} />
             </Cards>
           </Col>
 
           <Col md={12} xs={24}>
             <Cards title="Google Map Style Dark" size="large">
-              <GoogleMaps mapStyles={map_style_dark} />
+              <GoogleMaps mapStyles={mapStyleDark} />
             </Cards>
           </Col>
 
           <Col md={12} xs={24}>
             <Cards title="Google Map Style Theame Color" size="large">
-              <GoogleMaps zoom={2} mapStyles={map_Three_styles} />
+              <GoogleMaps zoom={2} mapStyles={mapThreeStyles} />
             </Cards>
           </Col>
 
           <Col md={12} xs={24}>
             <Cards title="Google Map Style Color" size="large">
-              <GoogleMaps mapStyles={map_two_styles} />
+              <GoogleMaps mapStyles={mapTwoStyles} />
             </Cards>
           </Col>
 
           <Col md={12} xs={24}>
             <Cards title="Google Map Style Color" size="large">
               <GoogleMaps
-                mapStyles={map_two_styles}
+                mapStyles={mapTwoStyles}
                 zoom={4}
                 place={[
                   {
@@ -70,7 +71,7 @@ const GoogleMap = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

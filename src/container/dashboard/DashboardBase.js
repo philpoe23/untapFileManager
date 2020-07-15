@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Row, Col } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { Row, Col } from 'antd';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
 import { theme } from '../../config/theme/themeVariables';
 import Heading from '../../components/heading/heading';
-import FeatherIcon from 'feather-icons-react';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -15,7 +15,7 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 const DashbordBase = () => {
   return (
-    <Fragment>
+    <>
       <PageHeader
         ghost
         title="Theme Configuration"
@@ -311,7 +311,7 @@ const DashbordBase = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 

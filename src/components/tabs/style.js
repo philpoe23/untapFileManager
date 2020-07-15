@@ -1,15 +1,7 @@
 import Styled from 'styled-components';
 import { Tabs } from 'antd';
-const { TabPane } = Tabs;
-const TabBasic = Styled(Tabs)`
-  margin-bottom: 30px !important;
-  ${({ color }) => color && TabColor(color)}
-`;
 
-const Child = Styled(TabPane)` 
-    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
-    ${({ color }) => color && TabChildColor(color)}
-`;
+const { TabPane } = Tabs;
 
 const TabColor = color => `
   margin-bottom: 30px !important;
@@ -47,6 +39,16 @@ const TabChildColor = color => `
     margin: 0;
   }
   
+`;
+
+const TabBasic = Styled(Tabs)`
+  margin-bottom: 30px !important;
+  ${({ color }) => color && TabColor(color)}
+`;
+
+const Child = Styled(TabPane)` 
+    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
+    ${({ color }) => color && TabChildColor(color)}
 `;
 
 export { TabBasic, Child };
