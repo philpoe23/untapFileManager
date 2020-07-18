@@ -1,4 +1,4 @@
-import { theme } from './theme/themeVariables.js';
+const { theme } = require('./theme/themeVariables.js');
 
 const config = {
   darkMode: true,

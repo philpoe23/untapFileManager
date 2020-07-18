@@ -9,6 +9,7 @@ import AdminRoutes from './routes/admin-routes';
 import FrontendRoutes from './routes/frontend-routes';
 import './static/css/style.css';
 import { theme } from './config/theme/themeVariables';
+import { DataService } from './config/dataService/dataService';
 
 function App({ auth }) {
   const [state, setState] = useState({

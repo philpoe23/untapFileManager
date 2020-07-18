@@ -1,5 +1,5 @@
-import initialState from '../../config/dataService/emailData.json';
 import actions from './actions';
+import initialState from '../../config/dataService/emailData.json';
 
 const { singleEmailBegin, singleEmailSuccess, singleEmailErr } = actions;
 
