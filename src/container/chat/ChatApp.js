@@ -3,6 +3,7 @@ import { Row, Col, Spin } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
 import { UL, Content, ChatSidebar } from './style';
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
@@ -43,11 +44,11 @@ const ChatApp = ({ match }) => {
         ghost
         title="Chat"
         buttons={[
-          <div className="page-header-actions">
-            <CalendarButtonPageHeader key="1" />
-            <ExportButtonPageHeader key="2" />
-            <ShareButtonPageHeader key="3" />
-            <Button size="small" key="4" type="primary">
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
@@ -113,5 +114,7 @@ const ChatApp = ({ match }) => {
     </>
   );
 };
-
+ChatApp.propTypes = {
+  match: PropTypes.object,
+};
 export default ChatApp;

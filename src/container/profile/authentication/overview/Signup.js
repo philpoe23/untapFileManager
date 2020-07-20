@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
@@ -7,12 +8,16 @@ import { Checkbox } from '../../../../components/checkbox/checkbox';
 import Heading from '../../../../components/heading/heading';
 
 const SignUp = () => {
+  const [state, setState] = useState({
+    values: null,
+    checked: null,
+  });
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
 
   const onChange = checked => {
-    console.log(`checked = ${checked}`);
+    setState({ ...state, checked });
   };
 
   return (

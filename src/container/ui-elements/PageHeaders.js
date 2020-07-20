@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import { Main, PageHeaderWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -34,7 +35,7 @@ const PageHeaders = () => {
           <ExportButtonPageHeader key="2" />,
           <ShareButtonPageHeader key="3" />,
           <Button key="4" type="primary">
-            <Icon type="plus" />
+            <PlusOutlined />
             Add New
           </Button>,
           // <DateRangePickerOne key="5" />,
@@ -66,7 +67,7 @@ const PageHeaders = () => {
                   <ExportButtonPageHeader key="2" />,
                   <ShareButtonPageHeader key="3" />,
                   <Button key="4" type="primary">
-                    <Icon type="plus" />
+                    <PlusOutlined />
                     Add New
                   </Button>,
                   // <DateRangePickerOne key="5" />,

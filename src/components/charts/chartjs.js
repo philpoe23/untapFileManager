@@ -306,16 +306,15 @@ const ChartjsAreaChart = props => {
     labels,
     datasets,
   };
-
-  console.log(datasets);
+  let count = 0;
   return (
     <div>
       <div className="chart-label">
         {datasets.map(item => {
           const { label, backgroundColor } = item;
-
+          count += 1;
           return (
-            <div className="chart-label__single d-flex">
+            <div key={count} className="chart-label__single d-flex">
               <span className="label-dot" style={{ display: 'inline-block', backgroundColor }} />
               <p>{label}</p>
             </div>
@@ -627,8 +626,6 @@ const ChartjsDonutChart = props => {
     datasets,
   };
 
-  console.log(datasets);
-
   return (
     <div>
       <Doughnut ref={ref} data={data} height={height} options={options} />
@@ -683,7 +680,7 @@ const ChartjsDonutChart2 = props => {
         <div className="revenue-chat-label">
           {labels.map(label => {
             return (
-              <div className="chart-label">
+              <div key={label} className="chart-label">
                 <span className={`label-dot dot-${label}`} />
                 {label}
               </div>
@@ -697,7 +694,6 @@ const ChartjsDonutChart2 = props => {
             return (
               <div>
                 {data.map(value => {
-                  console.log(value);
                   return (
                     <>
                       <p>${value}</p>

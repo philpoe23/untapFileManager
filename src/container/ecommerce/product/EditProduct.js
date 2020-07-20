@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Select, InputNumber, Radio, Upload, message } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
@@ -16,6 +16,11 @@ const { Dragger } = Upload;
 
 const EditProduct = () => {
   const [form] = Form.useForm();
+  const [state, setState] = useState({
+    file: null,
+    list: null,
+    submitValues: {},
+  });
 
   const fileList = [
     {
@@ -34,7 +39,7 @@ const EditProduct = () => {
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
+        setState({ ...state, file: info.file, list: info.fileList });
       }
       if (status === 'done') {
         message.success(`${info.file.name} file uploaded successfully.`);
@@ -47,7 +52,7 @@ const EditProduct = () => {
   };
 
   const handleSubmit = values => {
-    console.log(values);
+    setState({ ...state, submitValues: values });
   };
 
   return (
@@ -56,7 +61,7 @@ const EditProduct = () => {
         ghost
         title="Edit Product"
         buttons={[
-          <div className="page-header-actions">
+          <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
             <ShareButtonPageHeader key="3" />

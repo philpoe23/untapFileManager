@@ -3,6 +3,7 @@ import { Row, Col, Comment, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -115,6 +116,10 @@ const Comments = () => {
       {children}
     </Comment>
   );
+
+  ExampleComment.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  };
 
   return (
     <>

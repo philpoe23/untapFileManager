@@ -16,6 +16,6 @@ const List = props => {
   );
 };
 List.propTypes = {
-  text: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node]),
 };
 export { List };

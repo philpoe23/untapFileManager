@@ -16,7 +16,7 @@ const Sidebar = Styled.div`
             margin-left: 0;
             font-size: 16px;
             font-weight: 500;
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
             svg{
                 margin-right: 12px;
             }
@@ -28,7 +28,7 @@ const SidebarSingle = Styled.div`
     h1{
         font-size: 15px;
         margin-bottom: 20px;
-        color: ${({theme})=>theme['dark-color']};
+        color: ${({ theme }) => theme['dark-color']};
     }
     .ant-slider{
         margin-bottom: 15px;
@@ -43,9 +43,9 @@ const SidebarSingle = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 justify-content: space-between;
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
                 .category-count{
-                    color: ${({theme})=>theme['light-color']};
+                    color: ${({ theme }) => theme['light-color']};
                 }
             }
         }
@@ -60,7 +60,7 @@ const SidebarSingle = Styled.div`
         .ant-checkbox-group-item{
             display: flex;
             align-items: center;
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
             &:not(:last-child){
                 margin-bottom: 10px;
             }
@@ -113,7 +113,7 @@ const ProductCard = Styled.div`
         }
         .product-single-description{
             p{
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
                 font-size: 15px;
             }
         }
@@ -180,16 +180,16 @@ const ProductCard = Styled.div`
         top: 15px;
         background-color: #fff;
         border-radius: 50%;
-        box-shadow: 0 5px 10px ${({theme})=>theme['light-color']}15;
+        box-shadow: 0 5px 10px ${({ theme }) => theme['light-color']}15;
     }
     .product-single-title{
         margin-bottom: 8px;
         font-size: 15px;
         font-weight: 500;
         a{
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
             &:hover{
-                color: ${({theme})=>theme['primary-color']};
+                color: ${({ theme }) => theme['primary-color']};
             }
         }
     }
@@ -201,11 +201,11 @@ const ProductCard = Styled.div`
     }
     .product-single-price__new{
         font-weight: 600;
-        color: ${({theme})=>theme['primary-color']};
+        color: ${({ theme }) => theme['primary-color']};
     }
     .product-single-price__offer{
         font-size: 12px;
-        color: ${({theme})=>theme['secondary-color']};
+        color: ${({ theme }) => theme['secondary-color']};
     }
     .product-single-rating{
         font-size: 12px;
@@ -216,7 +216,7 @@ const ProductCard = Styled.div`
         .total-reviews{
             font-weight: 400;
             margin-left: 6px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
     }
     .product-single-action{
@@ -224,9 +224,9 @@ const ProductCard = Styled.div`
         align-items: center;
         margin-top: 26px;
         .ant-btn-default{
-            border-color: ${({theme})=>theme['border-color-normal']};
+            border-color: ${({ theme }) => theme['border-color-normal']};
             &:hover{
-                border-color: ${({theme})=>theme['primary-color']};
+                border-color: ${({ theme }) => theme['primary-color']};
             }
         }
         .ant-btn-sm{
@@ -263,7 +263,7 @@ const TopToolBox = Styled.div`
     }
     .search-result{
         margin: 0 0 0 25px;
-        color: ${({theme})=>theme['gray-color']};
+        color: ${({ theme }) => theme['gray-color']};
         @media only screen and (max-width: 1599px){
             text-align: right;
             margin-bottom: 15px;
@@ -279,7 +279,7 @@ const TopToolBox = Styled.div`
     .ant-select-selector{
         height: 46px !important;
         .ant-select-selection-search-input{
-            box-shadow: 0 5px 20px ${({theme})=>theme['light-color']}3;
+            box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}3;
             border-radius: 23px;
             border: 0 none;
             input{
@@ -292,7 +292,7 @@ const TopToolBox = Styled.div`
         padding: 0 10px;
         border-radius: 5px;
         background: #fff;
-        border: 1px solid ${({theme})=>theme['border-color-normal']};
+        border: 1px solid ${({ theme }) => theme['border-color-normal']};
         @media only screen and (max-width: 1599px){
             margin-left: 10px
         }
@@ -304,7 +304,7 @@ const TopToolBox = Styled.div`
         height: 40px;
         line-height: 42px;
         padding: 0 12px;
-        border-color: ${({theme})=>theme['border-color-normal']};
+        border-color: ${({ theme }) => theme['border-color-normal']};
         border: 0 none !important;
         &.ant-radio-button-wrapper-checked{
             &:focus-within{
@@ -337,11 +337,11 @@ const TopToolBox = Styled.div`
             }
         }
         span{
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
         &.ant-radio-button-wrapper-checked{
             span{
-                color: ${({theme})=>theme['primary-color']};
+                color: ${({ theme }) => theme['primary-color']};
             }
         }
     }
@@ -354,7 +354,7 @@ const TopToolBox = Styled.div`
         }
     }
     .product-list-action__tab{
-        color: ${({theme})=>theme['gray-color']};
+        color: ${({ theme }) => theme['gray-color']};
         @media only screen and (max-width: 991px){
             margin-bottom: 20px;
             text-align: center;
@@ -371,11 +371,11 @@ const TopToolBox = Styled.div`
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            color: ${({theme})=>theme['light-color']};
-            box-shadow: 0 5px 20px ${({theme})=>theme['light-color']}10;
+            color: ${({ theme }) => theme['light-color']};
+            box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}10;
             &.active{
                 background-color: #fff;
-                color: ${({theme})=>theme['primary-color']};
+                color: ${({ theme }) => theme['primary-color']};
             }
         }
     }
@@ -392,10 +392,10 @@ const TopToolBox = Styled.div`
             .ant-select-selection-search-input {
                 border-radius: 20px;
                 border: 0 none;
-                background: ${({theme})=>theme['bg-color-light']};
+                background: ${({ theme }) => theme['bg-color-light']};
                 height: 40px;
                 input{
-                    background: ${({theme})=>theme['bg-color-light']};
+                    background: ${({ theme }) => theme['bg-color-light']};
                     height: 40px !important;
                 }
             }
@@ -464,7 +464,7 @@ const ProductDetailsWrapper = Styled.div`
         }
         p{
             margin-bottom: 8px;
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
         }
         .ant-rate{
             margin-bottom: 6px;
@@ -478,29 +478,29 @@ const ProductDetailsWrapper = Styled.div`
         margin: 0 4px 0 8px;
         font-size: 12px;
         font-weight: 500;
-        color: ${({theme})=>theme['dark-color']};
+        color: ${({ theme }) => theme['dark-color']};
     }
     .pdbr__review-count{
         font-size: 12px;
         font-weight: 400;
-        color: ${({theme})=>theme['light-color']};
+        color: ${({ theme }) => theme['light-color']};
     }
     .pdbr__brand-text{
         display: inline-block;
         margin-bottom: 8px;
-        color: ${({theme})=>theme['light-color']};
+        color: ${({ theme }) => theme['light-color']};
     }
     .pdbr__brand-name{
         font-weight: 500;
-        color: ${({theme})=>theme['dark-color']};
+        color: ${({ theme }) => theme['dark-color']};
     }
     .pdbr__new-price{
         font-size: 22px;
         font-weight: 500;
-        color: ${({theme})=>theme['primary-color']};
+        color: ${({ theme }) => theme['primary-color']};
         .pdbr__currancy{
             font-size: 14px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
     }
     .pdbr__desc{
@@ -513,13 +513,13 @@ const ProductDetailsWrapper = Styled.div`
         del{
             font-size: 16px;
             font-weight: 400;
-            color: ${({theme})=>theme['extra-light-color']};
+            color: ${({ theme }) => theme['extra-light-color']};
         }
         .pdbr__offer-price{
             display: inline-block;
             margin-left: 8px;
             font-size: 12px;
-            color: ${({theme})=>theme['secondary-color']};
+            color: ${({ theme }) => theme['secondary-color']};
         }
     }
 
@@ -528,27 +528,27 @@ const ProductDetailsWrapper = Styled.div`
         .current-status-title{
             font-weight: 500;
             margin-right: 30px;
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
             @media only screen and (max-width: 575px){
                 margin-right: 15px;
               }
         }
         .stock-status{
             &.in-stock{
-                color: ${({theme})=>theme['secondary-color']};
+                color: ${({ theme }) => theme['secondary-color']};
             }
         }
         .shipping-cost{
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
         }
     }
 
     .pdbr__quantity{
         font-weight: 500;
         margin: 30px 0 30px !important;
-        color: ${({theme})=>theme['dark-color']};
+        color: ${({ theme }) => theme['dark-color']};
         button{
-            background-color: ${({theme})=>theme['bg-color-normal']};
+            background-color: ${({ theme }) => theme['bg-color-normal']};
             &.btn-inc{
                 margin-right: 15px;
             }
@@ -560,11 +560,11 @@ const ProductDetailsWrapper = Styled.div`
             font-size: 13px;
             font-weight: 400;
             margin-left: 15px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
     }
     .pdbr__Actions{
-        border-bottom: 1px solid ${({theme})=>theme['border-color-normal']};
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
         padding-bottom: 30px;
         margin-bottom: 28px;
         @media only screen and (max-width: 575px){
@@ -585,7 +585,7 @@ const ProductDetailsWrapper = Styled.div`
             .btn-icon{
                 height: 44px;
                 padding: 0 13px;
-                box-shadow: 0 5px 15px ${({theme})=>theme['light-color']}15;
+                box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}15;
                 i,
                 svg{
                     color: #707070;
@@ -614,13 +614,12 @@ const ProductDetailsWrapper = Styled.div`
                     min-width: 66px;
                     font-weight: 500;
                     margin-right: 25px;
-                    color: ${({theme})=>theme['dark-color']};
+                    color: ${({ theme }) => theme['dark-color']};
                 }
             }
         }
     }
 `;
-
 
 const ProductTable = Styled.div`
     .table-cart{
@@ -656,7 +655,7 @@ const ProductTable = Styled.div`
             }
             .ant-table-row{
                 &:hover{
-                    box-shadow: 0 10px 15px ${({theme})=>theme['light-color']}15;
+                    box-shadow: 0 10px 15px ${({ theme }) => theme['light-color']}15;
                     td{
                         background: #fff !important;
                     }
@@ -665,7 +664,7 @@ const ProductTable = Styled.div`
                             background: #FF4D4F15;
                             i,
                             svg{
-                                color: ${({theme})=>theme['danger-color']};
+                                color: ${({ theme }) => theme['danger-color']};
                             }
                         }
                     }
@@ -678,13 +677,13 @@ const ProductTable = Styled.div`
             thead{
                 >tr{
                     th{
-                        border-top: 1px solid ${({theme})=>theme['border-color-light']};
-                        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+                        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                         &:first-child{
-                            border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                            border-left: 1px solid ${({ theme }) => theme['border-color-light']};
                         }
                         &:last-child{
-                            border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                            border-right: 1px solid ${({ theme }) => theme['border-color-light']};
                             text-align: right;
                         }
                     }
@@ -700,8 +699,8 @@ const ProductTable = Styled.div`
                         }
                     }
                     td{
-                        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
-                        color: ${({theme})=>theme['gray-color']};
+                        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+                        color: ${({ theme }) => theme['gray-color']};
                         border-radius: 0 !important;
                         &:last-child{
                             text-align: right;
@@ -729,7 +728,7 @@ const ProductTable = Styled.div`
                 border-radius: 10px;
                 th{
                     border-bottom: 0 none;
-                    background:  ${({theme})=>theme['bg-color-light']};
+                    background:  ${({ theme }) => theme['bg-color-light']};
                     &:first-child{
                         border-radius: 10px 0 0 10px;
                     }
@@ -762,11 +761,11 @@ const ProductTable = Styled.div`
                 }
                 span{
                     font-size: 14px;
-                    color: ${({theme})=>theme['gray-color']}; 
+                    color: ${({ theme }) => theme['gray-color']}; 
                     &.info-title{
                         margin-right: 5px;
                         font-weight: 500;
-                        color: ${({theme})=>theme['dark-color']};
+                        color: ${({ theme }) => theme['dark-color']};
                     }
                 }
             }
@@ -777,11 +776,11 @@ const ProductTable = Styled.div`
         .cart-single-t-price{
             font-size: 15px;
             font-weight: 500;
-            color: ${({theme})=>theme['primary-color']};
+            color: ${({ theme }) => theme['primary-color']};
         }
         .cart-single-quantity{
             button{
-                background-color: ${({theme})=>theme['bg-color-normal']};
+                background-color: ${({ theme }) => theme['bg-color-normal']};
                 i,
                 img,
                 svg{
@@ -822,7 +821,6 @@ const ProductTable = Styled.div`
     }
 `;
 
-
 const CouponForm = Styled.div`
     margin: -10px 0 20px 0;
     #submitcoupon{
@@ -838,8 +836,8 @@ const CouponForm = Styled.div`
             input{
                 max-width: 180px;
                 height: 44px;
-                background:  ${({theme})=>theme['bg-color-light']};
-                border-color:  ${({theme})=>theme['border-color-light']};
+                background:  ${({ theme }) => theme['bg-color-light']};
+                border-color:  ${({ theme }) => theme['border-color-light']};
                 @media only screen and (max-width: 991px){
                     max-width: 100%;
                 }
@@ -847,11 +845,10 @@ const CouponForm = Styled.div`
         }
         button{
             height: 44px;
-            box-shadow: 0 3px 5px ${({theme})=>theme['success-color']}15;
+            box-shadow: 0 3px 5px ${({ theme }) => theme['success-color']}15;
         }
     }
 `;
-
 
 const OrderSummary = Styled.div`
     .ant-card{
@@ -880,7 +877,7 @@ const OrderSummary = Styled.div`
             margin: 22px 0;
         }
         .summary-total-amount{
-            color: ${({theme})=>theme['primary-color']} !important;
+            color: ${({ theme }) => theme['primary-color']} !important;
         }
     }
 
@@ -895,10 +892,10 @@ const OrderSummary = Styled.div`
                 font-weight: 500;
             }
             .summary-list-title{
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
             }
             .summary-list-text{
-                color: ${({theme})=>theme['dark-color']};
+                color: ${({ theme }) => theme['dark-color']};
             }
         }
     }
@@ -915,7 +912,7 @@ const OrderSummary = Styled.div`
         .ant-select-selector{
             padding: 0 !important;
             border: 0 none !important;
-            color: ${({theme})=>theme['success-color']};
+            color: ${({ theme }) => theme['success-color']};
         }
         .ant-select-arrow{
             right: 0;
@@ -934,7 +931,7 @@ const OrderSummary = Styled.div`
             label{
                 margin-bottom: 2px;
                 height: fit-content;
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
             }
         }
         .ant-form-item-control-input-content{
@@ -956,12 +953,12 @@ const OrderSummary = Styled.div`
         .summary-total-label{
             font-size: 16px;
             font-weight: 500;
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
         }
         .summary-total-amount{
             font-size: 18px;
             font-weight: 600;
-            color: ${({theme})=>theme['success-color']};
+            color: ${({ theme }) => theme['success-color']};
         }
     }
     .btn-proceed{
@@ -986,11 +983,11 @@ const OrderSummary = Styled.div`
 
 const AddProductForm = Styled.div`
     .add-product-block{
-        background: ${({theme})=>theme['bg-color-light']};
+        background: ${({ theme }) => theme['bg-color-light']};
         border-radius: 20px;
         padding: 30px;
-        box-shadow: 0 10px 30px ${({theme})=>theme['light-color']}10;
-        border: 1px solid ${({theme})=>theme['bg-color-light']};
+        box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
+        border: 1px solid ${({ theme }) => theme['bg-color-light']};
         @media only screen and (max-width: 575px){
             padding: 20px;
         }
@@ -1021,8 +1018,8 @@ const AddProductForm = Styled.div`
             border-spacing: 6px;
             border-width: 2px;
             border-radius: 10px;
-            background: ${({theme})=>theme['bg-color-light']};
-            border-color: ${({theme})=>theme['border-color-deep']};
+            background: ${({ theme }) => theme['bg-color-light']};
+            border-color: ${({ theme }) => theme['border-color-deep']};
             padding: 50px;
             @media only screen and (max-width: 575px){
                 padding: 15px !important;
@@ -1030,7 +1027,7 @@ const AddProductForm = Styled.div`
             .ant-upload-drag-icon{
                 i,
                 svg{
-                    color: ${({theme})=>theme['extra-light-color']};
+                    color: ${({ theme }) => theme['extra-light-color']};
                 }
             }
             .ant-upload-text{
@@ -1040,9 +1037,9 @@ const AddProductForm = Styled.div`
             .ant-upload-hint{
                 font-size: 15px;
                 font-weight: 500;
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
                 span{
-                    color: ${({theme})=>theme['secondary-color']};
+                    color: ${({ theme }) => theme['secondary-color']};
                 }
             }
         }
@@ -1065,7 +1062,7 @@ const AddProductForm = Styled.div`
                 top: 0;
                 i,
                 svg{
-                    color: ${({theme})=>theme['danger-color']};
+                    color: ${({ theme }) => theme['danger-color']};
                 }
             }
             .ant-upload-list-item-thumbnail{
@@ -1091,13 +1088,12 @@ const AddProductForm = Styled.div`
             height: 50px;
         }
         .btn-cancel{
-            border: 1px solid ${({theme})=>theme['border-color-light']};
+            border: 1px solid ${({ theme }) => theme['border-color-light']};
             margin-right: 20px;
-            background: ${({theme})=>theme['bg-color-light']};
+            background: ${({ theme }) => theme['bg-color-light']};
         }
     }
 `;
-
 
 const InvoiceHeader = Styled.div`
     figure{
@@ -1165,7 +1161,7 @@ const InvoiceLetterBox = Styled.div`
         }
         p{
             font-size: 15px;
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
         }
     }
 `;
@@ -1177,8 +1173,8 @@ const InvoiceAction = Styled.div`
         text-align: center;
     }
     .ant-btn-default{
-        background: ${({theme})=>theme['bg-color-light']};
-        border-color: ${({theme})=>theme['border-color-light']};
+        background: ${({ theme }) => theme['bg-color-light']};
+        border-color: ${({ theme }) => theme['border-color-light']};
     }
     button{
         padding: 0 25px !important;
@@ -1261,7 +1257,7 @@ const CheckoutWrapper = Styled.div`
         .ant-steps-item-title{
             font-size: 15px;
             font-weight: 500;
-            color: ${({theme})=>theme['gray-solid']} !important;
+            color: ${({ theme }) => theme['gray-solid']} !important;
             @media only screen and (max-width: 767px) {
                 padding: 0;
             }
@@ -1276,7 +1272,7 @@ const CheckoutWrapper = Styled.div`
             height: 50px;
             line-height: 50px;
             border: 0 none;
-            box-shadow: 10px 0 20px ${({theme})=>theme['gray-solid']}15;
+            box-shadow: 10px 0 20px ${({ theme }) => theme['gray-solid']}15;
             @media only screen and (max-width: 767px) {
                 margin-right: 0;
                 width: 35px;
@@ -1286,7 +1282,7 @@ const CheckoutWrapper = Styled.div`
             .ant-steps-icon{
                 font-size: 16px;
                 font-weight: 500;
-                color: ${({theme})=>theme['dark-color']};
+                color: ${({ theme }) => theme['dark-color']};
                 @media only screen and (max-width: 767px) {
                     font-size: 15px;
                 }
@@ -1299,18 +1295,18 @@ const CheckoutWrapper = Styled.div`
                 }
             }
             .ant-steps-item-title{
-                color: ${({theme})=>theme['dark-color']} !important;
+                color: ${({ theme }) => theme['dark-color']} !important;
             }
         }
         &.ant-steps-item-finish{
             .ant-steps-item-title{
-                color: ${({theme})=>theme['dark-color']} !important;
+                color: ${({ theme }) => theme['dark-color']} !important;
                 &:after{
-                    background: ${({theme})=>theme['success-color']} !important;
+                    background: ${({ theme }) => theme['success-color']} !important;
                 }
             }
             .ant-steps-item-icon{
-                background: ${({theme})=>theme['success-color']} !important;
+                background: ${({ theme }) => theme['success-color']} !important;
                 .ant-steps-icon{
                     color: #fff;
                 }
@@ -1328,7 +1324,7 @@ const CheckoutWrapper = Styled.div`
             font-size: 20px;
             font-weight: 500;
             margin-bottom: 46px;
-            color: ${({theme})=>theme['dark-color']};
+            color: ${({ theme }) => theme['dark-color']};
             @media only screen and (max-width: 991px){
                 font-size: 18px;
                 margin-bottom: 22px;
@@ -1346,13 +1342,13 @@ const CheckoutWrapper = Styled.div`
            margin-top: 6px;
            display: inline-block;
            font-size: 13px;
-           color: ${({theme})=>theme['gray-solid']};
+           color: ${({ theme }) => theme['gray-solid']};
        }
 
        .shipping-selection{
            > .ant-card{
                .ant-card-body{
-                    border: 1px solid ${({theme})=>theme['border-color-light']};
+                    border: 1px solid ${({ theme }) => theme['border-color-light']};
                }
            }
            .ant-card{
@@ -1412,7 +1408,7 @@ const CheckoutWrapper = Styled.div`
                         display: flex;
                         align-items: center;
                         border-radius: 10px;
-                        border: 1px solid ${({theme})=>theme['border-color-normal']};
+                        border: 1px solid ${({ theme }) => theme['border-color-normal']};
                     }
                 }
            }
@@ -1438,7 +1434,7 @@ const CheckoutWrapper = Styled.div`
    .atbd-review-order{
        > .ant-card{
            > .ant-card-body{
-               border: 1px solid ${({theme})=>theme['border-color-light']};
+               border: 1px solid ${({ theme }) => theme['border-color-light']};
            }
        }
        h1{
@@ -1452,7 +1448,7 @@ const CheckoutWrapper = Styled.div`
        }
        
        .atbd-review-order__single{
-           box-shadow: 0 10px 30px ${({theme})=>theme['gray-solid']}10;
+           box-shadow: 0 10px 30px ${({ theme }) => theme['gray-solid']}10;
            .ant-radio-wrapper{
                 display: flex;
                 align-items: flex-start;
@@ -1470,20 +1466,20 @@ const CheckoutWrapper = Styled.div`
             .method-info{
                 margin-top: -4px;
                 font-weight: 500;
-                color: color: ${({theme})=>theme['dark-color']}; 
+                color: color: ${({ theme }) => theme['dark-color']}; 
             }
             .btn-addCard{
                 font-weight: 500
                 display: inline-block;
                 font-size: 13px;
                 margin-top: 20px;
-                color: ${({theme})=>theme['info-color']};
+                color: ${({ theme }) => theme['info-color']};
             }
             
             .table-cart{
-                border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                 .cart-single-t-price{
-                    color: ${({theme})=>theme['gray-color']};
+                    color: ${({ theme }) => theme['gray-color']};
                 }
                 .ant-table-content{
                     padding-bottom: 10px;
@@ -1512,7 +1508,7 @@ const CheckoutWrapper = Styled.div`
             .cart-single{
                 .cart-single__info{
                     h1{
-                        color: ${({theme})=>theme['dark-color']};
+                        color: ${({ theme }) => theme['dark-color']};
                         margin-bottom: 8px;
                     }
                 }
@@ -1552,7 +1548,7 @@ const CheckoutWrapper = Styled.div`
                     margin-bottom: 8px;
                 }
                 p{
-                    color: ${({theme})=>theme['gray-color']};
+                    color: ${({ theme }) => theme['gray-color']};
                 }
             }
         }
@@ -1566,7 +1562,7 @@ const CheckoutWrapper = Styled.div`
         margin: 20px 0 10px !important;
         .summary-list-text{
             font-size: 15px;
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
         }
         li{
             &:not(:last-child){
@@ -1579,7 +1575,7 @@ const CheckoutWrapper = Styled.div`
        text-align: center;
         > .ant-card{
             > .ant-card-body{
-                border: 1px solid ${({theme})=>theme['border-color-light']};
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
             }
         }
         .ant-card {
@@ -1597,7 +1593,7 @@ const CheckoutWrapper = Styled.div`
             align-items: center;
             justify-content: center;
             color: #fff;
-            background: ${({theme})=>theme['success-color']};
+            background: ${({ theme }) => theme['success-color']};
             svg{
                 width: 18px;
             }
@@ -1613,20 +1609,20 @@ const CheckoutWrapper = Styled.div`
    }
 `;
 
-export { 
-    FigureCart,
-    Sidebar,
-    SidebarSingle,
-    ProductCard,
-    TopToolBox,
-    PaginationWrapper,
-    ProductDetailsWrapper,
-    ProductTable,
-    CouponForm,
-    OrderSummary,
-    AddProductForm,
-    InvoiceHeader,
-    InvoiceLetterBox,
-    InvoiceAction,
-    CheckoutWrapper
+export {
+  FigureCart,
+  Sidebar,
+  SidebarSingle,
+  ProductCard,
+  TopToolBox,
+  PaginationWrapper,
+  ProductDetailsWrapper,
+  ProductTable,
+  CouponForm,
+  OrderSummary,
+  AddProductForm,
+  InvoiceHeader,
+  InvoiceLetterBox,
+  InvoiceAction,
+  CheckoutWrapper,
 };

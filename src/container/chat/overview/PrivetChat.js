@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { BlockSpan } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepage } from '../../../redux/chat/actionCreator';
@@ -48,5 +49,7 @@ const PrivateChat = ({ match }) => {
     </ul>
   );
 };
-
+PrivateChat.propTypes = {
+  match: PropTypes.object,
+};
 export default PrivateChat;

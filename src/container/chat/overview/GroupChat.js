@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
@@ -59,5 +60,7 @@ const GroupChat = ({ match }) => {
     </ChatWrapper>
   );
 };
-
+GroupChat.propTypes = {
+  match: PropTypes.object,
+};
 export default GroupChat;

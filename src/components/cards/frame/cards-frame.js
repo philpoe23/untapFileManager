@@ -68,9 +68,9 @@ Cards.defaultProps = {
 };
 
 Cards.propTypes = {
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node]),
   size: PropTypes.string,
-  more: PropTypes.object,
+  more: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node]),
   bodyStyle: PropTypes.object,
   headStyle: PropTypes.object,
   isbutton: PropTypes.object,
@@ -79,7 +79,7 @@ Cards.propTypes = {
   caption: PropTypes.string,
   bodypadding: PropTypes.string,
   moreText: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 export { Cards };

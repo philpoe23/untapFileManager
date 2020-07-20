@@ -17,6 +17,8 @@ const Grid = () => {
 
   const [state, setState] = useState({
     products: productsAll,
+    current: 0,
+    pageSize: 0,
   });
 
   const { products } = state;
@@ -30,12 +32,12 @@ const Grid = () => {
   }, [productsAll]);
 
   const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
   // @Todo Nested Ternary
   return (

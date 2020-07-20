@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 import { Slider } from 'antd';
+
 const IconWrapper = Styled.div`
     position: relative;
     padding: 0px 30px;

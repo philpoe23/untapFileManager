@@ -33,7 +33,7 @@ const ProjectDetails = ({ match }) => {
       <PageHeader
         ghost
         title={
-          <div className="project-header">
+          <div key="1" className="project-header">
             <Heading as="h2">{title}</Heading>
             <Button type="primary" size="small">
               <FeatherIcon icon="plus" size="14" /> Add Task
@@ -44,7 +44,7 @@ const ProjectDetails = ({ match }) => {
           </div>
         }
         buttons={[
-          <div className="project-action">
+          <div key="1" className="project-action">
             <Link key={1} to="#" className="project-edit">
               <FeatherIcon icon="edit-3" size={14} />
               Edit

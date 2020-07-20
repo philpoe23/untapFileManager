@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
 import { Upload } from 'antd';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
@@ -12,7 +15,10 @@ import { updateGroupChat } from '../../../redux/chat/actionCreator';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
-const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
+const SingleGroupChat = ({ match }) => {
+  const dispatch = useDispatch();
+  const chat = useSelector(state => state.chatSingle.data);
+
   const [state, setState] = useState({
     chatData: chat,
     me: 'woadud@gmail.com',
@@ -57,7 +63,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
       email: me,
       userName: 'Woadud Akand',
     };
-    updateGroupChat(match.params.id, pushcontent);
+    dispatch(updateGroupChat(match.params.id, pushcontent));
     setState({
       ...state,
       singleContent: [...singleContent, pushcontent],
@@ -118,7 +124,7 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
               const id = mes.time;
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
-                <li className="atbd-chatbox__single" key={index + 1} style={{ overflow: 'hidden' }}>
+                <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                   <div className={mes.email !== me ? 'left' : 'right'}>
                     {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
 
@@ -330,16 +336,8 @@ const SingleGroupChat = ({ chat, match, updateGroupChat }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    chat: state.chatSingleGroup.data,
-  };
+SingleGroupChat.propTypes = {
+  match: PropTypes.object,
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateGroupChat: (id, data) => dispatch(updateGroupChat(id, data)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingleGroupChat);
+export default SingleGroupChat;

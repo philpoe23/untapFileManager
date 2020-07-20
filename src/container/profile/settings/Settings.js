@@ -130,7 +130,7 @@ const Settings = ({ match }) => {
 };
 
 Settings.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.object,
 };
 
 export default Settings;

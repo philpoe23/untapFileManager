@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Col, Breadcrumb, Icon, Menu, Alert } from 'antd';
+import { Row, Col, Breadcrumb, Menu, Alert } from 'antd';
 import { NavLink, HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import propTypes from 'prop-types';
 import { BreadcrumbWrapperStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -111,7 +111,7 @@ const Breadcrumbs = () => {
                   </Breadcrumb.Item>
                   <Breadcrumb.Item overlay={menu}>
                     <NavLink to="#">
-                      <Icon type="user" />
+                      <UserOutlined />
                       <span>General</span>
                     </NavLink>
                   </Breadcrumb.Item>

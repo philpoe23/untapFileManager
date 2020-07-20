@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
@@ -6,9 +6,11 @@ import Heading from '../../../components/heading/heading';
 
 const SocialProfile = () => {
   const [form] = Form.useForm();
-
+  const [state, setState] = useState({
+    values: '',
+  });
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
 
   return (

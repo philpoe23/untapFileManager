@@ -10,7 +10,8 @@ const Div = Styled.div`
         }
 
         .ant-btn-link{
-            ${({ darkMode }) => (darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : '')}
+            ${({ darkMode }) =>
+              darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : ''}
         }
 
         .head-example{

@@ -22,7 +22,7 @@ const TimePickers = () => {
         <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Time picker">
-              <TimePicker defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+              <TimePicker defaultValue={moment('00:00:00', 'HH:mm:ss')} />
             </Cards>
           </Col>
           <Col md={12} sm={12} xs={24}>
@@ -59,7 +59,7 @@ const TimePickers = () => {
               <TimePicker
                 open={state.open}
                 onOpenChange={handleOpenChange}
-                addon={() => (
+                renderExtraFooter={() => (
                   <Button size="small" type="primary" onClick={handleClose}>
                     Ok
                   </Button>

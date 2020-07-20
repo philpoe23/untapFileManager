@@ -12,20 +12,20 @@ const PricingCard = Styled.div`
       font-weight: 600;
       top: -12px;
       margin-right: 2px;
-      color: ${({theme})=>theme['extra-light-color']};
+      color: ${({ theme }) => theme['extra-light-color']};
     }
     .pricing-validity{
       font-size: 13px;
       font-weight: 400;
       bottom: 0;
       left: -2px;
-      color: ${({theme})=>theme['light-color']};
+      color: ${({ theme }) => theme['light-color']};
     }
   }
   .package-user-type{
     font-size: 13px;
     font-weight: 500;
-    color: ${({theme})=>theme['gray-color']};
+    color: ${({ theme }) => theme['gray-color']};
   }
   .pricing-title{
     font-size: 24px;
@@ -62,8 +62,8 @@ const Badge = Styled.span`
   margin-bottom: 32px;
   padding: 5px 20px;  
   border-radius: 16px;
-  background: ${({ type, theme }) => theme[type + '-color']}10;
-  color: ${({ type, theme }) => theme[type + '-color']};
+  background: ${({ type, theme }) => theme[`${type}-color`]}10;
+  color: ${({ type, theme }) => theme[`${type}-color`]};
 `;
 
 const GalleryNav = Styled.nav`
@@ -86,7 +86,7 @@ const GalleryNav = Styled.nav`
         display: block;
         padding: 15px 0;
         margin: 0 12px;
-        color: ${({theme})=>theme['light-color']};
+        color: ${({ theme }) => theme['light-color']};
         @media only screen and (max-width: 767px){
           margin: 0 10px;
         }
@@ -99,11 +99,11 @@ const GalleryNav = Styled.nav`
           border-radius: 10px;
           opacity: 0;
           visibility: hidden;
-          background: ${({theme})=>theme['primary-color']};
+          background: ${({ theme }) => theme['primary-color']};
           content: "";
         }
         &.active{
-          color: ${({theme})=>theme['primary-color']};
+          color: ${({ theme }) => theme['primary-color']};
           &:after{
             opacity: 1;
             visibility: visible;
@@ -117,7 +117,7 @@ const GalleryNav = Styled.nav`
 const GalleryCard = Styled.nav`
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 5px 20px ${({theme})=>theme['light-color']}03;
+  box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}03;
   figure{
     margin-bottom: 0;
   }
@@ -131,7 +131,7 @@ const GalleryCard = Styled.nav`
     p{
       font-size: 13px;
       margin-bottom: 0px;
-      color: ${({theme})=>theme['light-color']};
+      color: ${({ theme }) => theme['light-color']};
     }
   }
 `;
@@ -145,7 +145,6 @@ const UsercardWrapper = Styled.nav`
     }
   }
 `;
-
 
 const UserCard = Styled.div`
   text-align: center;
@@ -167,22 +166,22 @@ const UserCard = Styled.div`
       position: absolute;
       right: 28px;
       top 20px;
-      color: ${({theme})=>theme['extra-light-color']};
+      color: ${({ theme }) => theme['extra-light-color']};
     }
     .card__name{
       font-size: 16px;
       margin-bottom: 6px;
       font-weight: 500;
       a{
-        color: ${({theme})=>theme['dark-color']};
+        color: ${({ theme }) => theme['dark-color']};
         &:hover{
-          color: ${({theme})=>theme['primary-color']};
+          color: ${({ theme }) => theme['primary-color']};
         }
       }
     }
     .card__designation{
       font-size: 13px;
-      color: ${({theme})=>theme['light-color']};
+      color: ${({ theme }) => theme['light-color']};
     }
     .card__social{
       margin-top: 16px;
@@ -193,7 +192,7 @@ const UserCard = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 5px 15px ${({theme})=>theme['light-color']}10;
+        box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}10;
         background: #fff;
         &:not(:last-child){
           margin-right: 10px;
@@ -232,15 +231,15 @@ const UserCard = Styled.div`
     }
     .card__actions{
       .ant-btn-white{
-        border: 1px solid ${({theme})=>theme['border-color-light']};
+        border: 1px solid ${({ theme }) => theme['border-color-light']};
         &:hover{
-          border: 1px solid ${({theme})=>theme['primary-color']};
+          border: 1px solid ${({ theme }) => theme['primary-color']};
         }
       }
       button{
         height: 40px;
         border-radius: 6px;
-        box-shadow: 0px 3px 5px ${({theme})=>theme['light-color']}05;
+        box-shadow: 0px 3px 5px ${({ theme }) => theme['light-color']}05;
         &:not(:last-child){
           margin-right: 10px;
         }
@@ -249,7 +248,7 @@ const UserCard = Styled.div`
     .card__info{
       padding-top: 20px;
       margin-top: 20px;
-      border-top: 1px solid ${({theme})=>theme['border-color-light']};
+      border-top: 1px solid ${({ theme }) => theme['border-color-light']};
       .info-single{
         text-align: center;
       }
@@ -265,8 +264,8 @@ const UserCard = Styled.div`
 
 const FaqCategoryBox = Styled.div`
   .faq-badge{
-    color: ${({theme})=>theme['light-color']};
-    background: ${({theme})=>theme['bg-color-light']};
+    color: ${({ theme }) => theme['light-color']};
+    background: ${({ theme }) => theme['bg-color-light']};
   }
   ul{
     li{
@@ -276,7 +275,7 @@ const FaqCategoryBox = Styled.div`
         position: relative;
         padding: 12px 0 12px 20px;
         transition: all .3s ease;
-        color: ${({theme})=>theme['gray-color']};
+        color: ${({ theme }) => theme['gray-color']};
         &.active{
           padding-left: 28px;
           &:before{
@@ -298,7 +297,7 @@ const FaqCategoryBox = Styled.div`
           opacity: 0;
           visibility: hidden;
           content: '';
-          background: ${({theme})=>theme['primary-color']};
+          background: ${({ theme }) => theme['primary-color']};
           transition: all .3s ease;
         }
         &:after{
@@ -310,54 +309,53 @@ const FaqCategoryBox = Styled.div`
           height: 8px;
           border-radius: 50%;
           content: '';
-          background: ${({theme})=>theme['primary-color']}50;
+          background: ${({ theme }) => theme['primary-color']}50;
           transition: all .3s ease;
         }
         &.secondary{
           &:after{
-            background: ${({theme})=>theme['secondary-color']}50;
+            background: ${({ theme }) => theme['secondary-color']}50;
           }
           &:before{
-            background: ${({theme})=>theme['secondary-color']};
+            background: ${({ theme }) => theme['secondary-color']};
           }
         }
         &.success{
           &:after{
-            background: ${({theme})=>theme['success-color']}50;
+            background: ${({ theme }) => theme['success-color']}50;
           }
           &:before{
-            background: ${({theme})=>theme['success-color']};
+            background: ${({ theme }) => theme['success-color']};
           }
         }
         &.warning{
           &:after{
-            background: ${({theme})=>theme['warning-color']}50;
+            background: ${({ theme }) => theme['warning-color']}50;
           }
           &:before{
-            background: ${({theme})=>theme['warning-color']};
+            background: ${({ theme }) => theme['warning-color']};
           }
         }
         &.info{
           &:after{
-            background: ${({theme})=>theme['info-color']}50;
+            background: ${({ theme }) => theme['info-color']}50;
           }
           &:before{
-            background: ${({theme})=>theme['info-color']};
+            background: ${({ theme }) => theme['info-color']};
           }
         }
         &.danger{
           &:after{
-            background: ${({theme})=>theme['danger-color']}50;
+            background: ${({ theme }) => theme['danger-color']}50;
           }
           &:before{
-            background: ${({theme})=>theme['danger-color']};
+            background: ${({ theme }) => theme['danger-color']};
           }
         }
       }
     }
   }
 `;
-
 
 const FaqSupportBox = Styled.div`
   text-align: center;
@@ -399,9 +397,9 @@ const FaqWrapper = Styled.div`
     }
   }
   .ant-collapse-item{
-    border: 1px solid ${({theme})=>theme['border-color-light']} !important;
+    border: 1px solid ${({ theme }) => theme['border-color-light']} !important;
     &.ant-collapse-item-active{
-      box-shadow: 0px 15px 40px ${({theme})=>theme['light-color']}15;
+      box-shadow: 0px 15px 40px ${({ theme }) => theme['light-color']}15;
     }
     .ant-collapse-header{
       background-color: #fff;
@@ -416,12 +414,12 @@ const FaqWrapper = Styled.div`
 
   .ant-collapse-content{
     .ant-collapse-content-box{
-      border-top: 1px solid ${({theme})=>theme['border-color-light']} !important;
+      border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
       padding: 20px 25px 30px !important;
       P{
         font-size: 15px;
         margin-bottom: 35px;
-        color: ${({theme})=>theme['gray-color']};
+        color: ${({ theme }) => theme['gray-color']};
       }
       h1,
       h2,
@@ -481,14 +479,14 @@ const SearchResultWrapper = Styled.div`
         }
         a{
           display: block;
-          color: ${({theme})=>theme['light-color']};
+          color: ${({ theme }) => theme['light-color']};
           padding: 5px 15px;
           border-radius: 5px;
-          box-shdaow: 0 3px 6px ${({theme})=>theme['light-color']}05;
+          box-shdaow: 0 3px 6px ${({ theme }) => theme['light-color']}05;
           background: #fff;
           &.active{
             color: #fff;
-            background: ${({theme})=>theme['primary-color']};
+            background: ${({ theme }) => theme['primary-color']};
           }
         }
       }
@@ -498,14 +496,14 @@ const SearchResultWrapper = Styled.div`
 
 const ResultList = Styled.div`
   .result-list-top{
-    border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
     margin-bottom: 20px;
     padding-bottom: 24px;
   }
   .search-found-text{
     font-size: 16px;
     margin-bottom: 0;
-    color: ${({theme})=>theme['light-color']};
+    color: ${({ theme }) => theme['light-color']};
     .result-count{
       margin-right: 5px;
     }
@@ -515,20 +513,20 @@ const ResultList = Styled.div`
     .result-count,
     .result-keyword{
       font-weight: 600;
-      color: ${({theme})=>theme['dark-color']};
+      color: ${({ theme }) => theme['dark-color']};
     }
   }
   .result-limit{
     text-align: right;
     margin-bottom: 0;
-    color: ${({theme})=>theme['light-color']};
+    color: ${({ theme }) => theme['light-color']};
     @media only screen and (max-width: 767px){
       text-align: left;
       margin-top: 10px;
     }
   }
   .result-list-content{
-    border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
     padding-bottom: 14px;
     margin-bottom: 30px;
     ul{
@@ -542,11 +540,11 @@ const ResultList = Styled.div`
           margin-bottom: 10px;
           .search-keyword{
             font-weight: 600;
-            color: ${({theme})=>theme['primary-color']};
+            color: ${({ theme }) => theme['primary-color']};
           }
         }
         p{
-          color: ${({theme})=>theme['gray-color']};
+          color: ${({ theme }) => theme['gray-color']};
         }
       }
     }
@@ -580,7 +578,7 @@ const MaintananceWrapper = Styled.div`
     margin-bottom: 15px;
   }
   p{
-    color: ${({theme})=>theme['gray-color']};
+    color: ${({ theme }) => theme['gray-color']};
   }
 `;
 
@@ -604,7 +602,7 @@ const ErrorWrapper = Styled.div`
     font-size: 60px;
     font-weight: 600;
     margin-bottom: 25px;
-    color: ${({theme})=>theme['extra-light-color']};
+    color: ${({ theme }) => theme['extra-light-color']};
   }
   p{
     font-size: 18px;
@@ -616,19 +614,19 @@ const ErrorWrapper = Styled.div`
   }
 `;
 
-export { 
-  PricingCard, 
-  ListGroup, 
-  Badge, 
-  GalleryNav, 
-  UserCard, 
-  GalleryCard, 
-  UsercardWrapper, 
-  FaqCategoryBox, 
-  FaqSupportBox, 
-  FaqWrapper, 
-  SearchResultWrapper, 
-  ResultList, 
-  MaintananceWrapper, 
-  ErrorWrapper 
+export {
+  PricingCard,
+  ListGroup,
+  Badge,
+  GalleryNav,
+  UserCard,
+  GalleryCard,
+  UsercardWrapper,
+  FaqCategoryBox,
+  FaqSupportBox,
+  FaqWrapper,
+  SearchResultWrapper,
+  ResultList,
+  MaintananceWrapper,
+  ErrorWrapper,
 };

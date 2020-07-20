@@ -45,7 +45,7 @@ const ActionWrapper = Styled.div`
                 justify-content: center;
             }
             &.ant-btn-light{
-                border: 1px solid ${({theme})=>theme['border-color-light']};
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
             }
             &.btn-next{
                 svg{

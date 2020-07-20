@@ -5,7 +5,12 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 
 const Tables = () => {
-  const [state, setState] = useState({ selectionType: 'checkbox' });
+  const [state, setState] = useState({
+    selectionType: 'checkbox',
+    selectedRowKeys: null,
+    selectedRows: null,
+    values: {},
+  });
   const dataSource = [
     {
       key: '1',
@@ -41,7 +46,7 @@ const Tables = () => {
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      setState({ ...state, selectedRowKeys, selectedRows });
     },
     getCheckboxProps: record => ({
       disabled: record.name === 'Disabled User', // Column configuration not to be checked
@@ -161,7 +166,7 @@ const Tables = () => {
   ];
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
+    setState({ ...state, values: { pagination, filters, sorter, extra } });
   }
 
   return (

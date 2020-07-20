@@ -5,12 +5,13 @@ import { TabBasic, Child } from './style';
 
 const Tab = props => {
   const { data, tabPosition, color } = props;
+  let counter = 0;
 
   return (
     <TabBasic color={color && color} defaultActiveKey="1" tabPosition={tabPosition !== undefined ? tabPosition : 'top'}>
       {data.map(item => {
         const { title, content, icon, tabTitle } = item;
-
+        counter += 1;
         return (
           <Child
             color={color && color}
@@ -24,7 +25,7 @@ const Tab = props => {
                 </span>
               )
             }
-            key={icon}
+            key={counter}
           >
             <h2>{title}</h2>
             <p>{content}</p>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Input, Icon } from 'antd';
+import { Input } from 'antd';
 import PropTypes from 'prop-types';
+import { PlusOutlined } from '@ant-design/icons';
 import { TagStyle } from './style';
 
 const { CheckableTag } = TagStyle;
@@ -69,7 +70,7 @@ Tag.propTypes = {
   onChange: PropTypes.func,
   hottags: PropTypes.bool,
   animate: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 const AnimatedTags = props => {
@@ -149,7 +150,7 @@ const AnimatedTags = props => {
 
       {!inputVisible && (
         <TagStyle onClick={showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
-          <Icon type="plus" /> New Tag
+          <PlusOutlined /> New Tag
         </TagStyle>
       )}
     </div>

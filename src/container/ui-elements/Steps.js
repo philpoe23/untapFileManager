@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Row, Col, Icon, Divider } from 'antd';
+import { Row, Col, Divider } from 'antd';
+import { UserOutlined, SolutionOutlined, CreditCardOutlined, SmileOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -22,21 +23,22 @@ const customDot = (dot, { status, index }) => (
 const Stepess = () => {
   const [state, setState] = useState({
     current: 0,
+    next: 0,
+    prev: 0,
   });
 
   const { current } = state;
 
   const onChange = currentValue => {
-    console.log('onChange:', currentValue);
     setState({ currentValue });
   };
 
   const next = currentValue => {
-    console.log('onChange:', currentValue);
+    setState({ ...state, next: currentValue });
   };
 
   const prev = currentValue => {
-    console.log('onChange:', currentValue);
+    setState({ ...state, prev: currentValue });
   };
 
   return (
@@ -56,10 +58,10 @@ const Stepess = () => {
           <Col md={24} sm={24} xs={24}>
             <Cards title="With Icon" caption="The simplest use of Steps">
               <Steps>
-                <Step status="finish" title="Login" icon={<Icon type="user" />} />
-                <Step status="finish" title="Verification" icon={<Icon type="solution" />} />
-                <Step status="process" title="Pay" icon={<Icon type="credit-card" />} />
-                <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
+                <Step status="finish" title="Login" icon={<UserOutlined />} />
+                <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
+                <Step status="process" title="Pay" icon={<CreditCardOutlined />} />
+                <Step status="wait" title="Done" icon={<SmileOutlined />} />
               </Steps>
             </Cards>
           </Col>

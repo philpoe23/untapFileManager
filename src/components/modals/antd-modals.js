@@ -42,8 +42,8 @@ Modal.propTypes = {
   type: PropTypes.string,
   footer: PropTypes.arrayOf(object),
   width: PropTypes.number,
-  color: PropTypes.string,
-  children: PropTypes.object,
+  color: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 const alertModal = ModalStyled;

@@ -105,7 +105,7 @@ const AuthWrapper = Styled.div`
     }
     .form-divider{
       font-size: 13px;
-      color: ${({theme})=>theme['gray-solid']};
+      color: ${({ theme }) => theme['gray-solid']};
       text-align: center;
       position: relative;
       margin-bottom: 25px;
@@ -118,7 +118,7 @@ const AuthWrapper = Styled.div`
         transform: translateY(-50%);
         z-index: 1;
         height: 1px;
-        background: ${({theme})=>theme['border-color-light']};
+        background: ${({ theme }) => theme['border-color-light']};
       }
       span{
         background: #fff;
@@ -144,9 +144,9 @@ const AuthWrapper = Styled.div`
           border-radius: 6px;
           height: 48px;
           padding: 0 15px;
-          border: 1px solid ${({theme})=>theme['border-color-light']};
-          background: ${({theme})=>theme['bg-color-light']};
-          color: ${({theme})=>theme['text-color']};
+          border: 1px solid ${({ theme }) => theme['border-color-light']};
+          background: ${({ theme }) => theme['bg-color-light']};
+          color: ${({ theme }) => theme['text-color']};
           font-weight: 500;
           @media only screen and (max-width: 379px){
             height: 44px;

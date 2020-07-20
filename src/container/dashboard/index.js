@@ -226,7 +226,7 @@ const Dashbord = () => {
         ghost
         title="Social Media Dashboard"
         buttons={[
-          <div className="page-header-actions">
+          <div key="6" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
             <ShareButtonPageHeader key="3" />
@@ -420,17 +420,17 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li className={state.youtubeSbscribeTabActive === 'week' && 'active'}>
+                    <li className={state.youtubeSbscribeTabActive === 'week' ? 'active' : 'deactive'}>
                       <Link onClick={() => handleActiveChangeYoutube('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className={state.youtubeSbscribeTabActive === 'month' && 'active'}>
+                    <li className={state.youtubeSbscribeTabActive === 'month' ? 'active' : 'deactive'}>
                       <Link onClick={() => handleActiveChangeYoutube('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li className={state.youtubeSbscribeTabActive === 'year' && 'active'}>
+                    <li className={state.youtubeSbscribeTabActive === 'year' ? 'active' : 'deactive'}>
                       <Link onClick={() => handleActiveChangeYoutube('year')} to="#">
                         Year
                       </Link>
@@ -527,17 +527,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.twitterOverviewTabActive === 'week' && 'active'}>
+                      <li className={state.twitterOverviewTabActive === 'week' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeTwitter('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'month' && 'active'}>
+                      <li className={state.twitterOverviewTabActive === 'month' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeTwitter('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'year' && 'active'}>
+                      <li className={state.twitterOverviewTabActive === 'year' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeTwitter('year')} to="#">
                           Year
                         </Link>
@@ -709,17 +709,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.instagramOverviewTabActive === 'week' && 'active'}>
+                      <li className={state.instagramOverviewTabActive === 'week' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeInstagram('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.instagramOverviewTabActive === 'month' && 'active'}>
+                      <li className={state.instagramOverviewTabActive === 'month' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeInstagram('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.instagramOverviewTabActive === 'year' && 'active'}>
+                      <li className={state.instagramOverviewTabActive === 'year' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeInstagram('year')} to="#">
                           Year
                         </Link>
@@ -891,17 +891,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.linkdinOverviewTabActive === 'week' && 'active'}>
+                      <li className={state.linkdinOverviewTabActive === 'week' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeLinkdin('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.linkdinOverviewTabActive === 'month' && 'active'}>
+                      <li className={state.linkdinOverviewTabActive === 'month' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeLinkdin('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.linkdinOverviewTabActive === 'year' && 'active'}>
+                      <li className={state.linkdinOverviewTabActive === 'year' ? 'active' : 'deactive'}>
                         <Link onClick={() => handleActiveChangeLinkdin('year')} to="#">
                           Year
                         </Link>

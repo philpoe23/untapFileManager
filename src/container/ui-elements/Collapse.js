@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Collapse } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -7,8 +7,11 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 
 const { Panel } = Collapse;
 const Collapses = () => {
+  const [state, setstate] = useState({
+    key: 0,
+  });
   const callback = key => {
-    console.log(key);
+    setstate({ ...state, key });
   };
 
   const customPanelStyle = {
@@ -53,28 +56,22 @@ const Collapses = () => {
                   <Collapse defaultActiveKey="1">
                     <Panel header="This is panel nest panel" key="1">
                       <p>
-                        <p>
-                          A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be
-                          found as a welcome guest in many households across the world.
-                        </p>
+                        A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found
+                        as a welcome guest in many households across the world.
                       </p>
                     </Panel>
                   </Collapse>
                 </Panel>
                 <Panel header="This is panel header 2" key="2">
                   <p>
-                    <p>
-                      A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as
-                      a welcome guest in many households across the world.
-                    </p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
                   </p>
                 </Panel>
                 <Panel header="This is panel header 3" key="3">
                   <p>
-                    <p>
-                      A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as
-                      a welcome guest in many households across the world.
-                    </p>
+                    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
+                    welcome guest in many households across the world.
                   </p>
                 </Panel>
               </Collapse>

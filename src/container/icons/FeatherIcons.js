@@ -8,6 +8,7 @@ import { Main } from '../styled';
 import { featherIcons } from '../../config/icon/icon.json';
 
 const FeatherSvgIcons = () => {
+  let key = 0;
   return (
     <>
       <PageHeader title="Feather Icons" />
@@ -18,8 +19,9 @@ const FeatherSvgIcons = () => {
               <Cards title="Simply beautiful open source icons" size="learge">
                 <Row gutter={25}>
                   {featherIcons.map(icon => {
+                    key += 1;
                     return (
-                      <Col lg={6} md={8} sm={12} xs={24} key={icon}>
+                      <Col lg={6} md={8} sm={12} xs={24} key={key}>
                         <Icon className="icon-single">
                           <FeatherIcon icon={icon} size={18} />
                           <span>{icon}</span>

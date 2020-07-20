@@ -42,18 +42,16 @@ const ThemeLayout = WrappedComponent => {
         hide: true,
         searchHide: true,
       };
-      this.handleUpdate = this.handleUpdate.bind(this);
       this.updateDimensions = this.updateDimensions.bind(this);
-    }
-
-    handleUpdate(values) {
-      const { top } = values;
-      this.setState({ top });
     }
 
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
       this.updateDimensions();
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.updateDimensions);
     }
 
     updateDimensions() {
@@ -62,36 +60,38 @@ const ThemeLayout = WrappedComponent => {
       });
     }
 
-    toggleCollapsed = () => {
-      this.setState({
-        collapsed: !this.state.collapsed,
-      });
-    };
-
-    onShowHide = () => {
-      this.setState({
-        hide: !this.state.hide,
-        searchHide: true,
-      });
-    };
-
-    handleSearchHide = e => {
-      e.preventDefault();
-      this.setState({
-        searchHide: !this.state.searchHide,
-        hide: true,
-      });
-    };
-
     renderThumb = ({ style, ...props }) => {
       const thumbStyle = {
         borderRadius: 6,
         backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
       };
-      return <div style={{ ...style, ...thumbStyle }} {...props} />;
+      return <div style={{ ...style, ...thumbStyle }} props={props} />;
     };
 
     render() {
+      const { collapsed, hide, searchHide } = this.state;
+
+      const toggleCollapsed = () => {
+        this.setState({
+          collapsed: !collapsed,
+        });
+      };
+
+      const onShowHide = () => {
+        this.setState({
+          hide: !hide,
+          searchHide: true,
+        });
+      };
+
+      const handleSearchHide = e => {
+        e.preventDefault();
+        this.setState({
+          searchHide: !searchHide,
+          hide: true,
+        });
+      };
+
       return (
         <Div darkMode={darkMode}>
           <Layout>
@@ -105,8 +105,8 @@ const ThemeLayout = WrappedComponent => {
             >
               <Row>
                 <Col md={4} sm={5} xs={12} className="align-center-v navbar-brand">
-                  <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
-                    <FeatherIcon icon={this.state.collapsed ? 'align-left' : 'align-right'} />
+                  <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
+                    <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
                   <NavLink to="/">
                     <img src={require(`../static/img/logo.png`)} alt="" />
@@ -124,10 +124,10 @@ const ThemeLayout = WrappedComponent => {
                 <Col md={0} sm={19} xs={12}>
                   <>
                     <div className="mobile-action">
-                      <Link className="btn-search" onClick={this.handleSearchHide} to="#">
-                        {this.state.searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
+                      <Link className="btn-search" onClick={handleSearchHide} to="#">
+                        {searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
                       </Link>
-                      <Link className="btn-auth" onClick={this.onShowHide} to="#">
+                      <Link className="btn-auth" onClick={onShowHide} to="#">
                         <FeatherIcon icon="more-vertical" />
                       </Link>
                     </div>
@@ -135,10 +135,10 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
-                    <SmallScreenSearch hide={this.state.searchHide} darkMode={darkMode}>
+                    <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
                       <HeaderSearch />
                     </SmallScreenSearch>
-                    <SmallScreenAuthInfo hide={this.state.hide} darkMode={darkMode}>
+                    <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
                       <AuthInfo />
                     </SmallScreenAuthInfo>
                   </div>
@@ -148,12 +148,7 @@ const ThemeLayout = WrappedComponent => {
 
             <Layout>
               <ThemeProvider theme={darkTheme}>
-                <Sider
-                  width={280}
-                  style={SideBarStyle}
-                  collapsed={this.state.collapsed}
-                  theme={!darkMode ? 'light' : 'dark'}
-                >
+                <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
                   <Scrollbars
                     className="custom-scrollbar"
                     autoHide
@@ -177,10 +172,6 @@ const ThemeLayout = WrappedComponent => {
           </Layout>
         </Div>
       );
-    }
-
-    componentWillUnmount() {
-      window.removeEventListener('resize', this.updateDimensions);
     }
   }
 

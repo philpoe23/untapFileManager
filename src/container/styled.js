@@ -1,4 +1,5 @@
 import Styled from 'styled-components';
+
 const Main = Styled.div`
     padding: 0px 30px;
     min-height: 750px;
@@ -227,7 +228,7 @@ const NotificationListWrapper = Styled.div`
 const TagInput = Styled.div`
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid ${({theme})=>theme['border-color-normal']};
+    border: 1px solid ${({ theme }) => theme['border-color-normal']};
     .ant-tag{
         font-size: 11px;
         padding: 0 4px;
@@ -240,7 +241,7 @@ const TagInput = Styled.div`
 
 const PageHeaderWrapper = Styled.div`
     .ant-page-header{
-        border: 1px solid ${({theme})=>theme['border-color-normal']};
+        border: 1px solid ${({ theme }) => theme['border-color-normal']};
         border-radius: 5px;
     }
     .ant-page-header .ant-page-header-heading-left{
@@ -274,9 +275,9 @@ const BasicFormWrapper = Styled.div`
             input,
             textarea{
                 padding: 12px 20px;
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
                 &:placeholder{
-                    color: ${({theme})=>theme['light-color']};
+                    color: ${({ theme }) => theme['light-color']};
                 }
             }
             button{
@@ -358,7 +359,7 @@ const CardToolbox = Styled.div`
             height: 100%;
             width: 1px;
             content: '';
-            background: ${({theme})=>theme['border-color-normal']}
+            background: ${({ theme }) => theme['border-color-normal']}
         }
     }
     .ant-page-header-heading-sub-title{
@@ -405,7 +406,6 @@ const FormGroupWrapper = Styled.div`
     }
 `;
 
-
 const TableWrapper = Styled.div`
     table{
         thead{
@@ -415,16 +415,16 @@ const TableWrapper = Styled.div`
                     &:last-child{
                         text-align: right;
                     }
-                    color: ${({theme})=>theme['gray-color']};
-                    background: ${({theme})=>theme['bg-color-light']};
-                    border-top: 1px solid ${({theme})=>theme['border-color-light']};
-                    border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                    color: ${({ theme }) => theme['gray-color']};
+                    background: ${({ theme }) => theme['bg-color-light']};
+                    border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+                    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        border-left: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
                         border-radius: 10px 0 0 10px !important;
                     }
                     &:last-child{
-                        border-right: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
                         border-radius: 0 10px 10px 0 !important;
                     }
                 }
@@ -435,23 +435,23 @@ const TableWrapper = Styled.div`
             >tr{
                 &:hover{
                     >td{
-                        background: ${({theme})=>theme['bg-color-light']};
+                        background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
                 &.ant-table-row-selected{
                     &:hover{
                         >td{
-                            background: ${({theme})=>theme['bg-color-light']};
+                            background: ${({ theme }) => theme['bg-color-light']};
                         }
                     }
                     >td{
-                        background: ${({theme})=>theme['bg-color-light']};
+                        background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
                 >td{
                     border: 0 none;
                     font-weight: 500;
-                    color: ${({theme})=>theme['dark-color']};
+                    color: ${({ theme }) => theme['dark-color']};
                     &:first-child{
                         border-radius: 10px 0 0 10px !important;
                     }
@@ -490,19 +490,19 @@ const TableWrapper = Styled.div`
                 padding: 0 11px;
                 background: transparent;
                 border: 0 none;
-                color: ${({theme})=>theme['extra-light-color']};
+                color: ${({ theme }) => theme['extra-light-color']};
                 &:hover{
                     &.ant-btn-primary{
-                        color: ${({theme})=>theme['primary-color']};
-                        background: ${({theme})=>theme['primary-color']}10;
+                        color: ${({ theme }) => theme['primary-color']};
+                        background: ${({ theme }) => theme['primary-color']}10;
                     }
                     &.ant-btn-info{
-                        color: ${({theme})=>theme['info-color']};
-                        background: ${({theme})=>theme['info-color']}10;
+                        color: ${({ theme }) => theme['info-color']};
+                        background: ${({ theme }) => theme['info-color']}10;
                     }
                     &.ant-btn-danger{
-                        color: ${({theme})=>theme['danger-color']};
-                        background: ${({theme})=>theme['danger-color']}10;
+                        color: ${({ theme }) => theme['danger-color']};
+                        background: ${({ theme }) => theme['danger-color']}10;
                     }
                 }
             }
@@ -525,29 +525,28 @@ const TableWrapper = Styled.div`
             .user-designation{
                 font-size: 12px;
                 font-weight: 400;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
             }
         }
     }
 `;
 
-
 export {
-    Main,
-    ButtonsGroupWrapper,
-    BlockButtonsWrapper,
-    ButtonSizeWrapper,
-    BtnWithIcon,
-    AlertList,
-    AutoCompleteWrapper,
-    CalendarWrapper,
-    DatePickerWrapper,
-    NotificationListWrapper,
-    TagInput,
-    PageHeaderWrapper,
-    MessageStyleWrapper,
-    BasicFormWrapper,
-    CardToolbox,
-    FormGroupWrapper,
-    TableWrapper
+  Main,
+  ButtonsGroupWrapper,
+  BlockButtonsWrapper,
+  ButtonSizeWrapper,
+  BtnWithIcon,
+  AlertList,
+  AutoCompleteWrapper,
+  CalendarWrapper,
+  DatePickerWrapper,
+  NotificationListWrapper,
+  TagInput,
+  PageHeaderWrapper,
+  MessageStyleWrapper,
+  BasicFormWrapper,
+  CardToolbox,
+  FormGroupWrapper,
+  TableWrapper,
 };

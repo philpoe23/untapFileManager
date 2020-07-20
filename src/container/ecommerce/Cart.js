@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -17,6 +17,10 @@ const Checkout = lazy(() => import('./overview/CheckOut'));
 
 const ShoppingCart = ({ match }) => {
   const [form] = Form.useForm();
+  const [state, setState] = useState({
+    coupon: 0,
+    promo: 0,
+  });
 
   const productTableData = [
     {
@@ -140,11 +144,11 @@ const ShoppingCart = ({ match }) => {
   ];
 
   const submitCoupon = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, coupon: values });
   };
 
   const submitPromo = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, promo: values });
   };
 
   const { Option } = Select;
@@ -155,7 +159,7 @@ const ShoppingCart = ({ match }) => {
         ghost
         title="Shopping Cart"
         buttons={[
-          <div className="page-header-actions">
+          <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
             <ShareButtonPageHeader key="3" />
@@ -263,7 +267,7 @@ const ShoppingCart = ({ match }) => {
                               </Select>
                             </Form.Item>
                             <div className="promo-apply-form">
-                              <Form.Item name="promo" label="Promo Code">
+                              <Form.Item name="promoCode" label="Promo Code">
                                 <Input style={{ width: '72%' }} placeholder="Promo Code" />
                                 <Button htmlType="submit" size="default" type="success" outlined>
                                   Apply
@@ -294,6 +298,6 @@ const ShoppingCart = ({ match }) => {
   );
 };
 ShoppingCart.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.object,
 };
 export default ShoppingCart;

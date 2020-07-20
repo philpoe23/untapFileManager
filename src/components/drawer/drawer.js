@@ -133,7 +133,7 @@ Drawer.defaultProps = {
 Drawer.propTypes = {
   title: PropTypes.string,
   placement: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node, PropTypes.array]),
   customPlacement: PropTypes.bool,
   render: PropTypes.bool,
   childDrawer: PropTypes.object,

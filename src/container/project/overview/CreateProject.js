@@ -18,19 +18,22 @@ const CreateProject = ({ visible, onCancel }) => {
   });
 
   useEffect(() => {
-    if (visible) {
+    let unmounted = false;
+    if (!unmounted) {
       setState({
         visible,
       });
     }
+    return () => {
+      unmounted = true;
+    };
   }, [visible]);
 
-  const handleOk = values => {
-    console.log('Received values of form: ', values);
+  const handleOk = () => {
     onCancel();
   };
 
-  const handleCancel = e => {
+  const handleCancel = () => {
     onCancel();
   };
 

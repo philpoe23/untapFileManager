@@ -42,8 +42,9 @@ const Content = ({ searchData, email }) => {
   };
 
   const data = [];
-  emails !== undefined &&
+  if (emails !== undefined)
     emails.map(inbox => {
+      // eslint-disable-next-line no-shadow
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
@@ -68,7 +69,12 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a className="btn-attatchment" download href={require(`../../../static/img/email/${item}`)}>
+                  <a
+                    key={item}
+                    className="btn-attatchment"
+                    download
+                    href={require(`../../../static/img/email/${item}`)}
+                  >
                     <FeatherIcon icon="paperclip" size={14} />
                     {item}
                   </a>
@@ -92,7 +98,7 @@ const Content = ({ searchData, email }) => {
 
     const newSelectedRowKeys = emails
       .filter(value => {
-        return value[filter] == byValue;
+        return value[filter] === byValue;
       })
       .map(item => item.id);
 
@@ -192,6 +198,7 @@ const Content = ({ searchData, email }) => {
     />
   );
 };
+
 Content.propTypes = {
   searchData: propTypes.array.isRequired,
   email: propTypes.array.isRequired,

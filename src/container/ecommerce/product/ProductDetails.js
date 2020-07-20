@@ -31,7 +31,7 @@ const ProductDetails = ({ match }) => {
 
   useEffect(() => {
     if (filterSinglepage) {
-      dispatch(filterSinglepage(parseInt(match.params.id)));
+      dispatch(filterSinglepage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
 
@@ -40,7 +40,7 @@ const ProductDetails = ({ match }) => {
 
   const incrementQuantity = e => {
     e.preventDefault();
-    quantity !== 5 &&
+    if (quantity !== 5)
       setState({
         ...state,
         quantity: quantity + 1,
@@ -49,7 +49,7 @@ const ProductDetails = ({ match }) => {
 
   const decrementQuantity = e => {
     e.preventDefault();
-    quantity !== 1 &&
+    if (quantity !== 1)
       setState({
         ...state,
         quantity: quantity - 1,
@@ -62,7 +62,7 @@ const ProductDetails = ({ match }) => {
         ghost
         title="Product Details"
         buttons={[
-          <div className="page-header-actions">
+          <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
             <ShareButtonPageHeader key="3" />
@@ -87,19 +87,19 @@ const ProductDetails = ({ match }) => {
                       <Row gutter={5}>
                         {products.length
                           ? products
-                              .filter(product => {
-                                return product.category === category;
+                              .filter(value => {
+                                return value.category === category;
                               })
-                              .map((product, index) => {
+                              .map((value, index) => {
                                 return (
                                   index <= 3 && (
-                                    <Col md={4} key={product.id}>
+                                    <Col md={4} key={value.id}>
                                       <div className="pdbl__image">
                                         <figure>
-                                          <NavLink to={`/ecommerce/productDetails/${product.id}`}>
+                                          <NavLink to={`/ecommerce/productDetails/${value.id}`}>
                                             <img
                                               style={{ width: '100%' }}
-                                              src={require(`../../../${product.img}`)}
+                                              src={require(`../../../${value.img}`)}
                                               alt=""
                                             />
                                           </NavLink>
@@ -127,9 +127,8 @@ const ProductDetails = ({ match }) => {
                       <span className="pdbr__brand-name">{brand}</span>
                     </p>
                     <Heading className="pdbr__new-price" as="h3">
-                      {' '}
                       <span className="pdbr__currancy">$</span>
-                      <span className="pdbr__price">{price}</span>{' '}
+                      <span className="pdbr__price">{price}</span>
                     </Heading>
                     {oldPrice && (
                       <Heading className="pdbr__old-price" as="h6">
@@ -139,7 +138,6 @@ const ProductDetails = ({ match }) => {
                     <p className="pdbr__desc">{description}</p>
                     <div className="pdbr__current-status">
                       <p>
-                        {' '}
                         <span className="current-status-title">Available:</span>
                         <span className="stock-status in-stock"> In Stock</span>
                       </p>

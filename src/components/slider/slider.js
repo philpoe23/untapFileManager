@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { InputNumber, Icon, Row, Col } from 'antd';
+import { InputNumber, Row, Col } from 'antd';
 import PropTypes from 'prop-types';
+import { FrownOutlined } from '@ant-design/icons';
 import { IconWrapper, SliderStyle } from './style';
 
 const Slider = props => {
@@ -12,8 +13,6 @@ const Slider = props => {
     step,
     input,
     icon,
-    beforeIcon,
-    afterIcon,
     marks,
     vertical,
     defaultValues,
@@ -78,9 +77,9 @@ const Slider = props => {
     </Row>
   ) : icon ? (
     <IconWrapper>
-      <Icon style={{ color: preColor }} type={beforeIcon} />
+      <FrownOutlined style={{ color: preColor }} />
       <SliderStyle min={mini} max={maxi} onChange={handleChange} value={value} />
-      <Icon style={{ color: nextColor }} type={afterIcon} />
+      <FrownOutlined style={{ color: nextColor }} />
     </IconWrapper>
   ) : (
     <SliderStyle
@@ -108,8 +107,6 @@ Slider.propTypes = {
   vertical: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
-  beforeIcon: PropTypes.string,
-  afterIcon: PropTypes.string,
   onAfterChange: PropTypes.func,
   onChange: PropTypes.func,
 };

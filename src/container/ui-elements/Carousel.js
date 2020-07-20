@@ -6,13 +6,13 @@ import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Carousels = () => {
-  const onChange = (a, b, c) => {
-    console.log(a, b, c);
-  };
-
   const [state, setState] = useState({
     dotPosition: 'top',
+    changeValues: [],
   });
+  const onChange = (a, b, c) => {
+    setState({ ...state, changeValues: [a, b, c] });
+  };
 
   const handlePositionChange = ({ target: { value: dotPosition } }) => setState({ dotPosition });
   const { dotPosition } = state;

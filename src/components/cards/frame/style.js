@@ -1,28 +1,6 @@
 import Styled from 'styled-components';
 import { Card } from 'antd';
 
-const CardFrame = Styled(Card)`
-  ${({ isbutton, theme }) => isbutton && BtnWraper(theme)}
-  margin-bottom: 25px !important;
-  .ant-card-head{
-    border-color: #F1F2F6;
-  }
-  .ant-card-head .ant-card-head-title {
-    padding: 18px 0;
-  }
-  .ant-card-head-title .ant-page-header-heading-title{
-    font-weight: 500;
-  }
-  .ant-card-body{
-    padding: ${({ bodypadding }) => (bodypadding ? bodypadding + ' !important' : '25px')};
-  }
-  .ant-card.ant-card-bordered {
-      border-radius: 5px;
-      overflow: hidden;
-      border: none;
-  }
-`;
-
 const BtnWraper = theme => `
     .ant-card-head {
       display: flex;
@@ -76,6 +54,28 @@ const BtnWraper = theme => `
       justify-content: flex-end;
       height: 73px;
       padding-top: 8px;
+  }
+`;
+
+const CardFrame = Styled(Card)`
+  ${({ isbutton, theme }) => isbutton && BtnWraper(theme)}
+  margin-bottom: 25px !important;
+  .ant-card-head{
+    border-color: #F1F2F6;
+  }
+  .ant-card-head .ant-card-head-title {
+    padding: 18px 0;
+  }
+  .ant-card-head-title .ant-page-header-heading-title{
+    font-weight: 500;
+  }
+  .ant-card-body{
+    padding: ${({ bodypadding }) => (bodypadding ? `${bodypadding} !important` : '25px')};
+  }
+  .ant-card.ant-card-bordered {
+      border-radius: 5px;
+      overflow: hidden;
+      border: none;
   }
 `;
 

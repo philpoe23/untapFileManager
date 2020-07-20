@@ -44,7 +44,7 @@ const Sellers = () => {
   };
 
   const dataSource = [];
-  sellers.length &&
+  if (sellers.length)
     item.map(value => {
       const { storeName, id, name, amount, date, img } = value;
       return dataSource.push({
@@ -123,7 +123,7 @@ const Sellers = () => {
         ghost
         title="Sellers"
         buttons={[
-          <div className="page-header-actions">
+          <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
             <ExportButtonPageHeader key="2" />
             <ShareButtonPageHeader key="3" />

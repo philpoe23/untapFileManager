@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -6,6 +6,10 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Slider } from '../../components/slider/slider';
 
 const Sliders = () => {
+  const [state, setstate] = useState({
+    onChangeValue: null,
+    afterChangeValue: null,
+  });
   const marks = {
     0: '0°C',
     26: '26°C',
@@ -19,11 +23,11 @@ const Sliders = () => {
   };
 
   const onChange = value => {
-    console.log(value);
+    setstate({ ...state, onChangeValue: value });
   };
 
   const onAfterChange = value => {
-    console.log('onAfterChange: ', value);
+    setstate({ ...state, afterChangeValue: value });
   };
 
   const style = {
@@ -53,7 +57,7 @@ const Sliders = () => {
           </Col>
           <Col md={12} sm={24} xs={24}>
             <Cards title="with Icon" caption="The simplest use of slider">
-              <Slider onChange={onChange} icon min={1} max={100} beforeIcon="frown-o" afterIcon="smile-o" />
+              <Slider onChange={onChange} icon min={1} max={100} />
             </Cards>
           </Col>
           <Col md={12} sm={24} xs={24}>

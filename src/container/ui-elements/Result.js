@@ -1,6 +1,7 @@
 import React from 'react';
-import { Row, Col, Result, Button, Icon, Typography } from 'antd';
+import { Row, Col, Result, Button, Typography } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { CloseCircleOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -114,11 +115,11 @@ const Results = () => {
                     </Text>
                   </Paragraph>
                   <Paragraph>
-                    <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen
+                    <CloseCircleOutlined style={{ color: 'red' }} /> Your account has been frozen
                     <NavLink to="#">Thaw immediately &gt;</NavLink>
                   </Paragraph>
                   <Paragraph>
-                    <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to apply{' '}
+                    <CloseCircleOutlined style={{ color: 'red' }} /> Your account is not yet eligible to apply{' '}
                     <NavLink to="#">Apply Unlock &gt;</NavLink>
                   </Paragraph>
                 </div>

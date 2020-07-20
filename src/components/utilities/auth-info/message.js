@@ -37,12 +37,12 @@ const MessageBox = () => {
                     <Heading as="h5">
                       Software <span className="color-success">3 hrs ago</span>
                     </Heading>
-                    <p>
+                    <div>
                       <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                       <span>
                         <Badge className="badge-success" count={3} />
                       </span>
-                    </p>
+                    </div>
                   </figcaption>
                 </figure>
               </Link>
@@ -55,12 +55,12 @@ const MessageBox = () => {
                     <Heading as="h5">
                       Software <span className="color-success">3 hrs ago</span>
                     </Heading>
-                    <p>
+                    <div>
                       <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                       <span>
                         <Badge className="badge-success" count={3} />
                       </span>
-                    </p>
+                    </div>
                   </figcaption>
                 </figure>
               </Link>
@@ -73,12 +73,12 @@ const MessageBox = () => {
                     <Heading as="h5">
                       Software <span className="color-success">3 hrs ago</span>
                     </Heading>
-                    <p>
+                    <div>
                       <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                       <span>
                         <Badge className="badge-success" count={3} />
                       </span>
-                    </p>
+                    </div>
                   </figcaption>
                 </figure>
               </Link>
@@ -91,12 +91,12 @@ const MessageBox = () => {
                     <Heading as="h5">
                       Software <span className="color-success">3 hrs ago</span>
                     </Heading>
-                    <p>
+                    <div>
                       <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                       <span>
                         <Badge className="badge-success" count={3} />
                       </span>
-                    </p>
+                    </div>
                   </figcaption>
                 </figure>
               </Link>
@@ -109,12 +109,12 @@ const MessageBox = () => {
                     <Heading as="h5">
                       Software <span className="color-success">3 hrs ago</span>
                     </Heading>
-                    <p>
+                    <div>
                       <span className="atbd-top-dropdwonText">Lorem ipsum dolor amet cosec...</span>
                       <span>
                         <Badge className="badge-success" count={3} />
                       </span>
-                    </p>
+                    </div>
                   </figcaption>
                 </figure>
               </Link>
@@ -131,7 +131,7 @@ const MessageBox = () => {
 
   return (
     <div className="message">
-      <Popover placement="bottomLeft" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} action="click">
         <Badge dot offset={[-8, -5]}>
           <Link to="#" className="head-example">
             <FeatherIcon icon="mail" size={20} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Upload, Select } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -8,9 +8,12 @@ import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
 const Info = ({ match }) => {
+  const [state, setState] = useState({
+    values: '',
+  });
   const [form] = Form.useForm();
   const handleSubmit = values => {
-    console.log(values);
+    setState({ ...state, values });
   };
 
   return (

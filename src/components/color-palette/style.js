@@ -1,20 +1,5 @@
 import Styled from 'styled-components';
 
-const ColorPalette = Styled.div`
-    width: 100%;
-    height: 44px;
-    background: ${({ type }) => type}
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    justify-content: center;
-    ${({ isbordered, type }) => isbordered && borderd(type)}
-    ${({ iscontent }) => iscontent && content()}
-    ${({ isbg }) => isbg && bg()}
-    ${({ isgrad, type, direction }) => isgrad && grad(type, direction)}
-`;
 const borderd = type => {
   return `
         background: #ffffff;
@@ -38,5 +23,21 @@ const grad = (type, direction) => {
          height: 100px;
         `;
 };
+
+const ColorPalette = Styled.div`
+    width: 100%;
+    height: 44px;
+    background: ${({ type }) => type}
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: center;
+    ${({ isbordered, type }) => isbordered && borderd(type)}
+    ${({ iscontent }) => iscontent && content()}
+    ${({ isbg }) => isbg && bg()}
+    ${({ isgrad, type, direction }) => isgrad && grad(type, direction)}
+`;
 
 export { ColorPalette };

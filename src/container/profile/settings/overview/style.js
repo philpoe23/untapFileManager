@@ -7,7 +7,7 @@ const ProfileAuthorBox = Styled.div`
     .author-info{
         padding: 0 20px 20px;
         text-align: center;
-        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     figure{
         position: relative;
@@ -31,7 +31,7 @@ const ProfileAuthorBox = Styled.div`
                 justify-content: center;
                 border-radius: 50%;
                 width: 32px;
-                background: ${({theme})=>theme['primary-color']};
+                background: ${({ theme }) => theme['primary-color']};
             } 
             a{
                 display: flex;
@@ -54,7 +54,7 @@ const ProfileAuthorBox = Styled.div`
             }
             p{
                 margin-bottom: 0;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
             }
         }
     }
@@ -67,7 +67,7 @@ const ProfileAuthorBox = Styled.div`
                 align-items: center;
                 padding: 12px 20px;
                 border-radius: 6px;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
                 i,
                 svg,
                 img{
@@ -75,8 +75,8 @@ const ProfileAuthorBox = Styled.div`
                 }
                 &.active{
                     font-weight: 500;
-                    color: ${({theme})=>theme['primary-color']};
-                    background: ${({theme})=>theme['primary-color']}05;
+                    color: ${({ theme }) => theme['primary-color']};
+                    background: ${({ theme }) => theme['primary-color']}05;
                 }
             }
         }
@@ -129,7 +129,7 @@ const SettingWrapper = Styled.div`
         span{
             font-size: 13px;
             margin: 0;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
         }
     }
 `;
@@ -144,7 +144,7 @@ const AccountWrapper = Styled.div`
     .account-form-top{
         margin-bottom: 26px;
         padding-bottom: 30px; 
-        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     .account-form{
         .ant-row{
@@ -154,10 +154,10 @@ const AccountWrapper = Styled.div`
         }
         p{
             margin: 2px 0 22px;
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
             span{
                     font-weight: 500;
-                    color: ${({theme})=>theme['dark-color']};
+                    color: ${({ theme }) => theme['dark-color']};
             }
         }
     }
@@ -172,7 +172,7 @@ const AccountWrapper = Styled.div`
         }
         p{
             margin-bottom: 0;
-            color: ${({theme})=>theme['gray-color']};
+            color: ${({ theme }) => theme['gray-color']};
         }
         button{
             height: 38px;
@@ -194,8 +194,8 @@ const AccountWrapper = Styled.div`
         }
         .ant-btn-light{
             font-weight: 400;
-            background: ${({theme})=>theme['bg-color-light']};
-            border: 1px solid ${({theme})=>theme['border-color-light']};
+            background: ${({ theme }) => theme['bg-color-light']};
+            border: 1px solid ${({ theme }) => theme['border-color-light']};
         }
     }
 `;
@@ -211,12 +211,12 @@ const ChangePasswordWrapper = Styled.div`
             }
         }
         .input-message{
-            color: ${({theme})=>theme['light-color']};
+            color: ${({ theme }) => theme['light-color']};
             margin: -22px 0 0;
         }
         .setting-form-actions{
             .ant-btn-light{
-                border: 1px solid ${({theme})=>theme['border-color-light']};
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
             }
         }
     }
@@ -308,7 +308,7 @@ const NotificationWrapper = Styled.div`
             .notification-header__text{
                 font-size: 15px;
                 font-weight: 500;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
             }
             .btn-toggle{
                 font-size: 13px;
@@ -328,7 +328,7 @@ const NotificationWrapper = Styled.div`
                         padding: 15px 20px !important;
                     }
                     &:not(:last-child){
-                        border-bottom: 1px solid ${({theme})=>theme['border-color-light']};
+                        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                     }
                 }
             }
@@ -338,11 +338,11 @@ const NotificationWrapper = Styled.div`
                 font-size: 14px;
                 font-weight: 500;
                 margin-bottom: 2px;
-                color: ${({theme})=>theme['gray-color']};
+                color: ${({ theme }) => theme['gray-color']};
             }
             p{
                 margin-bottom: 3px;
-                color: ${({theme})=>theme['light-color']};
+                color: ${({ theme }) => theme['light-color']};
             }
         }
     }
@@ -354,12 +354,11 @@ const NotificationWrapper = Styled.div`
     }
 `;
 
-
-export { 
-    ProfileAuthorBox,
-    SettingWrapper,
-    AccountWrapper,
-    ChangePasswordWrapper,
-    SocialProfileForm,
-    NotificationWrapper
-  };
+export {
+  ProfileAuthorBox,
+  SettingWrapper,
+  AccountWrapper,
+  ChangePasswordWrapper,
+  SocialProfileForm,
+  NotificationWrapper,
+};

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Pagination } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
 const Paginations = () => {
+  const [state, setstate] = useState({
+    current: 0,
+    pageSize: 0,
+    page: 0,
+  });
   const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+    setstate({ ...state, current, pageSize });
   };
 
   const onChange = pageNumber => {
-    console.log('Page: ', pageNumber);
+    setstate({ ...state, pageNumber });
   };
 
   return (

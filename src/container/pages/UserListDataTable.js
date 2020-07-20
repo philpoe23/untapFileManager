@@ -19,6 +19,8 @@ const UserListDataTable = () => {
 
   const [state, setState] = useState({
     notdata: searchData,
+    selectedRowKeys: 0,
+    selectedRows: 0,
   });
 
   const { notdata } = state;
@@ -115,7 +117,7 @@ const UserListDataTable = () => {
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      setState({ selectedRowKeys, selectedRows });
     },
     getCheckboxProps: record => ({
       disabled: record.name === 'Disabled User', // Column configuration not to be checked

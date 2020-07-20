@@ -142,7 +142,7 @@ const NotificationBox = () => {
 
   return (
     <div className="notification">
-      <Popover placement="bottomLeft" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} action="click">
         <Badge dot offset={[-8, -5]}>
           <Link to="#" className="head-example">
             <FeatherIcon icon="bell" size={20} />

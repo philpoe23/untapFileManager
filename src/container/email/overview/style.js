@@ -306,7 +306,7 @@ const EmailNav = Styled.nav`
         }
         &.active{
           background: rgba(95,99,242,0.1);
-          color: ${({theme})=>theme["primary-color"]};
+          color: ${({ theme }) => theme['primary-color']};
         }
       }
 

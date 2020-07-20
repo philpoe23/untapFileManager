@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
 import { Upload } from 'antd';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
@@ -12,11 +15,9 @@ import { updatePrivetChat } from '../../../redux/chat/actionCreator';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
-// @Todo props validation
-// @Todo valid Link
-// @Todo valid require()
-
-const SingleChat = ({ chat, match, updatePrivetChat }) => {
+const SingleChat = ({ match }) => {
+  const dispatch = useDispatch();
+  const chat = useSelector(state => state.chatSingle.data);
   const [state, setState] = useState({
     chatData: chat,
     me: 'woadud@gmail.com',
@@ -61,7 +62,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
       reaction: false,
       email: me,
     };
-    updatePrivetChat(match.params.id, pushcontent);
+    dispatch(updatePrivetChat(match.params.id, pushcontent));
     setState({
       ...state,
       singleContent: [...singleContent, pushcontent],
@@ -128,27 +129,27 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
                                   <ul>
                                     <li>
                                       <Link to="#">
-                                        <span>&#127773;</span>
+                                        <span role="img">&#127773;</span>
                                       </Link>
                                     </li>
                                     <li>
                                       <Link to="#">
-                                        <span>&#128116;</span>
+                                        <span role="img">&#128116;</span>
                                       </Link>
                                     </li>
                                     <li>
                                       <Link to="#">
-                                        <span>&#128127;</span>
+                                        <span role="img">&#128127;</span>
                                       </Link>
                                     </li>
                                     <li>
                                       <Link to="#">
-                                        <span>&#128151;</span>
+                                        <span role="img">&#128151;</span>
                                       </Link>
                                     </li>
                                     <li>
                                       <Link to="#">
-                                        <span>&#128400;</span>
+                                        <span role="img">&#128400;</span>
                                       </Link>
                                     </li>
                                     <li>
@@ -313,15 +314,7 @@ const SingleChat = ({ chat, match, updatePrivetChat }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    chat: state.chatSingle.data,
-  };
+SingleChat.propTypes = {
+  match: PropTypes.object,
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    updatePrivetChat: (id, data) => dispatch(updatePrivetChat(id, data)),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(SingleChat);
+export default SingleChat;

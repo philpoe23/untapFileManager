@@ -1,7 +1,7 @@
 import Styled from 'styled-components';
 import { Popover } from 'antd';
-const Content = Styled.div`
-  
+
+const Content = Styled.div`  
   a, .span {
       display: block;
       color: #888;

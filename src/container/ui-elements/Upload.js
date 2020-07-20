@@ -14,21 +14,12 @@ const props = {
   },
   onChange(info) {
     if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
+      // console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
       message.success(`${info.file.name} file uploaded successfully`);
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
-
-const defaultProps = {
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  onChange({ file, fileList }) {
-    if (file.status !== 'uploading') {
-      console.log(file, fileList);
     }
   },
 };
@@ -62,6 +53,28 @@ const Uploads = () => {
       },
     ],
     loading: false,
+    defaultFilelist: [
+      {
+        uid: '-1',
+        name: 'xxx.png',
+        status: 'done',
+        response: 'Server Error 500', // custom error message to show
+        url: 'http://www.baidu.com/xxx.png',
+      },
+      {
+        uid: '-2',
+        name: 'yyy.png',
+        status: 'done',
+        url: 'http://www.baidu.com/yyy.png',
+      },
+      {
+        uid: '-3',
+        name: 'zzz.png',
+        status: 'error',
+        response: 'Server Error 500', // custom error message to show
+        url: 'http://www.baidu.com/zzz.png',
+      },
+    ],
   });
 
   const onHandleChange = info => {
@@ -82,21 +95,14 @@ const Uploads = () => {
 
   const handleChange = info => {
     let fileList = [...info.fileList];
-
-    // 1. Limit the number of uploaded files
-    // Only to show two recent uploaded files, and old ones will be replaced by the new
     fileList = fileList.slice(-2);
-
-    // 2. Read from response and show file link
     fileList = fileList.map(file => {
       if (file.response) {
-        // Component will show file.url as link
         // eslint-disable-next-line no-param-reassign
         file.url = file.response.url;
       }
       return file;
     });
-
     setState({ ...state, fileList });
   };
 
@@ -106,7 +112,16 @@ const Uploads = () => {
       <div className="ant-upload-text">Upload</div>
     </div>
   );
-  const { imageUrl } = state;
+  const { imageUrl, defaultFilelist } = state;
+
+  const defaultProps = {
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    onChange({ file, fileList }) {
+      if (file.status !== 'uploading') {
+        setState({ ...state, defaultFilelist: [...defaultFilelist, fileList] });
+      }
+    },
+  };
 
   return (
     <>
@@ -115,7 +130,7 @@ const Uploads = () => {
         <Row gutter={15}>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Basic">
-              <Upload props={props}>
+              <Upload {...props}>
                 <Button size="large" type="light" outlined>
                   <UploadOutlined /> Click to Upload
                 </Button>
@@ -155,31 +170,7 @@ const Uploads = () => {
           </Col>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Upload Default">
-              <Upload
-                props={defaultProps}
-                fileList={[
-                  {
-                    uid: '-1',
-                    name: 'xxx.png',
-                    status: 'done',
-                    response: 'Server Error 500', // custom error message to show
-                    url: 'http://www.baidu.com/xxx.png',
-                  },
-                  {
-                    uid: '-2',
-                    name: 'yyy.png',
-                    status: 'done',
-                    url: 'http://www.baidu.com/yyy.png',
-                  },
-                  {
-                    uid: '-3',
-                    name: 'zzz.png',
-                    status: 'error',
-                    response: 'Server Error 500', // custom error message to show
-                    url: 'http://www.baidu.com/zzz.png',
-                  },
-                ]}
-              >
+              <Upload props={defaultProps} fileList={defaultFilelist}>
                 <Button size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>

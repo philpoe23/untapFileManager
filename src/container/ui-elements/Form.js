@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Select, Input, InputNumber } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -11,13 +11,16 @@ const { TextArea } = Input;
 
 const Forms = () => {
   const [form] = Form.useForm();
-
+  const [state, setstate] = useState({
+    values: {},
+    cascaderItem: [],
+  });
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setstate({ ...state, values });
   };
 
-  const onChange = value => {
-    console.log(value);
+  const onChangeCascader = value => {
+    setstate({ ...state, cascaderItem: value });
   };
 
   return (
@@ -52,9 +55,9 @@ const Forms = () => {
                 <Form.Item label="Textarea" name="textarea">
                   <TextArea />
                 </Form.Item>
-                <Form.Item label="Cascader" name="Cascader">
-                  <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
-                </Form.Item>
+                <p>Cascader</p>
+                <Cascader onChange={onChangeCascader} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+
                 <Form.Item label="Selectc" name="Selectc">
                   <Select
                     showSearch
