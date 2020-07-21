@@ -9,6 +9,26 @@ import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import CommentEditor from '../../components/comments/comments-editor';
 
+const ExampleComment = ({ children }) => (
+  <Comment
+    actions={[<span key="comment-nested-reply-to">Reply</span>]}
+    author={<NavLink to="#">Han Solo</NavLink>}
+    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
+    content={
+      <p>
+        We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+        Axure).
+      </p>
+    }
+  >
+    {children}
+  </Comment>
+);
+
+ExampleComment.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+};
+
 const Comments = () => {
   const [state, setState] = useState({
     likes: 0,
@@ -100,26 +120,6 @@ const Comments = () => {
       ),
     },
   ];
-
-  const ExampleComment = ({ children }) => (
-    <Comment
-      actions={[<span key="comment-nested-reply-to">Reply</span>]}
-      author={<NavLink to="#">Han Solo</NavLink>}
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-      content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-          Axure).
-        </p>
-      }
-    >
-      {children}
-    </Comment>
-  );
-
-  ExampleComment.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  };
 
   return (
     <>

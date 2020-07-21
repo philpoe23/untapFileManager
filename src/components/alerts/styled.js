@@ -1,10 +1,20 @@
 import Styled from 'styled-components';
 import { Alert } from 'antd';
 
-/**
- * Ant built in alert type is sufficient, we don't need extra accented alert but
- * variation is ancouraged
- */
+const outline = (theme, type) => {
+  return `
+    border: 1px solid ${theme[`${type}-color`]} !important;
+    background: #fff!important;
+    &:hover, &:focus, &:active {
+      .ant-alert-message, .ant-alert-message{
+        color: #fff;
+      }
+    }
+    .ant-alert-message, .ant-alert-message {
+      color: ${theme[`${type}-color`]}
+    }
+  `;
+};
 
 const Style = Styled(Alert)`
   border-radius: ${({ shape }) => (!shape ? '4px' : '40px')} !important;
@@ -18,7 +28,7 @@ const Style = Styled(Alert)`
     font-weight: 500 !important;
   }
   .ant-alert-message, .ant-alert-description {
-    color: ${({ type, theme }) => theme[type + '-color']} !important;
+    color: ${({ type, theme }) => theme[`${type}-color`]} !important;
   }
   .ant-alert-close-text{
     font-size: 12px;
@@ -40,7 +50,7 @@ const Style = Styled(Alert)`
       margin-top: -2px;
     }
     i.ant-alert-icon {
-      color: ${({ type, theme }) => theme[type + '-color']} !important;
+      color: ${({ type, theme }) => theme[`${type}-color`]} !important;
       background: #ffffff80 !important;
       height: 100%;
       width: 50px;
@@ -62,23 +72,8 @@ const Style = Styled(Alert)`
   }
   
   &:hover, &:focus, &:active {
-      background: ${({ type, theme }) => theme[type + '-hover']}15 !important;             
+      background: ${({ type, theme }) => theme[`${type}-hover`]}15 !important;             
   }
 `;
-
-const outline = (theme, type) => {
-  return `
-    border: 1px solid ${theme[type + '-color']} !important;
-    background: #fff!important;
-    &:hover, &:focus, &:active {
-      .ant-alert-message, .ant-alert-message{
-        color: #fff;
-      }
-    }
-    .ant-alert-message, .ant-alert-message {
-      color: ${theme[type + '-color']}
-    }
-  `;
-};
 
 export { Style };

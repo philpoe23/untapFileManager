@@ -1,7 +1,7 @@
 import actions from './actions';
 import staticData from '../../config/dataService/emailData.json';
 
-const emailReducer = (state = staticData, action) => {
+const emailReducer = (state = staticData) => {
   return state;
 };
 

@@ -57,7 +57,18 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'info',
+    'warning',
+    'danger',
+    'link',
+    'dark',
+    'light',
+    'white',
+  ]),
   shape: PropTypes.string,
   icon: PropTypes.string,
   size: PropTypes.string,
@@ -77,7 +88,7 @@ const BtnGroup = ({ children }) => {
 };
 
 BtnGroup.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 };
 
 export { Button, BtnGroup };

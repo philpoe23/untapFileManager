@@ -57,7 +57,7 @@ const Orders = () => {
   };
 
   const dataSource = [];
-  if (orders.length)
+  if (orders.length) {
     orders.map((value, key) => {
       const { status, orderId, customars, amount, date } = value;
       return dataSource.push({
@@ -84,6 +84,7 @@ const Orders = () => {
         ),
       });
     });
+  }
 
   const columns = [
     {

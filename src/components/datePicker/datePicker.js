@@ -30,13 +30,12 @@ class DateRangePickerOne extends Component {
   }
 
   handleRangeChange(which, payload) {
-    this.setState({
+    this.setState(state => ({
       [which]: {
-        // eslint-disable-next-line react/destructuring-assignment
-        ...this.state[which],
+        ...state[which],
         ...payload,
       },
-    });
+    }));
   }
 
   render() {

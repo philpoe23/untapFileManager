@@ -1,5 +1,5 @@
-import initialState from '../../config/dataService/products.json';
 import actions from './actions';
+import initialState from '../../config/dataService/products.json';
 
 const {
   singleProductBegin,
@@ -67,9 +67,8 @@ const filterByRating = range => {
         const data = initialState.filter(product => {
           if (range[0].length) {
             return range[0].includes(product.rate);
-          } else {
-            return initialState;
           }
+          return initialState;
         });
         dispatch(filterProductSuccess(data));
       }, 100);

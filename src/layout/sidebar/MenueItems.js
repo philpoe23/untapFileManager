@@ -360,4 +360,8 @@ MenueItems.propTypes = {
   darkMode: propTypes.bool,
 };
 
+MenueItems.defaultProps = {
+  darkMode: false,
+};
+
 export default MenueItems;

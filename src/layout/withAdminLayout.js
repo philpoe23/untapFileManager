@@ -8,8 +8,9 @@ import MenueItems from './sidebar/MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { darkTheme } from '../config/theme/themeVariables';
 import config from '../config/config';
+
+const { darkTheme } = require('../config/theme/themeVariables');
 
 const { Header, Footer, Sider, Content } = Layout;
 const { darkMode } = config;
