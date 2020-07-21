@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -8,20 +8,15 @@ import { Checkbox } from '../../components/checkbox/checkbox';
 const Checkboxs = () => {
   const [state, setState] = useState({
     checkdata: [],
+    checked: null,
   });
 
   const multipleChange = childData => {
-    setState({ checkdata: childData });
+    setState({ ...state, checkdata: childData });
   };
 
-  useEffect(() => {
-    if (state) {
-      console.log(state);
-    }
-  });
-
   const onChange = checked => {
-    console.log(`checked = ${checked}`);
+    setState({ ...state, checked });
   };
 
   return (

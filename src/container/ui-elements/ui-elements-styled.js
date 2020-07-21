@@ -247,5 +247,5 @@ export {
   BadgeDynamicStyle,
   CardStyleWrapper,
   CasCaderStyleWrapper,
-  SelectWrapperStyle
+  SelectWrapperStyle,
 };

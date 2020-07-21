@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
@@ -17,6 +17,9 @@ const Single = props => {
   const { match, history } = props;
   const email = useSelector(state => state.emailSingle.data[0]);
   const dispatch = useDispatch();
+  const [state, setState] = useState({
+    replyMessage: 0,
+  });
 
   useEffect(() => {
     if (filterSinglepage) {
@@ -27,7 +30,7 @@ const Single = props => {
 
   const replyMail = async replyMessage => {
     // hit replyMail api
-    console.log(replyMessage);
+    setState({ ...state, replyMessage });
   };
 
   return (

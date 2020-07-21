@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { AuthWrapper } from './style';
 import { login } from '../../../../redux/authentication/actionCreator';
@@ -12,13 +13,15 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.auth.loading);
   const [form] = Form.useForm();
-
+  const [state, setState] = useState({
+    checked: null,
+  });
   const handleSubmit = () => {
     dispatch(login());
   };
 
   const onChange = checked => {
-    console.log(`checked = ${checked}`);
+    setState({ ...state, checked });
   };
 
   return (

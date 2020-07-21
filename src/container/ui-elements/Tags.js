@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -6,16 +6,18 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Tag } from '../../components/tags/tags';
 
 const Tags = () => {
+  const [state, setstate] = useState({
+    checke: null,
+  });
   const log = () => {
     // console.log(e);
   };
 
   const checked = checke => {
-    console.log(checke);
+    setstate({ ...state, checke });
   };
 
-  const preventDefault = e => {
-    e.preventDefault();
+  const preventDefault = () => {
     // console.log('Clicked! But prevent default.');
   };
 
@@ -63,25 +65,7 @@ const Tags = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Checkable Tag" caption="The simplest use of tags">
-              <Tag checked onChange={checked}>
-                Tag 1
-              </Tag>
-              <Tag checked onChange={checked}>
-                Tag 2
-              </Tag>
-              <Tag checked onChange={checked}>
-                Tag 3
-              </Tag>
-              <Tag checked onChange={checked}>
-                Tag 4
-              </Tag>
-              <Tag checked onChange={checked}>
-                Tag 5
-              </Tag>
-            </Cards>
-          </Col>
+
           <Col md={12} sm={24} xs={24}>
             <Cards title="Hot Tag" caption="The simplest use of tags">
               <Tag hottags onChange={checked} data={['Movies', 'Books', 'Music', 'Sports']} />

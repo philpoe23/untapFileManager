@@ -19,8 +19,9 @@ Heading.defaultProps = {
 
 Heading.propTypes = {
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
   className: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default Heading;

@@ -45,7 +45,7 @@ const Support = () => {
 
   return (
     <div className="support">
-      <Popover placement="bottomLeft" content={content} trigger="click">
+      <Popover placement="bottomLeft" content={content} action="click">
         <Link to="#" className="head-example">
           <FeatherIcon icon="help-circle" size={20} />
         </Link>

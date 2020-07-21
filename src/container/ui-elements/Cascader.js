@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import { CasCaderStyleWrapper } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -20,12 +20,16 @@ const options = [
 ];
 
 const Cascaders = () => {
+  const [state, setState] = useState({
+    value: null,
+    loading: [],
+  });
   const onChange = value => {
-    console.log(value);
+    setState({ ...state, value });
   };
 
   const onChangeLoading = (value, selectedOptions) => {
-    console.log(value, selectedOptions);
+    setState({ ...state, loading: [value, selectedOptions] });
   };
 
   return (

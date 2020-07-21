@@ -357,7 +357,11 @@ const MenueItems = ({ darkMode }) => {
 };
 
 MenueItems.propTypes = {
-  darkMode: propTypes.string.isRequired,
+  darkMode: propTypes.bool,
+};
+
+MenueItems.defaultProps = {
+  darkMode: false,
 };
 
 export default MenueItems;

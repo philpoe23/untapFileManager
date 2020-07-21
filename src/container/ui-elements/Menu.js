@@ -13,14 +13,13 @@ const Menus = () => {
   });
 
   const handleClick = e => {
-    console.log('click ', e);
     setState({
       current: e.key,
     });
   };
 
-  const onVerticleHandleClick = e => {
-    console.log('click ', e);
+  const onVerticleHandleClick = () => {
+    // console.log('click ', e);
   };
 
   return (

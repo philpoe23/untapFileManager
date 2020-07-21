@@ -3,10 +3,31 @@ import { Row, Col, Comment, Tooltip, Avatar, List } from 'antd';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import CommentEditor from '../../components/comments/comments-editor';
+
+const ExampleComment = ({ children }) => (
+  <Comment
+    actions={[<span key="comment-nested-reply-to">Reply</span>]}
+    author={<NavLink to="#">Han Solo</NavLink>}
+    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
+    content={
+      <p>
+        We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+        Axure).
+      </p>
+    }
+  >
+    {children}
+  </Comment>
+);
+
+ExampleComment.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+};
 
 const Comments = () => {
   const [state, setState] = useState({
@@ -99,22 +120,6 @@ const Comments = () => {
       ),
     },
   ];
-
-  const ExampleComment = ({ children }) => (
-    <Comment
-      actions={[<span key="comment-nested-reply-to">Reply</span>]}
-      author={<NavLink to="#">Han Solo</NavLink>}
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-      content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-          Axure).
-        </p>
-      }
-    >
-      {children}
-    </Comment>
-  );
 
   return (
     <>

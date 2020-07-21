@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { SocialProfileForm } from './style';
@@ -10,8 +10,12 @@ import { BasicFormWrapper } from '../../../styled';
 const SocialProfile = () => {
   const [form] = Form.useForm();
 
+  const [state, setState] = useState({
+    values: null,
+  });
+
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
 
   const handleCancel = e => {
@@ -54,16 +58,16 @@ const SocialProfile = () => {
                 </Form.Item>
                 <Form.Item name="youtube" label="Youtube">
                   <Input className="youtube" prefix={<FeatherIcon icon="youtube" size={16} />} placeholder="Url" />
-                  <div className="setting-form-actions">
-                    <Button size="default" htmlType="submit" type="primary">
-                      Update Social Profile
-                    </Button>
-                    &nbsp; &nbsp;
-                    <Button size="default" onClick={handleCancel} type="light">
-                      Cancel
-                    </Button>
-                  </div>
                 </Form.Item>
+                <div className="setting-form-actions">
+                  <Button size="default" htmlType="submit" type="primary">
+                    Update Social Profile
+                  </Button>
+                  &nbsp; &nbsp;
+                  <Button size="default" onClick={handleCancel} type="light">
+                    Cancel
+                  </Button>
+                </div>
               </Form>
             </BasicFormWrapper>
           </Col>

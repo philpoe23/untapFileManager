@@ -37,7 +37,8 @@ const updatePrivetChat = (paramsId, pushItem) => {
   return async dispatch => {
     try {
       dispatch(updatePrivetChatBegin());
-      const data = initialState[0].privetChat.map(user => {
+      const data = initialState[0].privetChat.map(item => {
+        const user = item;
         if (user.email === paramsId) {
           user.time = pushItem.time;
           user.content = [...user.content, pushItem];
@@ -69,7 +70,8 @@ const updateGroupChat = (paramsId, pushItem) => {
   return async dispatch => {
     try {
       dispatch(updateGroupChatBegin());
-      const data = initialState[0].groupChat.map(user => {
+      const data = initialState[0].groupChat.map(item => {
+        const user = item;
         if (user.id === paramsId) {
           user.time = pushItem.time;
           user.content = [...user.content, pushItem];

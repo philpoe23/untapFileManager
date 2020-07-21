@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, DatePicker, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/buttons/buttons';
@@ -8,9 +8,11 @@ const dateFormat = 'MM/DD/YYYY';
 
 const Work = () => {
   const [form] = Form.useForm();
-
+  const [state, setState] = useState({
+    values: '',
+  });
   const handleSubmit = values => {
-    console.log(values);
+    setState({ ...state, values });
   };
 
   return (

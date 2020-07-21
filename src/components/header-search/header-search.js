@@ -1,8 +1,7 @@
 import React from 'react';
-import { Icon, Input, Row, Col } from 'antd';
+import { Input, Row, Col } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Div } from './header-search-style';
 import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import { Popover } from '../popup/popup';
@@ -38,7 +37,7 @@ const HeaderSearch = () => {
       <Div className="certain-category-search-wrapper" style={{ width: '100%' }}>
         <Row>
           <Col md={2} className="text-right">
-            <Icon type="search" className="certain-category-icon" />
+            {/* <Icon type="search" className="certain-category-icon" /> */}
           </Col>
           <Col md={22} xs={24}>
             <Popover placement="bottomLeft" content={content} title="Search List" trigger="focus">
@@ -49,11 +48,6 @@ const HeaderSearch = () => {
       </Div>
     </>
   );
-};
-
-HeaderSearch.propTypes = {
-  searchData: PropTypes.array,
-  headerSearch: PropTypes.func,
 };
 
 export default HeaderSearch;

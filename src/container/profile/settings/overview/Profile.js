@@ -12,10 +12,11 @@ const Profile = () => {
 
   const [state, setState] = useState({
     tags: ['UI/UX', 'Branding', 'Product Design', 'Web Design'],
+    values: null,
   });
 
   const handleSubmit = values => {
-    console.log('Received values of form: ', { ...values, tags: state.tags });
+    setState({ ...state, values: { ...values, tags: state.tags } });
   };
 
   const handleCancel = e => {
@@ -79,16 +80,16 @@ const Profile = () => {
                 <TagInput>
                   <Tag animate onChange={checked} data={state.tags} />
                 </TagInput>
-                <div className="setting-form-actions">
-                  <Button size="default" htmlType="submit" type="primary">
-                    Update Profile
-                  </Button>
-                  &nbsp; &nbsp;
-                  <Button size="default" onClick={handleCancel} type="light">
-                    Cancel
-                  </Button>
-                </div>
               </Form.Item>
+              <div className="setting-form-actions">
+                <Button size="default" htmlType="submit" type="primary">
+                  Update Profile
+                </Button>
+                &nbsp; &nbsp;
+                <Button size="default" onClick={handleCancel} type="light">
+                  Cancel
+                </Button>
+              </div>
             </Form>
           </BasicFormWrapper>
         </Col>

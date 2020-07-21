@@ -7,13 +7,11 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 
 const Confirme = () => {
-  const confirm = e => {
-    console.log(e);
+  const confirm = () => {
     message.success('Click on Yes');
   };
 
-  const cancel = e => {
-    console.log(e);
+  const cancel = () => {
     message.error('Click on No');
   };
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonStyledGroup, ButtonStyled } from './styled';
 
+// @Todo props spreading
+
 const Button = props => {
   const {
     type,
@@ -43,7 +45,7 @@ const Button = props => {
       social={social}
       onClick={load && enterLoading}
       loading={state.loading}
-      rest={rest}
+      {...rest}
     >
       {children}
     </ButtonStyled>
@@ -55,7 +57,18 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'info',
+    'warning',
+    'danger',
+    'link',
+    'dark',
+    'light',
+    'white',
+  ]),
   shape: PropTypes.string,
   icon: PropTypes.string,
   size: PropTypes.string,
@@ -67,7 +80,7 @@ Button.propTypes = {
   social: PropTypes.bool,
   load: PropTypes.bool,
   ghost: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 const BtnGroup = ({ children }) => {
@@ -75,7 +88,7 @@ const BtnGroup = ({ children }) => {
 };
 
 BtnGroup.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 };
 
 export { Button, BtnGroup };

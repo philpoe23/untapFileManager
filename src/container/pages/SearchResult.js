@@ -14,6 +14,8 @@ const SearchResult = () => {
   const [state, setState] = useState({
     notdata: searchData,
     activeClass: 'all',
+    current: 0,
+    pageSize: 0,
   });
   const { notdata } = state;
 
@@ -33,12 +35,12 @@ const SearchResult = () => {
   };
 
   const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   return (
@@ -55,7 +57,7 @@ const SearchResult = () => {
                 <ul>
                   <li>
                     <Link
-                      className={state.activeClass === 'all' && 'active'}
+                      className={state.activeClass === 'all' ? 'active' : 'deactive'}
                       onClick={() => handleChange('all')}
                       to="#"
                     >
@@ -64,7 +66,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'webDesign' && 'active'}
+                      className={state.activeClass === 'webDesign' ? 'active' : 'deactive'}
                       onClick={() => handleChange('webDesign')}
                       to="#"
                     >
@@ -73,7 +75,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'uiDesign' && 'active'}
+                      className={state.activeClass === 'uiDesign' ? 'active' : 'deactive'}
                       onClick={() => handleChange('uiDesign')}
                       to="#"
                     >
@@ -82,7 +84,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'wireframe' && 'active'}
+                      className={state.activeClass === 'wireframe' ? 'active' : 'deactive'}
                       onClick={() => handleChange('wireframe')}
                       to="#"
                     >
@@ -91,7 +93,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'presentation' && 'active'}
+                      className={state.activeClass === 'presentation' ? 'active' : 'deactive'}
                       onClick={() => handleChange('presentation')}
                       to="#"
                     >

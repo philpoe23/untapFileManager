@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, Statistic, Button, Icon } from 'antd';
+import { Row, Col, Statistic, Button } from 'antd';
+import { LikeOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -9,7 +10,7 @@ const { Countdown } = Statistic;
 
 const Statistics = () => {
   const onFinish = () => {
-    console.log('finished!');
+    // console.log('finished!');
   };
 
   return (
@@ -36,7 +37,7 @@ const Statistics = () => {
             <Cards title="Unit" caption="The simplest use of Statistic">
               <Row gutter={16}>
                 <Col span={12}>
-                  <Statistic title="Feedback" value={1128} prefix={<Icon type="like" />} />
+                  <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
                 </Col>
                 <Col span={12}>
                   <Statistic title="Unmerged" value={93} suffix="/ 100" />
@@ -53,7 +54,7 @@ const Statistics = () => {
                     value={11.28}
                     precision={2}
                     valueStyle={{ color: '#20C997' }}
-                    prefix={<Icon type="arrow-up" />}
+                    prefix={<ArrowUpOutlined />}
                     suffix="%"
                   />
                 </Col>
@@ -63,7 +64,7 @@ const Statistics = () => {
                     value={9.3}
                     precision={2}
                     valueStyle={{ color: '#FF4D4F' }}
-                    prefix={<Icon type="arrow-down" />}
+                    prefix={<ArrowDownOutlined />}
                     suffix="%"
                   />
                 </Col>

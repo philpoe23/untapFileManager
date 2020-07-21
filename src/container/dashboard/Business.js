@@ -89,11 +89,11 @@ const Business = () => {
         ghost
         title="Finance Dashboard"
         buttons={[
-          <div className="page-header-actions">
-            <CalendarButtonPageHeader key="1" />
-            <ExportButtonPageHeader key="2" />
-            <ShareButtonPageHeader key="3" />
-            <Button size="small" key="4" type="primary">
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>
@@ -197,17 +197,17 @@ const Business = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li className={state.cashFlowActive === 'week' && 'active'}>
+                    <li className={state.cashFlowActive === 'week' ? 'active' : 'regular'}>
                       <Link onClick={() => handleActiveChangeCash('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className={state.cashFlowActive === 'month' && 'active'}>
+                    <li className={state.cashFlowActive === 'month' ? 'active' : 'regular'}>
                       <Link onClick={() => handleActiveChangeCash('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li className={state.cashFlowActive === 'year' && 'active'}>
+                    <li className={state.cashFlowActive === 'year' ? 'active' : 'regular'}>
                       <Link onClick={() => handleActiveChangeCash('year')} to="#">
                         Year
                       </Link>
@@ -267,17 +267,17 @@ const Business = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.incomeFlowActive === 'week' && 'active'}>
+                      <li className={state.incomeFlowActive === 'week' ? 'active' : 'regular'}>
                         <Link onClick={() => handleActiveChangeIncome('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.incomeFlowActive === 'month' && 'active'}>
+                      <li className={state.incomeFlowActive === 'month' ? 'active' : 'regular'}>
                         <Link onClick={() => handleActiveChangeIncome('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.incomeFlowActive === 'year' && 'active'}>
+                      <li className={state.incomeFlowActive === 'year' ? 'active' : 'regular'}>
                         <Link onClick={() => handleActiveChangeIncome('year')} to="#">
                           Year
                         </Link>

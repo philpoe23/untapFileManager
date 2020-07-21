@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Table } from 'antd';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,10 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 import { TasklistAction } from '../style';
 
 const TaskList = () => {
+  const [state, setState] = useState({
+    selectedRowKeys: [],
+    selectedRows: [],
+  });
   const dataSource = [
     {
       key: '1',
@@ -275,7 +279,7 @@ const TaskList = () => {
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      setState({ ...state, selectedRowKeys, selectedRows });
     },
     getCheckboxProps: record => ({
       disabled: record.name === 'Disabled User', // Column configuration not to be checked

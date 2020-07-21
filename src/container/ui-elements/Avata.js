@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Row, Col, Avatar, Icon, Badge } from 'antd';
+import { Row, Col, Avatar, Badge } from 'antd';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UserOutlined } from '@ant-design/icons';
 import { AvatarWraperStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -60,7 +61,7 @@ const Avatars = () => {
             <Cards title="Type">
               <AvatarWraperStyle>
                 <Avatar icon={<UserOutlined />} />
-                <Avatar icon={<Icon type="user" />} />
+                <Avatar icon={<UserOutlined />} />
                 <Avatar>U</Avatar>
                 <Avatar>USER</Avatar>
                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />

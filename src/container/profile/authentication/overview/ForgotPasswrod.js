@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
 import Heading from '../../../../components/heading/heading';
 
 const ForgotPassword = () => {
+  const [state, setState] = useState({
+    values: null,
+  });
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
 
   return (

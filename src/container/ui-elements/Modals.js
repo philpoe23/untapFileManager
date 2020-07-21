@@ -66,7 +66,7 @@ const showConfirm = () => {
     onOk() {
       return new Promise((resolve, reject) => {
         setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-      }).catch(() => console.log('Oops errors!'));
+      }).catch(() => {});
     },
     onCancel() {},
   });
@@ -75,28 +75,28 @@ const showConfirm = () => {
 const Modals = () => {
   const [state, setState] = useState({ visible: false, modalType: 'primary', colorModal: false });
 
-  const showModal = e => {
+  const showModal = type => {
     setState({
       visible: true,
-      modalType: e.target.getAttribute('data'),
+      modalType: type,
     });
   };
 
-  const showColorModal = e => {
+  const showColorModal = type => {
     setState({
       colorModal: true,
-      modalType: e.target.getAttribute('data'),
+      modalType: type,
     });
   };
 
-  const handleOk = e => {
+  const handleOk = () => {
     setState({
       visible: false,
       colorModal: false,
     });
   };
 
-  const handleCancel = e => {
+  const handleCancel = () => {
     setState({
       visible: false,
       colorModal: false,
@@ -123,19 +123,19 @@ const Modals = () => {
             <Cards title="Default Modal" size="large" caption="Default Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
-                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
-                to get user feedback or display information. Additionally
+                interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
+                page to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showModal} type="primary" style={{ margin: '5px', marginLeft: '0' }}>
+              <Button onClick={() => showModal('primary')} type="primary" style={{ margin: '5px', marginLeft: '0' }}>
                 Primary
               </Button>
-              <Button onClick={showModal} type="success" style={{ margin: '5px' }}>
+              <Button onClick={() => showModal('success')} type="success" style={{ margin: '5px' }}>
                 Success
               </Button>
-              <Button onClick={showModal} type="danger" style={{ margin: '5px' }}>
+              <Button onClick={() => showModal('danger')} type="danger" style={{ margin: '5px' }}>
                 Danger
               </Button>
-              <Button onClick={showModal} type="warning" style={{ margin: '5px' }}>
+              <Button onClick={() => showModal('warning')} type="warning" style={{ margin: '5px' }}>
                 Warning
               </Button>
             </Cards>
@@ -156,19 +156,19 @@ const Modals = () => {
             <Cards title="Color Modal" size="large" caption="Color Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
-                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
-                to get user feedback or display information. Additionally
+                interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
+                page to get user feedback or display information. Additionally
               </p>
-              <Button onClick={showColorModal} type="primary" style={{ margin: '5px', marginLeft: 0 }}>
+              <Button onClick={() => showColorModal('primary')} type="primary" style={{ margin: '5px', marginLeft: 0 }}>
                 Primary
               </Button>
-              <Button onClick={showColorModal} type="success" style={{ margin: '5px' }}>
+              <Button onClick={() => showColorModal('success')} type="success" style={{ margin: '5px' }}>
                 Success
               </Button>
-              <Button onClick={showColorModal} type="danger" style={{ margin: '5px' }}>
+              <Button onClick={() => showColorModal('danger')} type="danger" style={{ margin: '5px' }}>
                 Danger
               </Button>
-              <Button onClick={showColorModal} type="warning" style={{ margin: '5px' }}>
+              <Button onClick={() => showColorModal('warning')} type="warning" style={{ margin: '5px' }}>
                 Warning
               </Button>
             </Cards>
@@ -177,8 +177,8 @@ const Modals = () => {
             <Cards title="Information Modal" size="large" caption="Notification Ant Design Modal">
               <p>
                 When requiring users to interact with the application, but without jumping to a new page and
-                interrupting the user's workflow, you can use Modal to create a new floating layer over the current page
-                to get user feedback or display information. Additionally
+                interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
+                page to get user feedback or display information. Additionally
               </p>
               <Button onClick={success} type="success" style={{ margin: '5px', marginLeft: 0 }}>
                 Success

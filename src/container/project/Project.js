@@ -48,12 +48,14 @@ const Project = ({ match }) => {
 
   const showModal = () => {
     setState({
+      ...state,
       visible: true,
     });
   };
 
   const onCancel = () => {
     setState({
+      ...state,
       visible: false,
     });
   };
@@ -80,27 +82,27 @@ const Project = ({ match }) => {
                 <div className="project-sort-nav">
                   <nav>
                     <ul>
-                      <li className={state.categoryActive === 'all' && 'active'}>
+                      <li className={state.categoryActive === 'all' ? 'active' : 'deactive'}>
                         <Link onClick={() => onChangeCategory('all')} to="#">
                           All
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'progress' && 'active'}>
+                      <li className={state.categoryActive === 'progress' ? 'active' : 'deactive'}>
                         <Link onClick={() => onChangeCategory('progress')} to="#">
                           In Progress
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'complete' && 'active'}>
+                      <li className={state.categoryActive === 'complete' ? 'active' : 'deactive'}>
                         <Link onClick={() => onChangeCategory('complete')} to="#">
                           Complete
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'late' && 'active'}>
+                      <li className={state.categoryActive === 'late' ? 'active' : 'deactive'}>
                         <Link onClick={() => onChangeCategory('late')} to="#">
                           Late
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'early' && 'active'}>
+                      <li className={state.categoryActive === 'early' ? 'active' : 'deactive'}>
                         <Link onClick={() => onChangeCategory('early')} to="#">
                           Early
                         </Link>

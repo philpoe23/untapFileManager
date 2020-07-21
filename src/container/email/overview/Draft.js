@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Content from './Content';
 
 const Draft = () => {
-  const [searchData, email] = useSelector(state => [state.searchData, state.email.allMessage]);
+  const [searchData, email] = useSelector(state => [state.headerSearchData, state.email.allMessage]);
   return (
     <Content
       email={email.filter(value => {

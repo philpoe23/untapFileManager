@@ -7,7 +7,8 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 import { faIcons } from '../../config/icon/icon.json';
 
-const FeatherSvgIcons = () => {
+const FaIcons = () => {
+  let key = 0;
   return (
     <>
       <PageHeader title="Font Awesome Icons" />
@@ -18,8 +19,9 @@ const FeatherSvgIcons = () => {
               <Cards title="Simply beautiful open source icons" size="learge">
                 <Row gutter={25}>
                   {faIcons.map(icon => {
+                    key += 1;
                     return (
-                      <Col lg={6} md={12} xs={24} key={icon}>
+                      <Col lg={6} md={12} xs={24} key={key}>
                         <Icon className="icon-single">
                           <FontAwesome
                             className="super-crazy-colors"
@@ -42,4 +44,4 @@ const FeatherSvgIcons = () => {
   );
 };
 
-export default FeatherSvgIcons;
+export default FaIcons;

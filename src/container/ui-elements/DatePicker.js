@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, DatePicker } from 'antd';
 import moment from 'moment';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -12,8 +12,12 @@ const monthFormat = 'YYYY/MM';
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
 const DatePickers = () => {
+  const [state, setstate] = useState({
+    date: null,
+    dateString: null,
+  });
   const onChange = (date, dateString) => {
-    console.log(date, dateString);
+    setstate({ ...state, date, dateString });
   };
 
   return (

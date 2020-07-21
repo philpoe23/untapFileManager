@@ -114,7 +114,7 @@ const AuthInfo = () => {
       </div>
 
       <div className="nav-author">
-        <Popover placement="bottomRight" content={userContent} trigger="click">
+        <Popover placement="bottomRight" content={userContent} action="click">
           <Link to="#" className="head-example">
             <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
           </Link>

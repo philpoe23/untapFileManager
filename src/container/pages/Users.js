@@ -21,6 +21,9 @@ const Users = () => {
 
   const [state, setState] = useState({
     notdata: searchData,
+    current: 0,
+    pageSize: 0,
+    page: 0,
   });
 
   const { notdata } = state;
@@ -34,11 +37,11 @@ const Users = () => {
   };
 
   const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   const onChange = page => {
-    console.log(page);
+    setState({ ...state, page });
   };
 
   return (

@@ -12,6 +12,8 @@ const List = () => {
   const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
     projects: project,
+    current: 0,
+    pageSize: 0,
   });
   const { projects } = state;
 
@@ -24,17 +26,17 @@ const List = () => {
   }, [project]);
 
   const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   const onHandleChange = (current, pageSize) => {
     // You can create pagination in here
-    console.log(current, pageSize);
+    setState({ ...state, current, pageSize });
   };
 
   const dataSource = [];
 
-  projects.length &&
+  if (projects.length)
     projects.map(value => {
       const { id, title, status, category } = value;
       return dataSource.push({

@@ -21,6 +21,12 @@ const initialStateFilter = {
   error: null,
 };
 
+const initialState = {
+  data: staticData,
+  loading: false,
+  error: null,
+};
+
 const productReducer = (state = initialStateFilter, action) => {
   const { type, data, err } = action;
   switch (type) {
@@ -61,12 +67,6 @@ const productReducer = (state = initialStateFilter, action) => {
     default:
       return state;
   }
-};
-
-const initialState = {
-  data: staticData,
-  loading: false,
-  error: null,
 };
 
 const SingleProductReducer = (state = initialState, action) => {

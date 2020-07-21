@@ -142,7 +142,7 @@ Steps.propTypes = {
   onDone: PropTypes.func,
   onChange: PropTypes.func,
   height: PropTypes.number,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.node, PropTypes.string]),
 };
 
 export { Step, Steps };

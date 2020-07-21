@@ -29,7 +29,7 @@ Palette.propTypes = {
   bg: PropTypes.bool,
   gradient: PropTypes.bool,
   direction: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 export default Palette;

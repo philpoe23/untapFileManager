@@ -11,10 +11,11 @@ const Account = () => {
 
   const [state, setState] = useState({
     name: 'clayton',
+    values: null,
   });
 
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
 
   const handleCancel = e => {

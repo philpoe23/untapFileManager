@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button } from 'antd';
 import { ChangePasswordWrapper } from './style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
@@ -7,9 +7,12 @@ import Heading from '../../../../components/heading/heading';
 
 const Password = () => {
   const [form] = Form.useForm();
+  const [state, setState] = useState({
+    values: null,
+  });
 
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
+    setState({ ...state, values });
   };
   const handleCancel = e => {
     e.preventDefault();

@@ -77,7 +77,7 @@ client.interceptors.response.use(
     const originalRequest = error.config;
     if (response) {
       if (response.status === 500) {
-        console.log('Server Error', response);
+        // do something here
       } else {
         return originalRequest;
       }

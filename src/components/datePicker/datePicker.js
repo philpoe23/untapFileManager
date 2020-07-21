@@ -39,18 +39,19 @@ class DateRangePickerOne extends Component {
   }
 
   render() {
-    const start = this.state.dateRangePicker.selection.startDate.toString().split(' ');
-    const end = this.state.dateRangePicker.selection.endDate.toString().split(' ');
+    const { dateRangePicker } = this.state;
+    const start = dateRangePicker.selection.startDate.toString().split(' ');
+    const end = dateRangePicker.selection.endDate.toString().split(' ');
 
     return (
       <ItemWraper>
         <DateRangePicker
-          onChange={this.handleRangeChange.bind(this, 'dateRangePicker')}
+          onChange={() => this.handleRangeChange(this, 'dateRangePicker')}
           showSelectionPreview
           moveRangeOnFirstSelection={false}
           className="PreviewArea"
           months={2}
-          ranges={[this.state.dateRangePicker.selection]}
+          ranges={[dateRangePicker.selection]}
           direction="horizontal"
         />
 

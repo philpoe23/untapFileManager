@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepage } from '../../../redux/chat/actionCreator';
@@ -64,5 +65,7 @@ const AllContacts = ({ match }) => {
     </ChatWrapper>
   );
 };
-
+AllContacts.propTypes = {
+  match: PropTypes.object,
+};
 export default AllContacts;

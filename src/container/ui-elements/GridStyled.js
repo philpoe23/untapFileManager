@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 import { theme } from '../../config/theme/themeVariables';
+
 const GridStyle = Styled.div`
     .ant-row .ant-col, .ant-row-flex .ant-col {
         height: 50px;

@@ -43,7 +43,6 @@ const ThemeLayout = WrappedComponent => {
         hide: true,
         searchHide: true,
       };
-      this.handleUpdate = this.handleUpdate.bind(this);
       this.updateDimensions = this.updateDimensions.bind(this);
     }
 
@@ -56,39 +55,10 @@ const ThemeLayout = WrappedComponent => {
       window.removeEventListener('resize', this.updateDimensions);
     }
 
-    toggleCollapsed = () => {
-      const { collapsed } = this.state;
-      this.setState({
-        collapsed: !collapsed,
-      });
-    };
-
-    onShowHide = () => {
-      const { hide } = this.state;
-      this.setState({
-        hide: !hide,
-        searchHide: true,
-      });
-    };
-
-    handleSearchHide = e => {
-      e.preventDefault();
-      const { searchHide } = this.state;
-      this.setState({
-        searchHide: !searchHide,
-        hide: true,
-      });
-    };
-
     updateDimensions() {
       this.setState({
         collapsed: window.innerWidth <= 1200 && true,
       });
-    }
-
-    handleUpdate(values) {
-      const { top } = values;
-      this.setState({ top });
     }
 
     renderThumb = ({ style, ...props }) => {
@@ -96,12 +66,33 @@ const ThemeLayout = WrappedComponent => {
         borderRadius: 6,
         backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
       };
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      return <div style={{ ...style, ...thumbStyle }} {...props} />;
+      return <div style={{ ...style, ...thumbStyle }} props={props} />;
     };
 
     render() {
-      const { collapsed, searchHide, hide } = this.state;
+      const { collapsed, hide, searchHide } = this.state;
+
+      const toggleCollapsed = () => {
+        this.setState({
+          collapsed: !collapsed,
+        });
+      };
+
+      const onShowHide = () => {
+        this.setState({
+          hide: !hide,
+          searchHide: true,
+        });
+      };
+
+      const handleSearchHide = e => {
+        e.preventDefault();
+        this.setState({
+          searchHide: !searchHide,
+          hide: true,
+        });
+      };
+
       return (
         <Div darkMode={darkMode}>
           <Layout>
@@ -115,7 +106,7 @@ const ThemeLayout = WrappedComponent => {
             >
               <Row>
                 <Col md={4} sm={5} xs={12} className="align-center-v navbar-brand">
-                  <Button type="link" style={{ marginTop: 0 }} onClick={this.toggleCollapsed}>
+                  <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                     <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
                   <NavLink to="/">
@@ -134,10 +125,10 @@ const ThemeLayout = WrappedComponent => {
                 <Col md={0} sm={19} xs={12}>
                   <>
                     <div className="mobile-action">
-                      <Link className="btn-search" onClick={this.handleSearchHide} to="#">
+                      <Link className="btn-search" onClick={handleSearchHide} to="#">
                         {searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
                       </Link>
-                      <Link className="btn-auth" onClick={this.onShowHide} to="#">
+                      <Link className="btn-auth" onClick={onShowHide} to="#">
                         <FeatherIcon icon="more-vertical" />
                       </Link>
                     </div>

@@ -49,7 +49,7 @@ const projectReducer = (state = initialStateFilter, action) => {
     case SORTING_PROJECT_SUCCESS:
       return {
         ...initialStateFilter,
-        data: data,
+        data,
         loading: false,
       };
     case SORTING_PROJECT_ERR:

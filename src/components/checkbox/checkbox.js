@@ -66,7 +66,7 @@ Checkbox.propTypes = {
   onChangeTriger: PropTypes.func,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node]),
 };
 
 export { Checkbox, CheckboxGroup };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, DatePicker } from 'antd';
+import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Main } from './styled';
 import { PageHeader } from '../components/page-headers/page-headers';
@@ -8,9 +8,9 @@ import Heading from '../components/heading/heading';
 import { Button } from '../components/buttons/buttons';
 
 const Calendar = () => {
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
+  // const onChange = (date, dateString) => {
+  //   console.log(date, dateString);
+  // };
 
   return (
     <>
@@ -21,7 +21,7 @@ const Calendar = () => {
             <Button type="secondary">+ Create New Event</Button>
             <br />
             <br />
-            <DatePicker onChange={onChange} open inputReadOnly />
+            {/* <DatePicker onChange={onChange} open inputReadOnly /> */}
             <br />
             <br />
             <br />

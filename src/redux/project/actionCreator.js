@@ -1,5 +1,5 @@
-import initialState from '../../config/dataService/projectData.json';
 import actions from './actions';
+import initialState from '../../config/dataService/projectData.json';
 
 const {
   singleProjectBegin,
@@ -20,7 +20,7 @@ const filterSinglepage = paramsId => {
     try {
       dispatch(singleProjectBegin());
       const data = initialState.filter(project => {
-        return project.id === parseInt(paramsId);
+        return project.id === parseInt(paramsId, 10);
       });
       dispatch(singleProjectSuccess(data));
     } catch (err) {
@@ -36,13 +36,12 @@ const filterProjectByStatus = status => {
       const data = initialState.filter(project => {
         if (status !== 'all') {
           return project.status === status;
-        } else {
-          return initialState;
         }
+        return initialState;
       });
       dispatch(filterProjectSuccess(data));
     } catch (err) {
-      dispatch(filterProjectErr(err));
+      dispatch(filterProjectErr(err.toString()));
     }
   };
 };

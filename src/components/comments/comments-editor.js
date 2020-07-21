@@ -35,7 +35,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 Editor.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  submitting: PropTypes.func,
+  submitting: PropTypes.bool,
   value: PropTypes.string,
 };
 

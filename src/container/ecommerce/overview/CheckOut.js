@@ -20,16 +20,14 @@ const CheckOut = () => {
 
   const { status, isfinished } = state;
 
-  const next = current => {
-    console.log('onChange:', current);
+  const next = () => {
     setState({
       ...state,
       status: 'process',
     });
   };
 
-  const prev = current => {
-    console.log('onChange:', current);
+  const prev = () => {
     setState({
       ...state,
       status: 'process',
@@ -310,9 +308,9 @@ const CheckOut = () => {
                                           {month.map(value => (
                                             <Option
                                               key={value}
-                                              value={parseInt(new Date().getFullYear()) + parseInt(value)}
+                                              value={parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
                                             >
-                                              {parseInt(new Date().getFullYear()) + parseInt(value)}
+                                              {parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
                                             </Option>
                                           ))}
                                         </Select>

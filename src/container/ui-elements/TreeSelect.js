@@ -42,22 +42,18 @@ const TreeSelects = () => {
   });
 
   const onChange = value => {
-    console.log(value);
     setState({ ...state, value });
   };
 
   const onMultiChange = value => {
-    console.log(value);
     setState({ ...state, multi_value: value });
   };
 
   const onGenerateChange = value => {
-    console.log(value);
     setState({ ...state, generate_value: value });
   };
 
   const onCheckChange = value => {
-    console.log('onChange ', value);
     setState({ ...state, check_value: value });
   };
 
@@ -99,7 +95,6 @@ const TreeSelects = () => {
     });
 
   const onAsyncChange = value => {
-    console.log(value);
     setState({ ...state, async_value: value });
   };
   const { asyncTreeData } = state;

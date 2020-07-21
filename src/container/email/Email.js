@@ -62,11 +62,11 @@ const Email = ({ match }) => {
         ghost
         title={match.params.page}
         buttons={[
-          <div className="page-header-actions">
-            <CalendarButtonPageHeader key="1" />
-            <ExportButtonPageHeader key="2" />
-            <ShareButtonPageHeader key="3" />
-            <Button size="small" key="4" type="primary">
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
               <FeatherIcon icon="plus" size={14} />
               Add New
             </Button>

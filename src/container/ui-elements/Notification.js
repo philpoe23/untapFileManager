@@ -1,5 +1,12 @@
 import React from 'react';
-import { Row, Col, notification, Icon, Divider } from 'antd';
+import { Row, Col, notification, Divider } from 'antd';
+import {
+  SmileOutlined,
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
+  RadiusBottomleftOutlined,
+  RadiusBottomrightOutlined,
+} from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, NotificationListWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -12,7 +19,7 @@ const Notifications = () => {
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       onClick: () => {
-        console.log('Notification Clicked!');
+        // console.log('Notification Clicked!');
       },
     });
   };
@@ -27,7 +34,7 @@ const Notifications = () => {
   };
 
   const close = () => {
-    console.log('Notification was closed. Either the close button was clicked or duration time elapsed.');
+    // console.log('Notification was closed. Either the close button was clicked or duration time elapsed.');
   };
 
   const openNotification3 = () => {
@@ -60,7 +67,7 @@ const Notifications = () => {
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-      icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+      icon: <SmileOutlined style={{ color: '#108ee9' }} />,
     });
   };
 
@@ -151,20 +158,20 @@ const Notifications = () => {
             <Cards title="Notification with placement" caption="The simplest use of Notification">
               <NotificationListWrapper>
                 <Button type="primary" size="small" onClick={() => openNotificationPlacement('topLeft')}>
-                  <Icon type="radius-upleft" />
+                  <RadiusUpleftOutlined />
                   topLeft
                 </Button>
                 <Button type="primary" size="small" onClick={() => openNotificationPlacement('topRight')}>
-                  <Icon type="radius-upright" />
+                  <RadiusUprightOutlined />
                   topRight
                 </Button>
                 <Divider />
                 <Button type="primary" size="small" onClick={() => openNotificationPlacement('bottomLeft')}>
-                  <Icon type="radius-bottomleft" />
+                  <RadiusBottomleftOutlined />
                   bottomLeft
                 </Button>
                 <Button type="primary" size="small" onClick={() => openNotificationPlacement('bottomRight')}>
-                  <Icon type="radius-bottomright" />
+                  <RadiusBottomrightOutlined />
                   bottomRight
                 </Button>
               </NotificationListWrapper>

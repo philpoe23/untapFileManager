@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, Switch, Icon } from 'antd';
+import { Row, Col, Switch } from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -28,11 +29,7 @@ const Switches = () => {
                 <br />
                 <Switch checkedChildren="1" unCheckedChildren="0" />
                 <br />
-                <Switch
-                  checkedChildren={<Icon type="check" />}
-                  unCheckedChildren={<Icon type="close" />}
-                  defaultChecked
-                />
+                <Switch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} defaultChecked />
               </div>
             </Cards>
           </Col>
