@@ -298,6 +298,6 @@ const ShoppingCart = ({ match }) => {
   );
 };
 ShoppingCart.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object).isRequired,
 };
 export default ShoppingCart;

@@ -16,7 +16,7 @@ const CommentList = ({ comments }) => (
 );
 
 CommentList.propTypes = {
-  comments: PropTypes.array,
+  comments: PropTypes.arrayOf(PropTypes.object),
 };
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (

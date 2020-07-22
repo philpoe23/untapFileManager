@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Chart } from 'react-google-charts';
 import PropTypes from 'prop-types';
@@ -31,7 +32,7 @@ const GoogleBasicBarChart = props => {
 GoogleBasicBarChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   title: PropTypes.string.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
@@ -122,6 +123,7 @@ const GoogleCustomColorChart = props => {
     />
   );
 };
+
 GoogleCustomColorChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -130,6 +132,7 @@ GoogleCustomColorChart.propTypes = {
   chartArea: PropTypes.string.isRequired,
   colors: PropTypes.array.isRequired,
 };
+
 const GoogleComboChart = props => {
   const { width, height, data, title, chartArea, colors } = props;
   return (
