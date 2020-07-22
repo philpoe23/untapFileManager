@@ -1,6 +1,6 @@
 import Styled from 'styled-components';
 
-const ECahrtCard = Styled.div`
+const EChartCard = Styled.div`
     display: flex;
     flex-wrap: wrap;
     .card-chunk{
@@ -334,7 +334,7 @@ const CardGroup = Styled.div`
     }
 `;
 
-const Exlist = Styled.div`
+const ExList = Styled.div`
     padding: 25px 0 0;
     height: 100%;
     border-right: 1px solid ${({ theme }) => theme['border-color-light']};
@@ -486,8 +486,8 @@ const OverviewCard = Styled.div`
     }
 `;
 
-const PerfomenceChartWrapper = Styled.div`
-    .perfomance-lineChart{
+const PerformanceChartWrapper = Styled.div`
+    .performance-lineChart{
         margin-top: 20px;
     }
 `;
@@ -979,13 +979,13 @@ const TrafficTableWrapper = Styled.div`
 `;
 
 export {
-  ECahrtCard,
+  EChartCard,
   Focard,
   CardBarChart,
   CardGroup,
-  Exlist,
+  ExList,
   OverviewCard,
-  PerfomenceChartWrapper,
+  PerformanceChartWrapper,
   Pstates,
   SessionChartWrapper,
   SessionState,

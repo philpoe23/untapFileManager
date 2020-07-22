@@ -8,10 +8,10 @@ import { Button } from '../../../../components/buttons/buttons';
 import { ProductCard, PaginationWrapper } from '../../Style';
 
 const Grid = () => {
-  const { productsAll, isloader } = useSelector(state => {
+  const { productsAll, isLoader } = useSelector(state => {
     return {
       productsAll: state.products.data,
-      isloader: state.products.loading,
+      isLoader: state.products.loading,
     };
   });
 
@@ -42,7 +42,7 @@ const Grid = () => {
   // @Todo Nested Ternary
   return (
     <Row gutter={30}>
-      {isloader ? (
+      {isLoader ? (
         <div className="spin">
           <Spin />
         </div>

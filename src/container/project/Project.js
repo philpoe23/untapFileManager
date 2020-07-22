@@ -20,17 +20,17 @@ const Project = ({ match }) => {
   const searchData = useSelector(state => state.headerSearchData);
 
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
     visible: false,
     categoryActive: 'all',
   });
 
-  const { notdata, visible } = state;
+  const { notData, visible } = state;
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -82,27 +82,27 @@ const Project = ({ match }) => {
                 <div className="project-sort-nav">
                   <nav>
                     <ul>
-                      <li className={state.categoryActive === 'all' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'all' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('all')} to="#">
                           All
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'progress' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'progress' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('progress')} to="#">
                           In Progress
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'complete' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'complete' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('complete')} to="#">
                           Complete
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'late' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'late' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('late')} to="#">
                           Late
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'early' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'early' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('early')} to="#">
                           Early
                         </Link>
@@ -111,7 +111,7 @@ const Project = ({ match }) => {
                   </nav>
                 </div>
                 <div className="project-sort-search">
-                  <AutoComplete onSearch={handleSearch} dataSource={notdata} patterns />
+                  <AutoComplete onSearch={handleSearch} dataSource={notData} patterns />
                 </div>
                 <div className="project-sort-group">
                   <div className="sort-group">

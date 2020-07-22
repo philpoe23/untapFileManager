@@ -46,13 +46,13 @@ const data = [
     fill: '#a4de6c',
   },
   {
-    name: '50+',
+    name: '50-59',
     uv: 2.63,
     pv: 4800,
     fill: '#d0ed57',
   },
   {
-    name: 'unknow',
+    name: '60+',
     uv: 6.67,
     pv: 4800,
     fill: '#ffc658',
@@ -82,7 +82,7 @@ const ReChartRadial = () => {
   return (
     <>
       <PageHeader
-        title="Rechats Radial Chart"
+        title="Recharts Radial Chart"
         buttons={[
           <CalendarButtonPageHeader key="1" />,
           <ExportButtonPageHeader key="2" />,

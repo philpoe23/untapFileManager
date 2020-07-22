@@ -30,7 +30,7 @@ const ReChartComposed = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Composed Chart" />
+      <PageHeader title="Recharts Composed Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

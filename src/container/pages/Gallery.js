@@ -39,7 +39,7 @@ const Gallery = () => {
               <ul>
                 <li>
                   <Link
-                    className={state.activeClass === '' ? 'active' : 'deactive'}
+                    className={state.activeClass === '' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('')}
                     to="#"
                   >
@@ -48,7 +48,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'webDesign' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'webDesign' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('webDesign')}
                     to="#"
                   >
@@ -57,7 +57,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'uiDesign' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'uiDesign' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('uiDesign')}
                     to="#"
                   >
@@ -66,7 +66,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'wireframe' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'wireframe' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('wireframe')}
                     to="#"
                   >
@@ -75,7 +75,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'Presentation' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'Presentation' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('Presentation')}
                     to="#"
                   >

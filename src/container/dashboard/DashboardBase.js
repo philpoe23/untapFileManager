@@ -15,7 +15,7 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 // @Todo console warning from button
 
-const DashbordBase = () => {
+const DashboardBase = () => {
   return (
     <>
       <PageHeader
@@ -36,7 +36,7 @@ const DashbordBase = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless title="Theame Colors" size="large">
+            <Cards headless title="Theme Colors" size="large">
               <Row gutter={15}>
                 <Col lg={2}>
                   <Palette colorCode={theme['primary-color']}>Primary</Palette>
@@ -317,4 +317,4 @@ const DashbordBase = () => {
   );
 };
 
-export default DashbordBase;
+export default DashboardBase;

@@ -6,7 +6,7 @@ import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
 import rechartdata from '../../../config/dataService/recharts.json';
 
-const { data, positiveAndnegetive } = rechartdata;
+const { data, positiveAndNegative } = rechartdata;
 
 const ReChartBar = () => {
   const [state, setState] = useState({
@@ -30,7 +30,7 @@ const ReChartBar = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Bar Chart" />
+      <PageHeader title="Recharts Bar Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>
@@ -99,7 +99,7 @@ const ReChartBar = () => {
               <BarChart
                 width={responsive - (5 * responsive) / 100}
                 height={responsive / 2}
-                data={positiveAndnegetive}
+                data={positiveAndNegative}
                 margin={{
                   top: 20,
                   right: 30,
@@ -123,7 +123,7 @@ const ReChartBar = () => {
               <BarChart
                 width={responsive - (5 * responsive) / 100}
                 height={responsive / 2}
-                data={positiveAndnegetive}
+                data={positiveAndNegative}
                 margin={{
                   top: 20,
                   right: 30,

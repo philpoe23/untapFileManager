@@ -24,12 +24,12 @@ const Orders = () => {
   });
 
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
     item: orders,
     selectedRowKeys: [],
   });
 
-  const { notdata, item, selectedRowKeys } = state;
+  const { notData, item, selectedRowKeys } = state;
   const filterKey = ['Shipped', 'Awaiting Shipment', 'Canceled'];
 
   /**
@@ -48,7 +48,7 @@ const Orders = () => {
     const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -59,11 +59,11 @@ const Orders = () => {
   const dataSource = [];
   if (orders.length) {
     orders.map((value, key) => {
-      const { status, orderId, customars, amount, date } = value;
+      const { status, orderId, customers, amount, date } = value;
       return dataSource.push({
         key: key + 1,
         id: <span className="order-id">{orderId}</span>,
-        customar: <span className="customer-name">{customars}</span>,
+        customer: <span className="customer-name">{customers}</span>,
         status: <span className="status">{status}</span>,
         amount: <span className="ordered-amount">{amount}</span>,
         date: <span className="ordered-date">{date}</span>,
@@ -93,9 +93,9 @@ const Orders = () => {
       key: 'id',
     },
     {
-      title: 'Customar',
-      dataIndex: 'customar',
-      key: 'customar',
+      title: 'customer',
+      dataIndex: 'customer',
+      key: 'customer',
     },
     {
       title: 'Status',
@@ -153,7 +153,7 @@ const Orders = () => {
                 <Row gutter={15} className="justify-content-center">
                   <Col lg={5} xs={24}>
                     <div className="table-search-box">
-                      <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+                      <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                     </div>
                   </Col>
                   <Col xxl={15} lg={13} xs={24}>

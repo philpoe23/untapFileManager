@@ -8,10 +8,10 @@ import { Button } from '../../../../components/buttons/buttons';
 import { ProductCard, PaginationWrapper } from '../../Style';
 
 const List = () => {
-  const { productsAll, isloader } = useSelector(state => {
+  const { productsAll, isLoader } = useSelector(state => {
     return {
       productsAll: state.products.data,
-      isloader: state.products.loading,
+      isLoader: state.products.loading,
     };
   });
 
@@ -41,7 +41,7 @@ const List = () => {
 
   return (
     <Row gutter={15}>
-      {isloader ? (
+      {isLoader ? (
         <div className="spin">
           <Spin />
         </div>

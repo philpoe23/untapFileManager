@@ -123,7 +123,7 @@ const ReChartPie = () => {
   };
   return (
     <>
-      <PageHeader title="Rechats Pie Chart" />
+      <PageHeader title="Recharts Pie Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

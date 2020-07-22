@@ -12,18 +12,18 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 const SearchResult = () => {
   const searchData = useSelector(state => state.headerSearchData);
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
     activeClass: 'all',
     current: 0,
     pageSize: 0,
   });
-  const { notdata } = state;
+  const { notData } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -50,14 +50,14 @@ const SearchResult = () => {
         <SearchResultWrapper>
           <Row gutter={25}>
             <Col xs={24}>
-              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="40%" patterns />
+              <AutoComplete onSearch={handleSearch} dataSource={notData} width="40%" patterns />
             </Col>
             <Col xs={24}>
               <div className="search-filter-menu">
                 <ul>
                   <li>
                     <Link
-                      className={state.activeClass === 'all' ? 'active' : 'deactive'}
+                      className={state.activeClass === 'all' ? 'active' : 'deactivate'}
                       onClick={() => handleChange('all')}
                       to="#"
                     >
@@ -66,7 +66,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'webDesign' ? 'active' : 'deactive'}
+                      className={state.activeClass === 'webDesign' ? 'active' : 'deactivate'}
                       onClick={() => handleChange('webDesign')}
                       to="#"
                     >
@@ -75,7 +75,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'uiDesign' ? 'active' : 'deactive'}
+                      className={state.activeClass === 'uiDesign' ? 'active' : 'deactivate'}
                       onClick={() => handleChange('uiDesign')}
                       to="#"
                     >
@@ -84,7 +84,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'wireframe' ? 'active' : 'deactive'}
+                      className={state.activeClass === 'wireframe' ? 'active' : 'deactivate'}
                       onClick={() => handleChange('wireframe')}
                       to="#"
                     >
@@ -93,7 +93,7 @@ const SearchResult = () => {
                   </li>
                   <li>
                     <Link
-                      className={state.activeClass === 'presentation' ? 'active' : 'deactive'}
+                      className={state.activeClass === 'presentation' ? 'active' : 'deactivate'}
                       onClick={() => handleChange('presentation')}
                       to="#"
                     >

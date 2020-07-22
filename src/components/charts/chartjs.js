@@ -671,7 +671,7 @@ const ChartjsDonutChart2 = props => {
     labels,
     datasets,
   };
-
+  let counter = 0;
   return (
     <div>
       <Doughnut ref={ref} data={dataInfo} height={height} options={options} />
@@ -679,8 +679,9 @@ const ChartjsDonutChart2 = props => {
       <div className="align-center-v justify-content-between">
         <div className="revenue-chat-label">
           {labels.map(label => {
+            counter += 1;
             return (
-              <div key={label} className="chart-label">
+              <div key={counter} className="chart-label">
                 <span className={`label-dot dot-${label}`} />
                 {label}
               </div>

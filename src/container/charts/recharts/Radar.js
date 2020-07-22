@@ -28,7 +28,7 @@ const ReChartRadar = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Radar Chart" />
+      <PageHeader title="Recharts Radar Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

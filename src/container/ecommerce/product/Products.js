@@ -23,16 +23,16 @@ const Product = ({ match }) => {
   const searchData = useSelector(state => state.headerSearchData);
 
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
   });
 
-  const { notdata } = state;
+  const { notData } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -74,7 +74,7 @@ const Product = ({ match }) => {
             <TopToolBox>
               <Row gutter={0}>
                 <Col xxl={7} lg={12} xs={24}>
-                  <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+                  <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                 </Col>
                 <Col xxl={7} lg={12} xs={24}>
                   <p className="search-result">Showing 1–8 of 86 results</p>

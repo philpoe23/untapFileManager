@@ -498,7 +498,7 @@ const ProductDetailsWrapper = Styled.div`
         font-size: 22px;
         font-weight: 500;
         color: ${({ theme }) => theme['primary-color']};
-        .pdbr__currancy{
+        .pdbr__currency{
             font-size: 14px;
             color: ${({ theme }) => theme['light-color']};
         }

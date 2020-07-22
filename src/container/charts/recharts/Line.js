@@ -63,7 +63,7 @@ const ReChartLine = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Line Chart" />
+      <PageHeader title="Recharts Line Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

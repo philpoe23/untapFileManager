@@ -123,7 +123,7 @@ const EditProduct = () => {
 
                                 <Form.Item
                                   name="description"
-                                  initialValue="loram ipsum dolor sit amit"
+                                  initialValue="lorem ipsum dolor sit amit"
                                   label="Product Description"
                                 >
                                   <Input.TextArea rows={5} />

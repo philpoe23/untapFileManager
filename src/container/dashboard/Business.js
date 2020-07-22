@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Progress } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
-import { Focard, CardBarChart, Exlist, RatioCard, IncomeExpenseWrapper } from './style';
+import { Focard, CardBarChart, ExList, RatioCard, IncomeExpenseWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
@@ -295,7 +295,7 @@ const Business = () => {
               >
                 <Row gutter="25">
                   <Col xxl={6} sm={24}>
-                    <Exlist>
+                    <ExList>
                       <div>
                         <p>Total income</p>
                         <Heading as="h1">
@@ -344,7 +344,7 @@ const Business = () => {
                           </sub>
                         </Heading>
                       </div>
-                    </Exlist>
+                    </ExList>
                   </Col>
                   <Col xxl={18} sm={24}>
                     <ChartjsBarChartTransparent

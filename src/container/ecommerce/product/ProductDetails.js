@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
-import { filterSinglepage } from '../../../redux/product/actionCreator';
+import { filterSinglePage } from '../../../redux/product/actionCreator';
 import { ProductDetailsWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
@@ -30,8 +30,8 @@ const ProductDetails = ({ match }) => {
   });
 
   useEffect(() => {
-    if (filterSinglepage) {
-      dispatch(filterSinglepage(parseInt(match.params.id, 10)));
+    if (filterSinglePage) {
+      dispatch(filterSinglePage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
 
@@ -127,7 +127,7 @@ const ProductDetails = ({ match }) => {
                       <span className="pdbr__brand-name">{brand}</span>
                     </p>
                     <Heading className="pdbr__new-price" as="h3">
-                      <span className="pdbr__currancy">$</span>
+                      <span className="pdbr__currency">$</span>
                       <span className="pdbr__price">{price}</span>
                     </Heading>
                     {oldPrice && (

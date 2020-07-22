@@ -28,7 +28,7 @@ const ChatApp = ({ match }) => {
     me: 'woadud@gmail.com',
   });
 
-  const { notdata } = state;
+  const { notData } = state;
 
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -62,7 +62,7 @@ const ChatApp = ({ match }) => {
             <ChatSidebar>
               <Cards headless>
                 <div className="chatbox-search">
-                  <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+                  <AutoComplete onSearch={patternSearch} dataSource={notData} width="100%" patterns />
                 </div>
                 <nav>
                   <UL>

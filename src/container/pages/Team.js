@@ -21,15 +21,15 @@ const Team = () => {
   });
 
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
   });
 
-  const { notdata } = state;
+  const { notData } = state;
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -59,7 +59,7 @@ const Team = () => {
           subTitle={
             <>
               <span className="title-counter">274 Users</span>
-              <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+              <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
             </>
           }
           buttons={[

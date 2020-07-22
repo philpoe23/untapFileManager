@@ -12,9 +12,9 @@ const AutoCompletess = () => {
 
   const [state, setState] = useState({
     dataSource: [],
-    notdata: searchData,
+    notData: searchData,
   });
-  const { dataSource, notdata } = state;
+  const { dataSource, notData } = state;
 
   const onSearch = searchText => {
     let arrayData = [];
@@ -32,7 +32,7 @@ const AutoCompletess = () => {
   const patternSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -59,7 +59,7 @@ const AutoCompletess = () => {
                 </div>
               </Cards>
               <Cards title="Lookup-Patterns - Certain Category">
-                <AutoComplete onSearch={patternSearch} dataSource={notdata} width="100%" patterns />
+                <AutoComplete onSearch={patternSearch} dataSource={notData} width="100%" patterns />
               </Cards>
             </Col>
             <Col md={12} sm={24} xs={24}>
@@ -70,7 +70,7 @@ const AutoCompletess = () => {
               </div>
 
               <Cards title="Lookup-Patterns - Uncertain Category">
-                <AutoComplete dataSource={notdata} onSearch={patternSearch} width="100%" patterns patternButtons />
+                <AutoComplete dataSource={notData} onSearch={patternSearch} width="100%" patterns patternButtons />
               </Cards>
             </Col>
           </Row>

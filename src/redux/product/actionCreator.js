@@ -15,7 +15,7 @@ const {
   sortingProductErr,
 } = actions;
 
-const filterSinglepage = paramsId => {
+const filterSinglePage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleProductBegin());
@@ -116,4 +116,4 @@ const filterByCategory = category => {
   };
 };
 
-export { filterSinglepage, sorting, filterByPriceRange, filterByRating, filterByBrand, filterByCategory };
+export { filterSinglePage, sorting, filterByPriceRange, filterByRating, filterByBrand, filterByCategory };

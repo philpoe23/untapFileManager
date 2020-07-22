@@ -19,7 +19,7 @@ const {
   updatePrivetChatErr,
 } = actions;
 
-const filterSinglepage = paramsId => {
+const filterSinglePage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleChatBegin());
@@ -85,4 +85,4 @@ const updateGroupChat = (paramsId, pushItem) => {
   };
 };
 
-export { filterSinglepage, filterSinglepageGroup, updateGroupChat, updatePrivetChat };
+export { filterSinglePage, filterSinglepageGroup, updateGroupChat, updatePrivetChat };

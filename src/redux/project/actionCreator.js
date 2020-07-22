@@ -15,7 +15,7 @@ const {
   sortingProjectErr,
 } = actions;
 
-const filterSinglepage = paramsId => {
+const filterSinglePage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleProjectBegin());
@@ -63,4 +63,4 @@ const sortingProjectByCategory = sortBy => {
   };
 };
 
-export { filterSinglepage, filterProjectByStatus, sortingProjectByCategory };
+export { filterSinglePage, filterProjectByStatus, sortingProjectByCategory };

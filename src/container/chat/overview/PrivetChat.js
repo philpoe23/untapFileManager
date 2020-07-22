@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { BlockSpan } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
-import { filterSinglepage } from '../../../redux/chat/actionCreator';
+import { filterSinglePage } from '../../../redux/chat/actionCreator';
 
 const PrivateChat = ({ match }) => {
   const dispatch = useDispatch();
   const chatData = useSelector(state => state.chat.data);
 
   const dataFiltering = email => {
-    dispatch(filterSinglepage(email));
+    dispatch(filterSinglePage(email));
   };
 
   return (

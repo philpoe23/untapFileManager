@@ -11,7 +11,7 @@ import Heading from '../../components/heading/heading';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import { filterSinglepage } from '../../redux/project/actionCreator';
+import { filterSinglePage } from '../../redux/project/actionCreator';
 
 const TaskList = lazy(() => import('./overview/TaskList'));
 const Activities = lazy(() => import('./overview/Activities'));
@@ -21,8 +21,8 @@ const ProjectDetails = ({ match }) => {
   const project = useSelector(state => state.project.data);
 
   useEffect(() => {
-    if (filterSinglepage) {
-      dispatch(filterSinglepage(parseInt(match.params.id, 10)));
+    if (filterSinglePage) {
+      dispatch(filterSinglePage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
 
