@@ -83,7 +83,7 @@ LeafletMapMultipleIcon.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   zoom: PropTypes.number,
-  data: PropTypes.array,
+  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 const LeafletMapCustomIcon = props => {
@@ -156,7 +156,7 @@ LeafleteMarkerCluster.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   zoom: PropTypes.number,
-  data: PropTypes.array,
+  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 export { LeafletMapBasic, LeafletMapMultipleIcon, LeafletMapCustomIcon, LeafleteMarkerCluster };

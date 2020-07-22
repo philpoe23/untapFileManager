@@ -437,7 +437,7 @@ const ProjectDetails = ({ match }) => {
 };
 
 ProjectDetails.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default ProjectDetails;
