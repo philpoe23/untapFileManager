@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -41,8 +42,8 @@ Dropdown.propTypes = {
   placement: PropTypes.string,
   title: PropTypes.string,
   action: PropTypes.array,
-  content: PropTypes.object,
-  children: PropTypes.object,
+  content: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export { Dropdown };

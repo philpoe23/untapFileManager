@@ -246,8 +246,8 @@ const Single = props => {
 };
 
 Single.propTypes = {
-  match: propTypes.object.isRequired,
-  history: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
+  history: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Single;

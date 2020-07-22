@@ -309,7 +309,7 @@ const Performance = () => {
   };
 
   renderThumb.propTypes = {
-    style: PropTypes.object.isRequired,
+    style: PropTypes.shape(PropTypes.object).isRequired,
   };
 
   return (

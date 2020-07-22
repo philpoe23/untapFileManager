@@ -195,8 +195,8 @@ const Content = ({ searchData, email }) => {
 };
 
 Content.propTypes = {
-  searchData: propTypes.array.isRequired,
-  email: propTypes.array.isRequired,
+  searchData: propTypes.arrayOf(propTypes.object).isRequired,
+  email: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
 export default Content;

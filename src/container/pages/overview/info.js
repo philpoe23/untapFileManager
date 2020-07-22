@@ -93,7 +93,7 @@ const Info = ({ match }) => {
 };
 
 Info.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Info;

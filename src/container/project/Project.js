@@ -18,7 +18,7 @@ const List = lazy(() => import('./overview/List'));
 const Project = ({ match }) => {
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
-
+  const { path } = match;
   const [state, setState] = useState({
     notData: searchData,
     visible: false,
@@ -124,10 +124,10 @@ const Project = ({ match }) => {
                       <Select.Option value="price">Price</Select.Option>
                     </Select>
                     <div className="layout-style">
-                      <NavLink to={match.path}>
+                      <NavLink to={path}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={`${match.path}/list`}>
+                      <NavLink to={`${path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -144,8 +144,8 @@ const Project = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route exact path={match.path} component={Grid} />
-                  <Route path={`${match.path}/:list`} component={List} />
+                  <Route exact path={path} component={Grid} />
+                  <Route path={`${path}/:list`} component={List} />
                 </Suspense>
               </Switch>
             </div>
@@ -158,7 +158,7 @@ const Project = ({ match }) => {
 };
 
 Project.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Project;

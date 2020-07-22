@@ -213,7 +213,7 @@ const ProductDetails = ({ match }) => {
 };
 
 ProductDetails.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.shape(PropTypes.object).isRequired,
 };
 
 export default ProductDetails;

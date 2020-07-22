@@ -17,7 +17,7 @@ const NotificationBox = () => {
   };
 
   renderThumb.propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.shape(PropTypes.object),
   };
 
   const content = (

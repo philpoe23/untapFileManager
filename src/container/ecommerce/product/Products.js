@@ -123,6 +123,6 @@ const Product = ({ match }) => {
   );
 };
 Product.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.shape(PropTypes.object).isRequired,
 };
 export default Product;

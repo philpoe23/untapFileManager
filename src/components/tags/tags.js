@@ -62,7 +62,7 @@ const Tag = props => {
 };
 
 Tag.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.arrayOf(PropTypes.string),
   closable: PropTypes.bool,
   onClose: PropTypes.func,
   color: PropTypes.string,

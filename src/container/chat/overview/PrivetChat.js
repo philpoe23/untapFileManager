@@ -50,6 +50,6 @@ const PrivateChat = ({ match }) => {
   );
 };
 PrivateChat.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object),
 };
 export default PrivateChat;

@@ -337,7 +337,7 @@ const SingleGroupChat = ({ match }) => {
 };
 
 SingleGroupChat.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object),
 };
 
 export default SingleGroupChat;
