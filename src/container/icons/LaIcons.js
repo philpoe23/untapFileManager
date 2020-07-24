@@ -14,7 +14,7 @@ const FeatherSvgIcons = () => {
         <Row gutter={15}>
           <Col xs={24}>
             <IconWrapper>
-              <Cards title="Simply beautiful open source icons" size="learge">
+              <Cards title="Simply beautiful open source icons" size="large">
                 <Row gutter={15}>
                   {Object.keys(Line).map(icon => {
                     const CustomTag = Line[icon];

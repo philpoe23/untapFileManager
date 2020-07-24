@@ -3,7 +3,7 @@ import { Row, Col, Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
-import EamilNavbar from './overview/Navbar';
+import EmailNavbar from './overview/Navbar';
 import ComposeMail from './overview/Compose';
 import { EmailWrapper, MailSideBar } from './overview/style';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -96,7 +96,7 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={pathName} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </div>
@@ -110,7 +110,7 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={pathName} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </MailSideBar>

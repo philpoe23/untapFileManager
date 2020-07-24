@@ -10,10 +10,10 @@ import { galleryFilter } from '../../redux/gallary/actionCreator';
 
 const Gallery = () => {
   const dispatch = useDispatch();
-  const { gallery, isloading } = useSelector(state => {
+  const { gallery, isLoading } = useSelector(state => {
     return {
       gallery: state.gallery.data,
-      isloading: state.gallery.loading,
+      isLoading: state.gallery.loading,
     };
   });
 
@@ -85,7 +85,7 @@ const Gallery = () => {
               </ul>
             </GalleryNav>
           </Col>
-          {isloading ? (
+          {isLoading ? (
             <Col xs={24}>
               <div className="spin">
                 <Spin />

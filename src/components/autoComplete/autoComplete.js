@@ -83,12 +83,12 @@ AutoComplete.defaultProps = {
 };
 
 AutoComplete.propTypes = {
-  customComponent: PropTypes.object,
+  customComponent: PropTypes.node,
   patterns: PropTypes.bool,
   patternButtons: PropTypes.bool,
   width: PropTypes.string,
   onSearch: PropTypes.func,
-  dataSource: PropTypes.array,
+  dataSource: PropTypes.arrayOf(PropTypes.object),
 };
 
 export { AutoComplete };

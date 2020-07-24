@@ -121,7 +121,7 @@ LeafletMapCustomIcon.propTypes = {
   faIcon: PropTypes.string,
 };
 
-const LeafleteMarkerCluster = props => {
+const LeafletMarkerCluster = props => {
   const { latitude, longitude, width, height, zoom, data } = props;
 
   const position = [latitude, longitude];
@@ -150,7 +150,7 @@ const LeafleteMarkerCluster = props => {
   );
 };
 
-LeafleteMarkerCluster.propTypes = {
+LeafletMarkerCluster.propTypes = {
   latitude: PropTypes.number,
   longitude: PropTypes.number,
   width: PropTypes.string,
@@ -159,4 +159,4 @@ LeafleteMarkerCluster.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
 };
 
-export { LeafletMapBasic, LeafletMapMultipleIcon, LeafletMapCustomIcon, LeafleteMarkerCluster };
+export { LeafletMapBasic, LeafletMapMultipleIcon, LeafletMapCustomIcon, LeafletMarkerCluster };
