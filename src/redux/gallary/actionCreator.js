@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/gallery.json';
+import initialState from '../../demoData/gallery.json';
 
 const { filterGalleryBegin, filterGallerySuccess, filterGalleryErr } = actions;
 
