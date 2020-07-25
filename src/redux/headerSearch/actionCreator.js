@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/header-search.json';
+import initialState from '../../demoData/header-search.json';
 
 const { searchHeaderBegin, searchHeaderSuccess, searchHeaderErr } = actions;
 

@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/chatData.json';
+import staticData from '../../demoData/chatData.json';
 
 const initialState = {
   data: staticData[0].privetChat,

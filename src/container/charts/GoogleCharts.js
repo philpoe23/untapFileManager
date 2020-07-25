@@ -11,7 +11,7 @@ import {
   MultilineChartData,
   organizationChartData,
   pieChartData,
-} from '../../config/dataService/google-charts.json';
+} from '../../demoData/google-charts.json';
 import {
   GoogleBasicBarChart,
   GoogleMaterialBarChart,

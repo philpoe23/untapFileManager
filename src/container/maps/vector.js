@@ -4,7 +4,7 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
-import worldLowRes from '../../config/dataService/vector.json';
+import worldLowRes from '../../demoData/vector.json';
 import { theme } from '../../config/theme/themeVariables';
 // @Todo {...worldLowRes}
 const VectorMaps = () => {

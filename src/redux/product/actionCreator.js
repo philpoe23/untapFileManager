@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/products.json';
+import initialState from '../../demoData/products.json';
 
 const {
   singleProductBegin,
