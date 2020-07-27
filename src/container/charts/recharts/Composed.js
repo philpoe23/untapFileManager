@@ -4,7 +4,7 @@ import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import rechartdata from '../../../config/dataService/recharts.json';
+import rechartdata from '../../../demoData/recharts.json';
 
 const { data } = rechartdata;
 

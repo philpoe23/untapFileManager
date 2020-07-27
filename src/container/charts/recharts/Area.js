@@ -4,7 +4,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import { data, nullChart } from '../../../config/dataService/recharts.json';
+import { data, nullChart } from '../../../demoData/recharts.json';
 
 const ReChartArea = () => {
   const [state, setState] = useState({

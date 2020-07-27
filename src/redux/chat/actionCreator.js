@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/chatData.json';
+import initialState from '../../demoData/chatData.json';
 
 const {
   singleChatBegin,

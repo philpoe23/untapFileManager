@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/orders.json';
+import initialState from '../../demoData/orders.json';
 
 const { filterOrderBegin, filterOrderSuccess, filterOrderErr } = actions;
 
