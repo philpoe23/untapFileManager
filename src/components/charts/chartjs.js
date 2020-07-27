@@ -69,7 +69,7 @@ ChartjsBarChart.defaultProps = {
 };
 
 ChartjsBarChart.propTypes = {
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   height: PropTypes.number,
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
@@ -140,7 +140,7 @@ ChartjsHorizontalChart.defaultProps = {
 
 ChartjsHorizontalChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
 };
@@ -212,7 +212,7 @@ ChartjsStackedChart.defaultProps = {
 
 ChartjsStackedChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
 };
@@ -292,7 +292,7 @@ ChartjsLineChart.defaultProps = {
 
 ChartjsLineChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
   width: PropTypes.number,
@@ -402,7 +402,7 @@ ChartjsAreaChart.defaultProps = {
 
 ChartjsAreaChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
   options: PropTypes.object,
@@ -486,7 +486,7 @@ ChartjsBarChartTransparent.defaultProps = {
 
 ChartjsBarChartTransparent.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
   layout: PropTypes.object,
@@ -564,7 +564,7 @@ ChartjsBarChartGrad.defaultProps = {
 
 ChartjsBarChartGrad.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
   layout: PropTypes.object,
@@ -604,7 +604,7 @@ ChartjsPieChart.defaultProps = {
 
 ChartjsPieChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
 };
@@ -659,7 +659,7 @@ ChartjsDonutChart.defaultProps = {
 
 ChartjsDonutChart.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
 };
@@ -736,7 +736,7 @@ ChartjsDonutChart2.defaultProps = {
 
 ChartjsDonutChart2.propTypes = {
   height: PropTypes.number,
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   datasets: PropTypes.arrayOf(PropTypes.object),
   options: PropTypes.object,
 };

@@ -136,7 +136,6 @@ Drawer.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node, PropTypes.array]),
   customPlacement: PropTypes.bool,
   render: PropTypes.bool,
-  // eslint-disable-next-line react/forbid-prop-types
   childDrawer: PropTypes.object,
   childTitle: PropTypes.string,
   btnText: PropTypes.string,
