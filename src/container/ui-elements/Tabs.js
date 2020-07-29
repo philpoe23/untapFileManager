@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Tab } from '../../components/tabs/tabs';
-import { data, dataIcon, icon } from '../../config/dataService/tab-data.json';
+import { data, dataIcon, icon } from '../../demoData/tab-data.json';
 
 const Tabs = () => {
   return (

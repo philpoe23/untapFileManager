@@ -57,6 +57,7 @@ const GoogleMaterialBarChart = props => {
     />
   );
 };
+
 GoogleMaterialBarChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -64,6 +65,7 @@ GoogleMaterialBarChart.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
 };
+
 const GoogleStackedChart = props => {
   const { width, height, data, title, chartArea } = props;
   return (
@@ -90,6 +92,7 @@ const GoogleStackedChart = props => {
     />
   );
 };
+
 GoogleStackedChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -97,6 +100,7 @@ GoogleStackedChart.propTypes = {
   title: PropTypes.string.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
+
 const GoogleCustomColorChart = props => {
   const { width, height, data, title, chartArea, colors } = props;
   return (
@@ -154,6 +158,7 @@ const GoogleComboChart = props => {
     />
   );
 };
+
 GoogleComboChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -162,6 +167,7 @@ GoogleComboChart.propTypes = {
   chartArea: PropTypes.string.isRequired,
   colors: PropTypes.array.isRequired,
 };
+
 const GoogleLineChart = props => {
   const { width, height, data } = props;
   return (
@@ -184,11 +190,13 @@ const GoogleLineChart = props => {
     />
   );
 };
+
 GoogleLineChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
 };
+
 const GoogleMultiLineChart = props => {
   const { width, height, data } = props;
   return (
@@ -215,11 +223,13 @@ const GoogleMultiLineChart = props => {
     />
   );
 };
+
 GoogleMultiLineChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
 };
+
 const GoogleOrgChart = props => {
   const { width, height, data, chartArea } = props;
   return (
@@ -238,12 +248,14 @@ const GoogleOrgChart = props => {
     />
   );
 };
+
 GoogleOrgChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
+
 const GoogleBasicPieChart = props => {
   const { width, height, data, chartArea, title } = props;
   return (
@@ -262,6 +274,7 @@ const GoogleBasicPieChart = props => {
     />
   );
 };
+
 GoogleBasicPieChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -269,6 +282,7 @@ GoogleBasicPieChart.propTypes = {
   title: PropTypes.string.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
+
 const Google3dPieChart = props => {
   const { width, height, data, chartArea, title } = props;
   return (
@@ -288,6 +302,7 @@ const Google3dPieChart = props => {
     />
   );
 };
+
 Google3dPieChart.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
@@ -295,6 +310,7 @@ Google3dPieChart.propTypes = {
   title: PropTypes.string.isRequired,
   chartArea: PropTypes.string.isRequired,
 };
+
 export {
   Google3dPieChart,
   GoogleBasicPieChart,

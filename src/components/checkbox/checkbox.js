@@ -60,7 +60,7 @@ const Checkbox = props => {
 };
 
 Checkbox.propTypes = {
-  item: PropTypes.array,
+  item: PropTypes.arrayOf(PropTypes.string),
   defaultSelect: PropTypes.array,
   multiple: PropTypes.bool,
   onChange: PropTypes.func,

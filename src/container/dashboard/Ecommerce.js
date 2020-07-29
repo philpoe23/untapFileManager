@@ -22,7 +22,7 @@ import {
   ChartjsLineChart,
   ChartjsDonutChart2,
 } from '../../components/charts/chartjs';
-import worldLowRes from '../../config/dataService/vector.json';
+import worldLowRes from '../../demoData/vector.json';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';

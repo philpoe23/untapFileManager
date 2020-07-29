@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/projectData.json';
+import initialState from '../../demoData/projectData.json';
 
 const {
   singleProjectBegin,

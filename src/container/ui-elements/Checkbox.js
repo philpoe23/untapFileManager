@@ -7,12 +7,12 @@ import { Checkbox } from '../../components/checkbox/checkbox';
 
 const Checkboxs = () => {
   const [state, setState] = useState({
-    checkdata: [],
+    checkData: [],
     checked: null,
   });
 
   const multipleChange = childData => {
-    setState({ ...state, checkdata: childData });
+    setState({ ...state, checkData: childData });
   };
 
   const onChange = checked => {

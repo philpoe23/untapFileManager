@@ -20,7 +20,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import worldLowRes from '../../config/dataService/vector.json';
+import worldLowRes from '../../demoData/vector.json';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
