@@ -16,7 +16,7 @@ const { Header, Footer, Sider, Content } = Layout;
 const { darkMode } = config;
 
 const footerStyle = {
-  padding: '20px 30px',
+  padding: '20px 30px 18px',
   color: 'rgba(0, 0, 0, 0.65)',
   fontSize: '14px',
   background: 'rgba(255, 255, 255, .90)',
