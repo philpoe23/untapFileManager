@@ -16,7 +16,7 @@ const { Header, Footer, Sider, Content } = Layout;
 const { darkMode } = config;
 
 const footerStyle = {
-  padding: '24px 50px',
+  padding: '20px 30px',
   color: 'rgba(0, 0, 0, 0.65)',
   fontSize: '14px',
   background: 'rgba(255, 255, 255, .90)',
@@ -166,13 +166,17 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
-                  <Footer style={footerStyle}>
+                  <Footer class="admin-footer" style={footerStyle}>
                     <Row>
-                      <Col md={12}>2020 © AazzTech</Col>
                       <Col md={12}>
-                        <NavLink to="#">About</NavLink>
-                        <NavLink to="#">Team</NavLink>
-                        <NavLink to="#">Contact</NavLink>
+                        <span className="admin-footer__copyright">2020 © AazzTech</span>
+                      </Col>
+                      <Col md={12}>
+                        <div className="admin-footer__links">
+                          <NavLink to="#">About</NavLink>
+                          <NavLink to="#">Team</NavLink>
+                          <NavLink to="#">Contact</NavLink>
+                        </div>
                       </Col>
                     </Row>
                   </Footer>

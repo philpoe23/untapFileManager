@@ -10,8 +10,7 @@ const Div = Styled.div`
         }
 
         .ant-btn-link{
-            ${({ darkMode }) =>
-              darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : ''}
+            ${({ darkMode }) => (darkMode ? `background: #272B41;border-color: #272B41;color: #7D808D !important` : '')};
         }
 
         .head-example{
@@ -242,6 +241,23 @@ const Div = Styled.div`
             svg{
                 width: 20px
                 height: 20px;
+            }
+        }
+    }
+    .admin-footer{
+        .admin-footer__copyright{
+            color: ${({ theme }) => theme['light-color']};
+        }
+        .admin-footer__links{
+            text-align: right;
+            a{
+                color: ${({ theme }) => theme['light-color']};
+                &:not(:last-child){
+                    margin-right: 15px;
+                }
+                &:hover{
+                    color: ${({ theme }) => theme['primary-color']};
+                }
             }
         }
     }
