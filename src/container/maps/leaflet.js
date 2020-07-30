@@ -7,7 +7,7 @@ import {
   LeafletMapBasic,
   LeafletMapMultipleIcon,
   LeafletMapCustomIcon,
-  LeafleteMarkerCluster,
+  LeafletMarkerCluster,
 } from '../../components/maps/leaflet';
 
 const place = [
@@ -66,7 +66,7 @@ const OsMap = () => {
 
           <Col md={12} xs={24}>
             <Cards title="Leaflet Cluster Map" size="large">
-              <LeafleteMarkerCluster
+              <LeafletMarkerCluster
                 faIcon="fa fa-thumb-tack fa-3x"
                 data={place}
                 latitude={50.797897}

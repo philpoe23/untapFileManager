@@ -18,19 +18,19 @@ const List = lazy(() => import('./overview/List'));
 const Project = ({ match }) => {
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
-
+  const { path } = match;
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
     visible: false,
     categoryActive: 'all',
   });
 
-  const { notdata, visible } = state;
+  const { notData, visible } = state;
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -82,27 +82,27 @@ const Project = ({ match }) => {
                 <div className="project-sort-nav">
                   <nav>
                     <ul>
-                      <li className={state.categoryActive === 'all' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'all' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('all')} to="#">
                           All
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'progress' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'progress' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('progress')} to="#">
                           In Progress
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'complete' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'complete' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('complete')} to="#">
                           Complete
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'late' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'late' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('late')} to="#">
                           Late
                         </Link>
                       </li>
-                      <li className={state.categoryActive === 'early' ? 'active' : 'deactive'}>
+                      <li className={state.categoryActive === 'early' ? 'active' : 'deactivate'}>
                         <Link onClick={() => onChangeCategory('early')} to="#">
                           Early
                         </Link>
@@ -111,7 +111,7 @@ const Project = ({ match }) => {
                   </nav>
                 </div>
                 <div className="project-sort-search">
-                  <AutoComplete onSearch={handleSearch} dataSource={notdata} patterns />
+                  <AutoComplete onSearch={handleSearch} dataSource={notData} patterns />
                 </div>
                 <div className="project-sort-group">
                   <div className="sort-group">
@@ -124,10 +124,10 @@ const Project = ({ match }) => {
                       <Select.Option value="price">Price</Select.Option>
                     </Select>
                     <div className="layout-style">
-                      <NavLink to={match.path}>
+                      <NavLink to={path}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={`${match.path}/list`}>
+                      <NavLink to={`${path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -144,8 +144,8 @@ const Project = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route exact path={match.path} component={Grid} />
-                  <Route path={`${match.path}/:list`} component={List} />
+                  <Route exact path={path} component={Grid} />
+                  <Route path={`${path}/:list`} component={List} />
                 </Suspense>
               </Switch>
             </div>
@@ -158,7 +158,7 @@ const Project = ({ match }) => {
 };
 
 Project.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Project;

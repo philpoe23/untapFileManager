@@ -43,7 +43,7 @@
       "amt": 2100
     }
   ],
-  "positiveAndnegetive": [
+  "positiveAndNegative": [
     {
       "name": "Page A",
       "uv": 4000,
@@ -87,7 +87,7 @@
       "amt": 2100
     }
   ],
-  "nullchart": [
+  "nullChart": [
     {
       "name": "Page A",
       "uv": 4000,

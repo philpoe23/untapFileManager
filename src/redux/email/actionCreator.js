@@ -1,9 +1,9 @@
 import actions from './actions';
-import initialState from '../../config/dataService/emailData.json';
+import initialState from '../../demoData/emailData.json';
 
 const { singleEmailBegin, singleEmailSuccess, singleEmailErr } = actions;
 
-const filterSinglepage = paramsId => {
+const filterSinglePage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleEmailBegin());
@@ -17,4 +17,4 @@ const filterSinglepage = paramsId => {
   };
 };
 
-export { filterSinglepage };
+export { filterSinglePage };

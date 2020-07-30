@@ -329,7 +329,7 @@ const MenueItems = ({ darkMode }) => {
           </Menu.Item>
         </SubMenu>
         <Menu.Item key="peity">
-          <NavLink to="/charts/peity">Paity Charts</NavLink>
+          <NavLink to="/charts/peity">Peity Charts</NavLink>
         </Menu.Item>
       </SubMenu>
 

@@ -73,7 +73,7 @@ Cards.propTypes = {
   more: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node]),
   bodyStyle: PropTypes.object,
   headStyle: PropTypes.object,
-  isbutton: PropTypes.object,
+  isbutton: PropTypes.node,
   headless: PropTypes.bool,
   border: PropTypes.bool,
   caption: PropTypes.string,

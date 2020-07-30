@@ -16,6 +16,7 @@ const SocialProfiles = lazy(() => import('./overview/SocialProfile'));
 const Notification = lazy(() => import('./overview/Notification'));
 
 const Settings = ({ match }) => {
+  const { path } = match;
   return (
     <>
       <PageHeader ghost title="Profile Settings" />
@@ -45,19 +46,19 @@ const Settings = ({ match }) => {
                 <nav className="settings-menmulist">
                   <ul>
                     <li>
-                      <NavLink to={`${match.path}/profile`}>
+                      <NavLink to={`${path}/profile`}>
                         <FeatherIcon icon="user" size={14} />
                         Edit Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={`${match.path}/account`}>
+                      <NavLink to={`${path}/account`}>
                         <FeatherIcon icon="settings" size={14} />
                         Account Settings
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={`${match.path}/password`}>
+                      <NavLink to={`${path}/password`}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="14"
@@ -76,13 +77,13 @@ const Settings = ({ match }) => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={`${match.path}/social`}>
+                      <NavLink to={`${path}/social`}>
                         <FeatherIcon icon="users" size={14} />
                         Social Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={`${match.path}/notification`}>
+                      <NavLink to={`${path}/notification`}>
                         <FeatherIcon icon="bell" size={14} />
                         Notification
                       </NavLink>
@@ -114,11 +115,11 @@ const Settings = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={`${match.path}/profile`} component={Profile} />
-                  <Route path={`${match.path}/account`} component={Account} />
-                  <Route path={`${match.path}/password`} component={Password} />
-                  <Route path={`${match.path}/social`} component={SocialProfiles} />
-                  <Route path={`${match.path}/notification`} component={Notification} />
+                  <Route path={`${path}/profile`} component={Profile} />
+                  <Route path={`${path}/account`} component={Account} />
+                  <Route path={`${path}/password`} component={Password} />
+                  <Route path={`${path}/social`} component={SocialProfiles} />
+                  <Route path={`${path}/notification`} component={Notification} />
                 </Suspense>
               </Switch>
             </SettingWrapper>
@@ -130,7 +131,7 @@ const Settings = ({ match }) => {
 };
 
 Settings.propTypes = {
-  match: propTypes.object,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Settings;

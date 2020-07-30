@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/gallery.json';
+import staticData from '../../demoData/gallery.json';
 
 const initialState = {
   data: staticData,

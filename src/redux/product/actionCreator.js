@@ -1,5 +1,5 @@
 import actions from './actions';
-import initialState from '../../config/dataService/products.json';
+import initialState from '../../demoData/products.json';
 
 const {
   singleProductBegin,
@@ -15,7 +15,7 @@ const {
   sortingProductErr,
 } = actions;
 
-const filterSinglepage = paramsId => {
+const filterSinglePage = paramsId => {
   return async dispatch => {
     try {
       dispatch(singleProductBegin());
@@ -116,4 +116,4 @@ const filterByCategory = category => {
   };
 };
 
-export { filterSinglepage, sorting, filterByPriceRange, filterByRating, filterByBrand, filterByCategory };
+export { filterSinglePage, sorting, filterByPriceRange, filterByRating, filterByBrand, filterByCategory };

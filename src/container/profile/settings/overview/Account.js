@@ -42,7 +42,7 @@ const Account = () => {
         <Row>
           <Col xs={24}>
             <BasicFormWrapper>
-              <Form form={form} name="editaccount" onFinish={handleSubmit}>
+              <Form form={form} name="editAccount" onFinish={handleSubmit}>
                 <div className="account-form-top">
                   <Row justify="center">
                     <Col xxl={10} lg={16} md={18} xs={24}>

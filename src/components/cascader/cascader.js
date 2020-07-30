@@ -99,8 +99,8 @@ Cascader.defaultProps = {
 };
 
 Cascader.propTypes = {
-  data: PropTypes.array,
-  defaultValue: PropTypes.array,
+  data: PropTypes.arrayOf(PropTypes.object),
+  defaultValue: PropTypes.arrayOf(PropTypes.string),
   trigger: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,

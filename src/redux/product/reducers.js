@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/products.json';
+import staticData from '../../demoData/products.json';
 
 const {
   SINGLE_PRODUCT_BEGIN,

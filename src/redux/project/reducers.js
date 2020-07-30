@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/projectData.json';
+import staticData from '../../demoData/projectData.json';
 
 const {
   SINGLE_PROJECT_BEGIN,

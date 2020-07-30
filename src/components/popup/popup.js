@@ -43,8 +43,8 @@ Popover.propTypes = {
   placement: PropTypes.string,
   title: PropTypes.string,
   action: PropTypes.string,
-  content: PropTypes.object,
-  children: PropTypes.object,
+  content: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export { Popover };

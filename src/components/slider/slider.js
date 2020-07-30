@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import { InputNumber, Row, Col } from 'antd';
 import PropTypes from 'prop-types';

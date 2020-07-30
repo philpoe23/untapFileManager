@@ -8,7 +8,7 @@ import propTypes from 'prop-types';
 import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
-import { filterSinglepage } from '../../../redux/email/actionCreator';
+import { filterSinglePage } from '../../../redux/email/actionCreator';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const MailComposer = lazy(() => import('./MailComposer'));
@@ -22,9 +22,9 @@ const Single = props => {
   });
 
   useEffect(() => {
-    if (filterSinglepage) {
+    if (filterSinglePage) {
       const id = parseInt(match.params.id, 10);
-      dispatch(filterSinglepage(id));
+      dispatch(filterSinglePage(id));
     }
   }, [match.params.id, dispatch]);
 
@@ -157,16 +157,16 @@ const Single = props => {
                 <p>{email.body}</p>
 
                 <Heading as="h6">
-                  Best Regurds <br /> {email.userName}
+                  Best Regards <br /> {email.userName}
                 </Heading>
               </div>
 
               <div className="message-attachments">
                 <figure>
-                  <div className="attatchment-image">
+                  <div className="attachment-image">
                     <img src={require('../../../static/img/email/2.png')} alt="" />
                   </div>
-                  <div className="attatchment-hover">
+                  <div className="attachment-hover">
                     <Link className="btn-link" to="#">
                       <FeatherIcon icon="download" />
                     </Link>
@@ -181,10 +181,10 @@ const Single = props => {
                 </figure>
 
                 <figure>
-                  <div className="attatchment-image">
+                  <div className="attachment-image">
                     <img src={require('../../../static/img/email/1.png')} alt="" />
                   </div>
-                  <div className="attatchment-hover">
+                  <div className="attachment-hover">
                     <Link className="btn-link" to="#">
                       <FeatherIcon icon="download" />
                     </Link>
@@ -246,8 +246,8 @@ const Single = props => {
 };
 
 Single.propTypes = {
-  match: propTypes.object.isRequired,
-  history: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
+  history: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Single;

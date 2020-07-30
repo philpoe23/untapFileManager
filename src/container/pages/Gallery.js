@@ -10,10 +10,10 @@ import { galleryFilter } from '../../redux/gallary/actionCreator';
 
 const Gallery = () => {
   const dispatch = useDispatch();
-  const { gallery, isloading } = useSelector(state => {
+  const { gallery, isLoading } = useSelector(state => {
     return {
       gallery: state.gallery.data,
-      isloading: state.gallery.loading,
+      isLoading: state.gallery.loading,
     };
   });
 
@@ -39,7 +39,7 @@ const Gallery = () => {
               <ul>
                 <li>
                   <Link
-                    className={state.activeClass === '' ? 'active' : 'deactive'}
+                    className={state.activeClass === '' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('')}
                     to="#"
                   >
@@ -48,7 +48,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'webDesign' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'webDesign' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('webDesign')}
                     to="#"
                   >
@@ -57,7 +57,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'uiDesign' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'uiDesign' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('uiDesign')}
                     to="#"
                   >
@@ -66,7 +66,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'wireframe' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'wireframe' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('wireframe')}
                     to="#"
                   >
@@ -75,7 +75,7 @@ const Gallery = () => {
                 </li>
                 <li>
                   <Link
-                    className={state.activeClass === 'Presentation' ? 'active' : 'deactive'}
+                    className={state.activeClass === 'Presentation' ? 'active' : 'deactivate'}
                     onClick={() => handleChange('Presentation')}
                     to="#"
                   >
@@ -85,7 +85,7 @@ const Gallery = () => {
               </ul>
             </GalleryNav>
           </Col>
-          {isloading ? (
+          {isLoading ? (
             <Col xs={24}>
               <div className="spin">
                 <Spin />

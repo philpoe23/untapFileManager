@@ -187,7 +187,7 @@ const Invoice = () => {
                           <span className="summary-list-text">{`$${497.32}`}</span>
                         </li>
                         <li>
-                          <span className="summary-list-title">Descount :</span>
+                          <span className="summary-list-title">Discount :</span>
                           <span className="summary-list-text">{`$${-20}`}</span>
                         </li>
                         <li>

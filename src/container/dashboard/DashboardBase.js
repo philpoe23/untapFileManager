@@ -6,16 +6,16 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
-import { theme } from '../../config/theme/themeVariables';
+import config from '../../config/config';
 import Heading from '../../components/heading/heading';
-
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 // @Todo console warning from button
 
-const DashbordBase = () => {
+const { theme } = config;
+const DashboardBase = () => {
   return (
     <>
       <PageHeader
@@ -36,7 +36,7 @@ const DashbordBase = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless title="Theame Colors" size="large">
+            <Cards headless title="Theme Colors" size="large">
               <Row gutter={15}>
                 <Col lg={2}>
                   <Palette colorCode={theme['primary-color']}>Primary</Palette>
@@ -317,4 +317,4 @@ const DashbordBase = () => {
   );
 };
 
-export default DashbordBase;
+export default DashboardBase;

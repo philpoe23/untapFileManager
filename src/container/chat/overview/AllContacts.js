@@ -6,7 +6,7 @@ import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
-import { filterSinglepage } from '../../../redux/chat/actionCreator';
+import { filterSinglePage } from '../../../redux/chat/actionCreator';
 import { Button } from '../../../components/buttons/buttons';
 
 const AllContacts = ({ match }) => {
@@ -20,7 +20,7 @@ const AllContacts = ({ match }) => {
   const { chatData } = state;
 
   const dataFiltering = e => {
-    dispatch(filterSinglepage(e.currentTarget.getAttribute('data-email')));
+    dispatch(filterSinglePage(e.currentTarget.getAttribute('data-email')));
   };
 
   return (
@@ -66,6 +66,6 @@ const AllContacts = ({ match }) => {
   );
 };
 AllContacts.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object),
 };
 export default AllContacts;

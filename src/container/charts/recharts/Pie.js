@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import rechartdata from '../../../config/dataService/recharts.json';
+import rechartdata from '../../../demoData/recharts.json';
 
 const { data01, data02 } = rechartdata;
 
@@ -123,7 +123,7 @@ const ReChartPie = () => {
   };
   return (
     <>
-      <PageHeader title="Rechats Pie Chart" />
+      <PageHeader title="Recharts Pie Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

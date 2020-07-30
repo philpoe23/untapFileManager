@@ -15,10 +15,10 @@ const CheckOut = () => {
 
   const [state, setState] = useState({
     status: 'process',
-    isfinished: false,
+    isFinished: false,
   });
 
-  const { status, isfinished } = state;
+  const { status, isFinished } = state;
 
   const next = () => {
     setState({
@@ -38,7 +38,7 @@ const CheckOut = () => {
     setState({
       ...state,
       status: 'finish',
-      isfinished: true,
+      isFinished: true,
     });
   };
 
@@ -181,7 +181,7 @@ const CheckOut = () => {
                             rules={[
                               {
                                 min: 6,
-                                message: 'Enter a valid password. Min 6 charecters long.',
+                                message: 'Enter a valid password. Min 6 characters long.',
                               },
                             ]}
                             label="Password"
@@ -351,7 +351,7 @@ const CheckOut = () => {
               status !== 'finish' ? (
                 <BasicFormWrapper style={{ width: '100%' }}>
                   <div className="atbd-review-order" style={{ width: '100%' }}>
-                    <Heading as="h4">4. Review and confirme Order</Heading>
+                    <Heading as="h4">4. Review and confirm Order</Heading>
                     <Cards bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: 10 }} headless>
                       <div className="atbd-review-order__single">
                         <Cards headless>
@@ -424,7 +424,7 @@ const CheckOut = () => {
                                         <span className="summary-list-text">{`$${497.32}`}</span>
                                       </li>
                                       <li>
-                                        <span className="summary-list-title">Descount :</span>
+                                        <span className="summary-list-title">Discount :</span>
                                         <span className="summary-list-text">{`$${-20}`}</span>
                                       </li>
                                       <li>
@@ -474,7 +474,7 @@ const CheckOut = () => {
         onNext={next}
         onPrev={prev}
         onDone={done}
-        isfinished={isfinished}
+        isfinished={isFinished}
       />
     </CheckoutWrapper>
   );

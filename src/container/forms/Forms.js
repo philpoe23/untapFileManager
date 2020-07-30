@@ -5,7 +5,7 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main, FormGroupWrapper } from '../styled';
 import SignIn from '../profile/authentication/overview/SignIn';
 import Signup from '../profile/authentication/overview/Signup';
-import ForgotPasswrod from '../profile/authentication/overview/ForgotPasswrod';
+import ForgotPassword from '../profile/authentication/overview/ForgotPassword';
 
 const Forms = () => {
   return (
@@ -26,7 +26,7 @@ const Forms = () => {
             </Col>
             <Col xs={24}>
               <Cards title="Forget Password">
-                <ForgotPasswrod />
+                <ForgotPassword />
               </Cards>
             </Col>
           </Row>

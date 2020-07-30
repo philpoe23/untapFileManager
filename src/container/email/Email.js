@@ -3,7 +3,7 @@ import { Row, Col, Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
-import EamilNavbar from './overview/Navbar';
+import EmailNavbar from './overview/Navbar';
 import ComposeMail from './overview/Compose';
 import { EmailWrapper, MailSideBar } from './overview/style';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -29,6 +29,7 @@ const Email = ({ match }) => {
     collapsed: false,
   });
   const { responsive, collapsed } = state;
+  const { path, params } = match;
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -55,12 +56,12 @@ const Email = ({ match }) => {
     setMailEditorStatus(false);
   };
 
-  const path = match.path.split(':')[0];
+  const pathName = path.split(':')[0];
   return (
     <>
       <PageHeader
         ghost
-        title={match.params.page}
+        title={params.page}
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />
@@ -95,7 +96,7 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={path} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </div>
@@ -109,7 +110,7 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={path} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </MailSideBar>
@@ -125,13 +126,13 @@ const Email = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={`${path}inbox`} component={Inbox} />
-                  <Route path={`${path}sent`} component={Sent} />
-                  <Route path={`${path}drafts`} component={Draft} />
-                  <Route path={`${path}starred`} component={Starred} />
-                  <Route path={`${path}spam`} component={Spam} />
-                  <Route path={`${path}trash`} component={Trash} />
-                  <Route path={`${path}single/:id`} component={MailDetailView} />
+                  <Route path={`${pathName}inbox`} component={Inbox} />
+                  <Route path={`${pathName}sent`} component={Sent} />
+                  <Route path={`${pathName}drafts`} component={Draft} />
+                  <Route path={`${pathName}starred`} component={Starred} />
+                  <Route path={`${pathName}spam`} component={Spam} />
+                  <Route path={`${pathName}trash`} component={Trash} />
+                  <Route path={`${pathName}single/:id`} component={MailDetailView} />
                 </Suspense>
               </Switch>
             </Col>
@@ -143,7 +144,7 @@ const Email = ({ match }) => {
 };
 
 Email.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Email;

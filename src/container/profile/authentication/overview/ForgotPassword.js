@@ -15,7 +15,7 @@ const ForgotPassword = () => {
   return (
     <AuthWrapper>
       <div className="auth-contents">
-        <Form name="forgotpass" onFinish={handleSubmit} layout="vertical">
+        <Form name="forgotPass" onFinish={handleSubmit} layout="vertical">
           <Heading as="h3">Forgot Password?</Heading>
           <p>
             Enter the email address you used when you joined and we’ll send you instructions to reset your password.

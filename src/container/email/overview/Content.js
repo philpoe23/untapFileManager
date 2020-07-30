@@ -12,10 +12,10 @@ import { textRefactor } from '../../../components/utilities/utilities';
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
     selectedRowKeys: [],
-    notdata: searchData,
+    notData: searchData,
     emails: email,
   });
-  const { selectedRowKeys, notdata, emails } = state;
+  const { selectedRowKeys, notData, emails } = state;
 
   useEffect(() => {
     setState({
@@ -29,7 +29,7 @@ const Content = ({ searchData, email }) => {
       searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -69,12 +69,7 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a
-                    key={item}
-                    className="btn-attatchment"
-                    download
-                    href={require(`../../../static/img/email/${item}`)}
-                  >
+                  <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
                     <FeatherIcon icon="paperclip" size={14} />
                     {item}
                   </a>
@@ -153,7 +148,7 @@ const Content = ({ searchData, email }) => {
     {
       title: (
         <div className="email-top-search">
-          <AutoComplete onSearch={handleSearch} dataSource={notdata} width="80%" patterns />
+          <AutoComplete onSearch={handleSearch} dataSource={notData} width="80%" patterns />
         </div>
       ),
       dataIndex: 'content',
@@ -200,8 +195,8 @@ const Content = ({ searchData, email }) => {
 };
 
 Content.propTypes = {
-  searchData: propTypes.array.isRequired,
-  email: propTypes.array.isRequired,
+  searchData: propTypes.arrayOf(propTypes.object).isRequired,
+  email: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
 export default Content;

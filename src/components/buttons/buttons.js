@@ -68,6 +68,7 @@ Button.propTypes = {
     'dark',
     'light',
     'white',
+    'default',
   ]),
   shape: PropTypes.string,
   icon: PropTypes.string,

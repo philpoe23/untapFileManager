@@ -7,7 +7,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import PropTypes from 'prop-types';
 import {
   OverviewCard,
-  PerfomenceChartWrapper,
+  PerformanceChartWrapper,
   Pstates,
   SessionChartWrapper,
   SessionState,
@@ -20,7 +20,7 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import worldLowRes from '../../config/dataService/vector.json';
+import worldLowRes from '../../demoData/vector.json';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
@@ -43,7 +43,7 @@ const moreContent = (
   </>
 );
 
-const locationcolumns = [
+const locationColumns = [
   {
     title: 'Channel',
     dataIndex: 'channel',
@@ -76,7 +76,7 @@ const locationcolumns = [
   },
 ];
 
-const locationdata = [
+const locationData = [
   {
     key: '1',
     channel: 'Direct',
@@ -133,7 +133,7 @@ const locationdata = [
   },
 ];
 
-const landingcolumns = [
+const landingColumns = [
   {
     title: 'Landing Pages',
     dataIndex: 'pages',
@@ -161,7 +161,7 @@ const landingcolumns = [
   },
 ];
 
-const landingdata = [
+const landingData = [
   {
     key: '1',
     pages: <span className="page-title">Homepage</span>,
@@ -204,7 +204,7 @@ const landingdata = [
   },
 ];
 
-const regioncolumns = [
+const regionColumns = [
   {
     title: 'Top Region',
     dataIndex: 'region',
@@ -217,7 +217,7 @@ const regioncolumns = [
   },
 ];
 
-const regiondata = [
+const regionData = [
   {
     key: '1',
     region: 'United States',
@@ -309,7 +309,7 @@ const Performance = () => {
   };
 
   renderThumb.propTypes = {
-    style: PropTypes.object.isRequired,
+    style: PropTypes.shape(PropTypes.object).isRequired,
   };
 
   return (
@@ -399,22 +399,22 @@ const Performance = () => {
             </OverviewCard>
           </Col>
           <Col xxl={16} xl={14} lg={12} xs={24}>
-            <PerfomenceChartWrapper>
+            <PerformanceChartWrapper>
               <Cards
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.performance === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.performance === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangePerformance('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.performance === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.performance === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangePerformance('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.performance === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.performance === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangePerformance('year')} to="#">
                           Year
                         </Link>
@@ -473,7 +473,7 @@ const Performance = () => {
                   </div>
                 </Pstates>
 
-                <div className="perfomance-lineChart">
+                <div className="performance-lineChart">
                   <ChartjsAreaChart
                     labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                     datasets={[
@@ -558,7 +558,7 @@ const Performance = () => {
                   />
                 </div>
               </Cards>
-            </PerfomenceChartWrapper>
+            </PerformanceChartWrapper>
           </Col>
           <Col xxl={16} xs={24}>
             <div className="full-width-table">
@@ -566,17 +566,17 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.traffic === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.traffic === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTraffic('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.traffic === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.traffic === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTraffic('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.traffic === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.traffic === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTraffic('year')} to="#">
                           Year
                         </Link>
@@ -590,7 +590,7 @@ const Performance = () => {
               >
                 <TrafficTableWrapper>
                   <div className="table-bordered table-responsive">
-                    <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                    <Table columns={locationColumns} dataSource={locationData} pagination={false} />
                   </div>
                 </TrafficTableWrapper>
               </Cards>
@@ -602,17 +602,17 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.device === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.device === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.device === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('year')} to="#">
                           Year
                         </Link>
@@ -670,17 +670,17 @@ const Performance = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.landing === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.landing === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLanding('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.landing === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.landing === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLanding('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.landing === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.landing === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLanding('year')} to="#">
                           Year
                         </Link>
@@ -694,7 +694,7 @@ const Performance = () => {
               >
                 <LadingPages>
                   <div className="table-bordered table-responsive">
-                    <Table columns={landingcolumns} dataSource={landingdata} pagination={false} />
+                    <Table columns={landingColumns} dataSource={landingData} pagination={false} />
                   </div>
                 </LadingPages>
               </Cards>
@@ -705,17 +705,17 @@ const Performance = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li className={state.region === 'week' ? 'active' : 'deactive'}>
+                    <li className={state.region === 'week' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeRegion('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className={state.region === 'month' ? 'active' : 'deactive'}>
+                    <li className={state.region === 'month' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeRegion('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li className={state.region === 'year' ? 'active' : 'deactive'}>
+                    <li className={state.region === 'year' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeRegion('year')} to="#">
                         Year
                       </Link>
@@ -731,7 +731,7 @@ const Performance = () => {
                 <Col xxl={10} md={11} xs={24}>
                   <RegionList>
                     <Scrollbars autoHeight autoHeightMin={280} autoHide renderThumbVertical={renderThumb}>
-                      <Table columns={regioncolumns} dataSource={regiondata} pagination={false} />
+                      <Table columns={regionColumns} dataSource={regionData} pagination={false} />
                     </Scrollbars>
                   </RegionList>
                 </Col>

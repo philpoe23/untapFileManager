@@ -227,7 +227,7 @@ const MailBox = Styled.div`
     color: #fff;
     border-radius: 10px 10px 0 0;
     display: flex;
-    algn-items: center;
+    align-items: center;
     justify-content: space-between;
     background: ${({ theme }) => theme['dark-color']};
     p {
@@ -262,7 +262,7 @@ const MailBox = Styled.div`
       }
     }
   }
-  .fotter {
+  .footer {
     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
     padding: 20px 0 30px;
     margin: 0 30px 0;
@@ -469,7 +469,7 @@ const EmailHeader = Styled.div`
     margin: 0;
     color: ${({ theme }) => theme['gray-color']};
   }
-  .btn-attatchment{
+  .btn-attachment{
     font-size: 13px;
     margin-top: 15px;
     display: inline-flex;
@@ -606,19 +606,19 @@ const MessageDetails = Styled.div`
       margin: 0 5px;
       &:hover{
         box-shadow: 0 10px 20px ${({ theme }) => theme['gray-solid']}10;
-        .attatchment-image{
+        .attachment-image{
           &:after{
             height: 100%;
             opacity: 1;
             visibility: visible;
           }
         }
-        .attatchment-hover{
+        .attachment-hover{
           opacity: 1;
           visibility: visible
         }
       }
-      .attatchment-image{
+      .attachment-image{
         position: relative;
         &:after{
           position: absolute;
@@ -634,7 +634,7 @@ const MessageDetails = Styled.div`
           background: ${({ theme }) => theme['dark-color']}50;
         }
       }
-      .attatchment-hover{
+      .attachment-hover{
         position: absolute;
         top: 80px;
         left: 50%;
@@ -738,7 +738,7 @@ const MessageReply = Styled.div`
     > div{
       border: 1px solid ${({ theme }) => theme['border-color-light']};
     }
-    .fotter{
+    .footer{
       margin: 0 30px 0;
       @media only screen and (max-width: 575px){
         margin: 0 15px 0

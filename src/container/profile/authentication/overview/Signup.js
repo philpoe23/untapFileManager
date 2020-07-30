@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
@@ -23,7 +22,7 @@ const SignUp = () => {
   return (
     <AuthWrapper>
       <p className="auth-notice">
-        Allready have an account? <NavLink to="/">Sign In</NavLink>
+        Already have an account? <NavLink to="/">Sign In</NavLink>
       </p>
       <div className="auth-contents">
         <Form name="register" onFinish={handleSubmit} layout="vertical">

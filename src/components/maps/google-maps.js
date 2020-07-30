@@ -3,7 +3,7 @@ import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
 import PropTypes from 'prop-types';
 import { GmapWraper } from './map-style';
 
-const apiKey = 'AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c';
+const apiKey = process.env.REACT_APP_GOOGLE_MAP_KEY;
 const GoogleMaps = GoogleApiWrapper({
   apiKey,
 })(property => {
@@ -101,7 +101,7 @@ GoogleMaps.propTypes = {
   height: PropTypes.string,
   zoom: PropTypes.number,
   place: PropTypes.arrayOf(PropTypes.object),
-  infoWindow: PropTypes.object,
+  infoWindow: PropTypes.node,
 };
 
 export { GoogleMaps };

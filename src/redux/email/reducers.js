@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/emailData.json';
+import staticData from '../../demoData/emailData.json';
 
 const emailReducer = (state = staticData) => {
   return state;

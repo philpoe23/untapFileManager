@@ -46,7 +46,7 @@ const MailComposer = ({ onChange, onSend }) => {
         </div>
       </div>
 
-      <div className="fotter">
+      <div className="footer">
         <div className="left d-flex align-items-center">
           <Button size="default" type="primary" onClick={onSubmit} raised>
             Send
