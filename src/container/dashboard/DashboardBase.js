@@ -6,15 +6,15 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Palette from '../../components/color-palette/palette';
-import { theme } from '../../config/theme/themeVariables';
+import config from '../../config/config';
 import Heading from '../../components/heading/heading';
-
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 // @Todo console warning from button
 
+const { theme } = config;
 const DashboardBase = () => {
   return (
     <>

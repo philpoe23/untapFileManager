@@ -1,5 +1,7 @@
 import Styled from 'styled-components';
-import { theme } from '../../config/theme/themeVariables';
+import config from '../../config/config';
+
+const { theme } = config;
 
 const GridStyle = Styled.div`
     .ant-row .ant-col, .ant-row-flex .ant-col {
