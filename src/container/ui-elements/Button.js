@@ -7,7 +7,9 @@ import { Main, ButtonsGroupWrapper, BlockButtonsWrapper, ButtonSizeWrapper, BtnW
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button, BtnGroup } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import { theme } from '../../config/theme/themeVariables';
+import config from '../../config/config';
+
+const { theme } = config;
 
 const Buttons = () => {
   return (

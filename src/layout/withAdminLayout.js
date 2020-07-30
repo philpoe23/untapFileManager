@@ -166,7 +166,16 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
-                  <Footer style={footerStyle}>Footer</Footer>
+                  <Footer style={footerStyle}>
+                    <Row>
+                      <Col md={12}>2020 © AazzTech</Col>
+                      <Col md={12}>
+                        <NavLink to="#">About</NavLink>
+                        <NavLink to="#">Team</NavLink>
+                        <NavLink to="#">Contact</NavLink>
+                      </Col>
+                    </Row>
+                  </Footer>
                 </Content>
               </Layout>
             </Layout>
