@@ -168,10 +168,10 @@ const ThemeLayout = WrappedComponent => {
                   <WrappedComponent />
                   <Footer class="admin-footer" style={footerStyle}>
                     <Row>
-                      <Col md={12}>
+                      <Col md={12} xs={24}>
                         <span className="admin-footer__copyright">2020 © AazzTech</span>
                       </Col>
-                      <Col md={12}>
+                      <Col md={12} xs={24}>
                         <div className="admin-footer__links">
                           <NavLink to="#">About</NavLink>
                           <NavLink to="#">Team</NavLink>
