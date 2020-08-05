@@ -8,7 +8,7 @@ import worldLowRes from '../../demoData/vector.json';
 import config from '../../config/config';
 
 const { theme } = config;
-// @Todo {...worldLowRes}
+
 const VectorMaps = () => {
   return (
     <>
