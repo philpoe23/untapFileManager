@@ -300,6 +300,9 @@ const ChatSidebar = Styled.div`
     @media only screen and (max-width: 379px){
       padding: 0 20px;
     }
+    .ant-select-selection-search{
+      width: 100% !important;
+    }
   }
   .ant-select-selector{
     height: auto !important;

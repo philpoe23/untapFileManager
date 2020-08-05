@@ -31,8 +31,14 @@ const ProjectSorting = Styled.div`
         .project-sort-group{
             padding: 0 10px;
         }
+        
         .project-sort-group{
             margin-left: auto;
+        }
+        .project-sort-search{
+            .ant-select-selection-search{
+                width: 100% !important;
+            }
         }
     }
     @media (max-width: 1500px){
@@ -58,7 +64,7 @@ const ProjectSorting = Styled.div`
         .project-sort-search{
             flex: 0 0 100%;
             order: 0;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             display: flex;
             justify-content: center;
             .ant-select{
@@ -184,9 +190,15 @@ const ProjectSorting = Styled.div`
             }
         }
         .project-sort-nav{
+            nav{
+                padding: 10px;
+            }
             nav ul{
                 flex-wrap: wrap;
-                justify-content: flex-start;
+                justify-content: center;
+                li{
+                    border-right: 0 none;
+                }
             }
         }
     }
@@ -816,15 +828,15 @@ const ActivitiesWrapper = Styled.div`
 `;
 
 export {
-  ProjectHeader,
-  ProjectSorting,
-  ProjectCard,
-  ProjectPagination,
-  ProjectListTitle,
-  ProjectListAssignees,
-  ProjectList,
-  ProjectDetailsWrapper,
-  TaskLists,
-  TasklistAction,
-  ActivitiesWrapper,
+    ProjectHeader,
+    ProjectSorting,
+    ProjectCard,
+    ProjectPagination,
+    ProjectListTitle,
+    ProjectListAssignees,
+    ProjectList,
+    ProjectDetailsWrapper,
+    TaskLists,
+    TasklistAction,
+    ActivitiesWrapper,
 };

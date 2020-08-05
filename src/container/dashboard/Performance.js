@@ -596,7 +596,7 @@ const Performance = () => {
               </Cards>
             </div>
           </Col>
-          <Col xxl={8} xl={8} xs={24}>
+          <Col xxl={8} xl={8} md={12} xs={24}>
             <SessionChartWrapper>
               <Cards
                 isbutton={
@@ -664,7 +664,7 @@ const Performance = () => {
               </Cards>
             </SessionChartWrapper>
           </Col>
-          <Col xxl={12} xl={16} xs={24}>
+          <Col xxl={12} xl={16} md={12} xs={24}>
             <div className="full-width-table">
               <Cards
                 isbutton={

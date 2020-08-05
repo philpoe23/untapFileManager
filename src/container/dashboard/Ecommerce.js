@@ -744,7 +744,7 @@ const Ecommerce = () => {
               </Cards>
             </div>
           </Col>
-          <Col xxl={8} lg={12} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <LocationMapWrapper>
               <div className="full-width-table">
                 <Cards
@@ -788,7 +788,7 @@ const Ecommerce = () => {
               </div>
             </LocationMapWrapper>
           </Col>
-          <Col xxl={8} lg={12} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <RevenueChartWrapper>
               <Cards
                 isbutton={

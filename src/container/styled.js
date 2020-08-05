@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Main = Styled.div`
     padding: 0px 30px;
-    min-height: 750px;
+    min-height: 780px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
@@ -532,21 +532,21 @@ const TableWrapper = Styled.div`
 `;
 
 export {
-  Main,
-  ButtonsGroupWrapper,
-  BlockButtonsWrapper,
-  ButtonSizeWrapper,
-  BtnWithIcon,
-  AlertList,
-  AutoCompleteWrapper,
-  CalendarWrapper,
-  DatePickerWrapper,
-  NotificationListWrapper,
-  TagInput,
-  PageHeaderWrapper,
-  MessageStyleWrapper,
-  BasicFormWrapper,
-  CardToolbox,
-  FormGroupWrapper,
-  TableWrapper,
+    Main,
+    ButtonsGroupWrapper,
+    BlockButtonsWrapper,
+    ButtonSizeWrapper,
+    BtnWithIcon,
+    AlertList,
+    AutoCompleteWrapper,
+    CalendarWrapper,
+    DatePickerWrapper,
+    NotificationListWrapper,
+    TagInput,
+    PageHeaderWrapper,
+    MessageStyleWrapper,
+    BasicFormWrapper,
+    CardToolbox,
+    FormGroupWrapper,
+    TableWrapper,
 };

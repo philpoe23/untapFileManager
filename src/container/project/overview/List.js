@@ -138,7 +138,7 @@ const List = () => {
 
   return (
     <Row gutter={25}>
-      <Col md={24}>
+      <Col xs={24}>
         <Cards headless>
           <ProjectList>
             <div className="table-responsive">
@@ -147,7 +147,7 @@ const List = () => {
           </ProjectList>
         </Cards>
       </Col>
-      <Col md={24} className="pb-30">
+      <Col xs={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (
             <Pagination

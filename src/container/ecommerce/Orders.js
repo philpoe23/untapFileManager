@@ -148,7 +148,7 @@ const Orders = () => {
       <Main>
         <Cards headless>
           <Row gutter={15}>
-            <Col md={24}>
+            <Col xs={24}>
               <TopToolBox>
                 <Row gutter={15} className="justify-content-center">
                   <Col lg={5} xs={24}>

@@ -251,7 +251,7 @@ const Div = Styled.div`
             color: ${({ theme }) => theme['light-color']};
             @media only screen and (max-width: 767px){
                 text-align: center;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
             }
         }
         .admin-footer__links{

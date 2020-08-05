@@ -79,9 +79,9 @@ const Email = ({ match }) => {
       <Main>
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
-            <Col lg={7} xl={5}>
+            <Col className="text-center" xxl={5} xl={7} lg={10} xs={24}>
               {responsive <= 991 && (
-                <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
+                <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                 </Button>
               )}
@@ -101,23 +101,23 @@ const Email = ({ match }) => {
                   </Cards>
                 </div>
               ) : (
-                <MailSideBar collapsed={collapsed} className="mail-sideabr">
-                  <Cards headless>
-                    <div className="mail-sidebar-top">
-                      <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                        + Compose
+                  <MailSideBar className={collapsed ? 'mail-sideabr show' : 'mail-sideabr hide'}>
+                    <Cards headless>
+                      <div className="mail-sidebar-top">
+                        <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
+                          + Compose
                       </Button>
-                    </div>
+                      </div>
 
-                    <div className="mail-sidebar-bottom">
-                      <EmailNavbar path={pathName} />
-                    </div>
-                  </Cards>
-                </MailSideBar>
-              )}
+                      <div className="mail-sidebar-bottom">
+                        <EmailNavbar path={pathName} />
+                      </div>
+                    </Cards>
+                  </MailSideBar>
+                )}
             </Col>
 
-            <Col lg={17} xl={19}>
+            <Col xxl={19} xl={17} lg={14}>
               <Switch>
                 <Suspense
                   fallback={

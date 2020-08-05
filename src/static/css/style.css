@@ -1168,16 +1168,14 @@ ul {
 /* page heading */
 
 .ant-page-header {
-  padding-left: 30px !important;
-  padding-right: 30px !important;
+  padding: 26px 30px 22px 30px !important;
 }
 
 .page-header-actions button {
   font-size: 12px;
   font-weight: 500;
-  ;
   height: 34px;
-  padding: 0 7.5px;
+  padding: 0 12.32px;
   box-shadow: 0 3px 5px #9299B805;
 }
 
