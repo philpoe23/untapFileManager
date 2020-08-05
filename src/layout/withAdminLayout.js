@@ -4,7 +4,7 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
-import MenueItems from './sidebar/MenueItems';
+import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
@@ -166,7 +166,7 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
-                  <Footer class="admin-footer" style={footerStyle}>
+                  <Footer className="admin-footer" style={footerStyle}>
                     <Row>
                       <Col md={12} xs={24}>
                         <span className="admin-footer__copyright">2020 © AazzTech</span>

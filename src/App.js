@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 };
 
 App.propTypes = {
-  auth: propTypes.string.isRequired,
+  auth: propTypes.oneOf(['true', 'null', null, true]),
 };
 const MyApp = connect(mapStateToProps)(App);
 
