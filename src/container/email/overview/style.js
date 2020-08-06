@@ -37,6 +37,9 @@ const Style = Styled(Table)`
           display: flex;
           justify-content: flex-end;
           align-items: center;
+          @media only screen and (max-width: 575px){
+            display: none;
+          }
           .ant-select{
             max-width: 350px;
           }
@@ -80,6 +83,9 @@ const Style = Styled(Table)`
             display: inline-block
             font-size: 14px;
             color: ${({ theme }) => theme['light-color']};
+            @media only screen and (max-width: 575px){
+              display: none;
+            }
           }
           .pagination-slider{
             margin: 0 20px 0 15px;
@@ -121,6 +127,7 @@ const Style = Styled(Table)`
         }
         >td{
           background: #fff !important;
+          border-color: #ffffff;
         }
       }
       >td{
@@ -324,12 +331,14 @@ const EmailNav = Styled.nav`
       .add-label{
         box-shadow: 0 10px 40px rgba(146,153,184,0.2);
         padding: 25px 30px;
-        width: 330px;
-        margin-left: -25px;
+        position: relative;
+        width: calc(100% + 60px);
+        left: 50%;
+        transform: translateX(-50%);
         background: #fff;
         border-radius: 8px;
         @media only screen and (max-width: 1199px){
-          width: 270px;
+          width: calc(100% + 40px);
           padding: 15px;
         }
         h1{
@@ -410,6 +419,10 @@ const MessageAction = Styled.div`
     border-radius: 50%;
     margin: 0 5px;
     transition: 0.3s ease;
+    @media only screen and (max-width: 575px){
+      width: 25px;
+      height: 25px;
+    }
     svg{
       color: ${({ theme }) => theme['gray-solid']};
     }
@@ -449,6 +462,9 @@ const EmailAuthor = Styled.div`
 
 const EmailHeader = Styled.div`
   min-width: 540px;
+  @media only screen and (max-width: 575px){
+    min-width: 180px;
+  }
   h1{
     font-size: 14px;
     font-weight: 500;
@@ -464,6 +480,9 @@ const EmailHeader = Styled.div`
     padding: 0 12px;
     border-radius: 3px;
     background: ${({ theme }) => theme['primary-color']}10;
+    @media only screen and (max-width: 575px){
+      margin-left: 0px;
+    }
   }
   p{
     margin: 0;
@@ -479,6 +498,9 @@ const EmailHeader = Styled.div`
     border-radius: 15px;
     color: ${({ theme }) => theme['gray-solid']};
     background: ${({ theme }) => theme['bg-color-normal']};
+    @media only screen and (max-width: 575px){
+      display: none;
+    }
     i,
     svg{
       margin-right: 6px;
@@ -755,13 +777,27 @@ const MailRightAction = Styled.div`
 
 const EmailWrapper = Styled.div`
   .ant-btn-link{
-    background: transparent !important;
+    background: #fff !important;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    @media only screen and (max-width: 767px){
+      float: right;
+    }
     &:focus{
       color: ${({ theme }) => theme['primary-color']};
     }
   }
   .mail-sideabr{
+    &.hide{
+      transform: translateX(-100%);
+      transition: .35s ease-in;
+    }
+    &.show{
+      transform: translateX(0%);
+      transition: .35s ease-in;
+    }
     @media only screen and (max-width: 991px){
+      display: block;
       background: #fff;
       position: fixed;
       left: 0;

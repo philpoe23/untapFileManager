@@ -76,7 +76,7 @@ const Project = ({ match }) => {
       </ProjectHeader>
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col xs={24}>
             <ProjectSorting>
               <div className="project-sort-bar">
                 <div className="project-sort-nav">

@@ -260,6 +260,11 @@ const TopToolBox = Styled.div`
             max-width: 350px;
             margin: 0 auto 20px;
         }
+        .ant-select-selection-search{
+            @media only screen and (max-width: 991px){
+                width: 100% !important;
+            }
+        }
     }
     .search-result{
         margin: 0 0 0 25px;
@@ -733,7 +738,7 @@ const ProductTable = Styled.div`
                         border-radius: 10px 0 0 10px;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0;
+                        border-radius: 0 10px 10px 0 !important;
                     }
                 }
             }
@@ -747,7 +752,7 @@ const ProductTable = Styled.div`
                         border-radius: 10px 0 0 10px;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0;
+                        border-radius: 0 10px 10px 0 !important;
                     }
                 }
             }
@@ -823,7 +828,7 @@ const ProductTable = Styled.div`
 
 const CouponForm = Styled.div`
     margin: -10px 0 20px 0;
-    #submitcoupon{
+    #submitCoupon{
         >.ant-row{
             align-items: center;
         }
@@ -1169,6 +1174,9 @@ const InvoiceLetterBox = Styled.div`
 const InvoiceAction = Styled.div`
     text-align: right;
     margin-top: 95px;
+    @media only screen and (max-width: 991px){
+        margin-top: 50px;
+    }
     @media only screen and (max-width: 479px){
         text-align: center;
     }
@@ -1610,19 +1618,19 @@ const CheckoutWrapper = Styled.div`
 `;
 
 export {
-  FigureCart,
-  Sidebar,
-  SidebarSingle,
-  ProductCard,
-  TopToolBox,
-  PaginationWrapper,
-  ProductDetailsWrapper,
-  ProductTable,
-  CouponForm,
-  OrderSummary,
-  AddProductForm,
-  InvoiceHeader,
-  InvoiceLetterBox,
-  InvoiceAction,
-  CheckoutWrapper,
+    FigureCart,
+    Sidebar,
+    SidebarSingle,
+    ProductCard,
+    TopToolBox,
+    PaginationWrapper,
+    ProductDetailsWrapper,
+    ProductTable,
+    CouponForm,
+    OrderSummary,
+    AddProductForm,
+    InvoiceHeader,
+    InvoiceLetterBox,
+    InvoiceAction,
+    CheckoutWrapper,
 };

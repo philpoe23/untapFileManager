@@ -41,7 +41,7 @@ const Grid = () => {
         projects.map(value => {
           const { id, title, status, content } = value;
           return (
-            <Col key={id} md={8}>
+            <Col key={id} lg={8} xs={24}>
               <ProjectCard>
                 <Cards headless>
                   <div className="project-title">
@@ -113,12 +113,12 @@ const Grid = () => {
           );
         })
       ) : (
-        <Col md={24}>
-          <Cards headless>
-            <Heading>Data Not Found!</Heading>
-          </Cards>
-        </Col>
-      )}
+          <Col md={24}>
+            <Cards headless>
+              <Heading>Data Not Found!</Heading>
+            </Cards>
+          </Col>
+        )}
       <Col md={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (

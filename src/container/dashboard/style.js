@@ -421,7 +421,7 @@ const OverviewCard = Styled.div`
         width: 100%;
         height: 215px;
         background:linear-gradient(45deg, ${({ theme }) => theme['secondary-color']}, ${({ theme }) =>
-  theme['warning-color']});
+        theme['warning-color']});
         left:0;
         top:0;
         z-index:-1;
@@ -530,6 +530,9 @@ const SessionChartWrapper = Styled.div`
     border-radius: 10px;
     @media only screen and (max-width: 1599px){
         min-height: 440px;
+    }
+    @media only screen and (max-width: 991px){
+        min-height: auto;
     }
     .session-chart-inner{
         ul{
@@ -979,27 +982,27 @@ const TrafficTableWrapper = Styled.div`
 `;
 
 export {
-  EChartCard,
-  Focard,
-  CardBarChart,
-  CardGroup,
-  ExList,
-  OverviewCard,
-  PerformanceChartWrapper,
-  Pstates,
-  SessionChartWrapper,
-  SessionState,
-  RegionMap,
-  LadingPages,
-  RegionList,
-  CardBarChart2,
-  SocialMediaWrapper,
-  LineChartWrapper,
-  RatioCard,
-  IncomeExpenseWrapper,
-  LocationMapWrapper,
-  RevenueWrapper,
-  RevenueTableWrapper,
-  RevenueChartWrapper,
-  TrafficTableWrapper,
+    EChartCard,
+    Focard,
+    CardBarChart,
+    CardGroup,
+    ExList,
+    OverviewCard,
+    PerformanceChartWrapper,
+    Pstates,
+    SessionChartWrapper,
+    SessionState,
+    RegionMap,
+    LadingPages,
+    RegionList,
+    CardBarChart2,
+    SocialMediaWrapper,
+    LineChartWrapper,
+    RatioCard,
+    IncomeExpenseWrapper,
+    LocationMapWrapper,
+    RevenueWrapper,
+    RevenueTableWrapper,
+    RevenueChartWrapper,
+    TrafficTableWrapper,
 };
