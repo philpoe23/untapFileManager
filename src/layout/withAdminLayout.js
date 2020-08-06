@@ -31,7 +31,7 @@ const SideBarStyle = {
   height: '100vh',
   position: 'fixed',
   left: 0,
-  zIndex: 9999,
+  zIndex: 998,
 };
 
 const ThemeLayout = WrappedComponent => {

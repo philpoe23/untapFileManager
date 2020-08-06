@@ -12,7 +12,7 @@ const Alerts = () => {
       <PageHeader title="Alerts" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Basic" size="large">
               <AlertList>
                 <Alert message="" description="Success Text" type="success" />
@@ -94,7 +94,7 @@ const Alerts = () => {
               </AlertList>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="More Types" size="large">
               <AlertList>
                 <Alert message="" description="Success Text" type="success" />

@@ -20,6 +20,17 @@ const Popovers = () => {
                 <NavLink to="#">hover me </NavLink>
               </Popover>
             </Cards>
+            <Cards title="Event menu " caption="The simplest use of Popover">
+              <Popover action="hover" placement="bottomLeft">
+                <Button type="primary">hover</Button>
+              </Popover>
+              <Popover action="click" placement="bottom">
+                <Button type="primary">click</Button>
+              </Popover>
+              <Popover action="contextMenu" placement="bottomRight">
+                <Button type="primary">context</Button>
+              </Popover>
+            </Cards>
           </Col>
           <Col md={12} sm={12} xs={24}>
             <Cards title="Placement" caption="The simplest use of Popover">
@@ -41,19 +52,6 @@ const Popovers = () => {
               </Popover>
               <Popover placement="topRight">
                 <Button type="primary">topRight</Button>
-              </Popover>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Event menu " caption="The simplest use of Popover">
-              <Popover action="hover" placement="bottomLeft">
-                <Button type="primary">hover</Button>
-              </Popover>
-              <Popover action="click" placement="bottom">
-                <Button type="primary">click</Button>
-              </Popover>
-              <Popover action="contextMenu" placement="bottomRight">
-                <Button type="primary">context</Button>
               </Popover>
             </Cards>
           </Col>

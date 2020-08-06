@@ -266,7 +266,10 @@ ul {
 }
 
 /* Button Styles */
-
+.ant-btn.ant-btn-light:focus{
+  background: #fff;
+  color: #5A5F7D;
+}
 .button-example .ant-btn {
   margin: 4px;
 }
@@ -524,6 +527,12 @@ ul {
 
 .app-list {
   margin-top: 16px;
+}
+
+/* Modal */
+
+.ant-modal-body p:last-child{
+  margin-bottom: 0;
 }
 
 /* slider */
@@ -1330,6 +1339,19 @@ ul {
   .ant-layout-header {
     height: auto;
   }
+  .ant-card-head-title{
+    white-space: normal !important;
+  }
+  .pop-confirm .ant-btn{
+    max-width: 60px;
+    padding: 0 20px;
+  }
+  .pop-confirm.pop-confirm-right{
+    margin-left: 320px !important;
+  }
+  .pop-confirm.pop-confirm-bottom{
+    margin-left: 95px !important;
+  }
   /* Card Heading */
   .ant-card-head-wrapper {
     flex-flow: column;
@@ -1363,7 +1385,36 @@ ul {
 .bmzxig .ant-table tr th:first-child, .bmzxig .ant-table tr td:first-child {
   padding-right: 15px;
 }
-
+@media only screen and (max-width: 479px) {
+  .placement-confirm{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px -10px -15px -5px;
+  }
+  .placement-confirm .pop-confirm{
+    flex: 0 0 25%;
+  }
+  .pop-confirm .ant-btn{
+    display: block;
+    padding: 0 20px;
+    max-width: 80px;
+    min-width: 80px;
+    margin: 10px;
+  }
+  .pop-confirm.pop-confirm-right{
+    margin-left: 0px !important;
+  }
+  .pop-confirm.pop-confirm-top{
+    margin-left: 0px !important;
+  }
+  .pop-confirm.pop-confirm-bottom{
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+  }
+  /* .pop-confirm.pop-confirm-bottom button{
+    margin-right: 0;
+  } */
+}
 @media only screen and (max-width: 400px) {
   .ant-select {
     width: 100% !important;

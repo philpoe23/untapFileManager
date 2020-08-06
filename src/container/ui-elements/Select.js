@@ -56,10 +56,10 @@ const Selects = () => {
       <PageHeader ghost title="Select" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Basic">
               <SelectWrapperStyle>
-                <Select defaultValue="lucy" style={{ width: 120, marginRight: '10px' }}>
+                <Select defaultValue="lucy" style={{ width: 120 }}>
                   <Option value="jack">Jack</Option>
                   <Option value="lucy">Lucy</Option>
                   <Option value="disabled" disabled>
@@ -67,7 +67,7 @@ const Selects = () => {
                   </Option>
                   <Option value="Yiminghe">yiminghe</Option>
                 </Select>
-                <Select defaultValue="lucy" style={{ width: 120, marginRight: '10px' }} disabled>
+                <Select defaultValue="lucy" style={{ width: 120 }} disabled>
                   <Option value="lucy">Lucy</Option>
                 </Select>
                 <Select defaultValue="lucy" style={{ width: 120 }} loading>
@@ -75,22 +75,6 @@ const Selects = () => {
                 </Select>
               </SelectWrapperStyle>
             </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Select Coordinate">
-              <Select defaultValue={provinceData[0]} style={{ width: 120 }} onChange={handleProvinceChange}>
-                {provinceData.map(province => (
-                  <Option key={province}>{province}</Option>
-                ))}
-              </Select>
-              <Select style={{ width: 120 }} value={state.secondCity} onChange={onSecondCityChange}>
-                {cities.map(city => (
-                  <Option key={city}>{city}</Option>
-                ))}
-              </Select>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
             <Cards title="Search and select">
               <Select
                 showSearch
@@ -104,22 +88,6 @@ const Selects = () => {
                 <Option value="tom">Tom</Option>
               </Select>
             </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Multiple select">
-              <Select
-                mode="multiple"
-                style={{ width: '100%' }}
-                placeholder="Please select"
-                defaultValue={['jack', 'tom']}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
             <Cards title="Select Size">
               <Radio.Group value={size} onChange={handleSizeChange}>
                 <Radio.Button value="large">Large</Radio.Button>
@@ -128,43 +96,32 @@ const Selects = () => {
               </Radio.Group>
               <br />
               <br />
-              <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
-                {children}
-              </Select>
-              <br />
-              <Select
-                mode="multiple"
-                size={size}
-                placeholder="Please select"
-                defaultValue={['a10', 'c12']}
-                onChange={handleChange}
-                style={{ width: '100%' }}
-              >
-                {children}
-              </Select>
-              <br />
-              <Select
-                mode="tags"
-                size={size}
-                placeholder="Please select"
-                defaultValue={['a10', 'c12']}
-                onChange={handleChange}
-                style={{ width: '100%' }}
-              >
-                {children}
-              </Select>
+              <div className="tag-select-list">
+                <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
+                  {children}
+                </Select>
+                <Select
+                  mode="multiple"
+                  size={size}
+                  placeholder="Please select"
+                  defaultValue={['a10', 'c12']}
+                  onChange={handleChange}
+                  style={{ width: '100%' }}
+                >
+                  {children}
+                </Select>
+                <Select
+                  mode="tags"
+                  size={size}
+                  placeholder="Please select"
+                  defaultValue={['a10', 'c12']}
+                  onChange={handleChange}
+                  style={{ width: '100%' }}
+                >
+                  {children}
+                </Select>
+              </div>
             </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Tags select">
-              <Select mode="tags" style={{ width: '100%' }} placeholder="Please select">
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
             <Cards title="Custom">
               <Select
                 mode="multiple"
@@ -199,21 +156,6 @@ const Selects = () => {
                 </Option>
               </Select>
             </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Custom">
-              <Select defaultValue="lucy" style={{ width: 200 }}>
-                <OptGroup label="Manager">
-                  <Option value="jack">Jack</Option>
-                  <Option value="lucy">Lucy</Option>
-                </OptGroup>
-                <OptGroup label="Engineer">
-                  <Option value="Yiminghe">yiminghe</Option>
-                </OptGroup>
-              </Select>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
             <Cards title="Hide Already Selected">
               <Select
                 mode="multiple"
@@ -230,7 +172,51 @@ const Selects = () => {
               </Select>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
+            <Cards title="Select Coordinate">
+              <SelectWrapperStyle>
+                <Select defaultValue={provinceData[0]} style={{ width: 120 }} onChange={handleProvinceChange}>
+                  {provinceData.map(province => (
+                    <Option key={province}>{province}</Option>
+                  ))}
+                </Select>
+                <Select style={{ width: 120 }} value={state.secondCity} onChange={onSecondCityChange}>
+                  {cities.map(city => (
+                    <Option key={city}>{city}</Option>
+                  ))}
+                </Select>
+              </SelectWrapperStyle>
+            </Cards>
+            <Cards title="Multiple select">
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="Please select"
+                defaultValue={['jack', 'tom']}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Cards>
+            <Cards title="Tags select">
+              <Select mode="tags" style={{ width: '100%' }} placeholder="Please select">
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Cards>
+            <Cards title="Custom">
+              <Select defaultValue="lucy" style={{ width: 200 }}>
+                <OptGroup label="Manager">
+                  <Option value="jack">Jack</Option>
+                  <Option value="lucy">Lucy</Option>
+                </OptGroup>
+                <OptGroup label="Engineer">
+                  <Option value="Yiminghe">yiminghe</Option>
+                </OptGroup>
+              </Select>
+            </Cards>
             <Cards title="Automatic Completion">
               <Select mode="tags" style={{ width: '100%' }} placeholder="Tags Mode" onChange={handleChange}>
                 {children}

@@ -10,7 +10,7 @@ const Radios = () => {
       <PageHeader title="Radio" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col lg={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Radio">
               <Radio>Radio</Radio>
             </Cards>
@@ -40,7 +40,7 @@ const Radios = () => {
             </Cards>
           </Col>
 
-          <Col md={12} sm={24} xs={24}>
+          <Col lg={12} xs={24}>
             <Cards title="Radio Style" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a">
@@ -78,7 +78,7 @@ const Radios = () => {
               </Radio.Group>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Radio Size" caption="The simplest use of Radio">
               <div>
                 <Radio.Group defaultValue="a" size="large">

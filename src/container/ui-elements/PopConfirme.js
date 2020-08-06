@@ -25,7 +25,7 @@ const Confirme = () => {
       <PageHeader ghost title="Popconfirm" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col xl={12} lg={8} xs={24}>
             <Cards title="Basic">
               <Popconfirm
                 title="Are you sure delete this task?"
@@ -38,9 +38,9 @@ const Confirme = () => {
               </Popconfirm>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col xl={12} lg={16} xs={24}>
             <Cards title="Placement">
-              <div className="demo">
+              <div className="demo placement-confirm">
                 <div className="pop-confirm pop-confirm-top" style={{ marginLeft: 90, whiteSpace: 'nowrap' }}>
                   <Popconfirm placement="topLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="light" outlined>
@@ -75,7 +75,7 @@ const Confirme = () => {
                     </Button>
                   </Popconfirm>
                 </div>
-                <div className="pop-confirm pop-confirm-right" style={{ width: 90, marginLeft: 380 }}>
+                <div className="pop-confirm pop-confirm-right" style={{ width: 90, marginLeft: 390 }}>
                   <Popconfirm placement="rightTop" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="light" outlined>
                       RT
@@ -94,7 +94,7 @@ const Confirme = () => {
                 </div>
                 <div
                   className="pop-confirm pop-confirm-bottom"
-                  style={{ marginLeft: 110, clear: 'both', whiteSpace: 'nowrap' }}
+                  style={{ marginLeft: 100, clear: 'both', whiteSpace: 'nowrap' }}
                 >
                   <Popconfirm placement="bottomLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="light" outlined>

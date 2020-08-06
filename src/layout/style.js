@@ -4,7 +4,7 @@ const Div = Styled.div`
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-        z-index: 99999;
+        z-index: 999;
         button{
             padding: 0px 15px 0px 0px;
         }

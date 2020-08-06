@@ -38,11 +38,6 @@ const CarouselStyleWraper = Styled.div`
   .ant-radio-group{
     margin-bottom: 16px !important;
   }
-  .ant-radio-button-wrapper{
-    height: 38px;
-    line-height: 36px;
-    padding: 0 25.25px;
-  }
   .ant-carousel .slick-slide h3 {
     color: #fff;
   }
@@ -66,6 +61,8 @@ const AvatarWraperStyle = Styled.div`
     border: 3px solid #fff;
   }
   .ant-badge-dot{
+    top: 5px;
+    right: 5px;
     width: 10px;
     height: 10px;
     border: 2px solid #fff;
@@ -190,7 +187,11 @@ const CardStyleWrapper = Styled.div`
   padding: 12px 0;
 }
 .ant-card-head .ant-card-extra{
+  display: block;
   padding: 12px 0;
+  @media only screen and (max-width: 575px){
+    margin-bottom: 4px;
+  }
 }
 .ant-card.ant-card-bordered .ant-card-head{
   background: #fff;
@@ -231,7 +232,10 @@ const CasCaderStyleWrapper = Styled.div`
 `;
 
 const SelectWrapperStyle = Styled.div`
-  
+  margin: -5px;
+  .ant-select{
+    margin: 5px;
+  }
 `;
 
 export {

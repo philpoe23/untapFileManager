@@ -11,7 +11,7 @@ const Grid = () => {
       <PageHeader title="Grid" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="Basic Grid" size="default">
               <GridStyle>
                 <Row>
@@ -34,7 +34,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="Grid Gutter" size="default">
               <GridStyleGutter>
                 <Row gutter={16}>
@@ -70,7 +70,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="Column offset" size="default">
               <GridStyleOffset>
                 <Row>
@@ -97,7 +97,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="Grid sort" size="default">
               <GridStyle>
                 <Row>
@@ -113,7 +113,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="sub-element align" size="default">
               <GridStyle>
                 <p>sub-element align left</p>
@@ -160,7 +160,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="Responsive" size="default">
               <GridStyle>
                 <Row>
@@ -179,7 +179,7 @@ const Grid = () => {
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless title="More Responsive" size="default">
               <GridStyle>
                 <Row>
