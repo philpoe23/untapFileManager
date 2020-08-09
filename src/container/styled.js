@@ -304,7 +304,7 @@ const AutoCompleteWrapper = Styled.div`
             width: 200px !important;
             @media only screen and (max-width: 575px){
                 width: 100% !important;
-              }
+            }
         }
     }
 `;
@@ -323,6 +323,10 @@ const CalendarWrapper = Styled.div`
     .ant-radio-button-wrapper{
         height: 30px;
         line-height: 28px;
+        @media only screen and (max-width: 575px){
+            height: 30px !important;
+            line-height: 28px !important;
+        }
     }
 `;
 

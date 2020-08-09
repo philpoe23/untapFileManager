@@ -73,6 +73,8 @@ const GalleryNav = Styled.nav`
   padding: 0px 16px;
   @media only screen and (max-width: 767px){
     padding: 0 12px;
+  }
+  @media only screen and (max-width: 575px){
     text-align: center;
   }
   ul {
@@ -454,6 +456,7 @@ const SearchResultWrapper = Styled.div`
     height: 48px !important;
     .ant-select-selection-search{
       height: 48px;
+      width: 100% !important;
       input{
         height: 46px !important;
       }

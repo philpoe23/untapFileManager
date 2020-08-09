@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Select, Radio } from 'antd';
-import { SelectWrapperStyle } from './ui-elements-styled';
+import { SelectWrapperStyle, SelectRadioStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -89,11 +89,13 @@ const Selects = () => {
               </Select>
             </Cards>
             <Cards title="Select Size">
-              <Radio.Group value={size} onChange={handleSizeChange}>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
+              <SelectRadioStyle>
+                <Radio.Group value={size} onChange={handleSizeChange}>
+                  <Radio.Button value="large">Large</Radio.Button>
+                  <Radio.Button value="default">Default</Radio.Button>
+                  <Radio.Button value="small">Small</Radio.Button>
+                </Radio.Group>
+              </SelectRadioStyle>
               <br />
               <br />
               <div className="tag-select-list">
