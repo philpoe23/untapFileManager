@@ -173,6 +173,7 @@ const CardGroup = Styled.div`
     .card-radio{
         .ant-radio-button-wrapper{
             height: 30px;
+            line-height: 28px;
             font-size: 12px;
             font-weight: 500;
             padding: 0 10.5px;

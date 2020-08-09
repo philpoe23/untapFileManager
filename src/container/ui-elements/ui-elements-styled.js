@@ -38,6 +38,9 @@ const CarouselStyleWraper = Styled.div`
   .ant-radio-group{
     margin-bottom: 16px !important;
   }
+  .ant-radio-button-wrapper{
+    line-height: 46px;
+  }
   .ant-carousel .slick-slide h3 {
     color: #fff;
   }
@@ -238,6 +241,12 @@ const SelectWrapperStyle = Styled.div`
   }
 `;
 
+const SelectRadioStyle = Styled.div`
+  .ant-radio-button-wrapper{
+    line-height: 46px;
+  }
+`;
+
 export {
   DropdownStyle,
   SpinerWraperStyle,
@@ -252,4 +261,5 @@ export {
   CardStyleWrapper,
   CasCaderStyleWrapper,
   SelectWrapperStyle,
+  SelectRadioStyle,
 };
