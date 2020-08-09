@@ -129,12 +129,23 @@ const Alerts = () => {
             </Cards>
             <Cards title="Customized Close Text" size="large">
               <AlertList>
-                <Alert closeText="Close Now" closable message="" description="Info Text" type="info" />
+                <Alert
+                  closeText="Close Now"
+                  closable
+                  message="Success Description Success Description Success Description"
+                  description="Info Text"
+                  type="info"
+                />
               </AlertList>
             </Cards>
             <Cards title="Smoothly Unmount" size="large">
               <AlertList>
-                <Alert closable message="" description="Alert Message Text" type="success" />
+                <Alert
+                  closable
+                  message="Success Description Success Description Success Description"
+                  description="Alert Message Text"
+                  type="success"
+                />
               </AlertList>
             </Cards>
           </Col>

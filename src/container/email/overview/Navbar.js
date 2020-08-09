@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { EmailNav } from './style';
 import { Button } from '../../../components/buttons/buttons';
 import Title from '../../../components/heading/heading';
@@ -111,9 +112,9 @@ const EmailNavbar = ({ path }) => {
             {labels.map(label => {
               return (
                 <li key={label}>
-                  <NavLink to={`${path + label}`}>
+                  <Link to="#">
                     <FeatherIcon icon="list" size={18} /> {label}
-                  </NavLink>
+                  </Link>
                 </li>
               );
             })}

@@ -25,7 +25,7 @@ const AddNew = ({ match }) => {
                   <div className="card-nav">
                     <ul>
                       <li>
-                        <NavLink to={match.path}>
+                        <NavLink to={`${match.path}/info`}>
                           <FeatherIcon icon="user" size={14} />
                           Personal Info
                         </NavLink>
@@ -54,7 +54,7 @@ const AddNew = ({ match }) => {
                       </div>
                     }
                   >
-                    <Route exact path={match.path} component={Info} />
+                    <Route exact path={`${match.path}/info`} component={Info} />
                     <Route path={`${match.path}/work`} component={Work} />
                     <Route path={`${match.path}/social`} component={Social} />
                   </Suspense>

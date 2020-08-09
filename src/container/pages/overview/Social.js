@@ -24,22 +24,64 @@ const SocialProfile = () => {
                 Social Profiles
               </Heading>
               <Form.Item name="facebook" label="Facebook">
-                <Input prefix={<FeatherIcon icon="facebook" size={16} />} placeholder="URL" />
+                <Input
+                  prefix={
+                    <span className="facebook">
+                      <FeatherIcon icon="facebook" size={16} />
+                    </span>
+                  }
+                  placeholder="URL"
+                />
               </Form.Item>
               <Form.Item name="twitter" label="Twitter">
-                <Input prefix={<FeatherIcon icon="twitter" size={16} />} placeholder="@username" />
+                <Input
+                  prefix={
+                    <span className="twitter">
+                      <FeatherIcon icon="twitter" size={16} />
+                    </span>
+                  }
+                  placeholder="@username"
+                />
               </Form.Item>
               <Form.Item name="linkedin" label="Linkedin">
-                <Input prefix={<FeatherIcon icon="linkedin" size={16} />} placeholder="URL" />
+                <Input
+                  prefix={
+                    <span className="linkedin">
+                      <FeatherIcon icon="linkedin" size={16} />
+                    </span>
+                  }
+                  placeholder="URL"
+                />
               </Form.Item>
               <Form.Item name="instagram" label="Instagram">
-                <Input prefix={<FeatherIcon icon="instagram" size={16} />} placeholder="URL" />
+                <Input
+                  prefix={
+                    <span className="instagram">
+                      <FeatherIcon icon="instagram" size={16} />
+                    </span>
+                  }
+                  placeholder="URL"
+                />
               </Form.Item>
               <Form.Item name="github" label="GitHub">
-                <Input prefix={<FeatherIcon icon="github" size={16} />} placeholder="Username" />
+                <Input
+                  prefix={
+                    <span className="github">
+                      <FeatherIcon icon="github" size={16} />
+                    </span>
+                  }
+                  placeholder="Username"
+                />
               </Form.Item>
               <Form.Item name="youtube" label="Youtube">
-                <Input prefix={<FeatherIcon icon="youtube" size={16} />} placeholder="Url" />
+                <Input
+                  prefix={
+                    <span className="youtube">
+                      <FeatherIcon icon="youtube" size={16} />
+                    </span>
+                  }
+                  placeholder="Url"
+                />
               </Form.Item>
 
               <Form.Item>

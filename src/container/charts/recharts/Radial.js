@@ -103,9 +103,9 @@ const ReChartRadial = () => {
             <Cards title="SIMPLE RADIAL BAR CHART" size="large">
               <RadialBarChart
                 width={responsive - (5 * responsive) / 100}
-                height={responsive / 2}
-                cx={responsive / 3}
-                cy={responsive / 5}
+                height={responsive >= 1200 ? responsive / 3 : responsive}
+                cx={responsive >= 1200 ? responsive / 2.2 : responsive / 3}
+                cy={responsive >= 1200 ? responsive / 10 : responsive / 3}
                 innerRadius={20}
                 outerRadius={140}
                 barSize={10}
@@ -121,7 +121,7 @@ const ReChartRadial = () => {
                 <Legend
                   iconSize={10}
                   width={responsive / 9}
-                  height={responsive / 8}
+                  height={responsive / 9}
                   layout="vertical"
                   verticalAlign="middle"
                   wrapperStyle={style}

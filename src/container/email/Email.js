@@ -101,20 +101,28 @@ const Email = ({ match }) => {
                   </Cards>
                 </div>
               ) : (
-                  <MailSideBar className={collapsed ? 'mail-sideabr show' : 'mail-sideabr hide'}>
-                    <Cards headless>
-                      <div className="mail-sidebar-top">
-                        <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                          + Compose
+                <MailSideBar className={collapsed ? 'mail-sideabr show' : 'mail-sideabr hide'}>
+                  <Cards headless>
+                    <Button
+                      type="link"
+                      className="mail-sidebar-trigger"
+                      style={{ marginTop: 0 }}
+                      onClick={toggleCollapsed}
+                    >
+                      <FeatherIcon icon="x" />
+                    </Button>
+                    <div className="mail-sidebar-top">
+                      <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
+                        + Compose
                       </Button>
-                      </div>
+                    </div>
 
-                      <div className="mail-sidebar-bottom">
-                        <EmailNavbar path={pathName} />
-                      </div>
-                    </Cards>
-                  </MailSideBar>
-                )}
+                    <div className="mail-sidebar-bottom">
+                      <EmailNavbar path={pathName} />
+                    </div>
+                  </Cards>
+                </MailSideBar>
+              )}
             </Col>
 
             <Col xxl={19} xl={17} lg={14}>
