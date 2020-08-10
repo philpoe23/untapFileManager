@@ -16,9 +16,11 @@ const VectorMaps = () => {
       <Main>
         <Row gutter={25}>
           <Col xs={24}>
-            <Cards title="World Map" size="large">
-              <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
-            </Cards>
+            <div className="vertor-map">
+              <Cards title="World Map" size="large">
+                <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
+              </Cards>
+            </div>
           </Col>
         </Row>
       </Main>

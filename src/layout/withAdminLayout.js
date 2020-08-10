@@ -31,7 +31,7 @@ const SideBarStyle = {
   height: '100vh',
   position: 'fixed',
   left: 0,
-  zIndex: 9999,
+  zIndex: 998,
 };
 
 const ThemeLayout = WrappedComponent => {
@@ -136,6 +136,20 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
+                    {/* <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
+                      <HeaderSearch />
+                    </SmallScreenSearch> */}
+                    {/* <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
+                      <AuthInfo />
+                    </SmallScreenAuthInfo> */}
+                  </div>
+                </Col>
+              </Row>
+            </Header>
+            <div className="header-more">
+              <Row>
+                <Col md={0} sm={24} xs={24}>
+                  <div className="small-screen-headerRight">
                     <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
                       <HeaderSearch />
                     </SmallScreenSearch>
@@ -145,8 +159,7 @@ const ThemeLayout = WrappedComponent => {
                   </div>
                 </Col>
               </Row>
-            </Header>
-
+            </div>
             <Layout>
               <ThemeProvider theme={darkTheme}>
                 <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>

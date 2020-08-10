@@ -28,7 +28,7 @@ const FeatherSvgIcons = () => {
                     .map(icon => {
                       const CustomTag = Icons[icon];
                       return (
-                        <Col lg={6} md={12} xs={24} key={icon}>
+                        <Col xl={6} md={12} xs={24} key={icon}>
                           <AnIcon className="icon-single">
                             <CustomTag />
                             <span> {icon}</span>

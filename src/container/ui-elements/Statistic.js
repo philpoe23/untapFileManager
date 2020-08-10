@@ -18,7 +18,7 @@ const Statistics = () => {
       <PageHeader ghost title="Statistics" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Statistic">
               <Row gutter={16}>
                 <Col span={12}>
@@ -32,20 +32,6 @@ const Statistics = () => {
                 </Col>
               </Row>
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Unit" caption="The simplest use of Statistic">
-              <Row gutter={16}>
-                <Col span={12}>
-                  <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
-                </Col>
-                <Col span={12}>
-                  <Statistic title="Unmerged" value={93} suffix="/ 100" />
-                </Col>
-              </Row>
-            </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
             <Cards title="In Card" caption="The simplest use of Statistic">
               <Row gutter={15}>
                 <Col md={12}>
@@ -71,7 +57,17 @@ const Statistics = () => {
               </Row>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
+            <Cards title="Unit" caption="The simplest use of Statistic">
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
+                </Col>
+                <Col span={12}>
+                  <Statistic title="Unmerged" value={93} suffix="/ 100" />
+                </Col>
+              </Row>
+            </Cards>
             <Cards title="Countdown" caption="The simplest use of Statistic">
               <Row gutter={15}>
                 <Col md={12}>

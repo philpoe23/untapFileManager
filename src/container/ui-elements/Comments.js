@@ -126,7 +126,7 @@ const Comments = () => {
       <PageHeader title="Comments" />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Basic comment">
               <Comment
                 actions={actions}
@@ -148,7 +148,7 @@ const Comments = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Usage with list">
               <List
                 className="comment-list"
@@ -169,7 +169,7 @@ const Comments = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Nested comments">
               <div className="nested-comment-wrapper">
                 <h6 className="comment-title">Reply to</h6>
@@ -182,7 +182,7 @@ const Comments = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col xl={12} xs={24}>
             <Cards title="Reply Editor">
               <CommentEditor />
             </Cards>

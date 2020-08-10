@@ -104,7 +104,7 @@ const TreeSelects = () => {
       <PageHeader title="TreeSelect" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Basic">
               <TreeSelect
                 showSearch
@@ -128,7 +128,7 @@ const TreeSelects = () => {
               </TreeSelect>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Multiple Selection">
               <TreeSelect
                 showSearch
@@ -153,7 +153,7 @@ const TreeSelects = () => {
               </TreeSelect>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Generate from tree data">
               <TreeSelect
                 style={{ width: '100%' }}
@@ -166,12 +166,12 @@ const TreeSelects = () => {
               />
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Checkable">
               <TreeSelect {...tProps} />
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Asynchronous loading">
               <TreeSelect
                 treeDataSimpleMode

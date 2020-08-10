@@ -58,7 +58,6 @@ const Style = Styled(Alert)`
       top: 0;
       left: 0;
     }`}
-
   .ant-alert-close-icon {
     top: 12px !important;
     right: 20px !important;

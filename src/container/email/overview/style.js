@@ -410,6 +410,10 @@ const MessageAction = Styled.div`
   display: flex;
   align-items: center;
   margin: 0 -5px;
+  @media only screen and (max-width: 575px){
+    flex-flow: row !important;
+    margin-bottom: 5px;
+  }
   a{
     display: flex;
     align-items: center;

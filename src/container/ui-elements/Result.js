@@ -13,7 +13,7 @@ const Results = () => {
       <PageHeader title="Results" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Success" caption="The simplest use of Results">
               <Result
                 status="success"
@@ -28,21 +28,6 @@ const Results = () => {
                 ]}
               />
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Info" caption="The simplest use of Results">
-              <Result
-                title="Your operation has been executed"
-                style={{ padding: 0 }}
-                extra={
-                  <Button type="primary" key="console">
-                    Go Console
-                  </Button>
-                }
-              />
-            </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
             <Cards title="Warning" caption="The simplest use of Results">
               <Result
                 status="warning"
@@ -55,19 +40,6 @@ const Results = () => {
                 }
               />
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="403" caption="The simplest use of Results">
-              <Result
-                status="403"
-                title="403"
-                subTitle="Sorry, you are not authorized to access this page."
-                style={{ padding: 0 }}
-                extra={<Button type="primary">Back Home</Button>}
-              />
-            </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
             <Cards title="404" caption="The simplest use of Results">
               <Result
                 status="404"
@@ -77,19 +49,6 @@ const Results = () => {
                 extra={<Button type="primary">Back Home</Button>}
               />
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="500" caption="The simplest use of Results">
-              <Result
-                status="500"
-                title="500"
-                subTitle="Sorry, the server is wrong."
-                style={{ padding: 0 }}
-                extra={<Button type="primary">Back Home</Button>}
-              />
-            </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
             <Cards title="Error" caption="The simplest use of Results">
               <Result
                 status="error"
@@ -124,6 +83,37 @@ const Results = () => {
                   </Paragraph>
                 </div>
               </Result>
+            </Cards>
+          </Col>
+          <Col md={12} xs={24}>
+            <Cards title="Info" caption="The simplest use of Results">
+              <Result
+                title="Your operation has been executed"
+                style={{ padding: 0 }}
+                extra={
+                  <Button type="primary" key="console">
+                    Go Console
+                  </Button>
+                }
+              />
+            </Cards>
+            <Cards title="403" caption="The simplest use of Results">
+              <Result
+                status="403"
+                title="403"
+                subTitle="Sorry, you are not authorized to access this page."
+                style={{ padding: 0 }}
+                extra={<Button type="primary">Back Home</Button>}
+              />
+            </Cards>
+            <Cards title="500" caption="The simplest use of Results">
+              <Result
+                status="500"
+                title="500"
+                subTitle="Sorry, the server is wrong."
+                style={{ padding: 0 }}
+                extra={<Button type="primary">Back Home</Button>}
+              />
             </Cards>
           </Col>
         </Row>

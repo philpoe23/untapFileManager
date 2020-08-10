@@ -4,7 +4,7 @@ const Div = Styled.div`
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-        z-index: 99999;
+        z-index: 999;
         button{
             padding: 0px 15px 0px 0px;
         }
@@ -16,16 +16,15 @@ const Div = Styled.div`
         .head-example{
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
-
-        .certain-category-search-wrapper{
-            ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
-            @media only screen and (max-width: 767px){
-                padding: 0 15px;
-            }
-            input{
-                ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-                color: #fff;
-            }
+    }
+    .certain-category-search-wrapper{
+        ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
+        @media only screen and (max-width: 767px){
+            padding: 0 15px;
+        }
+        input{
+            ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
+            color: #fff;
         }
     }
     .ant-layout-sider-children {
@@ -276,7 +275,7 @@ const SmallScreenAuthInfo = Styled.div`
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
-        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
+        margin-top: ${({ hide }) => (hide ? '0px' : '65px')};
         top: 0;
         left: 0;
         transition: .3s;

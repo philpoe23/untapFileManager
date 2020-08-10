@@ -73,6 +73,8 @@ const GalleryNav = Styled.nav`
   padding: 0px 16px;
   @media only screen and (max-width: 767px){
     padding: 0 12px;
+  }
+  @media only screen and (max-width: 575px){
     text-align: center;
   }
   ul {
@@ -454,6 +456,7 @@ const SearchResultWrapper = Styled.div`
     height: 48px !important;
     .ant-select-selection-search{
       height: 48px;
+      width: 100% !important;
       input{
         height: 46px !important;
       }
@@ -614,6 +617,141 @@ const ErrorWrapper = Styled.div`
   }
 `;
 
+const AddUser = Styled.div`
+  .form-title{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 36px;
+  }
+  .add-user-bottom{
+    margin-top: 20px;
+    button + button{
+      margin-left: 15px;
+    }
+    .ant-btn-light{
+      background: ${({ theme }) => theme['bg-color-light']};
+      border: 1px solid #F1F2F6;
+    }
+  }
+  .card-nav{
+    ul{
+      li{
+        &:not(:last-child){
+          margin-right: 26px;
+        }
+        a{
+          position: relative;
+          padding: 22px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: ${({ theme }) => theme['gray-color']};
+          &:after{
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 2px;
+            border-radius: 4px;
+            content: '';
+            opacity: 0;
+            visibility: hidden;
+            background-color: ${({ theme }) => theme['primary-color']};
+          }
+          &.active{
+            color: ${({ theme }) => theme['primary-color']};
+            &:after{
+              opacity: 1;
+              visibility: visible;
+            }
+            svg,
+            img,
+            i,
+            span{
+              color: ${({ theme }) => theme['primary-color']};
+            }
+          }
+          svg,
+          img,
+          i,
+          span{
+            color: ${({ theme }) => theme['light-color']};
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // Photo Upload
+  .photo-upload{
+    position: relative;
+    max-width: 260px;
+    margin-bottom: 30px;
+    .ant-upload-select{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      position: absolute;
+      left: 85px;
+      bottom: 5px;
+      z-index: 10;
+      background-color: ${({ theme }) => theme['white-color']};
+      span{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        z-index: -1;
+        background-color: ${({ theme }) => theme['primary-color']};
+      }
+      svg,
+      i,
+      span{
+        color: ${({ theme }) => theme['white-color']};
+      }
+      a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    figcaption{
+      margin-left: 20px;
+      .info{
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6{
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .user-work-form{
+    .ant-picker{
+      padding: 0 15px 0 0;
+    }
+  }
+  .social-form{
+    .ant-form-item-control-input-content{
+      .ant-input-prefix{
+        width: 44px;
+        height: 44px;
+        border-raduis: 4px;
+      }
+    }
+  }
+`;
+
 export {
   PricingCard,
   ListGroup,
@@ -629,4 +767,5 @@ export {
   ResultList,
   MaintananceWrapper,
   ErrorWrapper,
+  AddUser,
 };

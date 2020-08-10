@@ -37,7 +37,7 @@ const Cascaders = () => {
       <PageHeader title="Cascader" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Basic">
               <Cascader onChange={onChange} />
             </Cards>
@@ -68,7 +68,7 @@ const Cascaders = () => {
             </Cards>
           </Col>
 
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Default Value">
               <Cascader onChange={onChange} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
             </Cards>

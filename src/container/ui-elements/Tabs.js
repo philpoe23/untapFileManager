@@ -11,27 +11,24 @@ const Tabs = () => {
       <PageHeader title="Tabs" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Tab data={data} icon="apple" />
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Tab data={data} color="#5F63F2" />
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Tab data={dataIcon} color="#5F63F2" />
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Tab data={icon} color="#5F63F2" />
           </Col>
         </Row>
         <Row gutter={15}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Tab data={dataIcon} color="#ffffff" />
-          </Col>
-          <Col md={12}>
-            <Tab tabPosition="left" data={icon} color="#5F63F2" />
           </Col>
         </Row>
       </Main>

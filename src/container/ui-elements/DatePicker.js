@@ -109,7 +109,7 @@ const DatePickers = () => {
               <CustomDateRange />
             </Cards>
           </Col>
-          <Col md={15}>
+          <Col xxl={16} xs={20}>
             <Cards headless title="Date Range" caption="The simplest use of Date picker">
               <DateRangePickerOne />
             </Cards>
