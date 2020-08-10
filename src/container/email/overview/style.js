@@ -780,13 +780,20 @@ const MailRightAction = Styled.div`
 `;
 
 const EmailWrapper = Styled.div`
+  position: relative;
+  .trigger-close.ant-btn-link{
+    margin: 0 !important;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 99;
+    padding: 0;
+    background: transparent !important;
+  }
   .ant-btn-link{
     background: #fff !important;
     margin-bottom: 25px;
     border-radius: 6px;
-    @media only screen and (max-width: 767px){
-      float: right;
-    }
     &:focus{
       color: ${({ theme }) => theme['primary-color']};
     }
@@ -819,6 +826,9 @@ const EmailWrapper = Styled.div`
 
   .mail-sidebar-top{
     padding: 30px 30px 0;
+    @media only screen and (max-width: 991px){
+      padding: 60px 30px 0;
+    }
   }
 
   .mail-sidebar-bottom{
