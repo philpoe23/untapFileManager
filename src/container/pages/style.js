@@ -749,6 +749,50 @@ const AddUser = Styled.div`
         border-raduis: 4px;
       }
     }
+    .ant-form-item-control-input{
+      height: 44px;
+      .ant-input-affix-wrapper{
+        &:hover,
+        &:focus,
+        &.ant-input-affix-wrapper-focused{
+          border-color: #E3E6EF;
+        }
+        .ant-input{
+          height: 42px;
+        }
+      }
+    }
+    .ant-input-prefix{
+      position: relative;
+      left: -11px;
+      span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        width: 100%;
+        height: 100%;
+        background-color: ${({ theme }) => theme['primary-color']};
+        &.facebook{
+          background-color: #3B5998;
+        }
+        &.twitter{
+          background-color: #38B8FF;
+        }
+        &.linkedin{
+          background-color: #2CAAE1;
+        }
+        &.instagram{
+          background-color: #FF0300;
+        }
+        &.github{
+          background-color: #292929;
+        }
+        &.youtube{
+          background-color: #FE0909;
+        }
+      }
+    }
   }
 `;
 

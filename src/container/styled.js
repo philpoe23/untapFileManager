@@ -293,6 +293,11 @@ const BtnWithIcon = Styled.div`
 
 const AlertList = Styled.div`
     margin-top: -15px;
+    .alert-empty-message{
+        .ant-alert-message{
+            display: none;
+        }
+    }
 `;
 
 const AutoCompleteWrapper = Styled.div`
