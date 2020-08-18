@@ -5,6 +5,7 @@ import { H1 } from './style';
 import config from '../../config/config';
 
 const { theme } = config;
+
 const Header = ({ name }) => {
   return (
     <ThemeProvider theme={theme}>
