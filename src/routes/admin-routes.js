@@ -40,7 +40,7 @@ const RechartsRadial = lazy(() => import('../container/charts/recharts/Radial'))
 // maps
 const GoogleMaps = lazy(() => import('../container/maps/GoogleMaps'));
 const Osm = lazy(() => import('../container/maps/Leaflet'));
-const Vector = lazy(() => import('../container/maps/Vector'));
+const Vector = lazy(() => import('../container/maps/vector'));
 
 // Icons
 const Feathers = lazy(() => import('../container/icons/FeatherIcons'));
@@ -101,7 +101,7 @@ const Inbox = lazy(() => import('../container/email/Email'));
 const Chat = lazy(() => import('../container/chat/ChatApp'));
 const NotFound = lazy(() => import('../container/pages/404'));
 const Maintenance = lazy(() => import('../container/pages/Maintenance'));
-const Pricing = lazy(() => import('../container/pages/PricingTable'));
+const Pricing = lazy(() => import('../container/pages/pricingTable'));
 const Gallery = lazy(() => import('../container/pages/Gallery'));
 const Faq = lazy(() => import('../container/pages/Faq'));
 const Search = lazy(() => import('../container/pages/SearchResult'));

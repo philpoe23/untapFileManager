@@ -1196,6 +1196,11 @@ ul {
   flex-wrap: wrap;
 }
 
+.ant-menu .ant-menu-submenu .ant-menu-submenu-title{
+  display: flex;
+  align-items: center;
+}
+
 .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title, .ant-menu-item {
   display: inline-flex;
 }
@@ -1234,7 +1239,9 @@ ul {
 
 /* Layout Css */
 
-.ant-menu-dark .ant-menu-inline.ant-menu-sub, .ant-menu.ant-menu-dark {
+.ant-menu-dark .ant-menu-inline.ant-menu-sub,
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub{
   background: #272B41;
 }
 

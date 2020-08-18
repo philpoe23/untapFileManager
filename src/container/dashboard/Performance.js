@@ -646,7 +646,6 @@ const Performance = () => {
                     <div className="session-single">
                       <div className="chart-label">
                         <span className="label-dot dot-info" />
-                        Mobile
                       </div>
                       <span>5870</span>
                       <sub>30%</sub>
