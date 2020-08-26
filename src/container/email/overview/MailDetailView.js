@@ -5,7 +5,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin } from 'antd';
 import moment from 'moment';
 import propTypes from 'prop-types';
-import { MailDetailsWrapper, MessageAction, MessageDetails, MessageReply, MailRightAction } from './style';
+import { MailDetailsWrapper, MessageAction, MessageDetails,ReplyList, MessageReply, MailRightAction } from './style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
 import { filterSinglePage } from '../../../redux/email/actionCreator';
@@ -205,24 +205,33 @@ const Single = props => {
 
         <Row gutter={15}>
           <Col xs={24}>
-            <div style={{ display: 'flex' }}>
-              <figure style={{ display: 'flex' }}>
-                <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
-                <figcaption>
-                  <Heading as="h4">Reynante Labares</Heading>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor inviduntLorem
-                    ipsum dolor...
-                  </p>
-                </figcaption>
-              </figure>
-              <div>
-                <span>Jan 2, 2020, 5:22 PM</span>
-                <FeatherIcon icon="star" />
-                <FeatherIcon icon="more-vertical" />
-                <FeatherIcon icon="corner-up-left" />
+            <ReplyList>
+              <div className="reply-view__single">
+                <figure className="reply-view__content d-flex">
+                  <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
+                  <figcaption>
+                    <Heading as="h6">Reynante Labares</Heading>
+                    <p>
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor inviduntLorem ipsum dolor...
+                    </p>
+                  </figcaption>
+                </figure>
+                <div className="reply-view__meta">
+                  <span className="meta-list">
+                    <span className="date-meta">Jan 2, 2020, 5:22 PM</span>
+                    <Link>
+                      <FeatherIcon icon="star" />
+                    </Link>
+                    <Link>
+                      <FeatherIcon icon="more-vertical" />
+                    </Link>
+                    <Link>
+                      <FeatherIcon icon="corner-up-left" />
+                    </Link>
+                  </span>
+                </div>
               </div>
-            </div>
+            </ReplyList>
             <MessageReply>
               <nav>
                 <ul>
@@ -238,12 +247,7 @@ const Single = props => {
                   </li>
                 </ul>
               </nav>
-              <div
-                style={{
-                  display: 'flex',
-                  width: '100%',
-                }}
-              >
+              <div className="reply-form d-flex">
                 <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
                 <Switch>
                   <Suspense

@@ -423,7 +423,7 @@ const EmailNav = Styled.nav`
 
 const MailDetailsWrapper = Styled.div`
   .ant-card-body{
-    padding: 30px !important;
+    padding: 30px 0 !important;
   }
   .ant-card-head-wrapper{
     @media only screen and (max-width: 767px){
@@ -568,6 +568,7 @@ const EmailHeader = Styled.div`
 `;
 
 const MessageDetails = Styled.div`
+  padding: 0 30px;
   .message-box {
     @media only screen and (max-width: 767px){
       flex-flow: column;
@@ -802,7 +803,9 @@ const MessageDetails = Styled.div`
 `;
 
 const MessageReply = Styled.div`
+  padding: 0 30px;
   nav{
+    padding-left: 70px;
     margin-bottom: 30px;
     @media only screen and (max-width: 767px){
       margin-bottom: 0px;
@@ -831,6 +834,12 @@ const MessageReply = Styled.div`
       }
     }
   }
+  .reply-form{
+    img{
+      margin: 10px 20px 0 0;
+      border-radius: 50%;
+    }
+  }
   .RichTextEditor__root___2QXK-{
     border: 0 none;
     padding: 15px 0px;
@@ -849,6 +858,60 @@ const MessageReply = Styled.div`
       margin: 0 30px 0;
       @media only screen and (max-width: 575px){
         margin: 0 15px 0
+      }
+    }
+  }
+`;
+
+const ReplyList = Styled.div`
+  box-shadow: 0 15px 40px ${({ theme }) => theme['light-color']}10;
+  margin: 30px 0 50px;
+  .reply-view__single{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    &:not(:last-child){
+      margin-bottom: 30px;
+    }
+    .reply-view__content{
+      img{
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+      figcaption{
+        h1{
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+    }
+    .reply-view__meta{
+      span{
+        font-size: 13px;
+      }
+      svg,
+      i,
+      span{
+        color: ${({ theme }) => theme['light-color']};
+      }
+      svg,
+      img{
+        width: 16px;
+      }
+      .meta-list{
+        display: flex;
+        align-items: center;
+        .date-meta{
+          margin-right: 30px
+        }
+        a{
+          &:not(:last-child){
+            margin-right: 30px;
+          }
+        }
       }
     }
   }
@@ -942,6 +1005,7 @@ export {
   MailDetailsWrapper,
   MessageDetails,
   MessageReply,
+  ReplyList,
   MailRightAction,
   EmailWrapper,
 };

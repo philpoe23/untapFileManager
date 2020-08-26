@@ -113,6 +113,14 @@ const SingleGroupChat = ({ match }) => {
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
               </Link>
+              <Link className="show-more">
+                <span>20+</span>
+              </Link>
+              <Link className="add-more">
+                <span className="add-icon">
+                  <FeatherIcon icon="plus" size={14} />
+                </span>
+              </Link>
             </div>
           </div>
         }
