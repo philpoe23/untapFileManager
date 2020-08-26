@@ -119,9 +119,9 @@ const EmailNavbar = ({ path }) => {
               );
             })}
 
-            <li onKeyPress={() => {}} onClick={addNewLabels} role="menuitem">
+            <li className="add-label-btn" onKeyPress={() => {}} onClick={addNewLabels} role="menuitem">
               <NavLink onClick={addNewLabels} to={`${path}newLabels`}>
-                <FeatherIcon icon="plus" size={18} /> Add New Labels
+                <FeatherIcon icon="plus" size={18} /> Add New Label
               </NavLink>
               {addNewDisplay && (
                 <div className="add-label">

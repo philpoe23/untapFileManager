@@ -44,7 +44,7 @@ const Content = ({ searchData, email }) => {
 
   const data = [];
   if (emails !== undefined)
-    emails.map(inbox => {
+    emails.map((inbox,key) => {
       // eslint-disable-next-line no-shadow
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
@@ -65,7 +65,8 @@ const Content = ({ searchData, email }) => {
         content: (
           <EmailHeader>
             <Heading as="h5">
-              {subject} <span className="mail-badge">{type}</span>
+              <Link>{subject}</Link>
+              <span className={`mail-badge ${key <= 1 ? 'primary' : ''}`}>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
             {attach.length
