@@ -690,6 +690,22 @@ ul {
 }
 
 /* Basic Dropdwon */
+.ant-dropdown{
+  box-shadow: 0 5px 30px #9299B820 !important;
+}
+.ant-dropdown-menu{
+  min-width: 200px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0;
+}
+.ant-dropdown-menu li{
+  color: #5A5F7D;
+  padding: 5px 25px;
+}
+
+.ant-dropdown-menu li:hover{
+  background-color: #5F63F205;
+}
 
 .atbd-top-dropdwon .atbd-top-dropdwon__title {
   background: #F4F5F7;
@@ -896,6 +912,43 @@ ul {
   margin-right: 15px;
 }
 
+/* Tooltip Styles */
+.ant-tooltip .ant-tooltip-inner{
+  min-height: 40px;
+  padding: 6px 20px;
+  font-size: 14px;
+  color: #5A5F7D;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #F1F2F6;
+  box-shadow: 0 8px 15px #9299B815;
+}
+.ant-tooltip .ant-tooltip-arrow{
+  /* position: relative; */
+}
+.ant-tooltip .ant-tooltip-arrow:after{
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  content: '';
+}
+.ant-tooltip .ant-tooltip-arrow .ant-tooltip-arrow-content{
+  width: 10px;
+  height: 10px;
+  background: #fff;
+}
+.ant-tooltip-placement-bottom  .ant-tooltip-arrow .ant-tooltip-arrow-content{
+  border: 1px solid #F1F2F6;
+}
+.ant-tooltip-placement-bottom .ant-tooltip-arrow{
+  top: -4.071068px;
+}
 /* Badge Styles */
 
 .ant-badge.badge-success .ant-badge-count {

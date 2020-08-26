@@ -91,7 +91,7 @@ const Email = ({ match }) => {
                   <Cards headless>
                     <div className="mail-sidebar-top">
                       <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                        + Compose
+                        <FeatherIcon icon="plus" size={18} /> Compose
                       </Button>
                     </div>
 

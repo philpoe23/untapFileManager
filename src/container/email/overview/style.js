@@ -2,11 +2,9 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-  
-  @media only screen and (max-width: 991px){
-    margin-bottom: 30px;   
-  }
+  margin-bottom: 30px;   
   .ant-table{
+    padding-bottom: 30px;
     border-radius: 10px;
     tr{
       th,
@@ -28,10 +26,20 @@ const Style = Styled(Table)`
       >th{
         background: #fff;
         &:first-child{
+          padding-right: 20px;
           border-top-left-radius: 10px !important;
         }
         &:last-child{
           border-top-right-radius: 10px !important;
+        }
+        .ant-table-selection-extra{
+          right: -25px
+        }
+        .ant-dropdown-trigger{
+          svg{
+            width: 20px;
+            color: ${({ theme }) => theme['gray-solid']};
+          }
         }
         .email-top-search{
           display: flex;
@@ -47,6 +55,7 @@ const Style = Styled(Table)`
             height: 46px !important;
           }
           .ant-select-selection-search{
+            width: 100% !important;
             .ant-select-selection-search-input{
               border-radius: 24px;
               background: ${({ theme }) => theme['bg-color-normal']};
@@ -115,7 +124,7 @@ const Style = Styled(Table)`
     }
     >tr{
       &:hover{
-        box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}15;
+        box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}20;
         h1{
           color: ${({ theme }) => theme['dark-color']};
           a{
@@ -131,7 +140,7 @@ const Style = Styled(Table)`
         }
       }
       >td{
-        vertical-align: top;
+        padding: 15px 16px;
         &:last-child{
           text-align: right;
         }
@@ -207,6 +216,9 @@ const MailBox = Styled.div`
     input{
       border: 0 none;
     }
+    input::placeholder{
+      color: ${({ theme }) => theme['light-color']};
+    }
     .react-tagsinput-tag{
       padding: 5px 16px;
       border: 0 none;
@@ -224,9 +236,9 @@ const MailBox = Styled.div`
     &:focus{
       box-shadow: 0 0;
     }
-    &:placeholder{
-      color: ${({ theme }) => theme['light-color']};
-    }
+  }
+  input::placeholder{
+    color: ${({ theme }) => theme['light-color']};
   }
 
   .header {
@@ -247,7 +259,7 @@ const MailBox = Styled.div`
         opacity: .70;
       }
       svg:first-child {
-        margin-right: 10px;
+        margin-right: 20px;
       }
     }
   }
@@ -300,8 +312,29 @@ const EmailNav = Styled.nav`
     padding: 0;
     li{
       position: relative;
+      &.add-label-btn{
+        &:hover{
+          background: transparent;
+          a{
+            background: transparent;
+            color: ${({ theme }) => theme['primary-color']} !important;
+          }
+        }
+        a{
+          color: ${({ theme }) => theme['light-color']} !important;
+          transition: .3s;
+          &:hover{
+            background: transparent;
+            svg,
+            i,
+            span{
+              color: ${({ theme }) => theme['primary-color']};
+            }
+          }
+        }
+      }
       a{
-        padding: 10px 15px;
+        padding: 8px 15px;
         display: flex;
         align-items: center;
         transition: 0.3s ease;
@@ -342,14 +375,17 @@ const EmailNav = Styled.nav`
           padding: 15px;
         }
         h1{
+          text-align: left;
           font-size: 16px;
           line-height: 20px;
           margin-bottom: 16px;
           font-weight: 500;
           transition: .3s;
+          color: ${({ theme }) => theme['dark-color']};
         }
         input{
           height: 44px;
+          border-radius: 2px;
           border: 1px solid ${({ theme }) => theme['border-color-light']};
         }
         .btn-group{
@@ -371,8 +407,9 @@ const EmailNav = Styled.nav`
     }
   }
   .nav-labels{
-    margin-top: 30px;
+    margin-top: 35px;
     p{
+      text-align: left;
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
@@ -421,7 +458,7 @@ const MessageAction = Styled.div`
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    margin: 0 5px;
+    margin: 0 4px;
     transition: 0.3s ease;
     @media only screen and (max-width: 575px){
       width: 25px;
@@ -451,7 +488,7 @@ const EmailAuthor = Styled.div`
     border-radius: 50%;
     display: inline-block;
     margin-left: 20px;
-    margin-right: 15px;
+    margin-right: 16px;
   }
   h1{
     margin: 0;
@@ -474,18 +511,30 @@ const EmailHeader = Styled.div`
     font-weight: 500;
     transition: .3s;
     color: ${({ theme }) => theme['gray-color']};
+    a{
+      color: ${({ theme }) => theme['gray-color']};
+      transition: .3s;
+      &:hover{
+        color: ${({ theme }) => theme['primary-color']};
+      }
+    }
   }
   .mail-badge{
     display: inline-block;
     margin-left: 10px;
     font-size: 12px;
     font-weight: 500;
-    height: 20px;
-    padding: 0 12px;
+    height: 22px;
+    padding: 0 6.4px;
     border-radius: 3px;
-    background: ${({ theme }) => theme['primary-color']}10;
+    text-transform: capitalize;
+    background: ${({ theme }) => theme['bg-color-deep']};
     @media only screen and (max-width: 575px){
       margin-left: 0px;
+    }
+    &.primary{
+      background: ${({ theme }) => theme['primary-color']}10;
+      color: ${({ theme }) => theme['primary-color']};
     }
   }
   p{
@@ -558,6 +607,7 @@ const MessageDetails = Styled.div`
     div{
       margin-left: 20px;
       h1{
+        font-weight: 500;
         font-size: 16px;
         margin-bottom: 0;
       }
@@ -575,6 +625,9 @@ const MessageDetails = Styled.div`
     margin: 0 -15px;
     @media only screen and (max-width: 767px){
       margin: 18px 0 0;
+    }
+    span + span{
+      font-size: 13px;
     }
     span, a{
       display: block;
@@ -818,6 +871,7 @@ const EmailWrapper = Styled.div`
       z-index: 99;
     }
     .ant-card{
+      min-height: 900px;
       .ant-card-body{
         padding: 0px !important;
       }
@@ -833,6 +887,14 @@ const EmailWrapper = Styled.div`
 
   .mail-sidebar-bottom{
     padding: 0 15px 25px 15px;
+  }
+
+  table{
+    .ant-table-tbody{
+      .ant-table-cell{
+        vertical-align: middle;
+      }
+    }
   }
 `;
 
