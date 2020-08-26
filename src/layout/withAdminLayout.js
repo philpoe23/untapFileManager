@@ -112,9 +112,13 @@ const ThemeLayout = WrappedComponent => {
                   <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                     <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
-                  <NavLink to="/">
-                    <img src={require(`../static/img/logo.png`)} alt="" />
-                  </NavLink>
+                  <Link to="/">
+                    <img
+                      style={{ width: '120px' }}
+                      src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
+                      alt=""
+                    />
+                  </Link>
                 </Col>
 
                 <Col md={6} sm={0} xs={0}>
