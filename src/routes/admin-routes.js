@@ -95,6 +95,7 @@ const Message = lazy(() => import('../container/ui-elements/Messages'));
 const Confirme = lazy(() => import('../container/ui-elements/PopConfirme'));
 const Menu = lazy(() => import('../container/ui-elements/Menu'));
 const Upload = lazy(() => import('../container/ui-elements/Upload'));
+const DragDrop = lazy(() => import('../container/ui-elements/DragAndDrop'));
 
 const Inbox = lazy(() => import('../container/email/Email'));
 
@@ -163,6 +164,7 @@ const AdminRoutes = () => {
         <Route path="/icon/line-awesome" component={La} />
         <Route path="/icon/antd" component={AntdIcons} />
 
+        <Route path="/components/drag" component={DragDrop} />
         <Route path="/components/button" component={Button} />
         <Route path="/components/alerts" component={Alerts} />
         <Route path="/components/modals" component={Modals} />

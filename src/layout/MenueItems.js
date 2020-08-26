@@ -184,6 +184,9 @@ const MenueItems = ({ darkMode }) => {
         <Menu.Item key="date-picker">
           <NavLink to="/components/date-picker">DatePicker</NavLink>
         </Menu.Item>
+        <Menu.Item key="drag">
+          <NavLink to="/components/drag">Drag & Drop</NavLink>
+        </Menu.Item>
         <Menu.Item key="drawer">
           <NavLink to="/components/drawer">Drawer</NavLink>
         </Menu.Item>
