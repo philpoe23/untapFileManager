@@ -89,7 +89,7 @@ const Single = props => {
                 <div className="message-subject">
                   <Heading as="h2">
                     {email.subject}
-                    <span> {email.type}</span>
+                    <span className="mail-badge primary">{email.type}</span>
                   </Heading>
                 </div>
 
@@ -154,6 +154,7 @@ const Single = props => {
               </div>
 
               <div className="message-body">
+                <span className="welcome-text">Hello Adam,</span>
                 <p>{email.body}</p>
 
                 <Heading as="h6">

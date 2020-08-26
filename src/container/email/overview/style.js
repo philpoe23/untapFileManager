@@ -422,6 +422,9 @@ const EmailNav = Styled.nav`
 `;
 
 const MailDetailsWrapper = Styled.div`
+  .ant-card-body{
+    padding: 30px !important;
+  }
   .ant-card-head-wrapper{
     @media only screen and (max-width: 767px){
       flex-flow: column;
@@ -573,7 +576,25 @@ const MessageDetails = Styled.div`
   }
   .message-subject{
     h1{
+      display: flex;
+      align-items: center;
       font-weight: 500;
+      .mail-badge{
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        height: 20px;
+        line-height: 1.6;
+        padding: 0 6.4px;
+        border-radius: 3px;
+        text-transform: capitalize;
+        background: ${({ theme }) => theme['bg-color-deep']};
+        &.primary{
+          background: ${({ theme }) => theme['primary-color']}10;
+          color: ${({ theme }) => theme['primary-color']};
+        }
+      }
     }
   }
   .message-action{
@@ -609,7 +630,7 @@ const MessageDetails = Styled.div`
       h1{
         font-weight: 500;
         font-size: 16px;
-        margin-bottom: 0;
+        margin-bottom: 4px;
       }
       a{
         display: flex;
@@ -655,10 +676,17 @@ const MessageDetails = Styled.div`
       padding-left: 0px;
       margin-top: 18px;
     }
+    .welcome-text{
+      font-size: 15px;
+      margin-bottom: 40px;
+      display: inline-block;
+      color: ${({ theme }) => theme['gray-color']};
+    }
     p{
       color: ${({ theme }) => theme['gray-color']};
       font-size: 15px;
-      margin-bottom: 40px;
+      line-height: 1.667;
+      margin-bottom: 55px;
     }
     h1{
       font-size: 15px;
