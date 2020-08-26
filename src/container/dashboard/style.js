@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 const EChartCard = Styled.div`
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
     .card-chunk{
         width: 50%;
         flex: 0 0 50%;
@@ -24,7 +25,7 @@ const EChartCard = Styled.div`
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
-        margin-top: 65px;
+        margin-top: 37px;
         @media only screen and (max-width: 1199px){
             margin-top: 45px;
         }
@@ -120,6 +121,9 @@ const Focard = Styled.div`
         canvas{
             margin-top: 0px;
             border-radius: 0 0 10px 10px;
+        }
+        .chart-label{
+            display: none;
         }
     }
 `;
@@ -226,7 +230,7 @@ const CardGroup = Styled.div`
                     padding-right: 0;
                 }
                 @media only screen and (max-width: 1199px){
-                    padding: 0 12px 0 0; 
+                    padding: 0 12px 0 0;
                     @media only screen and (max-width: 575px){
                         padding: 0;
                     }
@@ -249,7 +253,7 @@ const CardGroup = Styled.div`
                 }
             }
         }
-        
+
         &.focard-divider{
             padding-left: 0;
             padding-right: 15px;
@@ -346,7 +350,7 @@ const ExList = Styled.div`
         border-right: 0 none;
         margin: 0 -15px;
         padding: 15px 0 0;
-       
+
     }
     div{
         margin-bottom: 25px;
@@ -422,7 +426,7 @@ const OverviewCard = Styled.div`
         width: 100%;
         height: 215px;
         background:linear-gradient(45deg, ${({ theme }) => theme['secondary-color']}, ${({ theme }) =>
-        theme['warning-color']});
+  theme['warning-color']});
         left:0;
         top:0;
         z-index:-1;
@@ -490,6 +494,9 @@ const OverviewCard = Styled.div`
 const PerformanceChartWrapper = Styled.div`
     .performance-lineChart{
         margin-top: 20px;
+        .chart-label{
+            display: none;
+        }
     }
 `;
 
@@ -602,7 +609,7 @@ const SessionState = Styled.div`
             color: ${({ theme }) => theme['light-gray-color']};
         }
     }
-    
+
     .session-single{
         text-align: center;
     }
@@ -635,7 +642,7 @@ const RegionList = Styled.div`
             }
         }
     }
-    
+
 `;
 
 const RegionMap = Styled.div`
@@ -708,7 +715,7 @@ const CardBarChart2 = Styled.div`
             align-items: center;
             padding-right: 10px;
             font-weight: 600;
-            
+
             svg{
                 width: 15px;
             }
@@ -794,7 +801,7 @@ const RatioCard = Styled.div`
             color: ${({ theme }) => theme['light-color']};
             margin-bottom: 0;
             strong{
-                font-size: 13px; 
+                font-size: 13px;
                 color: ${({ theme }) => theme['dark-color']};
                 font-weight: 600;
             }
@@ -869,7 +876,11 @@ const LocationMapWrapper = Styled.div`
 `;
 
 const RevenueWrapper = Styled.div`
-    
+
+    .chart-label{
+        justify-content: flex-start;
+    }
+
     >.ant-card{
         min-height: 455px;
         @media only screen and (max-width: 1599px){
@@ -983,27 +994,27 @@ const TrafficTableWrapper = Styled.div`
 `;
 
 export {
-    EChartCard,
-    Focard,
-    CardBarChart,
-    CardGroup,
-    ExList,
-    OverviewCard,
-    PerformanceChartWrapper,
-    Pstates,
-    SessionChartWrapper,
-    SessionState,
-    RegionMap,
-    LadingPages,
-    RegionList,
-    CardBarChart2,
-    SocialMediaWrapper,
-    LineChartWrapper,
-    RatioCard,
-    IncomeExpenseWrapper,
-    LocationMapWrapper,
-    RevenueWrapper,
-    RevenueTableWrapper,
-    RevenueChartWrapper,
-    TrafficTableWrapper,
+  EChartCard,
+  Focard,
+  CardBarChart,
+  CardGroup,
+  ExList,
+  OverviewCard,
+  PerformanceChartWrapper,
+  Pstates,
+  SessionChartWrapper,
+  SessionState,
+  RegionMap,
+  LadingPages,
+  RegionList,
+  CardBarChart2,
+  SocialMediaWrapper,
+  LineChartWrapper,
+  RatioCard,
+  IncomeExpenseWrapper,
+  LocationMapWrapper,
+  RevenueWrapper,
+  RevenueTableWrapper,
+  RevenueChartWrapper,
+  TrafficTableWrapper,
 };

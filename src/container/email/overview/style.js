@@ -2,9 +2,9 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-  
+
   @media only screen and (max-width: 991px){
-    margin-bottom: 30px;   
+    margin-bottom: 30px;
   }
   .ant-table{
     border-radius: 10px;
@@ -20,7 +20,7 @@ const Style = Styled(Table)`
       }
     }
     .ant-table-selection-extra{
-      right: -15px;   
+      right: -15px;
     }
   }
   .ant-table-thead{
@@ -108,7 +108,7 @@ const Style = Styled(Table)`
       }
     }
   }
-  
+
   .ant-table-tbody{
     .ant-table-cell{
       white-space: normal !important;
@@ -376,6 +376,7 @@ const EmailNav = Styled.nav`
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
+      text-align: left;
     }
     ul{
       margin-top: 6px;

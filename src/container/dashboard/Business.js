@@ -107,9 +107,9 @@ const Business = () => {
               <Col md={12}>
                 <Focard>
                   <div className="forcast-card-box">
-                    <Cards headless title="Profit">
+                    <Cards headless title="Net Profit">
                       <div className="focard-details growth-downward">
-                        <Heading as="h1">$25,872</Heading>
+                        <Heading as="h1">$25.3k</Heading>
                         <p className="focard-status">
                           <span className="focard-status__percentage">
                             <FeatherIcon icon="arrow-down" /> 25%
@@ -139,7 +139,7 @@ const Business = () => {
                   <div className="forcast-card-box">
                     <Cards headless title="Gross Profit">
                       <div className="focard-details growth-upward">
-                        <Heading as="h1">$25,872</Heading>
+                        <Heading as="h1">$82.24k</Heading>
                         <p className="focard-status">
                           <span className="focard-status__percentage">
                             <FeatherIcon icon="arrow-up" /> 25%
@@ -387,6 +387,7 @@ const Business = () => {
                             display: true,
                             usePointStyle: true,
                           },
+                          align: 'start',
                         },
                         layout: {
                           padding: {
@@ -404,7 +405,7 @@ const Business = () => {
                               },
                               ticks: {
                                 beginAtZero: true,
-                                fontSize: 10,
+                                fontSize: 13,
                                 fontColor: '#182b49',
                                 max: 80,
                                 stepSize: 20,
@@ -422,7 +423,7 @@ const Business = () => {
                               barPercentage: 0.6,
                               ticks: {
                                 beginAtZero: true,
-                                fontSize: 11,
+                                fontSize: 13,
                                 fontColor: '#182b49',
                               },
                             },
@@ -441,7 +442,7 @@ const Business = () => {
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
                 datasets={[
                   {
-                    data: [7, 10, 8, 14, 7],
+                    data: [105, 145, 95, 149, 90],
                     borderColor: '#FA8B0C',
                     borderWidth: 3,
                     fill: false,
@@ -455,6 +456,25 @@ const Business = () => {
                       radius: 0,
                     },
                   },
+                  scales: {
+                    yAxes: [
+                      {
+                        gridLines: {
+                          color: '#e5e9f2',
+                        },
+                        ticks: {
+                          beginAtZero: true,
+                          fontSize: 13,
+                          fontColor: '#182b49',
+                          max: 200,
+                          stepSize: 50,
+                          callback(label) {
+                            return `${label}k`;
+                          },
+                        },
+                      },
+                    ],
+                  },
                 }}
               />
             </Cards>
@@ -465,7 +485,7 @@ const Business = () => {
                 labels={['Current', '1-30', '30-60', '60-90', '90']}
                 datasets={[
                   {
-                    data: [7, 10, 8, 14, 7],
+                    data: [80, 160, 105, 140, 107],
                     borderColor: '#2C99FF',
                     borderWidth: 3,
                     fill: false,
@@ -478,6 +498,25 @@ const Business = () => {
                     point: {
                       radius: 0,
                     },
+                  },
+                  scales: {
+                    yAxes: [
+                      {
+                        gridLines: {
+                          color: '#e5e9f2',
+                        },
+                        ticks: {
+                          beginAtZero: true,
+                          fontSize: 13,
+                          fontColor: '#182b49',
+                          max: 200,
+                          stepSize: 50,
+                          callback(label) {
+                            return `${label}k`;
+                          },
+                        },
+                      },
+                    ],
                   },
                 }}
               />

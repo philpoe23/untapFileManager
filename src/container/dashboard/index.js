@@ -27,8 +27,8 @@ const Dashboard = () => {
     layout: {
       padding: {
         left: '-10',
-        right: '20px',
-        top: 0,
+        right: '6',
+        top: 7,
         bottom: '-60',
       },
     },
@@ -315,7 +315,7 @@ const Dashboard = () => {
                                   backgroundColor: '#20C99710',
                                 },
                               ]}
-                              height={140}
+                              height={165}
                             />
                           </Focard>
                         </Col>
@@ -336,14 +336,14 @@ const Dashboard = () => {
                               labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
-                                  data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
+                                  data: [10, 15, 10, 11, 15, 21, 15, 12, 21, 8],
                                   borderColor: '#FF69A5',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#FF69A510',
                                 },
                               ]}
-                              height={140}
+                              height={165}
                             />
                           </Focard>
                         </Col>
@@ -368,14 +368,14 @@ const Dashboard = () => {
                               labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
-                                  data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
+                                  data: [12, 18, 21, 25, 18, 15, 11, 15, 14, 19],
                                   borderColor: '#5F63F2',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#5F63F210',
                                 },
                               ]}
-                              height={140}
+                              height={165}
                             />
                           </Focard>
                         </Col>
@@ -396,14 +396,14 @@ const Dashboard = () => {
                               labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
                               datasets={[
                                 {
-                                  data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
+                                  data: [24, 21, 15, 22, 18, 11, 14, 18, 21, 27],
                                   borderColor: '#FA8B0C',
                                   borderWidth: 3,
                                   fill: true,
                                   backgroundColor: '#FA8B0C10',
                                 },
                               ]}
-                              height={140}
+                              height={165}
                             />
                           </Focard>
                         </Col>
@@ -474,6 +474,7 @@ const Dashboard = () => {
                     legend: {
                       display: true,
                       position: 'top',
+                      align: 'end',
                       labels: {
                         boxWidth: 6,
                         display: true,
@@ -499,6 +500,7 @@ const Dashboard = () => {
                             fontSize: 10,
                             fontColor: '#182b49',
                             max: 80,
+                            stepSize: 20,
                           },
                         },
                       ],

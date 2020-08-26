@@ -352,7 +352,7 @@ ChartjsAreaChart.defaultProps = {
       padding: {
         left: '-10',
         right: 0,
-        top: 0,
+        top: 2,
         bottom: '-10',
       },
     },
@@ -439,6 +439,7 @@ ChartjsBarChartTransparent.defaultProps = {
     legend: {
       display: true,
       position: 'bottom',
+      align: 'start',
       labels: {
         boxWidth: 6,
         display: true,
@@ -461,9 +462,13 @@ ChartjsBarChartTransparent.defaultProps = {
           },
           ticks: {
             beginAtZero: true,
-            fontSize: 10,
+            fontSize: 13,
             fontColor: '#182b49',
             max: 80,
+            stepSize: 20,
+            callback(value, index, values) {
+              return `${value}k`;
+            },
           },
         },
       ],
@@ -475,7 +480,7 @@ ChartjsBarChartTransparent.defaultProps = {
           barPercentage: 0.6,
           ticks: {
             beginAtZero: true,
-            fontSize: 11,
+            fontSize: 13,
             fontColor: '#182b49',
           },
         },
@@ -609,13 +614,13 @@ ChartjsPieChart.propTypes = {
   options: PropTypes.object,
 };
 /**
- * 
+ *
  *  {const labels = chart.data.labels.reduce((prev, curent, i) => {
         return `${prev}<li><span class="doughnutLabelColor" style="background-color:${chart.data.datasets[0].backgroundColor[i]}"></span><span class="doughnutLabe">${curent}</span></li>`;
       }, '');
       const generatedLegend = `<ul class="${chart.id}-legend">${labels}</ul>`;
 
-      return generatedLegend;} props 
+      return generatedLegend;} props
  */
 
 const ChartjsDonutChart = props => {
@@ -676,7 +681,7 @@ const ChartjsDonutChart2 = props => {
     <div>
       <Doughnut ref={ref} data={dataInfo} height={height} options={options} />
 
-      <div className="align-center-v justify-content-between">
+      <div className="align-center-v justify-content-between rd-labels">
         <div className="revenue-chat-label">
           {labels.map(label => {
             counter += 1;
@@ -688,7 +693,6 @@ const ChartjsDonutChart2 = props => {
             );
           })}
         </div>
-
         <div className="revenue-chart-data">
           {datasets.map(item => {
             const { data } = item;
@@ -697,7 +701,9 @@ const ChartjsDonutChart2 = props => {
                 {data.map(value => {
                   return (
                     <>
-                      <p>${value}</p>
+                      <p>
+                        <strong>${value}</strong>
+                      </p>
                     </>
                   );
                 })}
@@ -705,13 +711,18 @@ const ChartjsDonutChart2 = props => {
             );
           })}
         </div>
+        <div className="revenue-chat-percentage">
+          <span>45%</span>
+          <span>45%</span>
+          <span>45%</span>
+        </div>
       </div>
     </div>
   );
 };
 
 ChartjsDonutChart2.defaultProps = {
-  height: 200,
+  height: 220,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
   datasets: [
     {
@@ -721,8 +732,8 @@ ChartjsDonutChart2.defaultProps = {
   ],
 
   options: {
-    maintainAspectRatio: true,
-    responsive: true,
+    maintainAspectRatio: false,
+    responsive: false,
     legend: {
       display: false,
       position: 'bottom',

@@ -138,15 +138,15 @@ const revenueData = [
   {
     key: '2',
     name: 'Facebook',
-    visitors: '23,397',
-    page_View: '12,201',
-    revenue: '$5,536',
+    visitors: '14,456',
+    page_View: '12,101',
+    revenue: '$4,745',
     trend: (
       <ChartjsLineChart
         labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
         datasets={[
           {
-            data: [0, 10, 8, 14, 7, 10],
+            data: [10, 7, 14, 8, 5, 11],
             borderColor: '#FF69A5',
             borderWidth: 2,
             fill: false,
@@ -168,15 +168,15 @@ const revenueData = [
   {
     key: '3',
     name: 'Email marketing',
-    visitors: '23,397',
-    page_View: '12,201',
-    revenue: '$5,536',
+    visitors: '45,148',
+    page_View: '19,105',
+    revenue: '$8,256',
     trend: (
       <ChartjsLineChart
         labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
         datasets={[
           {
-            data: [0, 10, 8, 14, 7, 10],
+            data: [7, 11, 5, 3, 7, 9],
             borderColor: '#20C997',
             borderWidth: 2,
             fill: false,
@@ -198,15 +198,15 @@ const revenueData = [
   {
     key: '4',
     name: 'Direct website',
-    visitors: '23,397',
-    page_View: '12,201',
-    revenue: '$5,536',
+    visitors: '26,954',
+    page_View: '17,358',
+    revenue: '$9,852',
     trend: (
       <ChartjsLineChart
         labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
         datasets={[
           {
-            data: [0, 10, 8, 14, 7, 10],
+            data: [10, 5, 9, 6, 11, 7],
             borderColor: '#2C99FF',
             borderWidth: 2,
             fill: false,
@@ -228,15 +228,15 @@ const revenueData = [
   {
     key: '5',
     name: 'Referral',
-    visitors: '23,397',
-    page_View: '12,201',
-    revenue: '$5,536',
+    visitors: '89,963',
+    page_View: '75,741',
+    revenue: '$11,159',
     trend: (
       <ChartjsLineChart
         labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
         datasets={[
           {
-            data: [0, 10, 8, 14, 7, 10],
+            data: [5, 15, 6, 21, 9, 16],
             borderColor: '#FA8B0C',
             borderWidth: 2,
             fill: false,
@@ -290,37 +290,30 @@ const sellingData = [
   {
     key: '2',
     name: 'Half Sleeve Shirt',
-    price: '$25',
-    sold: '80',
+    price: '$39',
+    sold: '180',
     revenue: '$20,573',
   },
   {
     key: '3',
     name: 'Marco Shoes',
-    price: '$32',
-    sold: '58',
-    revenue: '$20,573',
+    price: '$89',
+    sold: '581',
+    revenue: '$170,758',
   },
   {
     key: '4',
     name: 'Marco Shoes',
     price: '$32',
-    sold: '58',
-    revenue: '$20,573',
+    sold: '451',
+    revenue: '$258,105',
   },
   {
     key: '5',
     name: '15" MackBook Pro',
     price: '$950',
-    sold: '58',
-    revenue: '$20,573',
-  },
-  {
-    key: '6',
-    name: 'Apple iPhone X',
-    price: '$985',
-    sold: '90',
-    revenue: '$20,573',
+    sold: '745',
+    revenue: '$745,154',
   },
 ];
 
@@ -352,19 +345,19 @@ const locationData = [
     key: '2',
     location: 'United Kingdom',
     order: '420',
-    revenue: '$38,536',
+    revenue: '$45,748',
   },
   {
     key: '3',
     location: 'Canada',
     order: '210',
-    revenue: '$38,536',
+    revenue: '$96,415',
   },
   {
     key: '4',
     location: 'China',
     order: '108',
-    revenue: '$38,536',
+    revenue: '$25,963',
   },
 ];
 
@@ -591,7 +584,7 @@ const Ecommerce = () => {
                 size="large"
               >
                 <Heading className="revenue-count" as="h1">
-                  <span className="current-revenue">$72,784</span>
+                  <span className="current-revenue color-primary">$72,784</span>
                   <span className="prev-revenue"> $52,240</span>
                 </Heading>
 
@@ -820,15 +813,17 @@ const Ecommerce = () => {
                 title="Revenue By Device"
                 size="large"
               >
-                <ChartjsDonutChart2
-                  labels={['Desktop', 'Mobile', 'Tablets']}
-                  datasets={[
-                    {
-                      data: [5870, 4483, 2420],
-                      backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
-                    },
-                  ]}
-                />
+                <div className="revenue-doughnut">
+                  <ChartjsDonutChart2
+                    labels={['Desktop', 'Mobile', 'Tablets']}
+                    datasets={[
+                      {
+                        data: [5870, 4483, 2420],
+                        backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
+                      },
+                    ]}
+                  />
+                </div>
               </Cards>
             </RevenueChartWrapper>
           </Col>
