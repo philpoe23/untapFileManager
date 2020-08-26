@@ -128,7 +128,7 @@ const Uploads = () => {
       <PageHeader ghost title="Upload" />
       <Main>
         <Row gutter={15}>
-          <Col md={12} sm={12} xs={24}>
+          <Col sm={12} xs={24}>
             <Cards title="Basic">
               <Upload {...props}>
                 <Button size="large" type="light" outlined>
@@ -136,24 +136,6 @@ const Uploads = () => {
                 </Button>
               </Upload>
             </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
-            <Cards title="Complete Control">
-              <Upload
-                props={{
-                  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-                  onChange: handleChange,
-                  multiple: true,
-                }}
-                fileList={state.fileList}
-              >
-                <Button size="large" type="light" outlined>
-                  <UploadOutlined /> Upload
-                </Button>
-              </Upload>
-            </Cards>
-          </Col>
-          <Col md={12} sm={12} xs={24}>
             <Cards title="Avatar">
               <Upload
                 name="avatar"
@@ -168,7 +150,21 @@ const Uploads = () => {
               </Upload>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col sm={12} xs={24}>
+            <Cards title="Complete Control">
+              <Upload
+                props={{
+                  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+                  onChange: handleChange,
+                  multiple: true,
+                }}
+                fileList={state.fileList}
+              >
+                <Button size="large" type="light" outlined>
+                  <UploadOutlined /> Upload
+                </Button>
+              </Upload>
+            </Cards>
             <Cards title="Upload Default">
               <Upload props={defaultProps} fileList={defaultFilelist}>
                 <Button size="large" type="light" outlined>

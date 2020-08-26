@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/projectData.json';
+import staticData from '../../demoData/projectData.json';
 
 const {
   SINGLE_PROJECT_BEGIN,
@@ -49,7 +49,7 @@ const projectReducer = (state = initialStateFilter, action) => {
     case SORTING_PROJECT_SUCCESS:
       return {
         ...initialStateFilter,
-        data: data,
+        data,
         loading: false,
       };
     case SORTING_PROJECT_ERR:

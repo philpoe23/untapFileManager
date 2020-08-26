@@ -17,7 +17,7 @@ import {
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import { data } from '../../../config/dataService/recharts.json';
+import { data } from '../../../demoData/recharts.json';
 
 const CustomizedDot = props => {
   const { cx, cy, value } = props;
@@ -63,7 +63,7 @@ const ReChartLine = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Line Chart" />
+      <PageHeader title="Recharts Line Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

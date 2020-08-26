@@ -41,8 +41,8 @@ Dropdown.propTypes = {
   placement: PropTypes.string,
   title: PropTypes.string,
   action: PropTypes.array,
-  content: PropTypes.object,
-  children: PropTypes.object,
+  content: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export { Dropdown };

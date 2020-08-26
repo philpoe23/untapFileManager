@@ -1,5 +1,5 @@
 import actions from './actions';
-import staticData from '../../config/dataService/products.json';
+import staticData from '../../demoData/products.json';
 
 const {
   SINGLE_PRODUCT_BEGIN,
@@ -16,6 +16,12 @@ const {
 } = actions;
 
 const initialStateFilter = {
+  data: staticData,
+  loading: false,
+  error: null,
+};
+
+const initialState = {
   data: staticData,
   loading: false,
   error: null,
@@ -61,12 +67,6 @@ const productReducer = (state = initialStateFilter, action) => {
     default:
       return state;
   }
-};
-
-const initialState = {
-  data: staticData,
-  loading: false,
-  error: null,
 };
 
 const SingleProductReducer = (state = initialState, action) => {

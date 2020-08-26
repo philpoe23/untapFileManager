@@ -21,11 +21,11 @@ const Sellers = () => {
   });
 
   const [state, setState] = useState({
-    notdata: searchData,
+    notData: searchData,
     item: sellers,
     selectedRowKeys: [],
   });
-  const { notdata, selectedRowKeys, item } = state;
+  const { notData, selectedRowKeys, item } = state;
 
   useEffect(() => {
     if (sellers) {
@@ -39,7 +39,7 @@ const Sellers = () => {
     const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
       ...state,
-      notdata: data,
+      notData: data,
     });
   };
 
@@ -142,7 +142,7 @@ const Sellers = () => {
                 <Row gutter={15}>
                   <Col xxl={5} lg={10} xs={24}>
                     <div className="table-search-box">
-                      <AutoComplete onSearch={handleSearch} dataSource={notdata} width="100%" patterns />
+                      <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                     </div>
                   </Col>
                   <Col xxl={15} lg={5} xs={24} />

@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
@@ -46,13 +47,13 @@ const data = [
     fill: '#a4de6c',
   },
   {
-    name: '50+',
+    name: '50-59',
     uv: 2.63,
     pv: 4800,
     fill: '#d0ed57',
   },
   {
-    name: 'unknow',
+    name: '60+',
     uv: 6.67,
     pv: 4800,
     fill: '#ffc658',
@@ -82,16 +83,17 @@ const ReChartRadial = () => {
   return (
     <>
       <PageHeader
-        title="Rechats Radial Chart"
+        title="Recharts Radial Chart"
         buttons={[
-          <CalendarButtonPageHeader key="1" />,
-          <ExportButtonPageHeader key="2" />,
-          <ShareButtonPageHeader key="3" />,
-          <Button key="4" type="primary">
-            <Icon type="plus" />
-            Add New
-          </Button>,
-          // <DateRangePickerOne key="5" />,
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader key="1" />
+            <ExportButtonPageHeader key="2" />
+            <ShareButtonPageHeader key="3" />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
         ]}
         ghost
       />
@@ -101,9 +103,9 @@ const ReChartRadial = () => {
             <Cards title="SIMPLE RADIAL BAR CHART" size="large">
               <RadialBarChart
                 width={responsive - (5 * responsive) / 100}
-                height={responsive / 2}
-                cx={responsive / 3}
-                cy={responsive / 5}
+                height={responsive >= 1200 ? responsive / 3 : responsive}
+                cx={responsive >= 1200 ? responsive / 2.2 : responsive / 3}
+                cy={responsive >= 1200 ? responsive / 10 : responsive / 3}
                 innerRadius={20}
                 outerRadius={140}
                 barSize={10}
@@ -119,7 +121,7 @@ const ReChartRadial = () => {
                 <Legend
                   iconSize={10}
                   width={responsive / 9}
-                  height={responsive / 8}
+                  height={responsive / 9}
                   layout="vertical"
                   verticalAlign="middle"
                   wrapperStyle={style}

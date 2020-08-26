@@ -92,10 +92,10 @@ const PricingTable = () => {
             </PricingCard>
           </Col>
         </Row>
-        <Row gutter={15} justify="center">
+        <Row gutter={25}>
           <Col xs={24}>
             <Cards headless>
-              <Row gutter={15}>
+              <Row gutter={25} justify="center">
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
                     <Badge type="dark">Free Forever</Badge>

@@ -1,42 +1,42 @@
-const primaryColor = '#5F63F2',
-  primaryHover = '#4347D9',
-  secondaryColor = '#FF69A5',
-  secondaryHover = '#E34A87',
-  linkColor = '#1890ff',
-  linkHover = '#0D79DF',
-  headingColor = 'rgba(0, 0, 0, 0.85)',
-  successColor = '#20C997',
-  successHover = '#0CAB7C',
-  warningColor = '#FA8B0C',
-  warningHover = '#D47407',
-  errorColor = '#f5222d',
-  errorHover = '#E30D0F',
-  infoColor = '#2C99FF',
-  infoHover = '#0D79DF',
-  darkColor = '#272B41',
-  darkHover = '#131623',
-  grayColor = '#5A5F7D',
-  grayHover = '#363A51',
-  lightColor = '#9299B8',
-  lightHover = '#e2e6ea',
-  whiteColor = '#ffffff',
-  dashColor = '#E3E6EF',
-  whiteHover = '#5A5F7D',
-  extraLightColor = '#ADB4D2',
-  dangerColor = '#FF4D4F',
-  dangerHover = '#E30D0F',
-  borderColorLight = '#F1F2F6',
-  borderColorNormal = '#E3E6EF',
-  borderColorDeep = '#C6D0DC',
-  bgGrayColorDeep = '#EFF0F3',
-  bgGrayColorLight = '#F8F9FB',
-  bgGrayColorNormal = '#F4F5F7',
-  lightGrayColor = '#868EAE',
-  sliderRailColor = 'rgba(95,99,242,0.2)',
-  graySolid = '#9299b8',
-  btnlg = '48px',
-  btnsm = '36px',
-  btnxs = '29px';
+const primaryColor = '#5F63F2';
+const primaryHover = '#4347D9';
+const secondaryColor = '#FF69A5';
+const secondaryHover = '#E34A87';
+const linkColor = '#1890ff';
+const linkHover = '#0D79DF';
+const headingColor = 'rgba(0, 0, 0, 0.85)';
+const successColor = '#20C997';
+const successHover = '#0CAB7C';
+const warningColor = '#FA8B0C';
+const warningHover = '#D47407';
+const errorColor = '#f5222d';
+const errorHover = '#E30D0F';
+const infoColor = '#2C99FF';
+const infoHover = '#0D79DF';
+const darkColor = '#272B41';
+const darkHover = '#131623';
+const grayColor = '#5A5F7D';
+const grayHover = '#363A51';
+const lightColor = '#9299B8';
+const lightHover = '#e2e6ea';
+const whiteColor = '#ffffff';
+const dashColor = '#E3E6EF';
+const whiteHover = '#5A5F7D';
+const extraLightColor = '#ADB4D2';
+const dangerColor = '#FF4D4F';
+const dangerHover = '#E30D0F';
+const borderColorLight = '#F1F2F6';
+const borderColorNormal = '#E3E6EF';
+const borderColorDeep = '#C6D0DC';
+const bgGrayColorDeep = '#EFF0F3';
+const bgGrayColorLight = '#F8F9FB';
+const bgGrayColorNormal = '#F4F5F7';
+const lightGrayColor = '#868EAE';
+const sliderRailColor = 'rgba(95,99,242,0.2)';
+const graySolid = '#9299b8';
+const btnlg = '48px';
+const btnsm = '36px';
+const btnxs = '29px';
 
 const theme = {
   'primary-color': primaryColor, // primary color for all components
@@ -132,16 +132,16 @@ const theme = {
   'alert-warning-bg-color': warningColor + 15,
   'alert-info-bg-color': infoColor + 15,
 
-  //radio btn
+  // radio btn
   'radio-button-checked-bg': primaryColor,
 
-  //gutter width
+  // gutter width
   'grid-gutter-width': 25,
 
-  //skeleton
+  // skeleton
   'skeleton-color': borderColorLight,
 
-  //slider
+  // slider
   'slider-rail-background-color': sliderRailColor,
   'slider-rail-background-color-hover': sliderRailColor,
   'slider-track-background-color': primaryColor,
@@ -149,13 +149,13 @@ const theme = {
   'slider-handle-color': primaryColor,
   'slider-handle-size': '16px',
 
-  //input
+  // input
   'input-height-base': '48px',
   'input-border-color': borderColorNormal,
   'input-height-sm': '30px',
   'input-height-lg': '50px',
 
-  //rate
+  // rate
   'rate-star-color': warningColor,
   'rate-star-size': '13px',
 
@@ -165,16 +165,16 @@ const theme = {
   'switch-height': '18px',
   'switch-sm-height': '15px',
 
-  //result
+  // result
   'result-title-font-size': '20px',
   'result-subtitle-font-size': '12px',
   'result-icon-font-size': '50px',
 
-  //tabs
+  // tabs
   'tabs-horizontal-padding': '12px 15px',
   'tabs-horizontal-margin': '0',
 
-  //list
+  // list
   'list-item-padding': '10px 24px',
 
   // Tags
@@ -189,4 +189,4 @@ const darkTheme = {
   backgroundColor: '#000',
 };
 
-module.exports = { theme, darkTheme };
+export { theme, darkTheme };

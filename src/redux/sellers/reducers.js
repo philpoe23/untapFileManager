@@ -1,6 +1,6 @@
-import initialState from '../../config/dataService/sellers.json';
+import initialState from '../../demoData/sellers.json';
 
-const sellersReducer = (state = initialState, action) => {
+const sellersReducer = (state = initialState) => {
   return state;
 };
 export { sellersReducer };

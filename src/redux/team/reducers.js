@@ -1,6 +1,6 @@
-import initialState from '../../config/dataService/teamData.json';
+import initialState from '../../demoData/teamData.json';
 
-const teamReducer = (state = initialState, action) => {
+const teamReducer = (state = initialState) => {
   return state;
 };
 

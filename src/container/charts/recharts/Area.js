@@ -4,7 +4,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import { data, nullchart } from '../../../config/dataService/recharts.json';
+import { data, nullChart } from '../../../demoData/recharts.json';
 
 const ReChartArea = () => {
   const [state, setState] = useState({
@@ -28,7 +28,7 @@ const ReChartArea = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Area Chart" />
+      <PageHeader title="ReCharts Area Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>
@@ -77,12 +77,12 @@ const ReChartArea = () => {
             </Cards>
           </Col>
           <Col md={12} xs={24}>
-            <Cards title="AREACHART CONNECT NULLS" size="large" more={false}>
+            <Cards title="AreaChart Connect Nulls" size="large" more={false}>
               <div>
                 <AreaChart
                   width={responsive - (5 * responsive) / 100}
                   height={responsive / 2}
-                  data={nullchart}
+                  data={nullChart}
                   margin={{
                     top: 10,
                     right: 30,

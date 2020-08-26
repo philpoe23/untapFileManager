@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import { InputNumber, Row, Col } from 'antd';
 import PropTypes from 'prop-types';
@@ -55,7 +56,7 @@ const Slider = props => {
 
   return input ? (
     <Row>
-      <Col span={20}>
+      <Col xl={20} xs={24}>
         <SliderStyle
           min={min}
           max={max}
@@ -64,15 +65,8 @@ const Slider = props => {
           step={step}
         />
       </Col>
-      <Col span={4}>
-        <InputNumber
-          min={min}
-          max={max}
-          style={{ marginLeft: 16 }}
-          value={inputValue}
-          onChange={onChanges}
-          step={step}
-        />
+      <Col xl={4} xs={24}>
+        <InputNumber min={min} max={max} value={inputValue} onChange={onChanges} step={step} />
       </Col>
     </Row>
   ) : icon ? (
@@ -82,18 +76,18 @@ const Slider = props => {
       <FrownOutlined style={{ color: nextColor }} />
     </IconWrapper>
   ) : (
-    <SliderStyle
-      marks={marks}
-      defaultValue={defaultValue || defaultValues}
-      range={range}
-      step={step}
-      vertical={vertical}
-      onAfterChange={onAfterChanges}
-      onChange={onChange}
-      max={max}
-      min={min}
-    />
-  );
+        <SliderStyle
+          marks={marks}
+          defaultValue={defaultValue || defaultValues}
+          range={range}
+          step={step}
+          vertical={vertical}
+          onAfterChange={onAfterChanges}
+          onChange={onChange}
+          max={max}
+          min={min}
+        />
+      );
 };
 
 Slider.propTypes = {

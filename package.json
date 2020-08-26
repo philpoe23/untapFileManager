@@ -8,12 +8,13 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.2.2",
+    "axios": "^0.19.2",
     "chart.js": "^2.9.3",
+    "cors": "^2.8.5",
     "d3-scale": "^3.2.1",
     "d3-scale-chromatic": "^1.5.0",
     "date-fns": "^2.9.0",
     "feather-icons-react": "^0.4.1",
-    "firebase": "^7.14.2",
     "google-maps-react": "^2.0.2",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
@@ -31,22 +32,24 @@
     "react-leaflet-markercluster": "^2.0.0-rc3",
     "react-line-awesome": "^0.1.4",
     "react-redux": "^7.1.3",
-    "react-redux-firebase": "^3.3.1",
     "react-router-dom": "^5.1.2",
     "react-rte": "^0.16.1",
     "react-scripts": "3.4.1",
     "react-tagsinput": "^3.19.0",
     "recharts": "^2.0.0-beta.1",
     "redux": "^4.0.5",
-    "redux-firestore": "^0.13.0",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "yarn": "^1.22.4"
   },
+  "homepage": "https://easycodebd.com/",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "eslint '**/*.js' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -73,6 +76,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^4.0.5",
+    "esm": "^3.2.25",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "prettier": "^1.19.1",

@@ -4,9 +4,9 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 import { GoogleMaps } from '../../components/maps/google-maps';
-import mapdata from '../../config/map/google-maps-styles';
+import mapData from '../../config/map/google-maps-styles';
 
-const { mapOneStyles, mapStyleDark, mapTwoStyles, mapThreeStyles } = mapdata;
+const { mapOneStyles, mapStyleDark, mapTwoStyles, mapThreeStyles } = mapData;
 
 const GoogleMap = () => {
   return (
@@ -33,7 +33,7 @@ const GoogleMap = () => {
           </Col>
 
           <Col md={12} xs={24}>
-            <Cards title="Google Map Style Theame Color" size="large">
+            <Cards title="Google Map Style Theme Color" size="large">
               <GoogleMaps zoom={2} mapStyles={mapThreeStyles} />
             </Cards>
           </Col>

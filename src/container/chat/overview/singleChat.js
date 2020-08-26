@@ -315,6 +315,6 @@ const SingleChat = ({ match }) => {
 };
 
 SingleChat.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object),
 };
 export default SingleChat;

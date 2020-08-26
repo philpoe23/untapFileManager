@@ -15,9 +15,9 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const Dashbord = () => {
+const Dashboard = () => {
   const [state, setState] = useState({
-    youtubeSbscribeTabActive: 'month',
+    youtubeSubscribeTabActive: 'month',
     twitterOverviewTabActive: 'month',
     instagramOverviewTabActive: 'month',
     linkdinOverviewTabActive: 'month',
@@ -89,7 +89,7 @@ const Dashbord = () => {
   const handleActiveChangeYoutube = value => {
     setState({
       ...state,
-      youtubeSbscribeTabActive: value,
+      youtubeSubscribeTabActive: value,
     });
   };
 
@@ -114,7 +114,7 @@ const Dashbord = () => {
     });
   };
 
-  const trafficTablecolumns = [
+  const trafficTableColumns = [
     {
       dataIndex: 'network',
       key: 'network',
@@ -147,7 +147,7 @@ const Dashbord = () => {
     },
   ];
 
-  const trafficTabledata = [
+  const trafficTableData = [
     {
       key: '1',
       network: <span className="traffic-title">Social Network</span>,
@@ -155,7 +155,7 @@ const Dashbord = () => {
       newUsers: <span className="traffic-title">New Users</span>,
       sessions: <span className="traffic-title">Sessions</span>,
       bounceRate: <span className="traffic-title">Bounce Rate</span>,
-      pages: <span className="traffic-title">Pages / Sessio</span>,
+      pages: <span className="traffic-title">Pages / Session</span>,
       avg: <span className="traffic-title">Avg. Session Duration</span>,
     },
     {
@@ -420,17 +420,17 @@ const Dashbord = () => {
               isbutton={
                 <div className="card-nav">
                   <ul>
-                    <li className={state.youtubeSbscribeTabActive === 'week' ? 'active' : 'deactive'}>
+                    <li className={state.youtubeSubscribeTabActive === 'week' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeYoutube('week')} to="#">
                         Week
                       </Link>
                     </li>
-                    <li className={state.youtubeSbscribeTabActive === 'month' ? 'active' : 'deactive'}>
+                    <li className={state.youtubeSubscribeTabActive === 'month' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeYoutube('month')} to="#">
                         Month
                       </Link>
                     </li>
-                    <li className={state.youtubeSbscribeTabActive === 'year' ? 'active' : 'deactive'}>
+                    <li className={state.youtubeSubscribeTabActive === 'year' ? 'active' : 'deactivate'}>
                       <Link onClick={() => handleActiveChangeYoutube('year')} to="#">
                         Year
                       </Link>
@@ -527,17 +527,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.twitterOverviewTabActive === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.twitterOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTwitter('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.twitterOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTwitter('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.twitterOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeTwitter('year')} to="#">
                           Year
                         </Link>
@@ -709,17 +709,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.instagramOverviewTabActive === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.instagramOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeInstagram('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.instagramOverviewTabActive === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.instagramOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeInstagram('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.instagramOverviewTabActive === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.instagramOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeInstagram('year')} to="#">
                           Year
                         </Link>
@@ -891,17 +891,17 @@ const Dashbord = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.linkdinOverviewTabActive === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.linkdinOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLinkdin('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.linkdinOverviewTabActive === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.linkdinOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLinkdin('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.linkdinOverviewTabActive === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.linkdinOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeLinkdin('year')} to="#">
                           Year
                         </Link>
@@ -909,7 +909,7 @@ const Dashbord = () => {
                     </ul>
                   </div>
                 }
-                title="Linkedin Key Metrick"
+                title="Linkedin Key Metrics"
                 size="large"
               >
                 <div className="linkedin-chart-wrap">
@@ -1086,7 +1086,7 @@ const Dashbord = () => {
                   more={moreContent}
                 >
                   <div className="traffic-table table-responsive">
-                    <Table columns={trafficTablecolumns} dataSource={trafficTabledata} pagination={false} />
+                    <Table columns={trafficTableColumns} dataSource={trafficTableData} pagination={false} />
                   </div>
                 </Cards>
               </div>
@@ -1098,4 +1098,4 @@ const Dashbord = () => {
   );
 };
 
-export default Dashbord;
+export default Dashboard;

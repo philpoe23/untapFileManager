@@ -31,14 +31,15 @@ const PageHeaders = () => {
       <PageHeader
         ghost
         buttons={[
-          <CalendarButtonPageHeader key="1" />,
-          <ExportButtonPageHeader key="2" />,
-          <ShareButtonPageHeader key="3" />,
-          <Button key="4" type="primary">
-            <PlusOutlined />
-            Add New
-          </Button>,
-          // <DateRangePickerOne key="5" />,
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <PlusOutlined />
+              Add New
+            </Button>
+          </div>,
         ]}
         title="Page Headers"
       />
@@ -63,14 +64,15 @@ const PageHeaders = () => {
                 title="Title"
                 subTitle="This is a subtitle"
                 buttons={[
-                  <CalendarButtonPageHeader key="1" />,
-                  <ExportButtonPageHeader key="2" />,
-                  <ShareButtonPageHeader key="3" />,
-                  <Button key="4" type="primary">
-                    <PlusOutlined />
-                    Add New
-                  </Button>,
-                  // <DateRangePickerOne key="5" />,
+                  <div key="1" className="page-header-actions">
+                    <CalendarButtonPageHeader />
+                    <ExportButtonPageHeader />
+                    <ShareButtonPageHeader />
+                    <Button size="small" type="primary">
+                      <PlusOutlined />
+                      Add New
+                    </Button>
+                  </div>,
                 ]}
               />
             </Cards>
@@ -85,13 +87,13 @@ const PageHeaders = () => {
               <PageHeader
                 bgColor="#fff"
                 buttons={[
-                  <Button type="default" key="3">
+                  <Button size="small" type="default" key="3">
                     Operation
                   </Button>,
-                  <Button type="default" key="2">
+                  <Button size="small" type="default" key="2">
                     Operation
                   </Button>,
-                  <Button type="primary" key="1">
+                  <Button size="small" type="primary" key="1">
                     Primary
                   </Button>,
                 ]}

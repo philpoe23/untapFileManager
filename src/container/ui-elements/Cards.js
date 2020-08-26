@@ -26,9 +26,9 @@ const CardContainer = () => {
       <PageHeader title="Cards" />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Basic card" size="large">
-              <Col md={8} style={{ padding: 0 }}>
+              <Col lg={8} md={10} xs={24} style={{ padding: 0 }}>
                 <CardStyleWrapper>
                   <Cards title="Default Size Card" border size="default" moreText more={content} style={{ width: 400 }}>
                     <p>Card content</p>
@@ -48,7 +48,7 @@ const CardContainer = () => {
               </Col>
             </Cards>
             <Cards title="No border" size="large">
-              <Col md={8} style={{ padding: 0, marginBottom: '-20px' }}>
+              <Col lg={8} md={10} xs={24} style={{ padding: 0, marginBottom: '-20px' }}>
                 <CardStyleWrapper>
                   <Cards
                     title="Default Size Card"
@@ -68,7 +68,7 @@ const CardContainer = () => {
               </Col>
             </Cards>
             <Cards title="Simple card" size="large">
-              <Col md={8} style={{ padding: 0, marginBottom: '-20px' }}>
+              <Col lg={8} md={10} xs={24} style={{ padding: 0, marginBottom: '-20px' }}>
                 <CardStyleWrapper>
                   <Cards headless border size="default">
                     <p>Card content</p>
@@ -83,21 +83,21 @@ const CardContainer = () => {
         <Cards title="Card In Column" size="large">
           <div className="columnCardsWrapper">
             <Row gutter={16}>
-              <Col span={8}>
+              <Col sm={8} xs={24}>
                 <CardStyleWrapper>
                   <Cards title="Card title" border={false} size="default">
                     <p>Card content</p>
                   </Cards>
                 </CardStyleWrapper>
               </Col>
-              <Col span={8}>
+              <Col sm={8} xs={24}>
                 <CardStyleWrapper>
                   <Cards title="Card title" border={false} size="default">
                     <p>Card content</p>
                   </Cards>
                 </CardStyleWrapper>
               </Col>
-              <Col span={8}>
+              <Col sm={8} xs={24}>
                 <CardStyleWrapper>
                   <Cards title="Card title" border={false} size="default">
                     <p>Card content</p>
@@ -109,17 +109,19 @@ const CardContainer = () => {
         </Cards>
 
         <Row gutter={15}>
-          <Col md={24}>
-            <Cards title="Grid Card" size="large">
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-              <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
-            </Cards>
+          <Col xs={24}>
+            <div className="card-grid-wrap">
+              <Cards title="Grid Card" size="large">
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+                <Card.Grid style={{ width: '25%', textAlign: 'center', padding: 24 }}>Content</Card.Grid>
+              </Cards>
+            </div>
           </Col>
         </Row>
       </Main>

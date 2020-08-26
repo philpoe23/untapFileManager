@@ -3,7 +3,7 @@ import { Row, Col, Spin } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
-import EamilNavbar from './overview/Navbar';
+import EmailNavbar from './overview/Navbar';
 import ComposeMail from './overview/Compose';
 import { EmailWrapper, MailSideBar } from './overview/style';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -29,6 +29,7 @@ const Email = ({ match }) => {
     collapsed: false,
   });
   const { responsive, collapsed } = state;
+  const { path, params } = match;
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -55,12 +56,12 @@ const Email = ({ match }) => {
     setMailEditorStatus(false);
   };
 
-  const path = match.path.split(':')[0];
+  const pathName = path.split(':')[0];
   return (
     <>
       <PageHeader
         ghost
-        title={match.params.page}
+        title={params.page}
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />
@@ -78,9 +79,9 @@ const Email = ({ match }) => {
       <Main>
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
-            <Col lg={7} xl={5}>
+            <Col className="text-center" xxl={5} xl={7} lg={10} xs={24}>
               {responsive <= 991 && (
-                <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
+                <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                 </Button>
               )}
@@ -95,13 +96,21 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={path} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </div>
               ) : (
-                <MailSideBar collapsed={collapsed} className="mail-sideabr">
+                <MailSideBar className={collapsed ? 'mail-sideabr show' : 'mail-sideabr hide'}>
                   <Cards headless>
+                    <Button
+                      type="link"
+                      className="mail-sidebar-trigger trigger-close"
+                      style={{ marginTop: 0 }}
+                      onClick={toggleCollapsed}
+                    >
+                      <FeatherIcon icon="x" />
+                    </Button>
                     <div className="mail-sidebar-top">
                       <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
                         + Compose
@@ -109,14 +118,14 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EamilNavbar path={path} />
+                      <EmailNavbar path={pathName} />
                     </div>
                   </Cards>
                 </MailSideBar>
               )}
             </Col>
 
-            <Col lg={17} xl={19}>
+            <Col xxl={19} xl={17} lg={14}>
               <Switch>
                 <Suspense
                   fallback={
@@ -125,13 +134,13 @@ const Email = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={`${path}inbox`} component={Inbox} />
-                  <Route path={`${path}sent`} component={Sent} />
-                  <Route path={`${path}drafts`} component={Draft} />
-                  <Route path={`${path}starred`} component={Starred} />
-                  <Route path={`${path}spam`} component={Spam} />
-                  <Route path={`${path}trash`} component={Trash} />
-                  <Route path={`${path}single/:id`} component={MailDetailView} />
+                  <Route path={`${pathName}inbox`} component={Inbox} />
+                  <Route path={`${pathName}sent`} component={Sent} />
+                  <Route path={`${pathName}drafts`} component={Draft} />
+                  <Route path={`${pathName}starred`} component={Starred} />
+                  <Route path={`${pathName}spam`} component={Spam} />
+                  <Route path={`${pathName}trash`} component={Trash} />
+                  <Route path={`${pathName}single/:id`} component={MailDetailView} />
                 </Suspense>
               </Switch>
             </Col>
@@ -143,7 +152,7 @@ const Email = ({ match }) => {
 };
 
 Email.propTypes = {
-  match: propTypes.object.isRequired,
+  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Email;

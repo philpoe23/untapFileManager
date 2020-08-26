@@ -4,18 +4,19 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
-import MenueItems from './sidebar/MenueItems';
-import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
+import MenueItems from './MenueItems';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { darkTheme } from '../config/theme/themeVariables';
 import config from '../config/config';
+
+const { darkTheme } = require('../config/theme/themeVariables');
 
 const { Header, Footer, Sider, Content } = Layout;
 const { darkMode } = config;
 
 const footerStyle = {
-  padding: '24px 50px',
+  padding: '20px 30px 18px',
   color: 'rgba(0, 0, 0, 0.65)',
   fontSize: '14px',
   background: 'rgba(255, 255, 255, .90)',
@@ -30,7 +31,7 @@ const SideBarStyle = {
   height: '100vh',
   position: 'fixed',
   left: 0,
-  zIndex: 9999,
+  zIndex: 998,
 };
 
 const ThemeLayout = WrappedComponent => {
@@ -94,6 +95,10 @@ const ThemeLayout = WrappedComponent => {
 
       return (
         <Div darkMode={darkMode}>
+          <ModeSwitch>
+            <Button>Light</Button>
+            <Button>Dark</Button>
+          </ModeSwitch>
           <Layout>
             <Header
               style={{
@@ -135,6 +140,20 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
                 <Col md={0} sm={24} xs={24}>
                   <div className="small-screen-headerRight">
+                    {/* <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
+                      <HeaderSearch />
+                    </SmallScreenSearch> */}
+                    {/* <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
+                      <AuthInfo />
+                    </SmallScreenAuthInfo> */}
+                  </div>
+                </Col>
+              </Row>
+            </Header>
+            <div className="header-more">
+              <Row>
+                <Col md={0} sm={24} xs={24}>
+                  <div className="small-screen-headerRight">
                     <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
                       <HeaderSearch />
                     </SmallScreenSearch>
@@ -144,8 +163,7 @@ const ThemeLayout = WrappedComponent => {
                   </div>
                 </Col>
               </Row>
-            </Header>
-
+            </div>
             <Layout>
               <ThemeProvider theme={darkTheme}>
                 <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
@@ -165,7 +183,20 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent />
-                  <Footer style={footerStyle}>Footer</Footer>
+                  <Footer className="admin-footer" style={footerStyle}>
+                    <Row>
+                      <Col md={12} xs={24}>
+                        <span className="admin-footer__copyright">2020 © AazzTech</span>
+                      </Col>
+                      <Col md={12} xs={24}>
+                        <div className="admin-footer__links">
+                          <NavLink to="#">About</NavLink>
+                          <NavLink to="#">Team</NavLink>
+                          <NavLink to="#">Contact</NavLink>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Footer>
                 </Content>
               </Layout>
             </Layout>

@@ -129,7 +129,7 @@ const AddProduct = () => {
 
                         <div className="add-product-block">
                           <Row gutter={15}>
-                            <Col md={24}>
+                            <Col xs={24}>
                               <div className="add-product-content">
                                 <Cards title="Product Image">
                                   <Dragger fileUploadProps={fileUploadProps}>

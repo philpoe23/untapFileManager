@@ -16,7 +16,7 @@ const FaIcons = () => {
         <Row gutter={15}>
           <Col md={24}>
             <IconWrapper>
-              <Cards title="Simply beautiful open source icons" size="learge">
+              <Cards title="Simply beautiful open source icons" size="large">
                 <Row gutter={25}>
                   {faIcons.map(icon => {
                     key += 1;

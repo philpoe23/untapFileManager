@@ -9,7 +9,9 @@ import store from './redux/store';
 import AdminRoutes from './routes/admin-routes';
 import FrontendRoutes from './routes/frontend-routes';
 import './static/css/style.css';
-import { theme } from './config/theme/themeVariables';
+import config from './config/config';
+
+const { theme } = config;
 
 function App({ auth }) {
   const [state, setState] = useState({
@@ -44,7 +46,7 @@ const mapStateToProps = state => {
 };
 
 App.propTypes = {
-  auth: propTypes.string.isRequired,
+  auth: propTypes.oneOf(['true', 'null', null, true]),
 };
 const MyApp = connect(mapStateToProps)(App);
 

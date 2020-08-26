@@ -46,27 +46,39 @@ const Sliders = () => {
               <Slider onChange={onChange} defaultValue={30} />
               <Slider onChange={onChange} range defaultValues={[20, 50]} />
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
             <Cards title="With Input" caption="The simplest use of slider">
-              <h3>With integer</h3>
-              <Slider input min={1} max={100} />
-              <h3>With Decimal</h3>
-              <Slider input min={0} max={1} step={0.01} />
+              <div className="slider-with-input">
+                <div className="slider-with-input__single">
+                  <h3>With integer</h3>
+                  <Slider input min={1} max={100} />
+                </div>
+                <div className="slider-with-input__single">
+                  <h3>With Decimal</h3>
+                  <Slider input min={0} max={1} step={0.01} />
+                </div>
+              </div>
+            </Cards>
+            <Cards title="Range" caption="The simplest use of slider">
+              <Slider range step={10} defaultValues={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
+            </Cards>
+            <Cards title="Graduated slider vertical" caption="The simplest use of slider">
+              <div>
+                <div style={style}>
+                  <Slider vertical defaultValue={30} />
+                </div>
+                <div style={style}>
+                  <Slider vertical range step={10} defaultValues={[20, 50]} />
+                </div>
+                <div style={style}>
+                  <Slider vertical range marks={marks} defaultValues={[26, 37]} />
+                </div>
+              </div>
             </Cards>
           </Col>
           <Col md={12} sm={24} xs={24}>
             <Cards title="with Icon" caption="The simplest use of slider">
               <Slider onChange={onChange} icon min={1} max={100} />
             </Cards>
-          </Col>
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Range" caption="The simplest use of slider">
-              <Slider range step={10} defaultValues={[20, 50]} onChange={onChange} onAfterChange={onAfterChange} />
-            </Cards>
-          </Col>
-
-          <Col md={12} sm={24} xs={24}>
             <Cards title="Graduated slider" caption="The simplest use of slider">
               <div>
                 <h4>included=true</h4>
@@ -81,22 +93,6 @@ const Sliders = () => {
 
                 <h4>step=null</h4>
                 <Slider marks={marks} step={null} defaultValue={37} />
-              </div>
-            </Cards>
-          </Col>
-
-          <Col md={12} sm={24} xs={24}>
-            <Cards title="Graduated slider vertical" caption="The simplest use of slider">
-              <div>
-                <div style={style}>
-                  <Slider vertical defaultValue={30} />
-                </div>
-                <div style={style}>
-                  <Slider vertical range step={10} defaultValues={[20, 50]} />
-                </div>
-                <div style={style}>
-                  <Slider vertical range marks={marks} defaultValues={[26, 37]} />
-                </div>
               </div>
             </Cards>
           </Col>

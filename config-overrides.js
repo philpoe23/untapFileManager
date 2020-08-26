@@ -1,35 +1,3 @@
-const { override, addLessLoader, fixBabelImports } = require('customize-cra');
-const hotLoader = require('react-app-rewire-hot-loader');
-const { theme } = require('./src/config/theme/themeVariables');
-
-const supportMjs = () => webpackConfig => {
-  webpackConfig.module.rules.push({
-    test: /\.mjs$/,
-    include: /node_modules/,
-    //type: 'javascript/auto',
-  });
-  return webpackConfig;
-};
-
-module.exports = override(
-  addLessLoader({
-    javascriptEnabled: true,
-
-    modifyVars: {
-      ...theme,
-    },
-  }),
-
-  fixBabelImports('import', {
-    libraryName: 'antd',
-    libraryDirectory: 'es',
-    style: true,
-
-    test: /\.css$/,
-    loaders: ['style-loader', 'css-loader?modules'],
-  }),
-  supportMjs(),
-  (config, env) => {
-    return hotLoader(config, env);
-  },
-);
+// eslint-disable-next-line no-global-assign
+require = require('esm')(module);
+module.exports = require('./customize-cra-config.js');

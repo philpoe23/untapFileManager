@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CheckboxStyle } from './style';
@@ -59,7 +60,7 @@ const Checkbox = props => {
 };
 
 Checkbox.propTypes = {
-  item: PropTypes.array,
+  item: PropTypes.arrayOf(PropTypes.string),
   defaultSelect: PropTypes.array,
   multiple: PropTypes.bool,
   onChange: PropTypes.func,

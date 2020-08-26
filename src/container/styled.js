@@ -2,18 +2,83 @@ import Styled from 'styled-components';
 
 const Main = Styled.div`
     padding: 0px 30px;
-    min-height: 750px;
+    min-height: 780px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
     @media only screen and (max-width: 991px){
-        min-height: auto;
+        min-height: 580px;
     }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }
 
+    // ant alert
+    .ant-alert-closable{
+        .ant-alert-message{
+          display: inline-block;
+          margin-right: 15px;
+        }
+    }
+
+    .ant-alert-with-description .ant-alert-description{
+        display: inline-block;
+    }
+
+    // ant Calendar Picker
+    .ant-picker-calendar-header .ant-picker-calendar-year-select{
+        @media only screen and (max-width: 400px){
+            width: 50% !important;
+        }
+    }
+    .ant-picker-calendar-header .ant-picker-calendar-month-select{
+        @media only screen and (max-width: 400px){
+            width: calc(50% - 8px) !important
+        }
+    }
+
+    // Card Grid
+    .card-grid-wrap{
+        .ant-card-grid{
+            @media only screen and (max-width: 575px){
+                width: 50% !important
+            }
+        }
+    }
+
+    // Drawer
+    .atbd-drawer{
+        .ant-card-body{
+            text-align: center;
+        }
+    }
+    .drawer-placement{
+        @media only screen and (max-width: 400px){
+            text-align: center;
+        }
+        .ant-radio-group{
+            @media only screen and (max-width: 400px){
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .ant-drawer-content-wrapper{
+        @media only screen and (max-width: 400px){
+            width: 260px !important;
+        }
+    }
+
+    // Input
+    .input-wrap{
+        @media only screen and (max-width: 991px){
+            min-height: 500px;
+        }
+    }
+    // Modal Buttons
+    .modal-btns-wrap{
+        margin: 0 -5px;
+    }
     /* spinner */
     .ant-spin{
         margin-right: 20px;
@@ -89,6 +154,56 @@ const Main = Styled.div`
         border-radius: 0;
     }
 
+    // Ant Radio
+    .ant-radio-button-wrapper{
+        height: 48px;
+        line-height: 46px;
+        padding: 0 25.25px;
+        @media only screen and (max-width: 1024px){
+            padding: 0 10px;
+        }
+        @media only screen and (max-width: 379px){
+            height: 40px !important;
+            line-height: 38px !important;
+            font-size: 12px;
+            padding: 0 6px;
+        }
+    }
+
+    // Select
+    .tag-select-list{
+        margin-bottom: -10px;
+        .ant-select{
+            margin-bottom: 10px;
+        }
+    }
+
+    // Slider
+    .slider-with-input{
+        .ant-slider{
+            margin-right: 15px;
+        }
+        .slider-with-input__single{
+            margin-bottom: 15px;
+        }
+    }
+
+    // Taglist
+    .taglist-wrap{
+        margin: -5px;
+        .ant-tag {
+            margin: 5px;
+        }
+    }
+
+    // Timepicker List
+    .timepicker-list{
+        margin: -5px;
+        .ant-picker{
+            margin: 5px;
+        }
+    }
+
     /* Ant Comment */
     .ant-comment-inner{
         padding: 0;
@@ -116,15 +231,23 @@ const Main = Styled.div`
         min-height: 170px;
         border-radius: 5px;
     }
+
+    // Vector Map
+    .vertor-map{
+        min-height: 505px;
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
     margin-bottom: -25px;
     .button-group-single{
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         h4{
             font-size: 15px;
             margin-bottom: 8px;
+        }
+        .ant-btn-group{
+            margin-bottom: 10px;
         }
     }
     .button-group-single .ant-btn-light{
@@ -152,6 +275,7 @@ const BlockButtonsWrapper = Styled.div`
 const ButtonSizeWrapper = Styled.div`
     display: flex;
     align-items: flex-end;
+    flex-wrap: wrap;
 `;
 
 const BtnWithIcon = Styled.div`
@@ -169,6 +293,11 @@ const BtnWithIcon = Styled.div`
 
 const AlertList = Styled.div`
     margin-top: -15px;
+    .alert-empty-message{
+        .ant-alert-message{
+            display: none;
+        }
+    }
 `;
 
 const AutoCompleteWrapper = Styled.div`
@@ -178,6 +307,9 @@ const AutoCompleteWrapper = Styled.div`
     .auto-complete-input{
         .ant-select{
             width: 200px !important;
+            @media only screen and (max-width: 575px){
+                width: 100% !important;
+            }
         }
     }
 `;
@@ -196,6 +328,10 @@ const CalendarWrapper = Styled.div`
     .ant-radio-button-wrapper{
         height: 30px;
         line-height: 28px;
+        @media only screen and (max-width: 575px){
+            height: 30px !important;
+            line-height: 28px !important;
+        }
     }
 `;
 
@@ -219,9 +355,9 @@ const DatePickerWrapper = Styled.div`
 `;
 
 const NotificationListWrapper = Styled.div`
-    margin-left: -4px;
+    margin: -4px;
     button{
-        margin: 0 4px;
+        margin: 4px;
     }
 `;
 
@@ -532,21 +668,21 @@ const TableWrapper = Styled.div`
 `;
 
 export {
-  Main,
-  ButtonsGroupWrapper,
-  BlockButtonsWrapper,
-  ButtonSizeWrapper,
-  BtnWithIcon,
-  AlertList,
-  AutoCompleteWrapper,
-  CalendarWrapper,
-  DatePickerWrapper,
-  NotificationListWrapper,
-  TagInput,
-  PageHeaderWrapper,
-  MessageStyleWrapper,
-  BasicFormWrapper,
-  CardToolbox,
-  FormGroupWrapper,
-  TableWrapper,
+    Main,
+    ButtonsGroupWrapper,
+    BlockButtonsWrapper,
+    ButtonSizeWrapper,
+    BtnWithIcon,
+    AlertList,
+    AutoCompleteWrapper,
+    CalendarWrapper,
+    DatePickerWrapper,
+    NotificationListWrapper,
+    TagInput,
+    PageHeaderWrapper,
+    MessageStyleWrapper,
+    BasicFormWrapper,
+    CardToolbox,
+    FormGroupWrapper,
+    TableWrapper,
 };

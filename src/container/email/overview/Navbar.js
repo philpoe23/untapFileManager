@@ -3,17 +3,18 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { EmailNav } from './style';
 import { Button } from '../../../components/buttons/buttons';
 import Title from '../../../components/heading/heading';
 
-const EamilNavbar = ({ path }) => {
+const EmailNavbar = ({ path }) => {
   const [state, setState] = useState({
     labels: ['personal', 'social', 'promotions'],
-    newlabel: '',
+    newLabel: '',
     addNewDisplay: false,
   });
-  const { labels, newlabel, addNewDisplay } = state;
+  const { labels, newLabel, addNewDisplay } = state;
 
   const addNewLabels = e => {
     e.preventDefault();
@@ -33,20 +34,20 @@ const EamilNavbar = ({ path }) => {
     });
   };
 
-  const handeleChange = e => {
+  const handelChange = e => {
     e.preventDefault();
     e.stopPropagation();
     setState({
       ...state,
-      labels: [...labels, newlabel],
-      newlabel: '',
+      labels: [...labels, newLabel],
+      newLabel: '',
     });
   };
 
   const onLabelChange = e => {
     setState({
       ...state,
-      newlabel: e.target.value,
+      newLabel: e.target.value,
     });
   };
 
@@ -65,10 +66,9 @@ const EamilNavbar = ({ path }) => {
           </li>
           <li>
             <NavLink to={`${path}starred`}>
-              <FeatherIcon icon="star" size={18} />{' '}
+              <FeatherIcon icon="star" size={18} />
               <span className="nav-text">
-                {' '}
-                <span>Starred</span>{' '}
+                <span>Starred</span>
               </span>
             </NavLink>
           </li>
@@ -76,18 +76,16 @@ const EamilNavbar = ({ path }) => {
             <NavLink to={`${path}sent`}>
               <FeatherIcon icon="send" size={18} />
               <span className="nav-text">
-                {' '}
-                <span>Sent</span>{' '}
-              </span>{' '}
+                <span>Sent</span>
+              </span>
             </NavLink>
           </li>
           <li>
             <NavLink to={`${path}drafts`}>
               <FeatherIcon icon="edit" size={18} />
               <span className="nav-text">
-                {' '}
-                <span>Drafts</span>{' '}
-              </span>{' '}
+                <span>Drafts</span>
+              </span>
               <span className="badge badge-primary">12</span>
             </NavLink>
           </li>
@@ -95,18 +93,16 @@ const EamilNavbar = ({ path }) => {
             <NavLink to={`${path}spam`}>
               <FeatherIcon icon="alert-octagon" size={18} />
               <span className="nav-text">
-                {' '}
-                <span>Spam</span>{' '}
-              </span>{' '}
+                <span>Spam</span>
+              </span>
             </NavLink>
           </li>
           <li>
             <NavLink to={`${path}trash`}>
               <FeatherIcon icon="trash" size={18} />
               <span className="nav-text">
-                {' '}
-                <span>Trash</span>{' '}
-              </span>{' '}
+                <span>Trash</span>
+              </span>
             </NavLink>
           </li>
         </ul>
@@ -116,9 +112,9 @@ const EamilNavbar = ({ path }) => {
             {labels.map(label => {
               return (
                 <li key={label}>
-                  <NavLink to={`${path + label}`}>
+                  <Link to="#">
                     <FeatherIcon icon="list" size={18} /> {label}
-                  </NavLink>
+                  </Link>
                 </li>
               );
             })}
@@ -129,17 +125,17 @@ const EamilNavbar = ({ path }) => {
               </NavLink>
               {addNewDisplay && (
                 <div className="add-label">
-                  <Form onSubmit={handeleChange}>
+                  <Form onSubmit={handelChange}>
                     <Title label={3}>Add New Label</Title>
                     <Input
                       onChange={onLabelChange}
-                      value={newlabel}
-                      name={newlabel}
+                      value={newLabel}
+                      name={newLabel}
                       type="text"
                       placeholder="Enter label name"
                     />
                     <div className="btn-group">
-                      <Button size="default" onClick={handeleChange} type="primary">
+                      <Button size="default" onClick={handelChange} type="primary">
                         Add Label
                       </Button>
                       <Button onClick={cancelAddNewLabels} type="default">
@@ -157,8 +153,8 @@ const EamilNavbar = ({ path }) => {
   );
 };
 
-EamilNavbar.propTypes = {
+EmailNavbar.propTypes = {
   path: propTypes.string.isRequired,
 };
 
-export default EamilNavbar;
+export default EmailNavbar;

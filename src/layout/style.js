@@ -4,29 +4,28 @@ const Div = Styled.div`
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-        z-index: 99999;
+        z-index: 999;
         button{
             padding: 0px 15px 0px 0px;
         }
 
         .ant-btn-link{
             ${({ darkMode }) =>
-              darkMode ? `background: #272B41; border-color: #272B41; color: #7D808D !important` : ''}
+              darkMode ? `background: #272B41;border-color: #272B41;color: #7D808D !important` : ''};
         }
 
         .head-example{
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
-
-        .certain-category-search-wrapper{
-            ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
-            @media only screen and (max-width: 767px){
-                padding: 0 15px;
-            }
-            input{
-                ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-                color: #fff;
-            }
+    }
+    .certain-category-search-wrapper{
+        ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
+        @media only screen and (max-width: 767px){
+            padding: 0 15px;
+        }
+        input{
+            ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
+            color: #fff;
         }
     }
     .ant-layout-sider-children {
@@ -245,13 +244,39 @@ const Div = Styled.div`
             }
         }
     }
+    .admin-footer{
+        .admin-footer__copyright{
+            display: inline-block;
+            width: 100%;
+            color: ${({ theme }) => theme['light-color']};
+            @media only screen and (max-width: 767px){
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+        .admin-footer__links{
+            text-align: right;
+            @media only screen and (max-width: 767px){
+                text-align: center;
+            }
+            a{
+                color: ${({ theme }) => theme['light-color']};
+                &:not(:last-child){
+                    margin-right: 15px;
+                }
+                &:hover{
+                    color: ${({ theme }) => theme['primary-color']};
+                }
+            }
+        }
+    }
 `;
 
 const SmallScreenAuthInfo = Styled.div`    
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
-        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
+        margin-top: ${({ hide }) => (hide ? '0px' : '65px')};
         top: 0;
         left: 0;
         transition: .3s;
@@ -277,4 +302,20 @@ const SmallScreenSearch = Styled.div`
                     
 `;
 
-export { Div, SmallScreenAuthInfo, SmallScreenSearch };
+const ModeSwitch = Styled.div`
+    background: #ddd;
+    width: 200px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    button{
+        margin-top: 5px;
+    }
+`;
+export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch };

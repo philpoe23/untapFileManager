@@ -9,6 +9,26 @@ import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import CommentEditor from '../../components/comments/comments-editor';
 
+const ExampleComment = ({ children }) => (
+  <Comment
+    actions={[<span key="comment-nested-reply-to">Reply</span>]}
+    author={<NavLink to="#">Han Solo</NavLink>}
+    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
+    content={
+      <p>
+        We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+        Axure).
+      </p>
+    }
+  >
+    {children}
+  </Comment>
+);
+
+ExampleComment.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+};
+
 const Comments = () => {
   const [state, setState] = useState({
     likes: 0,
@@ -101,32 +121,12 @@ const Comments = () => {
     },
   ];
 
-  const ExampleComment = ({ children }) => (
-    <Comment
-      actions={[<span key="comment-nested-reply-to">Reply</span>]}
-      author={<NavLink to="#">Han Solo</NavLink>}
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
-      content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-          Axure).
-        </p>
-      }
-    >
-      {children}
-    </Comment>
-  );
-
-  ExampleComment.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  };
-
   return (
     <>
       <PageHeader title="Comments" />
       <Main>
         <Row gutter={25}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Basic comment">
               <Comment
                 actions={actions}
@@ -148,7 +148,7 @@ const Comments = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Usage with list">
               <List
                 className="comment-list"
@@ -169,7 +169,7 @@ const Comments = () => {
               />
             </Cards>
           </Col>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards title="Nested comments">
               <div className="nested-comment-wrapper">
                 <h6 className="comment-title">Reply to</h6>
@@ -182,7 +182,7 @@ const Comments = () => {
               </div>
             </Cards>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col xl={12} xs={24}>
             <Cards title="Reply Editor">
               <CommentEditor />
             </Cards>

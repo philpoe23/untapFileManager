@@ -18,6 +18,9 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     }
     .ant-select-selection-search{
         width: auto !important;
+        @media only screen and (max-width: 575px){
+            width: 100% !important;
+        }
     }
     .ant-select-selection-search textarea.ant-input{
         padding: 12px 20px;
@@ -29,6 +32,7 @@ const AutoCompleteStyled = Styled(AutoComplete)`
         height: 38px !important;
     }
     .ant-input-affix-wrapper .ant-input-suffix .search-btn{
+        height: 38px;
         border-radius: 0 4px 4px 0;
     }
 `;

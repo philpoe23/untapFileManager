@@ -201,7 +201,7 @@ const ShoppingCart = ({ match }) => {
                               </ProductTable>
 
                               <CouponForm>
-                                <Form form={form} name="submitcoupon" onFinish={submitCoupon}>
+                                <Form form={form} name="submitCoupon" onFinish={submitCoupon}>
                                   <Row gutter={15}>
                                     <Col lg={4} sm={8} xs={12}>
                                       <Form.Item name="coupon" label="">
@@ -250,7 +250,7 @@ const ShoppingCart = ({ match }) => {
                               <span className="summary-list-text">{`$${497.32}`}</span>
                             </li>
                             <li>
-                              <span className="summary-list-title">Descount :</span>
+                              <span className="summary-list-title">Discount :</span>
                               <span className="summary-list-text">{`$${-20}`}</span>
                             </li>
                             <li>
@@ -298,6 +298,6 @@ const ShoppingCart = ({ match }) => {
   );
 };
 ShoppingCart.propTypes = {
-  match: PropTypes.object,
+  match: PropTypes.shape(PropTypes.object).isRequired,
 };
 export default ShoppingCart;

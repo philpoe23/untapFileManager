@@ -4,9 +4,11 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
-import worldLowRes from '../../config/dataService/vector.json';
-import { theme } from '../../config/theme/themeVariables';
-// @Todo {...worldLowRes}
+import worldLowRes from '../../demoData/vector.json';
+import config from '../../config/config';
+
+const { theme } = config;
+
 const VectorMaps = () => {
   return (
     <>
@@ -14,9 +16,11 @@ const VectorMaps = () => {
       <Main>
         <Row gutter={25}>
           <Col xs={24}>
-            <Cards title="World Map" size="large">
-              <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
-            </Cards>
+            <div className="vertor-map">
+              <Cards title="World Map" size="large">
+                <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
+              </Cards>
+            </div>
           </Col>
         </Row>
       </Main>

@@ -33,7 +33,7 @@ const Faq = () => {
       <PageHeader ghost title="Frequently Asked Questions" />
       <Main>
         <Row gutter={25}>
-          <Col xxl={6} lg={8} md={10} sm={12}>
+          <Col xxl={6} lg={8} md={10} sm={11}>
             <Row>
               <Col xs={24}>
                 <FaqCategoryBox>
@@ -95,7 +95,7 @@ const Faq = () => {
             </Row>
           </Col>
 
-          <Col xxl={18} lg={16} md={14} sm={12}>
+          <Col xxl={18} lg={16} md={14} sm={13}>
             <FaqWrapper>
               <Cards headless title="Using Applications">
                 <Collapse

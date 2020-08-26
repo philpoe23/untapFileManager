@@ -187,7 +187,7 @@ const Invoice = () => {
                           <span className="summary-list-text">{`$${497.32}`}</span>
                         </li>
                         <li>
-                          <span className="summary-list-title">Descount :</span>
+                          <span className="summary-list-title">Discount :</span>
                           <span className="summary-list-text">{`$${-20}`}</span>
                         </li>
                         <li>
@@ -204,7 +204,7 @@ const Invoice = () => {
                 </Col>
               </Row>
               <Row justify="end">
-                <Col lg={10} md={18} sm={24} offset={0}>
+                <Col lg={12} md={18} sm={24} offset={0}>
                   <InvoiceAction>
                     <Button size="small" shape="round" type="default">
                       <FeatherIcon icon="printer" size={14} />

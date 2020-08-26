@@ -12,7 +12,7 @@ const Alerts = () => {
       <PageHeader title="Alerts" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Basic" size="large">
               <AlertList>
                 <Alert message="" description="Success Text" type="success" />
@@ -94,7 +94,7 @@ const Alerts = () => {
               </AlertList>
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="More Types" size="large">
               <AlertList>
                 <Alert message="" description="Success Text" type="success" />
@@ -129,12 +129,16 @@ const Alerts = () => {
             </Cards>
             <Cards title="Customized Close Text" size="large">
               <AlertList>
-                <Alert closeText="Close Now" closable message="" description="Info Text" type="info" />
+                <div className="alert-empty-message">
+                  <Alert closeText="Close Now" closable message="" description="Info Text" type="info" />
+                </div>
               </AlertList>
             </Cards>
             <Cards title="Smoothly Unmount" size="large">
               <AlertList>
-                <Alert closable message="" description="Alert Message Text" type="success" />
+                <div className="alert-empty-message">
+                  <Alert closable message="" description="Alert Message Text" type="success" />
+                </div>
               </AlertList>
             </Cards>
           </Col>

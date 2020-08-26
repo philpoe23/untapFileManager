@@ -9,7 +9,7 @@ import {
   RevenueWrapper,
   RevenueTableWrapper,
   RevenueChartWrapper,
-  ECahrtCard,
+  EChartCard,
 } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -22,15 +22,12 @@ import {
   ChartjsLineChart,
   ChartjsDonutChart2,
 } from '../../components/charts/chartjs';
-import worldLowRes from '../../config/dataService/vector.json';
+import worldLowRes from '../../demoData/vector.json';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-/**
- * @todo arbitary naming
- */
 const moreContent = (
   <>
     <NavLink to="#">
@@ -79,9 +76,9 @@ const chartOptions = {
   },
 };
 
-const revenuecolumns = [
+const revenueColumns = [
   {
-    title: 'Name of Sourse',
+    title: 'Name of Source',
     dataIndex: 'name',
     key: 'name',
   },
@@ -107,7 +104,7 @@ const revenuecolumns = [
     width: 120,
   },
 ];
-const revenuedata = [
+const revenueData = [
   {
     key: '1',
     name: 'Google',
@@ -260,7 +257,7 @@ const revenuedata = [
   },
 ];
 
-const sellingcolumns = [
+const sellingColumns = [
   {
     title: 'Product Name',
     dataIndex: 'name',
@@ -282,7 +279,7 @@ const sellingcolumns = [
     key: 'revenue',
   },
 ];
-const sellingdata = [
+const sellingData = [
   {
     key: '1',
     name: 'Samsung Galaxy S8 256GB',
@@ -313,7 +310,7 @@ const sellingdata = [
   },
   {
     key: '5',
-    name: '15" Mackbook Pro',
+    name: '15" MackBook Pro',
     price: '$950',
     sold: '58',
     revenue: '$20,573',
@@ -327,7 +324,7 @@ const sellingdata = [
   },
 ];
 
-const locationcolumns = [
+const locationColumns = [
   {
     title: 'Top Location',
     dataIndex: 'location',
@@ -344,7 +341,7 @@ const locationcolumns = [
     key: 'revenue',
   },
 ];
-const locationdata = [
+const locationData = [
   {
     key: '1',
     location: 'United States',
@@ -436,7 +433,7 @@ const Ecommerce = () => {
         <Row gutter={25}>
           <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <ECahrtCard>
+              <EChartCard>
                 <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">7,461</Heading>
@@ -462,12 +459,12 @@ const Ecommerce = () => {
                     options={chartOptions}
                   />
                 </div>
-              </ECahrtCard>
+              </EChartCard>
             </Cards>
           </Col>
           <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <ECahrtCard>
+              <EChartCard>
                 <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">$28,947</Heading>
@@ -493,12 +490,12 @@ const Ecommerce = () => {
                     options={chartOptions}
                   />
                 </div>
-              </ECahrtCard>
+              </EChartCard>
             </Cards>
           </Col>
           <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <ECahrtCard>
+              <EChartCard>
                 <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">$3,241</Heading>
@@ -524,12 +521,12 @@ const Ecommerce = () => {
                     options={chartOptions}
                   />
                 </div>
-              </ECahrtCard>
+              </EChartCard>
             </Cards>
           </Col>
           <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
-              <ECahrtCard>
+              <EChartCard>
                 <div className="card-chunk">
                   <CardBarChart2>
                     <Heading as="h1">45.2k</Heading>
@@ -555,7 +552,7 @@ const Ecommerce = () => {
                     options={chartOptions}
                   />
                 </div>
-              </ECahrtCard>
+              </EChartCard>
             </Cards>
           </Col>
         </Row>
@@ -566,22 +563,22 @@ const Ecommerce = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.renevue === 'today' ? 'active' : 'deactive'}>
+                      <li className={state.revenue === 'today' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeRevenue('today')} to="#">
                           Today
                         </Link>
                       </li>
-                      <li className={state.renevue === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.revenue === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeRevenue('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.renevue === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.revenue === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeRevenue('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.renevue === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.revenue === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeRevenue('year')} to="#">
                           Year
                         </Link>
@@ -594,7 +591,7 @@ const Ecommerce = () => {
                 size="large"
               >
                 <Heading className="revenue-count" as="h1">
-                  <span className="currnt-revenue">$72,784</span>
+                  <span className="current-revenue">$72,784</span>
                   <span className="prev-revenue"> $52,240</span>
                 </Heading>
 
@@ -674,22 +671,22 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        <li className={state.generated === 'today' ? 'active' : 'deactive'}>
+                        <li className={state.generated === 'today' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('today')} to="#">
                             Today
                           </Link>
                         </li>
-                        <li className={state.generated === 'week' ? 'active' : 'deactive'}>
+                        <li className={state.generated === 'week' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('week')} to="#">
                             Week
                           </Link>
                         </li>
-                        <li className={state.generated === 'month' ? 'active' : 'deactive'}>
+                        <li className={state.generated === 'month' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('month')} to="#">
                             Month
                           </Link>
                         </li>
-                        <li className={state.generated === 'year' ? 'active' : 'deactive'}>
+                        <li className={state.generated === 'year' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('year')} to="#">
                             Year
                           </Link>
@@ -702,7 +699,7 @@ const Ecommerce = () => {
                   size="large"
                 >
                   <div className="table-bordered revenue-table table-responsive">
-                    <Table columns={revenuecolumns} dataSource={revenuedata} pagination={false} />
+                    <Table columns={revenueColumns} dataSource={revenueData} pagination={false} />
                   </div>
                 </Cards>
               </div>
@@ -714,22 +711,22 @@ const Ecommerce = () => {
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.products === 'today' ? 'active' : 'deactive'}>
+                      <li className={state.products === 'today' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeProducts('today')} to="#">
                           Today
                         </Link>
                       </li>
-                      <li className={state.products === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.products === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeProducts('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.products === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.products === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeProducts('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.products === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.products === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeProducts('year')} to="#">
                           Year
                         </Link>
@@ -742,34 +739,34 @@ const Ecommerce = () => {
                 bodypadding="0px"
               >
                 <div className="table-bordered top-seller-table table-responsive">
-                  <Table columns={sellingcolumns} dataSource={sellingdata} pagination={false} />
+                  <Table columns={sellingColumns} dataSource={sellingData} pagination={false} />
                 </div>
               </Cards>
             </div>
           </Col>
-          <Col xxl={8} lg={12} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <LocationMapWrapper>
               <div className="full-width-table">
                 <Cards
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        <li className={state.location === 'today' ? 'active' : 'deactive'}>
+                        <li className={state.location === 'today' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeLocation('today')} to="#">
                             Today
                           </Link>
                         </li>
-                        <li className={state.location === 'week' ? 'active' : 'deactive'}>
+                        <li className={state.location === 'week' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeLocation('week')} to="#">
                             Week
                           </Link>
                         </li>
-                        <li className={state.location === 'month' ? 'active' : 'deactive'}>
+                        <li className={state.location === 'month' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeLocation('month')} to="#">
                             Month
                           </Link>
                         </li>
-                        <li className={state.location === 'year' ? 'active' : 'deactive'}>
+                        <li className={state.location === 'year' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeLocation('year')} to="#">
                             Year
                           </Link>
@@ -785,34 +782,34 @@ const Ecommerce = () => {
                   </div>
 
                   <div className="location-table">
-                    <Table columns={locationcolumns} dataSource={locationdata} pagination={false} />
+                    <Table columns={locationColumns} dataSource={locationData} pagination={false} />
                   </div>
                 </Cards>
               </div>
             </LocationMapWrapper>
           </Col>
-          <Col xxl={8} lg={12} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <RevenueChartWrapper>
               <Cards
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.device === 'today' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'today' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('today')} to="#">
                           Today
                         </Link>
                       </li>
-                      <li className={state.device === 'week' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'week' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.device === 'month' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'month' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.device === 'year' ? 'active' : 'deactive'}>
+                      <li className={state.device === 'year' ? 'active' : 'deactivate'}>
                         <Link onClick={() => handleActiveChangeDevice('year')} to="#">
                           Year
                         </Link>

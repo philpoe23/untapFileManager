@@ -15,14 +15,14 @@ const Dropdowns = () => {
       <PageHeader ghost title="Dropdown" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Basic Dropdown" caption="The simplest use of Steps">
               <Dropdown placement="bottomLeft">
                 <Link to="#">Hover me</Link>
               </Dropdown>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Placement" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft">
                 <Button>Bottom Left</Button>
@@ -45,7 +45,7 @@ const Dropdowns = () => {
               </Dropdown>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Event menu " caption="The simplest use of Dropdown">
               <Dropdown action={['hover']} placement="bottomLeft">
                 <Link to="#">hover me </Link>
@@ -58,7 +58,7 @@ const Dropdowns = () => {
               </Dropdown>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col md={12} xs={24}>
             <Cards title="Button with dropdown menu" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft" action={['click']}>
                 <Button>

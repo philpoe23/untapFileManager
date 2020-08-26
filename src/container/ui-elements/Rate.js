@@ -20,7 +20,7 @@ const Rating = () => {
       <PageHeader title="Rating" />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={12} xs={24}>
+          <Col sm={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Rate">
               <Rate />
             </Cards>
@@ -35,7 +35,7 @@ const Rating = () => {
               </span>
             </Cards>
           </Col>
-          <Col md={12} sm={12} xs={24}>
+          <Col sm={12} xs={24}>
             <Cards title="Clear Star">
               <Rate disabled defaultValue={2} />
             </Cards>

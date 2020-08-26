@@ -15,7 +15,7 @@ const info = () => {
         <p>some messages...some messages...</p>
       </div>
     ),
-    onOk() {},
+    onOk() { },
   });
 };
 
@@ -66,9 +66,9 @@ const showConfirm = () => {
     onOk() {
       return new Promise((resolve, reject) => {
         setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-      }).catch(() => {});
+      }).catch(() => { });
     },
-    onCancel() {},
+    onCancel() { },
   });
 };
 
@@ -126,18 +126,20 @@ const Modals = () => {
                 interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
                 page to get user feedback or display information. Additionally
               </p>
-              <Button onClick={() => showModal('primary')} type="primary" style={{ margin: '5px', marginLeft: '0' }}>
-                Primary
-              </Button>
-              <Button onClick={() => showModal('success')} type="success" style={{ margin: '5px' }}>
-                Success
-              </Button>
-              <Button onClick={() => showModal('danger')} type="danger" style={{ margin: '5px' }}>
-                Danger
-              </Button>
-              <Button onClick={() => showModal('warning')} type="warning" style={{ margin: '5px' }}>
-                Warning
-              </Button>
+              <div className="modal-btns-wrap">
+                <Button onClick={() => showModal('primary')} type="primary" style={{ margin: '5px' }}>
+                  Primary
+                </Button>
+                <Button onClick={() => showModal('success')} type="success" style={{ margin: '5px' }}>
+                  Success
+                </Button>
+                <Button onClick={() => showModal('danger')} type="danger" style={{ margin: '5px' }}>
+                  Danger
+                </Button>
+                <Button onClick={() => showModal('warning')} type="warning" style={{ margin: '5px' }}>
+                  Warning
+                </Button>
+              </div>
             </Cards>
           </Col>
           <Col md={12}>
@@ -159,18 +161,20 @@ const Modals = () => {
                 interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
                 page to get user feedback or display information. Additionally
               </p>
-              <Button onClick={() => showColorModal('primary')} type="primary" style={{ margin: '5px', marginLeft: 0 }}>
-                Primary
-              </Button>
-              <Button onClick={() => showColorModal('success')} type="success" style={{ margin: '5px' }}>
-                Success
-              </Button>
-              <Button onClick={() => showColorModal('danger')} type="danger" style={{ margin: '5px' }}>
-                Danger
-              </Button>
-              <Button onClick={() => showColorModal('warning')} type="warning" style={{ margin: '5px' }}>
-                Warning
-              </Button>
+              <div className="modal-btns-wrap">
+                <Button onClick={() => showColorModal('primary')} type="primary" style={{ margin: '5px' }}>
+                  Primary
+                </Button>
+                <Button onClick={() => showColorModal('success')} type="success" style={{ margin: '5px' }}>
+                  Success
+                </Button>
+                <Button onClick={() => showColorModal('danger')} type="danger" style={{ margin: '5px' }}>
+                  Danger
+                </Button>
+                <Button onClick={() => showColorModal('warning')} type="warning" style={{ margin: '5px' }}>
+                  Warning
+                </Button>
+              </div>
             </Cards>
           </Col>
           <Col md={12}>
@@ -180,24 +184,26 @@ const Modals = () => {
                 interrupting the user&apos;s workflow, you can use Modal to create a new floating layer over the current
                 page to get user feedback or display information. Additionally
               </p>
-              <Button onClick={success} type="success" style={{ margin: '5px', marginLeft: 0 }}>
-                Success
-              </Button>
-              <Button onClick={error} type="error" style={{ margin: '5px' }}>
-                Error
-              </Button>
-              <Button onClick={warning} type="warning" style={{ margin: '5px' }}>
-                Warning
-              </Button>
-              <Button onClick={info} type="info" style={{ margin: '5px' }}>
-                Info
-              </Button>
-              <Button onClick={selfDestroyed} type="primary" style={{ margin: '5px' }}>
-                Modal Self Destroyed
-              </Button>
-              <Button onClick={showConfirm} type="primary" style={{ margin: '5px' }}>
-                Confirm
-              </Button>
+              <div className="modal-btns-wrap">
+                <Button onClick={success} type="success" style={{ margin: '5px' }}>
+                  Success
+                </Button>
+                <Button onClick={error} type="error" style={{ margin: '5px' }}>
+                  Error
+                </Button>
+                <Button onClick={warning} type="warning" style={{ margin: '5px' }}>
+                  Warning
+                </Button>
+                <Button onClick={info} type="info" style={{ margin: '5px' }}>
+                  Info
+                </Button>
+                <Button onClick={selfDestroyed} type="primary" style={{ margin: '5px' }}>
+                  Modal Self Destroyed
+                </Button>
+                <Button onClick={showConfirm} type="primary" style={{ margin: '5px' }}>
+                  Confirm
+                </Button>
+              </div>
             </Cards>
           </Col>
         </Row>

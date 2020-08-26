@@ -4,7 +4,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend }
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Main } from '../../styled';
-import { radar } from '../../../config/dataService/recharts.json';
+import { radar } from '../../../demoData/recharts.json';
 
 const ReChartRadar = () => {
   const [state, setState] = useState({
@@ -28,7 +28,7 @@ const ReChartRadar = () => {
 
   return (
     <>
-      <PageHeader title="Rechats Radar Chart" />
+      <PageHeader title="Recharts Radar Chart" />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>

@@ -7,12 +7,12 @@ import { Checkbox } from '../../components/checkbox/checkbox';
 
 const Checkboxs = () => {
   const [state, setState] = useState({
-    checkdata: [],
+    checkData: [],
     checked: null,
   });
 
   const multipleChange = childData => {
-    setState({ ...state, checkdata: childData });
+    setState({ ...state, checkData: childData });
   };
 
   const onChange = checked => {
@@ -24,7 +24,7 @@ const Checkboxs = () => {
       <PageHeader title="Checkbox" />
       <Main>
         <Row gutter={25}>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Basic">
               <Checkbox onChange={onChange}>Checkbox</Checkbox>
             </Cards>
@@ -40,7 +40,7 @@ const Checkboxs = () => {
               />
             </Cards>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Cards title="Disabled">
               <Checkbox defaultChecked={false} disabled />
               <br />

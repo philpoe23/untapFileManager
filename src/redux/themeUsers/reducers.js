@@ -7,7 +7,7 @@ const initialState = [
   },
 ];
 
-const themeUsersReducer = (state = initialState, action) => {
+const themeUsersReducer = (state = initialState) => {
   return state;
 };
 export default themeUsersReducer;

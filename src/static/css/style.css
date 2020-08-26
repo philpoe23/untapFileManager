@@ -57,6 +57,10 @@ ul {
   margin: 0 !important;
 }
 
+.mb-30{
+  margin-bottom: 30px;
+}
+
 .pb-30 {
   padding-bottom: 30px;
 }
@@ -266,7 +270,10 @@ ul {
 }
 
 /* Button Styles */
-
+.ant-btn.ant-btn-light:focus{
+  background: #fff;
+  color: #5A5F7D;
+}
 .button-example .ant-btn {
   margin: 4px;
 }
@@ -524,6 +531,37 @@ ul {
 
 .app-list {
   margin-top: 16px;
+}
+
+/* Modal */
+.ant-modal .ant-modal-content{
+  border-radius: 10px;
+}
+.ant-modal .ant-modal-header{
+  border-radius: 10px 10px 0 0;
+}
+.ant-modal-body p:last-child{
+  margin-bottom: 0;
+}
+
+.project-modal{
+  padding: 5px !important;
+}
+.project-modal .projects-members{
+  margin-top: -12px;
+}
+.project-modal .ant-form-item-control-input{
+  margin-top: 10px;
+  min-height: auto;
+}
+
+.project-modal .ant-select-selector{
+  border-color: #E3E6EF;
+}
+
+.project-modal-footer{
+  padding: 10px !important;
+  text-align: left !important;
 }
 
 /* slider */
@@ -1017,6 +1055,11 @@ ul {
   border-radius: 5px;
 }
 
+/* Picker Under Input */
+.ant-form-item-control-input .ant-picker{
+        padding: 0 12px 0 0;
+}
+
 /* Leaflet COntainer */
 
 .leaflet-container {
@@ -1153,6 +1196,11 @@ ul {
   flex-wrap: wrap;
 }
 
+.ant-menu .ant-menu-submenu .ant-menu-submenu-title{
+  display: flex;
+  align-items: center;
+}
+
 .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title, .ant-menu-item {
   display: inline-flex;
 }
@@ -1168,16 +1216,14 @@ ul {
 /* page heading */
 
 .ant-page-header {
-  padding-left: 30px !important;
-  padding-right: 30px !important;
+  padding: 26px 30px 22px 30px !important;
 }
 
 .page-header-actions button {
   font-size: 12px;
   font-weight: 500;
-  ;
   height: 34px;
-  padding: 0 7.5px;
+  padding: 0 12.32px;
   box-shadow: 0 3px 5px #9299B805;
 }
 
@@ -1193,7 +1239,9 @@ ul {
 
 /* Layout Css */
 
-.ant-menu-dark .ant-menu-inline.ant-menu-sub, .ant-menu.ant-menu-dark {
+.ant-menu-dark .ant-menu-inline.ant-menu-sub,
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub{
   background: #272B41;
 }
 
@@ -1332,6 +1380,19 @@ ul {
   .ant-layout-header {
     height: auto;
   }
+  .ant-card-head-title{
+    white-space: normal !important;
+  }
+  .pop-confirm .ant-btn{
+    max-width: 60px;
+    padding: 0 20px;
+  }
+  .pop-confirm.pop-confirm-right{
+    margin-left: 320px !important;
+  }
+  .pop-confirm.pop-confirm-bottom{
+    margin-left: 95px !important;
+  }
   /* Card Heading */
   .ant-card-head-wrapper {
     flex-flow: column;
@@ -1365,7 +1426,36 @@ ul {
 .bmzxig .ant-table tr th:first-child, .bmzxig .ant-table tr td:first-child {
   padding-right: 15px;
 }
-
+@media only screen and (max-width: 479px) {
+  .placement-confirm{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px -10px -15px -5px;
+  }
+  .placement-confirm .pop-confirm{
+    flex: 0 0 25%;
+  }
+  .pop-confirm .ant-btn{
+    display: block;
+    padding: 0 20px;
+    max-width: 80px;
+    min-width: 80px;
+    margin: 10px;
+  }
+  .pop-confirm.pop-confirm-right{
+    margin-left: 0px !important;
+  }
+  .pop-confirm.pop-confirm-top{
+    margin-left: 0px !important;
+  }
+  .pop-confirm.pop-confirm-bottom{
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+  }
+  /* .pop-confirm.pop-confirm-bottom button{
+    margin-right: 0;
+  } */
+}
 @media only screen and (max-width: 400px) {
   .ant-select {
     width: 100% !important;
@@ -1397,5 +1487,12 @@ ul {
   }
   .atbd-top-dropdwon .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
     min-width: 155px;
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  .ant-card-head-wrapper .ant-card-extra .ant-radio-button-wrapper {
+    height: 32px !important;
+    line-height: 30px !important;
   }
 }
