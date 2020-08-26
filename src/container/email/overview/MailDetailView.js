@@ -78,7 +78,6 @@ const Single = props => {
         isbutton={
           <MailRightAction>
             <span>1 - 50 of 235</span>
-            {/* <Pagination onChange={onChange} defaultCurrent={1} total={50} /> */}
           </MailRightAction>
         }
       >
@@ -206,6 +205,24 @@ const Single = props => {
 
         <Row gutter={15}>
           <Col xs={24}>
+            <div style={{ display: 'flex' }}>
+              <figure style={{ display: 'flex' }}>
+                <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
+                <figcaption>
+                  <Heading as="h4">Reynante Labares</Heading>
+                  <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor inviduntLorem
+                    ipsum dolor...
+                  </p>
+                </figcaption>
+              </figure>
+              <div>
+                <span>Jan 2, 2020, 5:22 PM</span>
+                <FeatherIcon icon="star" />
+                <FeatherIcon icon="more-vertical" />
+                <FeatherIcon icon="corner-up-left" />
+              </div>
+            </div>
             <MessageReply>
               <nav>
                 <ul>
@@ -221,23 +238,30 @@ const Single = props => {
                   </li>
                 </ul>
               </nav>
-
-              <Switch>
-                <Suspense
-                  fallback={
-                    <div className="spin">
-                      <Spin />
+              <div
+                style={{
+                  display: 'flex',
+                  width: '100%',
+                }}
+              >
+                <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
+                <Switch>
+                  <Suspense
+                    fallback={
+                      <div className="spin">
+                        <Spin />
+                      </div>
+                    }
+                  >
+                    <div style={{ width: '100%' }} className="reply-box">
+                      <Route
+                        path={`${match.url}/replay`}
+                        render={value => <MailComposer props={value} onSend={replyMail} />}
+                      />
                     </div>
-                  }
-                >
-                  <div className="reply-box">
-                    <Route
-                      path={`${match.url}/replay`}
-                      render={value => <MailComposer props={value} onSend={replyMail} />}
-                    />
-                  </div>
-                </Suspense>
-              </Switch>
+                  </Suspense>
+                </Switch>
+              </div>
             </MessageReply>
           </Col>
         </Row>
