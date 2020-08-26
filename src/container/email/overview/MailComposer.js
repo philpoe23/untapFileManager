@@ -42,7 +42,7 @@ const MailComposer = ({ onChange, onSend }) => {
           />
         </div>
         <div className="group">
-          <RichTextEditor value={state.value} onChange={onChanges} />
+          <RichTextEditor placeholder="Hello" value={state.value} onChange={onChanges} />
         </div>
       </div>
 

@@ -4,16 +4,17 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
 import MenueItems from './MenueItems';
-import { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch } from './style';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import config from '../config/config';
+// import config from '../config/config';
 
 const { darkTheme } = require('../config/theme/themeVariables');
 
 const { Header, Footer, Sider, Content } = Layout;
-const { darkMode } = config;
+// const { darkMode } = config;
 
 const footerStyle = {
   padding: '20px 30px 18px',
@@ -62,16 +63,18 @@ const ThemeLayout = WrappedComponent => {
     }
 
     renderThumb = ({ style, ...props }) => {
+      const { ChangeLayoutMode } = this.props;
       const thumbStyle = {
         borderRadius: 6,
-        backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
+        backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
       };
       return <div style={{ ...style, ...thumbStyle }} props={props} />;
     };
 
     render() {
       const { collapsed, hide, searchHide } = this.state;
-
+      const { ChangeLayoutMode } = this.props;
+      const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
         this.setState({
           collapsed: !collapsed,
@@ -95,10 +98,6 @@ const ThemeLayout = WrappedComponent => {
 
       return (
         <Div darkMode={darkMode}>
-          <ModeSwitch>
-            <Button>Light</Button>
-            <Button>Dark</Button>
-          </ModeSwitch>
           <Layout>
             <Header
               style={{
@@ -206,6 +205,12 @@ const ThemeLayout = WrappedComponent => {
     }
   }
 
-  return LayoutComponent;
+  const mapStateToProps = state => {
+    return {
+      ChangeLayoutMode: state.ChangeLayoutMode.data,
+    };
+  };
+
+  return connect(mapStateToProps)(LayoutComponent);
 };
 export default ThemeLayout;
