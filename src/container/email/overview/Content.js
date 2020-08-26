@@ -8,6 +8,7 @@ import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
+import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -167,12 +168,28 @@ const Content = ({ searchData, email }) => {
               </Link>
             </div>
             <div className="email-extra">
-              <NavLink to="/">
-                <FeatherIcon icon="sliders" size={18} />
-              </NavLink>
-              <NavLink to="/">
+              <Dropdown
+                content={
+                  <>
+                    <Link to="#">
+                      <span>Newest</span>
+                    </Link>
+                    <Link to="#">
+                      <span>Oldest</span>
+                    </Link>
+                    <Link to="#">
+                      <span>Unread</span>
+                    </Link>
+                  </>
+                }
+              >
+                <Link to="#">
+                  <FeatherIcon icon="sliders" size={18} />
+                </Link>
+              </Dropdown>
+              <Link to="#">
                 <FeatherIcon icon="more-vertical" size={18} />
-              </NavLink>
+              </Link>
             </div>
           </div>
         </>
