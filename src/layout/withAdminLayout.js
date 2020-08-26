@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
 import MenueItems from './MenueItems';
-import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 import config from '../config/config';
@@ -95,6 +95,10 @@ const ThemeLayout = WrappedComponent => {
 
       return (
         <Div darkMode={darkMode}>
+          <ModeSwitch>
+            <Button>Light</Button>
+            <Button>Dark</Button>
+          </ModeSwitch>
           <Layout>
             <Header
               style={{
