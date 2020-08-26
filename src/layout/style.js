@@ -10,7 +10,8 @@ const Div = Styled.div`
         }
 
         .ant-btn-link{
-            ${({ darkMode }) => (darkMode ? `background: #272B41;border-color: #272B41;color: #7D808D !important` : '')};
+            ${({ darkMode }) =>
+              darkMode ? `background: #272B41;border-color: #272B41;color: #7D808D !important` : ''};
         }
 
         .head-example{
@@ -301,4 +302,20 @@ const SmallScreenSearch = Styled.div`
                     
 `;
 
-export { Div, SmallScreenAuthInfo, SmallScreenSearch };
+const ModeSwitch = Styled.div`
+    background: #ddd;
+    width: 200px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    button{
+        margin-top: 5px;
+    }
+`;
+export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch };
