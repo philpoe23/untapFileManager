@@ -61,7 +61,7 @@ const ProjectDetails = ({ match }) => {
           <Col xxl={6} xl={8} xs={24}>
             <div className="project-progress">
               <h3>Progress</h3>
-              <Progress percent={65} status="active" />
+              <Progress percent={65} strokeWidth={5} status="active" />
             </div>
             <Cards headless>
               <div className="state-single">
