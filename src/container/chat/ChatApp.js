@@ -67,18 +67,18 @@ const ChatApp = ({ match }) => {
                 <nav>
                   <UL>
                     <li>
-                      <NavLink activeClassName="active" to={`${match.path}/private`}>
+                      <NavLink activeClassName="active" to={`${match.path}/private/rofiq@gmail.com`}>
                         Privet Chat
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink activeClassName="active" to={`${match.path}/group`}>
+                      <NavLink activeClassName="active" to={`${match.path}/group/1`}>
                         Group Chat
                         <Badge className="badge-error" count={3} />
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink activeClassName="active" to={`${match.path}/all`}>
+                      <NavLink activeClassName="active" to={`${match.path}/all/rofiq@gmail.com`}>
                         All Contacts
                       </NavLink>
                     </li>
@@ -104,7 +104,8 @@ const ChatApp = ({ match }) => {
                 }
               >
                 <Route exact path={match.path} component={SingleChat} />
-                <Route path={`${match.path}/:type/:id`} component={SingleChat} />
+                <Route path={`${match.path}/private/:id`} component={SingleChat} />
+                <Route path={`${match.path}/all/:id`} component={SingleChat} />
                 <Route path={`${match.path}/group/:id`} component={SingleGroup} />
               </Suspense>
             </Switch>

@@ -98,18 +98,18 @@ const groupChatReducer = (state = initialStateGroupChat, action) => {
   switch (type) {
     case UPDATE_GROUP_CHAT_BEGIN:
       return {
-        ...initialStateGroup,
+        ...state,
         loading: true,
       };
     case UPDATE_GROUP_CHAT_SUCCESS:
       return {
-        ...initialStateGroup,
+        ...state,
         data,
         loading: false,
       };
     case UPDATE_GROUP_CHAT_ERR:
       return {
-        ...initialStateGroup,
+        ...state,
         error: err,
         loading: false,
       };
@@ -123,18 +123,18 @@ const SingleChatGroupReducer = (state = initialStateGroup, action) => {
   switch (type) {
     case SINGLE_GROUP_CHAT_BEGIN:
       return {
-        ...initialStateGroup,
+        ...state,
         loading: true,
       };
     case SINGLE_GROUP_CHAT_SUCCESS:
       return {
-        ...initialStateGroup,
+        ...state,
         data,
         loading: false,
       };
     case SINGLE_GROUP_CHAT_ERR:
       return {
-        ...initialStateGroup,
+        ...state,
         error: err,
         loading: false,
       };
