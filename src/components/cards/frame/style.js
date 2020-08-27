@@ -71,6 +71,27 @@ const CardFrame = Styled(Card)`
   }
   .ant-card-body{
     padding: ${({ bodypadding }) => (bodypadding ? `${bodypadding} !important` : '25px')};
+    table{
+      .ant-tag{
+        line-height: 18px;
+        border: 0 none;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: #fff;
+        &.early{
+          background: ${({ theme }) => theme['primary-color']};
+        }
+        &.late{
+          background: ${({ theme }) => theme['warning-color']};
+        }
+        &.complete{
+          background: ${({ theme }) => theme['success-color']};
+        }
+        &.progress{
+          background: ${({ theme }) => theme['danger-color']};
+        }
+      }
+    }
   }
   .ant-card.ant-card-bordered {
       border-radius: 5px;

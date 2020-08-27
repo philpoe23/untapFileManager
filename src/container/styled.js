@@ -107,7 +107,7 @@ const Main = Styled.div`
     }
     .ant-collapse .ant-collapse-header{
         color: #5A5F7D !important;
-        background-color: #F8F9FB;
+        /* background-color: #F8F9FB; */
         padding: 12px 16px 10px 45px !important;
     }
     .ant-collapse-content p{
@@ -121,7 +121,7 @@ const Main = Styled.div`
         padding: 10.5px 20px;
     }
     .ant-collapse.ant-collapse-borderless{
-        background-color: #F8F9FB;
+        background-color: #fff;
     }
     .ant-collapse > .ant-collapse-item,
     .ant-collapse .ant-collapse-content{
@@ -704,21 +704,21 @@ const TableWrapper = Styled.div`
 `;
 
 export {
-    Main,
-    ButtonsGroupWrapper,
-    BlockButtonsWrapper,
-    ButtonSizeWrapper,
-    BtnWithIcon,
-    AlertList,
-    AutoCompleteWrapper,
-    CalendarWrapper,
-    DatePickerWrapper,
-    NotificationListWrapper,
-    TagInput,
-    PageHeaderWrapper,
-    MessageStyleWrapper,
-    BasicFormWrapper,
-    CardToolbox,
-    FormGroupWrapper,
-    TableWrapper,
+  Main,
+  ButtonsGroupWrapper,
+  BlockButtonsWrapper,
+  ButtonSizeWrapper,
+  BtnWithIcon,
+  AlertList,
+  AutoCompleteWrapper,
+  CalendarWrapper,
+  DatePickerWrapper,
+  NotificationListWrapper,
+  TagInput,
+  PageHeaderWrapper,
+  MessageStyleWrapper,
+  BasicFormWrapper,
+  CardToolbox,
+  FormGroupWrapper,
+  TableWrapper,
 };

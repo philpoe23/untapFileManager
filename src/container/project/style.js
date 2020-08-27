@@ -314,6 +314,9 @@ const ProjectListTitle = Styled.div`
         font-size: 15px;
         font-weight: 500;
         margin-bottom: 5px;
+        a{
+            color: ${({ theme }) => theme['dark-color']};
+        }
     }
     p{
         margin: 0;
