@@ -24,7 +24,7 @@ const EditProduct = () => {
 
   const fileList = [
     {
-      uid: '-1',
+      uid: '1',
       name: 'xxx.png',
       status: 'done',
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
@@ -48,7 +48,7 @@ const EditProduct = () => {
       }
     },
     listType: 'picture',
-    defaultFileList: [...fileList],
+    defaultFileList: fileList,
   };
 
   const handleSubmit = values => {
@@ -101,17 +101,17 @@ const EditProduct = () => {
                                 </Form.Item>
 
                                 <Form.Item name="price" initialValue="120" label="Price">
-                                  <InputNumber
-                                    style={{ width: '100%' }}
-                                    prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                                  />
+                                  <span>
+                                    <FeatherIcon icon="dollar-sign" size={14} />
+                                  </span>
+                                  <InputNumber style={{ width: '100%' }} />
                                 </Form.Item>
 
                                 <Form.Item name="discount" initialValue="20%" label="Discount">
-                                  <InputNumber
-                                    style={{ width: '100%' }}
-                                    prefix={<FeatherIcon icon="percent" size={14} />}
-                                  />
+                                  <span>
+                                    <FeatherIcon icon="percent" size={14} />
+                                  </span>
+                                  <InputNumber style={{ width: '100%' }} />
                                 </Form.Item>
 
                                 <Form.Item name="status" initialValue="published" label="Status">
@@ -144,7 +144,7 @@ const EditProduct = () => {
                           <Row gutter={15}>
                             <Col xs={24}>
                               <Cards title="Product Image">
-                                <Dragger fileUploadProps={fileUploadProps}>
+                                <Dragger {...fileUploadProps}>
                                   <p className="ant-upload-drag-icon">
                                     <FeatherIcon icon="upload" size={50} />
                                   </p>
