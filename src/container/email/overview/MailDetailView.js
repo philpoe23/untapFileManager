@@ -256,7 +256,9 @@ const Single = props => {
                     <div style={{ width: '100%' }} className="reply-box">
                       <Route
                         path={`${match.url}/replay`}
-                        render={value => <MailComposer props={value} onSend={replyMail} />}
+                        render={value => (
+                          <MailComposer replay props={value} defaultTag="Alice Freeman" onSend={replyMail} />
+                        )}
                       />
                     </div>
                   </Suspense>
