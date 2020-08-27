@@ -60,10 +60,12 @@ const ListGroup = Styled.div`
 const Badge = Styled.span`
   display: inline-block;
   margin-bottom: 32px;
-  padding: 5px 20px;  
+  padding: 5px 20px;
   border-radius: 16px;
   background: ${({ type, theme }) => theme[`${type}-color`]}10;
   color: ${({ type, theme }) => theme[`${type}-color`]};
+  font-size: 13px;
+  font-weight: 500;
 `;
 
 const GalleryNav = Styled.nav`
@@ -80,7 +82,7 @@ const GalleryNav = Styled.nav`
   ul {
     margin: 0;
     padding: 0;
-    list-style-type: none;    
+    list-style-type: none;
     li {
       display: inline-block;
       a {
