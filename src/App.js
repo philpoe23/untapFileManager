@@ -34,7 +34,7 @@ function App({ auth }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>{isLogedIn === null ? <FrontendRoutes /> : <AdminRoutes />}</Router>
+      <Router basename={process.env.PUBLIC_URL}>{isLogedIn === null ? <FrontendRoutes /> : <AdminRoutes />}</Router>
     </ThemeProvider>
   );
 }
