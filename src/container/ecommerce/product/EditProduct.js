@@ -24,7 +24,7 @@ const EditProduct = () => {
 
   const fileList = [
     {
-      uid: '-1',
+      uid: '1',
       name: 'xxx.png',
       status: 'done',
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
@@ -48,7 +48,7 @@ const EditProduct = () => {
       }
     },
     listType: 'picture',
-    defaultFileList: [...fileList],
+    defaultFileList: fileList,
   };
 
   const handleSubmit = values => {
@@ -114,6 +114,19 @@ const EditProduct = () => {
                                       prefix={<FeatherIcon icon="percent" size={14} />}
                                     />
                                   </Form.Item>
+                                  <Form.Item name="price" initialValue="120" label="Price">
+                                    <span>
+                                      <FeatherIcon icon="dollar-sign" size={14} />
+                                    </span>
+                                    <InputNumber style={{ width: '100%' }} />
+                                  </Form.Item>
+
+                                  <Form.Item name="discount" initialValue="20%" label="Discount">
+                                    <span>
+                                      <FeatherIcon icon="percent" size={14} />
+                                    </span>
+                                    <InputNumber style={{ width: '100%' }} />
+                                  </Form.Item>
 
                                   <Form.Item name="status" initialValue="published" label="Status">
                                     <Radio.Group>
@@ -158,6 +171,17 @@ const EditProduct = () => {
                                   </Dragger>
                                 </Cards>
                               </div>
+                              <Cards title="Product Image">
+                                <Dragger {...fileUploadProps}>
+                                  <p className="ant-upload-drag-icon">
+                                    <FeatherIcon icon="upload" size={50} />
+                                  </p>
+                                  <Heading as="h4" className="ant-upload-text">
+                                    Drag and drop an image
+                                  </Heading>
+                                  <p className="ant-upload-hint">or Browse to choose a file</p>
+                                </Dragger>
+                              </Cards>
                             </Col>
                           </Row>
                         </div>

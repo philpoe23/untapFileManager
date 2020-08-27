@@ -45,6 +45,15 @@
   text-align: center;
 }
 
+.status{
+  display: inline !important;
+  font-size: 12px;
+  font-weight: 500;
+  background: #868EAE;
+  padding: 4.5px 11.85px;
+  border-radius: 15px;
+}
+
 ul {
   list-style: outside none none;
   margin: 0;
@@ -156,7 +165,7 @@ ul {
   bottom: 0;
 }
 
-/* 
+/*
 .growth-downward h1, .growth-upward h1 {
   font-size: 22px;
   margin: 6px 0 0;
@@ -197,6 +206,29 @@ ul {
   color: #868EAE;
 }
 
+/* revenue doughnut */
+.revenue-doughnut{
+  display: flex;
+  justify-content: center;
+}
+.revenue-doughnut > div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.revenue-doughnut .rd-labels{
+  width: 100%;
+  margin-top: 30px;
+}
+.revenue-chat-percentage span{
+  display: block;
+}
+.revenue-chat-percentage span:not(:last-child) {
+  margin-bottom: 15px;
+}
+
 /* progressbars */
 
 .ant-progress {
@@ -225,11 +257,29 @@ ul {
   background: #FA8B0C;
 }
 
-/* progress primary */
-
+/* progress bars */
 .progress-primary .ant-progress-bg {
   background: #5F63F2;
 }
+.progress-secondary .ant-progress-bg {
+  background: #FF69A5;
+}
+.progress-success .ant-progress-bg {
+  background: #20C997;
+}
+
+.progress-info .ant-progress-bg {
+  background: #2C99FF;
+}
+
+.progress-warning .ant-progress-bg {
+  background: #FA8B0C;
+}
+
+.progress-danger .ant-progress-bg {
+  background: #FF4D4F;
+}
+
 
 /* color classes */
 
@@ -1156,7 +1206,7 @@ ul {
 }
 
 .full-width-table .top-seller-table {
-  min-height: 450px;
+  min-height: 395px;
 }
 
 .full-width-table .top-seller-table .ant-table-content .ant-table-cell {

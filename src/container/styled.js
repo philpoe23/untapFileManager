@@ -543,6 +543,24 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    &.table-order{
+        .ant-table-container{
+            padding-bottom: 25px;
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        }
+        tbody{
+            tr{
+                &:hover{
+                    td{
+                        background: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+            }
+        }
+        .ant-pagination{
+            margin-top: 25px !important;
+        }
+    }
     table{
         thead{
             tr{

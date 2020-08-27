@@ -271,6 +271,16 @@ const TopToolBox = Styled.div`
         align-items: center;
     }
     .table-toolbox-menu{
+        color: ${({ theme }) => theme['gray-color']};
+        .ant-radio-button-wrapper{
+            height: 40px;
+            line-height: 40px;
+            &.active{
+                span{
+                    color: ${({ theme }) => theme['primary-color']};
+                }
+            }
+        }
         @media only screen and (max-width: 991px){
             text-align: center;
             margin-bottom: 20px;
@@ -444,6 +454,10 @@ const TopToolBox = Styled.div`
             font-size: 13px;
             font-weight: 500;
             border-radius: 6px;
+            svg,
+            i{
+                color: #fff;
+            }
             &{
                 +button{
                     margin-left: 8px;
