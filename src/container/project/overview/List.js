@@ -81,7 +81,12 @@ const List = () => {
         status: <span className={status}>{status}</span>,
         completion: (
           <div className="project-list-progress">
-            <Progress percent={status === 'complete' ? 100 : percentage} status="active" />
+            <Progress
+              percent={status === 'complete' ? 100 : percentage}
+              strokeWidth={5}
+              className="progress-primary"
+              status="active"
+            />
             <p>12/15 Task Completed</p>
           </div>
         ),
