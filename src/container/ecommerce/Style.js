@@ -10,6 +10,9 @@ const FigureCart = Styled.figure`
 const Sidebar = Styled.div`
     max-width: 480px;
     margin: 0 auto;
+    .ant-card-body{
+        padding: 20px 25px 25px !important
+    }
     .ant-card-head-title{
         padding: 14px 0 !important;
         span{
@@ -33,6 +36,9 @@ const SidebarSingle = Styled.div`
     .ant-slider{
         margin-bottom: 15px;
     }
+    .price-range-text{
+        font-weight: 500;
+    }
     .atbd-category-list{
         li{
             &:not(:last-child){
@@ -45,6 +51,7 @@ const SidebarSingle = Styled.div`
                 justify-content: space-between;
                 color: ${({ theme }) => theme['gray-color']};
                 .category-count{
+                    font-size: 12px;
                     color: ${({ theme }) => theme['light-color']};
                 }
             }
@@ -55,6 +62,7 @@ const SidebarSingle = Styled.div`
         font-weight: 500;
         display: inline-block;
         margin-top: 8px;
+        color: ${({ theme }) => theme['primary-color']};
     }
     .ant-checkbox-group{
         .ant-checkbox-group-item{
@@ -72,12 +80,22 @@ const SidebarSingle = Styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                .brand-count{
+                    font-size: 12px;
+                    color: ${({ theme }) => theme['light-color']};
+                }
                 .rating-left{
+                    margin-top: -4px;
                     min-width: 150px;
+                    .ant-rate{
+                        margin-right: 10px;
+                    }
                 }
                 .rating-right{
                     text-align: right;
                     min-width: 60px;
+                    font-size: 12px;
+                    color: ${({ theme }) => theme['light-color']};
                 }
             }
         }
@@ -167,7 +185,7 @@ const ProductCard = Styled.div`
         }
     }
     figcaption{
-        padding: 20px 20px 24px;
+        padding: 20px 20px 26px;
     }
     .btn-heart{
         position: absolute;
@@ -204,6 +222,7 @@ const ProductCard = Styled.div`
         color: ${({ theme }) => theme['primary-color']};
     }
     .product-single-price__offer{
+        font-weight: 500;
         font-size: 12px;
         color: ${({ theme }) => theme['secondary-color']};
     }
@@ -229,10 +248,15 @@ const ProductCard = Styled.div`
                 border-color: ${({ theme }) => theme['primary-color']};
             }
         }
+        .ant-btn-white{
+            &:hover{
+                border-color: ${({ theme }) => theme['primary-color']};
+            }
+        }
         .ant-btn-sm{
             font-size: 12px;
-            padding: 0px 15px;
-            height: 34px;
+            padding: 0px 18.065px;
+            height: 36px;
         }
         .btn-cart{
             margin-right: 10px;
@@ -263,6 +287,9 @@ const TopToolBox = Styled.div`
         .ant-select-selection-search{
             @media only screen and (max-width: 991px){
                 width: 100% !important;
+            }
+            .ant-select-selection-search-input{
+                min-width: 350px;
             }
         }
     }
@@ -435,6 +462,9 @@ const PaginationWrapper = Styled.div`
 `;
 
 const ProductDetailsWrapper = Styled.div`
+    .product-details-box{
+        padding: 15px;
+    }
     .product-details-box__left{
         figure{
             margin-bottom: 0;
@@ -502,6 +532,7 @@ const ProductDetailsWrapper = Styled.div`
     .pdbr__new-price{
         font-size: 22px;
         font-weight: 500;
+        margin: 18px 0 8px;
         color: ${({ theme }) => theme['primary-color']};
         .pdbr__currency{
             font-size: 14px;
@@ -509,6 +540,7 @@ const ProductDetailsWrapper = Styled.div`
         }
     }
     .pdbr__desc{
+        font-size: 15px;
         max-width: 580px;
     }
     .pdbr__old-price{
@@ -530,6 +562,9 @@ const ProductDetailsWrapper = Styled.div`
 
     .pdbr__current-status{
         margin-top: 25px;
+        p{
+            margin-bottom: 2px;
+        }
         .current-status-title{
             font-weight: 500;
             margin-right: 30px;
@@ -540,7 +575,8 @@ const ProductDetailsWrapper = Styled.div`
         }
         .stock-status{
             &.in-stock{
-                color: ${({ theme }) => theme['secondary-color']};
+                font-weight: 500;
+                color: ${({ theme }) => theme['success-color']};
             }
         }
         .shipping-cost{
@@ -580,6 +616,17 @@ const ProductDetailsWrapper = Styled.div`
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            .btn-cart{
+                padding: 0 26.35px;
+            }
+            .btn-buy{
+                padding: 0 29.85px;
+            }
+            .btn-cart,
+            .btn-buy{
+                border-radius: 6px;
+                height: 44px;
+            }
             button,
             a{
                 margin-right: 10px;
@@ -777,6 +824,7 @@ const ProductTable = Styled.div`
         }
         .cart-single-price{
             font-size: 15px;
+            color: ${({ theme }) => theme['gray-color']}; 
         }
         .cart-single-t-price{
             font-size: 15px;
@@ -828,6 +876,12 @@ const ProductTable = Styled.div`
 
 const CouponForm = Styled.div`
     margin: -10px 0 20px 0;
+    .coupon-form-input{
+        margin-right: 10px;
+        input::placeholder{
+            color: ${({ theme }) => theme['light-color']};
+        }
+    }
     #submitCoupon{
         >.ant-row{
             align-items: center;
@@ -836,10 +890,9 @@ const CouponForm = Styled.div`
             margin-bottom: 0;
         }
         .ant-form-item-control-input-content{
-            disply: flex;
-            align: items-center;
             input{
                 max-width: 180px;
+                padding-left: 20px;
                 height: 44px;
                 background:  ${({ theme }) => theme['bg-color-light']};
                 border-color:  ${({ theme }) => theme['border-color-light']};
@@ -849,6 +902,7 @@ const CouponForm = Styled.div`
             }
         }
         button{
+            border-radius: 5px;
             height: 44px;
             box-shadow: 0 3px 5px ${({ theme }) => theme['success-color']}15;
         }
@@ -856,25 +910,31 @@ const CouponForm = Styled.div`
 `;
 
 const OrderSummary = Styled.div`
+    max-width: 650px;
+    margin: 0 auto;
     .ant-card{
         margin-bottom: 0 !important;
     }
     .ant-form-item{
         margin-bottom: 0;
     }
-    max-width: 650px;
-    margin: 0 auto;
     
     .summary-table-title{
         font-size: 18px;
         font-weight: 500;
         margin-bottom: 25px;
+        color: ${({ theme }) => theme['dark-color']};
     }
     .order-summary-inner{
         padding-bottom: 5px;
         @media only screen and (max-width: 1599px){
             max-width: 600px;
             margin: 0 auto;
+        }
+        .ant-select{
+            .ant-select-selection-item{
+                font-weight: 500;
+            }
         }
     }
     .invoice-summary-inner{
@@ -934,7 +994,8 @@ const OrderSummary = Styled.div`
         .ant-form-item-label{
             text-align: left;
             label{
-                margin-bottom: 2px;
+                font-weight: 400;
+                margin-bottom: 4px;
                 height: fit-content;
                 color: ${({ theme }) => theme['gray-color']};
             }
@@ -942,7 +1003,7 @@ const OrderSummary = Styled.div`
         .ant-form-item-control-input-content{
             display: flex;
             input{
-                margin: 0 6px 15px 0;
+                margin: 0 6px 20px 0;
                 height: 40px;
             }
             button{
@@ -963,7 +1024,7 @@ const OrderSummary = Styled.div`
         .summary-total-amount{
             font-size: 18px;
             font-weight: 600;
-            color: ${({ theme }) => theme['success-color']};
+            color: ${({ theme }) => theme['primary-color']};
         }
     }
     .btn-proceed{
@@ -991,7 +1052,6 @@ const AddProductForm = Styled.div`
         background: ${({ theme }) => theme['bg-color-light']};
         border-radius: 20px;
         padding: 30px;
-        box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
         border: 1px solid ${({ theme }) => theme['bg-color-light']};
         @media only screen and (max-width: 575px){
             padding: 20px;
@@ -1001,10 +1061,14 @@ const AddProductForm = Styled.div`
         }
         .ant-card{
             margin-bottom: 0 !important;
+            border-radius: 20px;
         }
         .add-product-content{
+            box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
+            border-radius: 20px;
             .ant-card-head{
                 padding: 0 40px !important;
+                border-radius: 20px 20px 0 0;
                 @media only screen and (max-width: 575px){
                     padding: 0 15px !important;
                 }
@@ -1013,7 +1077,7 @@ const AddProductForm = Styled.div`
                 padding: 26px 0 25px;
             }
             .ant-card-body{
-                padding: 30px 40px 40px !important;
+                padding: 26px 40px 40px !important;
                 @media only screen and (max-width: 575px){
                     padding: 20px !important;
                 }
@@ -1087,6 +1151,13 @@ const AddProductForm = Styled.div`
     }
     .add-form-action{
         text-align: right;
+        margin-top: 40px;
+        .ant-form-item-control-input{
+            button{
+                height: 50px;
+                padding: 0 22.82px;
+            }
+        }
         button{
             font-size: 15px;
             font-weight: 400;

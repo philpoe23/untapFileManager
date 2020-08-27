@@ -84,76 +84,80 @@ const EditProduct = () => {
                         <div className="add-product-block">
                           <Row gutter={15}>
                             <Col xs={24}>
-                              <Cards title="About Product">
-                                <Form.Item name="name" initialValue="Red chair" label="Product Name">
-                                  <Input />
-                                </Form.Item>
-                                <Form.Item name="subtext" initialValue="Sub heading" label="Sub Text">
-                                  <Input />
-                                </Form.Item>
-                                <Form.Item name="category" initialValue="sunglasses" label="Category">
-                                  <Select style={{ width: '100%' }}>
-                                    <Option value="">Please Select</Option>
-                                    <Option value="wearingClothes">Wearing Clothes</Option>
-                                    <Option value="sunglasses">Sunglasses</Option>
-                                    <Option value="t-shirt">T-Shirt</Option>
-                                  </Select>
-                                </Form.Item>
+                              <div className="add-product-content">
+                                <Cards title="About Product">
+                                  <Form.Item name="name" initialValue="Red chair" label="Product Name">
+                                    <Input />
+                                  </Form.Item>
+                                  <Form.Item name="subtext" initialValue="Sub heading" label="Sub Text">
+                                    <Input />
+                                  </Form.Item>
+                                  <Form.Item name="category" initialValue="sunglasses" label="Category">
+                                    <Select style={{ width: '100%' }}>
+                                      <Option value="">Please Select</Option>
+                                      <Option value="wearingClothes">Wearing Clothes</Option>
+                                      <Option value="sunglasses">Sunglasses</Option>
+                                      <Option value="t-shirt">T-Shirt</Option>
+                                    </Select>
+                                  </Form.Item>
 
-                                <Form.Item name="price" initialValue="120" label="Price">
-                                  <InputNumber
-                                    style={{ width: '100%' }}
-                                    prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                                  />
-                                </Form.Item>
+                                  <Form.Item name="price" initialValue="120" label="Price">
+                                    <InputNumber
+                                      style={{ width: '100%' }}
+                                      prefix={<FeatherIcon icon="dollar-sign" size={14} />}
+                                    />
+                                  </Form.Item>
 
-                                <Form.Item name="discount" initialValue="20%" label="Discount">
-                                  <InputNumber
-                                    style={{ width: '100%' }}
-                                    prefix={<FeatherIcon icon="percent" size={14} />}
-                                  />
-                                </Form.Item>
+                                  <Form.Item name="discount" initialValue="20%" label="Discount">
+                                    <InputNumber
+                                      style={{ width: '100%' }}
+                                      prefix={<FeatherIcon icon="percent" size={14} />}
+                                    />
+                                  </Form.Item>
 
-                                <Form.Item name="status" initialValue="published" label="Status">
-                                  <Radio.Group>
-                                    <Radio value="published">Published</Radio>
-                                    <Radio value="draft">Draft</Radio>
-                                  </Radio.Group>
-                                </Form.Item>
+                                  <Form.Item name="status" initialValue="published" label="Status">
+                                    <Radio.Group>
+                                      <Radio value="published">Published</Radio>
+                                      <Radio value="draft">Draft</Radio>
+                                    </Radio.Group>
+                                  </Form.Item>
 
-                                <Form.Item
-                                  name="description"
-                                  initialValue="lorem ipsum dolor sit amit"
-                                  label="Product Description"
-                                >
-                                  <Input.TextArea rows={5} />
-                                </Form.Item>
+                                  <Form.Item
+                                    name="description"
+                                    initialValue="lorem ipsum dolor sit amit"
+                                    label="Product Description"
+                                  >
+                                    <Input.TextArea rows={5} />
+                                  </Form.Item>
 
-                                <Form.Item name="mTitle" initialValue="Meta title" label="Meta Title">
-                                  <Input />
-                                </Form.Item>
+                                  <Form.Item name="mTitle" initialValue="Meta title" label="Meta Title">
+                                    <Input />
+                                  </Form.Item>
 
-                                <Form.Item name="mKeyword" initialValue="Meta keyword" label="Meta Keyword">
-                                  <Input />
-                                </Form.Item>
-                              </Cards>
+                                  <Form.Item name="mKeyword" initialValue="Meta keyword" label="Meta Keyword">
+                                    <Input />
+                                  </Form.Item>
+                                </Cards>
+                              </div>
                             </Col>
                           </Row>
                         </div>
                         <div className="add-product-block">
                           <Row gutter={15}>
                             <Col xs={24}>
-                              <Cards title="Product Image">
-                                <Dragger fileUploadProps={fileUploadProps}>
-                                  <p className="ant-upload-drag-icon">
-                                    <FeatherIcon icon="upload" size={50} />
-                                  </p>
-                                  <Heading as="h4" className="ant-upload-text">
-                                    Drag and drop an image
-                                  </Heading>
-                                  <p className="ant-upload-hint">or Browse to choose a file</p>
-                                </Dragger>
-                              </Cards>
+                              <div className="add-product-content">
+                                <Cards title="Product Image">
+                                  <Dragger fileUploadProps={fileUploadProps}>
+                                    <p className="ant-upload-drag-icon">
+                                      <FeatherIcon icon="upload" size={50} />
+                                    </p>
+                                    <Heading as="h4" className="ant-upload-text">
+                                      Drag and drop an image
+                                    </Heading>
+                                    <p className="ant-upload-hint">or Browse to choose a file</p>
+                                  </Dragger>
+                                </Cards>
+                              </div>
                             </Col>
                           </Row>
                         </div>

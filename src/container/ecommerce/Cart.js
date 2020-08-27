@@ -201,19 +201,22 @@ const ShoppingCart = ({ match }) => {
                               </ProductTable>
 
                               <CouponForm>
-                                <Form form={form} name="submitCoupon" onFinish={submitCoupon}>
-                                  <Row gutter={15}>
-                                    <Col lg={4} sm={8} xs={12}>
-                                      <Form.Item name="coupon" label="">
-                                        <Input placeholder="Coupon Code" />
-                                      </Form.Item>
-                                    </Col>
-                                    <Col lg={4} sm={8} xs={12}>
-                                      <Button htmlType="submit" size="default" type="primary">
-                                        Apply Coupon
-                                      </Button>
-                                    </Col>
-                                  </Row>
+                                <Form
+                                  className="align-center-v"
+                                  form={form}
+                                  name="submitCoupon"
+                                  onFinish={submitCoupon}
+                                >
+                                  <div className="coupon-form-input">
+                                    <Form.Item name="coupon" label="">
+                                      <Input placeholder="Coupon Code" />
+                                    </Form.Item>
+                                  </div>
+                                  <div className="coupon-form-action">
+                                    <Button htmlType="submit" size="default" type="primary">
+                                      Apply Coupon
+                                    </Button>
+                                  </div>
                                 </Form>
                               </CouponForm>
                             </>
@@ -229,6 +232,7 @@ const ShoppingCart = ({ match }) => {
                     bodyStyle={{
                       backgroundColor: '#F8F9FB',
                       borderRadius: '20px',
+                      border: '1px solid #F1F2F6',
                     }}
                     headless
                   >

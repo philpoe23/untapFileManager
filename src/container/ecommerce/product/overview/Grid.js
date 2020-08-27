@@ -81,7 +81,7 @@ const Grid = () => {
                   </div>
 
                   <div className="product-single-action">
-                    <Button size="small" type="light" className="btn-cart" outlined>
+                    <Button size="small" type="white" className="btn-cart" outlined>
                       <FeatherIcon icon="shopping-bag" size={14} />
                       Add To Cart
                     </Button>
