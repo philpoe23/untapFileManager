@@ -210,7 +210,14 @@ const CheckOut = () => {
                           <Form.Item name="name" label="Contact Name">
                             <Input placeholder="Ibn adam" />
                           </Form.Item>
-                          <Form.Item name="company" label="Company Name (Optional)">
+                          <Form.Item
+                            name="company"
+                            label={
+                              <span>
+                                Company Name <span>(Optional)</span>
+                              </span>
+                            }
+                          >
                             <Input placeholder="adam" />
                           </Form.Item>
                           <Form.Item name="phone" label="Phone Number">
@@ -332,6 +339,7 @@ const CheckOut = () => {
                             <div className="shipping-selection__paypal">
                               <Radio value="payPal" style={{ width: '100%' }}>
                                 Pay With PayPal
+                                <img src={require('../../../static/img/PayPalLogo.png')} alt="paypal" />
                               </Radio>
                             </div>
                             <div className="shipping-selection__cash">
