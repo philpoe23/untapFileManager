@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Table, Progress, Pagination } from 'antd';
+import { Row, Col, Table, Progress, Pagination, Tag } from 'antd';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -43,9 +43,10 @@ const List = () => {
         key: id,
         project: (
           <ProjectListTitle>
-            <Link to="/projectDetails/1">
-              <Heading as="h4">{title}</Heading>
-            </Link>
+            <Heading as="h4">
+              <Link to="/projectDetails/1">{title}</Link>
+            </Heading>
+
             <p>{category}</p>
           </ProjectListTitle>
         ),
@@ -78,7 +79,7 @@ const List = () => {
             </ul>
           </ProjectListAssignees>
         ),
-        status: <span className={status}>{status}</span>,
+        status: <Tag className={status}>{status}</Tag>,
         completion: (
           <div className="project-list-progress">
             <Progress percent={status === 'complete' ? 100 : percentage} status="active" />
