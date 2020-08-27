@@ -262,9 +262,15 @@ const ShoppingCart = ({ match }) => {
                             <Form form={form} name="promo" onFinish={submitPromo}>
                               <Form.Item name="couponType" initialValue="" label="">
                                 <Select style={{ width: '100%' }}>
-                                  <Option value="">% Select Coupon</Option>
-                                  <Option value="one">% Coupon one</Option>
-                                  <Option value="tow">% Coupon tow</Option>
+                                  <Option value="">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Select Coupon
+                                  </Option>
+                                  <Option value="one">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Coupon one
+                                  </Option>
+                                  <Option value="tow">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Coupon tow
+                                  </Option>
                                 </Select>
                               </Form.Item>
                               <div className="promo-apply-form">
