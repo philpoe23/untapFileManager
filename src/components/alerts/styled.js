@@ -27,6 +27,16 @@ const Style = Styled(Alert)`
     font-size: 15px !important;
     font-weight: 500 !important;
   }
+  &.ant-alert-with-description{
+    .ant-alert-message{
+      margin-bottom: 5px !important;
+    }
+  }
+  &.ant-alert-closable {
+    .ant-alert-message{
+      display: block;
+    }
+  }
   .ant-alert-message, .ant-alert-description {
     color: ${({ type, theme }) => theme[`${type}-color`]} !important;
   }

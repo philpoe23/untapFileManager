@@ -295,7 +295,7 @@ const AlertList = Styled.div`
     margin-top: -15px;
     .alert-empty-message{
         .ant-alert-message{
-            display: none;
+            display: none !important;
         }
     }
 `;
@@ -436,7 +436,13 @@ const BasicFormWrapper = Styled.div`
     .setting-form-actions{
         margin: 48px 0 14px;
         button{
+            border-radius: 6px;
+            height: 44px;
             margin-bottom: 14px;
+            &.ant-btn-light{
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
+                background-color: ${({ theme }) => theme['bg-color-light']};
+            }
         }
     }
 `;
