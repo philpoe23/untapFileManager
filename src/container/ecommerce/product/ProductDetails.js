@@ -4,6 +4,7 @@ import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
@@ -161,10 +162,10 @@ const ProductDetails = ({ match }) => {
 
                     <div className="pdbr__Actions d-flex align-items-center">
                       <div className="pdbr__product-action">
-                        <Button size="default" type="primary">
+                        <Button className="btn-buy" size="default" type="primary">
                           Buy Now
                         </Button>
-                        <Button size="default" type="secondary">
+                        <Button className="btn-cart" size="default" type="secondary">
                           <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
                         </Button>
                         <Button className="btn-icon" size="default" raised type="white" shape="circle">
@@ -176,16 +177,44 @@ const ProductDetails = ({ match }) => {
                       </div>
                       <div>
                         <NavLink to="#">
-                          <FeatherIcon icon="facebook" size={14} />
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name="facebook"
+                            size="1x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
                         </NavLink>
                         <NavLink to="#">
-                          <FeatherIcon icon="twitter" size={14} />
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name="twitter"
+                            size="1x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
                         </NavLink>
                         <NavLink to="#">
-                          <FeatherIcon icon="linkedin" size={14} />
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name="pinterest-p"
+                            size="1x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
                         </NavLink>
                         <NavLink to="#">
-                          <FeatherIcon icon="send" size={14} />
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name="linkedin"
+                            size="1x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
+                        </NavLink>
+                        <NavLink to="#">
+                          <FontAwesome
+                            className="super-crazy-colors"
+                            name="send"
+                            size="1x"
+                            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />
                         </NavLink>
                       </div>
                     </div>

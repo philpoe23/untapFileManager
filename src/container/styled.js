@@ -543,6 +543,36 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    &.table-order{
+        .ant-table-selection{
+            .ant-checkbox-indeterminate{
+                .ant-checkbox-inner{
+                    background: ${({ theme }) => theme['primary-color']};
+                    border-color: ${({ theme }) => theme['primary-color']};
+                    &:after{
+                        height: 2px;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        .ant-table-container{
+            padding-bottom: 25px;
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        }
+        tbody{
+            tr{
+                &:hover{
+                    td{
+                        background: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+            }
+        }
+        .ant-pagination{
+            margin-top: 25px !important;
+        }
+    }
     table{
         thead{
             tr{

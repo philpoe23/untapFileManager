@@ -165,7 +165,7 @@ const Sellers = () => {
                   rowSelection={rowSelection}
                   dataSource={dataSource}
                   columns={columns}
-                  pagination={{ pageSize: 7 }}
+                  pagination={{ pageSize: 7, showSizeChanger: true, total: sellers.length }}
                 />
               </TableWrapper>
             </Col>

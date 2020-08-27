@@ -171,128 +171,136 @@ const ShoppingCart = ({ match }) => {
         ]}
       />
       <Main>
-        <Row gutter={15}>
-          <Col md={24}>
-            <Cards headless>
-              <Row gutter={30}>
-                <Col xxl={17} xs={24}>
-                  <Switch>
-                    <Suspense
-                      fallback={
-                        <div className="spin">
-                          <Spin />
-                        </div>
-                      }
-                    >
-                      <Route
-                        exact
-                        path={match.path}
-                        component={() => {
-                          return (
-                            <>
-                              <ProductTable>
-                                <div className="table-cart table-responsive">
-                                  <Table
-                                    pagination={false}
-                                    dataSource={productTableData}
-                                    columns={productTableColumns}
-                                  />
-                                </div>
-                              </ProductTable>
-
-                              <CouponForm>
-                                <Form form={form} name="submitCoupon" onFinish={submitCoupon}>
-                                  <Row gutter={15}>
-                                    <Col lg={4} sm={8} xs={12}>
-                                      <Form.Item name="coupon" label="">
-                                        <Input placeholder="Coupon Code" />
-                                      </Form.Item>
-                                    </Col>
-                                    <Col lg={4} sm={8} xs={12}>
-                                      <Button htmlType="submit" size="default" type="primary">
-                                        Apply Coupon
-                                      </Button>
-                                    </Col>
-                                  </Row>
-                                </Form>
-                              </CouponForm>
-                            </>
-                          );
-                        }}
-                      />
-                      <Route path={`${match.path}/checkout`} component={Checkout} />
-                    </Suspense>
-                  </Switch>
-                </Col>
-                <Col xxl={7} xs={24}>
-                  <Cards
-                    bodyStyle={{
-                      backgroundColor: '#F8F9FB',
-                      borderRadius: '20px',
-                    }}
-                    headless
-                  >
-                    <OrderSummary>
-                      <Heading className="summary-table-title" as="h4">
-                        Order Summary
-                      </Heading>
-                      <Cards
-                        bodyStyle={{
-                          backgroundColor: '#ffffff',
-                          borderRadius: '20px',
-                        }}
-                        headless
+        <div className={match.isExact ? 'cartWraper' : 'checkoutWraper'}>
+          <Row gutter={15}>
+            <Col md={24}>
+              <Cards headless>
+                <Row gutter={30}>
+                  <Col xxl={17} xs={24}>
+                    <Switch>
+                      <Suspense
+                        fallback={
+                          <div className="spin">
+                            <Spin />
+                          </div>
+                        }
                       >
-                        <div className="order-summary-inner">
-                          <ul className="summary-list">
-                            <li>
-                              <span className="summary-list-title">Subtotal :</span>
-                              <span className="summary-list-text">{`$${497.32}`}</span>
-                            </li>
-                            <li>
-                              <span className="summary-list-title">Discount :</span>
-                              <span className="summary-list-text">{`$${-20}`}</span>
-                            </li>
-                            <li>
-                              <span className="summary-list-title">Shipping Charge :</span>
-                              <span className="summary-list-text">{`$${30}`}</span>
-                            </li>
-                          </ul>
-                          <Form form={form} name="promo" onFinish={submitPromo}>
-                            <Form.Item name="couponType" initialValue="" label="">
-                              <Select style={{ width: '100%' }}>
-                                <Option value="">% Select Coupon</Option>
-                                <Option value="one">% Coupon one</Option>
-                                <Option value="tow">% Coupon tow</Option>
-                              </Select>
-                            </Form.Item>
-                            <div className="promo-apply-form">
-                              <Form.Item name="promoCode" label="Promo Code">
-                                <Input style={{ width: '72%' }} placeholder="Promo Code" />
-                                <Button htmlType="submit" size="default" type="success" outlined>
-                                  Apply
-                                </Button>
+                        <Route
+                          exact
+                          path={match.path}
+                          component={() => {
+                            return (
+                              <>
+                                <ProductTable>
+                                  <div className="table-cart table-responsive">
+                                    <Table
+                                      pagination={false}
+                                      dataSource={productTableData}
+                                      columns={productTableColumns}
+                                    />
+                                  </div>
+                                </ProductTable>
+
+                                <CouponForm>
+                                  <Form form={form} name="submitCoupon" onFinish={submitCoupon}>
+                                    <Row gutter={15}>
+                                      <Col lg={4} sm={8} xs={12}>
+                                        <Form.Item name="coupon" label="">
+                                          <Input placeholder="Coupon Code" />
+                                        </Form.Item>
+                                      </Col>
+                                      <Col lg={4} sm={8} xs={12}>
+                                        <Button htmlType="submit" size="default" type="primary">
+                                          Apply Coupon
+                                        </Button>
+                                      </Col>
+                                    </Row>
+                                  </Form>
+                                </CouponForm>
+                              </>
+                            );
+                          }}
+                        />
+                        <Route path={`${match.path}/checkout`} component={Checkout} />
+                      </Suspense>
+                    </Switch>
+                  </Col>
+                  <Col xxl={7} xs={24}>
+                    <Cards
+                      bodyStyle={{
+                        backgroundColor: '#F8F9FB',
+                        borderRadius: '20px',
+                      }}
+                      headless
+                    >
+                      <OrderSummary>
+                        <Heading className="summary-table-title" as="h4">
+                          Order Summary
+                        </Heading>
+                        <Cards
+                          bodyStyle={{
+                            backgroundColor: '#ffffff',
+                            borderRadius: '20px',
+                          }}
+                          headless
+                        >
+                          <div className="order-summary-inner">
+                            <ul className="summary-list">
+                              <li>
+                                <span className="summary-list-title">Subtotal :</span>
+                                <span className="summary-list-text">{`$${497.32}`}</span>
+                              </li>
+                              <li>
+                                <span className="summary-list-title">Discount :</span>
+                                <span className="summary-list-text">{`$${-20}`}</span>
+                              </li>
+                              <li>
+                                <span className="summary-list-title">Shipping Charge :</span>
+                                <span className="summary-list-text">{`$${30}`}</span>
+                              </li>
+                            </ul>
+                            <Form form={form} name="promo" onFinish={submitPromo}>
+                              <Form.Item name="couponType" initialValue="" label="">
+                                <Select style={{ width: '100%' }}>
+                                  <Option value="">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Select Coupon
+                                  </Option>
+                                  <Option value="one">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Coupon one
+                                  </Option>
+                                  <Option value="tow">
+                                    <img src={require('../../static/img/Subtraction1.png')} alt="" /> Coupon tow
+                                  </Option>
+                                </Select>
                               </Form.Item>
-                            </div>
-                          </Form>
-                          <Heading className="summary-total" as="h4">
-                            <span className="summary-total-label">Total : </span>
-                            <span className="summary-total-amount">{`$${507.32}`}</span>
-                          </Heading>
-                          <Button className="btn-proceed" type="secondary" size="large">
-                            <Link to={`${match.path}/checkout`}>
-                              Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
-                            </Link>
-                          </Button>
-                        </div>
-                      </Cards>
-                    </OrderSummary>
-                  </Cards>
-                </Col>
-              </Row>
-            </Cards>
-          </Col>
-        </Row>
+                              <div className="promo-apply-form">
+                                <Form.Item name="promoCode" label="Promo Code">
+                                  <Input style={{ width: '72%' }} placeholder="Promo Code" />
+                                  <Button htmlType="submit" size="default" type="success" outlined>
+                                    Apply
+                                  </Button>
+                                </Form.Item>
+                              </div>
+                            </Form>
+                            <Heading className="summary-total" as="h4">
+                              <span className="summary-total-label">Total : </span>
+                              <span className="summary-total-amount">{`$${507.32}`}</span>
+                            </Heading>
+                            <Button className="btn-proceed" type="secondary" size="large">
+                              <Link to={`${match.path}/checkout`}>
+                                Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
+                              </Link>
+                            </Button>
+                          </div>
+                        </Cards>
+                      </OrderSummary>
+                    </Cards>
+                  </Col>
+                </Row>
+              </Cards>
+            </Col>
+          </Row>
+        </div>
       </Main>
     </>
   );

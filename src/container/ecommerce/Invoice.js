@@ -19,7 +19,7 @@ const Invoice = () => {
       details: (
         <>
           <div className="product-info">
-            <Heading className="product-info" as="h6">
+            <Heading className="product-info-title" as="h6">
               Fiber Base Chair
             </Heading>
             <ul className="info-list">
@@ -44,19 +44,21 @@ const Invoice = () => {
       row: '2',
       details: (
         <>
-          <Heading className="product-info" as="h6">
-            Panton Tunior Chair
-          </Heading>
-          <ul className="info-list">
-            <li>
-              <span className="info-title">Size :</span>
-              <span>Large</span>
-            </li>
-            <li>
-              <span className="info-title"> Color :</span>
-              <span>Brown</span>
-            </li>
-          </ul>
+          <div className="product-info">
+            <Heading className="product-info-title" as="h6">
+              Panton Tunior Chair
+            </Heading>
+            <ul className="info-list">
+              <li>
+                <span className="info-title">Size :</span>
+                <span>Large</span>
+              </li>
+              <li>
+                <span className="info-title"> Color :</span>
+                <span>Brown</span>
+              </li>
+            </ul>
+          </div>
         </>
       ),
       unit: <span className="product-unit">$248.66</span>,
@@ -115,10 +117,10 @@ const Invoice = () => {
           <Col md={24}>
             <Cards headless>
               <InvoiceHeader>
-                <Row style={{ alignItems: 'center' }}>
+                <Row>
                   <Col sm={12} xs={24}>
                     <figure>
-                      <img src={require('../../static/img/logo.png')} alt="logo" />
+                      <img className="top-img" src={require('../../static/img/Logo_Dark.svg')} alt="logo" />
                     </figure>
                   </Col>
                   <Col sm={12} xs={24}>
@@ -135,7 +137,7 @@ const Invoice = () => {
               </InvoiceHeader>
               <InvoiceLetterBox>
                 <div className="invoice-letter-inner">
-                  <Row>
+                  <Row align="middle">
                     <Col lg={8} xs={24}>
                       <article className="invoice-author">
                         <Heading className="invoice-author__title" as="h3">
