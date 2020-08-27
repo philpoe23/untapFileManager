@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Spin, Badge } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -74,6 +74,7 @@ const ChatApp = ({ match }) => {
                     <li>
                       <NavLink activeClassName="active" to={`${match.path}/group`}>
                         Group Chat
+                        <Badge className="badge-error" count={3} />
                       </NavLink>
                     </li>
                     <li>
@@ -102,8 +103,7 @@ const ChatApp = ({ match }) => {
                   </div>
                 }
               >
-                <Route path={match.path} />
-                <Route path={match.path} component={SingleChat} />
+                <Route exact path={match.path} component={SingleChat} />
                 <Route path={`${match.path}/:type/:id`} component={SingleChat} />
                 <Route path={`${match.path}/group/:id`} component={SingleGroup} />
               </Suspense>
