@@ -13,6 +13,12 @@ const ChatWrapper = Styled.div`
       text-align: center;
       border: 1px solid ${({ theme }) => theme['border-color-light']};
       background: ${({ theme }) => theme['bg-color-light']};
+      color: ${({ theme }) => theme['gray-color']};
+      svg,
+      img,
+      i{
+        margin-right: 4px;
+      }
     }
   }
 `;
@@ -75,9 +81,15 @@ const Content = Styled.div`
     .author-chatMeta{
       flex: .14;
       span{
-        text-align: right;
+        float: right;
         font-size: 12px;
         color: ${({ theme }) => theme['light-color']};
+      }
+      .ant-badge{
+        margin-top: 8px;
+        span{
+          color: #fff;
+        }
       }
     }
   }
@@ -88,6 +100,14 @@ const BlockSpan = Styled.span`
 `;
 
 const SingleChatWrapper = Styled.div`
+  &.group-chat{
+    .chatbox-reply-form{
+      input{
+        background: #fff !important;
+        box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+      }
+    }
+  }
   .ant-card-head{
     padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
@@ -401,6 +421,9 @@ const ChatSidebar = Styled.div`
               opacity: 1;
               visibility: visible;
             }
+          }
+          .ant-badge{
+            margin-left: 6px;
           }
         }
       }

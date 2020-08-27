@@ -89,7 +89,7 @@ const SingleGroupChat = ({ match }) => {
   );
 
   return (
-    <SingleChatWrapper>
+    <SingleChatWrapper className="group-chat">
       <Cards
         title={
           <div className="group-chat-header d-flex">
