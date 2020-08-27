@@ -56,15 +56,15 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
             Send
           </Button>
           <NavLink to="/">
-            <FeatherIcon icon="paperclip" size={18} />
+            <FeatherIcon icon="paperclip" size={16} />
           </NavLink>
           <NavLink to="/">
-            <FeatherIcon icon="alert-circle" size={18} />
+            <FeatherIcon icon="alert-circle" size={16} />
           </NavLink>
         </div>
         <div className="right">
           <NavLink to="/">
-            <FeatherIcon icon="trash-2" size={18} />
+            <FeatherIcon icon="trash-2" size={16} />
           </NavLink>
         </div>
       </div>

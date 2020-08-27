@@ -199,7 +199,7 @@ const SingleChat = ({ match }) => {
                                 placement="bottomCenter"
                               >
                                 <Link to="#">
-                                  <MoreOutlined />
+                                  <FeatherIcon icon="more-horizontal" size={16} />
                                 </Link>
                               </Dropdown>
                             </div>
@@ -304,17 +304,17 @@ const SingleChat = ({ match }) => {
                 />
               </div>
               <div className="chatbox-reply-action d-flex">
-                <Upload>
-                  <Link to="#">
+                <Link to="#">
+                  <Upload>
                     <FeatherIcon icon="camera" size={18} />
-                  </Link>
-                </Upload>
-                <Upload>
-                  <Link to="#">
+                  </Upload>
+                </Link>
+                <Link to="#">
+                  <Upload>
                     <FeatherIcon icon="paperclip" size={18} />
-                  </Link>
-                </Upload>
-                <Button onClick={handleSubmit} type="primary">
+                  </Upload>
+                </Link>
+                <Button onClick={handleSubmit} type="primary" className="btn-send">
                   <FeatherIcon icon="send" size={18} />
                 </Button>
               </div>
