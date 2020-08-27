@@ -167,7 +167,7 @@ const Orders = () => {
                   <Col xxl={15} lg={13} xs={24}>
                     <div className="table-toolbox-menu">
                       Status:
-                      <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
+                      <Radio.Group onChange={handleChangeForFilter} defaultValue="">
                         <Radio.Button value="">All</Radio.Button>
                         {item.length &&
                           [...new Set(filterKey)].map(value => {
@@ -201,7 +201,7 @@ const Orders = () => {
                   rowSelection={rowSelection}
                   dataSource={dataSource}
                   columns={columns}
-                  pagination={{ pageSize: 7 }}
+                  pagination={{ pageSize: 7, showSizeChanger: true, total: orders.length }}
                 />
               </TableWrapper>
             </Col>
