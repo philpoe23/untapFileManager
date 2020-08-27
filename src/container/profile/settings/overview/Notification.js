@@ -172,7 +172,7 @@ const Notification = () => {
         </Row>
         <div className="notification-actions">
           <Button size="default" type="primary">
-            Update Social Profile
+            Update Email Notifications
           </Button>
           &nbsp; &nbsp;
           <Button size="default" type="light">

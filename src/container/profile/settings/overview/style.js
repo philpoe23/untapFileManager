@@ -60,7 +60,7 @@ const ProfileAuthorBox = Styled.div`
     }
 
     .settings-menmulist{
-        padding: 18px 20px 0px 20px;
+        padding: 20px 20px 0px 20px;
         li{
             a{
                 display: flex;
@@ -86,10 +86,11 @@ const ProfileAuthorBox = Styled.div`
 const SettingWrapper = Styled.div`
     .cover-image{
         position: relative;
+        margin-bottom: 25px;
         .ant-upload-select{
             position: absolute;
-            right: 50px;
-            top: 45px;
+            right: 20px;
+            top: 20px;
             border: 1px solid #ffffff50;
             border-radius: 6px;
             @media only screen and (max-width: 991px){
@@ -100,7 +101,7 @@ const SettingWrapper = Styled.div`
             }
             a{
                 color: #fff;
-                padding: 10px 20px;
+                padding: 8px 17.35px;
                 display: inline-flex;
                 align-items: center;
                 @media only screen and (max-width: 479px){
@@ -128,6 +129,7 @@ const SettingWrapper = Styled.div`
         }
         span{
             font-size: 13px;
+            font-weight: 400;
             margin: 0;
             color: ${({ theme }) => theme['light-color']};
         }
@@ -215,6 +217,9 @@ const ChangePasswordWrapper = Styled.div`
             margin: -22px 0 0;
         }
         .setting-form-actions{
+            button{
+                border-radius: 6px;
+            }
             .ant-btn-light{
                 border: 1px solid ${({ theme }) => theme['border-color-light']};
             }
@@ -227,7 +232,11 @@ const SocialProfileForm = Styled.div`
         min-height: 44px;
         .ant-form-item-control-input-content{
             input{
-                padding: 11px 20px;
+                padding: 12px 20px 12px 50px !important;
+            }
+            input::placeholder{
+                font-size: 13px;
+                color: ${({ theme }) => theme['light-color']};
             }
         }
     }
@@ -303,6 +312,9 @@ const SocialProfileForm = Styled.div`
 
 const NotificationWrapper = Styled.div`
     .notification-box-single{
+        .ant-card{
+            border: 1px solid ${({ theme }) => theme['border-color-light']};
+        }
         .notification-header{
             margin-top: -8px;
             .notification-header__text{
@@ -312,11 +324,13 @@ const NotificationWrapper = Styled.div`
             }
             .btn-toggle{
                 font-size: 13px;
+                color: ${({ theme }) => theme['info-color']};
             }
         }
         .notification-body{
+            box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
             .ant-card{
-                margin-bottom: 0;
+                margin-bottom: 0 !important;
             }
             .ant-card-body{
                 padding: 5px 0 !important;
@@ -349,6 +363,7 @@ const NotificationWrapper = Styled.div`
     .notification-actions{
         margin: 26px 0;
         button{
+            border-radius: 6px;
             height: 44px;
         }
     }

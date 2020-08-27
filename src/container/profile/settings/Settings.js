@@ -8,6 +8,10 @@ import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
+import { Button } from '../../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
 const Profile = lazy(() => import('./overview/Profile'));
 const Account = lazy(() => import('./overview/Account'));
@@ -19,11 +23,25 @@ const Settings = ({ match }) => {
   const { path } = match;
   return (
     <>
-      <PageHeader ghost title="Profile Settings" />
+      <PageHeader
+        ghost
+        title="Profile Settings"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
 
       <Main>
         <Row gutter={25}>
-          <Col xxl={5} lg={8} md={10} xs={24}>
+          <Col xxl={6} lg={8} md={10} xs={24}>
             <ProfileAuthorBox>
               <Cards headless>
                 <div className="author-info">
@@ -93,12 +111,12 @@ const Settings = ({ match }) => {
               </Cards>
             </ProfileAuthorBox>
           </Col>
-          <Col xxl={19} lg={16} md={14} xs={24}>
+          <Col xxl={18} lg={16} md={14} xs={24}>
             <SettingWrapper>
               <div className="cover-image">
                 <img
                   style={{ width: '100%' }}
-                  src={require('../../../static/img/profile/CoverImage.svg')}
+                  src={require('../../../static/img/profile/cover-img.png')}
                   alt="banner"
                 />
                 <Upload>
