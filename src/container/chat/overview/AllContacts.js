@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
+import { Badge } from 'antd';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglePage } from '../../../redux/chat/actionCreator';
@@ -37,8 +38,8 @@ const AllContacts = ({ match }) => {
             .sort((a, b) => {
               return b.time - a.time;
             })
-            .map(user => {
-              const { userName, content, email } = user;
+            .map((user, key) => {
+              const { userName, content, email, active } = user;
               const id = content[content.length - 1].time;
               const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
@@ -46,6 +47,7 @@ const AllContacts = ({ match }) => {
                   <NavLink onClick={dataFiltering} data-email={email} to={`${match.path}/${email}`}>
                     <div className="author-figure">
                       <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                      <span className={active ? 'active' : 'inactive'} />
                     </div>
                     <div className="author-info">
                       <BlockSpan className="author-name">{userName}</BlockSpan>
@@ -55,7 +57,8 @@ const AllContacts = ({ match }) => {
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">
-                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</BlockSpan>
+                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('dddd')}</BlockSpan>
+                      {key <= 1 && <Badge className="badge-success" count={3} />}
                     </div>
                   </NavLink>
                 </li>

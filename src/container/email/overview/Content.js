@@ -185,7 +185,7 @@ const Content = ({ searchData, email }) => {
                 }
               >
                 <Link to="#">
-                  <FeatherIcon icon="sliders" size={18} />
+                  <FeatherIcon icon="sliders" size={16} />
                 </Link>
               </Dropdown>
               <Link to="#">

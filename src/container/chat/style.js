@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 const ChatWrapper = Styled.div`
   .create-action{
     padding: 0 25px;
-    margin-bottom: 18px;
+    margin: 25px 0 18px;
     @media only screen and (max-width: 379px){
       padding: 0 20px;
     }
@@ -32,7 +32,6 @@ const Content = Styled.div`
     border-radius: 4px;
     width: 100%;
     margin: 0;
-
     &:before{
       content: '';
       position: absolute;
@@ -90,6 +89,7 @@ const BlockSpan = Styled.span`
 
 const SingleChatWrapper = Styled.div`
   .ant-card-head{
+    padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
     border: 0 none;
     .ant-card-extra{
@@ -99,10 +99,13 @@ const SingleChatWrapper = Styled.div`
     }
     .ant-card-head-title{
       h1{
+        font-weight: 500;
         margin-bottom: 6px;
       }
       p{
         font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 0;
         color: ${({ theme }) => theme['light-color']};
       }
     }
@@ -122,6 +125,9 @@ const SingleChatWrapper = Styled.div`
     }
     .members{
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       a{
         :not(:last-child){
           margin-right: 4px;
@@ -129,6 +135,32 @@ const SingleChatWrapper = Styled.div`
       }
       img{
         max-width: 30px;
+      }
+      .show-more,
+      .add-more{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        span{
+          margin: 0;
+        }
+      }
+      .show-more{
+        background-color: ${({ theme }) => theme['primary-color']};
+        span{
+          font-size: 10px;
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+      .add-more{
+        border: 1px dashed ${({ theme }) => theme['border-color-deep']};
+        span{
+          line-height: .4;
+        }
       }
     }
   }
@@ -196,6 +228,7 @@ const SingleChatWrapper = Styled.div`
     }
     .group-seen{
       margin-top: 5px;
+      text-align: right;
       img{
         max-width: 20px;
         &:not(:last-child){
@@ -264,6 +297,15 @@ const Footer = Styled.div`
       margin-right: 8px;
     }
     .chatbox-reply-action{
+      align-items: center;
+      a{
+        span{
+          display: block;
+        }
+      }
+      .btn-send{
+        box-shadow: 0 8px 13px #5F63F220;
+      }
       .ant-upload-select,
       button{
         min-width: 50px;
@@ -292,8 +334,12 @@ const Footer = Styled.div`
 `;
 
 const ChatSidebar = Styled.div`
+  min-height: 935px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px #9299B803;
   .ant-card-body{
-    padding: 25px 0 !important;
+    padding: 28px 0 !important;
   }
   .chatbox-search{
     padding: 0 25px;
@@ -323,7 +369,7 @@ const ChatSidebar = Styled.div`
     }
     ul{
       margin: 0 0 12px 0;
-      padding: 25px 0 0 0;
+      padding: 30px 0 0 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -335,8 +381,8 @@ const ChatSidebar = Styled.div`
           position: relative;
           display: block;
           padding: 0 0 18px;
-          font-weight: 500;
-          color: ${({ theme }) => theme['gray-solid']};
+          font-weight: 400;
+          color: ${({ theme }) => theme['light-color']};
           &:after{
             position: absolute;
             left: 0;
@@ -349,6 +395,7 @@ const ChatSidebar = Styled.div`
             background: ${({ theme }) => theme['primary-color']};
           }
           &.active{
+            font-weight: 500;
             color: ${({ theme }) => theme['primary-color']};
             &:after{
               opacity: 1;
