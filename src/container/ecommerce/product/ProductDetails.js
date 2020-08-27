@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Rate } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
@@ -96,13 +96,13 @@ const ProductDetails = ({ match }) => {
                                     <Col md={4} key={value.id}>
                                       <div className="pdbl__image">
                                         <figure>
-                                          <NavLink to={`/ecommerce/productDetails/${value.id}`}>
+                                          <Link to={`/ecommerce/productDetails/${value.id}`}>
                                             <img
                                               style={{ width: '100%' }}
                                               src={require(`../../../${value.img}`)}
                                               alt=""
                                             />
-                                          </NavLink>
+                                          </Link>
                                         </figure>
                                       </div>
                                     </Col>
@@ -174,7 +174,7 @@ const ProductDetails = ({ match }) => {
                           <FeatherIcon icon="share-2" size={14} />
                         </Button>
                       </div>
-                      <div className="pdbr__socials">
+                      <div>
                         <NavLink to="#">
                           <FeatherIcon icon="facebook" size={14} />
                         </NavLink>

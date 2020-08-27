@@ -92,7 +92,7 @@ const Product = ({ match }) => {
                     </div>
 
                     <div className="product-list-action__viewmode">
-                      <NavLink to={match.path}>
+                      <NavLink to={`${match.path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
                       <NavLink to={`${match.path}/list`}>
@@ -113,7 +113,8 @@ const Product = ({ match }) => {
                 }
               >
                 <Route exact path={match.path} component={Grid} />
-                <Route path={`${match.path}/:list`} component={List} />
+                <Route path={`${match.path}/grid`} component={Grid} />
+                <Route path={`${match.path}/list`} component={List} />
               </Suspense>
             </Switch>
           </Col>
