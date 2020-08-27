@@ -261,6 +261,7 @@ const CheckOut = () => {
                                   bodyStyle={{
                                     backgroundColor: '#F8F9FB',
                                     borderRadius: '20px',
+                                    border: '1px solid #F1F2F6',
                                   }}
                                 >
                                   <div className="supported-card d-flex">
@@ -316,10 +317,12 @@ const CheckOut = () => {
                                         </Select>
                                       </Form.Item>
                                       <Form.Item name="cvv" label="CVV">
-                                        <Input style={{ width: '60%' }} placeholder="XXX" />
-                                        <Link className="input-leftText" to="#">
-                                          What is this?
-                                        </Link>
+                                        <div className="cvv-wrap">
+                                          <Input style={{ width: '60%' }} placeholder="XXX" />
+                                          <Link className="input-leftText" to="#">
+                                            What is this?
+                                          </Link>
+                                        </div>
                                       </Form.Item>
                                     </Form>
                                   </Cards>
@@ -378,7 +381,7 @@ const CheckOut = () => {
                                 </div>
                               </Radio>
                             </Radio.Group>
-                            <Link to="#">+ Add New Address</Link>
+                            <Link className="btn-addNew" to="#">+ Add New Address</Link>
                           </article>
                         </Cards>
                       </div>
@@ -390,11 +393,7 @@ const CheckOut = () => {
                           <Radio.Group style={{ width: '100%' }}>
                             <Radio value="ms" style={{ width: '100%' }}>
                               <div className="method-info">
-                                <img
-                                  style={{ width: '40px' }}
-                                  src="https://www.mastercard.us/content/dam/mccom/et-ee/logos/logo-mastercard-mobile.svg"
-                                  alt=""
-                                />
+                                <img src={require('../../../static/img/ms.svg')} alt="" />
                                 **** **** **** 2597
                               </div>
                             </Radio>

@@ -1461,6 +1461,9 @@ const CheckoutWrapper = Styled.div`
                font-size: 15px;
            }
        }
+       input::placeholder{
+        color: ${({ theme }) => theme['extra-light-color']};
+       }
        .input-message{
            margin-top: 6px;
            display: inline-block;
@@ -1508,6 +1511,11 @@ const CheckoutWrapper = Styled.div`
                }
            }
            .shipping-selection__card{
+               .ant-card .ant-card{
+                   border: 0 none;
+                   border-radius: 20px;
+                   box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
+               }
                .ant-radio-wrapper{
                     .ant-radio{
                         margin-top: 30px;
@@ -1516,7 +1524,15 @@ const CheckoutWrapper = Styled.div`
                         padding: 0;
                     }
                }
-           }
+               .cvv-wrap{
+                   input{
+                       max-width: 120px;
+                   }
+                   .input-leftText{
+                       color: ${({ theme }) => theme['color-info']};
+                   }
+               }
+            }
            .shipping-selection__paypal{
                margin-bottom: 20px;
            }
@@ -1571,7 +1587,6 @@ const CheckoutWrapper = Styled.div`
        }
        
        .atbd-review-order__single{
-           box-shadow: 0 10px 30px ${({ theme }) => theme['gray-solid']}10;
            .ant-radio-wrapper{
                 display: flex;
                 align-items: flex-start;
@@ -1579,6 +1594,8 @@ const CheckoutWrapper = Styled.div`
             .ant-card{
                 .ant-card-body{
                     padding: 30px !important;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px ${({ theme }) => theme['gray-solid']}10;
                 }
             }
             h1{
@@ -1587,9 +1604,13 @@ const CheckoutWrapper = Styled.div`
                 margin-bottom: 28px;
             }
             .method-info{
-                margin-top: -4px;
+                margin-top: -2px;
                 font-weight: 500;
                 color: color: ${({ theme }) => theme['dark-color']}; 
+                img{
+                    margin-top: -4px;
+                    max-width: 40px;
+                }
             }
             .btn-addCard{
                 font-weight: 500
@@ -1642,6 +1663,7 @@ const CheckoutWrapper = Styled.div`
             h1{
                 display: flex;
                 justify-content: space-between;
+                color: ${({ theme }) => theme['gray-color']};
                 @media only screen and (max-width: 479px) {
                     flex-flow: column;
                 }
@@ -1662,7 +1684,6 @@ const CheckoutWrapper = Styled.div`
         }
 
         .atbd-review-order__shippingInfo{
-           
             .shipping-info-text{
                 margin: -4px 12px 0;
                 h1{
@@ -1671,8 +1692,14 @@ const CheckoutWrapper = Styled.div`
                     margin-bottom: 8px;
                 }
                 p{
+                    font-size: 15px;
                     color: ${({ theme }) => theme['gray-color']};
                 }
+            }
+            .btn-addNew{
+                font-size: 13px;
+                font-weight: 500;
+                color: ${({ theme }) => theme['info-color']};
             }
         }
    }
@@ -1728,6 +1755,7 @@ const CheckoutWrapper = Styled.div`
         }
         p{
             margin-bottom: 0;
+            color: ${({ theme }) => theme['gray-color']};
         }
    }
 `;

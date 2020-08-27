@@ -173,7 +173,7 @@ const ShoppingCart = ({ match }) => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Car  ds headless>
+            <Cards headless>
               <Row gutter={30}>
                 <Col xxl={17} xs={24}>
                   <Switch>
