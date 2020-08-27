@@ -275,6 +275,7 @@ const TopToolBox = Styled.div`
         .ant-radio-button-wrapper{
             height: 40px;
             line-height: 40px;
+            padding: 0 12.5px;
             &.active{
                 span{
                     color: ${({ theme }) => theme['primary-color']};
@@ -445,6 +446,9 @@ const TopToolBox = Styled.div`
     }
     .table-toolbox-actions{
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         @media only screen and (max-width: 991px){
             text-align: center !important;
         }
@@ -771,6 +775,11 @@ const ProductTable = Styled.div`
                         &:last-child{
                             text-align: right;
                         }
+                        .product-info-title{
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: ${({ theme }) => theme['dark-color']};
+                        }
                         .product-unit{
                             padding-left: 40px;
                         }
@@ -796,7 +805,7 @@ const ProductTable = Styled.div`
                     border-bottom: 0 none;
                     background:  ${({ theme }) => theme['bg-color-light']};
                     &:first-child{
-                        border-radius: 10px 0 0 10px;
+                        border-radius: 10px 0 0 10px !important;
                     }
                     &:last-child{
                         border-radius: 0 10px 10px 0 !important;
@@ -929,6 +938,9 @@ const OrderSummary = Styled.div`
     .ant-card{
         margin-bottom: 0 !important;
     }
+    .ant-card-body{
+        box-shadow: 0 10px 30px ${({ theme }) => theme['dark-color']}10;
+    }
     .ant-form-item{
         margin-bottom: 0;
     }
@@ -954,6 +966,11 @@ const OrderSummary = Styled.div`
     .invoice-summary-inner{
         .summary-list{
             margin: 22px 0;
+            li{
+                &:not(:last-child){
+                    margin-bottom: 12px;
+                }
+            }
         }
         .summary-total-amount{
             color: ${({ theme }) => theme['primary-color']} !important;
@@ -1186,6 +1203,10 @@ const AddProductForm = Styled.div`
 `;
 
 const InvoiceHeader = Styled.div`
+    margin: 50px 0;
+    .top-img{
+        max-width: 140px;
+    }
     figure{
         @media only screen and (max-width: 575px){
             text-align: center;
@@ -1193,7 +1214,7 @@ const InvoiceHeader = Styled.div`
     }
     .invoice-info{
         font-weight: 500;
-        line-height: 1.5;
+        line-height: 1.6;
         @media only screen and (max-width: 575px){
             text-align: center !important;
         }
@@ -1217,6 +1238,7 @@ const InvoiceLetterBox = Styled.div`
         }
         p{
             font-size: 15px;
+            font-weight: 500;
             margin-bottom: 4px;
         }
     }
@@ -1224,6 +1246,7 @@ const InvoiceLetterBox = Styled.div`
         max-width: 310px;
         margin: 0 auto;
         text-align: center;
+        border: 1px solid ${({ theme }) => theme['border-color-light']};
         @media only screen and (max-width: 991px){
             margin: 20px auto;
         }
@@ -1248,9 +1271,11 @@ const InvoiceLetterBox = Styled.div`
             font-weight: 500;
             text-transform: uppercase;
             margin-bottom: 5px;
+            color: ${({ theme }) => theme['dark-color']};
         }
         p{
             font-size: 15px;
+            margin-bottom: 0;
             color: ${({ theme }) => theme['gray-color']};
         }
     }
@@ -1258,7 +1283,7 @@ const InvoiceLetterBox = Styled.div`
 
 const InvoiceAction = Styled.div`
     text-align: right;
-    margin-top: 95px;
+    margin: 95px 0 15px;
     @media only screen and (max-width: 991px){
         margin-top: 50px;
     }
@@ -1266,8 +1291,9 @@ const InvoiceAction = Styled.div`
         text-align: center;
     }
     .ant-btn-default{
+        color: ${({ theme }) => theme['gray-color']};
         background: ${({ theme }) => theme['bg-color-light']};
-        border-color: ${({ theme }) => theme['border-color-light']};
+        border: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     button{
         padding: 0 25px !important;
@@ -1276,6 +1302,10 @@ const InvoiceAction = Styled.div`
         }
         @media only screen and (max-width: 479px){
             margin-bottom 10px;
+        }
+        svg,
+        i{
+            color: ${({ theme }) => theme['light-color']};
         }
     }
 `;

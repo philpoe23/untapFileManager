@@ -49,9 +49,22 @@
   display: inline !important;
   font-size: 12px;
   font-weight: 500;
-  background: #868EAE;
+  background-color: #868EAE10;
   padding: 4.5px 11.85px;
   border-radius: 15px;
+}
+
+.status.Success{
+  background-color: #20C99710;
+  color: #20C997;
+}
+.status.warning{
+  background-color: #FA8B0C10;
+  color: #FA8B0C;
+}
+.status.error{
+  background-color: #FF4D4F10;
+  color: #FF4D4F;
 }
 
 ul {
