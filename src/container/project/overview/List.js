@@ -130,6 +130,12 @@ const List = () => {
       key: 'status',
     },
     {
+      title: 'Completion',
+      dataIndex: 'completion',
+      key: 'completion',
+    },
+
+    {
       title: '',
       dataIndex: 'action',
       key: 'action',
