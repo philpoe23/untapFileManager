@@ -99,7 +99,7 @@ const EmailNavbar = ({ path }) => {
           </li>
           <li>
             <NavLink to={`${path}trash`}>
-              <FeatherIcon icon="trash" size={18} />
+              <FeatherIcon icon="trash-2" size={18} />
               <span className="nav-text">
                 <span>Trash</span>
               </span>

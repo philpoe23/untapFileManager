@@ -197,6 +197,40 @@ const Single = props => {
                     <p>256.5 KB</p>
                   </figcaption>
                 </figure>
+                <figure>
+                  <div className="attachment-image">
+                    <img src={require('../../../static/img/email/3.png')} alt="" />
+                  </div>
+                  <div className="attachment-hover">
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="download" />
+                    </Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="share-2" />
+                    </Link>
+                  </div>
+                  <figcaption>
+                    <Heading as="h4">Attached.zip</Heading>
+                    <p>256.5 KB</p>
+                  </figcaption>
+                </figure>
+                <figure>
+                  <div className="attachment-image">
+                    <img src={require('../../../static/img/email/4.png')} alt="" />
+                  </div>
+                  <div className="attachment-hover">
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="download" />
+                    </Link>
+                    <Link className="btn-link" to="#">
+                      <FeatherIcon icon="share-2" />
+                    </Link>
+                  </div>
+                  <figcaption>
+                    <Heading as="h4">Attached.pdf</Heading>
+                    <p>256.5 KB</p>
+                  </figcaption>
+                </figure>
               </div>
               <hr />
             </MessageDetails>

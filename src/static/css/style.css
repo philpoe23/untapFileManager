@@ -673,12 +673,15 @@ ul {
 
 .mail-props li {
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 }
 
 .mail-props li span:first-child {
   margin-right: 50px;
   min-width: 40px;
+}
+.mail-props li span:last-child {
+  color: #5A5F7D;
 }
 
 .mail-props li:last-child {
