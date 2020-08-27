@@ -64,7 +64,15 @@ const Orders = () => {
         key: key + 1,
         id: <span className="order-id">{orderId}</span>,
         customer: <span className="customer-name">{customers}</span>,
-        status: <span className="status">{status}</span>,
+        status: (
+          <span
+            className={`status ${
+              status === 'Shipped' ? 'Success' : status === 'Awaiting Shipment' ? 'warning' : 'error'
+            }`}
+          >
+            {status}
+          </span>
+        ),
         amount: <span className="ordered-amount">{amount}</span>,
         date: <span className="ordered-date">{date}</span>,
         action: (
