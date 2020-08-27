@@ -4,16 +4,17 @@ import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
+import { connect } from 'react-redux';
 import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import config from '../config/config';
+// import config from '../config/config';
 
 const { darkTheme } = require('../config/theme/themeVariables');
 
 const { Header, Footer, Sider, Content } = Layout;
-const { darkMode } = config;
+// const { darkMode } = config;
 
 const footerStyle = {
   padding: '20px 30px 18px',
@@ -62,16 +63,18 @@ const ThemeLayout = WrappedComponent => {
     }
 
     renderThumb = ({ style, ...props }) => {
+      const { ChangeLayoutMode } = this.props;
       const thumbStyle = {
         borderRadius: 6,
-        backgroundColor: darkMode ? '#ffffff16' : '#F1F2F6',
+        backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
       };
       return <div style={{ ...style, ...thumbStyle }} props={props} />;
     };
 
     render() {
       const { collapsed, hide, searchHide } = this.state;
-
+      const { ChangeLayoutMode } = this.props;
+      const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
         this.setState({
           collapsed: !collapsed,
@@ -109,9 +112,13 @@ const ThemeLayout = WrappedComponent => {
                   <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                     <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
-                  <NavLink to="/">
-                    <img src={require(`../static/img/logo.png`)} alt="" />
-                  </NavLink>
+                  <Link to="/">
+                    <img
+                      style={{ width: '120px' }}
+                      src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
+                      alt=""
+                    />
+                  </Link>
                 </Col>
 
                 <Col md={6} sm={0} xs={0}>
@@ -202,6 +209,12 @@ const ThemeLayout = WrappedComponent => {
     }
   }
 
-  return LayoutComponent;
+  const mapStateToProps = state => {
+    return {
+      ChangeLayoutMode: state.ChangeLayoutMode.data,
+    };
+  };
+
+  return connect(mapStateToProps)(LayoutComponent);
 };
 export default ThemeLayout;

@@ -83,7 +83,15 @@ const locationData = [
     sessions: '3,397',
     rate: '3.5%',
     completions: '225',
-    percentage: <Progress percent={70} status="active" showInfo={false} className="progress-dt progress-primary" />,
+    percentage: (
+      <Progress
+        percent={70}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-dt progress-primary"
+      />
+    ),
     value: '23.28%',
   },
   {
@@ -92,7 +100,15 @@ const locationData = [
     sessions: '5,578',
     rate: '2.4%',
     completions: '145',
-    percentage: <Progress percent={65} status="active" showInfo={false} className="progress-et progress-secondary" />,
+    percentage: (
+      <Progress
+        percent={65}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-et progress-secondary"
+      />
+    ),
     value: '65.55%',
   },
   {
@@ -101,7 +117,15 @@ const locationData = [
     sessions: '2,398',
     rate: '6.8%',
     completions: '120',
-    percentage: <Progress percent={83} status="active" showInfo={false} className="progress-ost progress-success" />,
+    percentage: (
+      <Progress
+        percent={83}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-ost progress-success"
+      />
+    ),
     value: '83.19%',
   },
   {
@@ -110,7 +134,9 @@ const locationData = [
     sessions: '3,397',
     rate: '1.5%',
     completions: '110',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-rt progress-info" />,
+    percentage: (
+      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-rt progress-info" />
+    ),
     value: '73.33%',
   },
   {
@@ -119,7 +145,15 @@ const locationData = [
     sessions: '4,247',
     rate: '3.6%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-smt progress-warning" />,
+    percentage: (
+      <Progress
+        percent={73}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-smt progress-warning"
+      />
+    ),
     value: '73.33%',
   },
   {
@@ -128,7 +162,9 @@ const locationData = [
     sessions: '6,354',
     rate: '3.5%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-ot progress-danger" />,
+    percentage: (
+      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-ot progress-danger" />
+    ),
     value: '73.33%',
   },
 ];

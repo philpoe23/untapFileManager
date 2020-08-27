@@ -8,6 +8,7 @@ import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
+import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const Content = ({ searchData, email }) => {
   const [state, setState] = useState({
@@ -43,7 +44,7 @@ const Content = ({ searchData, email }) => {
 
   const data = [];
   if (emails !== undefined)
-    emails.map(inbox => {
+    emails.map((inbox,key) => {
       // eslint-disable-next-line no-shadow
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
@@ -64,7 +65,8 @@ const Content = ({ searchData, email }) => {
         content: (
           <EmailHeader>
             <Heading as="h5">
-              {subject} <span className="mail-badge">{type}</span>
+              <Link>{subject}</Link>
+              <span className={`mail-badge ${key <= 1 ? 'primary' : ''}`}>{type}</span>
             </Heading>
             <p>{textRefactor(body, 10)}</p>
             {attach.length
@@ -167,12 +169,28 @@ const Content = ({ searchData, email }) => {
               </Link>
             </div>
             <div className="email-extra">
-              <NavLink to="/">
-                <FeatherIcon icon="sliders" size={18} />
-              </NavLink>
-              <NavLink to="/">
+              <Dropdown
+                content={
+                  <>
+                    <Link to="#">
+                      <span>Newest</span>
+                    </Link>
+                    <Link to="#">
+                      <span>Oldest</span>
+                    </Link>
+                    <Link to="#">
+                      <span>Unread</span>
+                    </Link>
+                  </>
+                }
+              >
+                <Link to="#">
+                  <FeatherIcon icon="sliders" size={18} />
+                </Link>
+              </Dropdown>
+              <Link to="#">
                 <FeatherIcon icon="more-vertical" size={18} />
-              </NavLink>
+              </Link>
             </div>
           </div>
         </>

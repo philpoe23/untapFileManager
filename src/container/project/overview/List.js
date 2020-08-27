@@ -38,7 +38,7 @@ const List = () => {
 
   if (projects.length)
     projects.map(value => {
-      const { id, title, status, category } = value;
+      const { id, title, status, category, percentage } = value;
       return dataSource.push({
         key: id,
         project: (
@@ -81,7 +81,7 @@ const List = () => {
         status: <span className={status}>{status}</span>,
         completion: (
           <div className="project-list-progress">
-            <Progress percent={84} status="active" />
+            <Progress percent={status === 'complete' ? 100 : percentage} status="active" />
             <p>12/15 Task Completed</p>
           </div>
         ),

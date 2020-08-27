@@ -632,7 +632,7 @@ const Ecommerce = () => {
                           },
                           ticks: {
                             beginAtZero: false,
-                            fontSize: 10,
+                            fontSize: 13,
                             display: true,
                           },
                         },
@@ -645,7 +645,7 @@ const Ecommerce = () => {
                           },
                           ticks: {
                             beginAtZero: false,
-                            fontSize: 11,
+                            fontSize: 13,
                             display: true,
                           },
                         },

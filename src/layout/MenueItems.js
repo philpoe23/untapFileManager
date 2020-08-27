@@ -3,11 +3,23 @@ import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { changeLayoutMode } from '../redux/themeLayout/actionCreator';
 
 const { SubMenu } = Menu;
 
 const MenueItems = ({ darkMode }) => {
   const pathArray = window.location.pathname.split('/');
+
+  const dispatch = useDispatch();
+
+  const modeChangeDark = () => {
+    dispatch(changeLayoutMode(true));
+  };
+
+  const modeChangeLight = () => {
+    dispatch(changeLayoutMode(false));
+  };
 
   return (
     <Menu
@@ -92,12 +104,20 @@ const MenueItems = ({ darkMode }) => {
       </Menu.Item>
 
       <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
-        <Menu.Item key="20">Sidebar with User</Menu.Item>
-        <Menu.Item key="21">Light Sidebar</Menu.Item>
-        <Menu.Item key="22">Dark Sidebar</Menu.Item>
-        <Menu.Item key="23">Light Topbar</Menu.Item>
+        {/* <Menu.Item key="20">Sidebar with User</Menu.Item> */}
+        <Menu.Item key="21">
+          <NavLink to="#" onClick={modeChangeLight}>
+            Light Sidebar
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="22">
+          <NavLink to="#" onClick={modeChangeDark}>
+            Dark Sidebar
+          </NavLink>
+        </Menu.Item>
+        {/* <Menu.Item key="23">Light Topbar</Menu.Item>
         <Menu.Item key="24">Dark Topbar</Menu.Item>
-        <Menu.Item key="25">Sidebar Collapsed</Menu.Item>
+        <Menu.Item key="25">Sidebar Collapsed</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="profile" icon={<FeatherIcon icon="user" />} title="Profile">

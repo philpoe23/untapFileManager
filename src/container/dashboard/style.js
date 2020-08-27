@@ -825,8 +825,8 @@ const LocationMapWrapper = Styled.div`
     .location-map{
         padding: 20px 0;
         svg{
-            width: 300px;
-            height: 215px;
+            width: 320px;
+            height: 160px;
             @media only screen and (max-width: 991px){
                height: 100%;
                width: auto;
@@ -879,6 +879,7 @@ const RevenueWrapper = Styled.div`
 
     .chart-label{
         justify-content: flex-start;
+        margin-bottom: 26px;
     }
 
     >.ant-card{

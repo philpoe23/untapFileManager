@@ -39,7 +39,7 @@ const Grid = () => {
     <Row gutter={25}>
       {projects.length ? (
         projects.map(value => {
-          const { id, title, status, content } = value;
+          const { id, title, status, content, percentage } = value;
           return (
             <Col key={id} lg={8} xs={24}>
               <ProjectCard>
@@ -47,9 +47,7 @@ const Grid = () => {
                   <div className="project-title">
                     <h1>
                       <Link to={`/projectDetails/${id}`}>{title}</Link>
-                      <Tag className={status} color="#f50">
-                        {status}
-                      </Tag>
+                      <Tag className={status}>{status}</Tag>
                     </h1>
                     <Dropdown
                       content={
@@ -78,7 +76,12 @@ const Grid = () => {
                     </div>
                   </div>
                   <div className="project-progress">
-                    <Progress percent={84} status="primary" />
+                    <Progress
+                      percent={status === 'complete' ? 100 : percentage}
+                      strokeWidth={5}
+                      status="primary"
+                      className="progress-primary"
+                    />
                     <p>12/15 Task Completed</p>
                   </div>
                   <div className="project-assignees">
@@ -113,12 +116,12 @@ const Grid = () => {
           );
         })
       ) : (
-          <Col md={24}>
-            <Cards headless>
-              <Heading>Data Not Found!</Heading>
-            </Cards>
-          </Col>
-        )}
+        <Col md={24}>
+          <Cards headless>
+            <Heading>Data Not Found!</Heading>
+          </Cards>
+        </Col>
+      )}
       <Col md={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (

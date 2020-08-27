@@ -679,7 +679,7 @@ const ChartjsDonutChart2 = props => {
   let counter = 0;
   return (
     <div>
-      <Doughnut ref={ref} data={dataInfo} height={height} options={options} />
+      <Doughnut ref={ref} data={dataInfo} height={height} options={options} width="auto" />
 
       <div className="align-center-v justify-content-between rd-labels">
         <div className="revenue-chat-label">
@@ -723,6 +723,7 @@ const ChartjsDonutChart2 = props => {
 
 ChartjsDonutChart2.defaultProps = {
   height: 220,
+  // width: 220,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
   datasets: [
     {

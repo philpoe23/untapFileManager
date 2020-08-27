@@ -3,6 +3,7 @@ import themeUsersReducer from './themeUsers/reducers';
 import { readMessageReducer } from './message/reducers';
 import { readNotificationReducer } from './notification/reducers';
 import authReducer from './authentication/reducers';
+import ChangeLayoutMode from './themeLayout/reducers';
 import { teamReducer } from './team/reducers';
 import { userReducer } from './users/reducers';
 import { sellersReducer } from './sellers/reducers';
@@ -35,6 +36,7 @@ const rootReducers = combineReducers({
   groupChat: groupChatReducer,
   projects: projectReducer,
   project: SingleProjectReducer,
+  ChangeLayoutMode,
 });
 
 export default rootReducers;
