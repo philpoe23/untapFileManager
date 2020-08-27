@@ -89,7 +89,7 @@ const List = () => {
                           <span className="total-reviews"> 778 Reviews</span>
                         </div>
                         <div className="product-single-action">
-                          <Button className="btn-cart" size="small" type="light" outlined>
+                          <Button className="btn-cart" size="small" type="white" outlined>
                             <FeatherIcon icon="shopping-bag" size={14} />
                             Add To Cart
                           </Button>

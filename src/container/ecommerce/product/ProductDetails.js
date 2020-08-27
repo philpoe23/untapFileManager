@@ -162,10 +162,10 @@ const ProductDetails = ({ match }) => {
 
                     <div className="pdbr__Actions d-flex align-items-center">
                       <div className="pdbr__product-action">
-                        <Button size="default" type="primary">
+                        <Button className="btn-buy" size="default" type="primary">
                           Buy Now
                         </Button>
-                        <Button size="default" type="secondary">
+                        <Button className="btn-cart" size="default" type="secondary">
                           <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
                         </Button>
                         <Button className="btn-icon" size="default" raised type="white" shape="circle">

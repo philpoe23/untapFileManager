@@ -159,12 +159,12 @@ const Orders = () => {
             <Col xs={24}>
               <TopToolBox>
                 <Row gutter={15} className="justify-content-center">
-                  <Col lg={5} xs={24}>
+                  <Col lg={6} xs={24}>
                     <div className="table-search-box">
                       <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col xxl={15} lg={13} xs={24}>
+                  <Col xxl={14} lg={13} xs={24}>
                     <div className="table-toolbox-menu">
                       Status:
                       <Radio.Group onChange={handleChangeForFilter} defaultValue="">
@@ -186,7 +186,7 @@ const Orders = () => {
                         Export
                       </Button>
                       <Button size="small" type="primary">
-                        + Add Order
+                        <FeatherIcon icon="plus" size={12} /> Add Order
                       </Button>
                     </div>
                   </Col>
@@ -196,7 +196,7 @@ const Orders = () => {
           </Row>
           <Row gutter={15}>
             <Col md={24}>
-              <TableWrapper className="table-responsive">
+              <TableWrapper className="table-order table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}

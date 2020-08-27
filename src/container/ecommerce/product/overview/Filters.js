@@ -103,7 +103,7 @@ const Filters = () => {
     {
       label: (
         <>
-          Cup <span>25</span>
+          Cup <span className="brand-count">25</span>
         </>
       ),
       value: 'cup',
@@ -111,7 +111,7 @@ const Filters = () => {
     {
       label: (
         <>
-          Plate <span>25</span>
+          Plate <span className="brand-count">25</span>
         </>
       ),
       value: 'plate',
@@ -119,7 +119,7 @@ const Filters = () => {
     {
       label: (
         <>
-          Chair <span>25</span>
+          Chair <span className="brand-count">25</span>
         </>
       ),
       value: 'chair',
@@ -127,7 +127,7 @@ const Filters = () => {
     {
       label: (
         <>
-          Juice <span>25</span>
+          Juice <span className="brand-count">25</span>
         </>
       ),
       value: 'juice',
@@ -151,7 +151,7 @@ const Filters = () => {
         <SidebarSingle style={{ marginBottom: 32 }}>
           <Heading as="h5">Price Range</Heading>
           <Slider max={1500} onChange={onChange} range defaultValues={[min, max]} />
-          <p>
+          <p className="price-range-text">
             ${min} - ${max}
           </p>
         </SidebarSingle>
