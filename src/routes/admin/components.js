@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 const Button = lazy(() => import('../../container/ui-elements/Button'));
 const Alerts = lazy(() => import('../../container/ui-elements/Alerts'));
@@ -49,54 +49,56 @@ const Menu = lazy(() => import('../../container/ui-elements/Menu'));
 const Upload = lazy(() => import('../../container/ui-elements/Upload'));
 
 const ComponentRoute = () => {
+  const { path } = useRouteMatch();
+
   return (
     <Switch>
-      <Route path="/components/button" component={Button} />
-      <Route path="/components/alerts" component={Alerts} />
-      <Route path="/components/modals" component={Modals} />
-      <Route path="/components/cards" component={Cards} />
-      <Route path="/components/grid" component={Grid} />
-      <Route path="/components/tabs" component={Tabs} />
-      <Route path="/components/breadcrumb" component={Breadcrumb} />
-      <Route path="/components/list" component={List} />
-      <Route path="/components/pagination" component={Pagination} />
-      <Route path="/components/page-headers" component={PageHeader} />
-      <Route path="/components/steps" component={Steps} />
-      <Route path="/components/comments" component={Comments} />
-      <Route path="/components/empty" component={Empty} />
-      <Route path="/components/statistic" component={Statistic} />
-      <Route path="/components/rate" component={Rate} />
-      <Route path="/components/slider" component={Slider} />
-      <Route path="/components/progress" component={Progress} />
-      <Route path="/components/tags" component={Tags} />
-      <Route path="/components/dropdown" component={Dropdown} />
-      <Route path="/components/popover" component={Popover} />
-      <Route path="/components/timeline" component={Timeline} />
-      <Route path="/components/drawer" component={Drawer} />
-      <Route path="/components/notification" component={Notification} />
-      <Route path="/components/result" component={Result} />
-      <Route path="/components/spiner" component={Spiner} />
-      <Route path="/components/carousel" component={Carousel} />
-      <Route path="/components/collapse" component={Collapse} />
-      <Route path="/components/avatar" component={Avatar} />
-      <Route path="/components/badge" component={Badge} />
-      <Route path="/components/auto-complete" component={AutoComplete} />
-      <Route path="/components/checkbox" component={Checkbox} />
-      <Route path="/components/cascader" component={Cascader} />
-      <Route path="/components/date-picker" component={DatePicker} />
-      <Route path="/components/radio" component={Radio} />
-      <Route path="/components/switch" component={Switches} />
-      <Route path="/components/select" component={Selects} />
-      <Route path="/components/timePicker" component={TimePicker} />
-      <Route path="/components/tree-select" component={TreeSelect} />
-      <Route path="/components/calendar" component={Calendar} />
-      <Route path="/components/form" component={Form} />
-      <Route path="/components/skeleton" component={Skeleton} />
-      <Route path="/components/input" component={Input} />
-      <Route path="/components/message" component={Message} />
-      <Route path="/components/confirme" component={Confirme} />
-      <Route path="/components/menu" component={Menu} />
-      <Route path="/components/upload" component={Upload} />
+      <Route path={`${path}/button`} component={Button} />
+      <Route path={`${path}/alerts`} component={Alerts} />
+      <Route path={`${path}/modals`} component={Modals} />
+      <Route path={`${path}/cards`} component={Cards} />
+      <Route path={`${path}/grid`} component={Grid} />
+      <Route path={`${path}/tabs`} component={Tabs} />
+      <Route path={`${path}/breadcrumb`} component={Breadcrumb} />
+      <Route path={`${path}/list`} component={List} />
+      <Route path={`${path}/pagination`} component={Pagination} />
+      <Route path={`${path}/page-headers`} component={PageHeader} />
+      <Route path={`${path}/steps`} component={Steps} />
+      <Route path={`${path}/comments`} component={Comments} />
+      <Route path={`${path}/empty`} component={Empty} />
+      <Route path={`${path}/statistic`} component={Statistic} />
+      <Route path={`${path}/rate`} component={Rate} />
+      <Route path={`${path}/slider`} component={Slider} />
+      <Route path={`${path}/progress`} component={Progress} />
+      <Route path={`${path}/tags`} component={Tags} />
+      <Route path={`${path}/dropdown`} component={Dropdown} />
+      <Route path={`${path}/popover`} component={Popover} />
+      <Route path={`${path}/timeline`} component={Timeline} />
+      <Route path={`${path}/drawer`} component={Drawer} />
+      <Route path={`${path}/notification`} component={Notification} />
+      <Route path={`${path}/result`} component={Result} />
+      <Route path={`${path}/spiner`} component={Spiner} />
+      <Route path={`${path}/carousel`} component={Carousel} />
+      <Route path={`${path}/collapse`} component={Collapse} />
+      <Route path={`${path}/avatar`} component={Avatar} />
+      <Route path={`${path}/badge`} component={Badge} />
+      <Route path={`${path}/auto-complete`} component={AutoComplete} />
+      <Route path={`${path}/checkbox`} component={Checkbox} />
+      <Route path={`${path}/cascader`} component={Cascader} />
+      <Route path={`${path}/date-picker`} component={DatePicker} />
+      <Route path={`${path}/radio`} component={Radio} />
+      <Route path={`${path}/switch`} component={Switches} />
+      <Route path={`${path}/select`} component={Selects} />
+      <Route path={`${path}/timePicker`} component={TimePicker} />
+      <Route path={`${path}/tree-select`} component={TreeSelect} />
+      <Route path={`${path}/calendar`} component={Calendar} />
+      <Route path={`${path}/form`} component={Form} />
+      <Route path={`${path}/skeleton`} component={Skeleton} />
+      <Route path={`${path}/input`} component={Input} />
+      <Route path={`${path}/message`} component={Message} />
+      <Route path={`${path}/confirme`} component={Confirme} />
+      <Route path={`${path}/menu`} component={Menu} />
+      <Route path={`${path}/upload`} component={Upload} />
     </Switch>
   );
 };

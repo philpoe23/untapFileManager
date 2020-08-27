@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 const NotFound = lazy(() => import('../../container/pages/404'));
 const Maintenance = lazy(() => import('../../container/pages/Maintenance'));
@@ -13,18 +13,19 @@ const DataTable = lazy(() => import('../../container/pages/UserListDataTable'));
 const Team = lazy(() => import('../../container/pages/Team'));
 
 const PagesRoute = () => {
+  const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path="/pages/404" component={NotFound} />
-      <Route path="/pages/maintenance" component={Maintenance} />
-      <Route path="/pages/Pricing" component={Pricing} />
-      <Route path="/pages/gallery" component={Gallery} />
-      <Route path="/pages/faq" component={Faq} />
-      <Route path="/pages/search" component={Search} />
-      <Route path="/pages/users" component={Users} />
-      <Route path="/pages/add-user" component={AddUser} />
-      <Route path="/pages/dataTable" component={DataTable} />
-      <Route path="/pages/team" component={Team} />
+      <Route path={`${path}/404`} component={NotFound} />
+      <Route path={`${path}/maintenance`} component={Maintenance} />
+      <Route path={`${path}/Pricing`} component={Pricing} />
+      <Route path={`${path}/gallery`} component={Gallery} />
+      <Route path={`${path}/faq`} component={Faq} />
+      <Route path={`${path}/search`} component={Search} />
+      <Route path={`${path}/users`} component={Users} />
+      <Route path={`${path}/add-user`} component={AddUser} />
+      <Route path={`${path}/dataTable`} component={DataTable} />
+      <Route path={`${path}/team`} component={Team} />
     </Switch>
   );
 };

@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import { Route } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 
 const Product = lazy(() => import('../../container/ecommerce/product/Products'));
 const ProductAdd = lazy(() => import('../../container/ecommerce/product/AddProduct'));
@@ -12,16 +12,17 @@ const Sellers = lazy(() => import('../../container/ecommerce/Sellers'));
 const Cart = lazy(() => import('../../container/ecommerce/Cart'));
 
 const EcommerceRoute = () => {
+  const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path="/ecommerce/products" component={Product} />
-      <Route path="/ecommerce/add-product" component={ProductAdd} />
-      <Route path="/ecommerce/edit-product" component={ProductEdit} />
-      <Route path="/ecommerce/productDetails/:id" component={ProductDetails} />
-      <Route path="/ecommerce/Invoice" component={Invoice} />
-      <Route path="/ecommerce/orders" component={Orders} />
-      <Route path="/ecommerce/sellers" component={Sellers} />
-      <Route path="/ecommerce/cart" component={Cart} />
+      <Route exact path={`${path}`} component={Product} />
+      <Route exact path={`${path}/add-product`} component={ProductAdd} />
+      <Route exact path={`${path}/edit-product`} component={ProductEdit} />
+      <Route exact path={`${path}/productDetails/:id`} component={ProductDetails} />
+      <Route exact path={`${path}/invoice`} component={Invoice} />
+      <Route exact path={`${path}/orders`} component={Orders} />
+      <Route exact path={`${path}/sellers`} component={Sellers} />
+      <Route exact path={`${path}/cart`} component={Cart} />
     </Switch>
   );
 };

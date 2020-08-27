@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 const ChartJs = lazy(() => import('../../container/charts/ChartJs'));
 const GoogleChart = lazy(() => import('../../container/charts/GoogleCharts'));
@@ -13,18 +13,20 @@ const RechartsRadar = lazy(() => import('../../container/charts/recharts/Radar')
 const RechartsRadial = lazy(() => import('../../container/charts/recharts/Radial'));
 
 const ChartRoute = () => {
+  const { path } = useRouteMatch();
+
   return (
     <Switch>
-      <Route path="/charts/chartjs" component={ChartJs} />
-      <Route path="/charts/google-chart" component={GoogleChart} />
-      <Route path="/charts/recharts/bar" component={RechartsBarChart} />
-      <Route path="/charts/recharts/area" component={RechartsAreaChart} />
-      <Route path="/charts/recharts/composed" component={RechartsComposed} />
-      <Route path="/charts/recharts/line" component={RechartsLine} />
-      <Route path="/charts/recharts/pie" component={RechartsPie} />
-      <Route path="/charts/recharts/radar" component={RechartsRadar} />
-      <Route path="/charts/recharts/radial" component={RechartsRadial} />
-      <Route path="/charts/peity" component={Peity} />
+      <Route path={`${path}/chartjs`} component={ChartJs} />
+      <Route path={`${path}/google-chart`} component={GoogleChart} />
+      <Route path={`${path}/recharts/bar`} component={RechartsBarChart} />
+      <Route path={`${path}/recharts/area`} component={RechartsAreaChart} />
+      <Route path={`${path}/recharts/composed`} component={RechartsComposed} />
+      <Route path={`${path}/recharts/line`} component={RechartsLine} />
+      <Route path={`${path}/recharts/pie`} component={RechartsPie} />
+      <Route path={`${path}/recharts/radar`} component={RechartsRadar} />
+      <Route path={`${path}/recharts/radial`} component={RechartsRadial} />
+      <Route path={`${path}/peity`} component={Peity} />
     </Switch>
   );
 };
