@@ -10,9 +10,9 @@ const MapRoutes = () => {
 
   return (
     <Switch>
-      <Route exact path={`${path}/google"`} component={GoogleMaps} />
+      <Route exact path={`${path}/google`} component={GoogleMaps} />
       <Route exact path={`${path}/leaflet`} component={Osm} />
-      <Route exact path={`${path}/vector"`} component={Vector} />
+      <Route exact path={`${path}/vector`} component={Vector} />
     </Switch>
   );
 };

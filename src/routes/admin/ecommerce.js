@@ -15,7 +15,7 @@ const EcommerceRoute = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route exact path={`${path}`} component={Product} />
+      <Route exact path={`${path}/products`} component={Product} />
       <Route exact path={`${path}/add-product`} component={ProductAdd} />
       <Route exact path={`${path}/edit-product`} component={ProductEdit} />
       <Route exact path={`${path}/productDetails/:id`} component={ProductDetails} />

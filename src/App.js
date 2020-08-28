@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './redux/store';
 import Admin from './routes/admin';
+import Auth from './routes/auth';
 import './static/css/style.css';
 import config from './config/config';
 
@@ -16,6 +17,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Router>
+          <Route exact path="/" component={Auth} />
           <Route path="/admin" component={Admin} />
         </Router>
       </Provider>
