@@ -7,6 +7,7 @@
         "time": 1588219733771,
         "status": true,
         "img": "https://www.w3schools.com/howto/img_avatar.png",
+        "active": true,
         "content": [
           {
             "content": "Jam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua.",
@@ -51,6 +52,7 @@
         "time": 1588219733771,
         "status": true,
         "img": "https://www.w3schools.com/howto/img_avatar.png",
+        "active": false,
         "content": [
           {
             "content": "Jam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua.",
@@ -95,6 +97,7 @@
         "time": 1588219733771,
         "status": true,
         "img": "https://www.w3schools.com/howto/img_avatar.png",
+        "active": true,
         "content": [
           {
             "content": "Jam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua.",
@@ -139,6 +142,7 @@
         "time": 1588219733771,
         "status": true,
         "img": "https://www.w3schools.com/howto/img_avatar.png",
+        "active": true,
         "content": [
           {
             "content": "Jam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua.",
@@ -183,6 +187,7 @@
         "time": 1588219733771,
         "status": true,
         "img": "https://www.w3schools.com/howto/img_avatar.png",
+        "active": false,
         "content": [
           {
             "content": "Jam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua.",

@@ -40,7 +40,7 @@ const Grid = () => {
     <Row gutter={25}>
       {projects.length ? (
         projects.map(value => {
-          const { id, title, status, content } = value;
+          const { id, title, status, content, percentage } = value;
           return (
             <Col key={id} lg={8} xs={24}>
               <ProjectCard>
@@ -79,7 +79,12 @@ const Grid = () => {
                     </div>
                   </div>
                   <div className="project-progress">
-                    <Progress percent={84} status="primary" />
+                    <Progress
+                      percent={status === 'complete' ? 100 : percentage}
+                      strokeWidth={5}
+                      status="primary"
+                      className="progress-primary"
+                    />
                     <p>12/15 Task Completed</p>
                   </div>
                   <div className="project-assignees">

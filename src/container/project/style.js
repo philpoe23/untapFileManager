@@ -31,7 +31,7 @@ const ProjectSorting = Styled.div`
         .project-sort-group{
             padding: 0 10px;
         }
-        
+
         .project-sort-group{
             margin-left: auto;
         }
@@ -217,6 +217,27 @@ const ProjectCard = Styled.div`
                 color: ${({ theme }) => theme['dark-color']};
                 margin-right: 11px;
             }
+            .ant-tag{
+                text-transform: uppercase;
+                font-size: 10px;
+                margin-right: 0;
+                line-height: 18px;
+                background: red;
+                color: #fff;
+                border: 0 none;
+                &.early{
+                    background: ${({ theme }) => theme['primary-color']};
+                }
+                &.progress{
+                    background: ${({ theme }) => theme['danger-color']};
+                }
+                &.late{
+                    background: ${({ theme }) => theme['warning-color']};
+                }
+                &.complete{
+                    background: ${({ theme }) => theme['success-color']};
+                }
+            }
         }
         .ant-dropdown-trigger{
             color: ${({ theme }) => theme['extra-light-color']};
@@ -239,6 +260,7 @@ const ProjectCard = Styled.div`
             }
             span{
                 color: ${({ theme }) => theme['gray-solid']};
+                font-size: 12px;
             }
             strong{
                 font-weight: 500;
@@ -292,6 +314,9 @@ const ProjectListTitle = Styled.div`
         font-size: 15px;
         font-weight: 500;
         margin-bottom: 5px;
+        a{
+            color: ${({ theme }) => theme['dark-color']};
+        }
     }
     p{
         margin: 0;
@@ -320,7 +345,7 @@ const ProjectListAssignees = Styled.div`
 `;
 
 const ProjectList = Styled.div`
-    
+
     .project-list-progress{
         p{
             margin: 0;
@@ -694,7 +719,7 @@ const TaskLists = Styled.div`
                         padding-right: 25px;
                     }
                     .task-title{
-                        color: ${({ theme }) => theme['gray-color']}; 
+                        color: ${({ theme }) => theme['gray-color']};
                     }
                     .task-created{
                         font-size: 12px;
@@ -828,15 +853,15 @@ const ActivitiesWrapper = Styled.div`
 `;
 
 export {
-    ProjectHeader,
-    ProjectSorting,
-    ProjectCard,
-    ProjectPagination,
-    ProjectListTitle,
-    ProjectListAssignees,
-    ProjectList,
-    ProjectDetailsWrapper,
-    TaskLists,
-    TasklistAction,
-    ActivitiesWrapper,
+  ProjectHeader,
+  ProjectSorting,
+  ProjectCard,
+  ProjectPagination,
+  ProjectListTitle,
+  ProjectListAssignees,
+  ProjectList,
+  ProjectDetailsWrapper,
+  TaskLists,
+  TasklistAction,
+  ActivitiesWrapper,
 };

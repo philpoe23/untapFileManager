@@ -107,7 +107,7 @@ const Main = Styled.div`
     }
     .ant-collapse .ant-collapse-header{
         color: #5A5F7D !important;
-        background-color: #F8F9FB;
+        /* background-color: #F8F9FB; */
         padding: 12px 16px 10px 45px !important;
     }
     .ant-collapse-content p{
@@ -121,7 +121,7 @@ const Main = Styled.div`
         padding: 10.5px 20px;
     }
     .ant-collapse.ant-collapse-borderless{
-        background-color: #F8F9FB;
+        background-color: #fff;
     }
     .ant-collapse > .ant-collapse-item,
     .ant-collapse .ant-collapse-content{
@@ -295,7 +295,7 @@ const AlertList = Styled.div`
     margin-top: -15px;
     .alert-empty-message{
         .ant-alert-message{
-            display: none;
+            display: none !important;
         }
     }
 `;
@@ -436,7 +436,13 @@ const BasicFormWrapper = Styled.div`
     .setting-form-actions{
         margin: 48px 0 14px;
         button{
+            border-radius: 6px;
+            height: 44px;
             margin-bottom: 14px;
+            &.ant-btn-light{
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
+                background-color: ${({ theme }) => theme['bg-color-light']};
+            }
         }
     }
 `;
@@ -543,6 +549,36 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    &.table-order{
+        .ant-table-selection{
+            .ant-checkbox-indeterminate{
+                .ant-checkbox-inner{
+                    background: ${({ theme }) => theme['primary-color']};
+                    border-color: ${({ theme }) => theme['primary-color']};
+                    &:after{
+                        height: 2px;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        .ant-table-container{
+            padding-bottom: 25px;
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        }
+        tbody{
+            tr{
+                &:hover{
+                    td{
+                        background: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+            }
+        }
+        .ant-pagination{
+            margin-top: 25px !important;
+        }
+    }
     table{
         thead{
             tr{
@@ -668,21 +704,21 @@ const TableWrapper = Styled.div`
 `;
 
 export {
-    Main,
-    ButtonsGroupWrapper,
-    BlockButtonsWrapper,
-    ButtonSizeWrapper,
-    BtnWithIcon,
-    AlertList,
-    AutoCompleteWrapper,
-    CalendarWrapper,
-    DatePickerWrapper,
-    NotificationListWrapper,
-    TagInput,
-    PageHeaderWrapper,
-    MessageStyleWrapper,
-    BasicFormWrapper,
-    CardToolbox,
-    FormGroupWrapper,
-    TableWrapper,
+  Main,
+  ButtonsGroupWrapper,
+  BlockButtonsWrapper,
+  ButtonSizeWrapper,
+  BtnWithIcon,
+  AlertList,
+  AutoCompleteWrapper,
+  CalendarWrapper,
+  DatePickerWrapper,
+  NotificationListWrapper,
+  TagInput,
+  PageHeaderWrapper,
+  MessageStyleWrapper,
+  BasicFormWrapper,
+  CardToolbox,
+  FormGroupWrapper,
+  TableWrapper,
 };

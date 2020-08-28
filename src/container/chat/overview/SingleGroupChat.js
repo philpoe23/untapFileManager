@@ -17,7 +17,7 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleGroupChat = ({ match }) => {
   const dispatch = useDispatch();
-  const chat = useSelector(state => state.chatSingle.data);
+  const chat = useSelector(state => state.chatSingleGroup.data);
 
   const [state, setState] = useState({
     chatData: chat,
@@ -63,7 +63,7 @@ const SingleGroupChat = ({ match }) => {
       email: me,
       userName: 'Woadud Akand',
     };
-    dispatch(updateGroupChat(match.params.id, pushcontent));
+    dispatch(updateGroupChat(parseInt(match.params.id, 10), pushcontent));
     setState({
       ...state,
       singleContent: [...singleContent, pushcontent],
@@ -89,11 +89,11 @@ const SingleGroupChat = ({ match }) => {
   );
 
   return (
-    <SingleChatWrapper>
+    <SingleChatWrapper className="group-chat">
       <Cards
         title={
           <div className="group-chat-header d-flex">
-            <Heading as="h5">{name}+faming</Heading>
+            <Heading as="h5">{name}</Heading>
             <div className="members">
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />

@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-  margin-bottom: 30px;   
+  margin-bottom: 30px;
   .ant-table{
     padding-bottom: 30px;
     border-radius: 10px;
@@ -18,7 +18,7 @@ const Style = Styled(Table)`
       }
     }
     .ant-table-selection-extra{
-      right: -15px;   
+      right: -15px;
     }
   }
   .ant-table-thead{
@@ -117,7 +117,7 @@ const Style = Styled(Table)`
       }
     }
   }
-  
+
   .ant-table-tbody{
     .ant-table-cell{
       white-space: normal !important;
@@ -341,12 +341,17 @@ const EmailNav = Styled.nav`
         border-radius: 4px;
         color: ${({ theme }) => theme['gray-color']};
         svg{
+          min-width: 18px;
           margin-right: 20px;
           color: ${({ theme }) => theme['extra-light-color']};
         }
         &.active{
           background: rgba(95,99,242,0.1);
           color: ${({ theme }) => theme['primary-color']};
+          svg,
+          i{
+            color: ${({ theme }) => theme['primary-color']};
+          }
         }
       }
 
@@ -354,6 +359,10 @@ const EmailNav = Styled.nav`
         a{
           background: rgba(95,99,242,0.1);
           color: ${({ theme }) => theme['primary-color']};
+          svg,
+          i{
+            color: ${({ theme }) => theme['primary-color']};
+          }
         }
       }
       .nav-text{
@@ -409,10 +418,12 @@ const EmailNav = Styled.nav`
   .nav-labels{
     margin-top: 35px;
     p{
+      font-size: 12px;
       text-align: left;
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
+      text-align: left;
     }
     ul{
       margin-top: 6px;
@@ -468,6 +479,7 @@ const MessageAction = Styled.div`
       height: 25px;
     }
     svg{
+      width: 16px;
       color: ${({ theme }) => theme['gray-solid']};
     }
     &:hover{

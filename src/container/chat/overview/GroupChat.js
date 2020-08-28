@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
+import { Badge } from 'antd';
 import { BlockSpan, ChatWrapper } from '../style';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { filterSinglepageGroup } from '../../../redux/chat/actionCreator';
@@ -32,7 +33,7 @@ const GroupChat = ({ match }) => {
             .sort((a, b) => {
               return b.time - a.time;
             })
-            .map(user => {
+            .map((user, key) => {
               const { groupName, content, id } = user;
               const { time } = content[content.length - 1];
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
@@ -50,7 +51,8 @@ const GroupChat = ({ match }) => {
                       </BlockSpan>
                     </div>
                     <div className="author-chatMeta">
-                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</BlockSpan>
+                      <BlockSpan>{same ? moment(id).format('hh:mm A') : moment(id).format('dddd')}</BlockSpan>
+                      {key <= 1 && <Badge className="badge-success" count={3} />}
                     </div>
                   </NavLink>
                 </li>

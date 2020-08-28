@@ -8,10 +8,10 @@ import propTypes from 'prop-types';
 import { MailBox } from './style';
 import { Button } from '../../../components/buttons/buttons';
 
-const MailComposer = ({ onChange, onSend }) => {
+const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
-    tags: [],
+    tags: defaultTag ? [defaultTag] : [],
   });
 
   const onChanges = value => {
@@ -32,14 +32,18 @@ const MailComposer = ({ onChange, onSend }) => {
   return (
     <MailBox>
       <div className="body">
-        <div className="group">
-          <TagsInput
-            inputProps={{
-              placeholder: 'To',
-            }}
-            value={state.tags}
-            onChange={handleChange}
-          />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {!replay ? null : <span>Replay To</span>}
+            <TagsInput
+              inputProps={{
+                placeholder: replay ? null : 'To',
+              }}
+              value={state.tags}
+              onChange={handleChange}
+            />
+          </div>
+          <span>Cc</span>
         </div>
         <div className="group">
           <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />
@@ -52,15 +56,15 @@ const MailComposer = ({ onChange, onSend }) => {
             Send
           </Button>
           <NavLink to="/">
-            <FeatherIcon icon="paperclip" size={18} />
+            <FeatherIcon icon="paperclip" size={16} />
           </NavLink>
           <NavLink to="/">
-            <FeatherIcon icon="alert-circle" size={18} />
+            <FeatherIcon icon="alert-circle" size={16} />
           </NavLink>
         </div>
         <div className="right">
           <NavLink to="/">
-            <FeatherIcon icon="trash-2" size={18} />
+            <FeatherIcon icon="trash-2" size={16} />
           </NavLink>
         </div>
       </div>
@@ -70,6 +74,7 @@ const MailComposer = ({ onChange, onSend }) => {
 MailComposer.propTypes = {
   onChange: propTypes.func.isRequired,
   onSend: propTypes.func.isRequired,
+  defaultTag: propTypes.string,
 };
 
 export default MailComposer;

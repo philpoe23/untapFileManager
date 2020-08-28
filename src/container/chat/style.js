@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 const ChatWrapper = Styled.div`
   .create-action{
     padding: 0 25px;
-    margin-bottom: 18px;
+    margin: 25px 0 18px;
     @media only screen and (max-width: 379px){
       padding: 0 20px;
     }
@@ -13,6 +13,12 @@ const ChatWrapper = Styled.div`
       text-align: center;
       border: 1px solid ${({ theme }) => theme['border-color-light']};
       background: ${({ theme }) => theme['bg-color-light']};
+      color: ${({ theme }) => theme['gray-color']};
+      svg,
+      img,
+      i{
+        margin-right: 4px;
+      }
     }
   }
 `;
@@ -32,11 +38,6 @@ const Content = Styled.div`
     border-radius: 4px;
     width: 100%;
     margin: 0;
-    &:last-child{
-      a{
-        padding-bottom: 0;
-      }
-    }
     &:before{
       content: '';
       position: absolute;
@@ -80,9 +81,15 @@ const Content = Styled.div`
     .author-chatMeta{
       flex: .14;
       span{
-        text-align: right;
+        float: right;
         font-size: 12px;
         color: ${({ theme }) => theme['light-color']};
+      }
+      .ant-badge{
+        margin-top: 8px;
+        span{
+          color: #fff;
+        }
       }
     }
   }
@@ -93,6 +100,14 @@ const BlockSpan = Styled.span`
 `;
 
 const SingleChatWrapper = Styled.div`
+  &.group-chat{
+    .chatbox-reply-form{
+      input{
+        background: #fff !important;
+        box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+      }
+    }
+  }
   .ant-card-head{
     padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
@@ -302,6 +317,15 @@ const Footer = Styled.div`
       margin-right: 8px;
     }
     .chatbox-reply-action{
+      align-items: center;
+      a{
+        span{
+          display: block;
+        }
+      }
+      .btn-send{
+        box-shadow: 0 8px 13px #5F63F220;
+      }
       .ant-upload-select,
       button{
         min-width: 50px;
@@ -330,6 +354,10 @@ const Footer = Styled.div`
 `;
 
 const ChatSidebar = Styled.div`
+  min-height: 935px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px #9299B803;
   .ant-card-body{
     padding: 28px 0 !important;
   }
@@ -361,7 +389,7 @@ const ChatSidebar = Styled.div`
     }
     ul{
       margin: 0 0 12px 0;
-      padding: 25px 0 0 0;
+      padding: 30px 0 0 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -387,11 +415,15 @@ const ChatSidebar = Styled.div`
             background: ${({ theme }) => theme['primary-color']};
           }
           &.active{
+            font-weight: 500;
             color: ${({ theme }) => theme['primary-color']};
             &:after{
               opacity: 1;
               visibility: visible;
             }
+          }
+          .ant-badge{
+            margin-left: 6px;
           }
         }
       }

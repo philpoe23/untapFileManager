@@ -64,7 +64,15 @@ const Orders = () => {
         key: key + 1,
         id: <span className="order-id">{orderId}</span>,
         customer: <span className="customer-name">{customers}</span>,
-        status: <span className="status">{status}</span>,
+        status: (
+          <span
+            className={`status ${
+              status === 'Shipped' ? 'Success' : status === 'Awaiting Shipment' ? 'warning' : 'error'
+            }`}
+          >
+            {status}
+          </span>
+        ),
         amount: <span className="ordered-amount">{amount}</span>,
         date: <span className="ordered-date">{date}</span>,
         action: (
@@ -151,15 +159,15 @@ const Orders = () => {
             <Col xs={24}>
               <TopToolBox>
                 <Row gutter={15} className="justify-content-center">
-                  <Col lg={5} xs={24}>
+                  <Col lg={6} xs={24}>
                     <div className="table-search-box">
                       <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                     </div>
                   </Col>
-                  <Col xxl={15} lg={13} xs={24}>
+                  <Col xxl={14} lg={13} xs={24}>
                     <div className="table-toolbox-menu">
                       Status:
-                      <Radio.Group onChange={handleChangeForFilter} defaultValue={3}>
+                      <Radio.Group onChange={handleChangeForFilter} defaultValue="">
                         <Radio.Button value="">All</Radio.Button>
                         {item.length &&
                           [...new Set(filterKey)].map(value => {
@@ -178,7 +186,7 @@ const Orders = () => {
                         Export
                       </Button>
                       <Button size="small" type="primary">
-                        + Add Order
+                        <FeatherIcon icon="plus" size={12} /> Add Order
                       </Button>
                     </div>
                   </Col>
@@ -188,12 +196,12 @@ const Orders = () => {
           </Row>
           <Row gutter={15}>
             <Col md={24}>
-              <TableWrapper className="table-responsive">
+              <TableWrapper className="table-order table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}
                   columns={columns}
-                  pagination={{ pageSize: 7 }}
+                  pagination={{ pageSize: 7, showSizeChanger: true, total: orders.length }}
                 />
               </TableWrapper>
             </Col>

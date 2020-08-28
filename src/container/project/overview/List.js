@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Table, Progress, Pagination } from 'antd';
+import { Row, Col, Table, Progress, Pagination, Tag } from 'antd';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -38,14 +38,15 @@ const List = () => {
 
   if (projects.length)
     projects.map(value => {
-      const { id, title, status, category } = value;
+      const { id, title, status, category, percentage } = value;
       return dataSource.push({
         key: id,
         project: (
           <ProjectListTitle>
-            <Link to="/projectDetails/1">
-              <Heading as="h4">{title}</Heading>
-            </Link>
+            <Heading as="h4">
+              <Link to="/projectDetails/1">{title}</Link>
+            </Heading>
+
             <p>{category}</p>
           </ProjectListTitle>
         ),
@@ -78,10 +79,10 @@ const List = () => {
             </ul>
           </ProjectListAssignees>
         ),
-        status: <span className={status}>{status}</span>,
+        status: <Tag className={status}>{status}</Tag>,
         completion: (
           <div className="project-list-progress">
-            <Progress percent={84} status="active" />
+            <Progress percent={status === 'complete' ? 100 : percentage} strokeWidth={5} className="progress-primary" />
             <p>12/15 Task Completed</p>
           </div>
         ),
@@ -129,6 +130,12 @@ const List = () => {
       dataIndex: 'status',
       key: 'status',
     },
+    {
+      title: 'Completion',
+      dataIndex: 'completion',
+      key: 'completion',
+    },
+
     {
       title: '',
       dataIndex: 'action',
