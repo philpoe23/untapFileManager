@@ -1079,6 +1079,7 @@ const OrderSummary = Styled.div`
 `;
 
 const AddProductForm = Styled.div`
+    margin-top: 28px;
     .add-product-block{
         background: ${({ theme }) => theme['bg-color-light']};
         border-radius: 20px;
@@ -1156,6 +1157,11 @@ const AddProductForm = Styled.div`
             }
             .ant-upload-list-item-name{
                 padding: 0 10px;
+                font-weight: 500;
+                color: ${({ theme }) => theme['dark-color']};
+                &:hover{
+                    color: ${({ theme }) => theme['primary-color']};
+                }
             }
             .ant-upload-list-item-card-actions{
                 position: relative;
@@ -1535,6 +1541,12 @@ const CheckoutWrapper = Styled.div`
             }
            .shipping-selection__paypal{
                margin-bottom: 20px;
+               .ant-radio-wrapper{
+                   span + span{
+                       display: flex;
+                       justify-content: space-between;
+                   }
+               }
            }
            .shipping-selection__paypal,
            .shipping-selection__cash{
@@ -1543,7 +1555,7 @@ const CheckoutWrapper = Styled.div`
                     span + span{
                         font-size: 15px;
                         font-weight: 500;
-                        padding-left: 20px;
+                        padding: 0 25px;
                         display: flex;
                         align-items: center;
                         border-radius: 10px;

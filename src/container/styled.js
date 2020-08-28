@@ -236,6 +236,19 @@ const Main = Styled.div`
     .vertor-map{
         min-height: 505px;
     }
+
+    // Checkout Wrapper
+    .checkoutWraper{
+        .ant-card-body{
+            padding: 50px 50px 50px 30px !important;
+            .ant-card-body{
+                padding: 25px !important;
+            }
+        }
+        .ant-steps{
+            margin-top: -22px;
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -294,6 +307,9 @@ const BtnWithIcon = Styled.div`
 const AlertList = Styled.div`
     margin-top: -15px;
     .alert-empty-message{
+        // .ant-alert{
+        //     padding: 11px 20px!important;
+        // }
         .ant-alert-message{
             display: none !important;
         }
@@ -427,6 +443,7 @@ const BasicFormWrapper = Styled.div`
             .ant-select-selector{
                 padding: 0 20px;
                 height: 48px !important;
+                border: 1px solid ${({ theme }) => theme['border-color-normal']};
                 .ant-select-selection-item{
                     line-height: 46px !important;
                 }
@@ -442,6 +459,31 @@ const BasicFormWrapper = Styled.div`
             &.ant-btn-light{
                 border: 1px solid ${({ theme }) => theme['border-color-light']};
                 background-color: ${({ theme }) => theme['bg-color-light']};
+            }
+        }
+    }
+    .ant-form-item-control-input{
+        .input-prepend{
+            position: absolute;
+            left: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            height: 48px;
+            border-radius: 4px 0 0 4px;
+            z-index: 10;
+            border: 1px solid ${({ theme }) => theme['border-color-normal']};
+            background-color: ${({ theme }) => theme['bg-color-light']};
+            svg,
+            i{
+                color: ${({ theme }) => theme['gray-color']};
+            }
+        }
+        .ant-input-number{
+            border: 1px solid ${({ theme }) => theme['border-color-normal']};
+            input{
+                padding-left: 70px;
             }
         }
     }

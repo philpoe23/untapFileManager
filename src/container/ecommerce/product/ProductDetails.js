@@ -175,7 +175,7 @@ const ProductDetails = ({ match }) => {
                           <FeatherIcon icon="share-2" size={14} />
                         </Button>
                       </div>
-                      <div>
+                      <div className="pdbr__socials">
                         <NavLink to="#">
                           <FontAwesome
                             className="super-crazy-colors"
