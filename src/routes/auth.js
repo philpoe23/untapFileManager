@@ -9,6 +9,7 @@ const ForgotPass = lazy(() => import('../container/profile/authentication/overvi
 const NotFound = () => {
   return <Redirect to="/" />;
 };
+
 const FrontendRoutes = () => {
   return (
     <Switch>

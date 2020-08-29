@@ -9,6 +9,7 @@ import Admin from './routes/admin';
 import Auth from './routes/auth';
 import './static/css/style.css';
 import config from './config/config';
+import ProtectedRoute from './components/utilities/protectedRoute';
 
 const { theme } = config;
 
@@ -18,7 +19,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <Route exact path="/" component={Auth} />
-          <Route path="/admin" component={Admin} />
+          <ProtectedRoute path="/admin" component={Admin} />
         </Router>
       </Provider>
     </ThemeProvider>
