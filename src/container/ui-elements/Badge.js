@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Badge, Switch } from 'antd';
 import { NavLink, Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ClockCircleOutlined, BellOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import {
@@ -14,6 +15,9 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { BtnGroup, Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const colors = [
   'pink',
@@ -56,7 +60,21 @@ const Badges = () => {
 
   return (
     <>
-      <PageHeader ghost title="Badge" />
+      <PageHeader
+      ghost
+      title="Badge"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={12} xs={24}>
@@ -129,7 +147,7 @@ const Badges = () => {
                     count={4}
                     style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }}
                   />
-                  <Badge count={109} style={{ backgroundColor: '#52c41a' }} />
+                  <Badge count={109} style={{ backgroundColor: '#20C997' }} />
                 </BadgeStandAloneStyle>
               </BadgeWraperStyle>
             </Cards>

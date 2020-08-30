@@ -77,7 +77,7 @@ const EditProduct = () => {
           <Col xs={24}>
             <Cards headless>
               <Row gutter={25} justify="center">
-                <Col xxl={10} md={14} sm={18} xs={24}>
+                <Col xxl={12} md={14} sm={18} xs={24}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="editProduct" onFinish={handleSubmit}>
                       <BasicFormWrapper>
@@ -115,14 +115,14 @@ const EditProduct = () => {
                                     />
                                   </Form.Item>
                                   <Form.Item name="price" initialValue="120" label="Price">
-                                    <span>
+                                    <span className="input-prepend">
                                       <FeatherIcon icon="dollar-sign" size={14} />
                                     </span>
                                     <InputNumber style={{ width: '100%' }} />
                                   </Form.Item>
 
                                   <Form.Item name="discount" initialValue="20%" label="Discount">
-                                    <span>
+                                    <span className="input-prepend">
                                       <FeatherIcon icon="percent" size={14} />
                                     </span>
                                     <InputNumber style={{ width: '100%' }} />

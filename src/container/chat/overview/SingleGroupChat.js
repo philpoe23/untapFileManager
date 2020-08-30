@@ -311,6 +311,9 @@ const SingleGroupChat = ({ match }) => {
         <Footer>
           <form onSubmit={handleSubmit}>
             <div className="chatbox-reply-form d-flex">
+              <span className="smile-icon">
+                <FeatherIcon icon="smile" size={24} />
+              </span>
               <div className="chatbox-reply-input">
                 <input
                   onChange={handleChange}

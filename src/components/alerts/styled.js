@@ -52,6 +52,9 @@ const Style = Styled(Alert)`
   ${({ showIcon }) =>
     showIcon &&
     `padding: 16px 40px 20px!important;
+    alert-empty-message{
+      padding: 11px 40px 11px!important;
+    }
     .ant-alert-icon{
       top: 20px !important;
       left: 15px !important;

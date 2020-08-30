@@ -100,6 +100,7 @@ const BlockSpan = Styled.span`
 `;
 
 const SingleChatWrapper = Styled.div`
+  margin-bottom: 40px;
   &.group-chat{
     .chatbox-reply-form{
       input{
@@ -186,6 +187,29 @@ const SingleChatWrapper = Styled.div`
   }
 
   .atbd-chatbox{
+    .time-connector{
+      position: relative;
+      z-index: 10;
+      margin: -14px 0 15px;
+      &:after{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: ${({ theme }) => theme['border-color-light']};
+        content: '';
+        z-index: -1;
+      }
+      span{
+        text-transform: capitalize;
+        font-size: 13px;
+        padding: 0 24px;
+        background-color: #fff;
+        color: ${({ theme }) => theme['light-color']};
+      }
+    }
     .atbd-chatbox__single{
       &:not(:last-child){
         margin-bottom: 30px;
@@ -289,8 +313,21 @@ const MessageList = Styled.div`
 
 const Footer = Styled.div`
   .chatbox-reply-form{
+    position: relative;
     margin-top: 35px;
     align-items: center;
+    .smile-icon{
+      position: absolute;
+      left: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      svg,
+      i{
+        color: ${({ theme }) => theme['extra-light-color']};
+      }
+    }
     @media only screen and (max-width: 575px){
       flex-flow: column;
     }
@@ -298,11 +335,15 @@ const Footer = Styled.div`
       width: 100%;
       margin-right: 8px;
       input{
-        padding: 0 25px;
+        padding: 0 25px 0 70px;
         height: 70px;
         border: 0 none;
         border-radius: 35px;
         background: ${({ theme }) => theme['bg-color-normal']};
+        &::placeholder{
+          font-size: 14px;
+          color: ${({ theme }) => theme['gray-color']};
+        }
         &:focus{
           border: 0 none;
         }
@@ -354,6 +395,7 @@ const Footer = Styled.div`
 `;
 
 const ChatSidebar = Styled.div`
+  margin-bottom: 40px;
   min-height: 935px;
     background: #fff;
     border-radius: 10px;
