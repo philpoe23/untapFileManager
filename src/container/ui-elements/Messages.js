@@ -67,7 +67,7 @@ const Messages = () => {
           <Col md={12} sm={24} xs={24}>
             <Cards title="Customize">
               <MessageStyleWrapper>
-                <Button type="light" outlined size="large" onClick={customSuccess}>
+                <Button className="btn-outlined" type="light" outlined size="large" onClick={customSuccess}>
                   Customized display duration
                 </Button>
               </MessageStyleWrapper>
@@ -76,13 +76,13 @@ const Messages = () => {
           <Col md={12} sm={24} xs={24}>
             <Cards title="Other types of message">
               <Space>
-                <Button type="light" outlined size="large" onClick={success}>
+                <Button className="btn-outlined" type="light" outlined size="large" onClick={success}>
                   Success
                 </Button>
-                <Button type="light" outlined size="large" onClick={error}>
+                <Button className="btn-outlined" type="light" outlined size="large" onClick={error}>
                   Error
                 </Button>
-                <Button type="light" outlined size="large" onClick={warning}>
+                <Button className="btn-outlined" type="light" outlined size="large" onClick={warning}>
                   Warning
                 </Button>
               </Space>
@@ -91,7 +91,7 @@ const Messages = () => {
           <Col md={12} sm={24} xs={24}>
             <Cards title="Loading">
               <MessageStyleWrapper>
-                <Button type="light" outlined size="large" onClick={loadingSuccess}>
+                <Button className="btn-outlined" type="light" outlined size="large" onClick={loadingSuccess}>
                   Display a loading indicator
                 </Button>
               </MessageStyleWrapper>

@@ -22,8 +22,8 @@ const Rating = () => {
   const { value } = state;
   return (
     <>
-      <PageHeader 
-        title="Rating" 
+      <PageHeader
+        title="Rating"
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />
