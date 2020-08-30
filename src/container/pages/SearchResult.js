@@ -108,14 +108,14 @@ const SearchResult = () => {
                 <Cards headless>
                   <div className="result-list-top">
                     <Row>
-                      <Col md={12} xs={24}>
+                      <Col md={13} xs={24}>
                         <p className="search-found-text">
                           <span className="result-count">207</span>
                           results found for
                           <span className="result-keyword">“Keyword”</span>
                         </p>
                       </Col>
-                      <Col md={12} xs={24}>
+                      <Col md={11} xs={24}>
                         <p className="result-limit">Showing 1-10 of 76 results</p>
                       </Col>
                     </Row>

@@ -3,7 +3,7 @@ import { Row, Col, message, Tooltip } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { EllipsisOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { DropdownStyle } from './ui-elements-styled';
+import { DropdownStyle, DropdownIconStyleWrapper } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -94,51 +94,53 @@ const Dropdowns = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="Button with dropdown menu" caption="The simplest use of Dropdown">
-              <Button onClick={handleButtonClick} className="btn-outlined" size="default" outlined type="light">
-                Bottom Left Click
-                <Dropdown placement="bottomLeft" action={['hover']}>
-                  <EllipsisOutlined />
-                </Dropdown>
-              </Button>
+              <DropdownIconStyleWrapper>
+                <Button onClick={handleButtonClick} className="btn-outlined" size="default" outlined type="light">
+                  Bottom Left Click
+                  <Dropdown placement="bottomLeft" action={['hover']}>
+                    <EllipsisOutlined />
+                  </Dropdown>
+                </Button>
 
-              <Dropdown placement="bottomRight" title="with title">
                 <Button className="btn-outlined" outlined type="light">
                   Bottom Right hover
-                  <UserOutlined />
+                  <Dropdown placement="bottomRight" title="with title">
+                    <UserOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="topLeft">
                 <Button className="btn-outlined" outlined type="light">
                   Top Left hover
-                  <EllipsisOutlined />
+                  <Dropdown placement="topLeft">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="topRight">
                 <Button className="btn-outlined" outlined type="light">
                   Top Right hover
-                  <EllipsisOutlined />
+                  <Dropdown placement="topRight">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
                 <Button className="btn-outlined" outlined type="error">
                   <Tooltip title="tooltip" key="leftButton">
                     Tooltip
-                    <EllipsisOutlined />
                   </Tooltip>
+                  <Dropdown placement="bottomLeft" size="small">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
                 <Button className="btn-outlined" outlined type="warning">
                   Warning
-                  <EllipsisOutlined />
+                  <Dropdown placement="bottomLeft" size="small">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
                 <Button className="btn-outlined" outlined type="light">
                   Info
-                  <DownOutlined />
+                  <Dropdown placement="bottomLeft" size="small">
+                    <DownOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
+              </DropdownIconStyleWrapper>
             </Cards>
           </Col>
         </Row>

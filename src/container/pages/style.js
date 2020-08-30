@@ -5,6 +5,10 @@ const PricingCard = Styled.div`
   border-radius: 10px;
   box-shadow: 0px 5px 20px #9299B830;
   padding: 30px;
+  .pricing-badge{
+    height: 32px;
+    padding: 6px 22.6px;
+  }
   .price-amount{
     font-size: 36px;
     .currency{
@@ -33,6 +37,7 @@ const PricingCard = Styled.div`
     margin-bottom: 8px;
   }
   button{
+    padding: 0px 29.32px;
     height: 44px;
     border-radius: 6px;
     &.ant-btn-white{
@@ -142,9 +147,55 @@ const GalleryCard = Styled.nav`
 
 const UsercardWrapper = Styled.nav`
   .user-card-pagination{
-    margin-bottom: 30px;
+    margin: 15px 0 40px 0;
     text-align: right;
     @media only screen and (max-width: 991px){
+      text-align: center;
+    }
+  }
+`;
+
+const UserTableStyleWrapper = Styled.nav`
+  table{
+    tbody{
+      td{
+        .user-info{
+          .user-name{
+            font-size: 14px;
+          }
+        }
+        span.status-text{
+          font-size: 12px;
+          padding: 0 12.41px;
+          line-height: 1.9;
+          font-weight: 500;
+          border-radius: 12px;
+          text-transform: capitalize;
+          display: inline-block !important;
+          background: #ddd;
+          &.active{
+            background-color: ${({ theme }) => theme['success-color']}15;
+            color: ${({ theme }) => theme['success-color']};
+          }
+          &.deactivate{
+            background-color: ${({ theme }) => theme['warning-color']}15;
+            color: ${({ theme }) => theme['warning-color']};
+          }
+          &.blocked{
+            background-color: ${({ theme }) => theme['danger-color']}15;
+            color: ${({ theme }) => theme['danger-color']};
+          }
+        }
+      }
+    }
+  }
+  .ant-table-pagination.ant-pagination{
+    width: 100%;
+    text-align: right;
+    border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+    margin-top: 0 !important;
+    padding-top: 30px;
+    @media only screen and (max-width: 767px){
       text-align: center;
     }
   }
@@ -154,6 +205,7 @@ const UserCard = Styled.div`
   text-align: center;
   .card{
     position: relative;
+    box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}03;
     .ant-card-body{
       padding: 30px !important;
     }
@@ -185,6 +237,7 @@ const UserCard = Styled.div`
     }
     .card__designation{
       font-size: 13px;
+      margin-bottom: 25px;
       color: ${({ theme }) => theme['light-color']};
     }
     .card__social{
@@ -221,10 +274,10 @@ const UserCard = Styled.div`
     .ant-card-body{
       padding: 30px 25px 18px 25px !important;
       @media only screen and (max-width: 1599px){
-        padding: 20px  20px 4px !important;
+        padding: 20px  20px 20px !important;
       }
       @media only screen and (max-width: 767px){
-        padding: 15px  15px 0px !important;
+        padding: 15px  15px 15px !important;
       }
     }
     figure{
@@ -241,17 +294,31 @@ const UserCard = Styled.div`
         }
       }
       button{
-        height: 40px;
+        font-size: 13px;
+        padding: 0px 22.7px;
+        height: 38px;
         border-radius: 6px;
         box-shadow: 0px 3px 5px ${({ theme }) => theme['light-color']}05;
+        &:hover{
+          color: #fff;
+          background-color: ${({ theme }) => theme['primary-color']};
+          svg,
+          i{
+            color: #fff;
+          }
+        }
         &:not(:last-child){
           margin-right: 10px;
+        }
+        svg,
+        i{
+          color: ${({ theme }) => theme['light-color']};
         }
       }
     }
     .card__info{
       padding-top: 20px;
-      margin-top: 20px;
+      margin-top: 18px;
       border-top: 1px solid ${({ theme }) => theme['border-color-light']};
       .info-single{
         text-align: center;
@@ -261,6 +328,10 @@ const UserCard = Styled.div`
         font-weight: 600;
         line-height: 1.5;
         margin-bottom: 4px;
+      }
+      p{
+        margin-bottom: 0;
+        color: ${({ theme }) => theme['light-color']};
       }
     }
   }
@@ -289,6 +360,36 @@ const FaqCategoryBox = Styled.div`
           }
           &:after{
             left: 5px;
+          }
+          &.primary{
+            &:after{
+              background: ${({ theme }) => theme['primary-color']};
+            }
+          }
+          &.secondary{
+            &:after{
+              background: ${({ theme }) => theme['secondary-color']};
+            }
+          }
+          &.success{
+            &:after{
+              background: ${({ theme }) => theme['success-color']};
+            }
+          }
+          &.warning{
+            &:after{
+              background: ${({ theme }) => theme['warning-color']};
+            }
+          }
+          &.info{
+            &:after{
+              background: ${({ theme }) => theme['info-color']};
+            }
+          }
+          &.danger{
+            &:after{
+              background: ${({ theme }) => theme['danger-color']}5;
+            }
           }
         }
         &:before{
@@ -389,11 +490,20 @@ const FaqSupportBox = Styled.div`
     margin-bottom: 20px;
   }
   button{
+    padding: 0 30px;
+    border-radius: 6px;
     height: 44px;
   }
 `;
 
 const FaqWrapper = Styled.div`
+  .ant-card{
+    .ant-card-body{
+      h1{
+        font-weight: 500;
+      }
+    }
+  }
   .ant-collapse{
     margin-top: 25px;
     &.ant-collapse-borderless{
@@ -406,19 +516,26 @@ const FaqWrapper = Styled.div`
       box-shadow: 0px 15px 40px ${({ theme }) => theme['light-color']}15;
     }
     .ant-collapse-header{
+      font-weight: 500;
+      font-size: 15px;
       background-color: #fff;
-      padding: 20px 25px !important;
+      padding: 18px 25px !important;
       border-radius: 5px !important;
+      color: ${({ theme }) => theme['dark-color']} !important;
+      @media only screen and (max-width: 575px){
+        padding: 15px 45px 15px 15px !important;
+      }
       .ant-collapse-arrow{
         left: auto !important;
         right: 25px !important;
-        top: 25px;
-        transform: translateY(0);
+        top: 22px !important;
+        transform: translateY(0) !important;
       }
     }
   }
 
   .ant-collapse-content{
+    box-shadow: 0 15px 40px ${({ theme }) => theme['light-color']}15;
     .ant-collapse-content-box{
       border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
       padding: 20px 25px 30px !important;
@@ -524,7 +641,6 @@ const ResultList = Styled.div`
     }
   }
   .result-limit{
-    text-align: right;
     margin-bottom: 0;
     color: ${({ theme }) => theme['light-color']};
     @media only screen and (max-width: 767px){
@@ -539,7 +655,7 @@ const ResultList = Styled.div`
     ul{
       li{
         &:not(:last-child){
-          margin-bottom: 32px;
+          margin-bottom: 35px;
         }
         .result-list-title{
           font-size: 16px;
@@ -608,7 +724,7 @@ const ErrorWrapper = Styled.div`
   .error-text{
     font-size: 60px;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     color: ${({ theme }) => theme['extra-light-color']};
   }
   p{
@@ -808,6 +924,7 @@ export {
   UserCard,
   GalleryCard,
   UsercardWrapper,
+  UserTableStyleWrapper,
   FaqCategoryBox,
   FaqSupportBox,
   FaqWrapper,

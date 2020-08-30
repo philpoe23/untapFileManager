@@ -12,6 +12,22 @@ const DropdownStyle = Styled.div`
   }
 `;
 
+const DropdownIconStyleWrapper = Styled.div`
+  button{
+    padding: 0 !important;
+    >span{
+      padding: 0 10px 0 16px
+    }
+  }
+  .ant-dropdown-trigger{
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 8px;
+    border-left: 1px solid ${({ theme }) => theme['border-color-normal']}
+  }
+`;
+
 const SpinerWraperStyle = Styled.div`
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
@@ -300,6 +316,7 @@ const SelectRadioStyle = Styled.div`
 
 export {
   DropdownStyle,
+  DropdownIconStyleWrapper,
   SpinerWraperStyle,
   CarouselStyleWraper,
   AvatarWraperStyle,

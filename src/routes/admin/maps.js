@@ -2,8 +2,8 @@ import React, { lazy } from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 const GoogleMaps = lazy(() => import('../../container/maps/GoogleMaps'));
-const Osm = lazy(() => import('../../container/maps/leaflet'));
-const Vector = lazy(() => import('../../container/maps/vector'));
+const Osm = lazy(() => import('../../container/maps/Leaflet'));
+const Vector = lazy(() => import('../../container/maps/Vector'));
 
 const MapRoutes = () => {
   const { path } = useRouteMatch();
