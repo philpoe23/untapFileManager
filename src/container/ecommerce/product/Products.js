@@ -1,7 +1,7 @@
 import React, { lazy, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
-import { Switch, NavLink, Route } from 'react-router-dom';
+import { Switch, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
@@ -18,7 +18,9 @@ const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
 const List = lazy(() => import('./overview/List'));
 
-const Product = ({ match }) => {
+const Product = () => {
+  const { path } = useRouteMatch();
+
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
 
@@ -92,10 +94,10 @@ const Product = ({ match }) => {
                     </div>
 
                     <div className="product-list-action__viewmode">
-                      <NavLink to={`${match.path}/grid`}>
+                      <NavLink to={`${path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={`${match.path}/list`}>
+                      <NavLink to={`${path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
@@ -112,9 +114,9 @@ const Product = ({ match }) => {
                   </div>
                 }
               >
-                <Route exact path={match.path} component={Grid} />
-                <Route path={`${match.path}/grid`} component={Grid} />
-                <Route path={`${match.path}/list`} component={List} />
+                <Route exact path={path} component={Grid} />
+                <Route exact path={`${path}/grid`} component={Grid} />
+                <Route exact path={`${path}/list`} component={List} />
               </Suspense>
             </Switch>
           </Col>

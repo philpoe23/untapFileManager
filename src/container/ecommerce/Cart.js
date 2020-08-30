@@ -152,7 +152,6 @@ const ShoppingCart = ({ match }) => {
   };
 
   const { Option } = Select;
-
   return (
     <>
       <PageHeader
@@ -185,6 +184,7 @@ const ShoppingCart = ({ match }) => {
                           </div>
                         }
                       >
+                        <Route path={`${match.path}/checkout`} component={Checkout} />
                         <Route
                           exact
                           path={match.path}
@@ -221,7 +221,6 @@ const ShoppingCart = ({ match }) => {
                             );
                           }}
                         />
-                        <Route path={`${match.path}/checkout`} component={Checkout} />
                       </Suspense>
                     </Switch>
                   </Col>

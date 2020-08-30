@@ -64,7 +64,7 @@ const Grid = () => {
                     />
                   </NavLink>
                   <Heading className="product-single-title" as="h5">
-                    <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                    <NavLink to={`/admin/ecommerce/productDetails/${id}`}>{name}</NavLink>
                   </Heading>
                   <p className="product-single-price">
                     <span className="product-single-price__new">${price} </span>
