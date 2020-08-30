@@ -361,10 +361,11 @@ const NotificationWrapper = Styled.div`
         }
     }
     .notification-actions{
-        margin: 26px 0;
+        margin: 26px 0 11px;
         button{
             border-radius: 6px;
             height: 44px;
+            margin-bottom: 15px;
         }
     }
 `;
