@@ -32,7 +32,9 @@ const Alerts = () => {
           <Col md={12} xs={24}>
             <Cards title="Basic" size="large">
               <AlertList>
-                <Alert message="" description="Success Text" type="success" />
+                <div className="alert-empty-message">
+                  <Alert message="" description="Success Text" type="success" />
+                </div>
               </AlertList>
             </Cards>
             <Cards title="Closable" size="large">
@@ -55,34 +57,36 @@ const Alerts = () => {
             </Cards>
             <Cards title="Icon" size="large">
               <AlertList>
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Success Tips"
-                  type="success"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Informational Notes"
-                  type="info"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Warning"
-                  type="warning"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Error"
-                  type="error"
-                />
+                <div className="alert-empty-message">
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Success Tips"
+                    type="success"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Informational Notes"
+                    type="info"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Warning"
+                    type="warning"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Error"
+                    type="error"
+                  />
+                </div>
                 <Alert
                   showIcon
                   icon={<FeatherIcon icon="layers" size={15} />}

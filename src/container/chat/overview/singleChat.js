@@ -112,7 +112,11 @@ const SingleChat = ({ match }) => {
 
               return (
                 <>
-                  {index === 2 && <span>__________Today_______</span>}
+                  {index === 1 && (
+                    <p className="time-connector text-center text-capitalize">
+                      <span>today</span>
+                    </p>
+                  )}
                   <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                     <div className={mes.email !== me ? 'left' : 'right'}>
                       {mes.email !== me ? (
@@ -293,7 +297,9 @@ const SingleChat = ({ match }) => {
           <form onSubmit={handleSubmit}>
             <div className="chatbox-reply-form d-flex">
               <div className="chatbox-reply-input">
-                <SmileOutlined />
+                <span className="smile-icon">
+                  <FeatherIcon icon="smile" size={24} />
+                </span>
                 <input
                   onChange={handleChange}
                   placeholder="Type your message..."

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Row, Col, message, Popconfirm } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Confirme = () => {
   const confirm = () => {
@@ -22,7 +26,21 @@ const Confirme = () => {
 
   return (
     <>
-      <PageHeader ghost title="Popconfirm" />
+      <PageHeader
+        ghost
+        title="Popconfirm"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col xl={12} lg={8} xs={24}>

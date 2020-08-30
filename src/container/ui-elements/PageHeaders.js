@@ -79,28 +79,33 @@ const PageHeaders = () => {
           </Col>
           <Col md={24} sm={24} xs={24}>
             <Cards title="Breadcrumb header" caption="The simplest use of Breadcrumb header">
-              <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" routes={routes} />
+              <PageHeaderWrapper>
+                <PageHeader bgColor="#fff" title="Title" subTitle="This is a subtitle" routes={routes} />
+              </PageHeaderWrapper>
             </Cards>
           </Col>
           <Col md={24} sm={24} xs={24}>
             <Cards title="Extra content header" caption="The simplest use of Extra content header">
-              <PageHeader
-                bgColor="#fff"
-                buttons={[
-                  <Button size="small" type="default" key="3">
-                    Operation
-                  </Button>,
-                  <Button size="small" type="default" key="2">
-                    Operation
-                  </Button>,
-                  <Button size="small" type="primary" key="1">
-                    Primary
-                  </Button>,
-                ]}
-                title="Title"
-                subTitle="This is a subtitle"
-                routes={routes}
-              />
+              <PageHeaderWrapper>
+                <PageHeader
+                  bgColor="#fff"
+                  ghost
+                  buttons={[
+                    <Button size="small" type="default" key="3">
+                      Operation
+                    </Button>,
+                    <Button size="small" type="default" key="2">
+                      Operation
+                    </Button>,
+                    <Button size="small" type="primary" key="1">
+                      Primary
+                    </Button>,
+                  ]}
+                  title="Title"
+                  subTitle="This is a subtitle"
+                  routes={routes}
+                />
+              </PageHeaderWrapper>
             </Cards>
           </Col>
         </Row>

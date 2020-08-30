@@ -1,11 +1,16 @@
 import React from 'react';
 import { Row, Col, Breadcrumb, Menu, Alert } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { NavLink, HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { BreadcrumbWrapperStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const menu = (
   <Menu>
@@ -74,7 +79,7 @@ const Home = withRouter(props => {
         <Route path="/apps" component={Apps} />
         <Route render={() => <span>Home Page</span>} />
       </Switch>
-      <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
+      <Alert style={{ margin: '16px 0', background: '#5F63F215' }} message="Click the navigation above to switch:" />
       <Breadcrumb>{breadcrumbItems}</Breadcrumb>
     </div>
   );
@@ -83,7 +88,20 @@ const Home = withRouter(props => {
 const Breadcrumbs = () => {
   return (
     <>
-      <PageHeader title="Breadcrumb" />
+      <PageHeader
+        title="Breadcrumb"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={24} xs={24}>

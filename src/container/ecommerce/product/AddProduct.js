@@ -78,7 +78,7 @@ const AddProduct = () => {
           <Col xs={24}>
             <Cards headless>
               <Row gutter={25} justify="center">
-                <Col xxl={10} md={14} sm={18} xs={24}>
+                <Col xxl={12} md={14} sm={18} xs={24}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
                       <BasicFormWrapper>
@@ -103,14 +103,14 @@ const AddProduct = () => {
                                   </Form.Item>
 
                                   <Form.Item name="price" label="Price">
-                                    <span>
+                                    <span className="input-prepend">
                                       <FeatherIcon icon="dollar-sign" size={14} />
                                     </span>
                                     <InputNumber style={{ width: '100%' }} />
                                   </Form.Item>
 
                                   <Form.Item name="discount" label="Discount">
-                                    <span>
+                                    <span className="input-prepend">
                                       <FeatherIcon icon="percent" size={14} />
                                     </span>
                                     <InputNumber style={{ width: '100%' }} />
