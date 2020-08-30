@@ -323,6 +323,9 @@ const Footer = Styled.div`
       transform: translateY(-50%);
       display: flex;
       align-items: center;
+      @media only screen and (max-width: 575px){
+        top: 26px;
+      }
       svg,
       i{
         color: ${({ theme }) => theme['extra-light-color']};
@@ -397,9 +400,12 @@ const Footer = Styled.div`
 const ChatSidebar = Styled.div`
   margin-bottom: 40px;
   min-height: 935px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px #9299B803;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #9299B803;
+  @media only screen and (max-width: 575px){
+    min-height: 580px;
+  }
   .ant-card-body{
     padding: 28px 0 !important;
   }
