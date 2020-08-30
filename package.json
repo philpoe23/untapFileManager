@@ -42,7 +42,7 @@
     "styled-components": "^4.4.1",
     "yarn": "^1.22.4"
   },
-  "homepage": "https://kowsarhossain.com/wpwax/striking-dash/",
+  "homepage": "http://easycodebd.com/test/",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

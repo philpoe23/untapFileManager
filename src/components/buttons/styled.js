@@ -99,9 +99,9 @@ const socialButton = (color, shape) => `
 const ButtonStyled = Styled(Button)`
 background: ${({ type, theme }) => type !== 'default' && theme[`${type}-color`]};
 border-width: 0px;
-// border-color: ${({ type, theme }) => (type !== 'default' ? theme[`${type}-color`] : theme[`${type}-color`])};
+/* border-color: ${({ type, theme }) => (type !== 'default' ? theme[`${type}-color`] : theme[`${type}-color`])}; */
 border-style: ${({ type }) => (type !== 'dashed' ? 'solid' : 'dashed')};
-color: ${({ type }) => type !== 'default' && '#ffffff'};
+color: ${({ type }) => (type !== 'default' ? '#ffffff' : '#5A5F7D')};
 display: inline-flex;
 align-items: center;
 justify-content: center;
@@ -112,8 +112,8 @@ font-weight: 500;
 box-shadow: 0 0;
 &:hover, &:focus {
     background: ${({ type, theme }) => type !== 'default' && theme[`${type}-hover`]};
-    // border: 1px solid ${({ type, theme }) => type !== 'default' && theme[`${type}-hover`]};
-    color: ${({ type }) => type !== 'default' && '#ffffff'};
+/* border: 1px solid ${({ type, theme }) => type !== 'default' && theme[`${type}-hover`]}; */
+    color: ${({ type }) => (type !== 'default' ? '#ffffff' : '#5A5F7D')};
 }
 i,
 svg,
