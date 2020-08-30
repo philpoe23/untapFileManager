@@ -3,7 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
+import { FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { AuthWrapper } from './style';
 import { login } from '../../../../redux/authentication/actionCreator';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
@@ -55,7 +55,7 @@ const SignIn = () => {
             </NavLink>
           </div>
           <Form.Item>
-            <Button htmlType="submit" type="primary" size="large">
+            <Button className="btn-signin" htmlType="submit" type="primary" size="large">
               {isLoading ? 'Loading...' : 'Sign In'}
             </Button>
           </Form.Item>
@@ -64,17 +64,18 @@ const SignIn = () => {
           </p>
           <ul className="social-login">
             <li>
-              <a href="/">
-                <GoogleOutlined /> <span>Sign in with Google</span>
+              <a className="google-signup" href="/">
+                <img src={require('../../../../static/img/google.png')} alt="" /> 
+                <span>Sign in with Google</span>
               </a>
             </li>
             <li>
-              <a href="/">
+              <a className="facebook-sign" href="/">
                 <FacebookOutlined />
               </a>
             </li>
             <li>
-              <a href="/">
+              <a className="twitter-sign" href="/">
                 <TwitterOutlined />
               </a>
             </li>
