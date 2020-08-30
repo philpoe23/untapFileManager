@@ -17,7 +17,6 @@ const Main = Styled.div`
     // ant alert
     .ant-alert-closable{
         .ant-alert-message{
-          display: inline-block;
           margin-right: 15px;
         }
     }
@@ -73,6 +72,9 @@ const Main = Styled.div`
     .input-wrap{
         @media only screen and (max-width: 991px){
             min-height: 500px;
+        }
+        input::placeholder{
+            color: ${({ theme }) => theme['light-color']};
         }
     }
     // Modal Buttons
@@ -171,11 +173,17 @@ const Main = Styled.div`
     }
 
     // Select
+    .ant-tree-select .ant-select-selector{
+        height: 42px;
+    }
     .tag-select-list{
         margin-bottom: -10px;
         .ant-select{
             margin-bottom: 10px;
         }
+    }
+    .ant-select-selector{
+        border-color: #E3E6EF !important;
     }
 
     // Slider
@@ -192,7 +200,47 @@ const Main = Styled.div`
     .taglist-wrap{
         margin: -5px;
         .ant-tag {
+            line-height: 22px;
+            padding: 0 10.2px;
+            border: 0 none;
             margin: 5px;
+            color: ${({ theme }) => theme['gray-color']};
+            &.ant-tag-has-color{
+                color: #fff !important;
+            }
+            &.ant-tag-magenta{
+                color: #eb2f96;
+            }
+            &.ant-tag-red{
+                color: #f5222d;
+            }
+            &.ant-tag-volcano{
+                color: #fa541c;
+            }
+            &.ant-tag-orange{
+                color: #fa8c16;
+            }
+            &.ant-tag-gold{
+                color: #faad14;
+            }
+            &.ant-tag-line{
+                color: #a0d911;
+            }
+            &.ant-tag-green{
+                color: #a0d911;
+            }
+            &.ant-tag-cyan{
+                color: #13c2c2;
+            }
+            &.ant-tag-blue{
+                color: #1890ff;
+            }
+            &.ant-tag-geekbule{
+                color: #2f54eb;
+            }
+            &.ant-tag-purple{
+                color: #722ed1;
+            }
         }
     }
 
@@ -201,6 +249,15 @@ const Main = Styled.div`
         margin: -5px;
         .ant-picker{
             margin: 5px;
+        }
+    }
+
+    // Ant Menu
+    .ant-menu{
+        .ant-menu-submenu-title{
+            svg{
+                color: ${({ theme }) => theme['light-color']};
+            }
         }
     }
 
@@ -307,9 +364,15 @@ const BtnWithIcon = Styled.div`
 const AlertList = Styled.div`
     margin-top: -15px;
     .alert-empty-message{
-        // .ant-alert{
-        //     padding: 11px 20px!important;
-        // }
+        .ant-alert{
+            padding: 10px 40px 10px!important;
+            &.ant-alert-no-icon{
+                padding: 10px 20px 10px!important;
+            }
+        }
+        .ant-alert-icon{
+            top: 15px !important;
+        }
         .ant-alert-message{
             display: none !important;
         }
@@ -480,11 +543,15 @@ const BasicFormWrapper = Styled.div`
                 color: ${({ theme }) => theme['gray-color']};
             }
         }
+        .input-prepend-wrap{
+            .ant-input-number{
+                input{
+                    padding-left: 70px;
+                }
+            }
+        }
         .ant-input-number{
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
-            input{
-                padding-left: 70px;
-            }
         }
     }
 `;

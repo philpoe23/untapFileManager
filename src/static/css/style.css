@@ -433,6 +433,9 @@ ul {
 .ant-form-item-label>label {
   font-weight: 500;
 }
+.ant-picker-input > input::placeholder{
+  color: #ADB4D2 !important;
+}
 
 /* Calendar Styles */
 
@@ -459,6 +462,12 @@ ul {
   height: 32px !important;
 }
 
+.ant-pagination-item-active{
+  background-color: #5F63F2 !important;
+}
+.ant-pagination-item-active a{
+  color: #fff !important;
+}
 .ant-pagination .ant-pagination-options .ant-select-selection-item {
   line-height: 30px !important;
 }
@@ -494,6 +503,19 @@ ul {
   margin-top: 30px !important;
 }
 
+/* Tree Select */
+
+.ant-tree-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 42px !important;
+  line-height: 40px;
+}
+.ant-tree-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  height: 100% !important;
+}
+.ant-tree-select.ant-select-single .ant-select-selector .ant-select-selection-placeholder{
+  line-height: 40px !important;
+}
+
 /* radio style */
 
 .ant-radio-checked .ant-radio-inner {
@@ -504,6 +526,20 @@ ul {
   content: none !important;
 }
 
+/* Statistics */
+
+.ant-statistic .ant-statistic-title{
+  color: #9299B8;
+}
+
+.ant-statistic .ant-statistic-content span{
+  font-size: 20px;
+}
+
+/* Steps */
+.steps-action.justify-content-center{
+  justify-content: center !important;
+}
 /* rate */
 
 .ant-rate-star.ant-rate-star-zero span svg {
@@ -512,6 +548,9 @@ ul {
 
 .ant-rate-star:not(:last-child) {
   margin-right: 2px !important;
+}
+.ant-rate-text{
+  color: #5A5F7D;
 }
 
 /* result */
@@ -525,6 +564,18 @@ ul {
   margin-bottom: 10px;
 }
 
+.ant-result-extra{
+  height: 34px;
+  padding: 4px 10.72px;
+}
+
+.ant-result-content .ant-typography strong{
+  font-weight: 500;
+}
+
+.ant-result-content .ant-typography:last-child{
+  margin-bottom: 0;
+}
 /* form select */
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
@@ -1043,6 +1094,10 @@ ul {
   width: 100%;
 }
 
+.ant-cascader-picker input::placeholder{
+  color: #ADB4D2;
+}
+
 /* Comment Styles */
 
 .ant-comment-actions li {
@@ -1139,6 +1194,23 @@ ul {
 
 .ant-upload .ant-btn {
   font-size: 14px;
+  border-radius: 5px;
+}
+
+.ant-upload.ant-upload-select-picture-card{
+  border-color: #E3E6EF !important;
+  border-radius: 5px !important;
+  background-color: #F8F9FB !important;
+}
+
+.ant-upload.ant-upload-select-picture-card .anticon{
+  margin-bottom: 8px;
+}
+.ant-upload .anticon svg{
+  color: #9299B8;
+}
+.ant-upload-list{
+  margin-top: 10px !important;
 }
 
 /* Ant Picker */
@@ -1336,6 +1408,13 @@ ul {
 
 .ant-page-header {
   padding: 26px 30px 26px 30px !important;
+}
+
+.page-header-actions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .page-header-actions button {
@@ -1545,14 +1624,19 @@ ul {
 .bmzxig .ant-table tr th:first-child, .bmzxig .ant-table tr td:first-child {
   padding-right: 15px;
 }
+
+/* Emprt */
+.ant-empty .ant-empty-footer button{
+  padding: 0px 15.58px !important;
+}
 @media only screen and (max-width: 479px) {
   .placement-confirm{
     display: flex;
     flex-wrap: wrap;
-    margin: -5px -10px -15px -5px;
+    margin: -5px -10px 0 -5px;
   }
   .placement-confirm .pop-confirm{
-    flex: 0 0 25%;
+    flex: 0 0 50%;
   }
   .pop-confirm .ant-btn{
     display: block;

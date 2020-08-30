@@ -103,17 +103,21 @@ const AddProduct = () => {
                                   </Form.Item>
 
                                   <Form.Item name="price" label="Price">
-                                    <span className="input-prepend">
-                                      <FeatherIcon icon="dollar-sign" size={14} />
-                                    </span>
-                                    <InputNumber style={{ width: '100%' }} />
+                                    <div className="input-prepend-wrap">
+                                      <span className="input-prepend">
+                                        <FeatherIcon icon="dollar-sign" size={14} />
+                                      </span>
+                                      <InputNumber style={{ width: '100%' }} />
+                                    </div>
                                   </Form.Item>
 
                                   <Form.Item name="discount" label="Discount">
-                                    <span className="input-prepend">
-                                      <FeatherIcon icon="percent" size={14} />
-                                    </span>
-                                    <InputNumber style={{ width: '100%' }} />
+                                    <div className="input-prepend-wrap">
+                                      <span className="input-prepend f">
+                                        <FeatherIcon icon="percent" size={14} />
+                                      </span>
+                                      <InputNumber style={{ width: '100%' }} />
+                                    </div>
                                   </Form.Item>
 
                                   <Form.Item name="status" label="Status">

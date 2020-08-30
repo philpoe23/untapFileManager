@@ -13,7 +13,7 @@ const CalendarButtonPageHeader = () => {
 
   return (
     <Popover placement="bottomRight" title="Search by Calendar" content={content} action="hover">
-      <Button size="small" type="white">
+      <Button size="small" type="default">
         <FeatherIcon icon="calendar" size={14} />
         Calendar
       </Button>

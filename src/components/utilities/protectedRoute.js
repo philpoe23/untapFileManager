@@ -5,12 +5,11 @@ import { useSelector } from 'react-redux';
 
 const ProtectedRoute = ({ component, path }) => {
   const isLoggedIn = useSelector(state => state.auth.login);
-
   return isLoggedIn ? <Route component={component} path={path} /> : <Redirect to="/" />;
 };
 
 ProtectedRoute.propTypes = {
-  component: propTypes.node.isRequired,
+  component: propTypes.object.isRequired,
   path: propTypes.string.isRequired,
 };
 

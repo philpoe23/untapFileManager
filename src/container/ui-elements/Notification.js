@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, notification, Divider } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import {
   SmileOutlined,
   RadiusUpleftOutlined,
@@ -11,6 +12,9 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, NotificationListWrapper } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Notifications = () => {
   const openNotification = () => {
@@ -94,7 +98,21 @@ const Notifications = () => {
 
   return (
     <>
-      <PageHeader ghost title="Notifications" />
+      <PageHeader
+        ghost
+        title="Notifications"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={15}>
           <Col md={12} sm={12} xs={24}>

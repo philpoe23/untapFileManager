@@ -412,6 +412,8 @@ const FaqWrapper = Styled.div`
       .ant-collapse-arrow{
         left: auto !important;
         right: 25px !important;
+        top: 25px;
+        transform: translateY(0);
       }
     }
   }

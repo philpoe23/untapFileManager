@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { GoogleOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
+import { FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Form, Input, Button } from 'antd';
 import { AuthWrapper } from './style';
 import { Checkbox } from '../../../../components/checkbox/checkbox';
@@ -27,7 +27,7 @@ const SignUp = () => {
       <div className="auth-contents">
         <Form name="register" onFinish={handleSubmit} layout="vertical">
           <Heading as="h3">
-            Sign Up to <span>Admin</span>
+            Sign Up to <span className="color-secondary">Admin</span>
           </Heading>
           <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please input your Full name!' }]}>
             <Input placeholder="Full name" />
@@ -59,26 +59,27 @@ const SignUp = () => {
             </Checkbox>
           </div>
           <Form.Item>
-            <Button htmlType="submit" type="primary" size="large">
+            <Button className="btn-create" htmlType="submit" type="primary" size="large">
               Create Account
             </Button>
           </Form.Item>
           <p className="form-divider">
             <span>Or</span>
           </p>
-          <ul className="social-login">
+          <ul className="social-login signin-social">
             <li>
-              <a href="/">
-                <GoogleOutlined /> <span>Sign in with Google</span>
+              <a className="google-signup" href="/">
+                <img src={require('../../../../static/img/google.png')} alt="" />
+                <span>Sign up with Google</span>
               </a>
             </li>
             <li>
-              <a href="/">
+              <a className="facebook-sign" href="/">
                 <FacebookOutlined />
               </a>
             </li>
             <li>
-              <a href="/">
+              <a className="twitter-sign" href="/">
                 <TwitterOutlined />
               </a>
             </li>

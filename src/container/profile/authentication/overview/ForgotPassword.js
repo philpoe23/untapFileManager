@@ -17,7 +17,7 @@ const ForgotPassword = () => {
       <div className="auth-contents">
         <Form name="forgotPass" onFinish={handleSubmit} layout="vertical">
           <Heading as="h3">Forgot Password?</Heading>
-          <p>
+          <p className="forgot-text">
             Enter the email address you used when you joined and we’ll send you instructions to reset your password.
           </p>
           <Form.Item
@@ -28,11 +28,11 @@ const ForgotPassword = () => {
             <Input placeholder="name@example.com" />
           </Form.Item>
           <Form.Item>
-            <Button htmlType="submit" type="primary" size="large">
+            <Button className="btn-reset" htmlType="submit" type="primary" size="large">
               Send Reset Instructions
             </Button>
           </Form.Item>
-          <p>
+          <p className="return-text">
             Return to <NavLink to="/">Sign In</NavLink>
           </p>
         </Form>

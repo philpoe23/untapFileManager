@@ -1313,6 +1313,9 @@ const InvoiceAction = Styled.div`
         i{
             color: ${({ theme }) => theme['light-color']};
         }
+        .feather-download{
+            color: #fff;
+        }
     }
 `;
 

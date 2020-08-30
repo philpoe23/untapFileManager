@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Row, Col, TimePicker, Button } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const format = 'HH:mm';
 const TimePickers = () => {
@@ -17,7 +21,20 @@ const TimePickers = () => {
 
   return (
     <>
-      <PageHeader title="Time picker" />
+      <PageHeader
+        title="Time picker"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col sm={12} xs={24}>

@@ -33,8 +33,8 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
     <MailBox>
       <div className="body">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            {!replay ? null : <span>Replay To</span>}
+          <div className="reply-inner" style={{ display: 'flex', alignItems: 'center' }}>
+            {!replay ? null : <span className="reply-title">Replay To</span>}
             <TagsInput
               inputProps={{
                 placeholder: replay ? null : 'To',
@@ -43,7 +43,7 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
               onChange={handleChange}
             />
           </div>
-          <span>Cc</span>
+          <span className="mail-cc">Cc</span>
         </div>
         <div className="group">
           <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />

@@ -61,6 +61,8 @@ const theme = {
   'light-hover': lightHover, // info state color
   'white-color': whiteColor, // info state color
   'white-hover': whiteHover, // info state color
+  white: whiteColor,
+  black: '#000',
   'dash-color': dashColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
