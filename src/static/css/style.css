@@ -433,6 +433,9 @@ ul {
 .ant-form-item-label>label {
   font-weight: 500;
 }
+.ant-picker-input > input::placeholder{
+  color: #ADB4D2 !important;
+}
 
 /* Calendar Styles */
 
@@ -459,6 +462,12 @@ ul {
   height: 32px !important;
 }
 
+.ant-pagination-item-active{
+  background-color: #5F63F2 !important;
+}
+.ant-pagination-item-active a{
+  color: #fff !important;
+}
 .ant-pagination .ant-pagination-options .ant-select-selection-item {
   line-height: 30px !important;
 }
@@ -1338,6 +1347,11 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
+.page-header-actions{
+  display: flex;
+  align-items: center;
+}
+
 .page-header-actions button {
   font-size: 12px;
   font-weight: 500;
@@ -1544,6 +1558,11 @@ ul {
 
 .bmzxig .ant-table tr th:first-child, .bmzxig .ant-table tr td:first-child {
   padding-right: 15px;
+}
+
+/* Emprt */
+.ant-empty .ant-empty-footer button{
+  padding: 0px 15.58px !important;
 }
 @media only screen and (max-width: 479px) {
   .placement-confirm{
