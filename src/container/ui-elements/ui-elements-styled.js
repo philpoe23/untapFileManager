@@ -182,6 +182,10 @@ const BreadcrumbWrapperStyle = Styled.div`
     color: #5F63F2;
   }
   .ant-alert{
+    &.ant-alert-info{
+      background-color: ${({ theme }) => theme['primary-color']}15;
+      border: 1px solid ${({ theme }) => theme['info-color']}15;
+    }
     .ant-alert-message{
       font-size: 12px;
       color: ${({ theme }) => theme['primary-color']};

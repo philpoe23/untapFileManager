@@ -1094,6 +1094,10 @@ ul {
   width: 100%;
 }
 
+.ant-cascader-picker input::placeholder{
+  color: #ADB4D2;
+}
+
 /* Comment Styles */
 
 .ant-comment-actions li {
@@ -1629,10 +1633,10 @@ ul {
   .placement-confirm{
     display: flex;
     flex-wrap: wrap;
-    margin: -5px -10px -15px -5px;
+    margin: -5px -10px 0 -5px;
   }
   .placement-confirm .pop-confirm{
-    flex: 0 0 25%;
+    flex: 0 0 50%;
   }
   .pop-confirm .ant-btn{
     display: block;
