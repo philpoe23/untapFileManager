@@ -343,7 +343,7 @@ const Footer = Styled.div`
     .ant-upload-list{
       display: flex;
     position: absolute;
-    top: -120px;
+    top: -70px;
     left: 0;
     }
     .chatbox-reply-input{
@@ -408,6 +408,89 @@ const Footer = Styled.div`
       button{
         padding: 0;
         background: ${({ theme }) => theme['primary-color']};
+      }
+    }
+
+    .ant-upload-select-picture-card{
+      margin: 0;
+      width: 50px;
+      border-radius: 50% !important;
+      border: 0 none;
+      background-color: ${({ theme }) => theme['bg-color-normal']} !important;
+      svg,
+      i{
+        margin-top: 6px !important;
+      }
+    }
+    .ant-upload-list{
+      &.ant-upload-list-text{
+        display: block;
+        top: auto;
+        bottom: 136px;
+        // padding: 25px;
+        // border-radius: 10px;
+        // background-color: #fff;
+        // width: 100%;
+        >div{
+          display: block;
+        }
+        .ant-upload-list-item{
+          height: 24px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme['bg-color-normal']};
+          button{
+            width: auto;
+            height: auto;
+            min-width: auto;
+            background-color: ${({ theme }) => theme['bg-color-normal']};
+            svg{
+              color: ${({ theme }) => theme['info-color']};
+            }
+          }
+        }
+        .ant-upload-list-item-info{
+          >span{
+            display: flex;
+            align-items: center;
+          }
+          .ant-upload-list-item-name {
+            font-size: 13px;
+          }
+          .anticon,
+          .ant-upload-list-item-name {
+            color: ${({ theme }) => theme['info-color']};
+          }
+        }
+      }
+      &.ant-upload-list-picture-card{
+        .ant-upload-list-picture-card-container{
+          width: 60px;
+          height: 50px;
+        }
+        .ant-upload-list-item{
+          width: 60px;
+          height: 50px;
+          padding: 3px;
+          .ant-upload-list-item-actions{
+            .anticon-eye{
+              display: none;
+            }
+            .anticon{
+              margin: 0;
+            }
+          }
+          .ant-upload-list-item-card-actions-btn{
+            width: 25px;
+            height: 25px;
+            min-width: 25px;
+          }
+          .ant-upload-list-item-thumbnail{
+            font-size: 11px;
+          }
+          .ant-upload-list-item-name{
+            display: none;
+          }
+        }
       }
     }
   }
