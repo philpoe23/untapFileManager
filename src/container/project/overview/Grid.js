@@ -48,9 +48,7 @@ const Grid = () => {
                   <div className="project-title">
                     <h1>
                       <Link to={`${path}/single/${id}`}>{title}</Link>
-                      <Tag className={status} color="#f50">
-                        {status}
-                      </Tag>
+                      <Tag className={status}>{status}</Tag>
                     </h1>
                     <Dropdown
                       content={
