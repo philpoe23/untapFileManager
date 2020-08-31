@@ -501,13 +501,13 @@ ul {
   line-height: 2.6;
 }
 
-.ant-pagination-prev, 
+.ant-pagination-prev,
 .ant-pagination-next{
   line-height: 28px !important;
 }
 
 
-.ant-pagination-prev .ant-pagination-item-link, 
+.ant-pagination-prev .ant-pagination-item-link,
 .ant-pagination-next .ant-pagination-item-link{
   border: 0 none !important;
 }
@@ -526,10 +526,14 @@ ul {
 }
 
 .ant-pagination {
-  margin: -4px !important;
+  margin: -4px -12px !important;
 }
-
-.ant-pagination-item, .ant-pagination-options, .ant-pagination-prev, .ant-pagination-jump-prev, .ant-pagination-jump-next, .ant-pagination-next {
+.ant-pagination-item,
+.ant-pagination-options,
+.ant-pagination-prev,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next,
+.ant-pagination-next {
   margin: 4px !important;
 }
 

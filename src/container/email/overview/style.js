@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-  margin-bottom: 30px;
+  margin-bottom: 30px;  
   .ant-table{
     padding-bottom: 30px;
     border-radius: 10px;
@@ -118,6 +118,7 @@ const Style = Styled(Table)`
     }
   }
 
+  
   .ant-table-tbody{
     .ant-table-cell{
       white-space: normal !important;
@@ -234,6 +235,12 @@ const MailBox = Styled.div`
         color: ${({ theme }) => theme['light-color']};
       }
     }
+  }
+  .ant-upload-list{
+    position: absolute;
+    bottom: 15%;
+    left: 25px;
+    width: 95%;    
   }
   input{
     padding: 15px 0;

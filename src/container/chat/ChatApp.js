@@ -104,9 +104,9 @@ const ChatApp = ({ match }) => {
                 }
               >
                 <Route exact path={match.path} component={SingleChat} />
-                <Route path={`${match.path}/private/:id`} component={SingleChat} />
-                <Route path={`${match.path}/all/:id`} component={SingleChat} />
-                <Route path={`${match.path}/group/:id`} component={SingleGroup} />
+                <Route exact path={`${match.path}/private/:id`} component={SingleChat} />
+                <Route exact path={`${match.path}/all/:id`} component={SingleChat} />
+                <Route exact path={`${match.path}/group/:id`} component={SingleGroup} />
               </Suspense>
             </Switch>
           </Col>

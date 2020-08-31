@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
-import { Upload } from 'antd';
+import { Upload, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -68,6 +68,25 @@ const SingleChat = ({ match }) => {
       singleContent: [...singleContent, pushcontent],
       inputValue: '',
     });
+  };
+
+  const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    listType: 'picture-card',
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
 
   const content = (
@@ -311,7 +330,7 @@ const SingleChat = ({ match }) => {
               </div>
               <div className="chatbox-reply-action d-flex">
                 <Link to="#">
-                  <Upload listType="picture-card">
+                  <Upload {...props}>
                     <FeatherIcon icon="camera" size={18} />
                   </Upload>
                 </Link>

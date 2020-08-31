@@ -44,7 +44,7 @@ const Content = ({ searchData, email }) => {
 
   const data = [];
   if (emails !== undefined)
-    emails.map((inbox,key) => {
+    emails.map((inbox, key) => {
       // eslint-disable-next-line no-shadow
       const { id, type, email, userName, status, img, subject, body, attach } = inbox;
 
@@ -56,7 +56,7 @@ const Content = ({ searchData, email }) => {
             <FeatherIcon icon="star" size={18} />
             <img src={img} alt="" />
             <Heading as="h5">
-              <NavLink to={`/email/single/${id}`}>{userName}</NavLink>
+              <NavLink to={`/admin/email/single/${id}`}>{userName}</NavLink>
             </Heading>
           </EmailAuthor>
         ),
