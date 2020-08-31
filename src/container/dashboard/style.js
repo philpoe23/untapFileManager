@@ -21,6 +21,17 @@ const EChartCard = Styled.div`
         }
     }
 `;
+const DashboardBaseStyleWrap = Styled.div`
+    h1{
+        margin-bottom: 30px;
+    }
+    .ant-row{
+        margin: -5px 0;
+    }
+    .ant-col{
+        margin: 5px 0;
+    }
+`;
 
 const Focard = Styled.div`
     canvas{
@@ -995,6 +1006,7 @@ const TrafficTableWrapper = Styled.div`
 `;
 
 export {
+  DashboardBaseStyleWrap,
   EChartCard,
   Focard,
   CardBarChart,
