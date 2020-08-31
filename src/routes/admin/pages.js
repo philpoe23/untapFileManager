@@ -3,7 +3,7 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 const NotFound = lazy(() => import('../../container/pages/404'));
 const Maintenance = lazy(() => import('../../container/pages/Maintenance'));
-const Pricing = lazy(() => import('../../container/pages/PricingTable'));
+const Pricing = lazy(() => import('../../container/pages/pricingTable'));
 const Gallery = lazy(() => import('../../container/pages/Gallery'));
 const Faq = lazy(() => import('../../container/pages/Faq'));
 const Search = lazy(() => import('../../container/pages/SearchResult'));

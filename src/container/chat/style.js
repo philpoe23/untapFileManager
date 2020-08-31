@@ -378,6 +378,10 @@ const Footer = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        span{
+          margin-right: 0;
+          color: #fff;
+        }
       }
       .ant-upload-select {
         background: ${({ theme }) => theme['bg-color-normal']};
