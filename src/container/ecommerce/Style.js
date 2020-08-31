@@ -850,7 +850,7 @@ const ProductTable = Styled.div`
                 }
             }
         }
-        
+
         .info-list{
             li{
                 display: inline-block;
@@ -859,7 +859,7 @@ const ProductTable = Styled.div`
                 }
                 span{
                     font-size: 14px;
-                    color: ${({ theme }) => theme['gray-color']}; 
+                    color: ${({ theme }) => theme['gray-color']};
                     &.info-title{
                         margin-right: 5px;
                         font-weight: 500;
@@ -870,7 +870,7 @@ const ProductTable = Styled.div`
         }
         .cart-single-price{
             font-size: 15px;
-            color: ${({ theme }) => theme['gray-color']}; 
+            color: ${({ theme }) => theme['gray-color']};
         }
         .cart-single-t-price{
             font-size: 15px;
@@ -967,7 +967,7 @@ const OrderSummary = Styled.div`
     .ant-form-item{
         margin-bottom: 0;
     }
-    
+
     .summary-table-title{
         font-size: 18px;
         font-weight: 500;
@@ -1312,7 +1312,7 @@ const InvoiceLetterBox = Styled.div`
 
 const InvoiceAction = Styled.div`
     text-align: right;
-    margin: 95px 0 15px;
+    margin: 90px -5px 10px;
     @media only screen and (max-width: 991px){
         margin-top: 50px;
     }
@@ -1326,9 +1326,7 @@ const InvoiceAction = Styled.div`
     }
     button{
         padding: 0 25px !important;
-        &:not(:last-child){
-            margin-right: 10px;
-        }
+        margin: 5px;
         @media only screen and (max-width: 479px){
             margin-bottom 10px;
         }
@@ -1623,7 +1621,7 @@ const CheckoutWrapper = Styled.div`
                 margin-bottom: 25px;
             }
        }
-       
+
        .atbd-review-order__single{
            .ant-radio-wrapper{
                 display: flex;
@@ -1644,7 +1642,7 @@ const CheckoutWrapper = Styled.div`
             .method-info{
                 margin-top: -2px;
                 font-weight: 500;
-                color: color: ${({ theme }) => theme['dark-color']}; 
+                color: color: ${({ theme }) => theme['dark-color']};
                 img{
                     margin-top: -4px;
                     max-width: 40px;
@@ -1657,7 +1655,7 @@ const CheckoutWrapper = Styled.div`
                 margin-top: 20px;
                 color: ${({ theme }) => theme['info-color']};
             }
-            
+
             .table-cart{
                 border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                 .cart-single-t-price{
@@ -1799,19 +1797,19 @@ const CheckoutWrapper = Styled.div`
 `;
 
 export {
-    FigureCart,
-    Sidebar,
-    SidebarSingle,
-    ProductCard,
-    TopToolBox,
-    PaginationWrapper,
-    ProductDetailsWrapper,
-    ProductTable,
-    CouponForm,
-    OrderSummary,
-    AddProductForm,
-    InvoiceHeader,
-    InvoiceLetterBox,
-    InvoiceAction,
-    CheckoutWrapper,
+  FigureCart,
+  Sidebar,
+  SidebarSingle,
+  ProductCard,
+  TopToolBox,
+  PaginationWrapper,
+  ProductDetailsWrapper,
+  ProductTable,
+  CouponForm,
+  OrderSummary,
+  AddProductForm,
+  InvoiceHeader,
+  InvoiceLetterBox,
+  InvoiceAction,
+  CheckoutWrapper,
 };

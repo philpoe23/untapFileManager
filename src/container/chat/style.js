@@ -80,6 +80,12 @@ const Content = Styled.div`
     }
     .author-chatMeta{
       flex: .16;
+      @media (max-width: 991px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
       span{
         float: right;
         font-size: 12px;
@@ -378,6 +384,10 @@ const Footer = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        span{
+          margin-right: 0;
+          color: #fff;
+        }
       }
       .ant-upload-select {
         background: ${({ theme }) => theme['bg-color-normal']};
@@ -443,6 +453,9 @@ const ChatSidebar = Styled.div`
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+      @media (max-width: 480px){
+        flex-direction: column;
+      }
       li{
         padding: 0;
         a{
@@ -472,6 +485,10 @@ const ChatSidebar = Styled.div`
           }
           .ant-badge{
             margin-left: 6px;
+          }
+          @media (max-width: 480px){
+            padding-bottom: 10px;
+            margin-bottom: 10px;
           }
         }
       }

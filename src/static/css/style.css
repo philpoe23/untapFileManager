@@ -1443,6 +1443,11 @@ ul {
 .ant-page-header {
   padding: 26px 30px 26px 30px !important;
 }
+@media (max-width: 767px){
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
+}
 
 .page-header-actions{
   display: flex;
@@ -1731,5 +1736,11 @@ ul {
   .ant-card-head-wrapper .ant-card-extra .ant-radio-button-wrapper {
     height: 32px !important;
     line-height: 30px !important;
+  }
+}
+
+@media (max-width: 991px){
+  .mail-sideabr{
+    box-shadow: 0 0 10px #00000020;
   }
 }

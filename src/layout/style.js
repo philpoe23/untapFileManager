@@ -40,6 +40,9 @@ const Div = Styled.div`
 
     /* Sidebar styles */
     .ant-layout-sider{
+        @media (max-width: 991px){
+            box-shadow: 0 0 10px #00000020;
+        }
         &.ant-layout-sider-dark{
             background: ${({ theme }) => theme['dark-color']};
             padding: 15px 0 55px !important;
@@ -61,7 +64,7 @@ const Div = Styled.div`
             >.sidebar-nav-title{
                 margin-top: 8px;
             }
-            
+
             .ant-menu{
                 overflow-x: hidden;
                 border-right: 0 none;
@@ -272,7 +275,7 @@ const Div = Styled.div`
     }
 `;
 
-const SmallScreenAuthInfo = Styled.div`    
+const SmallScreenAuthInfo = Styled.div`
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
@@ -284,7 +287,7 @@ const SmallScreenAuthInfo = Styled.div`
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
         box-shadow: 0 2px 30px #9299b810;
-                    
+
 `;
 
 const SmallScreenSearch = Styled.div`
@@ -299,7 +302,7 @@ const SmallScreenSearch = Styled.div`
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}
         box-shadow: 0 2px 30px #9299b810;
-                    
+
 `;
 
 const ModeSwitch = Styled.div`

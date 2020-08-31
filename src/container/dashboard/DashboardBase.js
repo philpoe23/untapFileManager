@@ -214,96 +214,96 @@ const DashboardBase = () => {
               <Row gutter={15}>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading>h1. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 30px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 38px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading as="h2">h2. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 24px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 30px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading as="h3">h3. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 22px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 27px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading as="h4">h4. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 20px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 24px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading as="h5">h5. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 18px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 22px</p>
                     </Col>
                   </Row>
                 </Col>
                 <Col md={24}>
                   <Row>
-                    <Col md={5} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <Heading as="h6">h6. Default Heading</Heading>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font Size - 16px</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Font weight - 600</p>
                     </Col>
-                    <Col md={3} sm={24} xs={24}>
+                    <Col md={6} sm={24} xs={24}>
                       <p>Line Height - 20px</p>
                     </Col>
                   </Row>

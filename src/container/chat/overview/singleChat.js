@@ -311,7 +311,7 @@ const SingleChat = ({ match }) => {
               </div>
               <div className="chatbox-reply-action d-flex">
                 <Link to="#">
-                  <Upload>
+                  <Upload listType="picture-card">
                     <FeatherIcon icon="camera" size={18} />
                   </Upload>
                 </Link>

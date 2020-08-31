@@ -68,7 +68,7 @@ const ChatApp = ({ match }) => {
                   <UL>
                     <li>
                       <NavLink activeClassName="active" to={`${match.path}/private/rofiq@gmail.com`}>
-                        Privet Chat
+                        Private Chat
                       </NavLink>
                     </li>
                     <li>
