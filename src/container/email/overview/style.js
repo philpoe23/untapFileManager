@@ -306,12 +306,32 @@ const MailBox = Styled.div`
       button,
       a{
         margin-right: 20px;
+        line-height: 1;
         svg{
           color: ${({ theme }) => theme['light-color']};
         }
       }
+      .ant-upload {
+        margin-top: 4px;
+      }
+      .ant-upload-list{
+        overflow: hidden;
+        .ant-upload-list-item{
+          border-radius: 4px;
+          height: 25px;
+          line-height: 2.5;
+          background: ${({ theme }) => theme['bg-color-normal']};
+          .ant-upload-list-item-name{
+            font-size: 13px;
+          }
+          .ant-upload-list-item-card-actions{
+            top: -4px;
+          }
+        }
+      }
     }
     .right{
+      line-height: 1;
       a{
         color: ${({ theme }) => theme['light-color']};
       }
