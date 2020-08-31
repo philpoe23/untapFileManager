@@ -204,20 +204,23 @@ const MailBox = Styled.div`
   ${({ size }) => size === 'big' && big()}
 
   background: #fff;
-  z-index: 111;
+  z-index: 999;
   border-radius: 10px;
   box-shadow: 0 10px 50px #9299B830;
   @media only screen and (max-width: 575px){
     right: 0;
   }
-  input,
-  .react-tagsinput{
+  .reply-inner{
+    width: 100%;
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+  }
+  input{
     border: 0 none;
     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
   }
   .react-tagsinput{
     padding-left: 0;
-    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+    border: 0 none;
     input{
       border: 0 none;
     }
@@ -277,6 +280,7 @@ const MailBox = Styled.div`
   .body {
     .group {
       padding: 0px 30px;
+      position: relative;
       @media only screen and (max-width: 575px){
         padding: 0px 15px;
       }
@@ -285,11 +289,21 @@ const MailBox = Styled.div`
         border: none;
       }
       .mail-cc{
+        position: absolute;
+        right: 30px;
         color: ${({ theme }) => theme['light-color']};
       }
+      .DraftEditor-root{
+        font-size: 14px;
+        font-family: 'Inter', sans-serif
+      }
     }
-    .RichTextEditor__editor___1QqIU .public-DraftEditor-content {
+    .public-DraftEditorPlaceholder-root{
+      padding-top: 20px;
+    }
+    .public-DraftEditor-content {
       height: 275px;
+      padding-top: 20px;
       @media only screen and (max-width: 575px){
         height: 160px
       }
@@ -873,9 +887,6 @@ const MessageReply = Styled.div`
   nav{
     padding-left: 70px;
     margin-bottom: 30px;
-    // @media only screen and (max-width: 767px){
-    //   margin-bottom: 0px;
-    // }
     @media only screen and (max-width: 575px){
       padding-left: 0;
     }
@@ -927,7 +938,10 @@ const MessageReply = Styled.div`
     }
   }
   .reply-box{
+    display: flex;
     > div{
+      width: 100%;
+      z-index: 10;
       border: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     .reply-inner{
@@ -948,6 +962,24 @@ const MessageReply = Styled.div`
     }
     .mail-cc{
       color: ${({ theme }) => theme['light-color']};
+    }
+    .body{
+      .DraftEditor-root{
+        >div{
+          font-size: 14px;
+          font-family: 'Inter', sans-serif;
+        }
+      }
+      .public-DraftEditorPlaceholder-root{
+        padding-top: 20px;
+      }
+      .public-DraftEditor-content {
+        height: 155px;
+        padding-top: 20px;
+        @media only screen and (max-width: 575px){
+          height: 140px
+        }
+      }
     }
     .footer{
       margin: 0 30px 0;

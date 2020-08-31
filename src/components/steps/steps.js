@@ -87,7 +87,7 @@ const Steps = ({
             <div className="step-action-inner">
               <Row>
                 <Col xs={24}>
-                  <div className="steps-action justify-content-center">
+                  <div className="steps-action">
                     {state.currents > 0 && (
                       <Button className="btn-prev" type="light" onClick={() => prev()}>
                         <FeatherIcon icon="arrow-left" size={16} />
