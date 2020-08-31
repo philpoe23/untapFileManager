@@ -24,6 +24,8 @@ const SingleChat = ({ match }) => {
     singleContent: chat[0].content,
     name: chat[0].userName,
     inputValue: '',
+    fileList: [],
+    fileList2: [],
   });
 
   const { singleContent, name, me, inputValue } = state;
@@ -38,6 +40,8 @@ const SingleChat = ({ match }) => {
         name: chat[0].userName,
         inputValue: '',
         me: 'woadud@gmail.com',
+        fileList: [],
+        fileList2: [],
       });
     }
     return () => {
@@ -79,7 +83,11 @@ const SingleChat = ({ match }) => {
     listType: 'picture-card',
     onChange(info) {
       if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
+        // console.log(info.file, info.fileList);
+        setState({
+          ...state,
+          fileList: info.fileList,
+        });
       }
       if (info.file.status === 'done') {
         message.success(`${info.file.name} file uploaded successfully`);
@@ -96,7 +104,11 @@ const SingleChat = ({ match }) => {
     },
     onChange(info) {
       if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
+        // console.log(info.file, info.fileList);
+        setState({
+          ...state,
+          fileList2: info.fileList,
+        });
       }
       if (info.file.status === 'done') {
         message.success(`${info.file.name} file uploaded successfully`);
@@ -345,7 +357,10 @@ const SingleChat = ({ match }) => {
                   value={inputValue}
                 />
               </div>
-              <div className="chatbox-reply-action d-flex">
+              <div
+                className={`chatbox-reply-action d-flex ${state.fileList.length && 'hasImage'} ${state.fileList2
+                  .length && 'hasFile'}`}
+              >
                 <Link to="#">
                   <Upload {...props}>
                     <FeatherIcon icon="camera" size={18} />
