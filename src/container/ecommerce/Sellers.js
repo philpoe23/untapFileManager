@@ -160,7 +160,7 @@ const Sellers = () => {
               </TopToolBox>
             </Col>
             <Col md={24}>
-              <TableWrapper className="table-responsive">
+              <TableWrapper className="table-seller table-responsive">
                 <Table
                   rowSelection={rowSelection}
                   dataSource={dataSource}

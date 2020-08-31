@@ -99,7 +99,7 @@ const Grid = () => {
           <Heading as="h1">Data Not Found</Heading>
         </Col>
       )}
-      <Col md={24} className="pb-30">
+      <Col xs={24} className="pb-30">
         <PaginationWrapper style={{ marginTop: 10 }}>
           {products.length ? (
             <Pagination
