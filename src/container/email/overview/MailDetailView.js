@@ -5,7 +5,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin } from 'antd';
 import moment from 'moment';
 import propTypes from 'prop-types';
-import { MailDetailsWrapper, MessageAction, MessageDetails,ReplyList, MessageReply, MailRightAction } from './style';
+import { MailDetailsWrapper, MessageAction, MessageDetails, ReplyList, MessageReply, MailRightAction } from './style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
 import { filterSinglePage } from '../../../redux/email/actionCreator';
@@ -246,7 +246,8 @@ const Single = props => {
                   <figcaption>
                     <Heading as="h6">Reynante Labares</Heading>
                     <p>
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor inviduntLorem ipsum dolor...
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                      inviduntLorem ipsum dolor...
                     </p>
                   </figcaption>
                 </figure>
@@ -282,7 +283,6 @@ const Single = props => {
                 </ul>
               </nav>
               <div className="reply-form d-flex">
-                <img style={{ width: 50, height: 50 }} src={require('../../../static/img/email/2.png')} alt="" />
                 <Switch>
                   <Suspense
                     fallback={
@@ -295,7 +295,14 @@ const Single = props => {
                       <Route
                         path={`${match.url}/replay`}
                         render={value => (
-                          <MailComposer replay props={value} defaultTag="Alice Freeman" onSend={replyMail} />
+                          <>
+                            <img
+                              style={{ width: 50, height: 50 }}
+                              src={require('../../../static/img/email/2.png')}
+                              alt=""
+                            />
+                            <MailComposer replay props={value} defaultTag="Alice Freeman" onSend={replyMail} />
+                          </>
                         )}
                       />
                     </div>

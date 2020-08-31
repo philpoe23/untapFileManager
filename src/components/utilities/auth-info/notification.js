@@ -37,7 +37,7 @@ const NotificationBox = () => {
                 <div className="notification-content d-flex">
                   <div className="notification-text">
                     <Heading as="h5">
-                      <span>James</span> Send you a message
+                      <span>James</span> Sent you a message
                     </Heading>
                     <p>5 hours ago</p>
                   </div>
@@ -57,28 +57,7 @@ const NotificationBox = () => {
                 <div className="notification-content d-flex">
                   <div className="notification-text">
                     <Heading as="h5">
-                      <span>James</span> Send you a message
-                    </Heading>
-                    <p>5 hours ago</p>
-                  </div>
-
-                  <div className="notification-status">
-                    <Badge dot />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <div className="atbd-top-dropdwon__content notifications">
-                <div className="notification-icon bg-secondary">
-                  <FeatherIcon icon="share" />
-                </div>
-                <div className="notification-content d-flex">
-                  <div className="notification-text">
-                    <Heading as="h5">
-                      <span>James</span> Send you a message
+                      <span>James</span> Sent you a message
                     </Heading>
                     <p>5 hours ago</p>
                   </div>
@@ -99,7 +78,7 @@ const NotificationBox = () => {
                 <div className="notification-content d-flex">
                   <div className="notification-text">
                     <Heading as="h5">
-                      <span>James</span> Send you a message
+                      <span>James</span> Sent you a message
                     </Heading>
                     <p>5 hours ago</p>
                   </div>
@@ -120,7 +99,28 @@ const NotificationBox = () => {
                 <div className="notification-content d-flex">
                   <div className="notification-text">
                     <Heading as="h5">
-                      <span>James</span> Send you a message
+                      <span>James</span> Sent you a message
+                    </Heading>
+                    <p>5 hours ago</p>
+                  </div>
+
+                  <div className="notification-status">
+                    <Badge dot />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <div className="atbd-top-dropdwon__content notifications">
+                <div className="notification-icon bg-secondary">
+                  <FeatherIcon icon="share" />
+                </div>
+                <div className="notification-content d-flex">
+                  <div className="notification-text">
+                    <Heading as="h5">
+                      <span>James</span> Sent you a message
                     </Heading>
                     <p>5 hours ago</p>
                   </div>

@@ -60,7 +60,7 @@ const List = () => {
                     <Col xxl={12} lg={10} xs={24}>
                       <div className="product-single-description">
                         <Heading className="product-single-title" as="h5">
-                          <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                          <NavLink to={`/admin/ecommerce/productDetails/${id}`}>{name}</NavLink>
                         </Heading>
                         <p>{description}</p>
                       </div>

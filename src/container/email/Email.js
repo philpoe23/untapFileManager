@@ -57,6 +57,7 @@ const Email = ({ match }) => {
   };
 
   const pathName = path.split(':')[0];
+
   return (
     <>
       <PageHeader
