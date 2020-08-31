@@ -124,7 +124,7 @@ const Project = ({ match }) => {
                       <Select.Option value="price">Price</Select.Option>
                     </Select>
                     <div className="layout-style">
-                      <NavLink to={path}>
+                      <NavLink to={`${path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
                       <NavLink to={`${path}/list`}>
@@ -145,7 +145,8 @@ const Project = ({ match }) => {
                   }
                 >
                   <Route exact path={path} component={Grid} />
-                  <Route path={`${path}/:list`} component={List} />
+                  <Route exact path={`${path}/grid`} component={Grid} />
+                  <Route exact path={`${path}/list`} component={List} />
                 </Suspense>
               </Switch>
             </div>

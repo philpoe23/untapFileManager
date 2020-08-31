@@ -22,7 +22,7 @@ const EcommerceRoute = () => {
       <Route exact path={`${path}/invoice`} component={Invoice} />
       <Route exact path={`${path}/orders`} component={Orders} />
       <Route exact path={`${path}/sellers`} component={Sellers} />
-      <Route exact path={`${path}/cart`} component={Cart} />
+      <Route path={`${path}/cart`} component={Cart} />
     </Switch>
   );
 };

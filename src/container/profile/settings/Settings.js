@@ -133,11 +133,12 @@ const Settings = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route path={`${path}/profile`} component={Profile} />
-                  <Route path={`${path}/account`} component={Account} />
-                  <Route path={`${path}/password`} component={Password} />
-                  <Route path={`${path}/social`} component={SocialProfiles} />
-                  <Route path={`${path}/notification`} component={Notification} />
+                  <Route exact path={`${path}`} component={Profile} />
+                  <Route exact path={`${path}/profile`} component={Profile} />
+                  <Route exact path={`${path}/account`} component={Account} />
+                  <Route exact path={`${path}/password`} component={Password} />
+                  <Route exact path={`${path}/social`} component={SocialProfiles} />
+                  <Route exact path={`${path}/notification`} component={Notification} />
                 </Suspense>
               </Switch>
             </SettingWrapper>

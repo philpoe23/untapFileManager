@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { Switch, Route, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+
 import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -15,7 +15,8 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
 
-const ShoppingCart = ({ match }) => {
+const ShoppingCart = () => {
+  const { path, isExact } = useRouteMatch();
   const [form] = Form.useForm();
   const [state, setState] = useState({
     coupon: 0,
@@ -170,7 +171,7 @@ const ShoppingCart = ({ match }) => {
         ]}
       />
       <Main>
-        <div className={match.isExact ? 'cartWraper' : 'checkoutWraper'}>
+        <div className={isExact ? 'cartWraper' : 'checkoutWraper'}>
           <Row gutter={15}>
             <Col md={24}>
               <Cards headless>
@@ -184,10 +185,10 @@ const ShoppingCart = ({ match }) => {
                           </div>
                         }
                       >
-                        <Route path={`${match.path}/checkout`} component={Checkout} />
+                        <Route path={`${path}/checkout`} component={Checkout} />
                         <Route
                           exact
-                          path={match.path}
+                          path={path}
                           component={() => {
                             return (
                               <>
@@ -286,7 +287,7 @@ const ShoppingCart = ({ match }) => {
                               <span className="summary-total-amount">{`$${507.32}`}</span>
                             </Heading>
                             <Button className="btn-proceed" type="secondary" size="large">
-                              <Link to={`${match.path}/checkout`}>
+                              <Link to={`${path}/checkout`}>
                                 Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
                               </Link>
                             </Button>
@@ -304,7 +305,5 @@ const ShoppingCart = ({ match }) => {
     </>
   );
 };
-ShoppingCart.propTypes = {
-  match: PropTypes.shape(PropTypes.object).isRequired,
-};
+
 export default ShoppingCart;
