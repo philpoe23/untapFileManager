@@ -427,10 +427,10 @@ const Footer = Styled.div`
         display: block;
         top: auto;
         bottom: 136px;
-        // padding: 25px;
-        // border-radius: 10px;
-        // background-color: #fff;
-        // width: 100%;
+        background: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 5px 20px #9299B803;
         >div{
           display: block;
         }

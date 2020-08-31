@@ -320,6 +320,7 @@ const MailBox = Styled.div`
           border-radius: 4px;
           height: 25px;
           line-height: 2.5;
+          z-index: 10;
           background: ${({ theme }) => theme['bg-color-normal']};
           .ant-upload-list-item-name{
             font-size: 13px;

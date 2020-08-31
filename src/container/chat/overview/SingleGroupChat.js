@@ -359,7 +359,10 @@ const SingleGroupChat = ({ match }) => {
         </ul>
         <Footer>
           <form onSubmit={handleSubmit}>
-            <div className="chatbox-reply-form d-flex">
+            <div
+              className={`chatbox-reply-form d-flex ${state.fileList.length && 'hasImage'} ${state.fileList2.length &&
+                'hasFile'}`}
+            >
               <span className="smile-icon">
                 <FeatherIcon icon="smile" size={24} />
               </span>
@@ -373,10 +376,7 @@ const SingleGroupChat = ({ match }) => {
                   value={inputValue}
                 />
               </div>
-              <div
-                className={`chatbox-reply-action d-flex ${state.fileList.length && 'hasImage'} ${state.fileList2
-                  .length && 'hasFile'}`}
-              >
+              <div className="chatbox-reply-action d-flex">
                 <Upload {...props}>
                   <Link to="#">
                     <FeatherIcon icon="camera" size={18} />
