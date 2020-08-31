@@ -1748,3 +1748,7 @@ ul {
     box-shadow: 0 0 10px #00000020;
   }
 }
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #fff !important;
+}
