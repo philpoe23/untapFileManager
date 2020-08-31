@@ -54,7 +54,6 @@ const MenueItems = ({ darkMode }) => {
         <Menu.Item key="single">
           <NavLink to="/admin/email/single/1585118055048">Read Email</NavLink>
         </Menu.Item>
-        <Menu.Item key="7">Compose Email</Menu.Item>
       </SubMenu>
 
       <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">

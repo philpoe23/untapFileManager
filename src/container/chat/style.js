@@ -340,6 +340,12 @@ const Footer = Styled.div`
     @media only screen and (max-width: 575px){
       flex-flow: column;
     }
+    .ant-upload-list{
+      display: flex;
+    position: absolute;
+    top: -120px;
+    left: 0;
+    }
     .chatbox-reply-input{
       width: 100%;
       margin-right: 8px;
