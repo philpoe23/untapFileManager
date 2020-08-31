@@ -17,7 +17,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Route exact path="/" component={Auth} />
           <ProtectedRoute path="/admin" component={Admin} />
         </Router>
