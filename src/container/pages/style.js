@@ -42,6 +42,9 @@ const PricingCard = Styled.div`
     border-radius: 6px;
     &.ant-btn-white{
       border: 1px solid #E3E6EF;
+      span{
+        color: #272b41;
+      }
     }
   }
 `;

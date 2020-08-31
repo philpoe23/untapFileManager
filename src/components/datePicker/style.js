@@ -9,9 +9,9 @@ const ItemWraper = Styled.div`
     .rdrMonth {
         position: relative;
     }
-    .rdrMonthName {       
+    .rdrMonthName {
         text-align: center;
-        font-size: 18px;        
+        font-size: 18px;
         position: absolute;
         top: -50px;
         left: 100px;
@@ -23,13 +23,15 @@ const ButtonGroup = Styled.div`
     border-top: 1px solid #ddd;
     padding: 10px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
+    margin: -10px;
     p{
-        margin: 0
+        margin: 10px
     }
     button {
-        margin: 0px 10px;
+        margin: 10px;
     }
 `;
 
