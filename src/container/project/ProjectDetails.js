@@ -21,11 +21,10 @@ const ProjectDetails = ({ match }) => {
   const project = useSelector(state => state.project.data);
 
   useEffect(() => {
-    if (filterSinglePage) {
+    if (!dispatch) {
       dispatch(filterSinglePage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
-
   const { title, content } = project[0];
 
   return (

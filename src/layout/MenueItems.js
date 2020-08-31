@@ -58,7 +58,7 @@ const MenueItems = ({ darkMode }) => {
       </SubMenu>
 
       <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
-        <NavLink to="/admin/chat/private">Chat</NavLink>
+        <NavLink to="/admin/chat/private/rofiq@gmail.com">Chat</NavLink>
       </Menu.Item>
 
       <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
@@ -82,14 +82,14 @@ const MenueItems = ({ darkMode }) => {
         <Menu.Item key="orders">
           <NavLink to="/admin/ecommerce/orders">Orders</NavLink>
         </Menu.Item>
-        <Menu.Item key="15">Credit Card</Menu.Item>
+        {/* <Menu.Item key="15">Credit Card</Menu.Item> */}
         <Menu.Item key="sellers">
           <NavLink to="/admin/ecommerce/sellers">Sellers</NavLink>
         </Menu.Item>
         <Menu.Item key="Invoice">
           <NavLink to="/admin/ecommerce/Invoice">Invoices</NavLink>
         </Menu.Item>
-        <Menu.Item key="18">Transactions</Menu.Item>
+        {/* <Menu.Item key="18">Transactions</Menu.Item> */}
       </SubMenu>
 
       {/* <Menu.Item key="calendar">
@@ -121,13 +121,13 @@ const MenueItems = ({ darkMode }) => {
       </SubMenu>
 
       <SubMenu key="profile" icon={<FeatherIcon icon="user" />} title="Profile">
-        <Menu.Item key="26">Profile</Menu.Item>
+        {/* <Menu.Item key="26">Profile</Menu.Item> */}
         <Menu.Item key="settings">
           <NavLink to="/admin/settings">Settings</NavLink>
         </Menu.Item>
-        <Menu.Item key="28">Login</Menu.Item>
+        {/* <Menu.Item key="28">Login</Menu.Item>
         <Menu.Item key="29">Register</Menu.Item>
-        <Menu.Item key="30">Forgot Password</Menu.Item>
+        <Menu.Item key="30">Forgot Password</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">

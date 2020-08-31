@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, Progress, Pagination, Tag } from 'antd';
 import { useSelector } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
@@ -9,7 +9,6 @@ import { ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList 
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const List = () => {
-  const { path } = useRouteMatch();
   const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
     projects: project,
@@ -45,7 +44,7 @@ const List = () => {
         project: (
           <ProjectListTitle>
             <Heading as="h4">
-              <Link to={`${path}/single/${id}`}>{title}</Link>
+              <Link to={`/admin/project/single/${id}`}>{title}</Link>
             </Heading>
 
             <p>{category}</p>
