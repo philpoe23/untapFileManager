@@ -672,6 +672,11 @@ const ResultList = Styled.div`
       }
     }
   }
+  .ant-pagination{
+    @media only screen and (max-width: 575px){
+      text-align: center;
+    }
+  }
 `;
 
 const MaintananceWrapper = Styled.div`

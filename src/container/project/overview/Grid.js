@@ -47,7 +47,7 @@ const Grid = () => {
                 <Cards headless>
                   <div className="project-title">
                     <h1>
-                      <Link to={`${path}/${id}`}>{title}</Link>
+                      <Link to={`${path}/single/${id}`}>{title}</Link>
                       <Tag className={status} color="#f50">
                         {status}
                       </Tag>
@@ -125,7 +125,7 @@ const Grid = () => {
           </Cards>
         </Col>
       )}
-      <Col md={24} className="pb-30">
+      <Col xs={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (
             <Pagination

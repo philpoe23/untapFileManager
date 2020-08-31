@@ -306,6 +306,9 @@ const ProjectPagination = Styled.div`
     .ant-pagination{
         display: flex;
         justify-content: flex-end;
+        @media only screen and (max-width: 575px) {
+            justify-content: center;
+        }
     }
 `;
 
