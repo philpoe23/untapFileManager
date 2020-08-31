@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Radio, Spin } from 'antd';
 import { Switch, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import PropTypes from 'prop-types';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
@@ -20,7 +19,6 @@ const List = lazy(() => import('./overview/List'));
 
 const Product = () => {
   const { path } = useRouteMatch();
-
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
 
@@ -125,7 +123,5 @@ const Product = () => {
     </>
   );
 };
-Product.propTypes = {
-  match: PropTypes.shape(PropTypes.object).isRequired,
-};
+
 export default Product;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { UserTableStyleWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -57,7 +58,7 @@ const UserListDataTable = () => {
       company: 'Business Development',
       position: designation,
       joinDate: 'January 20, 2020',
-      status: <span className={status}>{status}</span>,
+      status: <span className={`status-text ${status}`}>{status}</span>,
       action: (
         <div className="table-actions">
           <>
@@ -149,18 +150,20 @@ const UserListDataTable = () => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless>
-              <TableWrapper className="table-responsive">
-                <Table
-                  rowSelection={rowSelection}
-                  dataSource={usersTableData}
-                  columns={usersTableColumns}
-                  pagination={{
-                    defaultPageSize: 5,
-                    total: usersTableData.length,
-                    showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-                  }}
-                />
-              </TableWrapper>
+              <UserTableStyleWrapper>
+                <TableWrapper className="table-responsive">
+                  <Table
+                    rowSelection={rowSelection}
+                    dataSource={usersTableData}
+                    columns={usersTableColumns}
+                    pagination={{
+                      defaultPageSize: 5,
+                      total: usersTableData.length,
+                      showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
+                    }}
+                  />
+                </TableWrapper>
+              </UserTableStyleWrapper>
             </Cards>
           </Col>
         </Row>
