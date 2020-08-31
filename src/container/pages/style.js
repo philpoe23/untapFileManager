@@ -287,6 +287,7 @@ const UserCard = Styled.div`
       }
     }
     .card__actions{
+      margin: -5px;
       .ant-btn-white{
         border: 1px solid ${({ theme }) => theme['border-color-light']};
         &:hover{
@@ -299,6 +300,7 @@ const UserCard = Styled.div`
         height: 38px;
         border-radius: 6px;
         box-shadow: 0px 3px 5px ${({ theme }) => theme['light-color']}05;
+        margin: 5px;
         &:hover{
           color: #fff;
           background-color: ${({ theme }) => theme['primary-color']};
@@ -306,9 +308,6 @@ const UserCard = Styled.div`
           i{
             color: #fff;
           }
-        }
-        &:not(:last-child){
-          margin-right: 10px;
         }
         svg,
         i{

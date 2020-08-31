@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Progress, Pagination, Tag } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
@@ -46,10 +46,8 @@ const Grid = () => {
                 <Cards headless>
                   <div className="project-title">
                     <h1>
-                      <NavLink to={`/admin/project/single/${id}`}>{title}</NavLink>
-                      <Tag className={status} color="#f50">
-                        {status}
-                      </Tag>
+                      <Link to={`/admin/project/single/${id}`}>{title}</Link>
+                      <Tag className={status}>{status}</Tag>
                     </h1>
                     <Dropdown
                       content={

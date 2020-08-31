@@ -80,6 +80,7 @@ const SidebarSingle = Styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                padding-right: 0;
                 .brand-count{
                     font-size: 12px;
                     color: ${({ theme }) => theme['light-color']};
@@ -87,6 +88,9 @@ const SidebarSingle = Styled.div`
                 .rating-left{
                     margin-top: -4px;
                     min-width: 150px;
+                    @media only screen and (max-width: 1792px){
+                        min-width: 130px;
+                    }
                     .ant-rate{
                         margin-right: 10px;
                     }
@@ -96,6 +100,9 @@ const SidebarSingle = Styled.div`
                     min-width: 60px;
                     font-size: 12px;
                     color: ${({ theme }) => theme['light-color']};
+                    @media only screen and (max-width: 1792px){
+                        min-width: 26.5px;
+                    }
                 }
             }
         }
@@ -156,6 +163,7 @@ const ProductCard = Styled.div`
             align-items: flex-start;
             button{
                 min-width: 132px;
+                margin: 0;
             }
             .btn-cart{
                 margin: 0 0 10px;
@@ -240,8 +248,12 @@ const ProductCard = Styled.div`
     }
     .product-single-action{
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        margin-top: 26px;
+        margin: 21px -5px -5px -5px;
+        button{
+            margin: 5px;
+        }
         .ant-btn-default{
             border-color: ${({ theme }) => theme['border-color-normal']};
             &:hover{
@@ -257,9 +269,6 @@ const ProductCard = Styled.div`
             font-size: 12px;
             padding: 0px 18.065px;
             height: 36px;
-        }
-        .btn-cart{
-            margin-right: 10px;
         }
     }
 `;
@@ -301,6 +310,9 @@ const TopToolBox = Styled.div`
             }
             .ant-select-selection-search-input{
                 min-width: 350px;
+                @media only screen and (max-width: 1792px){
+                    min-width: 230px;
+                }
             }
         }
     }
@@ -336,8 +348,9 @@ const TopToolBox = Styled.div`
         border-radius: 5px;
         background: #fff;
         border: 1px solid ${({ theme }) => theme['border-color-normal']};
-        @media only screen and (max-width: 1599px){
-            margin-left: 10px
+        @media only screen and (max-width: 1792px){
+            margin-left: 10px;
+            padding: 0 5px;
         }
         @media only screen and (max-width: 991px){
             padding: 0;
@@ -349,6 +362,9 @@ const TopToolBox = Styled.div`
         padding: 0 12px;
         border-color: ${({ theme }) => theme['border-color-normal']};
         border: 0 none !important;
+        @media only screen and (max-width: 1792px){
+            padding: 0 7.5px;
+        }
         &.ant-radio-button-wrapper-checked{
             &:focus-within{
                 box-shadow: 0 0;
@@ -381,6 +397,9 @@ const TopToolBox = Styled.div`
         }
         span{
             color: ${({ theme }) => theme['light-color']};
+            @media only screen and (max-width: 1792px){
+                font-size: 13px;
+            }
         }
         &.ant-radio-button-wrapper-checked{
             span{
@@ -477,6 +496,17 @@ const PaginationWrapper = Styled.div`
     @media only screen and (max-width: 1199px){
         justify-content: center;
     }
+    .ant-pagination{
+        .ant-pagination-item-link,
+        .ant-pagination-item,
+        .ant-pagination-options .ant-select-selector{
+            border: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+            color: ${({ theme }) => theme['gray-color']};
+        }
+        .ant-pagination-item a{
+            color: ${({ theme }) => theme['gray-color']};
+        }
+    }
 `;
 
 const ProductDetailsWrapper = Styled.div`
@@ -499,13 +529,6 @@ const ProductDetailsWrapper = Styled.div`
         img{
             border-radius: 10px;
             max-width: 90px;
-            min-height: 80px;
-            @media only screen and (max-width: 1199px){
-                min-height: 60px;
-            }
-            @media only screen and (max-width: 991px){
-                min-height: 80px;
-            }
             @media only screen and (max-width: 991px){
                 margin-bottom: 10px;
             }
@@ -626,7 +649,7 @@ const ProductDetailsWrapper = Styled.div`
         border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
         padding-bottom: 30px;
         margin-bottom: 28px;
-        @media only screen and (max-width: 575px){
+        @media only screen and (max-width: 1399px){
             flex-flow: column;
             align-items: flex-start;
         }
@@ -648,7 +671,7 @@ const ProductDetailsWrapper = Styled.div`
             button,
             a{
                 margin-right: 10px;
-                @media only screen and (max-width: 575px){
+                @media only screen and (max-width: 1399px){
                     margin-bottom: 20px;
                 }
             }
@@ -827,7 +850,7 @@ const ProductTable = Styled.div`
                 }
             }
         }
-        
+
         .info-list{
             li{
                 display: inline-block;
@@ -836,7 +859,7 @@ const ProductTable = Styled.div`
                 }
                 span{
                     font-size: 14px;
-                    color: ${({ theme }) => theme['gray-color']}; 
+                    color: ${({ theme }) => theme['gray-color']};
                     &.info-title{
                         margin-right: 5px;
                         font-weight: 500;
@@ -847,7 +870,7 @@ const ProductTable = Styled.div`
         }
         .cart-single-price{
             font-size: 15px;
-            color: ${({ theme }) => theme['gray-color']}; 
+            color: ${({ theme }) => theme['gray-color']};
         }
         .cart-single-t-price{
             font-size: 15px;
@@ -944,7 +967,7 @@ const OrderSummary = Styled.div`
     .ant-form-item{
         margin-bottom: 0;
     }
-    
+
     .summary-table-title{
         font-size: 18px;
         font-weight: 500;
@@ -1289,7 +1312,7 @@ const InvoiceLetterBox = Styled.div`
 
 const InvoiceAction = Styled.div`
     text-align: right;
-    margin: 95px 0 15px;
+    margin: 90px -5px 10px;
     @media only screen and (max-width: 991px){
         margin-top: 50px;
     }
@@ -1303,9 +1326,7 @@ const InvoiceAction = Styled.div`
     }
     button{
         padding: 0 25px !important;
-        &:not(:last-child){
-            margin-right: 10px;
-        }
+        margin: 5px;
         @media only screen and (max-width: 479px){
             margin-bottom 10px;
         }
@@ -1600,7 +1621,7 @@ const CheckoutWrapper = Styled.div`
                 margin-bottom: 25px;
             }
        }
-       
+
        .atbd-review-order__single{
            .ant-radio-wrapper{
                 display: flex;
@@ -1621,7 +1642,7 @@ const CheckoutWrapper = Styled.div`
             .method-info{
                 margin-top: -2px;
                 font-weight: 500;
-                color: color: ${({ theme }) => theme['dark-color']}; 
+                color: color: ${({ theme }) => theme['dark-color']};
                 img{
                     margin-top: -4px;
                     max-width: 40px;
@@ -1634,7 +1655,7 @@ const CheckoutWrapper = Styled.div`
                 margin-top: 20px;
                 color: ${({ theme }) => theme['info-color']};
             }
-            
+
             .table-cart{
                 border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                 .cart-single-t-price{
@@ -1776,19 +1797,19 @@ const CheckoutWrapper = Styled.div`
 `;
 
 export {
-    FigureCart,
-    Sidebar,
-    SidebarSingle,
-    ProductCard,
-    TopToolBox,
-    PaginationWrapper,
-    ProductDetailsWrapper,
-    ProductTable,
-    CouponForm,
-    OrderSummary,
-    AddProductForm,
-    InvoiceHeader,
-    InvoiceLetterBox,
-    InvoiceAction,
-    CheckoutWrapper,
+  FigureCart,
+  Sidebar,
+  SidebarSingle,
+  ProductCard,
+  TopToolBox,
+  PaginationWrapper,
+  ProductDetailsWrapper,
+  ProductTable,
+  CouponForm,
+  OrderSummary,
+  AddProductForm,
+  InvoiceHeader,
+  InvoiceLetterBox,
+  InvoiceAction,
+  CheckoutWrapper,
 };
