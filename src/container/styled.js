@@ -657,7 +657,8 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
-    &.table-order{
+    &.table-order,
+    &.table-seller{
         .ant-table-selection{
             .ant-checkbox-indeterminate{
                 .ant-checkbox-inner{
