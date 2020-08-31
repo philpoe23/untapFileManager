@@ -299,12 +299,14 @@ const MailBox = Styled.div`
       button,
       a{
         margin-right: 20px;
+        line-height: 1;
         svg{
           color: ${({ theme }) => theme['light-color']};
         }
       }
     }
     .right{
+      line-height: 1;
       a{
         color: ${({ theme }) => theme['light-color']};
       }

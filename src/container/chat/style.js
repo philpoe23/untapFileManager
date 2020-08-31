@@ -79,7 +79,7 @@ const Content = Styled.div`
       }
     }
     .author-chatMeta{
-      flex: .14;
+      flex: .16;
       span{
         float: right;
         font-size: 12px;
