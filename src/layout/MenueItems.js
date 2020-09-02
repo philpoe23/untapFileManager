@@ -382,8 +382,8 @@ MenueItems.propTypes = {
   darkMode: propTypes.bool,
 };
 
-MenueItems.defaultProps = {
-  darkMode: false,
-};
+// MenueItems.defaultProps = {
+//   darkMode,
+// };
 
 export default MenueItems;

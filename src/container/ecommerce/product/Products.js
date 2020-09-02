@@ -92,7 +92,7 @@ const Product = () => {
                     </div>
 
                     <div className="product-list-action__viewmode">
-                      <NavLink to={`${path}/grid`}>
+                      <NavLink className="active" to={`${path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
                       <NavLink to={`${path}/list`}>
@@ -107,7 +107,7 @@ const Product = () => {
             <Switch>
               <Suspense
                 fallback={
-                  <div className="spin">
+                  <div className="spin d-flex align-center-v">
                     <Spin />
                   </div>
                 }
