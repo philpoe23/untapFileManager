@@ -1483,7 +1483,7 @@ ul {
 .ant-menu-dark .ant-menu-inline.ant-menu-sub,
 .ant-menu.ant-menu-dark,
 .ant-menu-dark .ant-menu-sub{
-  background: #272B41;
+  background: #272B41 !important;
 }
 
 .ant-menu-dark .ant-menu-item a {
@@ -1497,6 +1497,10 @@ ul {
 
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
   background-color: rgba(255, 255, 255, .05);
+}
+
+.ant-menu-inline-collapsed-tooltip a{
+  color: #000 !important;
 }
 
 /* Chart Label */
