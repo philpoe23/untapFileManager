@@ -12,6 +12,22 @@ const DropdownStyle = Styled.div`
   }
 `;
 
+const DropdownIconStyleWrapper = Styled.div`
+  button{
+    padding: 0 !important;
+    >span{
+      padding: 0 10px 0 16px
+    }
+  }
+  .ant-dropdown-trigger{
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 8px;
+    border-left: 1px solid ${({ theme }) => theme['border-color-normal']}
+  }
+`;
+
 const SpinerWraperStyle = Styled.div`
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
@@ -39,7 +55,10 @@ const CarouselStyleWraper = Styled.div`
     margin-bottom: 16px !important;
   }
   .ant-radio-button-wrapper{
-    line-height: 46px;
+    height: 38px;
+    line-height: 36px !important;
+    font-weight: 600;
+    color: ${({ theme }) => theme['light-color']}
   }
   .ant-carousel .slick-slide h3 {
     color: #fff;
@@ -48,15 +67,15 @@ const CarouselStyleWraper = Styled.div`
 
 const AvatarWraperStyle = Styled.div`
   .ant-avatar {
-    margin: 5px;
+    margin: 10px;
     background: #E3E6EF;
   }
   .ant-btn-default{
     padding: 0 10px;
   }
   .ant-badge-count{
-    top: 6px;
-    right: 6px;
+    top: 10px;
+    right: 10px;
     padding: 0 4px;
     font-size: 10px;
     font-weight: 600;
@@ -64,11 +83,14 @@ const AvatarWraperStyle = Styled.div`
     border: 3px solid #fff;
   }
   .ant-badge-dot{
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     width: 10px;
     height: 10px;
     border: 2px solid #fff;
+  }
+  .btn-outlined{
+    padding: 0px 8.05px;
   }
 `;
 
@@ -139,6 +161,11 @@ const BadgeOverflowStyle = Styled.div`
 const BreadcrumbWrapperStyle = Styled.div`
   .ant-breadcrumb{
     color: #5A5F7D;
+    .ant-breadcrumb-link{
+      .anticon{
+        margin-right: 2px;
+      }
+    }
   }
   .ant-breadcrumb-separator{
     margin: 0 4px;
@@ -151,14 +178,34 @@ const BreadcrumbWrapperStyle = Styled.div`
   .ant-breadcrumb >span:last-child .ant-breadcrumb-link{
     color: #9299B8;
   }
+  .demo{
+    .ant-breadcrumb{
+      .ant-breadcrumb-link{
+        font-size: 12px;
+        color: ${({ theme }) => theme['gray-color']} !important;
+      }
+    }
+  }
   .demo-nav{
     height: 48px;
     line-height: 48px;
     padding: 0 10px;
+    border-radius: 4px;
+    background: ${({ theme }) => theme['bg-color-light']};
   }
   .demo-nav a{
     padding: 0 12px;
     color: #5F63F2;
+  }
+  .ant-alert{
+    &.ant-alert-info{
+      background-color: ${({ theme }) => theme['primary-color']}15;
+      border: 1px solid ${({ theme }) => theme['info-color']}15;
+    }
+    .ant-alert-message{
+      font-size: 12px;
+      color: ${({ theme }) => theme['primary-color']};
+    }
   }
 `;
 
@@ -174,7 +221,16 @@ const BadgeDynamicStyle = Styled.div`
   top: 8px;
 }
 .ant-switch{
+  min-width: 44px;
+  height: 22px;
   margin-left: 15px;
+  .ant-switch-handle{
+    top: 4px;
+    left: 5px;
+  }
+  .ant-switch-checked .ant-switch-handle{
+    left: calc(100% - 14px - 5px);
+  }
 }
 `;
 
@@ -239,16 +295,28 @@ const SelectWrapperStyle = Styled.div`
   .ant-select{
     margin: 5px;
   }
+  .ant-select-selector{
+    border-color: ${({ theme }) => theme['border-color-light']};
+  }
+  .ant-select-multiple.ant-select-sm{
+    .ant-select-selection-item{
+      height: 20px;
+      line-height: 18px;
+      font-size: 11px;
+    }
+  }
 `;
 
 const SelectRadioStyle = Styled.div`
   .ant-radio-button-wrapper{
-    line-height: 46px;
+    height: 42px;
+    line-height: 40px;
   }
 `;
 
 export {
   DropdownStyle,
+  DropdownIconStyleWrapper,
   SpinerWraperStyle,
   CarouselStyleWraper,
   AvatarWraperStyle,

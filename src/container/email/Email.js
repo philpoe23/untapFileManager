@@ -57,6 +57,7 @@ const Email = ({ match }) => {
   };
 
   const pathName = path.split(':')[0];
+
   return (
     <>
       <PageHeader
@@ -79,7 +80,7 @@ const Email = ({ match }) => {
       <Main>
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
-            <Col className="text-center" xxl={5} xl={7} lg={10} xs={24}>
+            <Col xxl={5} xl={7} lg={10} xs={24}>
               {responsive <= 991 && (
                 <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
@@ -91,7 +92,7 @@ const Email = ({ match }) => {
                   <Cards headless>
                     <div className="mail-sidebar-top">
                       <Button onClick={toggleMailComposer} shape="round" type="primary" size="default" block>
-                        + Compose
+                        <FeatherIcon icon="plus" size={18} /> Compose
                       </Button>
                     </div>
 

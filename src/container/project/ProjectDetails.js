@@ -21,11 +21,10 @@ const ProjectDetails = ({ match }) => {
   const project = useSelector(state => state.project.data);
 
   useEffect(() => {
-    if (filterSinglePage) {
+    if (!dispatch) {
       dispatch(filterSinglePage(parseInt(match.params.id, 10)));
     }
   }, [match.params.id, dispatch]);
-
   const { title, content } = project[0];
 
   return (
@@ -61,7 +60,7 @@ const ProjectDetails = ({ match }) => {
           <Col xxl={6} xl={8} xs={24}>
             <div className="project-progress">
               <h3>Progress</h3>
-              <Progress percent={65} status="active" />
+              <Progress percent={65} strokeWidth={5} status="active" />
             </div>
             <Cards headless>
               <div className="state-single">

@@ -16,7 +16,7 @@ const PricingTable = () => {
         <Row gutter={25} justify="center">
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge type="dark">Free Forever</Badge>
+              <Badge className="pricing-badge" type="dark">Free Forever</Badge>
               <Heading className="pricing-title" as="h3">
                 Free
               </Heading>
@@ -34,7 +34,7 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge type="primary">Basic Plan</Badge>
+              <Badge className="pricing-badge" type="primary">Basic Plan</Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>19 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -53,7 +53,7 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge type="secondary">Business</Badge>
+              <Badge className="pricing-badge" type="secondary">Business</Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -73,7 +73,7 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge type="success">Enterprise</Badge>
+              <Badge className="pricing-badge" type="success">Enterprise</Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -98,7 +98,7 @@ const PricingTable = () => {
               <Row gutter={25} justify="center">
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge type="dark">Free Forever</Badge>
+                    <Badge className="pricing-badge" type="dark">Free Forever</Badge>
                     <Heading className="price-amount" as="h3">
                       Free
                     </Heading>
@@ -109,14 +109,14 @@ const PricingTable = () => {
                       <List text="Limited Boards" />
                       <List text="Basic Project Management" />
                     </ListGroup>
-                    <Button size="default" type="default">
+                    <Button size="default" type="white">
                       Current Plan
                     </Button>
                   </PricingCard>
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge type="primary">Basic Plan</Badge>
+                    <Badge className="pricing-badge" type="primary">Basic Plan</Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup> 19 <sub className="pricing-validity">Per month</sub>
                     </Heading>
@@ -135,7 +135,7 @@ const PricingTable = () => {
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge type="secondary">Business</Badge>
+                    <Badge className="pricing-badge" type="secondary">Business</Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
                     </Heading>
@@ -156,7 +156,7 @@ const PricingTable = () => {
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard>
-                    <Badge type="success">Enterprise</Badge>
+                    <Badge className="pricing-badge" type="success">Enterprise</Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
                     </Heading>

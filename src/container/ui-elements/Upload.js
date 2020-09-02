@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Row, Col, Upload, message } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { UploadOutlined, LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const props = {
   name: 'file',
@@ -125,13 +129,27 @@ const Uploads = () => {
 
   return (
     <>
-      <PageHeader ghost title="Upload" />
+      <PageHeader
+        ghost
+        title="Upload"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={15}>
           <Col sm={12} xs={24}>
             <Cards title="Basic">
               <Upload {...props}>
-                <Button size="large" type="light" outlined>
+                <Button className="btn-outlined" size="large" type="light" outlined>
                   <UploadOutlined /> Click to Upload
                 </Button>
               </Upload>
@@ -160,14 +178,14 @@ const Uploads = () => {
                 }}
                 fileList={state.fileList}
               >
-                <Button size="large" type="light" outlined>
+                <Button className="btn-outlined" size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>
             </Cards>
             <Cards title="Upload Default">
               <Upload props={defaultProps} fileList={defaultFilelist}>
-                <Button size="large" type="light" outlined>
+                <Button className="btn-outlined" size="large" type="light" outlined>
                   <UploadOutlined /> Upload
                 </Button>
               </Upload>

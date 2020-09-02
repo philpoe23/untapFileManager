@@ -99,7 +99,7 @@ const EmailNavbar = ({ path }) => {
           </li>
           <li>
             <NavLink to={`${path}trash`}>
-              <FeatherIcon icon="trash" size={18} />
+              <FeatherIcon icon="trash-2" size={18} />
               <span className="nav-text">
                 <span>Trash</span>
               </span>
@@ -119,9 +119,9 @@ const EmailNavbar = ({ path }) => {
               );
             })}
 
-            <li onKeyPress={() => {}} onClick={addNewLabels} role="menuitem">
+            <li className="add-label-btn" onKeyPress={() => {}} onClick={addNewLabels} role="menuitem">
               <NavLink onClick={addNewLabels} to={`${path}newLabels`}>
-                <FeatherIcon icon="plus" size={18} /> Add New Labels
+                <FeatherIcon icon="plus" size={18} /> Add New Label
               </NavLink>
               {addNewDisplay && (
                 <div className="add-label">

@@ -64,7 +64,7 @@ const Grid = () => {
                     />
                   </NavLink>
                   <Heading className="product-single-title" as="h5">
-                    <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                    <NavLink to={`/admin/ecommerce/productDetails/${id}`}>{name}</NavLink>
                   </Heading>
                   <p className="product-single-price">
                     <span className="product-single-price__new">${price} </span>
@@ -81,7 +81,7 @@ const Grid = () => {
                   </div>
 
                   <div className="product-single-action">
-                    <Button size="small" type="light" className="btn-cart" outlined>
+                    <Button size="small" type="white" className="btn-cart" outlined>
                       <FeatherIcon icon="shopping-bag" size={14} />
                       Add To Cart
                     </Button>
@@ -99,7 +99,7 @@ const Grid = () => {
           <Heading as="h1">Data Not Found</Heading>
         </Col>
       )}
-      <Col md={24} className="pb-30">
+      <Col xs={24} className="pb-30">
         <PaginationWrapper style={{ marginTop: 10 }}>
           {products.length ? (
             <Pagination

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Progress, Pagination, Tag } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
@@ -11,6 +11,7 @@ import { ProjectCard, ProjectPagination } from '../style';
 
 const Grid = () => {
   const project = useSelector(state => state.projects.data);
+  const { path } = useRouteMatch();
   const [state, setState] = useState({
     projects: project,
     current: 0,
@@ -39,17 +40,15 @@ const Grid = () => {
     <Row gutter={25}>
       {projects.length ? (
         projects.map(value => {
-          const { id, title, status, content } = value;
+          const { id, title, status, content, percentage } = value;
           return (
             <Col key={id} lg={8} xs={24}>
               <ProjectCard>
                 <Cards headless>
                   <div className="project-title">
                     <h1>
-                      <Link to={`/projectDetails/${id}`}>{title}</Link>
-                      <Tag className={status} color="#f50">
-                        {status}
-                      </Tag>
+                      <Link to={`${path}/single/${id}`}>{title}</Link>
+                      <Tag className={status}>{status}</Tag>
                     </h1>
                     <Dropdown
                       content={
@@ -78,7 +77,12 @@ const Grid = () => {
                     </div>
                   </div>
                   <div className="project-progress">
-                    <Progress percent={84} status="primary" />
+                    <Progress
+                      percent={status === 'complete' ? 100 : percentage}
+                      strokeWidth={5}
+                      status="primary"
+                      className="progress-primary"
+                    />
                     <p>12/15 Task Completed</p>
                   </div>
                   <div className="project-assignees">
@@ -113,13 +117,13 @@ const Grid = () => {
           );
         })
       ) : (
-          <Col md={24}>
-            <Cards headless>
-              <Heading>Data Not Found!</Heading>
-            </Cards>
-          </Col>
-        )}
-      <Col md={24} className="pb-30">
+        <Col md={24}>
+          <Cards headless>
+            <Heading>Data Not Found!</Heading>
+          </Cards>
+        </Col>
+      )}
+      <Col xs={24} className="pb-30">
         <ProjectPagination>
           {projects.length ? (
             <Pagination

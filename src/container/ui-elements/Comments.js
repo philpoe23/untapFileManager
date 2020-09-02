@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Comment, Tooltip, Avatar, List } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { LikeOutlined, DislikeOutlined } from '@ant-design/icons';
@@ -8,6 +9,10 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import CommentEditor from '../../components/comments/comments-editor';
+import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const ExampleComment = ({ children }) => (
   <Comment
@@ -123,7 +128,20 @@ const Comments = () => {
 
   return (
     <>
-      <PageHeader title="Comments" />
+      <PageHeader
+        title="Comments"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col xs={24}>

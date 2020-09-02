@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Row, Col, Menu } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const { SubMenu } = Menu;
 const Menus = () => {
@@ -24,7 +29,21 @@ const Menus = () => {
 
   return (
     <>
-      <PageHeader ghost title="Menu" />
+      <PageHeader
+        ghost
+        title="Menu"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col md={24} sm={24} xs={24}>
@@ -62,7 +81,7 @@ const Menus = () => {
                     <Menu.Item key="1">Option 1</Menu.Item>
                     <Menu.Item key="2">Option 2</Menu.Item>
                   </Menu.ItemGroup>
-                  <Menu.ItemGroup title="Iteom 2">
+                  <Menu.ItemGroup title="Item 2">
                     <Menu.Item key="3">Option 3</Menu.Item>
                     <Menu.Item key="4">Option 4</Menu.Item>
                   </Menu.ItemGroup>

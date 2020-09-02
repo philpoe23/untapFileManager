@@ -83,7 +83,15 @@ const locationData = [
     sessions: '3,397',
     rate: '3.5%',
     completions: '225',
-    percentage: <Progress percent={70} status="active" showInfo={false} className="progress-dt" />,
+    percentage: (
+      <Progress
+        percent={70}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-dt progress-primary"
+      />
+    ),
     value: '23.28%',
   },
   {
@@ -92,7 +100,15 @@ const locationData = [
     sessions: '5,578',
     rate: '2.4%',
     completions: '145',
-    percentage: <Progress percent={65} status="active" showInfo={false} className="progress-et" />,
+    percentage: (
+      <Progress
+        percent={65}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-et progress-secondary"
+      />
+    ),
     value: '65.55%',
   },
   {
@@ -101,7 +117,15 @@ const locationData = [
     sessions: '2,398',
     rate: '6.8%',
     completions: '120',
-    percentage: <Progress percent={83} status="active" showInfo={false} className="progress-ost" />,
+    percentage: (
+      <Progress
+        percent={83}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-ost progress-success"
+      />
+    ),
     value: '83.19%',
   },
   {
@@ -110,7 +134,9 @@ const locationData = [
     sessions: '3,397',
     rate: '1.5%',
     completions: '110',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-rt" />,
+    percentage: (
+      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-rt progress-info" />
+    ),
     value: '73.33%',
   },
   {
@@ -119,7 +145,15 @@ const locationData = [
     sessions: '4,247',
     rate: '3.6%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-smt" />,
+    percentage: (
+      <Progress
+        percent={73}
+        strokeWidth={5}
+        status="active"
+        showInfo={false}
+        className="progress-smt progress-warning"
+      />
+    ),
     value: '73.33%',
   },
   {
@@ -128,7 +162,9 @@ const locationData = [
     sessions: '6,354',
     rate: '3.5%',
     completions: '210',
-    percentage: <Progress percent={73} status="active" showInfo={false} className="progress-ot" />,
+    percentage: (
+      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-ot progress-danger" />
+    ),
     value: '73.33%',
   },
 ];
@@ -508,6 +544,7 @@ const Performance = () => {
                       legend: {
                         display: false,
                         position: 'bottom',
+                        align: 'start',
                         labels: {
                           boxWidth: 6,
                           display: true,
@@ -527,8 +564,8 @@ const Performance = () => {
                               color: '#e5e9f2',
                             },
                             ticks: {
-                              beginAtZero: false,
-                              fontSize: 14,
+                              beginAtZero: true,
+                              fontSize: 13,
                               display: true,
                               suggestedMin: 50,
                               suggestedMax: 80,
@@ -547,7 +584,7 @@ const Performance = () => {
                             },
                             ticks: {
                               beginAtZero: false,
-                              fontSize: 11,
+                              fontSize: 13,
                               display: true,
                             },
                           },
@@ -625,11 +662,11 @@ const Performance = () => {
               >
                 <div className="session-chart-inner">
                   <ChartjsDonutChart
-                    labels={['Desktop', 'Mobile', 'Tablets']}
+                    labels={['Desktop', 'Mobiles', 'Tablets']}
                     datasets={[
                       {
                         data: [5870, 4483, 2420],
-                        backgroundColor: ['#560bd0', '#007bff', '#00cccc'],
+                        backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
                       },
                     ]}
                   />
@@ -646,6 +683,7 @@ const Performance = () => {
                     <div className="session-single">
                       <div className="chart-label">
                         <span className="label-dot dot-info" />
+                        Mobile
                       </div>
                       <span>5870</span>
                       <sub>30%</sub>

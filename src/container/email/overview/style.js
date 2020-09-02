@@ -2,11 +2,9 @@ import Styled from 'styled-components';
 import { Table } from 'antd';
 
 const Style = Styled(Table)`
-  
-  @media only screen and (max-width: 991px){
-    margin-bottom: 30px;   
-  }
+  margin-bottom: 30px;  
   .ant-table{
+    padding-bottom: 30px;
     border-radius: 10px;
     tr{
       th,
@@ -20,7 +18,7 @@ const Style = Styled(Table)`
       }
     }
     .ant-table-selection-extra{
-      right: -15px;   
+      right: -15px;
     }
   }
   .ant-table-thead{
@@ -28,10 +26,20 @@ const Style = Styled(Table)`
       >th{
         background: #fff;
         &:first-child{
+          padding-right: 20px;
           border-top-left-radius: 10px !important;
         }
         &:last-child{
           border-top-right-radius: 10px !important;
+        }
+        .ant-table-selection-extra{
+          right: -25px
+        }
+        .ant-dropdown-trigger{
+          svg{
+            width: 20px;
+            color: ${({ theme }) => theme['gray-solid']};
+          }
         }
         .email-top-search{
           display: flex;
@@ -47,6 +55,7 @@ const Style = Styled(Table)`
             height: 46px !important;
           }
           .ant-select-selection-search{
+            width: 100% !important;
             .ant-select-selection-search-input{
               border-radius: 24px;
               background: ${({ theme }) => theme['bg-color-normal']};
@@ -108,6 +117,7 @@ const Style = Styled(Table)`
       }
     }
   }
+
   
   .ant-table-tbody{
     .ant-table-cell{
@@ -115,7 +125,7 @@ const Style = Styled(Table)`
     }
     >tr{
       &:hover{
-        box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}15;
+        box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}20;
         h1{
           color: ${({ theme }) => theme['dark-color']};
           a{
@@ -131,7 +141,7 @@ const Style = Styled(Table)`
         }
       }
       >td{
-        vertical-align: top;
+        padding: 15px 16px;
         &:last-child{
           text-align: right;
         }
@@ -171,6 +181,10 @@ const small = () => {
   min-height: 600px;
   bottom: 75px;
   right: 15px;
+  @media only screen and (max-width: 575px){
+    min-height: 450px;
+    bottom: 45px;
+  }
 `;
 };
 
@@ -190,22 +204,28 @@ const MailBox = Styled.div`
   ${({ size }) => size === 'big' && big()}
 
   background: #fff;
-  z-index: 111;
+  z-index: 999;
   border-radius: 10px;
   box-shadow: 0 10px 50px #9299B830;
   @media only screen and (max-width: 575px){
     right: 0;
   }
-  input,
-  .react-tagsinput{
+  .reply-inner{
+    width: 100%;
+    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+  }
+  input{
     border: 0 none;
     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
   }
   .react-tagsinput{
     padding-left: 0;
-    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+    border: 0 none;
     input{
       border: 0 none;
+    }
+    input::placeholder{
+      color: ${({ theme }) => theme['light-color']};
     }
     .react-tagsinput-tag{
       padding: 5px 16px;
@@ -219,14 +239,20 @@ const MailBox = Styled.div`
       }
     }
   }
+  .ant-upload-list{
+    position: absolute;
+    bottom: 15%;
+    left: 25px;
+    width: 95%;    
+  }
   input{
     padding: 15px 0;
     &:focus{
       box-shadow: 0 0;
     }
-    &:placeholder{
-      color: ${({ theme }) => theme['light-color']};
-    }
+  }
+  input::placeholder{
+    color: ${({ theme }) => theme['light-color']};
   }
 
   .header {
@@ -247,13 +273,14 @@ const MailBox = Styled.div`
         opacity: .70;
       }
       svg:first-child {
-        margin-right: 10px;
+        margin-right: 20px;
       }
     }
   }
   .body {
     .group {
       padding: 0px 30px;
+      position: relative;
       @media only screen and (max-width: 575px){
         padding: 0px 15px;
       }
@@ -261,11 +288,24 @@ const MailBox = Styled.div`
         box-shadow: 0 0;
         border: none;
       }
+      .mail-cc{
+        position: absolute;
+        right: 30px;
+        color: ${({ theme }) => theme['light-color']};
+      }
+      .DraftEditor-root{
+        font-size: 14px;
+        font-family: 'Inter', sans-serif
+      }
     }
-    .RichTextEditor__editor___1QqIU .public-DraftEditor-content {
+    .public-DraftEditorPlaceholder-root{
+      padding-top: 20px;
+    }
+    .public-DraftEditor-content {
       height: 275px;
+      padding-top: 20px;
       @media only screen and (max-width: 575px){
-        height: 240px
+        height: 160px
       }
     }
   }
@@ -280,12 +320,33 @@ const MailBox = Styled.div`
       button,
       a{
         margin-right: 20px;
+        line-height: 1;
         svg{
           color: ${({ theme }) => theme['light-color']};
         }
       }
+      .ant-upload {
+        margin-top: 4px;
+      }
+      .ant-upload-list{
+        overflow: hidden;
+        .ant-upload-list-item{
+          border-radius: 4px;
+          height: 25px;
+          line-height: 2.5;
+          z-index: 10;
+          background: ${({ theme }) => theme['bg-color-normal']};
+          .ant-upload-list-item-name{
+            font-size: 13px;
+          }
+          .ant-upload-list-item-card-actions{
+            top: -4px;
+          }
+        }
+      }
     }
     .right{
+      line-height: 1;
       a{
         color: ${({ theme }) => theme['light-color']};
       }
@@ -300,20 +361,46 @@ const EmailNav = Styled.nav`
     padding: 0;
     li{
       position: relative;
+      &.add-label-btn{
+        &:hover{
+          background: transparent;
+          a{
+            background: transparent;
+            color: ${({ theme }) => theme['primary-color']} !important;
+          }
+        }
+        a{
+          color: ${({ theme }) => theme['light-color']} !important;
+          transition: .3s;
+          &:hover{
+            background: transparent;
+            svg,
+            i,
+            span{
+              color: ${({ theme }) => theme['primary-color']};
+            }
+          }
+        }
+      }
       a{
-        padding: 10px 15px;
+        padding: 8px 15px;
         display: flex;
         align-items: center;
         transition: 0.3s ease;
         border-radius: 4px;
         color: ${({ theme }) => theme['gray-color']};
         svg{
+          min-width: 18px;
           margin-right: 20px;
           color: ${({ theme }) => theme['extra-light-color']};
         }
         &.active{
           background: rgba(95,99,242,0.1);
           color: ${({ theme }) => theme['primary-color']};
+          svg,
+          i{
+            color: ${({ theme }) => theme['primary-color']};
+          }
         }
       }
 
@@ -321,6 +408,10 @@ const EmailNav = Styled.nav`
         a{
           background: rgba(95,99,242,0.1);
           color: ${({ theme }) => theme['primary-color']};
+          svg,
+          i{
+            color: ${({ theme }) => theme['primary-color']};
+          }
         }
       }
       .nav-text{
@@ -342,14 +433,17 @@ const EmailNav = Styled.nav`
           padding: 15px;
         }
         h1{
+          text-align: left;
           font-size: 16px;
           line-height: 20px;
           margin-bottom: 16px;
           font-weight: 500;
           transition: .3s;
+          color: ${({ theme }) => theme['dark-color']};
         }
         input{
           height: 44px;
+          border-radius: 2px;
           border: 1px solid ${({ theme }) => theme['border-color-light']};
         }
         .btn-group{
@@ -371,11 +465,14 @@ const EmailNav = Styled.nav`
     }
   }
   .nav-labels{
-    margin-top: 30px;
+    margin-top: 35px;
     p{
+      font-size: 12px;
+      text-align: left;
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
+      text-align: left;
     }
     ul{
       margin-top: 6px;
@@ -385,6 +482,9 @@ const EmailNav = Styled.nav`
 `;
 
 const MailDetailsWrapper = Styled.div`
+  .ant-card-body{
+    padding: 30px 0 !important;
+  }
   .ant-card-head-wrapper{
     @media only screen and (max-width: 767px){
       flex-flow: column;
@@ -421,13 +521,14 @@ const MessageAction = Styled.div`
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    margin: 0 5px;
+    margin: 0 4px;
     transition: 0.3s ease;
     @media only screen and (max-width: 575px){
       width: 25px;
       height: 25px;
     }
     svg{
+      width: 16px;
       color: ${({ theme }) => theme['gray-solid']};
     }
     &:hover{
@@ -451,7 +552,7 @@ const EmailAuthor = Styled.div`
     border-radius: 50%;
     display: inline-block;
     margin-left: 20px;
-    margin-right: 15px;
+    margin-right: 16px;
   }
   h1{
     margin: 0;
@@ -474,18 +575,30 @@ const EmailHeader = Styled.div`
     font-weight: 500;
     transition: .3s;
     color: ${({ theme }) => theme['gray-color']};
+    a{
+      color: ${({ theme }) => theme['gray-color']};
+      transition: .3s;
+      &:hover{
+        color: ${({ theme }) => theme['primary-color']};
+      }
+    }
   }
   .mail-badge{
     display: inline-block;
     margin-left: 10px;
     font-size: 12px;
     font-weight: 500;
-    height: 20px;
-    padding: 0 12px;
+    height: 22px;
+    padding: 0 6.4px;
     border-radius: 3px;
-    background: ${({ theme }) => theme['primary-color']}10;
+    text-transform: capitalize;
+    background: ${({ theme }) => theme['bg-color-deep']};
     @media only screen and (max-width: 575px){
       margin-left: 0px;
+    }
+    &.primary{
+      background: ${({ theme }) => theme['primary-color']}10;
+      color: ${({ theme }) => theme['primary-color']};
     }
   }
   p{
@@ -516,15 +629,51 @@ const EmailHeader = Styled.div`
 `;
 
 const MessageDetails = Styled.div`
+  padding: 0 30px;
   .message-box {
     @media only screen and (max-width: 767px){
       flex-flow: column;
       align-items: flex-start;
     }
+    @media only screen and (max-width: 575px){
+      padding: 0;
+    }
+  }
+  >div{
+    &.align-items-center{
+      @media only screen and (max-width: 375px){
+        align-items: flex-start;
+      }
+    }
   }
   .message-subject{
     h1{
+      display: flex;
+      align-items: center;
       font-weight: 500;
+      @media only screen and (max-width: 375px){
+        flex-flow: column;
+        align-items: flex-start;
+      }
+      .mail-badge{
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        height: 20px;
+        line-height: 1.6;
+        padding: 0 6.4px;
+        border-radius: 3px;
+        text-transform: capitalize;
+        @media only screen and (max-width: 375px){
+          margin: 15px 0 0 0;
+        }
+        background: ${({ theme }) => theme['bg-color-deep']};
+        &.primary{
+          background: ${({ theme }) => theme['primary-color']}10;
+          color: ${({ theme }) => theme['primary-color']};
+        }
+      }
     }
   }
   .message-action{
@@ -558,8 +707,9 @@ const MessageDetails = Styled.div`
     div{
       margin-left: 20px;
       h1{
+        font-weight: 500;
         font-size: 16px;
-        margin-bottom: 0;
+        margin-bottom: 4px;
       }
       a{
         display: flex;
@@ -575,6 +725,9 @@ const MessageDetails = Styled.div`
     margin: 0 -15px;
     @media only screen and (max-width: 767px){
       margin: 18px 0 0;
+    }
+    span + span{
+      font-size: 13px;
     }
     span, a{
       display: block;
@@ -602,10 +755,17 @@ const MessageDetails = Styled.div`
       padding-left: 0px;
       margin-top: 18px;
     }
+    .welcome-text{
+      font-size: 15px;
+      margin-bottom: 40px;
+      display: inline-block;
+      color: ${({ theme }) => theme['gray-color']};
+    }
     p{
       color: ${({ theme }) => theme['gray-color']};
       font-size: 15px;
-      margin-bottom: 40px;
+      line-height: 1.667;
+      margin-bottom: 55px;
     }
     h1{
       font-size: 15px;
@@ -629,7 +789,7 @@ const MessageDetails = Styled.div`
       border: 1px solid ${({ theme }) => theme['border-color-light']};
       border-radius: 10px;
       padding: 10px;
-      margin: 0 5px;
+      margin: 0 5px 30px;
       &:hover{
         box-shadow: 0 10px 20px ${({ theme }) => theme['gray-solid']}10;
         .attachment-image{
@@ -712,7 +872,6 @@ const MessageDetails = Styled.div`
     }
   }
   hr{
-    margin-top: 30px;
     margin-bottom: 30px;
     border: 0 none;
     height: 1px;
@@ -721,10 +880,15 @@ const MessageDetails = Styled.div`
 `;
 
 const MessageReply = Styled.div`
+  padding: 0 30px;
+  @media only screen and (max-width: 575px){
+    padding: 0 15px;
+  }
   nav{
+    padding-left: 70px;
     margin-bottom: 30px;
-    @media only screen and (max-width: 767px){
-      margin-bottom: 0px;
+    @media only screen and (max-width: 575px){
+      padding-left: 0;
     }
     ul{
       display: flex;
@@ -750,6 +914,19 @@ const MessageReply = Styled.div`
       }
     }
   }
+  .reply-form{
+    @media only screen and (max-width: 575px){
+      flex-flow: column;
+      align-items: center;
+    }
+    img{
+      margin: 10px 20px 0 0;
+      border-radius: 50%;
+      @media only screen and (max-width: 575px){
+        margin: 0 0 20px;
+      }
+    }
+  }
   .RichTextEditor__root___2QXK-{
     border: 0 none;
     padding: 15px 0px;
@@ -761,13 +938,141 @@ const MessageReply = Styled.div`
     }
   }
   .reply-box{
+    display: flex;
     > div{
+      width: 100%;
+      z-index: 10;
       border: 1px solid ${({ theme }) => theme['border-color-light']};
+    }
+    .reply-inner{
+      width: 100%
+      border-bottom: 1px solid #F1F2F6 !important;
+      @media only screen and (max-width: 575px){
+        flex-flow: column;
+        align-items: flex-start !important;
+        padding-top: 15px;
+      }
+      .react-tagsinput{
+        border-bottom: 0 none !important;
+      }
+    }
+    .reply-title{
+      margin-right: 10px;
+      color: ${({ theme }) => theme['light-color']};
+    }
+    .mail-cc{
+      color: ${({ theme }) => theme['light-color']};
+    }
+    .body{
+      .DraftEditor-root{
+        >div{
+          font-size: 14px;
+          font-family: 'Inter', sans-serif;
+        }
+      }
+      .public-DraftEditorPlaceholder-root{
+        padding-top: 20px;
+      }
+      .public-DraftEditor-content {
+        height: 155px;
+        padding-top: 20px;
+        @media only screen and (max-width: 575px){
+          height: 140px
+        }
+      }
     }
     .footer{
       margin: 0 30px 0;
       @media only screen and (max-width: 575px){
         margin: 0 15px 0
+      }
+    }
+  }
+`;
+
+const ReplyList = Styled.div`
+  box-shadow: 0 15px 40px ${({ theme }) => theme['light-color']}10;
+  margin: 0px 0 50px;
+  padding-top: 30px;
+  .reply-view__single{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    @media only screen and (max-width: 375px){
+      flex-flow: column;
+    }
+    &:not(:last-child){
+      margin-bottom: 30px;
+    }
+    .reply-view__content{
+      @media only screen and (max-width: 575px){
+          flex-flow: column;
+      }
+      img{
+        margin-right: 20px;
+        border-radius: 50%;
+        @media only screen and (max-width: 575px){
+          margin: 0 0 15px 0;
+        }
+      }
+      figcaption{
+        h1{
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+    }
+    .reply-view__meta{
+      @media only screen and (max-width: 375px){
+        order: -1;
+      }
+      span{
+        font-size: 13px;
+      }
+      svg,
+      i,
+      span{
+        color: ${({ theme }) => theme['light-color']};
+      }
+      svg,
+      img{
+        width: 16px;
+      }
+      .meta-list{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: 575px){
+            flex-flow: column;
+        }
+        @media only screen and (max-width: 375px){
+            flex-flow: row;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .date-meta{
+          min-width: 135px;
+          margin-right: 30px
+          @media only screen and (max-width: 575px){
+            margin: 0 0 15px 0;
+          }
+          @media only screen and (max-width: 375px){
+            margin: 0 15px 0 0;
+          }
+        }
+        a{
+          &:not(:last-child){
+            margin-right: 30px;
+            @media only screen and (max-width: 575px){
+                margin: 0 0 15px 0;
+            }
+            @media only screen and (max-width: 375px){
+              margin: 0 15px 0 0;
+            }
+          }
+        }
       }
     }
   }
@@ -818,6 +1123,7 @@ const EmailWrapper = Styled.div`
       z-index: 99;
     }
     .ant-card{
+      min-height: 900px;
       .ant-card-body{
         padding: 0px !important;
       }
@@ -833,6 +1139,14 @@ const EmailWrapper = Styled.div`
 
   .mail-sidebar-bottom{
     padding: 0 15px 25px 15px;
+  }
+
+  table{
+    .ant-table-tbody{
+      .ant-table-cell{
+        vertical-align: middle;
+      }
+    }
   }
 `;
 
@@ -852,6 +1166,7 @@ export {
   MailDetailsWrapper,
   MessageDetails,
   MessageReply,
+  ReplyList,
   MailRightAction,
   EmailWrapper,
 };

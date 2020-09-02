@@ -72,9 +72,28 @@ const AuthWrapper = Styled.div`
   .auth-notice{
     text-align: right;
     font-weight: 500;
+    color: ${({ theme }) => theme['gray-color']};
     @media only screen and (max-width: 767px){
       text-align: center;
       margin-bottom: 10px;
+    }
+  }
+  button{
+    &.btn-signin{
+      min-width: 185px;
+    }
+    &.btn-create{
+      border-radius: 8px;
+      min-width: 205px;
+    }
+    &.btn-reset{
+      border-radius: 8px;
+      min-width: 260px;
+    }
+    &.ant-btn-lg{
+      font-size: 14px;
+      font-weight: 500;
+      height: 48px;
     }
   }
   .auth-contents{
@@ -90,6 +109,9 @@ const AuthWrapper = Styled.div`
         @media only screen and (max-width: 767px){
           margin-bottom: 28px;
         }
+        input::placeholder{
+          color: ${({ theme }) => theme['extra-light-color']};
+        }
       }
       .auth-form-action{
         margin-bottom: 20px;
@@ -101,6 +123,14 @@ const AuthWrapper = Styled.div`
             margin-top: 15px;
           }
         }
+      }
+    }
+    #forgotPass{
+      .forgot-text{
+        margin-bottom: 25px;
+      }
+      .return-text{
+        margin-top: 35px;
       }
     }
     .form-divider{
@@ -135,6 +165,14 @@ const AuthWrapper = Styled.div`
       @media only screen and (max-width: 767px){
         justify-content: center;
       }
+      &.signin-social{
+        li{
+          a{
+            box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}10;
+            background-color: #fff;
+          }
+        }
+      }
       li{
         padding:6px;
         a{
@@ -155,6 +193,32 @@ const AuthWrapper = Styled.div`
           span:not(.anticon){
             display: inline-block;
             margin-left: 5px;
+          }
+          svg,
+          i{
+            width: 20px;
+            height: 20px;
+          }
+          &.google-signup,
+          &.google-signin{
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            @media only screen and (max-width: 379px){
+              padding: 0 5px;
+            }
+            img{
+              margin-right: 8px;
+              @media only screen and (max-width: 379px){
+                margin-right: 4px;
+              }
+            }
+          }
+          &.facebook-sign{
+            color: #475993;
+          }
+          &.twitter-sign{
+            color: #03A9F4;
           }
         }
       }

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
-import { Upload } from 'antd';
+import { Upload, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleGroupChat = ({ match }) => {
   const dispatch = useDispatch();
-  const chat = useSelector(state => state.chatSingle.data);
+  const chat = useSelector(state => state.chatSingleGroup.data);
 
   const [state, setState] = useState({
     chatData: chat,
@@ -25,6 +25,8 @@ const SingleGroupChat = ({ match }) => {
     singleContent: chat[0].content,
     name: chat[0].groupName,
     inputValue: '',
+    fileList: [],
+    fileList2: [],
   });
 
   const { singleContent, name, me, inputValue } = state;
@@ -38,6 +40,8 @@ const SingleGroupChat = ({ match }) => {
         name: chat[0].groupName,
         inputValue: '',
         me: 'woadud@gmail.com',
+        fileList: [],
+        fileList2: [],
       });
     }
     return () => {
@@ -63,12 +67,57 @@ const SingleGroupChat = ({ match }) => {
       email: me,
       userName: 'Woadud Akand',
     };
-    dispatch(updateGroupChat(match.params.id, pushcontent));
+    dispatch(updateGroupChat(parseInt(match.params.id, 10), pushcontent));
     setState({
       ...state,
       singleContent: [...singleContent, pushcontent],
       inputValue: '',
     });
+  };
+
+  const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    listType: 'picture-card',
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+        setState({
+          ...state,
+          fileList: info.fileList,
+        });
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+  };
+
+  const attachment = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        // console.log(info.file, info.fileList);
+        setState({
+          ...state,
+          fileList2: info.fileList,
+        });
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
 
   const content = (
@@ -89,11 +138,11 @@ const SingleGroupChat = ({ match }) => {
   );
 
   return (
-    <SingleChatWrapper>
+    <SingleChatWrapper className="group-chat">
       <Cards
         title={
           <div className="group-chat-header d-flex">
-            <Heading as="h5">{name}+faming</Heading>
+            <Heading as="h5">{name}</Heading>
             <div className="members">
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
@@ -112,6 +161,14 @@ const SingleGroupChat = ({ match }) => {
               </Link>
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+              </Link>
+              <Link className="show-more">
+                <span>20+</span>
+              </Link>
+              <Link className="add-more">
+                <span className="add-icon">
+                  <FeatherIcon icon="plus" size={14} />
+                </span>
               </Link>
             </div>
           </div>
@@ -302,7 +359,13 @@ const SingleGroupChat = ({ match }) => {
         </ul>
         <Footer>
           <form onSubmit={handleSubmit}>
-            <div className="chatbox-reply-form d-flex">
+            <div
+              className={`chatbox-reply-form d-flex ${state.fileList.length && 'hasImage'} ${state.fileList2.length &&
+                'hasFile'}`}
+            >
+              <span className="smile-icon">
+                <FeatherIcon icon="smile" size={24} />
+              </span>
               <div className="chatbox-reply-input">
                 <input
                   onChange={handleChange}
@@ -314,12 +377,12 @@ const SingleGroupChat = ({ match }) => {
                 />
               </div>
               <div className="chatbox-reply-action d-flex">
-                <Upload>
+                <Upload {...props}>
                   <Link to="#">
                     <FeatherIcon icon="camera" size={18} />
                   </Link>
                 </Upload>
-                <Upload>
+                <Upload {...attachment}>
                   <Link to="#">
                     <FeatherIcon icon="paperclip" size={18} />
                   </Link>

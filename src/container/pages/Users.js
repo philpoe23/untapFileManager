@@ -91,7 +91,7 @@ const Users = () => {
                             </Button>
                             <Button size="default" type="white">
                               <FeatherIcon icon="user-plus" size={14} />
-                              Follow
+                              Following
                             </Button>
                           </div>
                           <div className="card__info">

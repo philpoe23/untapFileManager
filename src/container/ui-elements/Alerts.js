@@ -5,26 +5,48 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, AlertList } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import Alert from '../../components/alerts/alerts';
+import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Alerts = () => {
   return (
     <>
-      <PageHeader title="Alerts" />
+      <PageHeader
+        title="Alerts"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="Basic" size="large">
               <AlertList>
-                <Alert message="" description="Success Text" type="success" />
+                <div className="alert-empty-message">
+                  <Alert message="" description="Success Text" type="success" />
+                </div>
               </AlertList>
             </Cards>
             <Cards title="Closable" size="large">
               <AlertList>
-                <Alert
-                  closable
-                  message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-                  type="warning"
-                />
+                <div className="alert-empty-message">
+                  <Alert
+                    closable
+                    message=""
+                    description="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+                    type="warning"
+                  />
+                </div>
                 <Alert
                   closable
                   message="Error Text"
@@ -35,34 +57,36 @@ const Alerts = () => {
             </Cards>
             <Cards title="Icon" size="large">
               <AlertList>
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Success Tips"
-                  type="success"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Informational Notes"
-                  type="info"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Warning"
-                  type="warning"
-                />
-                <Alert
-                  showIcon
-                  icon={<FeatherIcon icon="layers" size={15} />}
-                  message=""
-                  description="Error"
-                  type="error"
-                />
+                <div className="alert-empty-message">
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Success Tips"
+                    type="success"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Informational Notes"
+                    type="info"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Warning"
+                    type="warning"
+                  />
+                  <Alert
+                    showIcon
+                    icon={<FeatherIcon icon="layers" size={15} />}
+                    message=""
+                    description="Error"
+                    type="error"
+                  />
+                </div>
                 <Alert
                   showIcon
                   icon={<FeatherIcon icon="layers" size={15} />}

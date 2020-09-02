@@ -3,15 +3,16 @@ import FeatherIcon from 'feather-icons-react';
 import RichTextEditor from 'react-rte';
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
+import { Upload, message } from 'antd';
 import { MailBox } from './style';
 import { Button } from '../../../components/buttons/buttons';
 
-const MailComposer = ({ onChange, onSend }) => {
+const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
-    tags: [],
+    tags: defaultTag ? [defaultTag] : [],
   });
 
   const onChanges = value => {
@@ -29,20 +30,42 @@ const MailComposer = ({ onChange, onSend }) => {
     onSend(state.value.toString('html'));
   };
 
+  const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+  };
+
   return (
     <MailBox>
       <div className="body">
-        <div className="group">
-          <TagsInput
-            inputProps={{
-              placeholder: 'To',
-            }}
-            value={state.tags}
-            onChange={handleChange}
-          />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
+          <div className="reply-inner" style={{ display: 'flex', alignItems: 'center' }}>
+            {!replay ? null : <span className="reply-title">Replay To</span>}
+            <TagsInput
+              inputProps={{
+                placeholder: replay ? null : 'To',
+              }}
+              value={state.tags}
+              onChange={handleChange}
+            />
+          </div>
+          <span className="mail-cc">Cc</span>
         </div>
         <div className="group">
-          <RichTextEditor value={state.value} onChange={onChanges} />
+          <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />
         </div>
       </div>
 
@@ -51,17 +74,19 @@ const MailComposer = ({ onChange, onSend }) => {
           <Button size="default" type="primary" onClick={onSubmit} raised>
             Send
           </Button>
-          <NavLink to="/">
-            <FeatherIcon icon="paperclip" size={18} />
-          </NavLink>
-          <NavLink to="/">
-            <FeatherIcon icon="alert-circle" size={18} />
-          </NavLink>
+          <Link to="#">
+            <Upload {...props}>
+              <FeatherIcon icon="paperclip" size={16} />
+            </Upload>
+          </Link>
+          <Link to="#">
+            <FeatherIcon icon="alert-circle" size={16} />
+          </Link>
         </div>
         <div className="right">
-          <NavLink to="/">
-            <FeatherIcon icon="trash-2" size={18} />
-          </NavLink>
+          <Link to="#">
+            <FeatherIcon icon="trash-2" size={16} />
+          </Link>
         </div>
       </div>
     </MailBox>
@@ -70,6 +95,7 @@ const MailComposer = ({ onChange, onSend }) => {
 MailComposer.propTypes = {
   onChange: propTypes.func.isRequired,
   onSend: propTypes.func.isRequired,
+  defaultTag: propTypes.string,
 };
 
 export default MailComposer;

@@ -17,7 +17,6 @@ const Main = Styled.div`
     // ant alert
     .ant-alert-closable{
         .ant-alert-message{
-          display: inline-block;
           margin-right: 15px;
         }
     }
@@ -74,6 +73,9 @@ const Main = Styled.div`
         @media only screen and (max-width: 991px){
             min-height: 500px;
         }
+        input::placeholder{
+            color: ${({ theme }) => theme['light-color']};
+        }
     }
     // Modal Buttons
     .modal-btns-wrap{
@@ -105,10 +107,9 @@ const Main = Styled.div`
         border-color: #E3E6EF;
         border-radius: 5px;
     }
-    .ant-collapse .ant-collapse-header{
+    .ant-collapse.ant-collapse-icon-position-left .ant-collapse-header{
         color: #5A5F7D !important;
-        background-color: #F8F9FB;
-        padding: 12px 16px 10px 45px !important;
+        padding: 12px 16px 10px 45px;
     }
     .ant-collapse-content p{
         color: #9299B8;
@@ -121,7 +122,7 @@ const Main = Styled.div`
         padding: 10.5px 20px;
     }
     .ant-collapse.ant-collapse-borderless{
-        background-color: #F8F9FB;
+        background-color: #fff;
     }
     .ant-collapse > .ant-collapse-item,
     .ant-collapse .ant-collapse-content{
@@ -171,11 +172,17 @@ const Main = Styled.div`
     }
 
     // Select
+    .ant-tree-select .ant-select-selector{
+        height: 42px;
+    }
     .tag-select-list{
         margin-bottom: -10px;
         .ant-select{
             margin-bottom: 10px;
         }
+    }
+    .ant-select-selector{
+        border-color: #E3E6EF !important;
     }
 
     // Slider
@@ -192,7 +199,47 @@ const Main = Styled.div`
     .taglist-wrap{
         margin: -5px;
         .ant-tag {
+            line-height: 22px;
+            padding: 0 10.2px;
+            border: 0 none;
             margin: 5px;
+            color: ${({ theme }) => theme['gray-color']};
+            &.ant-tag-has-color{
+                color: #fff !important;
+            }
+            &.ant-tag-magenta{
+                color: #eb2f96;
+            }
+            &.ant-tag-red{
+                color: #f5222d;
+            }
+            &.ant-tag-volcano{
+                color: #fa541c;
+            }
+            &.ant-tag-orange{
+                color: #fa8c16;
+            }
+            &.ant-tag-gold{
+                color: #faad14;
+            }
+            &.ant-tag-line{
+                color: #a0d911;
+            }
+            &.ant-tag-green{
+                color: #a0d911;
+            }
+            &.ant-tag-cyan{
+                color: #13c2c2;
+            }
+            &.ant-tag-blue{
+                color: #1890ff;
+            }
+            &.ant-tag-geekbule{
+                color: #2f54eb;
+            }
+            &.ant-tag-purple{
+                color: #722ed1;
+            }
         }
     }
 
@@ -201,6 +248,15 @@ const Main = Styled.div`
         margin: -5px;
         .ant-picker{
             margin: 5px;
+        }
+    }
+
+    // Ant Menu
+    .ant-menu{
+        .ant-menu-submenu-title{
+            svg{
+                color: ${({ theme }) => theme['light-color']};
+            }
         }
     }
 
@@ -235,6 +291,19 @@ const Main = Styled.div`
     // Vector Map
     .vertor-map{
         min-height: 505px;
+    }
+
+    // Checkout Wrapper
+    .checkoutWraper{
+        .ant-card-body{
+            padding: 50px 50px 50px 30px !important;
+            .ant-card-body{
+                padding: 25px !important;
+            }
+        }
+        .ant-steps{
+            margin-top: -22px;
+        }
     }
 `;
 
@@ -294,8 +363,17 @@ const BtnWithIcon = Styled.div`
 const AlertList = Styled.div`
     margin-top: -15px;
     .alert-empty-message{
+        .ant-alert{
+            padding: 10px 40px 10px!important;
+            &.ant-alert-no-icon{
+                padding: 10px 20px 10px!important;
+            }
+        }
+        .ant-alert-icon{
+            top: 15px !important;
+        }
         .ant-alert-message{
-            display: none;
+            display: none !important;
         }
     }
 `;
@@ -427,6 +505,7 @@ const BasicFormWrapper = Styled.div`
             .ant-select-selector{
                 padding: 0 20px;
                 height: 48px !important;
+                border: 1px solid ${({ theme }) => theme['border-color-normal']};
                 .ant-select-selection-item{
                     line-height: 46px !important;
                 }
@@ -436,7 +515,42 @@ const BasicFormWrapper = Styled.div`
     .setting-form-actions{
         margin: 48px 0 14px;
         button{
+            border-radius: 6px;
+            height: 44px;
             margin-bottom: 14px;
+            &.ant-btn-light{
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
+                background-color: ${({ theme }) => theme['bg-color-light']};
+            }
+        }
+    }
+    .ant-form-item-control-input{
+        .input-prepend{
+            position: absolute;
+            left: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            height: 48px;
+            border-radius: 4px 0 0 4px;
+            z-index: 10;
+            border: 1px solid ${({ theme }) => theme['border-color-normal']};
+            background-color: ${({ theme }) => theme['bg-color-light']};
+            svg,
+            i{
+                color: ${({ theme }) => theme['gray-color']};
+            }
+        }
+        .input-prepend-wrap{
+            .ant-input-number{
+                input{
+                    padding-left: 70px;
+                }
+            }
+        }
+        .ant-input-number{
+            border: 1px solid ${({ theme }) => theme['border-color-normal']};
         }
     }
 `;
@@ -543,6 +657,37 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    &.table-order,
+    &.table-seller{
+        .ant-table-selection{
+            .ant-checkbox-indeterminate{
+                .ant-checkbox-inner{
+                    background: ${({ theme }) => theme['primary-color']};
+                    border-color: ${({ theme }) => theme['primary-color']};
+                    &:after{
+                        height: 2px;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        .ant-table-container{
+            padding-bottom: 25px;
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        }
+        tbody{
+            tr{
+                &:hover{
+                    td{
+                        background: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+            }
+        }
+        .ant-pagination{
+            margin-top: 25px !important;
+        }
+    }
     table{
         thead{
             tr{
@@ -668,21 +813,21 @@ const TableWrapper = Styled.div`
 `;
 
 export {
-    Main,
-    ButtonsGroupWrapper,
-    BlockButtonsWrapper,
-    ButtonSizeWrapper,
-    BtnWithIcon,
-    AlertList,
-    AutoCompleteWrapper,
-    CalendarWrapper,
-    DatePickerWrapper,
-    NotificationListWrapper,
-    TagInput,
-    PageHeaderWrapper,
-    MessageStyleWrapper,
-    BasicFormWrapper,
-    CardToolbox,
-    FormGroupWrapper,
-    TableWrapper,
+  Main,
+  ButtonsGroupWrapper,
+  BlockButtonsWrapper,
+  ButtonSizeWrapper,
+  BtnWithIcon,
+  AlertList,
+  AutoCompleteWrapper,
+  CalendarWrapper,
+  DatePickerWrapper,
+  NotificationListWrapper,
+  TagInput,
+  PageHeaderWrapper,
+  MessageStyleWrapper,
+  BasicFormWrapper,
+  CardToolbox,
+  FormGroupWrapper,
+  TableWrapper,
 };

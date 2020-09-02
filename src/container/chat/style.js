@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 const ChatWrapper = Styled.div`
   .create-action{
     padding: 0 25px;
-    margin-bottom: 18px;
+    margin: 25px 0 18px;
     @media only screen and (max-width: 379px){
       padding: 0 20px;
     }
@@ -13,6 +13,12 @@ const ChatWrapper = Styled.div`
       text-align: center;
       border: 1px solid ${({ theme }) => theme['border-color-light']};
       background: ${({ theme }) => theme['bg-color-light']};
+      color: ${({ theme }) => theme['gray-color']};
+      svg,
+      img,
+      i{
+        margin-right: 4px;
+      }
     }
   }
 `;
@@ -32,7 +38,6 @@ const Content = Styled.div`
     border-radius: 4px;
     width: 100%;
     margin: 0;
-
     &:before{
       content: '';
       position: absolute;
@@ -74,11 +79,23 @@ const Content = Styled.div`
       }
     }
     .author-chatMeta{
-      flex: .14;
+      flex: .16;
+      @media (max-width: 991px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
       span{
-        text-align: right;
+        float: right;
         font-size: 12px;
         color: ${({ theme }) => theme['light-color']};
+      }
+      .ant-badge{
+        margin-top: 8px;
+        span{
+          color: #fff;
+        }
       }
     }
   }
@@ -89,7 +106,17 @@ const BlockSpan = Styled.span`
 `;
 
 const SingleChatWrapper = Styled.div`
+  margin-bottom: 40px;
+  &.group-chat{
+    .chatbox-reply-form{
+      input{
+        background: #fff !important;
+        box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+      }
+    }
+  }
   .ant-card-head{
+    padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
     border: 0 none;
     .ant-card-extra{
@@ -99,10 +126,13 @@ const SingleChatWrapper = Styled.div`
     }
     .ant-card-head-title{
       h1{
+        font-weight: 500;
         margin-bottom: 6px;
       }
       p{
         font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 0;
         color: ${({ theme }) => theme['light-color']};
       }
     }
@@ -122,6 +152,9 @@ const SingleChatWrapper = Styled.div`
     }
     .members{
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       a{
         :not(:last-child){
           margin-right: 4px;
@@ -130,10 +163,59 @@ const SingleChatWrapper = Styled.div`
       img{
         max-width: 30px;
       }
+      .show-more,
+      .add-more{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        span{
+          margin: 0;
+        }
+      }
+      .show-more{
+        background-color: ${({ theme }) => theme['primary-color']};
+        span{
+          font-size: 10px;
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+      .add-more{
+        border: 1px dashed ${({ theme }) => theme['border-color-deep']};
+        span{
+          line-height: .4;
+        }
+      }
     }
   }
 
   .atbd-chatbox{
+    .time-connector{
+      position: relative;
+      z-index: 10;
+      margin: -14px 0 15px;
+      &:after{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: ${({ theme }) => theme['border-color-light']};
+        content: '';
+        z-index: -1;
+      }
+      span{
+        text-transform: capitalize;
+        font-size: 13px;
+        padding: 0 24px;
+        background-color: #fff;
+        color: ${({ theme }) => theme['light-color']};
+      }
+    }
     .atbd-chatbox__single{
       &:not(:last-child){
         margin-bottom: 30px;
@@ -196,6 +278,7 @@ const SingleChatWrapper = Styled.div`
     }
     .group-seen{
       margin-top: 5px;
+      text-align: right;
       img{
         max-width: 20px;
         &:not(:last-child){
@@ -236,20 +319,46 @@ const MessageList = Styled.div`
 
 const Footer = Styled.div`
   .chatbox-reply-form{
+    position: relative;
     margin-top: 35px;
     align-items: center;
+    .smile-icon{
+      position: absolute;
+      left: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      @media only screen and (max-width: 575px){
+        top: 26px;
+      }
+      svg,
+      i{
+        color: ${({ theme }) => theme['extra-light-color']};
+      }
+    }
     @media only screen and (max-width: 575px){
       flex-flow: column;
+    }
+    .ant-upload-list{
+      display: flex;
+    position: absolute;
+    top: -70px;
+    left: 0;
     }
     .chatbox-reply-input{
       width: 100%;
       margin-right: 8px;
       input{
-        padding: 0 25px;
+        padding: 0 25px 0 70px;
         height: 70px;
         border: 0 none;
         border-radius: 35px;
         background: ${({ theme }) => theme['bg-color-normal']};
+        &::placeholder{
+          font-size: 14px;
+          color: ${({ theme }) => theme['gray-color']};
+        }
         &:focus{
           border: 0 none;
         }
@@ -264,6 +373,15 @@ const Footer = Styled.div`
       margin-right: 8px;
     }
     .chatbox-reply-action{
+      align-items: center;
+      a{
+        span{
+          display: block;
+        }
+      }
+      .btn-send{
+        box-shadow: 0 8px 13px #5F63F220;
+      }
       .ant-upload-select,
       button{
         min-width: 50px;
@@ -272,6 +390,10 @@ const Footer = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        span{
+          margin-right: 0;
+          color: #fff;
+        }
       }
       .ant-upload-select {
         background: ${({ theme }) => theme['bg-color-normal']};
@@ -288,12 +410,103 @@ const Footer = Styled.div`
         background: ${({ theme }) => theme['primary-color']};
       }
     }
+
+    .ant-upload-select-picture-card{
+      margin: 0;
+      width: 50px;
+      border-radius: 50% !important;
+      border: 0 none;
+      background-color: ${({ theme }) => theme['bg-color-normal']} !important;
+      svg,
+      i{
+        margin-top: 6px !important;
+      }
+    }
+    .ant-upload-list{
+      &.ant-upload-list-text{
+        display: block;
+        top: auto;
+        bottom: 136px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 5px 20px #9299B803;
+        >div{
+          display: block;
+        }
+        .ant-upload-list-item{
+          height: 24px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme['bg-color-normal']};
+          button{
+            width: auto;
+            height: auto;
+            min-width: auto;
+            background-color: ${({ theme }) => theme['bg-color-normal']};
+            svg{
+              color: ${({ theme }) => theme['info-color']};
+            }
+          }
+        }
+        .ant-upload-list-item-info{
+          >span{
+            display: flex;
+            align-items: center;
+          }
+          .ant-upload-list-item-name {
+            font-size: 13px;
+          }
+          .anticon,
+          .ant-upload-list-item-name {
+            color: ${({ theme }) => theme['info-color']};
+          }
+        }
+      }
+      &.ant-upload-list-picture-card{
+        .ant-upload-list-picture-card-container{
+          width: 60px;
+          height: 50px;
+        }
+        .ant-upload-list-item{
+          width: 60px;
+          height: 50px;
+          padding: 3px;
+          .ant-upload-list-item-actions{
+            .anticon-eye{
+              display: none;
+            }
+            .anticon{
+              margin: 0;
+            }
+          }
+          .ant-upload-list-item-card-actions-btn{
+            width: 25px;
+            height: 25px;
+            min-width: 25px;
+          }
+          .ant-upload-list-item-thumbnail{
+            font-size: 11px;
+          }
+          .ant-upload-list-item-name{
+            display: none;
+          }
+        }
+      }
+    }
   }
 `;
 
 const ChatSidebar = Styled.div`
+  margin-bottom: 40px;
+  min-height: 935px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #9299B803;
+  @media only screen and (max-width: 575px){
+    min-height: 580px;
+  }
   .ant-card-body{
-    padding: 25px 0 !important;
+    padding: 28px 0 !important;
   }
   .chatbox-search{
     padding: 0 25px;
@@ -323,20 +536,23 @@ const ChatSidebar = Styled.div`
     }
     ul{
       margin: 0 0 12px 0;
-      padding: 25px 0 0 0;
+      padding: 30px 0 0 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+      @media (max-width: 480px){
+        flex-direction: column;
+      }
       li{
         padding: 0;
         a{
           position: relative;
           display: block;
           padding: 0 0 18px;
-          font-weight: 500;
-          color: ${({ theme }) => theme['gray-solid']};
+          font-weight: 400;
+          color: ${({ theme }) => theme['light-color']};
           &:after{
             position: absolute;
             left: 0;
@@ -349,11 +565,19 @@ const ChatSidebar = Styled.div`
             background: ${({ theme }) => theme['primary-color']};
           }
           &.active{
+            font-weight: 500;
             color: ${({ theme }) => theme['primary-color']};
             &:after{
               opacity: 1;
               visibility: visible;
             }
+          }
+          .ant-badge{
+            margin-left: 6px;
+          }
+          @media (max-width: 480px){
+            padding-bottom: 10px;
+            margin-bottom: 10px;
           }
         }
       }

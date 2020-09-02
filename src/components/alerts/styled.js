@@ -27,6 +27,16 @@ const Style = Styled(Alert)`
     font-size: 15px !important;
     font-weight: 500 !important;
   }
+  &.ant-alert-with-description{
+    .ant-alert-message{
+      margin-bottom: 5px !important;
+    }
+  }
+  &.ant-alert-closable {
+    .ant-alert-message{
+      display: block;
+    }
+  }
   .ant-alert-message, .ant-alert-description {
     color: ${({ type, theme }) => theme[`${type}-color`]} !important;
   }
@@ -42,6 +52,9 @@ const Style = Styled(Alert)`
   ${({ showIcon }) =>
     showIcon &&
     `padding: 16px 40px 20px!important;
+    alert-empty-message{
+      padding: 11px 40px 11px!important;
+    }
     .ant-alert-icon{
       top: 20px !important;
       left: 15px !important;

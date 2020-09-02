@@ -1,18 +1,40 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, message, Tooltip } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { EllipsisOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { DropdownStyle } from './ui-elements-styled';
+import { DropdownStyle, DropdownIconStyleWrapper } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Dropdowns = () => {
+  function handleButtonClick() {
+    message.info('Click on left button.');
+  }
+
   return (
     <DropdownStyle>
-      <PageHeader ghost title="Dropdown" />
+      <PageHeader
+        ghost
+        title="Dropdown"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col md={12} xs={24}>
@@ -25,23 +47,35 @@ const Dropdowns = () => {
           <Col md={12} xs={24}>
             <Cards title="Placement" caption="The simplest use of Dropdown">
               <Dropdown placement="bottomLeft">
-                <Button>Bottom Left</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Bottom Left
+                </Button>
               </Dropdown>
               <Dropdown placement="bottomCenter">
-                <Button>Bottom Center</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Bottom Center
+                </Button>
               </Dropdown>
               <Dropdown placement="bottomRight">
-                <Button>Bottom Right</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Bottom Right
+                </Button>
               </Dropdown>
               <br />
               <Dropdown placement="topLeft">
-                <Button>Top Left</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Top Left
+                </Button>
               </Dropdown>
               <Dropdown placement="topCenter">
-                <Button>Top Center</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Top Center
+                </Button>
               </Dropdown>
               <Dropdown placement="topRight">
-                <Button>Top Right</Button>
+                <Button className="btn-outlined" size="small" outlined type="light">
+                  Top Right
+                </Button>
               </Dropdown>
             </Cards>
           </Col>
@@ -60,49 +94,53 @@ const Dropdowns = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="Button with dropdown menu" caption="The simplest use of Dropdown">
-              <Dropdown placement="bottomLeft" action={['click']}>
-                <Button>
+              <DropdownIconStyleWrapper>
+                <Button onClick={handleButtonClick} className="btn-outlined" size="default" outlined type="light">
                   Bottom Left Click
-                  <EllipsisOutlined />
+                  <Dropdown placement="bottomLeft" action={['hover']}>
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
 
-              <Dropdown placement="bottomRight" title="with title">
-                <Button>
+                <Button className="btn-outlined" outlined type="light">
                   Bottom Right hover
-                  <UserOutlined />
+                  <Dropdown placement="bottomRight" title="with title">
+                    <UserOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="topLeft">
-                <Button>
+                <Button className="btn-outlined" outlined type="light">
                   Top Left hover
-                  <EllipsisOutlined />
+                  <Dropdown placement="topLeft">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="topRight">
-                <Button>
+                <Button className="btn-outlined" outlined type="light">
                   Top Right hover
-                  <EllipsisOutlined />
+                  <Dropdown placement="topRight">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
-                <Button>
-                  Error
-                  <EllipsisOutlined />
+                <Button className="btn-outlined" outlined type="error">
+                  <Tooltip title="tooltip" key="leftButton">
+                    Tooltip
+                  </Tooltip>
+                  <Dropdown placement="bottomLeft" size="small">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
-                <Button>
+                <Button className="btn-outlined" outlined type="warning">
                   Warning
-                  <EllipsisOutlined />
+                  <Dropdown placement="bottomLeft" size="small">
+                    <EllipsisOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
-              <Dropdown placement="bottomLeft" size="small">
-                <Button>
+                <Button className="btn-outlined" outlined type="light">
                   Info
-                  <DownOutlined />
+                  <Dropdown placement="bottomLeft" size="small">
+                    <DownOutlined />
+                  </Dropdown>
                 </Button>
-              </Dropdown>
+              </DropdownIconStyleWrapper>
             </Cards>
           </Col>
         </Row>

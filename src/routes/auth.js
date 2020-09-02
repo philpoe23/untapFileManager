@@ -6,9 +6,11 @@ import AuthLayout from '../container/profile/authentication/Index';
 const Login = lazy(() => import('../container/profile/authentication/overview/SignIn'));
 const SignUp = lazy(() => import('../container/profile/authentication/overview/Signup'));
 const ForgotPass = lazy(() => import('../container/profile/authentication/overview/ForgotPassword'));
+
 const NotFound = () => {
   return <Redirect to="/" />;
 };
+
 const FrontendRoutes = () => {
   return (
     <Switch>

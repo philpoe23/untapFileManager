@@ -60,7 +60,7 @@ const List = () => {
                     <Col xxl={12} lg={10} xs={24}>
                       <div className="product-single-description">
                         <Heading className="product-single-title" as="h5">
-                          <NavLink to={`/ecommerce/productDetails/${id}`}>{name}</NavLink>
+                          <NavLink to={`/admin/ecommerce/productDetails/${id}`}>{name}</NavLink>
                         </Heading>
                         <p>{description}</p>
                       </div>
@@ -89,7 +89,7 @@ const List = () => {
                           <span className="total-reviews"> 778 Reviews</span>
                         </div>
                         <div className="product-single-action">
-                          <Button className="btn-cart" size="small" type="light" outlined>
+                          <Button className="btn-cart" size="small" type="white" outlined>
                             <FeatherIcon icon="shopping-bag" size={14} />
                             Add To Cart
                           </Button>

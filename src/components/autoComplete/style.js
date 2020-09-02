@@ -12,6 +12,14 @@ const AutoCompleteStyled = Styled(AutoComplete)`
         height: 37px !important;
         padding: 0 !important;
         border-color: #E3E6EF !important;
+        .ant-select-selection-search{
+            .ant-input-suffix{
+                svg,
+                i{
+                    color: ${({ theme }) => theme['extra-light-color']};
+                }
+            }
+        }
     }
     .ant-select-selector input{
         height: 33px !important;
@@ -34,6 +42,10 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     .ant-input-affix-wrapper .ant-input-suffix .search-btn{
         height: 38px;
         border-radius: 0 4px 4px 0;
+        svg,
+        i{
+            color: #fff;
+        }
     }
 `;
 

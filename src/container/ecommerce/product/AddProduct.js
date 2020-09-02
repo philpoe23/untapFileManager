@@ -23,6 +23,16 @@ const AddProduct = () => {
     submitValues: {},
   });
 
+  const fileList = [
+    {
+      uid: '1',
+      name: 'xxx.png',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    },
+  ];
+
   const fileUploadProps = {
     name: 'file',
     multiple: true,
@@ -39,6 +49,7 @@ const AddProduct = () => {
       }
     },
     listType: 'picture',
+    defaultFileList: fileList,
   };
 
   const handleSubmit = values => {
@@ -67,7 +78,7 @@ const AddProduct = () => {
           <Col xs={24}>
             <Cards headless>
               <Row gutter={25} justify="center">
-                <Col xxl={10} md={14} sm={18} xs={24}>
+                <Col xxl={12} md={14} sm={18} xs={24}>
                   <AddProductForm>
                     <Form style={{ width: '100%' }} form={form} name="addProduct" onFinish={handleSubmit}>
                       <BasicFormWrapper>
@@ -92,17 +103,21 @@ const AddProduct = () => {
                                   </Form.Item>
 
                                   <Form.Item name="price" label="Price">
-                                    <InputNumber
-                                      style={{ width: '100%' }}
-                                      prefix={<FeatherIcon icon="dollar-sign" size={14} />}
-                                    />
+                                    <div className="input-prepend-wrap">
+                                      <span className="input-prepend">
+                                        <FeatherIcon icon="dollar-sign" size={14} />
+                                      </span>
+                                      <InputNumber style={{ width: '100%' }} />
+                                    </div>
                                   </Form.Item>
 
                                   <Form.Item name="discount" label="Discount">
-                                    <InputNumber
-                                      style={{ width: '100%' }}
-                                      prefix={<FeatherIcon icon="percent" size={14} />}
-                                    />
+                                    <div className="input-prepend-wrap">
+                                      <span className="input-prepend f">
+                                        <FeatherIcon icon="percent" size={14} />
+                                      </span>
+                                      <InputNumber style={{ width: '100%' }} />
+                                    </div>
                                   </Form.Item>
 
                                   <Form.Item name="status" label="Status">
@@ -132,7 +147,7 @@ const AddProduct = () => {
                             <Col xs={24}>
                               <div className="add-product-content">
                                 <Cards title="Product Image">
-                                  <Dragger fileUploadProps={fileUploadProps}>
+                                  <Dragger {...fileUploadProps}>
                                     <p className="ant-upload-drag-icon">
                                       <FeatherIcon icon="upload" size={50} />
                                     </p>
