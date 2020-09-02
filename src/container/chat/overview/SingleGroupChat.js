@@ -229,7 +229,7 @@ const SingleGroupChat = ({ match }) => {
                                     </li>
                                     <li>
                                       <Link to="#">
-                                        <MoreOutlined />
+                                        <FeatherIcon icon="more-horizontal" size={16} />
                                       </Link>
                                     </li>
                                   </ul>
@@ -264,7 +264,7 @@ const SingleGroupChat = ({ match }) => {
                               placement="bottomCenter"
                             >
                               <Link to="#">
-                                <MoreOutlined />
+                                <FeatherIcon icon="more-horizontal" size={16} />
                               </Link>
                             </Dropdown>
                           </div>
@@ -329,7 +329,7 @@ const SingleGroupChat = ({ match }) => {
                               placement="bottomCenter"
                             >
                               <Link to="#">
-                                <MoreOutlined />
+                                <FeatherIcon icon="more-horizontal" size={16} />
                               </Link>
                             </Dropdown>
                           </div>

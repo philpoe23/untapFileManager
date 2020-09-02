@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { useSelector } from 'react-redux';
 import Heading from '../../../../components/heading/heading';
 import { Button } from '../../../../components/buttons/buttons';
-import { ProductCard, PaginationWrapper } from '../../Style';
+import { ProductCard, PaginationWrapper, NotFoundWrapper } from '../../Style';
 
 const Grid = () => {
   const { productsAll, isLoader } = useSelector(state => {
@@ -43,9 +43,11 @@ const Grid = () => {
   return (
     <Row gutter={30}>
       {isLoader ? (
-        <div className="spin">
-          <Spin />
-        </div>
+        <Col xs={24}>
+          <div className="spin">
+            <Spin />
+          </div>
+        </Col>
       ) : products.length ? (
         products.map(({ id, name, rate, price, oldPrice, popular, img }) => {
           return (
@@ -96,7 +98,9 @@ const Grid = () => {
         })
       ) : (
         <Col md={24}>
-          <Heading as="h1">Data Not Found</Heading>
+          <NotFoundWrapper>
+            <Heading as="h1">Data Not Found</Heading>
+          </NotFoundWrapper>
         </Col>
       )}
       <Col xs={24} className="pb-30">

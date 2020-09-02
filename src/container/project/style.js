@@ -173,7 +173,8 @@ const ProjectSorting = Styled.div`
                 align-items: center;
                 justify-content: center;
                 color: ${({ theme }) => theme['gray-solid']};
-                &:hover{
+                &:hover,
+                &.active{
                     color: ${({ theme }) => theme['primary-color']};
                     background: #fff;
                 }
