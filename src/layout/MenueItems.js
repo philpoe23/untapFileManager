@@ -47,48 +47,54 @@ const MenueItems = ({ darkMode }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
-        <Menu.Item key="inbox">
-          <NavLink to="/admin/email/inbox">Inbox</NavLink>
-        </Menu.Item>
-        <Menu.Item key="single">
-          <NavLink to="/admin/email/single/1585118055048">Read Email</NavLink>
-        </Menu.Item>
-      </SubMenu>
+      <SubMenu key="app" icon={<FeatherIcon icon="grid" />} title="Apps">
+        <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
+          <Menu.Item key="inbox">
+            <NavLink to="/admin/email/inbox">Inbox</NavLink>
+          </Menu.Item>
+          <Menu.Item key="single">
+            <NavLink to="/admin/email/single/1585118055048">Read Email</NavLink>
+          </Menu.Item>
+        </SubMenu>
 
-      <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
-        <NavLink to="/admin/chat/private/rofiq@gmail.com">Chat</NavLink>
-      </Menu.Item>
+        <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
+          <Menu.Item key="products">
+            <NavLink to="/admin/ecommerce/products">Products</NavLink>
+          </Menu.Item>
+          <Menu.Item key="productDetails">
+            <NavLink to="/admin/ecommerce/productDetails/1">Product detail</NavLink>
+          </Menu.Item>
 
-      <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
-        <Menu.Item key="products">
-          <NavLink to="/admin/ecommerce/products">Products</NavLink>
-        </Menu.Item>
-        <Menu.Item key="productDetails">
-          <NavLink to="/admin/ecommerce/productDetails/1">Product detail</NavLink>
+          <Menu.Item key="add-product">
+            <NavLink to="/admin/ecommerce/add-product">Product Add</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="edit-product">
+            <NavLink to="/admin/ecommerce/edit-product">Product Edit</NavLink>
+          </Menu.Item>
+          <Menu.Item key="cart">
+            <NavLink to="/admin/ecommerce/cart">Cart</NavLink>
+          </Menu.Item>
+          <Menu.Item key="orders">
+            <NavLink to="/admin/ecommerce/orders">Orders</NavLink>
+          </Menu.Item>
+          {/* <Menu.Item key="15">Credit Card</Menu.Item> */}
+          <Menu.Item key="sellers">
+            <NavLink to="/admin/ecommerce/sellers">Sellers</NavLink>
+          </Menu.Item>
+          <Menu.Item key="Invoice">
+            <NavLink to="/admin/ecommerce/Invoice">Invoices</NavLink>
+          </Menu.Item>
+          {/* <Menu.Item key="18">Transactions</Menu.Item> */}
+        </SubMenu>
+
+        <Menu.Item key="chat">
+          <NavLink to="/admin/chat/private/rofiq@gmail.com">Chat</NavLink>
         </Menu.Item>
 
-        <Menu.Item key="add-product">
-          <NavLink to="/admin/ecommerce/add-product">Product Add</NavLink>
+        <Menu.Item key="todo">
+          <NavLink to="/admin/to-do">To-Do</NavLink>
         </Menu.Item>
-
-        <Menu.Item key="edit-product">
-          <NavLink to="/admin/ecommerce/edit-product">Product Edit</NavLink>
-        </Menu.Item>
-        <Menu.Item key="cart">
-          <NavLink to="/admin/ecommerce/cart">Cart</NavLink>
-        </Menu.Item>
-        <Menu.Item key="orders">
-          <NavLink to="/admin/ecommerce/orders">Orders</NavLink>
-        </Menu.Item>
-        {/* <Menu.Item key="15">Credit Card</Menu.Item> */}
-        <Menu.Item key="sellers">
-          <NavLink to="/admin/ecommerce/sellers">Sellers</NavLink>
-        </Menu.Item>
-        <Menu.Item key="Invoice">
-          <NavLink to="/admin/ecommerce/Invoice">Invoices</NavLink>
-        </Menu.Item>
-        {/* <Menu.Item key="18">Transactions</Menu.Item> */}
       </SubMenu>
 
       {/* <Menu.Item key="calendar">
