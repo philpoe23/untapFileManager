@@ -227,7 +227,7 @@ const Div = Styled.div`
         } */
     }
 
-    // Mobile Actions
+    /* Mobile Actions */
     .mobile-action{
         position: absolute;
         right: 20px;
