@@ -41,10 +41,9 @@
     "recharts": "^2.0.0-beta.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.4.1",
-    "yarn": "^1.22.4"
+    "styled-components": "^4.4.1"
   },
-  "homepage": "https://easycodebd.com/",
+  "homepage": "/",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
@@ -86,6 +85,7 @@
     "react-app-rewired": "^2.1.5",
     "react-hot-loader": "^4.12.18",
     "redux-devtools": "^3.5.0",
-    "webpack-bundle-analyzer": "^3.7.0"
+    "webpack-bundle-analyzer": "^3.7.0",
+    "yarn": "^1.22.4"
   }
 }
