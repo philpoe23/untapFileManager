@@ -124,7 +124,7 @@ const Project = ({ match }) => {
                       <Select.Option value="price">Price</Select.Option>
                     </Select>
                     <div className="layout-style">
-                      <NavLink to={`${path}/grid`}>
+                      <NavLink className="active" to={`${path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
                       <NavLink to={`${path}/list`}>
