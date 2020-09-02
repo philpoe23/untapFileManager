@@ -316,7 +316,7 @@ const SingleChat = ({ match }) => {
                                 placement="bottomCenter"
                               >
                                 <Link to="#">
-                                  <MoreOutlined />
+                                  <FeatherIcon icon="more-horizontal" size={16} />
                                 </Link>
                               </Dropdown>
                             </div>

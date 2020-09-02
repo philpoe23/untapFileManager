@@ -27,6 +27,17 @@ const Sidebar = Styled.div`
     }
 `;
 
+const NotFoundWrapper = Styled.div`
+    text-align: center;
+    margin-top: 60px;
+    h1{
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};;
+        border-top: 1px solid ${({ theme }) => theme['border-color-normal']};;
+        padding: 15px 0 20px;
+        color: ${({ theme }) => theme['dark-color']};
+    }
+`;
+
 const SidebarSingle = Styled.div`
     h1{
         font-size: 15px;
@@ -1799,6 +1810,7 @@ const CheckoutWrapper = Styled.div`
 export {
   FigureCart,
   Sidebar,
+  NotFoundWrapper,
   SidebarSingle,
   ProductCard,
   TopToolBox,

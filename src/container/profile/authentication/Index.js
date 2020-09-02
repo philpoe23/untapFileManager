@@ -17,7 +17,7 @@ const AuthLayout = WraperContent => {
                 <br />
                 <br />
                 <Heading as="h1">
-                  Bootstrap 4 React <br />
+                  StrikingDash React <br />
                   Web Application
                 </Heading>
                 <img
