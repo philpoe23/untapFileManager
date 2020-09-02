@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox } from '../styled';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
+
+const DragHandle = sortableHandle(() => <FeatherIcon style={{ cursor: 'pointer', color: '#999' }} icon="move" />);
 
 const UserListDataTable = () => {
   const { users } = useSelector(state => {
@@ -16,7 +20,6 @@ const UserListDataTable = () => {
   });
 
   const usersTableData = [];
-
   users.map(user => {
     const { id, name, designation, img, status } = user;
 
@@ -60,6 +63,13 @@ const UserListDataTable = () => {
 
   const usersTableColumns = [
     {
+      title: 'Sort',
+      dataIndex: 'sort',
+      width: 30,
+      className: 'drag-visible',
+      render: () => <DragHandle />,
+    },
+    {
       title: 'User',
       dataIndex: 'user',
       key: 'user',
@@ -97,6 +107,33 @@ const UserListDataTable = () => {
     },
   ];
 
+  const [state, setState] = useState({
+    dataSource: usersTableData,
+  });
+
+  const { dataSource } = state;
+
+  const SortableItem = sortableElement(props => <tr {...props} />);
+  const SortableContainer = sortableContainer(props => <tbody {...props} />);
+
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    if (oldIndex !== newIndex) {
+      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      console.log(newData);
+      setState({ ...state, dataSource: newData });
+    }
+  };
+
+  const DraggableBodyRow = ({ className, style, ...restProps }) => {
+    // function findIndex base on Table rowKey props and should always be a right array index
+    const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
+    return <SortableItem index={index} {...restProps} />;
+  };
+
+  const DraggableContainer = props => (
+    <SortableContainer useDragHandle helperClass="row-dragging" onSortEnd={onSortEnd} {...props} />
+  );
+
   return (
     <>
       <CardToolbox>
@@ -109,12 +146,15 @@ const UserListDataTable = () => {
             <Cards headless>
               <TableWrapper className="table-responsive">
                 <Table
-                  dataSource={usersTableData}
+                  pagination={false}
+                  dataSource={dataSource}
                   columns={usersTableColumns}
-                  pagination={{
-                    defaultPageSize: 5,
-                    total: usersTableData.length,
-                    showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
+                  rowKey="index"
+                  components={{
+                    body: {
+                      wrapper: DraggableContainer,
+                      row: DraggableBodyRow,
+                    },
                   }}
                 />
               </TableWrapper>

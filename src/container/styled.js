@@ -657,6 +657,7 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+
     &.table-order,
     &.table-seller{
         .ant-table-selection{
@@ -810,6 +811,8 @@ const TableWrapper = Styled.div`
             }
         }
     }
+
+    
 `;
 
 export {
