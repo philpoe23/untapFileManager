@@ -20,11 +20,12 @@ const UserListDataTable = () => {
   });
 
   const usersTableData = [];
-  users.map(user => {
-    const { id, name, designation, img, status } = user;
+  users.map((user, index) => {
+    const { name, designation, img, status } = user;
 
     return usersTableData.push({
-      key: id,
+      key: index + 1,
+      index,
       user: (
         <div className="user-info">
           <figure>
@@ -72,37 +73,30 @@ const UserListDataTable = () => {
     {
       title: 'User',
       dataIndex: 'user',
-      key: 'user',
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      key: 'email',
     },
     {
       title: 'Company',
       dataIndex: 'company',
-      key: 'company',
     },
     {
       title: 'Position',
       dataIndex: 'position',
-      key: 'position',
     },
     {
       title: 'Join Date',
       dataIndex: 'joinDate',
-      key: 'joinDate',
     },
     {
       title: 'Status',
       dataIndex: 'status',
-      key: 'status',
     },
     {
       title: 'Actions',
       dataIndex: 'action',
-      key: 'action',
       width: '90px',
     },
   ];
@@ -119,7 +113,6 @@ const UserListDataTable = () => {
   const onSortEnd = ({ oldIndex, newIndex }) => {
     if (oldIndex !== newIndex) {
       const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
-      console.log(newData);
       setState({ ...state, dataSource: newData });
     }
   };
