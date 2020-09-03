@@ -81,6 +81,7 @@ const Style = Styled(Table)`
         .email-top-right{
           justify-content: flex-end;
           .email-extra{
+            line-height: 1;
             a{
               color: ${({ theme }) => theme['gray-solid']};
               &:not(:last-child){
@@ -91,6 +92,7 @@ const Style = Styled(Table)`
           .page-number{
             display: inline-block
             font-size: 14px;
+            font-weight: 400;
             color: ${({ theme }) => theme['light-color']};
             @media only screen and (max-width: 575px){
               display: none;
@@ -127,17 +129,33 @@ const Style = Styled(Table)`
       &:hover{
         box-shadow: 0 15px 40px ${({ theme }) => theme['gray-solid']}20;
         h1{
+          font-weight: 600;
           color: ${({ theme }) => theme['dark-color']};
           a{
             color: ${({ theme }) => theme['dark-color']};
           }
         }
         .email-time{
+          font-weight: 500;
           color: ${({ theme }) => theme['dark-color']};
         }
         >td{
           background: #fff !important;
           border-color: #ffffff;
+        }
+      }
+      h1 a{
+        font-weight: 500;
+        transition: 0s;
+      }
+      &.ant-table-row-selected{
+        &:hover{
+            >td{
+              background: #fff;
+            }
+        }
+        >td{
+          background: #fff;
         }
       }
       >td{
@@ -150,7 +168,7 @@ const Style = Styled(Table)`
         }
         .email-time{
           font-size: 13px;
-          font-weight: 500;
+          font-weight: 400;
           color: ${({ theme }) => theme['gray-color']};
         }
       }
@@ -1022,6 +1040,7 @@ const ReplyList = Styled.div`
         }
         p{
           font-size: 15px;
+          color: ${({ theme }) => theme['gray-color']};
         }
       }
     }
@@ -1144,7 +1163,7 @@ const EmailWrapper = Styled.div`
   table{
     .ant-table-tbody{
       .ant-table-cell{
-        vertical-align: middle;
+        vertical-align: top;
       }
     }
   }

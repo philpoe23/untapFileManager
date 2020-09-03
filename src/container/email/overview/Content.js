@@ -169,6 +169,9 @@ const Content = ({ searchData, email }) => {
               </Link>
             </div>
             <div className="email-extra">
+              <Link to="#">
+                <FeatherIcon icon="sliders" size={16} />
+              </Link>
               <Dropdown
                 content={
                   <>
@@ -185,12 +188,10 @@ const Content = ({ searchData, email }) => {
                 }
               >
                 <Link to="#">
-                  <FeatherIcon icon="sliders" size={16} />
+                  <FeatherIcon icon="more-vertical" size={18} />
                 </Link>
               </Dropdown>
-              <Link to="#">
-                <FeatherIcon icon="more-vertical" size={18} />
-              </Link>
+              
             </div>
           </div>
         </>
