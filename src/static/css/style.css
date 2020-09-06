@@ -346,14 +346,18 @@ ul {
 }
 
 .ant-btn-white {
-  color: #5A5F7D;
-  border-color: #E3E6EF;
+  color: #5A5F7D !important;
+  border-color: #E3E6EF !important;
 }
 
 .ant-btn-white:hover {
-  color: #5F63F2;
-  background-color: #fff;
+  color: #5F63F2 !important;
+  background-color: #fff !important;
   border-color: #fff;
+}
+
+.ant-btn-white:focus{
+  background-color: transparent;
 }
 
 .ant-btn-link {
@@ -367,17 +371,20 @@ ul {
   background: #fff;
 }
 
-.ant-btn-light, .ant-btn-light:hover, .ant-btn-link:hover, .ant-btn-dashed {
-  color: #5A5F7D
+.ant-btn-light, 
+.ant-btn-light:hover, 
+.ant-btn-link:hover, 
+.ant-btn-dashed {
+  color: #5A5F7D !important;
 }
 
 .ant-btn-light {
   border-color: #E3E6EF;
-  background: #F4F5F7;
+  background: #F4F5F7 !important;
 }
 
 .ant-btn-light.btn-outlined {
-  background: transparent;
+  background: transparent !important;
 }
 
 .ant-btn-light.btn-transparent {
@@ -385,7 +392,7 @@ ul {
 }
 
 .ant-btn-dashed {
-  border-width: 1px;
+  border-width: 1px !important;
 }
 
 .ant-btn-dashed:hover {
@@ -405,17 +412,29 @@ ul {
 .ant-btn-round.ant-btn-sm {
   height: 38px;
 }
-
-.btn-icon {
-  padding: 0 12px;
+.ant-btn-white[disabled]{
+  background-color: transparent;
+  opacity: .6;
+}
+.ant-btn-white[disabled]:hover{
+  color: #5A5F7D !important;
+}
+.ant-btn-primary[disabled]:hover{
+  color: #fff !important;
+  background: #5F63F260 !important;
 }
 
-.btn-inc, .btn-dec {
+.btn-icon {
+  padding: 0 13px;
+}
+
+.btn-inc, 
+.btn-dec {
   height: 38px;
   width: 38px;
   font-size: 20px;
-  padding: 0 12px;
-  border-radius: 10px;
+  padding: 0 12px !important;
+  border-radius: 10px !important;
   border: 0 none;
 }
 
@@ -1401,6 +1420,11 @@ ul {
   padding: 4px 24px;
 }
 
+.atbd-chatbox__emoji {
+  margin: -4.48px 0;
+  padding: 0 10px;
+}
+
 .atbd-chatbox__emoji ul {
   display: flex;
   align-items: center;
@@ -1413,8 +1437,12 @@ ul {
 .atbd-chatbox__emoji ul li a {
   display: block;
   font-size: 20px;
-  padding: 4px 8px;
+  padding: 4px 7px;
   background: #fff;
+}
+
+.atbd-chatbox__emoji ul li a:hover{
+  background-color: transparent;
 }
 
 .atbd-chatbox__emoji ul li a svg {
@@ -1762,6 +1790,6 @@ ul {
   }
 }
 
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+/* .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
   color: #fff !important;
-}
+} */

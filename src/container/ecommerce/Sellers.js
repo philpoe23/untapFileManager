@@ -46,7 +46,7 @@ const Sellers = () => {
   const dataSource = [];
   if (sellers.length)
     item.map(value => {
-      const { storeName, id, name, amount, date, img } = value;
+      const { storeName, id, name, product, amount, date, img } = value;
       return dataSource.push({
         key: id,
         name: (
@@ -58,6 +58,9 @@ const Sellers = () => {
           </div>
         ),
         store: storeName,
+        product: (
+        <span className="product-id">{product}</span>
+        ),
         amount,
         date,
         action: (

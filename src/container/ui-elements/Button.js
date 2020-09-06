@@ -155,7 +155,7 @@ const Buttons = () => {
               <Button className="btn-icon" size="default" outlined type="primary">
                 <FeatherIcon icon="layers" />
               </Button>
-              <Button className="btn-icon" size="default" outlined type="light">
+              <Button className="btn-icon" size="default" type="light">
                 <FeatherIcon icon="layers" />
               </Button>
               <Button className="btn-icon btn-outlined" size="default" outlined type="light">
@@ -193,7 +193,7 @@ const Buttons = () => {
 
               <Dropdown placement="topLeft">
                 <BtnWithIcon>
-                  <Button size="default" outlined type="light">
+                  <Button size="default" outlined type="white">
                     Actions
                     <DownOutlined />
                   </Button>
@@ -210,21 +210,21 @@ const Buttons = () => {
                       <Button size="small" type="primary">
                         Today
                       </Button>
-                      <Button size="small" outlined type="light">
+                      <Button size="small" outlined type="white">
                         Week
                       </Button>
-                      <Button size="small" outlined type="light">
+                      <Button size="small" outlined type="white">
                         Month
                       </Button>
-                      <Button size="small" outlined type="light">
+                      <Button size="small" outlined type="white">
                         Year
                       </Button>
                     </BtnGroup>
                     <BtnGroup>
-                      <Button size="small" outlined type="light">
+                      <Button size="small" outlined type="white">
                         Cancel
                       </Button>
-                      <Button size="small" outlined type="light">
+                      <Button size="small" outlined type="white">
                         Ok
                       </Button>
                     </BtnGroup>
@@ -417,10 +417,10 @@ const Buttons = () => {
                 </Button>
               </Row>
               <Row>
-                <Button size="default" outlined type="light">
+                <Button size="default" outlined type="white">
                   Default
                 </Button>
-                <Button size="default" outlined type="light" disabled>
+                <Button size="default" outlined type="white" disabled>
                   Default(Disabled)
                 </Button>
               </Row>
@@ -439,7 +439,7 @@ const Buttons = () => {
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
-              <Button size="default" shape="circle" outlined type="light">
+              <Button size="default" shape="circle" outlined type="white">
                 <FeatherIcon icon="layers" />
                 Default
               </Button>
@@ -457,7 +457,7 @@ const Buttons = () => {
               <Button className="btn-icon" size="default" outlined shape="round" type="primary">
                 <FeatherIcon icon="layers" />
               </Button>
-              <Button className="btn-icon" size="default" outlined shape="round" type="light">
+              <Button className="btn-icon btn-outlined" size="default" outlined shape="round" type="light">
                 <FeatherIcon icon="layers" />
               </Button>
               <Button className="btn-icon" size="default" shape="round" type="light">

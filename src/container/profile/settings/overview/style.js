@@ -221,6 +221,7 @@ const ChangePasswordWrapper = Styled.div`
                 border-radius: 6px;
             }
             .ant-btn-light{
+                color: ${({ theme }) => theme['gray-color']};
                 border: 1px solid ${({ theme }) => theme['border-color-light']};
             }
         }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ErrorWrapper } from './style';
+import { NavLink } from 'react-router-dom';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
@@ -13,9 +14,11 @@ const NotFound = () => {
           404
         </Heading>
         <p>Sorry! the page you are looking for doesn&apost exist.</p>
-        <Button size="default" type="primary" to="/">
-          Return Home
-        </Button>
+        <NavLink to="/admin">
+          <Button size="default" type="primary" to="/admin">
+            Return Home
+          </Button>
+        </NavLink>
       </ErrorWrapper>
     </Main>
   );

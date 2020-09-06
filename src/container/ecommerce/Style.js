@@ -273,7 +273,7 @@ const ProductCard = Styled.div`
         }
         .ant-btn-white{
             &:hover{
-                border-color: ${({ theme }) => theme['primary-color']};
+                border-color: ${({ theme }) => theme['primary-color']} !important;
             }
         }
         .ant-btn-sm{
@@ -690,6 +690,9 @@ const ProductDetailsWrapper = Styled.div`
                 height: 44px;
                 padding: 0 13px;
                 box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}15;
+                &:hover{
+                    background: transparent;
+                }
                 i,
                 svg{
                     color: #707070;
@@ -697,7 +700,7 @@ const ProductDetailsWrapper = Styled.div`
             }
         }
         .pdbr__socials{
-            margin: 5px 0 0 5px;
+            margin: 0px 0 0 5px;
             a{
                 color: #707070;
                 &:not(:last-child){
@@ -720,6 +723,9 @@ const ProductDetailsWrapper = Styled.div`
                     margin-right: 25px;
                     color: ${({ theme }) => theme['dark-color']};
                 }
+            }
+            span + span{
+                color: ${({ theme }) => theme['gray-color']};
             }
         }
     }
@@ -894,7 +900,7 @@ const ProductTable = Styled.div`
                 i,
                 img,
                 svg{
-                    width: 12px;
+                    min-width: 12px;
                     height: 12px;
                 }
                 &.btn-inc,
@@ -1426,6 +1432,8 @@ const CheckoutWrapper = Styled.div`
                 padding: 0;
             }
             &:after{
+                color: #333;
+                content: url('../../static/img/progress.svg');
                 @media only screen and (max-width: 991px) {
                     display: none;
                 }

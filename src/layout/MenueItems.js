@@ -152,7 +152,7 @@ const MenueItems = ({ darkMode }) => {
           <NavLink to="/admin/pages/search">Search Results</NavLink>
         </Menu.Item>
         <Menu.Item key="maintenance">
-          <NavLink to="/admin/pages/maintenance">Coming Soon</NavLink>
+          <NavLink to="/admin/pages/maintenance">Maintenance</NavLink>
         </Menu.Item>
         <Menu.Item key="404">
           <NavLink to="/admin/pages/404">404</NavLink>
