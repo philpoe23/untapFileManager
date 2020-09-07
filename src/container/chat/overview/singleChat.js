@@ -237,13 +237,16 @@ const SingleChat = ({ match }) => {
                                         <Link to="#">Copy</Link>
                                       </li>
                                       <li>
+                                        <Link to="#">Edit</Link>
+                                      </li>
+                                      <li>
                                         <Link to="#">Quote</Link>
                                       </li>
                                       <li>
                                         <Link to="#">Forward</Link>
                                       </li>
                                       <li>
-                                        <Link to="#">Report</Link>
+                                        <Link to="#">Remove</Link>
                                       </li>
                                     </ul>
                                   </div>
@@ -299,7 +302,10 @@ const SingleChat = ({ match }) => {
                                   <div className="atbd-chatbox__messageControl">
                                     <ul>
                                       <li>
-                                        <Link to="#">Copy d</Link>
+                                        <Link to="#">Edit </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Copy </Link>
                                       </li>
                                       <li>
                                         <Link to="#">Quote</Link>
@@ -308,7 +314,7 @@ const SingleChat = ({ match }) => {
                                         <Link to="#">Forward</Link>
                                       </li>
                                       <li>
-                                        <Link to="#">Report</Link>
+                                        <Link to="#">Remove</Link>
                                       </li>
                                     </ul>
                                   </div>

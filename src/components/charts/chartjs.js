@@ -337,6 +337,7 @@ ChartjsAreaChart.defaultProps = {
       borderWidth: 1,
       fill: true,
       backgroundColor: '#00173750',
+      pointHoverBorderColor: 'transparent',
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
@@ -344,16 +345,25 @@ ChartjsAreaChart.defaultProps = {
       borderWidth: 1,
       fill: true,
       backgroundColor: '#1ce1ac50',
+      pointHoverBorderColor: 'transparent',
     },
   ],
   options: {
     maintainAspectRatio: true,
+    hover: {
+      mode: 'nearest',
+      intersect: false,
+    },
+    tooltips: {
+      mode: 'nearest',
+      intersect: false,
+    },
     layout: {
       padding: {
-        left: '-10',
+        left: '0',
         right: 0,
         top: 2,
-        bottom: '-10',
+        bottom: '0',
       },
     },
     legend: {
@@ -436,6 +446,31 @@ ChartjsBarChartTransparent.defaultProps = {
   options: {
     maintainAspectRatio: true,
     responsive: true,
+    tooltips: {
+      mode: 'label',
+      intersect: false,
+      // backgroundColor: '#fff',
+      position: 'average',
+
+      // titleFontColor: '#5A5F7D',
+      titleFontSize: 12,
+      titleSpacing: 15,
+      // bodyFontColor: '#868EAE',
+      bodyFontSize: 13,
+      // borderColor: '#F1F2F6',
+      borderWidth: 2,
+      bodySpacing: 15,
+      xPadding: 15,
+      yPadding: 15,
+      zIndex: 999999,
+      callbacks: {
+        label(t, d) {
+          const dstLabel = d.datasets[t.datasetIndex].label;
+          const { yLabel } = t;
+          return `${yLabel} ${dstLabel}`;
+        },
+      },
+    },
     legend: {
       display: true,
       position: 'bottom',

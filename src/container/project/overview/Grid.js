@@ -45,71 +45,75 @@ const Grid = () => {
             <Col key={id} lg={8} xs={24}>
               <ProjectCard>
                 <Cards headless>
-                  <div className="project-title">
-                    <h1>
-                      <Link to={`${path}/single/${id}`}>{title}</Link>
-                      <Tag className={status}>{status}</Tag>
-                    </h1>
-                    <Dropdown
-                      content={
-                        <>
-                          <Link to="#">More One</Link>
-                          <Link to="#">More Tow</Link>
-                          <Link to="#">More Three</Link>
-                          <Link to="#">More Four</Link>
-                        </>
-                      }
-                    >
-                      <Link to="#">
-                        <FeatherIcon icon="more-horizontal" size={18} />
-                      </Link>
-                    </Dropdown>
-                  </div>
-                  <p className="project-desc">{textRefactor(content, 13)}</p>
-                  <div className="project-timing">
-                    <div>
-                      <span>Start Date</span>
-                      <strong>26 Dec 2019</strong>
+                  <div className="project-top">
+                    <div className="project-title">
+                      <h1>
+                        <Link to={`${path}/single/${id}`}>{title}</Link>
+                        <Tag className={status}>{status}</Tag>
+                      </h1>
+                      <Dropdown
+                        content={
+                          <>
+                            <Link to="#">More One</Link>
+                            <Link to="#">More Tow</Link>
+                            <Link to="#">More Three</Link>
+                            <Link to="#">More Four</Link>
+                          </>
+                        }
+                      >
+                        <Link to="#">
+                          <FeatherIcon icon="more-horizontal" size={18} />
+                        </Link>
+                      </Dropdown>
                     </div>
-                    <div>
-                      <span>Deadline</span>
-                      <strong>18 Mar 2020</strong>
+                    <p className="project-desc">{textRefactor(content, 13)}</p>
+                    <div className="project-timing">
+                      <div>
+                        <span>Start Date</span>
+                        <strong>26 Dec 2019</strong>
+                      </div>
+                      <div>
+                        <span>Deadline</span>
+                        <strong>18 Mar 2020</strong>
+                      </div>
+                    </div>
+                    <div className="project-progress">
+                      <Progress
+                        percent={status === 'complete' ? 100 : percentage}
+                        strokeWidth={5}
+                        status="primary"
+                        className="progress-primary"
+                      />
+                      <p>12/15 Task Completed</p>
                     </div>
                   </div>
-                  <div className="project-progress">
-                    <Progress
-                      percent={status === 'complete' ? 100 : percentage}
-                      strokeWidth={5}
-                      status="primary"
-                      className="progress-primary"
-                    />
-                    <p>12/15 Task Completed</p>
-                  </div>
-                  <div className="project-assignees">
-                    <p>Assigned To</p>
-                    <ul>
-                      <li>
-                        <img src={require(`../../../static/img/users/1.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/2.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/3.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/4.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/5.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/6.png`)} alt="" />
-                      </li>
-                      <li>
-                        <img src={require(`../../../static/img/users/7.png`)} alt="" />
-                      </li>
-                    </ul>
+                  <div className="project-bottom">
+                    <div className="project-assignees">
+                      <p>Assigned To</p>
+                      <ul>
+                        <li>
+                          <img src={require(`../../../static/img/users/1.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/2.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/3.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/4.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/5.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/6.png`)} alt="" />
+                        </li>
+                        <li>
+                          <img src={require(`../../../static/img/users/7.png`)} alt="" />
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </Cards>
               </ProjectCard>

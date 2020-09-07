@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Row, Col, Radio, Table } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Radio, Table, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Focard, CardBarChart, CardGroup, SocialMediaWrapper, LineChartWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -14,24 +15,104 @@ import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import {
+  forcastOverviewGetData,
+  forcastOverviewFilterData,
+  youtubeSubscribeFilterData,
+  youtubeSubscribeGetData,
+  socialTrafficGetData,
+  socialTrafficFilterData,
+  twitterOverviewGetData,
+  twitterOverviewFilterData,
+  instagramOverviewGetData,
+  instagramOverviewFilterData,
+  linkdinOverviewGetData,
+  linkdinOverviewFilterData,
+} from '../../redux/chartContent/actionCreator';
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const {
+    forcastOverviewState,
+    foIsLoading,
+    youtubeSubscribeState,
+    yuIsLoading,
+    socialTrafficState,
+    twitterOverviewState,
+    twIsLoading,
+    instagramOverviewState,
+    inIsLoading,
+    linkdinOverviewState,
+    liIsLoading,
+  } = useSelector(state => {
+    return {
+      forcastOverviewState: state.chartContent.forcastData,
+      twitterOverviewState: state.chartContent.twitterOverviewData,
+      twIsLoading: state.chartContent.twLoading,
+      instagramOverviewState: state.chartContent.instagramOverviewData,
+      inIsLoading: state.chartContent.inLoading,
+      foIsLoading: state.chartContent.foLoading,
+      youtubeSubscribeState: state.chartContent.youtubeSubscribeData,
+      yuIsLoading: state.chartContent.yuLoading,
+      socialTrafficState: state.chartContent.socialTrafficData,
+      soIsLoading: state.chartContent.soLoading,
+      linkdinOverviewState: state.chartContent.linkdinOverviewData,
+      liIsLoading: state.chartContent.liLoading,
+    };
+  });
+
   const [state, setState] = useState({
-    youtubeSubscribeTabActive: 'month',
+    youtubeSubscribeTabActive: 'year',
     twitterOverviewTabActive: 'month',
     instagramOverviewTabActive: 'month',
     linkdinOverviewTabActive: 'month',
   });
 
+  useEffect(() => {
+    if (forcastOverviewGetData) {
+      dispatch(twitterOverviewGetData());
+      dispatch(forcastOverviewGetData());
+      dispatch(youtubeSubscribeGetData());
+      dispatch(socialTrafficGetData());
+      dispatch(instagramOverviewGetData());
+      dispatch(linkdinOverviewGetData());
+    }
+  }, [dispatch]);
+
   const chartOptions = {
-    layout: {
-      padding: {
-        left: '-10',
-        right: '6',
-        top: 7,
-        bottom: '-60',
+    tooltips: {
+      mode: 'nearest',
+      intersect: false,
+      backgroundColor: '#fff',
+      position: 'nearest',
+      titleFontColor: '#000',
+      bodyFontColor: '#000',
+      borderColor: '#C6D0DC',
+      borderWidth: 1,
+      bodySpacing: 5,
+      xPadding: 15,
+      callbacks: {
+        labelColor(tooltipItem, chart) {
+          return {
+            backgroundColor: '#20C997',
+          };
+        },
       },
     },
+    hover: {
+      mode: 'nearest',
+      intersect: false,
+    },
+    layout: {
+      padding: {
+        left: '0',
+        right: 10,
+        top: 40,
+        bottom: '0',
+      },
+    },
+    maintainAspectRatio: true,
+    responsive: true,
     legend: {
       display: false,
       labels: {
@@ -39,9 +120,6 @@ const Dashboard = () => {
       },
     },
     elements: {
-      point: {
-        radius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
-      },
       line: {
         tension: 0,
       },
@@ -52,6 +130,10 @@ const Dashboard = () => {
           stacked: true,
           gridLines: {
             display: false,
+            color: '#e5e9f2',
+            borderDash: [8, 4],
+            zeroLineColor: 'transparent',
+            beginAtZero: true,
           },
           ticks: {
             display: false,
@@ -63,6 +145,9 @@ const Dashboard = () => {
           stacked: true,
           gridLines: {
             display: false,
+            color: '#e5e9f2',
+            borderDash: [8, 4],
+            zeroLineColor: 'transparent',
           },
           ticks: {
             display: false,
@@ -86,11 +171,31 @@ const Dashboard = () => {
     </>
   );
 
+  const youtubeSubscribeDatasets = youtubeSubscribeState !== null && [
+    {
+      data: youtubeSubscribeState.gained,
+      backgroundColor: '#5F63F280',
+      hoverBackgroundColor: '#5F63F2',
+      label: 'Gained',
+      maxBarThickness: 10,
+      barThickness: 12,
+    },
+    {
+      data: youtubeSubscribeState.lost,
+      backgroundColor: '#FF4D4F80',
+      hoverBackgroundColor: '#FF4D4F',
+      label: 'Lost',
+      maxBarThickness: 10,
+      barThickness: 12,
+    },
+  ];
+
   const handleActiveChangeYoutube = value => {
     setState({
       ...state,
       youtubeSubscribeTabActive: value,
     });
+    dispatch(youtubeSubscribeFilterData(value));
   };
 
   const handleActiveChangeTwitter = value => {
@@ -98,6 +203,7 @@ const Dashboard = () => {
       ...state,
       twitterOverviewTabActive: value,
     });
+    return dispatch(twitterOverviewFilterData(value));
   };
 
   const handleActiveChangeInstagram = value => {
@@ -105,6 +211,7 @@ const Dashboard = () => {
       ...state,
       instagramOverviewTabActive: value,
     });
+    return dispatch(instagramOverviewFilterData(value));
   };
 
   const handleActiveChangeLinkdin = value => {
@@ -112,6 +219,7 @@ const Dashboard = () => {
       ...state,
       linkdinOverviewTabActive: value,
     });
+    dispatch(linkdinOverviewFilterData(value));
   };
 
   const trafficTableColumns = [
@@ -147,78 +255,139 @@ const Dashboard = () => {
     },
   ];
 
-  const trafficTableData = [
-    {
-      key: '1',
-      network: <span className="traffic-title">Social Network</span>,
-      users: <span className="traffic-title">Users</span>,
-      newUsers: <span className="traffic-title">New Users</span>,
-      sessions: <span className="traffic-title">Sessions</span>,
-      bounceRate: <span className="traffic-title">Bounce Rate</span>,
-      pages: <span className="traffic-title">Pages / Session</span>,
-      avg: <span className="traffic-title">Avg. Session Duration</span>,
-    },
-    {
-      key: '2',
-      network: <span className="social-name">Facebook</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-    {
-      key: '3',
-      network: <span className="social-name">Twitter</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-    {
-      key: '4',
-      network: <span className="social-name">Linkdin</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-    {
-      key: '5',
-      network: <span className="social-name">Youtube</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-    {
-      key: '6',
-      network: <span className="social-name">Pinterest</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-    {
-      key: '7',
-      network: <span className="social-name">Google+</span>,
-      users: '3,397',
-      newUsers: '422',
-      sessions: '2,584',
-      bounceRate: '30.35%',
-      pages: '2.50',
-      avg: '00:01:05',
-    },
-  ];
+  const { facebook, twitter, youtube, linkdin, pinterest, google } = socialTrafficState !== null && socialTrafficState;
+
+  const trafficTableData =
+    socialTrafficState !== null
+      ? [
+          {
+            key: '1',
+            network: <span className="traffic-title">Social Network</span>,
+            users: <span className="traffic-title">Users</span>,
+            newUsers: <span className="traffic-title">New Users</span>,
+            sessions: <span className="traffic-title">Sessions</span>,
+            bounceRate: <span className="traffic-title">Bounce Rate</span>,
+            pages: <span className="traffic-title">Pages / Session</span>,
+            avg: <span className="traffic-title">Avg. Session Duration</span>,
+          },
+          {
+            key: '2',
+            network: (
+              <Link to="#">
+                <span className="social-name">Facebook</span>
+              </Link>
+            ),
+            users: facebook.users,
+            newUsers: facebook.newUsers,
+            sessions: facebook.session,
+            bounceRate: facebook.bounceRate,
+            pages: facebook.pagesSession,
+            avg: facebook.avg,
+          },
+          {
+            key: '3',
+            network: (
+              <Link to="#">
+                <span className="social-name">Twitter</span>
+              </Link>
+            ),
+            users: twitter.users,
+            newUsers: twitter.newUsers,
+            sessions: twitter.session,
+            bounceRate: twitter.bounceRate,
+            pages: twitter.pagesSession,
+            avg: twitter.avg,
+          },
+          {
+            key: '4',
+            network: (
+              <Link to="#">
+                <span className="social-name">Linkdin</span>
+              </Link>
+            ),
+            users: linkdin.users,
+            newUsers: linkdin.newUsers,
+            sessions: linkdin.session,
+            bounceRate: linkdin.bounceRate,
+            pages: linkdin.pagesSession,
+            avg: linkdin.avg,
+          },
+          {
+            key: '5',
+            network: (
+              <Link to="#">
+                <span className="social-name">Youtube</span>
+              </Link>
+            ),
+            users: youtube.users,
+            newUsers: youtube.newUsers,
+            sessions: youtube.session,
+            bounceRate: youtube.bounceRate,
+            pages: youtube.pagesSession,
+            avg: youtube.avg,
+          },
+          {
+            key: '6',
+            network: (
+              <Link to="#">
+                <span className="social-name">Pinterest</span>
+              </Link>
+            ),
+            users: pinterest.users,
+            newUsers: pinterest.newUsers,
+            sessions: pinterest.session,
+            bounceRate: pinterest.bounceRate,
+            pages: pinterest.pagesSession,
+            avg: pinterest.avg,
+          },
+          {
+            key: '7',
+            network: (
+              <Link to="#">
+                <span className="social-name">Google+</span>
+              </Link>
+            ),
+            users: google.users,
+            newUsers: google.newUsers,
+            sessions: google.session,
+            bounceRate: google.bounceRate,
+            pages: google.pagesSession,
+            avg: google.avg,
+          },
+        ]
+      : [];
+
+  const forcastOverview = e => {
+    dispatch(forcastOverviewFilterData(e.target.value));
+  };
+
+  const socialTraffic = e => {
+    dispatch(socialTrafficFilterData(e.target.value));
+  };
+
+  const lineChartPointStyle = {
+    borderColor: '#C6D0DC',
+    borderWidth: 2,
+    fill: false,
+    pointRadius: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+    pointBackgroundColor: [
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      'transparent',
+      '#20C997',
+    ],
+    pointHoverBackgroundColor: '#20C997',
+    pointHoverRadius: 6,
+    pointBorderColor: 'transparent',
+  };
 
   return (
     <>
@@ -274,799 +443,857 @@ const Dashboard = () => {
           <Col xxl={16} xs={24}>
             <CardGroup>
               <div className="forcast-overview">
-                <Cards
-                  isbutton={
-                    <div className="card-radio">
-                      <Radio.Group defaultValue={2}>
-                        <Radio.Button value={1}>Today</Radio.Button>
-                        <Radio.Button value={2}>Week</Radio.Button>
-                        <Radio.Button value={3}>Month</Radio.Button>
-                        <Radio.Button value={4}>Year</Radio.Button>
-                      </Radio.Group>
-                    </div>
-                  }
-                  title="Facebook Overview"
-                  size="large"
-                >
-                  <Row gutter={25}>
-                    <Col xl={12} md={24}>
-                      <Row className="focard-wrapper focard-divider">
-                        <Col md={12} sm={12}>
-                          <Focard>
-                            <div className="focard-details growth-upward">
-                              <Heading as="h1">25,872</Heading>
-                              <p className="subtitle">Engaged Users</p>
-                              <p className="focard-status">
-                                <span className="focard-status__percentage">
-                                  <FeatherIcon icon="trending-up" />
-                                  25%
-                                </span>
-                                <span> 20,641 (prev)</span>
-                              </p>
-                            </div>
-                            <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
-                              datasets={[
-                                {
-                                  data: [5, 10, 20, 25, 20, 30, 15, 25, 15, 10],
-                                  borderColor: '#20C997',
-                                  borderWidth: 3,
-                                  fill: true,
-                                  backgroundColor: '#20C99710',
-                                },
-                              ]}
-                              height={165}
-                            />
-                          </Focard>
+                {forcastOverviewState !== null && (
+                  <Cards
+                    isbutton={
+                      <div className="card-radio">
+                        <Radio.Group onChange={forcastOverview} defaultValue="today">
+                          <Radio.Button value="today">Today</Radio.Button>
+                          <Radio.Button value="week">Week</Radio.Button>
+                          <Radio.Button value="month">Month</Radio.Button>
+                          <Radio.Button value="year">Year</Radio.Button>
+                        </Radio.Group>
+                      </div>
+                    }
+                    title="Facebook Overview"
+                    size="large"
+                  >
+                    {foIsLoading ? (
+                      <div>
+                        <Spin />
+                      </div>
+                    ) : (
+                      <Row gutter={25}>
+                        <Col xl={12} md={24}>
+                          <Row className="focard-wrapper focard-divider">
+                            <Col md={12} sm={12}>
+                              <Focard>
+                                <div className="focard-details growth-upward">
+                                  <Heading as="h1">{forcastOverviewState.Engaged}</Heading>
+                                  <p className="subtitle">Engaged Users</p>
+                                  <p className="focard-status">
+                                    <span className="focard-status__percentage">
+                                      <FeatherIcon icon="trending-up" />
+                                      25%
+                                    </span>
+                                    <span> 20,641 (prev)</span>
+                                  </p>
+                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.EnLabels}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.EnData,
+                                      borderColor: '#20C997',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: '#20C99710',
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
+                              </Focard>
+                            </Col>
+                            <Col md={12} sm={12}>
+                              <Focard>
+                                <div className="focard-details growth-upward">
+                                  <Heading as="h1">{forcastOverviewState.Impressions}</Heading>
+                                  <p className="subtitle">Page Impressions</p>
+                                  <p className="focard-status">
+                                    <span className="focard-status__percentage">
+                                      <FeatherIcon icon="trending-up" />
+                                      14%
+                                    </span>
+                                    <span> 20,641 (prev)</span>
+                                  </p>
+                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.ImLabels}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.ImData,
+                                      borderColor: '#FF69A5',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: '#FF69A510',
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
+                              </Focard>
+                            </Col>
+                          </Row>
                         </Col>
-                        <Col md={12} sm={12}>
-                          <Focard>
-                            <div className="focard-details growth-upward">
-                              <Heading as="h1">492,534</Heading>
-                              <p className="subtitle">Page Impressions</p>
-                              <p className="focard-status">
-                                <span className="focard-status__percentage">
-                                  <FeatherIcon icon="trending-up" />
-                                  14%
-                                </span>
-                                <span> 20,641 (prev)</span>
-                              </p>
-                            </div>
-                            <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
-                              datasets={[
-                                {
-                                  data: [10, 15, 10, 11, 15, 21, 15, 12, 21, 8],
-                                  borderColor: '#FF69A5',
-                                  borderWidth: 3,
-                                  fill: true,
-                                  backgroundColor: '#FF69A510',
-                                },
-                              ]}
-                              height={165}
-                            />
-                          </Focard>
+                        <Col xl={12} md={24}>
+                          <Row className="focard-wrapper">
+                            <Col md={12} sm={12}>
+                              <Focard>
+                                <div className="focard-details growth-downward">
+                                  <Heading as="h1">{forcastOverviewState.Like}</Heading>
+                                  <p className="subtitle">Total Page Likes</p>
+                                  <p className="focard-status">
+                                    <span className="focard-status__percentage">
+                                      <FeatherIcon icon="trending-down" />
+                                      12%
+                                    </span>
+                                    <span> 20,641 (prev)</span>
+                                  </p>
+                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.LiLabels}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.LiData,
+                                      borderColor: '#5F63F2',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: '#5F63F210',
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
+                              </Focard>
+                            </Col>
+                            <Col md={12} sm={12}>
+                              <Focard>
+                                <div className="focard-details growth-upward">
+                                  <Heading as="h1">{forcastOverviewState.Impressions2}</Heading>
+                                  <p className="subtitle">Page Impressions</p>
+                                  <p className="focard-status">
+                                    <span className="focard-status__percentage">
+                                      <FeatherIcon icon="trending-up" />
+                                      14%
+                                    </span>
+                                    <span> 20,641 (prev)</span>
+                                  </p>
+                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.ImLabels2}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.ImData2,
+                                      borderColor: '#FA8B0C',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: '#FA8B0C10',
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
+                              </Focard>
+                            </Col>
+                          </Row>
                         </Col>
                       </Row>
-                    </Col>
-                    <Col xl={12} md={24}>
-                      <Row className="focard-wrapper">
-                        <Col md={12} sm={12}>
-                          <Focard>
-                            <div className="focard-details growth-downward">
-                              <Heading as="h1">12,142</Heading>
-                              <p className="subtitle">Total Page Likes</p>
-                              <p className="focard-status">
-                                <span className="focard-status__percentage">
-                                  <FeatherIcon icon="trending-down" />
-                                  12%
-                                </span>
-                                <span> 20,641 (prev)</span>
-                              </p>
-                            </div>
-                            <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
-                              datasets={[
-                                {
-                                  data: [12, 18, 21, 25, 18, 15, 11, 15, 14, 19],
-                                  borderColor: '#5F63F2',
-                                  borderWidth: 3,
-                                  fill: true,
-                                  backgroundColor: '#5F63F210',
-                                },
-                              ]}
-                              height={165}
-                            />
-                          </Focard>
-                        </Col>
-                        <Col md={12} sm={12}>
-                          <Focard>
-                            <div className="focard-details growth-upward">
-                              <Heading as="h1">1,432</Heading>
-                              <p className="subtitle">Page Impressions</p>
-                              <p className="focard-status">
-                                <span className="focard-status__percentage">
-                                  <FeatherIcon icon="trending-up" />
-                                  14%
-                                </span>
-                                <span> 20,641 (prev)</span>
-                              </p>
-                            </div>
-                            <ChartjsAreaChart
-                              labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'july', 'Aug', 'Sep', 'Oct']}
-                              datasets={[
-                                {
-                                  data: [24, 21, 15, 22, 18, 11, 14, 18, 21, 27],
-                                  borderColor: '#FA8B0C',
-                                  borderWidth: 3,
-                                  fill: true,
-                                  backgroundColor: '#FA8B0C10',
-                                },
-                              ]}
-                              height={165}
-                            />
-                          </Focard>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
-                </Cards>
+                    )}
+                  </Cards>
+                )}
               </div>
             </CardGroup>
           </Col>
 
           <Col xxl={8} xs={24}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li className={state.youtubeSubscribeTabActive === 'week' ? 'active' : 'deactivate'}>
-                      <Link onClick={() => handleActiveChangeYoutube('week')} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className={state.youtubeSubscribeTabActive === 'month' ? 'active' : 'deactivate'}>
-                      <Link onClick={() => handleActiveChangeYoutube('month')} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li className={state.youtubeSubscribeTabActive === 'year' ? 'active' : 'deactivate'}>
-                      <Link onClick={() => handleActiveChangeYoutube('year')} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title="Youtube Subscribers"
-              size="large"
-            >
-              <CardBarChart>
-                <div className="card-bar-top">
-                  <p>Subscribers</p>
-                  <Heading as="h3">
-                    25,472
-                    <sub>
-                      <FeatherIcon icon="arrow-up" size={14} />
-                      25%
-                    </sub>
-                  </Heading>
-                </div>
-                <ChartjsBarChartTransparent
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                  datasets={[
-                    {
-                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                      backgroundColor: '#5F63F280',
-                      hoverBackgroundColor: '#5F63F2',
-                      label: 'Gained',
-                    },
-                    {
-                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                      backgroundColor: '#FF4D4F80',
-                      hoverBackgroundColor: '#FF4D4F',
-                      label: 'Lost',
-                    },
-                  ]}
-                  options={{
-                    maintainAspectRatio: true,
-                    responsive: true,
-                    legend: {
-                      display: true,
-                      position: 'top',
-                      align: 'end',
-                      labels: {
-                        boxWidth: 6,
-                        display: true,
-                        usePointStyle: true,
-                      },
-                    },
-                    layout: {
-                      padding: {
-                        left: '0',
-                        right: 0,
-                        top: 0,
-                        bottom: '0',
-                      },
-                    },
-                    scales: {
-                      yAxes: [
-                        {
-                          gridLines: {
-                            color: '#e5e9f2',
-                          },
-                          ticks: {
-                            beginAtZero: true,
-                            fontSize: 10,
-                            fontColor: '#182b49',
-                            max: 80,
-                            stepSize: 20,
-                          },
-                        },
-                      ],
-                      xAxes: [
-                        {
-                          gridLines: {
-                            display: false,
-                          },
-                          barPercentage: 0.6,
-                          ticks: {
-                            beginAtZero: true,
-                            fontSize: 11,
-                            fontColor: '#182b49',
-                          },
-                        },
-                      ],
-                    },
-                  }}
-                />
-              </CardBarChart>
-            </Cards>
-          </Col>
-          <Col xxl={8} md={8} xs={24}>
-            <LineChartWrapper>
+            {youtubeSubscribeState !== null && (
               <Cards
                 isbutton={
                   <div className="card-nav">
                     <ul>
-                      <li className={state.twitterOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeTwitter('week')} to="#">
+                      <li className={state.youtubeSubscribeTabActive === 'week' ? 'active' : 'deactivate'}>
+                        <Link onClick={() => handleActiveChangeYoutube('week')} to="#">
                           Week
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeTwitter('month')} to="#">
+                      <li className={state.youtubeSubscribeTabActive === 'month' ? 'active' : 'deactivate'}>
+                        <Link onClick={() => handleActiveChangeYoutube('month')} to="#">
                           Month
                         </Link>
                       </li>
-                      <li className={state.twitterOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeTwitter('year')} to="#">
+                      <li className={state.youtubeSubscribeTabActive === 'year' ? 'active' : 'deactivate'}>
+                        <Link onClick={() => handleActiveChangeYoutube('year')} to="#">
                           Year
                         </Link>
                       </li>
                     </ul>
                   </div>
                 }
-                title="Twitter Overview"
+                title="Youtube Subscribers"
                 size="large"
               >
-                <div className="overview-container">
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-downward">
-                        <p>Tweets</p>
-                        <Heading as="h4">
-                          25,472
-                          <sub>
-                            <FeatherIcon icon="arrow-down" size={14} />
-                            25%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Tweet impressions</p>
-                        <Heading as="h4">
-                          78K
+                {yuIsLoading ? (
+                  <div>
+                    <Spin />
+                  </div>
+                ) : (
+                  <CardBarChart>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <div className="card-bar-top">
+                        <p>Subscribers</p>
+                        <Heading as="h3">
+                          {youtubeSubscribeState.Subscribe}
                           <sub>
                             <FeatherIcon icon="arrow-up" size={14} />
-                            108%
+                            {youtubeSubscribeState.percent}%
                           </sub>
                         </Heading>
                       </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, -10, 18, 5, 17, 0, 1, 2, 11, 30, 15, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
+                      <ul>
+                        {youtubeSubscribeDatasets &&
+                          youtubeSubscribeDatasets.map(item => {
+                            return (
+                              <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <span
+                                  style={{
+                                    width: '10px',
+                                    height: '10px',
+                                    display: 'flex',
+                                    backgroundColor: item.hoverBackgroundColor,
+                                    borderRadius: '50%',
+                                    margin: '0px 5px',
+                                  }}
+                                />
+                                {item.label}
+                              </li>
+                            );
+                          })}
+                      </ul>
+                    </div>
+                    <ChartjsBarChartTransparent
+                      labels={youtubeSubscribeState.labels}
+                      datasets={youtubeSubscribeDatasets}
+                      options={{
+                        maintainAspectRatio: true,
+                        responsive: true,
+                        layout: {
+                          padding: {
+                            top: 20,
+                          },
+                        },
+                        tooltips: {
+                          mode: 'label',
+                          intersect: false,
+                          // backgroundColor: '#fff',
+                          position: 'average',
+
+                          // titleFontColor: '#5A5F7D',
+                          titleFontSize: 12,
+                          titleSpacing: 15,
+                          // bodyFontColor: '#868EAE',
+                          bodyFontSize: 13,
+                          // borderColor: '#F1F2F6',
+                          borderWidth: 2,
+                          bodySpacing: 15,
+                          xPadding: 15,
+                          yPadding: 15,
+                          zIndex: 999999,
+                          callbacks: {
+                            label(t, d) {
+                              const dstLabel = d.datasets[t.datasetIndex].label;
+                              const { yLabel } = t;
+                              return `${yLabel} ${dstLabel}`;
                             },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Retweets</p>
-                        <Heading as="h4">
-                          2578
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            30%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
+                          },
+                        },
+                        legend: {
+                          display: false,
+                          position: 'top',
+                          align: 'end',
+                          labels: {
+                            boxWidth: 6,
+                            display: true,
+                            usePointStyle: true,
+                          },
+                        },
+
+                        scales: {
+                          yAxes: [
                             {
-                              data: [0, 15, 10, 18, 20, 15, 10, 7, 15, 8, 10, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
+                              gridLines: {
+                                color: '#e5e9f2',
+                                borderDash: [8, 4],
+                                zeroLineColor: 'transparent',
+                              },
+
+                              ticks: {
+                                beginAtZero: true,
+                                fontSize: 12,
+                                fontColor: '#182b49',
+                                max: Math.max(...youtubeSubscribeState.gained),
+                                stepSize: Math.max(...youtubeSubscribeState.gained) / 5,
+                              },
                             },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Engagement rate</p>
-                        <Heading as="h4">
-                          2.8
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            34%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
+                          ],
+                          xAxes: [
                             {
-                              data: [0, 10, 0, 15, 0, 18, 0, 10, 12, 18, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
+                              gridLines: {
+                                display: false,
+                              },
+                              ticks: {
+                                beginAtZero: true,
+                                fontSize: 12,
+                                fontColor: '#182b49',
+                              },
                             },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>New followers</p>
-                        <Heading as="h4">
-                          1078
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            27%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
+                          ],
+                        },
+                      }}
+                    />
+                  </CardBarChart>
+                )}
               </Cards>
+            )}
+          </Col>
+          <Col xxl={8} md={8} xs={24}>
+            <LineChartWrapper>
+              {twitterOverviewState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={state.twitterOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeTwitter('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.twitterOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeTwitter('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.twitterOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeTwitter('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  title="Twitter Overview"
+                  size="large"
+                >
+                  {twIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="overview-container">
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-downward">
+                            <p>Tweets</p>
+                            <Heading as="h4">
+                              {twitterOverviewState.twist.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-down" size={14} />
+                                25%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: twitterOverviewState.twist.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Tweet impressions</p>
+                            <Heading as="h4">
+                              {twitterOverviewState.impressions.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                108%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: twitterOverviewState.impressions.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Retweets</p>
+                            <Heading as="h4">
+                              {twitterOverviewState.retweets.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                30%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: twitterOverviewState.retweets.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Engagement rate</p>
+                            <Heading as="h4">
+                              {twitterOverviewState.rate.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                34%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: twitterOverviewState.rate.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>New followers</p>
+                            <Heading as="h4">
+                              {twitterOverviewState.followers.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                27%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: twitterOverviewState.followers.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  )}
+                </Cards>
+              )}
             </LineChartWrapper>
           </Col>
           <Col xxl={8} md={8} xs={24}>
             <LineChartWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.instagramOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeInstagram('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.instagramOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeInstagram('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.instagramOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeInstagram('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                title="Instagram Overview"
-                size="large"
-              >
-                <div className="overview-container">
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Post</p>
-                        <Heading as="h4">
-                          25,472
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            25%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 12, 7, 18, 5, 12, 17, 12, 18, 30, 25, 35],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Like</p>
-                        <Heading as="h4">
-                          78K
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            108%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Comments</p>
-                        <Heading as="h4">
-                          2578
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            30%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 8, 10, 17, 9, 12, 13, 18, 20, 27, 30, 34],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>New Followers</p>
-                        <Heading as="h4">
-                          2.8
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            34%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Following</p>
-                        <Heading as="h4">
-                          1078
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            27%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-              </Cards>
+              {instagramOverviewState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={state.instagramOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeInstagram('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.instagramOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeInstagram('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.instagramOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeInstagram('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  title="Instagram Overview"
+                  size="large"
+                >
+                  {inIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="overview-container">
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Post</p>
+                            <Heading as="h4">
+                              {instagramOverviewState.post.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                25%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: instagramOverviewState.post.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Like</p>
+                            <Heading as="h4">
+                              {instagramOverviewState.like.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                108%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: instagramOverviewState.like.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Comments</p>
+                            <Heading as="h4">
+                              {instagramOverviewState.comments.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                30%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: instagramOverviewState.comments.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>New Followers</p>
+                            <Heading as="h4">
+                              {instagramOverviewState.rate.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                34%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: instagramOverviewState.rate.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Following</p>
+                            <Heading as="h4">
+                              {instagramOverviewState.followers.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                27%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: instagramOverviewState.followers.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  )}
+                </Cards>
+              )}
             </LineChartWrapper>
           </Col>
           <Col xxl={8} md={8} xs={24}>
             <LineChartWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.linkdinOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeLinkdin('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.linkdinOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeLinkdin('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.linkdinOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeLinkdin('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                title="Linkedin Key Metrics"
-                size="large"
-              >
-                <div className="linkedin-chart-wrap">
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Clicks</p>
-                        <Heading as="h4">
-                          25,472
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            25%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 5, 15, 7, 17, 10, 5, 20, 10, 35, 20, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Like</p>
-                        <Heading as="h4">
-                          78K
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            108%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Comments</p>
-                        <Heading as="h4">
-                          2578
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            30%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>New Followers</p>
-                        <Heading as="h4">
-                          2.8
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            34%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="line-chart-row">
-                    <Col xxl={10} xs={24}>
-                      <div className="growth-upward">
-                        <p>Following</p>
-                        <Heading as="h4">
-                          1078
-                          <sub>
-                            <FeatherIcon icon="arrow-up" size={14} />
-                            27%
-                          </sub>
-                        </Heading>
-                      </div>
-                    </Col>
-                    <Col xxl={14} xs={24}>
-                      <div className="border-linechart">
-                        <ChartjsLineChart
-                          height={60}
-                          datasets={[
-                            {
-                              data: [0, 10, 8, 15, 7, 10, 15, 20, 18, 35, 25, 30],
-                              borderColor: '#C6D0DC',
-                              borderWidth: 2,
-                              fill: false,
-                            },
-                          ]}
-                          options={chartOptions}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-              </Cards>
+              {linkdinOverviewState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={state.linkdinOverviewTabActive === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeLinkdin('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.linkdinOverviewTabActive === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeLinkdin('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.linkdinOverviewTabActive === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeLinkdin('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  title="Linkedin Key Metrics"
+                  size="large"
+                >
+                  {liIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="linkedin-chart-wrap">
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Clicks</p>
+                            <Heading as="h4">
+                              {linkdinOverviewState.post.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                25%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: linkdinOverviewState.post.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Like</p>
+                            <Heading as="h4">
+                              {linkdinOverviewState.like.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                108%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: linkdinOverviewState.like.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Comments</p>
+                            <Heading as="h4">
+                              {linkdinOverviewState.comments.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                30%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: linkdinOverviewState.comments.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>New Followers</p>
+                            <Heading as="h4">
+                              {linkdinOverviewState.rate.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                34%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: linkdinOverviewState.rate.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row className="line-chart-row">
+                        <Col xxl={10} xs={24}>
+                          <div className="growth-upward">
+                            <p>Following</p>
+                            <Heading as="h4">
+                              {linkdinOverviewState.followers.data}
+                              <sub>
+                                <FeatherIcon icon="arrow-up" size={14} />
+                                27%
+                              </sub>
+                            </Heading>
+                          </div>
+                        </Col>
+                        <Col xxl={14} xs={24}>
+                          <div className="border-linechart">
+                            <ChartjsLineChart
+                              height={100}
+                              datasets={[
+                                {
+                                  data: linkdinOverviewState.followers.chartValue,
+                                  ...lineChartPointStyle,
+                                },
+                              ]}
+                              options={chartOptions}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                  )}
+                </Cards>
+              )}
             </LineChartWrapper>
           </Col>
           <Col xxl={16} xs={24}>
@@ -1075,11 +1302,11 @@ const Dashboard = () => {
                 <Cards
                   isbutton={
                     <div className="card-radio">
-                      <Radio.Group defaultValue={2}>
-                        <Radio.Button value={1}>Today</Radio.Button>
-                        <Radio.Button value={2}>Week</Radio.Button>
-                        <Radio.Button value={3}>Month</Radio.Button>
-                        <Radio.Button value={4}>Year</Radio.Button>
+                      <Radio.Group onChange={socialTraffic} defaultValue="today">
+                        <Radio.Button value="today">Today</Radio.Button>
+                        <Radio.Button value="week">Week</Radio.Button>
+                        <Radio.Button value="month">Month</Radio.Button>
+                        <Radio.Button value="year">Year</Radio.Button>
                       </Radio.Group>
                     </div>
                   }

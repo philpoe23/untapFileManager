@@ -292,6 +292,7 @@ const UserCard = Styled.div`
     .card__actions{
       margin: -5px;
       .ant-btn-white{
+        color: ${({ theme }) => theme['gray-color']};
         border: 1px solid ${({ theme }) => theme['border-color-light']};
         &:hover{
           border: 1px solid ${({ theme }) => theme['primary-color']};
@@ -305,7 +306,7 @@ const UserCard = Styled.div`
         box-shadow: 0px 3px 5px ${({ theme }) => theme['light-color']}05;
         margin: 5px;
         &:hover{
-          color: #fff;
+          color: #fff !important;
           background-color: ${({ theme }) => theme['primary-color']};
           svg,
           i{
@@ -622,6 +623,7 @@ const SearchResultWrapper = Styled.div`
 
 const ResultList = Styled.div`
   .result-list-top{
+    max-width: 1000px;
     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
     margin-bottom: 20px;
     padding-bottom: 24px;
@@ -643,6 +645,7 @@ const ResultList = Styled.div`
     }
   }
   .result-limit{
+    text-align: right;
     margin-bottom: 0;
     color: ${({ theme }) => theme['light-color']};
     @media only screen and (max-width: 767px){

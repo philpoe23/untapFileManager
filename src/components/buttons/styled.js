@@ -112,7 +112,6 @@ font-weight: 500;
 box-shadow: 0 0;
 &:hover, &:focus {
     background: ${({ type, theme }) => type !== 'default' && theme[`${type}-hover`]};
-/* border: 1px solid ${({ type, theme }) => type !== 'default' && theme[`${type}-hover`]}; */
     color: ${({ type }) => (type !== 'default' ? '#ffffff' : '#5A5F7D')};
 }
 i,
