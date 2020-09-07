@@ -300,7 +300,7 @@ ChartjsLineChart.propTypes = {
 };
 
 const ChartjsAreaChart = props => {
-  const { labels, datasets, options, height, layout } = props;
+  const { labels, datasets, options, height, layout, id } = props;
 
   const data = {
     labels,
@@ -322,7 +322,7 @@ const ChartjsAreaChart = props => {
         })}
       </div>
 
-      <Line data={data} height={height} options={{ ...options, ...layout }} />
+      <Line id={id} data={data} height={height} options={{ ...options, ...layout }} />
     </div>
   );
 };

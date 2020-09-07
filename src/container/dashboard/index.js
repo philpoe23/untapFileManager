@@ -389,6 +389,14 @@ const Dashboard = () => {
     pointBorderColor: 'transparent',
   };
 
+  const gradientData = (canvas, height, color) => {
+    const ctx = canvas.getContext('2d');
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, `${color}10`);
+    gradient.addColorStop(1, `${color}01`);
+    return gradient;
+  };
+
   return (
     <>
       <PageHeader
@@ -479,23 +487,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <div className="focard-chart">
-                                  <ChartjsAreaChart
-                                    labels={forcastOverviewState.EnLabels}
-                                    datasets={[
-                                      {
-                                        data: forcastOverviewState.EnData,
-                                        borderColor: '#20C997',
-                                        borderWidth: 3,
-                                        fill: true,
-                                        backgroundColor: '#20C99710',
-                                        pointHoverRadius: 0,
-                                        pointHoverBorderColor: 'transparent',
-                                      },
-                                    ]}
-                                    height={165}
-                                  />
-                                </div>
+                                <ChartjsAreaChart
+                                  id="engaged"
+                                  labels={forcastOverviewState.EnLabels}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.EnData,
+                                      borderColor: '#20C997',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: () =>
+                                        gradientData(document.getElementById('engaged'), 165, '#20C997'),
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
                               </Focard>
                             </Col>
                             <Col md={12} sm={12}>
@@ -511,23 +519,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <div className="focard-chart">
-                                  <ChartjsAreaChart
-                                    labels={forcastOverviewState.ImLabels}
-                                    datasets={[
-                                      {
-                                        data: forcastOverviewState.ImData,
-                                        borderColor: '#FF69A5',
-                                        borderWidth: 3,
-                                        fill: true,
-                                        backgroundColor: '#FF69A510',
-                                        pointHoverRadius: 0,
-                                        pointHoverBorderColor: 'transparent',
-                                      },
-                                    ]}
-                                    height={165}
-                                  />
-                                </div>
+                                <ChartjsAreaChart
+                                  id="impression"
+                                  labels={forcastOverviewState.ImLabels}
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.ImData,
+                                      borderColor: '#FF69A5',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: () =>
+                                        gradientData(document.getElementById('impression'), 165, '#FF69A5'),
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
                               </Focard>
                             </Col>
                           </Row>
@@ -547,23 +555,24 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <div className="focard-chart">
-                                  <ChartjsAreaChart
-                                    labels={forcastOverviewState.LiLabels}
-                                    datasets={[
-                                      {
-                                        data: forcastOverviewState.LiData,
-                                        borderColor: '#5F63F2',
-                                        borderWidth: 3,
-                                        fill: true,
-                                        backgroundColor: '#5F63F210',
-                                        pointHoverRadius: 0,
-                                        pointHoverBorderColor: 'transparent',
-                                      },
-                                    ]}
-                                    height={165}
-                                  />
-                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.LiLabels}
+                                  id="likes"
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.LiData,
+                                      borderColor: '#5F63F2',
+                                      borderWidth: 3,
+                                      fill: true,
+
+                                      backgroundColor: () =>
+                                        gradientData(document.getElementById('likes'), 165, '#5F63F2'),
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
                               </Focard>
                             </Col>
                             <Col md={12} sm={12}>
@@ -579,23 +588,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <div className="focard-chart">
-                                  <ChartjsAreaChart
-                                    labels={forcastOverviewState.ImLabels2}
-                                    datasets={[
-                                      {
-                                        data: forcastOverviewState.ImData2,
-                                        borderColor: '#FA8B0C',
-                                        borderWidth: 3,
-                                        fill: true,
-                                        backgroundColor: '#FA8B0C10',
-                                        pointHoverRadius: 0,
-                                        pointHoverBorderColor: 'transparent',
-                                      },
-                                    ]}
-                                    height={165}
-                                  />
-                                </div>
+                                <ChartjsAreaChart
+                                  labels={forcastOverviewState.ImLabels2}
+                                  id="impression2"
+                                  datasets={[
+                                    {
+                                      data: forcastOverviewState.ImData2,
+                                      borderColor: '#FA8B0C',
+                                      borderWidth: 3,
+                                      fill: true,
+                                      backgroundColor: () =>
+                                        gradientData(document.getElementById('impression2'), 165, '#FA8B0C'),
+                                      pointHoverRadius: 0,
+                                      pointHoverBorderColor: 'transparent',
+                                    },
+                                  ]}
+                                  height={165}
+                                />
                               </Focard>
                             </Col>
                           </Row>
@@ -726,28 +735,37 @@ const Dashboard = () => {
                             {
                               gridLines: {
                                 color: '#e5e9f2',
-                                borderDash: [8, 4],
-                                zeroLineColor: 'transparent',
+                                borderDash: [3, 3],
+                                zeroLineColor: '#e5e9f2',
+                                zeroLineWidth: 1,
+                                zeroLineBorderDash: [3, 3],
                               },
-
                               ticks: {
                                 beginAtZero: true,
                                 fontSize: 12,
                                 fontColor: '#182b49',
                                 max: Math.max(...youtubeSubscribeState.gained),
                                 stepSize: Math.max(...youtubeSubscribeState.gained) / 5,
+                                display: true,
+                                min: 0,
+                                padding: 10,
                               },
                             },
                           ],
                           xAxes: [
                             {
                               gridLines: {
-                                display: false,
+                                display: true,
+                                zeroLineWidth: 2,
+                                zeroLineColor: '#fff',
+                                color: 'transparent',
+                                z: 1,
                               },
                               ticks: {
                                 beginAtZero: true,
                                 fontSize: 12,
                                 fontColor: '#182b49',
+                                min: 0,
                               },
                             },
                           ],

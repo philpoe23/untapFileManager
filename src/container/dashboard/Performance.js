@@ -212,9 +212,9 @@ const landingData = [
   {
     key: '1',
     pages: (
-      <a href="" className="page-title">
+      <Link to="#" className="page-title">
         Homepage
-      </a>
+      </Link>
     ),
     sessions: '3,397',
     rate: '3.5%',
@@ -224,9 +224,9 @@ const landingData = [
   {
     key: '2',
     pages: (
-      <a href="" className="page-title">
+      <Link to="#" className="page-title">
         Our Service
-      </a>
+      </Link>
     ),
     sessions: '3,397',
     rate: '3.5%',
@@ -236,9 +236,9 @@ const landingData = [
   {
     key: '3',
     pages: (
-      <a href="" className="page-title">
+      <Link to="#" className="page-title">
         List of Products
-      </a>
+      </Link>
     ),
     sessions: '3,397',
     rate: '3.5%',
@@ -248,9 +248,9 @@ const landingData = [
   {
     key: '4',
     pages: (
-      <a href="" className="page-title">
+      <Link to="#" className="page-title">
         Contact us
-      </a>
+      </Link>
     ),
     sessions: '3,397',
     rate: '3.5%',
@@ -260,9 +260,9 @@ const landingData = [
   {
     key: '5',
     pages: (
-      <a href="" className="page-title">
+      <Link to="#" className="page-title">
         Products
-      </a>
+      </Link>
     ),
     sessions: '3,397',
     rate: '3.5%',
