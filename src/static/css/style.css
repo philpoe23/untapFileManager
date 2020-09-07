@@ -94,6 +94,9 @@ ul {
 }
 
 /* default card style */
+.ant-card{
+  box-shadow: 0 5px 20px #9299B803;
+}
 
 .ant-card-body {
   padding: 25px !important;
@@ -153,6 +156,7 @@ ul {
 
 .card-nav ul li.active a {
   color: #5F63F2;
+  font-weight: 500;
 }
 
 .card-nav ul li.active:before {
@@ -1308,7 +1312,7 @@ ul {
 .ant-dropdown {
   box-shadow: 0 5px 20px #9299B820;
   background: #fff;
-  border-radius: 0 0 6px 6px;
+  border-radius: 6px;
   padding: 15px 0 !important;
   border: 0 none;
 }

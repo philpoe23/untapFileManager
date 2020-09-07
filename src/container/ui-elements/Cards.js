@@ -14,13 +14,13 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const content = (
   <>
     <NavLink to="#">
-      <span>More one</span>
+      <span>Total Income</span>
     </NavLink>
     <NavLink to="#">
-      <span>More two</span>
+      <span>Total Expense</span>
     </NavLink>
     <NavLink to="#">
-      <span>More three</span>
+      <span>Net Profit</span>
     </NavLink>
   </>
 );

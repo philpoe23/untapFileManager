@@ -17,16 +17,13 @@ const Dropdown = props => {
 const content = (
   <>
     <Link to="#">
-      <FeatherIcon size={16} icon="check" />
-      <span>Btn Dropdown one</span>
+      <span>Export to CSV</span>
     </Link>
     <Link to="#">
-      <FeatherIcon size={16} icon="check" />
-      <span>Btn Dropdown two</span>
+      <span>Export to XML</span>
     </Link>
     <Link to="#">
-      <FeatherIcon size={16} icon="check" />
-      <span>Btn Dropdown three</span>
+      <span>Export to Drive</span>
     </Link>
   </>
 );
