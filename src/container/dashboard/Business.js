@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Progress } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Focard, CardBarChart, ExList, RatioCard, IncomeExpenseWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -14,12 +15,26 @@ import { ChartjsAreaChart, ChartjsBarChartTransparent, ChartjsLineChart } from '
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { cashFlowGetData, cashFlowFilterData } from '../../redux/chartContent/actionCreator';
 
 const Business = () => {
+  const dispatch = useDispatch();
+  const { cashFlowState, cfIsLoading } = useSelector(state => {
+    return {
+      cashFlowState: state.chartContent.cashFlowData,
+      cfIsLoading: state.chartContent.cfIsLoading,
+    };
+  });
   const [state, setState] = useState({
     cashFlowActive: 'month',
     incomeFlowActive: 'month',
   });
+
+  useEffect(() => {
+    if (cashFlowGetData) {
+      dispatch(cashFlowGetData());
+    }
+  }, [dispatch]);
 
   const moreContent = (
     <>
@@ -193,73 +208,155 @@ const Business = () => {
             </Row>
           </Col>
           <Col xxl={12} xs={24}>
-            <Cards
-              isbutton={
-                <div className="card-nav">
-                  <ul>
-                    <li className={state.cashFlowActive === 'week' ? 'active' : 'regular'}>
-                      <Link onClick={() => handleActiveChangeCash('week')} to="#">
-                        Week
-                      </Link>
-                    </li>
-                    <li className={state.cashFlowActive === 'month' ? 'active' : 'regular'}>
-                      <Link onClick={() => handleActiveChangeCash('month')} to="#">
-                        Month
-                      </Link>
-                    </li>
-                    <li className={state.cashFlowActive === 'year' ? 'active' : 'regular'}>
-                      <Link onClick={() => handleActiveChangeCash('year')} to="#">
-                        Year
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              }
-              title={
-                <div>
-                  Cash Flow <span>Nov 23, 2019 - Nov 29, 2019</span>
-                </div>
-              }
-              size="large"
-              more={moreContent}
-            >
-              <CardBarChart>
-                <div className="card-bar-top d-flex flex-grid">
-                  <div className="flex-grid-child">
-                    <p>Current Balance</p>
-                    <Heading as="h3" className="color-primary">
-                      $25,472
-                    </Heading>
+            {cashFlowState !== null && (
+              <Cards
+                isbutton={
+                  <div className="card-nav">
+                    <ul>
+                      <li className={state.cashFlowActive === 'week' ? 'active' : 'regular'}>
+                        <Link onClick={() => handleActiveChangeCash('week')} to="#">
+                          Week
+                        </Link>
+                      </li>
+                      <li className={state.cashFlowActive === 'month' ? 'active' : 'regular'}>
+                        <Link onClick={() => handleActiveChangeCash('month')} to="#">
+                          Month
+                        </Link>
+                      </li>
+                      <li className={state.cashFlowActive === 'year' ? 'active' : 'regular'}>
+                        <Link onClick={() => handleActiveChangeCash('year')} to="#">
+                          Year
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="flex-grid-child">
-                    <p>Cash In</p>
-                    <Heading as="h3">$35,414</Heading>
+                }
+                title={
+                  <div>
+                    Cash Flow <span>Nov 23, 2019 - Nov 29, 2019</span>
                   </div>
-                  <div className="flex-grid-child">
-                    <p>Cash Out</p>
-                    <Heading as="h3">$45,798</Heading>
+                }
+                size="large"
+                more={moreContent}
+              >
+                <CardBarChart>
+                  <div className="card-bar-top d-flex flex-grid">
+                    <div className="flex-grid-child">
+                      <p>Current Balance</p>
+                      <Heading as="h3" className="color-primary">
+                        ${cashFlowState.current}
+                      </Heading>
+                    </div>
+                    <div className="flex-grid-child">
+                      <p>Cash In</p>
+                      <Heading as="h3">${cashFlowState.in}</Heading>
+                    </div>
+                    <div className="flex-grid-child">
+                      <p>Cash Out</p>
+                      <Heading as="h3">${cashFlowState.out}</Heading>
+                    </div>
                   </div>
-                </div>
-                <ChartjsBarChartTransparent
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                  datasets={[
-                    {
-                      data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
-                      backgroundColor: '#20C99750',
-                      hoverBackgroundColor: '#20C997',
-                      label: 'Cash in',
-                    },
-                    {
-                      data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-                      backgroundColor: '#FF4D4F50',
-                      hoverBackgroundColor: '#FF4D4F',
-                      label: 'Cash out',
-                    },
-                  ]}
-                  height={126}
-                />
-              </CardBarChart>
-            </Cards>
+                  <ChartjsBarChartTransparent
+                    labels={cashFlowState.labels}
+                    datasets={[
+                      {
+                        data: cashFlowState.dataIn,
+                        backgroundColor: '#20C99750',
+                        hoverBackgroundColor: '#20C997',
+                        label: 'Cash in',
+                        maxBarThickness: 10,
+                        barThickness: 12,
+                      },
+                      {
+                        data: cashFlowState.dataOut,
+                        backgroundColor: '#FF4D4F50',
+                        hoverBackgroundColor: '#FF4D4F',
+                        label: 'Cash out',
+                        maxBarThickness: 10,
+                        barThickness: 12,
+                      },
+                    ]}
+                    // height={126}
+                    options={{
+                      maintainAspectRatio: true,
+                      responsive: true,
+                      layout: {
+                        padding: {
+                          top: 20,
+                        },
+                      },
+                      tooltips: {
+                        mode: 'label',
+                        intersect: false,
+                        // backgroundColor: '#fff',
+                        position: 'average',
+
+                        // titleFontColor: '#5A5F7D',
+                        titleFontSize: 12,
+                        titleSpacing: 15,
+                        // bodyFontColor: '#868EAE',
+                        bodyFontSize: 13,
+                        // borderColor: '#F1F2F6',
+                        borderWidth: 2,
+                        bodySpacing: 15,
+                        xPadding: 15,
+                        yPadding: 15,
+                        zIndex: 999999,
+                        callbacks: {
+                          label(t, d) {
+                            const dstLabel = d.datasets[t.datasetIndex].label;
+                            const { yLabel } = t;
+                            return `${yLabel} ${dstLabel}`;
+                          },
+                        },
+                      },
+                      legend: {
+                        display: false,
+                        position: 'top',
+                        align: 'end',
+                        labels: {
+                          boxWidth: 6,
+                          display: true,
+                          usePointStyle: true,
+                        },
+                      },
+
+                      scales: {
+                        yAxes: [
+                          {
+                            gridLines: {
+                              color: '#e5e9f2',
+                              borderDash: [8, 4],
+                              zeroLineColor: 'transparent',
+                            },
+
+                            ticks: {
+                              beginAtZero: true,
+                              fontSize: 12,
+                              fontColor: '#182b49',
+                              max: Math.max(...cashFlowState.dataIn),
+                              stepSize: Math.max(...cashFlowState.dataIn) / 5,
+                            },
+                          },
+                        ],
+                        xAxes: [
+                          {
+                            gridLines: {
+                              display: false,
+                            },
+                            ticks: {
+                              beginAtZero: true,
+                              fontSize: 12,
+                              fontColor: '#182b49',
+                            },
+                          },
+                        ],
+                      },
+                    }}
+                  />
+                </CardBarChart>
+              </Cards>
+            )}
           </Col>
           <Col md={24}>
             <IncomeExpenseWrapper>

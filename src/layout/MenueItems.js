@@ -31,19 +31,16 @@ const MenueItems = ({ darkMode }) => {
     >
       <SubMenu key="dashboard" icon={<FeatherIcon icon="home" />} title="Dashboard">
         <Menu.Item key="home">
-          <NavLink to="/admin">Google Analytics Social Media</NavLink>
+          <NavLink to="/admin">Social Media</NavLink>
         </Menu.Item>
         <Menu.Item key="business">
-          <NavLink to="/admin/business">Fintech / Business Dashboard</NavLink>
+          <NavLink to="/admin/business">Fintech / Business</NavLink>
         </Menu.Item>
         <Menu.Item key="performance">
-          <NavLink to="/admin/performance">Site Performance Dashboard</NavLink>
+          <NavLink to="/admin/performance">Site Performance</NavLink>
         </Menu.Item>
         <Menu.Item key="ecommerce">
           <NavLink to="/admin/ecommerce">Ecommerce</NavLink>
-        </Menu.Item>
-        <Menu.Item key="base">
-          <NavLink to="/admin/base">Dashbord Base</NavLink>
         </Menu.Item>
       </SubMenu>
 
@@ -199,6 +196,9 @@ const MenueItems = ({ darkMode }) => {
         </Menu.Item>
         <Menu.Item key="comments">
           <NavLink to="/admin/components/comments">Comments</NavLink>
+        </Menu.Item>
+        <Menu.Item key="base">
+          <NavLink to="/admin/base">Dashboard Base</NavLink>
         </Menu.Item>
         <Menu.Item key="date-picker">
           <NavLink to="/admin/components/date-picker">DatePicker</NavLink>

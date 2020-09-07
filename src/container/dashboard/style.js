@@ -770,7 +770,7 @@ const LineChartWrapper = Styled.div`
     }
     .line-chart-row{
         &:not(:last-child){
-            margin-bottom: 28px;
+            margin-bottom: 0px;
         }
         .border-linechart{
             border-bottom: 1px solid ${({ theme }) => theme['border-color-deep']};
@@ -779,7 +779,7 @@ const LineChartWrapper = Styled.div`
     .overview-container{
         .line-chart-row{
             &:not(:last-child){
-                margin-bottom: 18px;
+                margin-bottom: 0px;
             }
         }
     }

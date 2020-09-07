@@ -10,6 +10,7 @@ import { sellersReducer } from './sellers/reducers';
 import { headerSearchReducer } from './headerSearch/reducers';
 import orderReducer from './orders/reducers';
 import galleryReducer from './gallary/reducers';
+import chartContentReducer from './chartContent/reducers';
 import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
@@ -37,6 +38,7 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
   ChangeLayoutMode,
+  chartContent: chartContentReducer,
 });
 
 export default rootReducers;
