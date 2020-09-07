@@ -31,14 +31,14 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const moreContent = (
   <>
     <NavLink to="#">
-      <span>More one</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More two</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>More three</span>
-    </NavLink>
+        <span>Total Income</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>Total Expense</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>Net Profit</span>
+      </NavLink>
   </>
 );
 

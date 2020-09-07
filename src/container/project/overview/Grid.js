@@ -54,10 +54,10 @@ const Grid = () => {
                       <Dropdown
                         content={
                           <>
-                            <Link to="#">More One</Link>
-                            <Link to="#">More Tow</Link>
-                            <Link to="#">More Three</Link>
-                            <Link to="#">More Four</Link>
+                            <Link to="#">Total Income</Link>
+                            <Link to="#">Total Expense</Link>
+                            <Link to="#">Total Tax</Link>
+                            <Link to="#">Net Profit</Link>
                           </>
                         }
                       >

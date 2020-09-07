@@ -32,13 +32,13 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const moreContent = (
   <>
     <NavLink to="#">
-      <span>More one</span>
+      <span>Total Income</span>
     </NavLink>
     <NavLink to="#">
-      <span>More two</span>
+      <span>Total Expense</span>
     </NavLink>
     <NavLink to="#">
-      <span>More three</span>
+      <span>Net Profit</span>
     </NavLink>
   </>
 );
@@ -200,7 +200,11 @@ const landingColumns = [
 const landingData = [
   {
     key: '1',
-    pages: <span className="page-title">Homepage</span>,
+    pages: (
+      <a href="" className="page-title">
+        Homepage
+      </a>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -208,7 +212,11 @@ const landingData = [
   },
   {
     key: '2',
-    pages: <span className="page-title">Our Service</span>,
+    pages: (
+      <a href="" className="page-title">
+        Our Service
+      </a>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -216,7 +224,11 @@ const landingData = [
   },
   {
     key: '3',
-    pages: <span className="page-title">List of Products</span>,
+    pages: (
+      <a href="" className="page-title">
+        List of Products
+      </a>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -224,7 +236,11 @@ const landingData = [
   },
   {
     key: '4',
-    pages: <span className="page-title">Contact us</span>,
+    pages: (
+      <a href="" className="page-title">
+        Contact us
+      </a>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
@@ -232,7 +248,11 @@ const landingData = [
   },
   {
     key: '5',
-    pages: <span className="page-title">Products</span>,
+    pages: (
+      <a href="" className="page-title">
+        Products
+      </a>
+    ),
     sessions: '3,397',
     rate: '3.5%',
     ctr: '225',
