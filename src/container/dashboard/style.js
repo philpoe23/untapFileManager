@@ -36,7 +36,7 @@ const DashboardBaseStyleWrap = Styled.div`
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
-        margin-top: 37px;
+        margin-top: 49px;
         @media only screen and (max-width: 1199px){
             margin-top: 45px;
         }

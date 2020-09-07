@@ -92,6 +92,9 @@ ul {
 }
 
 /* default card style */
+.ant-card{
+  box-shadow: 0 5px 20px #9299B803;
+}
 
 .ant-card-body {
   padding: 25px !important;

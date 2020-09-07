@@ -40,6 +40,7 @@ const Div = Styled.div`
 
     /* Sidebar styles */
     .ant-layout-sider{
+        box-shadow: 0 0 30px #9299B810;
         @media (max-width: 991px){
             box-shadow: 0 0 10px #00000020;
         }
