@@ -36,7 +36,7 @@ const DashboardBaseStyleWrap = Styled.div`
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
-        margin-top: 49px;
+        margin-top: 43px;
         @media only screen and (max-width: 1199px){
             margin-top: 45px;
         }
@@ -49,6 +49,7 @@ const Focard = Styled.div`
             .focard-status{
                 .focard-status__percentage{
                     color: ${({ theme }) => theme['danger-color']};
+                    font-size: 16px;
                 }
             }
         }
@@ -56,6 +57,7 @@ const Focard = Styled.div`
             .focard-status{
                 .focard-status__percentage{
                     color: ${({ theme }) => theme['success-color']};
+                    font-size: 16px;
                 }
             }
         }
@@ -90,6 +92,10 @@ const Focard = Styled.div`
             width: 15px;
             margin-right: 10px;
         }
+    }
+
+    .focard-chart{
+        margin-left: -10px;
     }
 
     @media (max-width: 1300px){

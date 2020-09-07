@@ -479,21 +479,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <ChartjsAreaChart
-                                  labels={forcastOverviewState.EnLabels}
-                                  datasets={[
-                                    {
-                                      data: forcastOverviewState.EnData,
-                                      borderColor: '#20C997',
-                                      borderWidth: 3,
-                                      fill: true,
-                                      backgroundColor: '#20C99710',
-                                      pointHoverRadius: 0,
-                                      pointHoverBorderColor: 'transparent',
-                                    },
-                                  ]}
-                                  height={165}
-                                />
+                                <div className="focard-chart">
+                                  <ChartjsAreaChart
+                                    labels={forcastOverviewState.EnLabels}
+                                    datasets={[
+                                      {
+                                        data: forcastOverviewState.EnData,
+                                        borderColor: '#20C997',
+                                        borderWidth: 3,
+                                        fill: true,
+                                        backgroundColor: '#20C99710',
+                                        pointHoverRadius: 0,
+                                        pointHoverBorderColor: 'transparent',
+                                      },
+                                    ]}
+                                    height={165}
+                                  />
+                                </div>
                               </Focard>
                             </Col>
                             <Col md={12} sm={12}>
@@ -509,21 +511,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <ChartjsAreaChart
-                                  labels={forcastOverviewState.ImLabels}
-                                  datasets={[
-                                    {
-                                      data: forcastOverviewState.ImData,
-                                      borderColor: '#FF69A5',
-                                      borderWidth: 3,
-                                      fill: true,
-                                      backgroundColor: '#FF69A510',
-                                      pointHoverRadius: 0,
-                                      pointHoverBorderColor: 'transparent',
-                                    },
-                                  ]}
-                                  height={165}
-                                />
+                                <div className="focard-chart">
+                                  <ChartjsAreaChart
+                                    labels={forcastOverviewState.ImLabels}
+                                    datasets={[
+                                      {
+                                        data: forcastOverviewState.ImData,
+                                        borderColor: '#FF69A5',
+                                        borderWidth: 3,
+                                        fill: true,
+                                        backgroundColor: '#FF69A510',
+                                        pointHoverRadius: 0,
+                                        pointHoverBorderColor: 'transparent',
+                                      },
+                                    ]}
+                                    height={165}
+                                  />
+                                </div>
                               </Focard>
                             </Col>
                           </Row>
@@ -543,21 +547,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <ChartjsAreaChart
-                                  labels={forcastOverviewState.LiLabels}
-                                  datasets={[
-                                    {
-                                      data: forcastOverviewState.LiData,
-                                      borderColor: '#5F63F2',
-                                      borderWidth: 3,
-                                      fill: true,
-                                      backgroundColor: '#5F63F210',
-                                      pointHoverRadius: 0,
-                                      pointHoverBorderColor: 'transparent',
-                                    },
-                                  ]}
-                                  height={165}
-                                />
+                                <div className="focard-chart">
+                                  <ChartjsAreaChart
+                                    labels={forcastOverviewState.LiLabels}
+                                    datasets={[
+                                      {
+                                        data: forcastOverviewState.LiData,
+                                        borderColor: '#5F63F2',
+                                        borderWidth: 3,
+                                        fill: true,
+                                        backgroundColor: '#5F63F210',
+                                        pointHoverRadius: 0,
+                                        pointHoverBorderColor: 'transparent',
+                                      },
+                                    ]}
+                                    height={165}
+                                  />
+                                </div>
                               </Focard>
                             </Col>
                             <Col md={12} sm={12}>
@@ -573,21 +579,23 @@ const Dashboard = () => {
                                     <span> 20,641 (prev)</span>
                                   </p>
                                 </div>
-                                <ChartjsAreaChart
-                                  labels={forcastOverviewState.ImLabels2}
-                                  datasets={[
-                                    {
-                                      data: forcastOverviewState.ImData2,
-                                      borderColor: '#FA8B0C',
-                                      borderWidth: 3,
-                                      fill: true,
-                                      backgroundColor: '#FA8B0C10',
-                                      pointHoverRadius: 0,
-                                      pointHoverBorderColor: 'transparent',
-                                    },
-                                  ]}
-                                  height={165}
-                                />
+                                <div className="focard-chart">
+                                  <ChartjsAreaChart
+                                    labels={forcastOverviewState.ImLabels2}
+                                    datasets={[
+                                      {
+                                        data: forcastOverviewState.ImData2,
+                                        borderColor: '#FA8B0C',
+                                        borderWidth: 3,
+                                        fill: true,
+                                        backgroundColor: '#FA8B0C10',
+                                        pointHoverRadius: 0,
+                                        pointHoverBorderColor: 'transparent',
+                                      },
+                                    ]}
+                                    height={165}
+                                  />
+                                </div>
                               </Focard>
                             </Col>
                           </Row>
@@ -654,15 +662,10 @@ const Dashboard = () => {
                         {youtubeSubscribeDatasets &&
                           youtubeSubscribeDatasets.map(item => {
                             return (
-                              <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                              <li className="custom-label">
                                 <span
                                   style={{
-                                    width: '10px',
-                                    height: '10px',
-                                    display: 'flex',
                                     backgroundColor: item.hoverBackgroundColor,
-                                    borderRadius: '50%',
-                                    margin: '0px 5px',
                                   }}
                                 />
                                 {item.label}
@@ -806,7 +809,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: twitterOverviewState.twist.chartValue,
@@ -834,7 +837,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: twitterOverviewState.impressions.chartValue,
@@ -862,7 +865,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: twitterOverviewState.retweets.chartValue,
@@ -890,7 +893,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: twitterOverviewState.rate.chartValue,
@@ -918,7 +921,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: twitterOverviewState.followers.chartValue,
@@ -986,7 +989,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: instagramOverviewState.post.chartValue,
@@ -1014,7 +1017,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: instagramOverviewState.like.chartValue,
@@ -1042,7 +1045,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: instagramOverviewState.comments.chartValue,
@@ -1070,7 +1073,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: instagramOverviewState.rate.chartValue,
@@ -1098,7 +1101,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: instagramOverviewState.followers.chartValue,
@@ -1166,7 +1169,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.post.chartValue,
@@ -1194,7 +1197,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.like.chartValue,
@@ -1222,7 +1225,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.comments.chartValue,
@@ -1250,7 +1253,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.rate.chartValue,
@@ -1278,7 +1281,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={100}
+                              height={76}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.followers.chartValue,
