@@ -8,15 +8,18 @@ const TabColor = colors => `
   .ant-tabs-bar {
     margin: 0;
   }
-  .ant-tabs-nav .ant-tabs-tab{
+  .ant-tabs-nav-list{
     margin: 0;
+  }
+  .ant-tabs-nav{
+    color: #fff;
   }
   .ant-tabs-nav .ant-tabs-tab:hover, .ant-tabs-nav .ant-tabs-tab:focus {
     //background : ${colors !== 'default' && colors};
     color : ${({ color }) =>
       color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? color : '#000000'};
   }
-  .ant-tabs-nav .ant-tabs-tab-active.ant-tabs-tab {
+  .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
     border: none;
     border-radius: 3px;
     background : ${colors !== 'default' && colors};

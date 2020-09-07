@@ -206,6 +206,17 @@ const ProjectSorting = Styled.div`
 `;
 
 const ProjectCard = Styled.div`
+    .ant-card-body{
+        padding: 0px !important;
+    }
+    .project-top{
+        padding:30px 30px 0px;
+    }
+    .project-bottom{
+        .project-assignees{
+            padding: 16px 30px 25px;
+        }
+    }
     .project-title{
         display: flex;
         align-items: flex-start;
@@ -245,7 +256,8 @@ const ProjectCard = Styled.div`
         }
     }
     .project-desc{
-        margin: 7px 0 20px 0;
+        margin: 7px 0 25px 0;
+        color: ${({ theme }) => theme['gray-color']};
     }
     .project-timing{
         display: flex;
@@ -360,6 +372,24 @@ const ProjectList = Styled.div`
     .date-started,
     .date-finished{
         font-weight: 500;
+    }
+    .ant-table-container table > thead > tr th{
+        font-weight: 400;
+        color: ${({ theme }) => theme['light-color']};
+        border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+    }
+    .ant-table-container table > thead > tr th:first-child{
+        border-radius: 10px 0 0 10px !important;
+        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
+    }
+    .ant-table-container table > thead > tr th:last-child{
+        border-radius: 0 10px 10px 0 !important;
+        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+    }
+    .ant-dropdown-trigger{
+        svg{
+            color: ${({ theme }) => theme['extra-light-color']};
+        }
     }
 `;
 

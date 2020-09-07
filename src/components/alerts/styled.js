@@ -82,10 +82,6 @@ const Style = Styled(Alert)`
       height: 8px;
     }
   }
-  
-  &:hover, &:focus, &:active {
-      background: ${({ type, theme }) => theme[`${type}-hover`]}15 !important;             
-  }
 `;
 
 export { Style };

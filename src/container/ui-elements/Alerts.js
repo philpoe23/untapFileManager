@@ -121,10 +121,12 @@ const Alerts = () => {
           <Col md={12} xs={24}>
             <Cards title="More Types" size="large">
               <AlertList>
-                <Alert message="" description="Success Text" type="success" />
-                <Alert message="" description="Info Text" type="info" />
-                <Alert message="" description="Warning Text" type="warning" />
-                <Alert message="" description="Error Text" type="error" />
+                <div className="alert-empty-message">
+                  <Alert message="" description="Success Text" type="success" />
+                  <Alert message="" description="Info Text" type="info" />
+                  <Alert message="" description="Warning Text" type="warning" />
+                  <Alert message="" description="Error Text" type="error" />
+                </div>
               </AlertList>
             </Cards>
             <Cards title="Description" size="large">

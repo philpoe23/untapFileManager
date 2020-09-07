@@ -32,6 +32,9 @@ const UL = Styled.ul`
 `;
 
 const Content = Styled.div`
+  height: 755px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   .chat-link-signle{
     position: relative;
     background: #fff;
@@ -193,6 +196,8 @@ const SingleChatWrapper = Styled.div`
   }
 
   .atbd-chatbox{
+    height: 700px;
+    overflow-y: scroll;
     .time-connector{
       position: relative;
       z-index: 10;

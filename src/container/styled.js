@@ -185,6 +185,40 @@ const Main = Styled.div`
         border-color: #E3E6EF !important;
     }
 
+    .ant-select{
+        &.ant-select-multiple{
+            .ant-select-selection-item{
+                padding-left: 8px;
+            }
+        }
+        .ant-select-selection-item{
+            padding-left: 10px !important;
+        }
+        &.ant-select-lg{
+            height: 50px;
+            line-height: 48px;
+            .ant-select-selector{
+                height: 50px !important;
+                line-height: 48px;
+            }
+            .ant-select-selection-item{
+                line-height: 48px !important;
+                padding-left: 8px;
+            }
+            &.ant-select-multiple.ant-select-lg .ant-select-selection-item{
+                height: 32px;
+                line-height: 32px !important;
+            }
+        }
+        &.ant-select-multiple.ant-select-sm{
+            .ant-select-selection-item{
+                height: 16px;
+                line-height: 14px;
+                font-size: 11px;
+            }
+        }
+    }
+
     // Slider
     .slider-with-input{
         .ant-slider{
@@ -319,15 +353,27 @@ const ButtonsGroupWrapper = Styled.div`
             margin-bottom: 10px;
         }
     }
-    .button-group-single .ant-btn-light{
+    .button-group-single .ant-btn-white{
         border: 1px solid #E3E6EF;
-        background: #fff;
+        background: #fff !important;
         border-right-width: 0px;
         &:last-child{
             border-right-width: 1px;
         }
         &:hover{
+            color: ${({ theme }) => theme['gray-color']} !important;
             background: ${({ theme }) => theme['bg-color-normal']} !important;
+        }
+    }
+    .button-group-single .ant-btn-light{
+        border: 1px solid #E3E6EF;
+        margin-right: 20px;
+        border-right-width: 0px;
+        font-weight: 500;
+        color: ${({ theme }) => theme['extra-light-color']} !important;
+        background: ${({ theme }) => theme['bg-color-normal']} !important;
+        &:last-child{
+            border-right-width: 1px;
         }
     }
     .ant-btn-group:not(:last-child){
@@ -680,6 +726,12 @@ const TableWrapper = Styled.div`
                 &:hover{
                     td{
                         background: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+                td{
+                    .product-id{
+                        max-width: 60px;
+                        text-align: right;
                     }
                 }
             }
