@@ -29,6 +29,7 @@ import {
   linkdinOverviewGetData,
   linkdinOverviewFilterData,
 } from '../../redux/chartContent/actionCreator';
+import { chartLinearGradient } from '../../components/utilities/utilities';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -389,14 +390,6 @@ const Dashboard = () => {
     pointBorderColor: 'transparent',
   };
 
-  const gradientData = (canvas, height, color) => {
-    const ctx = canvas.getContext('2d');
-    const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, `${color}10`);
-    gradient.addColorStop(1, `${color}01`);
-    return gradient;
-  };
-
   return (
     <>
       <PageHeader
@@ -497,7 +490,10 @@ const Dashboard = () => {
                                       borderWidth: 3,
                                       fill: true,
                                       backgroundColor: () =>
-                                        gradientData(document.getElementById('engaged'), 165, '#20C997'),
+                                        chartLinearGradient(document.getElementById('engaged'), 165, {
+                                          start: '#20C99710',
+                                          end: '#20C99701',
+                                        }),
                                       pointHoverRadius: 0,
                                       pointHoverBorderColor: 'transparent',
                                     },
@@ -529,7 +525,10 @@ const Dashboard = () => {
                                       borderWidth: 3,
                                       fill: true,
                                       backgroundColor: () =>
-                                        gradientData(document.getElementById('impression'), 165, '#FF69A5'),
+                                        chartLinearGradient(document.getElementById('impression'), 165, {
+                                          start: '#FF69A510',
+                                          end: '#FF69A501',
+                                        }),
                                       pointHoverRadius: 0,
                                       pointHoverBorderColor: 'transparent',
                                     },
@@ -566,7 +565,10 @@ const Dashboard = () => {
                                       fill: true,
 
                                       backgroundColor: () =>
-                                        gradientData(document.getElementById('likes'), 165, '#5F63F2'),
+                                        chartLinearGradient(document.getElementById('likes'), 165, {
+                                          start: '#5F63F210',
+                                          end: '#5F63F201',
+                                        }),
                                       pointHoverRadius: 0,
                                       pointHoverBorderColor: 'transparent',
                                     },
@@ -598,7 +600,10 @@ const Dashboard = () => {
                                       borderWidth: 3,
                                       fill: true,
                                       backgroundColor: () =>
-                                        gradientData(document.getElementById('impression2'), 165, '#FA8B0C'),
+                                        chartLinearGradient(document.getElementById('impression2'), 165, {
+                                          start: '#FA8B0C10',
+                                          end: '#FA8B0C01',
+                                        }),
                                       pointHoverRadius: 0,
                                       pointHoverBorderColor: 'transparent',
                                     },
@@ -715,7 +720,7 @@ const Dashboard = () => {
                           bodySpacing: 15,
                           xPadding: 15,
                           yPadding: 15,
-                          zIndex: 999999,
+                          z: 999999,
                           callbacks: {
                             label(t, d) {
                               const dstLabel = d.datasets[t.datasetIndex].label;

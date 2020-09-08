@@ -27,6 +27,30 @@ const actions = {
   CASH_FLOW_SUCCESS: 'CASH_FLOW_SUCCESS',
   CASH_FLOW_ERR: 'CASH_FLOW_ERR',
 
+  INCOME_BEGIN: 'INCOME_BEGIN',
+  INCOME_SUCCESS: 'INCOME_SUCCESS',
+  INCOME_ERR: 'INCOME_ERR',
+
+  incomeBegin: () => {
+    return {
+      type: actions.INCOME_BEGIN,
+    };
+  },
+
+  incomeSuccess: data => {
+    return {
+      type: actions.INCOME_SUCCESS,
+      data,
+    };
+  },
+
+  incomeErr: err => {
+    return {
+      type: actions.INCOME_ERR,
+      err,
+    };
+  },
+
   cashFlowBegin: () => {
     return {
       type: actions.CASH_FLOW_BEGIN,

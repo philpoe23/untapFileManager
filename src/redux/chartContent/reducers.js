@@ -15,6 +15,8 @@ const initialState = {
   liLoading: false,
   cashFlowData: null,
   cfLoading: false,
+  incomeData: null,
+  icLoading: false,
   error: null,
 };
 
@@ -46,6 +48,10 @@ const {
   CASH_FLOW_BEGIN,
   CASH_FLOW_SUCCESS,
   CASH_FLOW_ERR,
+
+  INCOME_BEGIN,
+  INCOME_SUCCESS,
+  INCOME_ERR,
 } = actions;
 
 const chartContentReducer = (state = initialState, action) => {
@@ -67,6 +73,24 @@ const chartContentReducer = (state = initialState, action) => {
         ...state,
         error: err,
         cfLoading: false,
+      };
+
+    case INCOME_BEGIN:
+      return {
+        ...state,
+        icLoading: true,
+      };
+    case INCOME_SUCCESS:
+      return {
+        ...state,
+        incomeData: data,
+        icLoading: false,
+      };
+    case INCOME_ERR:
+      return {
+        ...state,
+        error: err,
+        icLoading: false,
       };
 
     case LINKDIN_OVERVIEW_BEGIN:

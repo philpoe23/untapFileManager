@@ -322,7 +322,27 @@ const ChartjsAreaChart = props => {
         })}
       </div>
 
-      <Line id={id} data={data} height={height} options={{ ...options, ...layout }} />
+      <Line
+        id={id}
+        data={data}
+        height={height}
+        options={{
+          ...options,
+          ...layout,
+          tooltips: {
+            mode: 'nearest',
+            intersect: false,
+            callbacks: {
+              labelColor(tooltipItem, chart) {
+                return {
+                  backgroundColor: datasets.map(item => item.borderColor),
+                  borderColor: 'transparent',
+                };
+              },
+            },
+          },
+        }}
+      />
     </div>
   );
 };
@@ -354,10 +374,7 @@ ChartjsAreaChart.defaultProps = {
       mode: 'nearest',
       intersect: false,
     },
-    tooltips: {
-      mode: 'nearest',
-      intersect: false,
-    },
+
     layout: {
       padding: {
         left: '0',
@@ -424,7 +441,49 @@ const ChartjsBarChartTransparent = props => {
     labels,
     datasets,
   };
-  return <Bar data={data} height={height} options={{ ...options, ...layout }} />;
+  return (
+    <Bar
+      data={data}
+      height={height}
+      options={{
+        ...options,
+        ...layout,
+        tooltips: {
+          mode: 'label',
+          intersect: false,
+          // backgroundColor: '#fff',
+          position: 'average',
+
+          // titleFontColor: '#5A5F7D',
+          titleFontSize: 12,
+          titleSpacing: 15,
+          // bodyFontColor: '#868EAE',
+          bodyFontSize: 13,
+          // borderColor: '#F1F2F6',
+          borderWidth: 2,
+          bodySpacing: 15,
+          xPadding: 15,
+          yPadding: 15,
+          zIndex: 999999,
+          callbacks: {
+            label(t, d) {
+              const dstLabel = d.datasets[t.datasetIndex].label;
+              const { yLabel } = t;
+              return `${yLabel} ${dstLabel}`;
+            },
+            labelColor(tooltipItem, chart) {
+              const dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
+              return {
+                backgroundColor: dataset.hoverBackgroundColor,
+                borderColor: 'transparent',
+                usePointStyle: true,
+              };
+            },
+          },
+        },
+      }}
+    />
+  );
 };
 
 ChartjsBarChartTransparent.defaultProps = {
@@ -446,31 +505,6 @@ ChartjsBarChartTransparent.defaultProps = {
   options: {
     maintainAspectRatio: true,
     responsive: true,
-    tooltips: {
-      mode: 'label',
-      intersect: false,
-      // backgroundColor: '#fff',
-      position: 'average',
-
-      // titleFontColor: '#5A5F7D',
-      titleFontSize: 12,
-      titleSpacing: 15,
-      // bodyFontColor: '#868EAE',
-      bodyFontSize: 13,
-      // borderColor: '#F1F2F6',
-      borderWidth: 2,
-      bodySpacing: 15,
-      xPadding: 15,
-      yPadding: 15,
-      zIndex: 999999,
-      callbacks: {
-        label(t, d) {
-          const dstLabel = d.datasets[t.datasetIndex].label;
-          const { yLabel } = t;
-          return `${yLabel} ${dstLabel}`;
-        },
-      },
-    },
     legend: {
       display: true,
       position: 'bottom',
