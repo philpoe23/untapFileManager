@@ -184,6 +184,10 @@ ul {
   left: 5px;
   bottom: 0;
 }
+.growth-downward h1 sub svg, .growth-upward h1 sub svg{
+  position: relative;
+  top: 2px;
+}
 
 /*
 .growth-downward h1, .growth-upward h1 {
@@ -1823,3 +1827,20 @@ ul {
 /* .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
   color: #fff !important;
 } */
+
+/* custom label */
+.custom-label{
+  font-size:13px;
+  color: #868EAE;
+  display: inline-flex;
+  align-items: center;
+}
+.custom-label:not(:last-child){
+  margin-right: 20px;
+}
+.custom-label span{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 7px;
+}

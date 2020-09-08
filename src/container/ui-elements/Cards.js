@@ -14,14 +14,25 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const content = (
   <>
     <NavLink to="#">
-      <span>Total Income</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>Total Expense</span>
-    </NavLink>
-    <NavLink to="#">
-      <span>Net Profit</span>
-    </NavLink>
+        <FeatherIcon size={16} icon="printer" />
+        <span>Printer</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon size={16} icon="book-open" />
+        <span>PDF</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon size={16} icon="file-text" />
+        <span>Google Sheets</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon size={16} icon="x" />
+        <span>Excel (XLSX)</span>
+      </NavLink>
+      <NavLink to="#">
+        <FeatherIcon size={16} icon="file" />
+        <span>CSV</span>
+      </NavLink>
   </>
 );
 
