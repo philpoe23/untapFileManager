@@ -17,6 +17,12 @@ const initialState = {
   cfLoading: false,
   incomeData: null,
   icLoading: false,
+  performanceData: null,
+  perLoading: false,
+  trafficChanelData: null,
+  tcLoading: false,
+  deviceData: null,
+  dvLoading: false,
   error: null,
 };
 
@@ -52,11 +58,98 @@ const {
   INCOME_BEGIN,
   INCOME_SUCCESS,
   INCOME_ERR,
+
+  PERFORMANCE_BEGIN,
+  PERFORMANCE_SUCCESS,
+  PERFORMANCE_ERR,
+
+  UPDATE_LOADING_BEGIN,
+  UPDATE_LOADING_SUCCESS,
+  UPDATE_LOADING_ERR,
+
+  TRAFFIC_CHANEL_BEGIN,
+  TRAFFIC_CHANEL_SUCCESS,
+  TRAFFIC_CHANEL_ERR,
+
+  DEVICE_BEGIN,
+  DEVICE_SUCCESS,
+  DEVICE_ERR,
 } = actions;
 
 const chartContentReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
+    case DEVICE_BEGIN:
+      return {
+        ...state,
+        dvLoading: true,
+      };
+    case DEVICE_SUCCESS:
+      return {
+        ...state,
+        deviceData: data,
+        dvLoading: false,
+      };
+    case DEVICE_ERR:
+      return {
+        ...state,
+        error: err,
+        dvLoading: false,
+      };
+
+    case TRAFFIC_CHANEL_BEGIN:
+      return {
+        ...state,
+        tcLoading: true,
+      };
+    case TRAFFIC_CHANEL_SUCCESS:
+      return {
+        ...state,
+        trafficChanelData: data,
+        tcLoading: false,
+      };
+    case TRAFFIC_CHANEL_ERR:
+      return {
+        ...state,
+        error: err,
+        tcLoading: false,
+      };
+
+    case UPDATE_LOADING_BEGIN:
+      return {
+        ...state,
+        perLoading: true,
+      };
+    case UPDATE_LOADING_SUCCESS:
+      return {
+        ...state,
+        perLoading: false,
+      };
+    case UPDATE_LOADING_ERR:
+      return {
+        ...state,
+        error: err,
+        perLoading: false,
+      };
+
+    case PERFORMANCE_BEGIN:
+      return {
+        ...state,
+        perLoading: true,
+      };
+    case PERFORMANCE_SUCCESS:
+      return {
+        ...state,
+        performanceData: data,
+        perLoading: false,
+      };
+    case PERFORMANCE_ERR:
+      return {
+        ...state,
+        error: err,
+        perLoading: false,
+      };
+
     case CASH_FLOW_BEGIN:
       return {
         ...state,

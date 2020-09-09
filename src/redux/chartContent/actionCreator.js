@@ -8,6 +8,9 @@ import {
   linkdinOverview,
   cashFlow,
   income,
+  performance,
+  trafficChanel,
+  device,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -42,6 +45,22 @@ const {
   incomeBegin,
   incomeSuccess,
   incomeErr,
+
+  performanceBegin,
+  performanceSuccess,
+  performanceErr,
+
+  updateLoadingBegin,
+  updateLoadingSuccess,
+  updateLoadingErr,
+
+  trafficChanelBegin,
+  trafficChanelSuccess,
+  trafficChanelErr,
+
+  deviceBegin,
+  deviceSuccess,
+  deviceErr,
 } = actions;
 
 const forcastOverviewGetData = () => {
@@ -244,7 +263,102 @@ const incomeFilterData = value => {
   };
 };
 
+const performanceGetData = () => {
+  return async dispatch => {
+    const { year } = performance;
+    try {
+      dispatch(performanceBegin());
+      dispatch(performanceSuccess(year));
+    } catch (err) {
+      dispatch(performanceErr(err));
+    }
+  };
+};
+
+const performanceFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(performanceBegin());
+      setTimeout(() => {
+        dispatch(performanceSuccess(performance[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(performanceErr(err));
+    }
+  };
+};
+
+const trafficChanelGetData = () => {
+  return async dispatch => {
+    const { year } = trafficChanel;
+    try {
+      dispatch(trafficChanelBegin());
+      dispatch(trafficChanelSuccess(year));
+    } catch (err) {
+      dispatch(trafficChanelErr(err));
+    }
+  };
+};
+
+const trafficChanelFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(trafficChanelBegin());
+      setTimeout(() => {
+        dispatch(trafficChanelSuccess(trafficChanel[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(trafficChanelErr(err));
+    }
+  };
+};
+
+const deviceGetData = () => {
+  return async dispatch => {
+    const { year } = device;
+    try {
+      dispatch(deviceBegin());
+      dispatch(deviceSuccess(year));
+    } catch (err) {
+      dispatch(deviceErr(err));
+    }
+  };
+};
+
+const deviceFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(deviceBegin());
+      setTimeout(() => {
+        dispatch(deviceSuccess(device[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(deviceErr(err));
+    }
+  };
+};
+
+const setIsLoading = () => {
+  return async dispatch => {
+    try {
+      dispatch(updateLoadingBegin());
+      setTimeout(() => {
+        dispatch(updateLoadingSuccess());
+      }, 100);
+    } catch (err) {
+      dispatch(updateLoadingErr(err));
+    }
+  };
+};
+
 export {
+  deviceFilterData,
+  deviceGetData,
+  trafficChanelGetData,
+  trafficChanelFilterData,
+  setIsLoading,
+  performanceFilterData,
+  performanceGetData,
   incomeGetData,
   incomeFilterData,
   forcastOverviewGetData,

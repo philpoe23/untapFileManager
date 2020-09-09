@@ -327,8 +327,6 @@ const ChartjsAreaChart = props => {
         data={data}
         height={height}
         options={{
-          ...options,
-          ...layout,
           tooltips: {
             mode: 'nearest',
             intersect: false,
@@ -341,6 +339,8 @@ const ChartjsAreaChart = props => {
               },
             },
           },
+          ...options,
+          ...layout,
         }}
       />
     </div>
@@ -701,7 +701,26 @@ const ChartjsDonutChart = props => {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
+      <p
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          textAlign: 'center',
+          width: '200px',
+          marginLeft: '-100px',
+          height: '100px',
+          marginTop: '-50px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {datasets[0].data.reduce((a, b) => a + b, 0)}
+        <br />
+        Total visitors
+      </p>
       <Doughnut ref={ref} data={data} height={height} options={options} />
     </div>
   );
