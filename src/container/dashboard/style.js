@@ -770,6 +770,7 @@ const LineChartWrapper = Styled.div`
     .growth-upward,
     .growth-downward{
         line-height: 2.2;
+        margin-bottom: 14px;
         h1{
             margin-bottom: 0;
         }

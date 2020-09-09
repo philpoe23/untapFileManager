@@ -868,7 +868,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: twitterOverviewState.impressions.chartValue,
@@ -896,7 +896,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: twitterOverviewState.retweets.chartValue,
@@ -924,7 +924,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: twitterOverviewState.rate.chartValue,
@@ -952,7 +952,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: twitterOverviewState.followers.chartValue,
@@ -1020,7 +1020,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: instagramOverviewState.post.chartValue,
@@ -1048,7 +1048,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: instagramOverviewState.like.chartValue,
@@ -1076,7 +1076,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: instagramOverviewState.comments.chartValue,
@@ -1104,7 +1104,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: instagramOverviewState.rate.chartValue,
@@ -1132,7 +1132,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: instagramOverviewState.followers.chartValue,
@@ -1200,7 +1200,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.post.chartValue,
@@ -1228,7 +1228,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.like.chartValue,
@@ -1256,7 +1256,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.comments.chartValue,
@@ -1284,7 +1284,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.rate.chartValue,
@@ -1312,7 +1312,7 @@ const Dashboard = () => {
                         <Col xxl={14} xs={24}>
                           <div className="border-linechart">
                             <ChartjsLineChart
-                              height={76}
+                              height={55}
                               datasets={[
                                 {
                                   data: linkdinOverviewState.followers.chartValue,
