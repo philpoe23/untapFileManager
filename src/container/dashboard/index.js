@@ -163,15 +163,8 @@ const Dashboard = () => {
       yAlign: 'bottom',
       xAlign: 'center',
       mode: 'nearest',
-      intersect: false,
-      backgroundColor: '#fff',
       position: 'nearest',
-      titleFontColor: '#000',
-      bodyFontColor: '#000',
-      borderColor: '#C6D0DC',
-      borderWidth: 1,
-      bodySpacing: 5,
-      xPadding: 15,
+      intersect: false,
       enabled: false,
       custom: customTooltips,
       callbacks: {
@@ -953,7 +946,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: twitterOverviewState.impressions.chartValue,
@@ -983,7 +976,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: twitterOverviewState.retweets.chartValue,
@@ -1013,7 +1006,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: twitterOverviewState.rate.chartValue,
@@ -1043,7 +1036,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: twitterOverviewState.followers.chartValue,
@@ -1113,7 +1106,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: instagramOverviewState.post.chartValue,
@@ -1143,7 +1136,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: instagramOverviewState.like.chartValue,
@@ -1173,7 +1166,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: instagramOverviewState.comments.chartValue,
@@ -1203,7 +1196,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: instagramOverviewState.rate.chartValue,
@@ -1233,7 +1226,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: instagramOverviewState.followers.chartValue,
@@ -1303,7 +1296,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: linkdinOverviewState.post.chartValue,
@@ -1333,7 +1326,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: linkdinOverviewState.like.chartValue,
@@ -1363,7 +1356,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: linkdinOverviewState.comments.chartValue,
@@ -1393,7 +1386,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: linkdinOverviewState.rate.chartValue,
@@ -1423,7 +1416,7 @@ const Dashboard = () => {
                           <div className="border-linechart">
                             <ChartContainer className="parentContainer">
                               <ChartjsLineChart
-                                height={76}
+                                height={55}
                                 datasets={[
                                   {
                                     data: linkdinOverviewState.followers.chartValue,
