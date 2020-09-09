@@ -380,7 +380,7 @@ ChartjsAreaChart.defaultProps = {
         left: '0',
         right: 0,
         top: 2,
-        bottom: '0',
+        bottom: -10,
       },
     },
     legend: {
