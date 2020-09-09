@@ -7,6 +7,7 @@ import {
   instagramOverview,
   linkdinOverview,
   cashFlow,
+  income,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -37,6 +38,10 @@ const {
   cashFlowBegin,
   cashFlowSuccess,
   cashFlowErr,
+
+  incomeBegin,
+  incomeSuccess,
+  incomeErr,
 } = actions;
 
 const forcastOverviewGetData = () => {
@@ -191,10 +196,10 @@ const linkdinOverviewFilterData = value => {
 
 const cashFlowGetData = () => {
   return async dispatch => {
-    const { month } = cashFlow;
+    const { year } = cashFlow;
     try {
       dispatch(cashFlowBegin());
-      dispatch(cashFlowSuccess(month));
+      dispatch(cashFlowSuccess(year));
     } catch (err) {
       dispatch(cashFlowErr(err));
     }
@@ -214,7 +219,34 @@ const cashFlowFilterData = value => {
   };
 };
 
+const incomeGetData = () => {
+  return async dispatch => {
+    const { year } = income;
+    try {
+      dispatch(incomeBegin());
+      dispatch(incomeSuccess(year));
+    } catch (err) {
+      dispatch(incomeErr(err));
+    }
+  };
+};
+
+const incomeFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(incomeBegin());
+      setTimeout(() => {
+        dispatch(incomeSuccess(income[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(incomeErr(err));
+    }
+  };
+};
+
 export {
+  incomeGetData,
+  incomeFilterData,
   forcastOverviewGetData,
   forcastOverviewFilterData,
   twitterOverviewGetData,

@@ -780,6 +780,16 @@ const LineChartWrapper = Styled.div`
         }
         .border-linechart{
             border-bottom: 1px solid ${({ theme }) => theme['border-color-deep']};
+            position: relative;
+            &:before{
+                position: absolute;
+                content: '';
+                width: 10px;
+                height: 2px;
+                left: 0;
+                bottom: -1px;
+                background: #fff;
+            }
         }
     }
     .overview-container{
