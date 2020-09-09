@@ -543,6 +543,10 @@ const Pstates = Styled.div`
     }
     .growth-upward,
     .growth-downward{
+        cursor: pointer;
+        &:focus{
+            outline: none
+        }
         h1{
             font-size: 24px;
         }

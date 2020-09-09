@@ -31,6 +31,102 @@ const actions = {
   INCOME_SUCCESS: 'INCOME_SUCCESS',
   INCOME_ERR: 'INCOME_ERR',
 
+  PERFORMANCE_BEGIN: 'PERFORMANCE_BEGIN',
+  PERFORMANCE_SUCCESS: 'PERFORMANCE_SUCCESS',
+  PERFORMANCE_ERR: 'PERFORMANCE_ERR',
+
+  UPDATE_LOADING_BEGIN: 'UPDATE_LOADING_BEGIN',
+  UPDATE_LOADING_SUCCESS: 'UPDATE_LOADING_SUCCESS',
+  UPDATE_LOADING_ERR: 'UPDATE_LOADING_ERR',
+
+  TRAFFIC_CHANEL_BEGIN: 'TRAFFIC_CHANEL_BEGIN',
+  TRAFFIC_CHANEL_SUCCESS: 'TRAFFIC_CHANEL_SUCCESS',
+  TRAFFIC_CHANEL_ERR: 'TRAFFIC_CHANEL_ERR',
+
+  DEVICE_BEGIN: 'DEVICE_BEGIN',
+  DEVICE_SUCCESS: 'DEVICE_SUCCESS',
+  DEVICE_ERR: 'DEVICE_ERR',
+
+  deviceBegin: () => {
+    return {
+      type: actions.DEVICE_BEGIN,
+    };
+  },
+
+  deviceSuccess: data => {
+    return {
+      type: actions.DEVICE_SUCCESS,
+      data,
+    };
+  },
+
+  deviceErr: err => {
+    return {
+      type: actions.DEVICE_ERR,
+      err,
+    };
+  },
+
+  trafficChanelBegin: () => {
+    return {
+      type: actions.TRAFFIC_CHANEL_BEGIN,
+    };
+  },
+
+  trafficChanelSuccess: data => {
+    return {
+      type: actions.TRAFFIC_CHANEL_SUCCESS,
+      data,
+    };
+  },
+
+  trafficChanelErr: err => {
+    return {
+      type: actions.TRAFFIC_CHANEL_ERR,
+      err,
+    };
+  },
+
+  updateLoadingBegin: () => {
+    return {
+      type: actions.UPDATE_LOADING_BEGIN,
+    };
+  },
+
+  updateLoadingSuccess: data => {
+    return {
+      type: actions.UPDATE_LOADING_SUCCESS,
+      data,
+    };
+  },
+
+  updateLoadingErr: err => {
+    return {
+      type: actions.UPDATE_LOADING_ERR,
+      err,
+    };
+  },
+
+  performanceBegin: () => {
+    return {
+      type: actions.PERFORMANCE_BEGIN,
+    };
+  },
+
+  performanceSuccess: data => {
+    return {
+      type: actions.PERFORMANCE_SUCCESS,
+      data,
+    };
+  },
+
+  performanceErr: err => {
+    return {
+      type: actions.PERFORMANCE_ERR,
+      err,
+    };
+  },
+
   incomeBegin: () => {
     return {
       type: actions.INCOME_BEGIN,

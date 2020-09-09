@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Row, Col, Progress, Table } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Progress, Table, Spin } from 'antd';
 import { VectorMap } from '@south-paw/react-vector-maps';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   OverviewCard,
   PerformanceChartWrapper,
@@ -28,29 +30,39 @@ import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { chartLinearGradient } from '../../components/utilities/utilities';
+import {
+  performanceFilterData,
+  performanceGetData,
+  setIsLoading,
+  trafficChanelGetData,
+  trafficChanelFilterData,
+  deviceFilterData,
+  deviceGetData,
+} from '../../redux/chartContent/actionCreator';
 
 const moreContent = (
   <>
     <NavLink to="#">
-        <FeatherIcon size={16} icon="printer" />
-        <span>Printer</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon size={16} icon="book-open" />
-        <span>PDF</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon size={16} icon="file-text" />
-        <span>Google Sheets</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon size={16} icon="x" />
-        <span>Excel (XLSX)</span>
-      </NavLink>
-      <NavLink to="#">
-        <FeatherIcon size={16} icon="file" />
-        <span>CSV</span>
-      </NavLink>
+      <FeatherIcon size={16} icon="printer" />
+      <span>Printer</span>
+    </NavLink>
+    <NavLink to="#">
+      <FeatherIcon size={16} icon="book-open" />
+      <span>PDF</span>
+    </NavLink>
+    <NavLink to="#">
+      <FeatherIcon size={16} icon="file-text" />
+      <span>Google Sheets</span>
+    </NavLink>
+    <NavLink to="#">
+      <FeatherIcon size={16} icon="x" />
+      <span>Excel (XLSX)</span>
+    </NavLink>
+    <NavLink to="#">
+      <FeatherIcon size={16} icon="file" />
+      <span>CSV</span>
+    </NavLink>
   </>
 );
 
@@ -84,99 +96,6 @@ const locationColumns = [
     title: 'Value',
     dataIndex: 'value',
     key: 'value',
-  },
-];
-
-const locationData = [
-  {
-    key: '1',
-    channel: 'Direct',
-    sessions: '3,397',
-    rate: '3.5%',
-    completions: '225',
-    percentage: (
-      <Progress
-        percent={70}
-        strokeWidth={5}
-        status="active"
-        showInfo={false}
-        className="progress-dt progress-primary"
-      />
-    ),
-    value: '23.28%',
-  },
-  {
-    key: '2',
-    channel: 'Email',
-    sessions: '5,578',
-    rate: '2.4%',
-    completions: '145',
-    percentage: (
-      <Progress
-        percent={65}
-        strokeWidth={5}
-        status="active"
-        showInfo={false}
-        className="progress-et progress-secondary"
-      />
-    ),
-    value: '65.55%',
-  },
-  {
-    key: '3',
-    channel: 'Organic Search',
-    sessions: '2,398',
-    rate: '6.8%',
-    completions: '120',
-    percentage: (
-      <Progress
-        percent={83}
-        strokeWidth={5}
-        status="active"
-        showInfo={false}
-        className="progress-ost progress-success"
-      />
-    ),
-    value: '83.19%',
-  },
-  {
-    key: '4',
-    channel: 'Referral',
-    sessions: '3,397',
-    rate: '1.5%',
-    completions: '110',
-    percentage: (
-      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-rt progress-info" />
-    ),
-    value: '73.33%',
-  },
-  {
-    key: '5',
-    channel: 'Social Media',
-    sessions: '4,247',
-    rate: '3.6%',
-    completions: '210',
-    percentage: (
-      <Progress
-        percent={73}
-        strokeWidth={5}
-        status="active"
-        showInfo={false}
-        className="progress-smt progress-warning"
-      />
-    ),
-    value: '73.33%',
-  },
-  {
-    key: '6',
-    channel: 'Other',
-    sessions: '6,354',
-    rate: '3.5%',
-    completions: '210',
-    percentage: (
-      <Progress percent={73} strokeWidth={5} status="active" showInfo={false} className="progress-ot progress-danger" />
-    ),
-    value: '73.33%',
   },
 ];
 
@@ -323,19 +242,147 @@ const regionData = [
 ];
 
 const Performance = () => {
+  const dispatch = useDispatch();
+  const { performanceState, preIsLoading, trafficState, deviceState, dvIsLoading } = useSelector(state => {
+    return {
+      performanceState: state.chartContent.performanceData,
+      deviceState: state.chartContent.deviceData,
+      trafficState: state.chartContent.trafficChanelData,
+      preIsLoading: state.chartContent.perLoading,
+      dvIsLoading: state.chartContent.dvLoading,
+    };
+  });
+
   const [state, setState] = useState({
-    performance: 'month',
-    traffic: 'month',
-    device: 'month',
+    performance: 'year',
+    performanceTab: 'users',
+    traffic: 'year',
+    device: 'year',
     landing: 'month',
     region: 'month',
   });
+
+  const { performance, performanceTab } = state;
+
+  useEffect(() => {
+    if (performanceGetData) {
+      dispatch(performanceGetData());
+      dispatch(trafficChanelGetData());
+      dispatch(deviceGetData());
+    }
+  }, [dispatch]);
+
+  const locationData = trafficState !== null && [
+    {
+      key: '1',
+      channel: 'Direct',
+      sessions: trafficState.direct.sessions,
+      rate: trafficState.direct.rate,
+      completions: trafficState.direct.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.direct.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-dt progress-primary"
+        />
+      ),
+      value: trafficState.direct.value,
+    },
+    {
+      key: '2',
+      channel: 'Email',
+      sessions: trafficState.email.sessions,
+      rate: trafficState.email.rate,
+      completions: trafficState.email.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.email.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-et progress-secondary"
+        />
+      ),
+      value: trafficState.email.value,
+    },
+    {
+      key: '3',
+      channel: 'Organic Search',
+      sessions: trafficState.search.sessions,
+      rate: trafficState.search.rate,
+      completions: trafficState.search.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.search.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-ost progress-success"
+        />
+      ),
+      value: trafficState.search.value,
+    },
+    {
+      key: '4',
+      channel: 'Referral',
+      sessions: trafficState.referral.sessions,
+      rate: trafficState.referral.rate,
+      completions: trafficState.referral.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.referral.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-rt progress-info"
+        />
+      ),
+      value: trafficState.referral.value,
+    },
+    {
+      key: '5',
+      channel: 'Social Media',
+      sessions: trafficState.media.sessions,
+      rate: trafficState.media.rate,
+      completions: trafficState.media.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.media.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-smt progress-warning"
+        />
+      ),
+      value: trafficState.media.value,
+    },
+    {
+      key: '6',
+      channel: 'Other',
+      sessions: trafficState.other.sessions,
+      rate: trafficState.other.rate,
+      completions: trafficState.other.goals,
+      percentage: (
+        <Progress
+          percent={trafficState.other.percent}
+          strokeWidth={5}
+          status="active"
+          showInfo={false}
+          className="progress-ot progress-danger"
+        />
+      ),
+      value: trafficState.other.value,
+    },
+  ];
 
   const handleActiveChangePerformance = value => {
     setState({
       ...state,
       performance: value,
     });
+    dispatch(performanceFilterData(value));
   };
 
   const handleActiveChangeTraffic = value => {
@@ -343,6 +390,7 @@ const Performance = () => {
       ...state,
       traffic: value,
     });
+    dispatch(trafficChanelFilterData(value));
   };
 
   const handleActiveChangeDevice = value => {
@@ -350,6 +398,7 @@ const Performance = () => {
       ...state,
       device: value,
     });
+    dispatch(deviceFilterData(value));
   };
 
   const handleActiveChangeLanding = value => {
@@ -377,6 +426,14 @@ const Performance = () => {
 
   renderThumb.propTypes = {
     style: PropTypes.shape(PropTypes.object).isRequired,
+  };
+
+  const onPerformanceTab = value => {
+    setState({
+      ...state,
+      performanceTab: value,
+    });
+    return dispatch(setIsLoading());
   };
 
   return (
@@ -467,165 +524,240 @@ const Performance = () => {
           </Col>
           <Col xxl={16} xl={14} lg={12} xs={24}>
             <PerformanceChartWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.performance === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangePerformance('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.performance === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangePerformance('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.performance === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangePerformance('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                more={moreContent}
-                title="Website Performance"
-                size="large"
-              >
-                <Pstates>
-                  <div className="growth-upward">
-                    <p>Users</p>
-                    <Heading as="h1">
-                      72.6k
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" size={14} /> 25%
-                        </span>
-                      </sub>
-                    </Heading>
-                  </div>
-                  <div className="growth-upward">
-                    <p>Sessions</p>
-                    <Heading as="h1">
-                      87.2k
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" size={14} /> 47%
-                        </span>
-                      </sub>
-                    </Heading>
-                  </div>
-                  <div className="growth-downward">
-                    <p>Bounce Rate</p>
-                    <Heading as="h1">
-                      26.3%
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-down" size={14} /> 28%
-                        </span>
-                      </sub>
-                    </Heading>
-                  </div>
-                  <div className="growth-upward">
-                    <p>Session Duration</p>
-                    <Heading as="h1">
-                      2m 18s
-                      <sub>
-                        <span>
-                          <FeatherIcon icon="arrow-up" size={14} /> 13%
-                        </span>
-                      </sub>
-                    </Heading>
-                  </div>
-                </Pstates>
-
-                <div className="performance-lineChart">
-                  <ChartjsAreaChart
-                    labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                    datasets={[
-                      {
-                        data: [45, 25, 60, 38, 70, 60, 38, 40, 25, 50, 45, 75],
-                        borderColor: '#5F63F2',
-                        borderWidth: 5,
-                        fill: true,
-                        backgroundColor: '#5F63F210',
-                        label: 'Current period',
-                        pointStyle: 'circle',
-                        pointRadius: '0',
-                        hoverRadius: '9',
-                        pointBorderColor: '#fff',
-                        pointBackgroundColor: '#5F63F2',
-                        hoverBorderWidth: 5,
-                      },
-                      {
-                        data: [55, 30, 40, 38, 50, 60, 38, 40, 35, 40, 55, 45],
-                        borderColor: '#C6D0DC',
-                        borderWidth: 2,
-                        fill: false,
-                        backgroundColor: '#00173750',
-                        label: 'Previous period',
-                        borderDash: [10, 5],
-                        pointRadius: '0',
-                        hoverRadius: '0',
-                      },
-                    ]}
-                    options={{
-                      maintainAspectRatio: true,
-                      legend: {
-                        display: false,
-                        position: 'bottom',
-                        align: 'start',
-                        labels: {
-                          boxWidth: 6,
-                          display: true,
-                          usePointStyle: true,
-                        },
-                      },
-                      hover: {
-                        mode: 'index',
-                        intersect: false,
-                      },
-                      scales: {
-                        yAxes: [
+              {performanceState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={performance === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangePerformance('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={performance === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangePerformance('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={performance === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangePerformance('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  more={moreContent}
+                  title="Website Performance"
+                  size="large"
+                >
+                  <Pstates>
+                    <div
+                      onClick={() => onPerformanceTab('users')}
+                      className={performanceTab === 'users' ? 'growth-downward' : 'growth-upward'}
+                      role="button"
+                      onKeyPress={() => {}}
+                      tabIndex="0"
+                    >
+                      <p>Users</p>
+                      <Heading as="h1">
+                        {performanceState.users[0]}
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" size={14} /> 25%
+                          </span>
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div
+                      onClick={() => onPerformanceTab('sessions')}
+                      className={performanceTab === 'sessions' ? 'growth-downward' : 'growth-upward'}
+                      role="button"
+                      onKeyPress={() => {}}
+                      tabIndex="0"
+                    >
+                      <p>Sessions</p>
+                      <Heading as="h1">
+                        {performanceState.sessions[0]}
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" size={14} /> 47%
+                          </span>
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div
+                      onClick={() => onPerformanceTab('bounce')}
+                      className={performanceTab === 'bounce' ? 'growth-downward' : 'growth-upward'}
+                      role="button"
+                      onKeyPress={() => {}}
+                      tabIndex="0"
+                    >
+                      <p>Bounce Rate</p>
+                      <Heading as="h1">
+                        {performanceState.bounce[0]}
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-down" size={14} /> 28%
+                          </span>
+                        </sub>
+                      </Heading>
+                    </div>
+                    <div
+                      onClick={() => onPerformanceTab('duration')}
+                      className={performanceTab === 'duration' ? 'growth-downward' : 'growth-upward'}
+                      role="button"
+                      onKeyPress={() => {}}
+                      tabIndex="0"
+                    >
+                      <p>Session Duration</p>
+                      <Heading as="h1">
+                        {performanceState.duration[0]}
+                        <sub>
+                          <span>
+                            <FeatherIcon icon="arrow-up" size={14} /> 13%
+                          </span>
+                        </sub>
+                      </Heading>
+                    </div>
+                  </Pstates>
+                  {preIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="performance-lineChart">
+                      <ChartjsAreaChart
+                        id="performance"
+                        labels={performanceState.labels}
+                        datasets={[
                           {
-                            stacked: false,
-                            gridLines: {
+                            data: performanceState[performanceTab][1],
+                            borderColor: '#5F63F2',
+                            borderWidth: 4,
+                            fill: true,
+                            backgroundColor: () =>
+                              chartLinearGradient(document.getElementById('performance'), 300, {
+                                start: '#5F63F230',
+                                end: '#5F63F200',
+                              }),
+                            label: 'Current period',
+                            pointStyle: 'circle',
+                            pointRadius: '0',
+                            hoverRadius: '9',
+                            pointBorderColor: '#fff',
+                            pointBackgroundColor: '#5F63F2',
+                            hoverBorderWidth: 5,
+                          },
+                          {
+                            data: performanceState[performanceTab][2],
+                            borderColor: '#C6D0DC',
+                            borderWidth: 2,
+                            fill: false,
+                            backgroundColor: '#00173750',
+                            label: 'Previous period',
+                            borderDash: [3, 3],
+                            pointRadius: '0',
+                            hoverRadius: '0',
+                          },
+                        ]}
+                        options={{
+                          maintainAspectRatio: true,
+                          elements: {
+                            z: 9999,
+                          },
+                          legend: {
+                            display: false,
+                            position: 'bottom',
+                            align: 'start',
+                            labels: {
+                              boxWidth: 6,
                               display: true,
-                              color: '#e5e9f2',
+                              usePointStyle: true,
                             },
-                            ticks: {
-                              beginAtZero: true,
-                              fontSize: 13,
-                              display: true,
-                              suggestedMin: 50,
-                              suggestedMax: 80,
-                              stepSize: 20,
-                              callback(label) {
-                                return `${label}k`;
+                          },
+                          hover: {
+                            mode: 'index',
+                            intersect: false,
+                          },
+                          tooltips: {
+                            mode: 'label',
+                            intersect: false,
+                            backgroundColor: '#ffffff',
+                            position: 'average',
+                            titleFontColor: '#5A5F7D',
+                            titleFontSize: 13,
+                            titleSpacing: 15,
+                            bodyFontColor: '#868EAE',
+                            bodyFontSize: 12,
+                            borderColor: '#F1F2F6',
+                            borderWidth: 2,
+                            bodySpacing: 15,
+                            xPadding: 15,
+                            yPadding: 15,
+                            z: 999999,
+                            custom(tooltip) {
+                              if (!tooltip) return;
+                              tooltip.displayColors = false;
+                            },
+                            callbacks: {
+                              title() {
+                                return `Users`;
+                              },
+                              label(t, d) {
+                                const { yLabel, datasetIndex } = t;
+                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
                               },
                             },
                           },
-                        ],
-                        xAxes: [
-                          {
-                            stacked: true,
-                            gridLines: {
-                              display: false,
-                            },
-                            ticks: {
-                              beginAtZero: false,
-                              fontSize: 13,
-                              display: true,
-                            },
+                          scales: {
+                            yAxes: [
+                              {
+                                gridLines: {
+                                  color: '#e5e9f2',
+                                  borderDash: [3, 3],
+                                  zeroLineColor: '#e5e9f2',
+                                  zeroLineWidth: 1,
+                                  zeroLineBorderDash: [3, 3],
+                                },
+                                ticks: {
+                                  beginAtZero: true,
+                                  fontSize: 13,
+                                  fontColor: '#182b49',
+                                  suggestedMin: 50,
+                                  suggestedMax: 80,
+                                  stepSize: 20,
+
+                                  // padding: 10,
+                                  callback(label) {
+                                    return `${label}k`;
+                                  },
+                                },
+                              },
+                            ],
+                            xAxes: [
+                              {
+                                gridLines: {
+                                  display: true,
+                                  zeroLineWidth: 2,
+                                  zeroLineColor: 'transparent',
+                                  color: 'transparent',
+                                  z: 1,
+                                  tickMarkLength: 0,
+                                },
+                                ticks: {
+                                  padding: 10,
+                                },
+                              },
+                            ],
                           },
-                        ],
-                      },
-                    }}
-                    height={90}
-                  />
-                </div>
-              </Cards>
+                        }}
+                        height={100}
+                      />
+                    </div>
+                  )}
+                </Cards>
+              )}
             </PerformanceChartWrapper>
           </Col>
           <Col xxl={16} xs={24}>
@@ -666,70 +798,79 @@ const Performance = () => {
           </Col>
           <Col xxl={8} xl={8} md={12} xs={24}>
             <SessionChartWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.device === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.device === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.device === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                title="Sessions By Device"
-                size="large"
-              >
-                <div className="session-chart-inner">
-                  <ChartjsDonutChart
-                    labels={['Desktop', 'Mobiles', 'Tablets']}
-                    datasets={[
-                      {
-                        data: [5870, 4483, 2420],
-                        backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
-                      },
-                    ]}
-                  />
+              {deviceState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={state.device === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.device === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.device === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  title="Sessions By Device"
+                  size="large"
+                >
+                  {dvIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="session-chart-inner">
+                      <ChartjsDonutChart
+                        labels={['Desktop', 'Mobiles', 'Tablets']}
+                        datasets={[
+                          {
+                            data: deviceState,
+                            backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
+                            total: '9,283',
+                          },
+                        ]}
+                      />
 
-                  <SessionState className="session-wrap d-flex justify-content-center">
-                    <div className="session-single">
-                      <div className="chart-label">
-                        <span className="label-dot dot-success" />
-                        Desktop
-                      </div>
-                      <span>4,483</span>
-                      <sub>45%</sub>
+                      <SessionState className="session-wrap d-flex justify-content-center">
+                        <div className="session-single">
+                          <div className="chart-label">
+                            <span className="label-dot dot-success" />
+                            Desktop
+                          </div>
+                          <span>{deviceState[0]}</span>
+                          <sub>45%</sub>
+                        </div>
+                        <div className="session-single">
+                          <div className="chart-label">
+                            <span className="label-dot dot-info" />
+                            Mobile
+                          </div>
+                          <span>{deviceState[1]}</span>
+                          <sub>30%</sub>
+                        </div>
+                        <div className="session-single">
+                          <div className="chart-label">
+                            <span className="label-dot dot-warning" />
+                            Tablets
+                          </div>
+                          <span>{deviceState[1]}</span>
+                          <sub>25%</sub>
+                        </div>
+                      </SessionState>
                     </div>
-                    <div className="session-single">
-                      <div className="chart-label">
-                        <span className="label-dot dot-info" />
-                        Mobile
-                      </div>
-                      <span>5870</span>
-                      <sub>30%</sub>
-                    </div>
-                    <div className="session-single">
-                      <div className="chart-label">
-                        <span className="label-dot dot-warning" />
-                        Tablets
-                      </div>
-                      <span>2,420</span>
-                      <sub>25%</sub>
-                    </div>
-                  </SessionState>
-                </div>
-              </Cards>
+                  )}
+                </Cards>
+              )}
             </SessionChartWrapper>
           </Col>
           <Col xxl={12} xl={16} md={12} xs={24}>
