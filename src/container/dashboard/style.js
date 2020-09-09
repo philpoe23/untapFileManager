@@ -1025,7 +1025,104 @@ const TrafficTableWrapper = Styled.div`
     }
 `;
 
+const Map = Styled.div`
+  margin: 1rem auto;
+  width: 300px;
+
+  svg {
+    stroke: #fff;
+
+    /* // All layers are just path elements */
+    path {
+      fill: #a82b2b;
+      cursor: pointer;
+      outline: none;
+
+      /* // When a layer is hovered */
+      &:hover {
+        fill: rgba(168, 43, 43, 0.83);
+      }
+
+      /* // When a layer is focused. */
+      &:focus {
+        fill: rgba(168, 43, 43, 0.6);
+      }
+
+      /* // When a layer is 'checked' (via checkedLayers prop). */
+      &[aria-checked='true'] {
+        fill: rgba(56, 43, 168, 1);
+      }
+
+      /* // When a layer is 'selected' (via currentLayers prop). */
+      &[aria-current='true'] {
+        fill: rgba(56, 43, 168, 0.83);
+      }
+
+      /* // You can also highlight a specific layer via it's id */
+      &[id='nz-can'] {
+        fill: rgba(56, 43, 168, 0.6);
+      }
+    }
+  }
+`;
+
+const ChartContainer = Styled.div`    
+    /* position: relative;      */
+    display: block;
+    font-family: "Raleway";
+    height: 60px;
+
+
+        .chart-divider {
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+		.chartjs-tooltip {
+			opacity: 1;
+			position: absolute;
+			background: rgb(255,255,255);
+            box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+			color: #333;
+			border-radius: 4px;            
+            /* padding: 50px; */
+            width: 80px;
+            min-height: 50px;
+			-webkit-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+			pointer-events: none;
+			-webkit-transform: translate(-50%, 0);
+			transform: translate(-50%, 5%);
+            z-index: 9999;
+            top: 0;
+            left: 0
+		}
+		.chartjs-tooltip-key {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+            background: "pink";
+			margin-right: 10px;
+		}
+    .tooltip-title {
+        color: #666;
+        font-size: 13px;
+        font-weight: 600 !important;
+        font-family: "Raleway";
+    }
+    .tooltip-value {
+        color: #63b963;
+        font-size: 22px;
+        font-weight: 600 !important;
+        font-family: "Raleway";
+    }
+    .tooltip-value sup {
+        font-size: 12px;
+    }
+`;
+
 export {
+  ChartContainer,
   DashboardBaseStyleWrap,
   EChartCard,
   Focard,
@@ -1050,4 +1147,5 @@ export {
   RevenueTableWrapper,
   RevenueChartWrapper,
   TrafficTableWrapper,
+  Map,
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import FeatherIcon from 'feather-icons-react';
 import { Content, DropdownStyle } from './dropdown-style';
 
 const Dropdown = props => {

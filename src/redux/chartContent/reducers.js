@@ -23,6 +23,8 @@ const initialState = {
   tcLoading: false,
   deviceData: null,
   dvLoading: false,
+  landingPageData: null,
+  lpLoading: false,
   error: null,
 };
 
@@ -74,6 +76,10 @@ const {
   DEVICE_BEGIN,
   DEVICE_SUCCESS,
   DEVICE_ERR,
+
+  LANDING_PAGE_BEGIN,
+  LANDING_PAGE_SUCCESS,
+  LANDING_PAGE_ERR,
 } = actions;
 
 const chartContentReducer = (state = initialState, action) => {
@@ -95,6 +101,24 @@ const chartContentReducer = (state = initialState, action) => {
         ...state,
         error: err,
         dvLoading: false,
+      };
+
+    case LANDING_PAGE_BEGIN:
+      return {
+        ...state,
+        lpLoading: true,
+      };
+    case LANDING_PAGE_SUCCESS:
+      return {
+        ...state,
+        landingPageData: data,
+        lpLoading: false,
+      };
+    case LANDING_PAGE_ERR:
+      return {
+        ...state,
+        error: err,
+        lpLoading: false,
       };
 
     case TRAFFIC_CHANEL_BEGIN:

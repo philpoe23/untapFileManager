@@ -61,6 +61,10 @@ const {
   deviceBegin,
   deviceSuccess,
   deviceErr,
+
+  landingPageBegin,
+  landingPageSuccess,
+  landingPageErr,
 } = actions;
 
 const forcastOverviewGetData = () => {
@@ -351,7 +355,34 @@ const setIsLoading = () => {
   };
 };
 
+const landingPageGetData = () => {
+  return async dispatch => {
+    const { year } = trafficChanel;
+    try {
+      dispatch(landingPageBegin());
+      dispatch(landingPageSuccess(year));
+    } catch (err) {
+      dispatch(landingPageErr(err));
+    }
+  };
+};
+
+const landingPageFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(landingPageBegin());
+      setTimeout(() => {
+        dispatch(landingPageSuccess(trafficChanel[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(landingPageErr(err));
+    }
+  };
+};
+
 export {
+  landingPageFilterData,
+  landingPageGetData,
   deviceFilterData,
   deviceGetData,
   trafficChanelGetData,

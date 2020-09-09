@@ -218,12 +218,12 @@ ChartjsStackedChart.propTypes = {
 };
 
 const ChartjsLineChart = props => {
-  const { labels, datasets, options, height, layout, width } = props;
+  const { labels, datasets, options, height, layout, width, id } = props;
   const data = {
     labels,
     datasets,
   };
-  return <Line width={width} data={data} height={height} options={{ ...options, ...layout }} />;
+  return <Line id={id && id} width={width} data={data} height={height} options={{ ...options, ...layout }} />;
 };
 
 ChartjsLineChart.defaultProps = {
