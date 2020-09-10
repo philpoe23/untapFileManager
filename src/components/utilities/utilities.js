@@ -18,18 +18,18 @@ const customTooltips = function(tooltip) {
   // Tooltip Element
   let tooltipEl = document.querySelector('.chartjs-tooltip');
 
-  if (!this._chart.canvas.parentNode.contains(tooltipEl)) {
+  if (!this._chart.canvas.closest('.parentContainer').contains(tooltipEl)) {
     tooltipEl = document.createElement('div');
     tooltipEl.className = 'chartjs-tooltip';
     tooltipEl.innerHTML = '<table></table>';
 
     document.querySelectorAll('.parentContainer').forEach(el => {
-      if (el.contains(document.querySelector('.chartjs-tooltip'))) {
-        el.removeChild(document.querySelector('.chartjs-tooltip'));
+      if (el.contains(document.querySelector('.chartjs-tooltip'))) {       
+        document.querySelector('.chartjs-tooltip').remove();
       }
     });
 
-    this._chart.canvas.parentNode.appendChild(tooltipEl);
+    this._chart.canvas.closest('.parentContainer').appendChild(tooltipEl);
   }
 
   // Hide if no tooltip
