@@ -17,6 +17,7 @@ import {
   RegionMap,
   LadingPages,
   TrafficTableWrapper,
+  Map,
 } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -39,6 +40,8 @@ import {
   trafficChanelFilterData,
   deviceFilterData,
   deviceGetData,
+  landingPageFilterData,
+  landingPageGetData,
 } from '../../redux/chartContent/actionCreator';
 
 const moreContent = (
@@ -127,69 +130,6 @@ const landingColumns = [
   },
 ];
 
-const landingData = [
-  {
-    key: '1',
-    pages: (
-      <Link to="#" className="page-title">
-        Homepage
-      </Link>
-    ),
-    sessions: '3,397',
-    rate: '3.5%',
-    ctr: '225',
-    percentage: '23.20%',
-  },
-  {
-    key: '2',
-    pages: (
-      <Link to="#" className="page-title">
-        Our Service
-      </Link>
-    ),
-    sessions: '3,397',
-    rate: '3.5%',
-    ctr: '225',
-    percentage: '23.20%',
-  },
-  {
-    key: '3',
-    pages: (
-      <Link to="#" className="page-title">
-        List of Products
-      </Link>
-    ),
-    sessions: '3,397',
-    rate: '3.5%',
-    ctr: '225',
-    percentage: '23.20%',
-  },
-  {
-    key: '4',
-    pages: (
-      <Link to="#" className="page-title">
-        Contact us
-      </Link>
-    ),
-    sessions: '3,397',
-    rate: '3.5%',
-    ctr: '225',
-    percentage: '23.20%',
-  },
-  {
-    key: '5',
-    pages: (
-      <Link to="#" className="page-title">
-        Products
-      </Link>
-    ),
-    sessions: '3,397',
-    rate: '3.5%',
-    ctr: '225',
-    percentage: '23.20%',
-  },
-];
-
 const regionColumns = [
   {
     title: 'Top Region',
@@ -243,22 +183,26 @@ const regionData = [
 
 const Performance = () => {
   const dispatch = useDispatch();
-  const { performanceState, preIsLoading, trafficState, deviceState, dvIsLoading } = useSelector(state => {
-    return {
-      performanceState: state.chartContent.performanceData,
-      deviceState: state.chartContent.deviceData,
-      trafficState: state.chartContent.trafficChanelData,
-      preIsLoading: state.chartContent.perLoading,
-      dvIsLoading: state.chartContent.dvLoading,
-    };
-  });
+  const { performanceState, preIsLoading, trafficState, deviceState, dvIsLoading, landingState } = useSelector(
+    state => {
+      return {
+        performanceState: state.chartContent.performanceData,
+        deviceState: state.chartContent.deviceData,
+        landingState: state.chartContent.landingPageData,
+        trafficState: state.chartContent.trafficChanelData,
+        preIsLoading: state.chartContent.perLoading,
+        dvIsLoading: state.chartContent.dvLoading,
+        lpIsLoading: state.chartContent.lpLoading,
+      };
+    },
+  );
 
   const [state, setState] = useState({
     performance: 'year',
     performanceTab: 'users',
     traffic: 'year',
     device: 'year',
-    landing: 'month',
+    landing: 'year',
     region: 'month',
   });
 
@@ -269,6 +213,7 @@ const Performance = () => {
       dispatch(performanceGetData());
       dispatch(trafficChanelGetData());
       dispatch(deviceGetData());
+      dispatch(landingPageGetData());
     }
   }, [dispatch]);
 
@@ -277,7 +222,7 @@ const Performance = () => {
       key: '1',
       channel: 'Direct',
       sessions: trafficState.direct.sessions,
-      rate: trafficState.direct.rate,
+      rate: `${trafficState.direct.rate}%`,
       completions: trafficState.direct.goals,
       percentage: (
         <Progress
@@ -288,13 +233,13 @@ const Performance = () => {
           className="progress-dt progress-primary"
         />
       ),
-      value: trafficState.direct.value,
+      value: `${trafficState.direct.value}%`,
     },
     {
       key: '2',
       channel: 'Email',
       sessions: trafficState.email.sessions,
-      rate: trafficState.email.rate,
+      rate: `${trafficState.email.rate}%`,
       completions: trafficState.email.goals,
       percentage: (
         <Progress
@@ -305,13 +250,13 @@ const Performance = () => {
           className="progress-et progress-secondary"
         />
       ),
-      value: trafficState.email.value,
+      value: `${trafficState.email.value}%`,
     },
     {
       key: '3',
       channel: 'Organic Search',
       sessions: trafficState.search.sessions,
-      rate: trafficState.search.rate,
+      rate: `${trafficState.search.rate}%`,
       completions: trafficState.search.goals,
       percentage: (
         <Progress
@@ -322,13 +267,13 @@ const Performance = () => {
           className="progress-ost progress-success"
         />
       ),
-      value: trafficState.search.value,
+      value: `${trafficState.search.value}%`,
     },
     {
       key: '4',
       channel: 'Referral',
       sessions: trafficState.referral.sessions,
-      rate: trafficState.referral.rate,
+      rate: `${trafficState.referral.rate}%`,
       completions: trafficState.referral.goals,
       percentage: (
         <Progress
@@ -339,13 +284,13 @@ const Performance = () => {
           className="progress-rt progress-info"
         />
       ),
-      value: trafficState.referral.value,
+      value: `${trafficState.referral.value}%`,
     },
     {
       key: '5',
       channel: 'Social Media',
       sessions: trafficState.media.sessions,
-      rate: trafficState.media.rate,
+      rate: `${trafficState.media.rate}%`,
       completions: trafficState.media.goals,
       percentage: (
         <Progress
@@ -356,13 +301,13 @@ const Performance = () => {
           className="progress-smt progress-warning"
         />
       ),
-      value: trafficState.media.value,
+      value: `${trafficState.media.value}%`,
     },
     {
       key: '6',
       channel: 'Other',
       sessions: trafficState.other.sessions,
-      rate: trafficState.other.rate,
+      rate: `${trafficState.other.rate}%`,
       completions: trafficState.other.goals,
       percentage: (
         <Progress
@@ -373,7 +318,70 @@ const Performance = () => {
           className="progress-ot progress-danger"
         />
       ),
-      value: trafficState.other.value,
+      value: `${trafficState.other.value}%`,
+    },
+  ];
+
+  const landingData = landingState !== null && [
+    {
+      key: '1',
+      pages: (
+        <Link to="#" className="page-title">
+          Homepage
+        </Link>
+      ),
+      sessions: landingState.direct.sessions,
+      rate: `${landingState.direct.rate}%`,
+      ctr: landingState.direct.goals,
+      percentage: `${landingState.direct.percent}%`,
+    },
+    {
+      key: '2',
+      pages: (
+        <Link to="#" className="page-title">
+          Our Service
+        </Link>
+      ),
+      sessions: landingState.email.sessions,
+      rate: `${landingState.email.rate}%`,
+      ctr: landingState.email.goals,
+      percentage: `${landingState.email.percent}%`,
+    },
+    {
+      key: '3',
+      pages: (
+        <Link to="#" className="page-title">
+          List of Products
+        </Link>
+      ),
+      sessions: landingState.search.sessions,
+      rate: `${landingState.search.rate}%`,
+      ctr: landingState.search.goals,
+      percentage: `${landingState.search.percent}%`,
+    },
+    {
+      key: '4',
+      pages: (
+        <Link to="#" className="page-title">
+          Contact us
+        </Link>
+      ),
+      sessions: landingState.media.sessions,
+      rate: `${landingState.media.rate}%`,
+      ctr: landingState.media.goals,
+      percentage: `${landingState.media.percent}%`,
+    },
+    {
+      key: '5',
+      pages: (
+        <Link to="#" className="page-title">
+          Products
+        </Link>
+      ),
+      sessions: landingState.other.sessions,
+      rate: `${landingState.other.rate}%`,
+      ctr: landingState.other.goals,
+      percentage: `${landingState.other.percent}%`,
     },
   ];
 
@@ -406,6 +414,7 @@ const Performance = () => {
       ...state,
       landing: value,
     });
+    dispatch(landingPageFilterData(value));
   };
 
   const handleActiveChangeRegion = value => {
@@ -946,7 +955,9 @@ const Performance = () => {
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
-                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    <Map>
+                      <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    </Map>
                   </RegionMap>
                 </Col>
               </Row>

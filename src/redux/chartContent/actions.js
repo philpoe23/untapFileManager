@@ -47,6 +47,10 @@ const actions = {
   DEVICE_SUCCESS: 'DEVICE_SUCCESS',
   DEVICE_ERR: 'DEVICE_ERR',
 
+  LANDING_PAGE_BEGIN: 'LANDING_PAGE_BEGIN',
+  LANDING_PAGE_SUCCESS: 'LANDING_PAGE_SUCCESS',
+  LANDING_PAGE_ERR: 'LANDING_PAGE_ERR',
+
   deviceBegin: () => {
     return {
       type: actions.DEVICE_BEGIN,
@@ -63,6 +67,26 @@ const actions = {
   deviceErr: err => {
     return {
       type: actions.DEVICE_ERR,
+      err,
+    };
+  },
+
+  landingPageBegin: () => {
+    return {
+      type: actions.LANDING_PAGE_BEGIN,
+    };
+  },
+
+  landingPageSuccess: data => {
+    return {
+      type: actions.LANDING_PAGE_SUCCESS,
+      data,
+    };
+  },
+
+  landingPageErr: err => {
+    return {
+      type: actions.LANDING_PAGE_ERR,
       err,
     };
   },
