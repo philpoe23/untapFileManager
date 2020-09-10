@@ -253,6 +253,8 @@ ul {
 
 .revenue-chat-percentage span {
   display: block;
+  font-size: 13px;
+  color: #868EAE;
 }
 
 .revenue-chat-percentage span:not(:last-child) {
@@ -1404,6 +1406,14 @@ ul {
 
 .full-width-table .top-seller-table .ant-table-content .ant-table-cell:last-child {
   padding-right: 25px;
+}
+.full-width-table .top-seller-table th,
+.full-width-table .top-seller-table td{
+  text-align: right;
+}
+.full-width-table .top-seller-table th:first-child,
+.full-width-table .top-seller-table td:first-child{
+  text-align: left;
 }
 
 /* Table Responsive */
