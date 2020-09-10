@@ -299,7 +299,7 @@ ul {
 .progress-success .ant-progress-bg {
   background: #20C997;
 }
-.progress-success 
+.progress-success
 
 .progress-info .ant-progress-bg {
   background: #2C99FF;
@@ -1844,4 +1844,15 @@ ul {
   height: 8px;
   border-radius: 50%;
   margin-right: 7px;
+}
+
+/* card spin loader */
+.ant-card-body div{
+  position: relative;
+}
+.ant-card-body div .ant-spin{
+  display: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
