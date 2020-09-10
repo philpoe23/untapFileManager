@@ -440,7 +440,11 @@ const OverviewCard = Styled.div`
     overflow: hidden;
     position: relative;
     z-index: 0;
+<<<<<<< HEAD
     margin-bottom: 30px;
+=======
+    margin-bottom: 25px;
+>>>>>>> de390a64501acdf58635568e3970278bd1e2f477
     &:before{
         position: absolute;
         content: '';
@@ -523,6 +527,9 @@ const PerformanceChartWrapper = Styled.div`
         margin-top: 20px;
         .chart-label{
             display: none;
+        }
+        ul{
+            margin-top: 16px;
         }
     }
 `;
@@ -720,9 +727,19 @@ const LadingPages = Styled.div`
         }
     }
     table{
+        th{
+            text-align: right !important;
+            &:first-child{
+                text-align: left !important;
+            }
+        }
         tbody{
             tr{
                 td{
+                    text-align: right;
+                    &:first-child{
+                        text-align: left;
+                    }
                     .page-title{
                         color: ${({ theme }) => theme['primary-color']};
                     }
@@ -930,7 +947,7 @@ const LocationMapWrapper = Styled.div`
                 }
                 td{
                     border: 0 none;
-                    color: ${({ theme }) => theme['gray-color']}
+                    color: ${({ theme }) => theme['gray-color']};
                 }
                 th,
                 td{
@@ -979,7 +996,7 @@ const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 465px;
+            min-height: 487px;
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }
