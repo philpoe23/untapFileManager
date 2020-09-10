@@ -116,4 +116,29 @@ const filterByCategory = category => {
   };
 };
 
-export { filterSinglePage, sorting, filterByPriceRange, filterByRating, filterByBrand, filterByCategory };
+const updateWishList = id => {
+  return async dispatch => {
+    try {
+      dispatch(filterProductBegin());
+
+      initialState.map(product => {
+        if (product.id === id) {
+          return product.popular ? (product.popular = false) : (product.popular = true);
+        }
+        return dispatch(filterProductSuccess(initialState));
+      });
+    } catch (err) {
+      dispatch(filterProductErr(err));
+    }
+  };
+};
+
+export {
+  filterSinglePage,
+  sorting,
+  filterByPriceRange,
+  filterByRating,
+  filterByBrand,
+  filterByCategory,
+  updateWishList,
+};

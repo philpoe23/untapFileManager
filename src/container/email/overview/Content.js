@@ -165,7 +165,7 @@ const Content = ({ searchData, email }) => {
     {
       title: (
         <div className="email-top-search">
-          <AutoComplete onSearch={handleSearch} dataSource={notData} width="80%" patterns />
+          <AutoComplete placeholder="Search mail" onSearch={handleSearch} dataSource={notData} width="80%" patterns />
         </div>
       ),
       dataIndex: 'content',
