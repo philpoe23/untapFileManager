@@ -38,22 +38,88 @@ const SocialProfile = () => {
             <BasicFormWrapper>
               <Form name="social" onFinish={handleSubmit}>
                 <Form.Item name="facebook" label="Facebook">
-                  <Input className="facebook" prefix={<FontAwesome icon="facebook" />} placeholder="URL" />
+                  <Input
+                    className="facebook"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="facebook"
+                      />
+                    }
+                    placeholder="URL"
+                  />
                 </Form.Item>
                 <Form.Item name="twitter" label="Twitter">
-                  <Input className="twitter" prefix={<TwitterSquareIcon />} placeholder="@username" />
+                  <Input
+                    className="twitter"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="twitter"
+                      />
+                    }
+                    placeholder="@username"
+                  />
                 </Form.Item>
                 <Form.Item name="linkedin" label="Linkedin">
-                  <Input className="linkedin" prefix={<LinkedinSquareIcon />} placeholder="URL" />
+                  <Input
+                    className="linkedin"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="linkedin"
+                      />
+                    }
+                    placeholder="URL"
+                  />
                 </Form.Item>
                 <Form.Item name="instagram" label="Instagram">
-                  <Input className="instagram" prefix={<InstagramIcon />} placeholder="URL" />
+                  <Input
+                    className="instagram"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="instagram"
+                      />
+                    }
+                    placeholder="URL"
+                  />
                 </Form.Item>
                 <Form.Item name="github" label="GitHub">
-                  <Input className="github" prefix={<GithubSquareIcon />} placeholder="Username" />
+                  <Input
+                    className="github"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="github"
+                      />
+                    }
+                    placeholder="Username"
+                  />
                 </Form.Item>
                 <Form.Item name="youtube" label="Youtube">
-                  <Input className="youtube" prefix={<YoutubeSquareIcon />} placeholder="Url" />
+                  <Input
+                    className="youtube"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="youtube"
+                      />
+                    }
+                    placeholder="Url"
+                  />
                 </Form.Item>
                 <div className="setting-form-actions">
                   <Button size="default" htmlType="submit" type="primary">

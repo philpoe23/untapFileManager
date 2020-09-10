@@ -24,8 +24,8 @@ const FaIcons = () => {
                       <Col lg={6} md={12} xs={24} key={key}>
                         <Icon className="icon-single">
                           <FontAwesome
-                            className="super-crazy-colors"
                             name={icon}
+                            className="super-crazy-colors"
                             size="2x"
                             style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                           />
