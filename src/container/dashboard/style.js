@@ -1068,10 +1068,10 @@ const Map = Styled.div`
 `;
 
 const ChartContainer = Styled.div`    
-    /* position: relative;      */
+    
     display: block;
     font-family: "Raleway";
-    height: 60px;
+    
 
 
         .chart-divider {
@@ -1087,8 +1087,8 @@ const ChartContainer = Styled.div`
 			color: #333;
 			border-radius: 4px;            
             /* padding: 50px; */
-            width: 80px;
-            min-height: 50px;
+            min-width: 50px;
+            /* min-height: 50px; */
 			-webkit-transition: all 0.5s ease;
 			transition: all 0.5s ease;
 			pointer-events: none;
