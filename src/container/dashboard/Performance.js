@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Progress, Table, Spin } from 'antd';
-import { VectorMap } from '@south-paw/react-vector-maps';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import {VectorMap} from 'react-jvectormap';
 
 import {
   OverviewCard,
@@ -964,9 +964,35 @@ const Performance = () => {
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
-                    <Map>
-                      <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
-                    </Map>
+                   
+                     <div style={{width: 500, height: 500}}>
+                      <VectorMap map={'world_mill'}
+                       backgroundColor="transparent"
+                       regionStyle={{
+                        initial: {
+                          fill: 'red',
+                          "fill-opacity": 1,
+                          stroke: 'none',
+                          "stroke-width": 0,
+                          "stroke-opacity": 1
+                        },
+                        hover: {
+                          "fill-opacity": 0.8,
+                          cursor: 'pointer'
+                        },
+                        selected: {
+                          fill: 'yellow'
+                        },
+                        selectedHover: {
+                        }
+                      }}                     
+                       containerStyle={{
+                           width: '100%',
+                           height: '400px'
+                       }}
+                       containerClassName="map"
+                       />
+                      </div>
                   </RegionMap>
                 </Col>
               </Row>
