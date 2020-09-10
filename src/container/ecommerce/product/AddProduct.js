@@ -50,6 +50,10 @@ const AddProduct = () => {
     },
     listType: 'picture',
     defaultFileList: fileList,
+    showUploadList: {
+      showRemoveIcon: true,
+      removeIcon: <FeatherIcon icon="trash-2" onClick={e => console.log(e, 'custom removeIcon event')} />,
+    },
   };
 
   const handleSubmit = values => {

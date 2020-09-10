@@ -25,7 +25,7 @@ const renderItem = (title, count) => {
 };
 
 const AutoComplete = props => {
-  const { customComponent, patterns, patternButtons, width, onSearch, dataSource } = props;
+  const { customComponent, patterns, patternButtons, width, onSearch, dataSource, placeholder } = props;
 
   const content =
     dataSource?.length > 0 &&
@@ -52,7 +52,7 @@ const AutoComplete = props => {
       dropdownStyle={{ width: 300 }}
       style={{ width }}
       options={content}
-      placeholder="input here"
+      placeholder={placeholder}
       onSearch={onSearching}
     >
       <Input
@@ -73,13 +73,14 @@ const AutoComplete = props => {
       style={{ width }}
       onSelect={onSelect}
       onSearch={onSearching}
-      placeholder="input here"
+      placeholder={placeholder}
     />
   );
 };
 
 AutoComplete.defaultProps = {
   width: '350px',
+  placeholder: 'Input here',
 };
 
 AutoComplete.propTypes = {
@@ -89,6 +90,7 @@ AutoComplete.propTypes = {
   width: PropTypes.string,
   onSearch: PropTypes.func,
   dataSource: PropTypes.arrayOf(PropTypes.object),
+  placeholder: PropTypes.string,
 };
 
 export { AutoComplete };

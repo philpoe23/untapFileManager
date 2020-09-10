@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Rate, Pagination, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Heading from '../../../../components/heading/heading';
 import { Button } from '../../../../components/buttons/buttons';
 import { ProductCard, PaginationWrapper } from '../../Style';
+import { updateWishList } from '../../../../redux/product/actionCreator';
 
 const List = () => {
+  const dispatch = useDispatch();
   const { productsAll, isLoader } = useSelector(state => {
     return {
       productsAll: state.products.data,
@@ -67,14 +70,14 @@ const List = () => {
                     </Col>
                     <Col xxl={6} lg={8} xs={24}>
                       <div className="product-single-info">
-                        <NavLink className="btn-heart" to="#">
+                        <Link onClick={() => dispatch(updateWishList(id))} className="btn-heart" to="#">
                           <FeatherIcon
                             icon="heart"
                             size={14}
                             color={popular ? '#FF4D4F' : '#9299B8'}
                             fill={popular ? '#FF4D4F' : 'none'}
                           />
-                        </NavLink>
+                        </Link>
                         <p className="product-single-price">
                           <span className="product-single-price__new">${price} </span>
                           {oldPrice && (
