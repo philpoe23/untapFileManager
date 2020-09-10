@@ -9,7 +9,6 @@ import { BasicFormWrapper } from '../../../styled';
 
 const SocialProfile = () => {
   const [form] = Form.useForm();
-
   const [state, setState] = useState({
     values: null,
   });
