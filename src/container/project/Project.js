@@ -23,9 +23,10 @@ const Project = ({ match }) => {
     notData: searchData,
     visible: false,
     categoryActive: 'all',
+    active: 'active',
   });
 
-  const { notData, visible } = state;
+  const { notData, visible, active } = state;
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
     setState({
@@ -124,10 +125,14 @@ const Project = ({ match }) => {
                       <Select.Option value="price">Price</Select.Option>
                     </Select>
                     <div className="layout-style">
-                      <NavLink className="active" to={`${path}/grid`}>
+                      <NavLink
+                        onClick={() => setState({ ...state, active: '' })}
+                        className={active}
+                        to={`${path}/grid`}
+                      >
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink to={`${path}/list`}>
+                      <NavLink onClick={() => setState({ ...state, active: '' })} to={`${path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>

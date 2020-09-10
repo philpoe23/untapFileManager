@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Input } from 'antd';
-import FeatherIcon from 'feather-icons-react';
+import FontAwesome from 'react-fontawesome';
 import { SocialProfileForm } from './style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Button } from '../../../../components/buttons/buttons';
@@ -38,26 +38,22 @@ const SocialProfile = () => {
             <BasicFormWrapper>
               <Form name="social" onFinish={handleSubmit}>
                 <Form.Item name="facebook" label="Facebook">
-                  <Input className="facebook" prefix={<FeatherIcon icon="facebook" size={16} />} placeholder="URL" />
+                  <Input className="facebook" prefix={<FontAwesome icon="facebook" />} placeholder="URL" />
                 </Form.Item>
                 <Form.Item name="twitter" label="Twitter">
-                  <Input
-                    className="twitter"
-                    prefix={<FeatherIcon icon="twitter" size={16} />}
-                    placeholder="@username"
-                  />
+                  <Input className="twitter" prefix={<TwitterSquareIcon />} placeholder="@username" />
                 </Form.Item>
                 <Form.Item name="linkedin" label="Linkedin">
-                  <Input className="linkedin" prefix={<FeatherIcon icon="linkedin" size={16} />} placeholder="URL" />
+                  <Input className="linkedin" prefix={<LinkedinSquareIcon />} placeholder="URL" />
                 </Form.Item>
                 <Form.Item name="instagram" label="Instagram">
-                  <Input className="instagram" prefix={<FeatherIcon icon="instagram" size={16} />} placeholder="URL" />
+                  <Input className="instagram" prefix={<InstagramIcon />} placeholder="URL" />
                 </Form.Item>
                 <Form.Item name="github" label="GitHub">
-                  <Input className="github" prefix={<FeatherIcon icon="github" size={16} />} placeholder="Username" />
+                  <Input className="github" prefix={<GithubSquareIcon />} placeholder="Username" />
                 </Form.Item>
                 <Form.Item name="youtube" label="Youtube">
-                  <Input className="youtube" prefix={<FeatherIcon icon="youtube" size={16} />} placeholder="Url" />
+                  <Input className="youtube" prefix={<YoutubeSquareIcon />} placeholder="Url" />
                 </Form.Item>
                 <div className="setting-form-actions">
                   <Button size="default" htmlType="submit" type="primary">

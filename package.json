@@ -30,7 +30,7 @@
     "react-google-charts": "^3.0.15",
     "react-leaflet": "^2.6.1",
     "react-leaflet-markercluster": "^2.0.0-rc3",
-    "react-line-awesome": "^0.1.4",
+    "react-line-awesome": "^1.3.2",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-rte": "^0.16.1",
