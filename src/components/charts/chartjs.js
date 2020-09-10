@@ -377,7 +377,7 @@ ChartjsAreaChart.defaultProps = {
 
     layout: {
       padding: {
-        left: '0',
+        left: -10,
         right: 0,
         top: 2,
         bottom: -10,
