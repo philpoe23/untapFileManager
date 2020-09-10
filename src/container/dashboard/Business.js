@@ -89,7 +89,7 @@ const Business = () => {
   const cashFlowDataset = cashFlowState !== null && [
     {
       data: cashFlowState.dataIn,
-      backgroundColor: '#20C99750',
+      backgroundColor: '#20C99770',
       hoverBackgroundColor: '#20C997',
       label: 'Cash in',
       maxBarThickness: 10,
@@ -97,7 +97,7 @@ const Business = () => {
     },
     {
       data: cashFlowState.dataOut,
-      backgroundColor: '#FF4D4F50',
+      backgroundColor: '#FF4D4F70',
       hoverBackgroundColor: '#FF4D4F',
       label: 'Cash out',
       maxBarThickness: 10,
@@ -226,7 +226,7 @@ const Business = () => {
                   <Cards headless title="Quick Ratio">
                     <div className="ratio-content">
                       <Heading as="h1">1.8</Heading>
-                      <Progress percent={80} status="success" />
+                      <Progress percent={80} className="progress-success" />
                       <p>
                         <strong>1 or higher</strong> quick ratio target
                       </p>
@@ -306,7 +306,7 @@ const Business = () => {
                     <ChartjsBarChartTransparent
                       labels={cashFlowState.labels}
                       datasets={cashFlowDataset}
-                      height={126}
+                      height={106}
                       options={{
                         maintainAspectRatio: true,
                         responsive: true,
@@ -487,7 +487,7 @@ const Business = () => {
                         <ChartjsBarChartTransparent
                           labels={incomeState.labels}
                           datasets={incomeDataset}
-                          height={100}
+                          height={88}
                           options={{
                             maintainAspectRatio: true,
                             responsive: true,

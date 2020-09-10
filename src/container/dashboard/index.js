@@ -105,7 +105,7 @@ const Dashboard = () => {
       padding: {
         left: '0',
         right: 8,
-        top: 20,
+        top: 15,
         bottom: -10,
       },
     },
@@ -859,12 +859,12 @@ const Dashboard = () => {
                       </Row>
                       <Row className="line-chart-row">
                         <Col xxl={10} xs={24}>
-                          <div className="growth-upward">
+                          <div className="growth-downward">
                             <p>Retweets</p>
                             <Heading as="h4">
                               {twitterOverviewState.retweets.data}
                               <sub>
-                                <FeatherIcon icon="arrow-up" size={14} />
+                                <FeatherIcon icon="arrow-down" size={14} />
                                 30%
                               </sub>
                             </Heading>
@@ -1049,12 +1049,12 @@ const Dashboard = () => {
                       </Row>
                       <Row className="line-chart-row">
                         <Col xxl={10} xs={24}>
-                          <div className="growth-upward">
+                          <div className="growth-downward">
                             <p>Comments</p>
                             <Heading as="h4">
                               {instagramOverviewState.comments.data}
                               <sub>
-                                <FeatherIcon icon="arrow-up" size={14} />
+                                <FeatherIcon icon="arrow-down" size={14} />
                                 30%
                               </sub>
                             </Heading>
@@ -1109,12 +1109,12 @@ const Dashboard = () => {
                       </Row>
                       <Row className="line-chart-row">
                         <Col xxl={10} xs={24}>
-                          <div className="growth-upward">
+                          <div className="growth-downward">
                             <p>Following</p>
                             <Heading as="h4">
                               {instagramOverviewState.followers.data}
                               <sub>
-                                <FeatherIcon icon="arrow-up" size={14} />
+                                <FeatherIcon icon="arrow-down" size={14} />
                                 27%
                               </sub>
                             </Heading>
@@ -1239,12 +1239,12 @@ const Dashboard = () => {
                       </Row>
                       <Row className="line-chart-row">
                         <Col xxl={10} xs={24}>
-                          <div className="growth-upward">
+                          <div className="growth-downward">
                             <p>Comments</p>
                             <Heading as="h4">
                               {linkdinOverviewState.comments.data}
                               <sub>
-                                <FeatherIcon icon="arrow-up" size={14} />
+                                <FeatherIcon icon="arrow-down" size={14} />
                                 30%
                               </sub>
                             </Heading>
@@ -1299,12 +1299,12 @@ const Dashboard = () => {
                       </Row>
                       <Row className="line-chart-row">
                         <Col xxl={10} xs={24}>
-                          <div className="growth-upward">
+                          <div className="growth-downward">
                             <p>Following</p>
                             <Heading as="h4">
                               {linkdinOverviewState.followers.data}
                               <sub>
-                                <FeatherIcon icon="arrow-up" size={14} />
+                                <FeatherIcon icon="arrow-down" size={14} />
                                 27%
                               </sub>
                             </Heading>

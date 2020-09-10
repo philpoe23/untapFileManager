@@ -183,6 +183,9 @@ const CardBarChart = Styled.div`
             }
         }
     }
+    ul{
+        margin-top: 15px;
+    }
 `;
 
 const CardGroup = Styled.div`
@@ -316,6 +319,7 @@ const CardGroup = Styled.div`
             color: #333;
             thead{
                 th{
+                    padding: 10px 16px;
                     &:nth-child(2){
                         border-left: 1px solid ${({ theme }) => theme['border-color-light']};
                     }
@@ -769,19 +773,18 @@ const SocialMediaWrapper = Styled.div`
 
 const LineChartWrapper = Styled.div`
     .linkedin-chart-wrap{
-        min-height: 392px;
+        min-height: 379px;
     }
     .growth-upward,
     .growth-downward{
         line-height: 2.2;
-        margin-bottom: 14px;
         h1{
             margin-bottom: 0;
         }
     }
     .line-chart-row{
         &:not(:last-child){
-            margin-bottom: 0px;
+            margin-bottom: 20px;
         }
         .border-linechart{
             border-bottom: 1px solid ${({ theme }) => theme['border-color-deep']};
@@ -800,7 +803,7 @@ const LineChartWrapper = Styled.div`
     .overview-container{
         .line-chart-row{
             &:not(:last-child){
-                margin-bottom: 0px;
+                margin-bottom: 18px;
             }
         }
     }
@@ -828,6 +831,16 @@ const RatioCard = Styled.div`
                 bottom: 26px;
                 font-weight: 500;
             }
+            &.progress-success{
+                .ant-progress-text{
+                    color: ${({ theme }) => theme['success-color']};
+                }
+            }
+            &.ant-progress-status-warning{
+                .ant-progress-text{
+                    color: ${({ theme }) => theme['warning-color']};
+                }
+            }
         }
         p{
             color: ${({ theme }) => theme['light-color']};
@@ -846,9 +859,16 @@ const IncomeExpenseWrapper = Styled.div`
         padding: 0 25px !important;
     }
     canvas{
-        padding: 20px 0;
+        padding: 25px 0 0;
         @media only screen and (max-width: 1599px){
             padding-top: 5px;
+        }
+    }
+    ul{
+        padding: 10px 0 25px 0;
+        margin: -5px -12px;
+        li{
+            padding: 5px 12px;
         }
     }
 `;
