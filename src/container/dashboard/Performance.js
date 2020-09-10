@@ -31,7 +31,7 @@ import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { chartLinearGradient } from '../../components/utilities/utilities';
+import { chartLinearGradient, customTooltips } from '../../components/utilities/utilities';
 import {
   performanceFilterData,
   performanceGetData,
@@ -445,6 +445,38 @@ const Performance = () => {
     return dispatch(setIsLoading());
   };
 
+  const performanceDatasets = performanceState !== null && [
+    {
+      data: performanceState[performanceTab][1],
+      borderColor: '#5F63F2',
+      borderWidth: 4,
+      fill: true,
+      backgroundColor: () =>
+        chartLinearGradient(document.getElementById('performance'), 300, {
+          start: '#5F63F230',
+          end: '#5F63F200',
+        }),
+      label: 'Current period',
+      pointStyle: 'circle',
+      pointRadius: '0',
+      hoverRadius: '9',
+      pointBorderColor: '#fff',
+      pointBackgroundColor: '#5F63F2',
+      hoverBorderWidth: 5,
+    },
+    {
+      data: performanceState[performanceTab][2],
+      borderColor: '#C6D0DC',
+      borderWidth: 2,
+      fill: false,
+      backgroundColor: '#00173750',
+      label: 'Previous period',
+      borderDash: [3, 3],
+      pointRadius: '0',
+      hoverRadius: '0',
+    },
+  ];
+
   return (
     <>
       <PageHeader
@@ -639,37 +671,7 @@ const Performance = () => {
                       <ChartjsAreaChart
                         id="performance"
                         labels={performanceState.labels}
-                        datasets={[
-                          {
-                            data: performanceState[performanceTab][1],
-                            borderColor: '#5F63F2',
-                            borderWidth: 4,
-                            fill: true,
-                            backgroundColor: () =>
-                              chartLinearGradient(document.getElementById('performance'), 300, {
-                                start: '#5F63F230',
-                                end: '#5F63F200',
-                              }),
-                            label: 'Current period',
-                            pointStyle: 'circle',
-                            pointRadius: '0',
-                            hoverRadius: '9',
-                            pointBorderColor: '#fff',
-                            pointBackgroundColor: '#5F63F2',
-                            hoverBorderWidth: 5,
-                          },
-                          {
-                            data: performanceState[performanceTab][2],
-                            borderColor: '#C6D0DC',
-                            borderWidth: 2,
-                            fill: false,
-                            backgroundColor: '#00173750',
-                            label: 'Previous period',
-                            borderDash: [3, 3],
-                            pointRadius: '0',
-                            hoverRadius: '0',
-                          },
-                        ]}
+                        datasets={performanceDatasets}
                         options={{
                           maintainAspectRatio: true,
                           elements: {
@@ -694,21 +696,13 @@ const Performance = () => {
                             intersect: false,
                             backgroundColor: '#ffffff',
                             position: 'average',
-                            titleFontColor: '#5A5F7D',
-                            titleFontSize: 13,
-                            titleSpacing: 15,
-                            bodyFontColor: '#868EAE',
-                            bodyFontSize: 12,
-                            borderColor: '#F1F2F6',
-                            borderWidth: 2,
-                            bodySpacing: 15,
-                            xPadding: 15,
-                            yPadding: 15,
-                            z: 999999,
-                            custom(tooltip) {
-                              if (!tooltip) return;
-                              tooltip.displayColors = false;
-                            },
+
+                            // custom(tooltip) {
+                            //   if (!tooltip) return;
+                            //   tooltip.displayColors = false;
+                            // },
+                            enabled: false,
+                            custom: customTooltips,
                             callbacks: {
                               title() {
                                 return `Users`;
@@ -763,6 +757,21 @@ const Performance = () => {
                         }}
                         height={100}
                       />
+                      <ul>
+                        {performanceDatasets &&
+                          performanceDatasets.map(item => {
+                            return (
+                              <li className="custom-label">
+                                <span
+                                  style={{
+                                    backgroundColor: item.borderColor,
+                                  }}
+                                />
+                                {item.label}
+                              </li>
+                            );
+                          })}
+                      </ul>
                     </div>
                   )}
                 </Cards>

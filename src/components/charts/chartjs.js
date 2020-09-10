@@ -224,7 +224,21 @@ const ChartjsLineChart = props => {
     labels,
     datasets,
   };
-  return <Line id={id && id} width={width} data={data} height={height} options={{ ...options, ...layout }} />;
+  return (
+    <ChartContainer className="parentContainer">
+      <Line
+        id={id && id}
+        width={width}
+        data={data}
+        height={height}
+        options={{
+          ...options,
+          ...layout,
+        }}
+      />
+      ;
+    </ChartContainer>
+  );
 };
 
 ChartjsLineChart.defaultProps = {
@@ -298,6 +312,7 @@ ChartjsLineChart.propTypes = {
   layout: PropTypes.object,
   width: PropTypes.number,
   options: PropTypes.object,
+  id: PropTypes.string,
 };
 
 const ChartjsAreaChart = props => {
@@ -322,28 +337,31 @@ const ChartjsAreaChart = props => {
           );
         })}
       </div>
-
-      <Line
-        id={id}
-        data={data}
-        height={height}
-        options={{
-          tooltips: {
-            mode: 'nearest',
-            intersect: false,
-            callbacks: {
-              labelColor(tooltipItem, chart) {
-                return {
-                  backgroundColor: datasets.map(item => item.borderColor),
-                  borderColor: 'transparent',
-                };
+      <ChartContainer className="parentContainer">
+        <Line
+          id={id}
+          data={data}
+          height={height}
+          options={{
+            tooltips: {
+              mode: 'nearest',
+              intersect: false,
+              enabled: false,
+              custom: customTooltips,
+              callbacks: {
+                labelColor(tooltipItem, chart) {
+                  return {
+                    backgroundColor: datasets.map(item => item.borderColor),
+                    borderColor: 'transparent',
+                  };
+                },
               },
             },
-          },
-          ...options,
-          ...layout,
-        }}
-      />
+            ...options,
+            ...layout,
+          }}
+        />
+      </ChartContainer>
     </div>
   );
 };
@@ -434,6 +452,7 @@ ChartjsAreaChart.propTypes = {
   datasets: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.object,
   options: PropTypes.object,
+  id: PropTypes.string,
 };
 
 const ChartjsBarChartTransparent = props => {
@@ -454,20 +473,7 @@ const ChartjsBarChartTransparent = props => {
           tooltips: {
             mode: 'label',
             intersect: false,
-            // backgroundColor: '#fff',
             position: 'average',
-
-            // titleFontColor: '#5A5F7D',
-            titleFontSize: 12,
-            titleSpacing: 15,
-            // bodyFontColor: '#868EAE',
-            bodyFontSize: 13,
-            // borderColor: '#F1F2F6',
-            borderWidth: 2,
-            bodySpacing: 15,
-            xPadding: 15,
-            yPadding: 15,
-            zIndex: 999999,
             enabled: false,
             custom: customTooltips,
             callbacks: {

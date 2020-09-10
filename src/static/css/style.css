@@ -184,7 +184,8 @@ ul {
   left: 5px;
   bottom: 0;
 }
-.growth-downward h1 sub svg, .growth-upward h1 sub svg{
+
+.growth-downward h1 sub svg, .growth-upward h1 sub svg {
   position: relative;
   top: 2px;
 }
@@ -299,9 +300,8 @@ ul {
 .progress-success .ant-progress-bg {
   background: #20C997;
 }
-.progress-success 
 
-.progress-info .ant-progress-bg {
+.progress-success .progress-info .ant-progress-bg {
   background: #2C99FF;
 }
 
@@ -1830,18 +1830,25 @@ ul {
 } */
 
 /* custom label */
-.custom-label{
-  font-size:13px;
+
+.custom-label {
+  font-size: 13px;
   color: #868EAE;
   display: inline-flex;
   align-items: center;
 }
-.custom-label:not(:last-child){
+
+.custom-label:not(:last-child) {
   margin-right: 20px;
 }
-.custom-label span{
+
+.custom-label span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   margin-right: 7px;
+}
+
+.starActive svg {
+  color: red;
 }

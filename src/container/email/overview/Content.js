@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
-import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { Style, EmailAuthor, EmailHeader } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { Dropdown } from '../../../components/dropdown/dropdown';
+import { onStarUpdate } from '../../../redux/email/actionCreator';
 
 const Content = ({ searchData, email }) => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     selectedRowKeys: [],
     notData: searchData,
@@ -42,21 +45,33 @@ const Content = ({ searchData, email }) => {
     });
   };
 
+  const onStaredChange = id => {
+    dispatch(onStarUpdate(id));
+  };
+
   const data = [];
   if (emails !== undefined)
     emails.map((inbox, key) => {
       // eslint-disable-next-line no-shadow
-      const { id, type, email, userName, status, img, subject, body, attach } = inbox;
+      const { id, type, email, userName, status, img, subject, body, attach, stared } = inbox;
 
       const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
       return data.push({
         key: id,
         name: (
           <EmailAuthor>
-            <FeatherIcon icon="star" size={18} />
+            <Link
+              onClick={() => {
+                onStaredChange(id);
+              }}
+              to="#"
+              className={stared ? 'starActive' : 'starDeactivate'}
+            >
+              <FeatherIcon icon="star" size={18} />
+            </Link>
             <img src={img} alt="" />
             <Heading as="h5">
-              <NavLink to={`/admin/email/single/${id}`}>{userName}</NavLink>
+              <Link to={`/admin/email/single/${id}`}>{userName}</Link>
             </Heading>
           </EmailAuthor>
         ),
@@ -191,7 +206,6 @@ const Content = ({ searchData, email }) => {
                   <FeatherIcon icon="more-vertical" size={18} />
                 </Link>
               </Dropdown>
-              
             </div>
           </div>
         </>

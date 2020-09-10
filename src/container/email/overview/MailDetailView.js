@@ -8,7 +8,7 @@ import propTypes from 'prop-types';
 import { MailDetailsWrapper, MessageAction, MessageDetails, ReplyList, MessageReply, MailRightAction } from './style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
-import { filterSinglePage } from '../../../redux/email/actionCreator';
+import { filterSinglePage, onStarUpdate } from '../../../redux/email/actionCreator';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const MailComposer = lazy(() => import('./MailComposer'));
@@ -31,6 +31,10 @@ const Single = props => {
   const replyMail = async replyMessage => {
     // hit replyMail api
     setState({ ...state, replyMessage });
+  };
+
+  const onStaredChange = id => {
+    dispatch(onStarUpdate(id));
   };
 
   return (
@@ -98,7 +102,7 @@ const Single = props => {
                     <FeatherIcon icon="chevron-down" size={16} />
                   </Link>
 
-                  <Link to="#">
+                  <Link onClick={() => window.print()} to="#">
                     <FeatherIcon icon="printer" size={16} />
                   </Link>
                 </div>
@@ -140,7 +144,11 @@ const Single = props => {
                     <FeatherIcon icon="paperclip" />
                   </span>
                   <span> {moment(email.id).format('LLL')} </span>
-                  <Link to="#">
+                  <Link
+                    className={email.stared ? 'starActive' : 'starDeactivate'}
+                    onClick={() => onStaredChange(email.id)}
+                    to="#"
+                  >
                     <FeatherIcon icon="star" />
                   </Link>
                   <Link to="#">
