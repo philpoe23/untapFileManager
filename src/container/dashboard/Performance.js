@@ -5,7 +5,7 @@ import FeatherIcon from 'feather-icons-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import {VectorMap} from 'react-jvectormap';
+import { VectorMap } from 'react-jvectormap';
 
 import {
   OverviewCard,
@@ -17,13 +17,11 @@ import {
   RegionMap,
   LadingPages,
   TrafficTableWrapper,
-  Map,
 } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
-import worldLowRes from '../../demoData/vector.json';
 import { ChartjsAreaChart, ChartjsDonutChart } from '../../components/charts/chartjs';
 import { Button } from '../../components/buttons/buttons';
 import { Dropdown } from '../../components/dropdown/dropdown';
@@ -42,6 +40,8 @@ import {
   deviceGetData,
   landingPageFilterData,
   landingPageGetData,
+  regionFilterData,
+  regionGetData,
 } from '../../redux/chartContent/actionCreator';
 
 const moreContent = (
@@ -143,59 +143,28 @@ const regionColumns = [
   },
 ];
 
-const regionData = [
-  {
-    key: '1',
-    region: 'United States',
-    sessions: '3,397',
-  },
-  {
-    key: '2',
-    region: 'United Kingdom',
-    sessions: '3,397',
-  },
-  {
-    key: '3',
-    region: 'Canada',
-    sessions: '3,397',
-  },
-  {
-    key: '4',
-    region: 'Japan',
-    sessions: '3,397',
-  },
-  {
-    key: '5',
-    region: 'India',
-    sessions: '3,397',
-  },
-  {
-    key: '6',
-    region: 'Bangladesh',
-    sessions: '3,397',
-  },
-  {
-    key: '7',
-    region: 'Brazil',
-    sessions: '3,397',
-  },
-];
-
 const Performance = () => {
   const dispatch = useDispatch();
-  const { performanceState, preIsLoading, trafficState, deviceState, dvIsLoading, landingState } = useSelector(
-    state => {
-      return {
-        performanceState: state.chartContent.performanceData,
-        deviceState: state.chartContent.deviceData,
-        landingState: state.chartContent.landingPageData,
-        trafficState: state.chartContent.trafficChanelData,
-        preIsLoading: state.chartContent.perLoading,
-        dvIsLoading: state.chartContent.dvLoading,
-        lpIsLoading: state.chartContent.lpLoading,
-      };
-    },
-  );
+  const {
+    performanceState,
+    preIsLoading,
+    trafficState,
+    deviceState,
+    dvIsLoading,
+    landingState,
+    regionState,
+  } = useSelector(state => {
+    return {
+      performanceState: state.chartContent.performanceData,
+      deviceState: state.chartContent.deviceData,
+      regionState: state.chartContent.regionData,
+      landingState: state.chartContent.landingPageData,
+      trafficState: state.chartContent.trafficChanelData,
+      preIsLoading: state.chartContent.perLoading,
+      dvIsLoading: state.chartContent.dvLoading,
+      lpIsLoading: state.chartContent.lpLoading,
+    };
+  });
 
   const [state, setState] = useState({
     performance: 'year',
@@ -203,7 +172,7 @@ const Performance = () => {
     traffic: 'year',
     device: 'year',
     landing: 'year',
-    region: 'month',
+    region: 'year',
   });
 
   const { performance, performanceTab } = state;
@@ -214,6 +183,7 @@ const Performance = () => {
       dispatch(trafficChanelGetData());
       dispatch(deviceGetData());
       dispatch(landingPageGetData());
+      dispatch(regionGetData());
     }
   }, [dispatch]);
 
@@ -385,6 +355,17 @@ const Performance = () => {
     },
   ];
 
+  const regionData = [];
+
+  if (regionState !== null)
+    regionState.map((item, key) => {
+      return regionData.push({
+        key: key + 1,
+        region: item[0],
+        sessions: item[1],
+      });
+    });
+
   const handleActiveChangePerformance = value => {
     setState({
       ...state,
@@ -422,6 +403,7 @@ const Performance = () => {
       ...state,
       region: value,
     });
+    dispatch(regionFilterData(value));
   };
 
   const renderThumb = ({ style, ...props }) => {
@@ -964,35 +946,34 @@ const Performance = () => {
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
-                   
-                     <div style={{width: 500, height: 500}}>
-                      <VectorMap map={'world_mill'}
-                       backgroundColor="transparent"
-                       regionStyle={{
-                        initial: {
-                          fill: 'red',
-                          "fill-opacity": 1,
-                          stroke: 'none',
-                          "stroke-width": 0,
-                          "stroke-opacity": 1
-                        },
-                        hover: {
-                          "fill-opacity": 0.8,
-                          cursor: 'pointer'
-                        },
-                        selected: {
-                          fill: 'yellow'
-                        },
-                        selectedHover: {
-                        }
-                      }}                     
-                       containerStyle={{
-                           width: '100%',
-                           height: '400px'
-                       }}
-                       containerClassName="map"
-                       />
-                      </div>
+                    <div style={{ width: 400, height: 250 }}>
+                      <VectorMap
+                        map="world_mill"
+                        backgroundColor="transparent"
+                        regionStyle={{
+                          initial: {
+                            fill: 'red',
+                            'fill-opacity': 1,
+                            stroke: 'none',
+                            'stroke-width': 0,
+                            'stroke-opacity': 1,
+                          },
+                          hover: {
+                            'fill-opacity': 0.8,
+                            cursor: 'pointer',
+                          },
+                          selected: {
+                            fill: 'yellow',
+                          },
+                          selectedHover: {},
+                        }}
+                        containerStyle={{
+                          width: '100%',
+                          height: '100%',
+                        }}
+                        containerClassName="map"
+                      />
+                    </div>
                   </RegionMap>
                 </Col>
               </Row>

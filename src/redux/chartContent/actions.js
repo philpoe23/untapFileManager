@@ -51,6 +51,30 @@ const actions = {
   LANDING_PAGE_SUCCESS: 'LANDING_PAGE_SUCCESS',
   LANDING_PAGE_ERR: 'LANDING_PAGE_ERR',
 
+  REGION_BEGIN: 'REGION_BEGIN',
+  REGION_SUCCESS: 'REGION_SUCCESS',
+  REGION_ERR: 'REGION_ERR',
+
+  regionBegin: () => {
+    return {
+      type: actions.REGION_BEGIN,
+    };
+  },
+
+  regionSuccess: data => {
+    return {
+      type: actions.REGION_SUCCESS,
+      data,
+    };
+  },
+
+  regionErr: err => {
+    return {
+      type: actions.REGION_ERR,
+      err,
+    };
+  },
+
   deviceBegin: () => {
     return {
       type: actions.DEVICE_BEGIN,

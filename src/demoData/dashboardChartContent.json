@@ -729,5 +729,34 @@
     "week": [483, 870, 420],
     "month": [4483, 5870, 2420],
     "year": [9483, 13870, 15420]
+  },
+  "region": {
+    "week": [
+      ["United State", 3947],
+      ["United Kingdom", 5578],
+      ["Canada", 398],
+      ["Japan", 391],
+      ["India", 242],
+      ["Bangladesh", 74],
+      ["Brazil", 10]
+    ],
+    "month": [
+      ["United State", 23947],
+      ["United Kingdom", 15578],
+      ["Canada", 8398],
+      ["Japan", 3391],
+      ["India", 1242],
+      ["Bangladesh", 374],
+      ["Brazil", 210]
+    ],
+    "year": [
+      ["United State", 93947],
+      ["United Kingdom", 85578],
+      ["Canada", 10398],
+      ["Japan", 9391],
+      ["India", 7242],
+      ["Bangladesh", 974],
+      ["Brazil", 710]
+    ]
   }
 }

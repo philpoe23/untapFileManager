@@ -25,6 +25,8 @@ const initialState = {
   dvLoading: false,
   landingPageData: null,
   lpLoading: false,
+  regionData: null,
+  reLoading: false,
   error: null,
 };
 
@@ -80,11 +82,33 @@ const {
   LANDING_PAGE_BEGIN,
   LANDING_PAGE_SUCCESS,
   LANDING_PAGE_ERR,
+
+  REGION_BEGIN,
+  REGION_SUCCESS,
+  REGION_ERR,
 } = actions;
 
 const chartContentReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
+    case REGION_BEGIN:
+      return {
+        ...state,
+        reLoading: true,
+      };
+    case REGION_SUCCESS:
+      return {
+        ...state,
+        regionData: data,
+        reLoading: false,
+      };
+    case REGION_ERR:
+      return {
+        ...state,
+        error: err,
+        reLoading: false,
+      };
+
     case DEVICE_BEGIN:
       return {
         ...state,

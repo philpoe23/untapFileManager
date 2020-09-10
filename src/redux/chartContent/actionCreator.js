@@ -11,6 +11,7 @@ import {
   performance,
   trafficChanel,
   device,
+  region,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -65,6 +66,10 @@ const {
   landingPageBegin,
   landingPageSuccess,
   landingPageErr,
+
+  regionBegin,
+  regionSuccess,
+  regionErr,
 } = actions;
 
 const forcastOverviewGetData = () => {
@@ -380,7 +385,34 @@ const landingPageFilterData = value => {
   };
 };
 
+const regionGetData = () => {
+  return async dispatch => {
+    const { year } = region;
+    try {
+      dispatch(regionBegin());
+      dispatch(regionSuccess(year));
+    } catch (err) {
+      dispatch(regionErr(err));
+    }
+  };
+};
+
+const regionFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(regionBegin());
+      setTimeout(() => {
+        dispatch(regionSuccess(region[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(regionErr(err));
+    }
+  };
+};
+
 export {
+  regionGetData,
+  regionFilterData,
   landingPageFilterData,
   landingPageGetData,
   deviceFilterData,
