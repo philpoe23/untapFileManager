@@ -482,17 +482,23 @@ const OverviewCard = Styled.div`
         .growth-upward{
             color: ${({ theme }) => theme['success-color']};
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
             span{
                 color: ${({ theme }) => theme['light-gray-color']};
                 font-weight: 400;
+                font-size: 13px;
             }
         }
         .growth-downward{
             color: ${({ theme }) => theme['danger-color']};
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
             span{
                 color: ${({ theme }) => theme['light-gray-color']};
                 font-weight: 400;
+                font-size: 13px;
             }
         }
     }
@@ -601,6 +607,21 @@ const SessionChartWrapper = Styled.div`
                 .doughnutLabe{
                     color: ${({ theme }) => theme['gray-color']};
                 }
+            }
+        }
+        p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            width: 200px;
+            margin-bottom: 0;
+            display: inline-block;
+            transform: translate(-50%, -50%);
+            span{
+                font-size: 24px;
+                display: block;
+                font-weight: 600;
             }
         }
     }
@@ -1032,6 +1053,10 @@ const TrafficTableWrapper = Styled.div`
                     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                     color: ${({ theme }) => theme['dark-color']}
                     padding: 16px 25px;
+                    text-align: right;
+                    &:first-child, &:nth-child(5){
+                        text-align: left;
+                    }
                 }
             }
         }
@@ -1040,6 +1065,10 @@ const TrafficTableWrapper = Styled.div`
                 td{
                     padding: 16px 25px;
                     color: ${({ theme }) => theme['gray-color']};
+                    text-align: right;
+                    &:first-child, &:nth-child(5){
+                        text-align: left;
+                    }
                 }
             }
         }
@@ -1087,11 +1116,11 @@ const Map = Styled.div`
   }
 `;
 
-const ChartContainer = Styled.div`    
-    
+const ChartContainer = Styled.div`
+
     display: block;
     font-family: "Raleway";
-    
+
 
 
         .chart-divider {
@@ -1105,7 +1134,7 @@ const ChartContainer = Styled.div`
 			background: rgb(255,255,255);
             box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 			color: #333;
-			border-radius: 4px;            
+			border-radius: 4px;
             /* padding: 50px; */
             min-width: 50px;
             /* min-height: 50px; */

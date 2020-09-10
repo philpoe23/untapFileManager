@@ -755,7 +755,7 @@ const Performance = () => {
                             ],
                           },
                         }}
-                        height={100}
+                        height={86}
                       />
                       <ul>
                         {performanceDatasets &&

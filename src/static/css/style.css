@@ -300,6 +300,10 @@ ul {
 .progress-success .ant-progress-bg {
   background: #20C997;
 }
+<<<<<<< HEAD
+.progress-success
+=======
+>>>>>>> c4034a11b4776939878fecac7a8f2719a6ca8c30
 
 .progress-success .progress-info .ant-progress-bg {
   background: #2C99FF;
@@ -1849,6 +1853,16 @@ ul {
   margin-right: 7px;
 }
 
+/* card spin loader */
+.ant-card-body div{
+  position: relative;
+}
+.ant-card-body div .ant-spin{
+  display: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .starActive svg {
   color: red;
 }
