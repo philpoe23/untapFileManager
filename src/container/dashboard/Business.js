@@ -173,6 +173,9 @@ const Business = () => {
                             borderColor: '#5F63F2',
                             borderWidth: 3,
                             fill: true,
+                            pointHoverBackgroundColor: '#5F63F2',
+                            pointHoverBorderWidth: 0,
+                            pointHoverBorderColor: 'transparent',
                             backgroundColor: () =>
                               chartLinearGradient(document.getElementById('netProfit'), 80, {
                                 start: '#5F63F212',
@@ -208,6 +211,9 @@ const Business = () => {
                             borderColor: '#20C997',
                             borderWidth: 3,
                             fill: true,
+                            pointHoverBackgroundColor: '#20c997',
+                            pointHoverBorderWidth: 0,
+                            pointHoverBorderColor: 'transparent',
                             backgroundColor: () =>
                               chartLinearGradient(document.getElementById('grossProfit'), 80, {
                                 start: '#20C99712',
@@ -675,7 +681,7 @@ const Business = () => {
                         gridLines: {
                           display: true,
                           zeroLineWidth: 2,
-                          zeroLineColor: '#fff',
+                          zeroLineColor: 'transparent',
                           color: 'transparent',
                           z: 1,
                         },
@@ -733,9 +739,10 @@ const Business = () => {
                     xPadding: 15,
                     yPadding: 15,
                     z: 999999,
+                    // enabled: false,
+                    // custom: customTooltips,
                     custom(tooltip) {
                       if (!tooltip) return;
-                      // disable displaying the color box;
                       tooltip.displayColors = false;
                     },
                     callbacks: {
@@ -783,7 +790,7 @@ const Business = () => {
                         gridLines: {
                           display: true,
                           zeroLineWidth: 2,
-                          zeroLineColor: '#fff',
+                          zeroLineColor: 'transparent',
                           color: 'transparent',
                           z: 1,
                         },

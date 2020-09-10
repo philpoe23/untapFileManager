@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { UL, Content, ChatSidebar } from './style';
 import PrivetChat from './overview/PrivetChat';
 import GroupChat from './overview/GroupChat';
@@ -36,6 +37,14 @@ const ChatApp = ({ match }) => {
       ...state,
       search: data,
     });
+  };
+
+  const renderThumb = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
   };
 
   return (
@@ -85,11 +94,20 @@ const ChatApp = ({ match }) => {
                   </UL>
                 </nav>
                 <Content>
-                  <Switch>
-                    <Route path={`${match.path}/private`} component={PrivetChat} />
-                    <Route path={`${match.path}/group`} component={GroupChat} />
-                    <Route path={`${match.path}/all`} component={AllContacts} />
-                  </Switch>
+                  <Scrollbars
+                    className="custom-scrollbar"
+                    autoHide
+                    autoHideTimeout={500}
+                    autoHideDuration={200}
+                    renderThumbHorizontal={renderThumb}
+                    renderThumbVertical={renderThumb}
+                  >
+                    <Switch>
+                      <Route path={`${match.path}/private`} component={PrivetChat} />
+                      <Route path={`${match.path}/group`} component={GroupChat} />
+                      <Route path={`${match.path}/all`} component={AllContacts} />
+                    </Switch>
+                  </Scrollbars>
                 </Content>
               </Cards>
             </ChatSidebar>

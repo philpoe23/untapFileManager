@@ -560,7 +560,7 @@ const MessageAction = Styled.div`
 
 const EmailAuthor = Styled.div`
   display: flex;
-  align-items: center;
+  align-items: center;  
   svg{
     color: ${({ theme }) => theme['extra-light-color']};
   }
