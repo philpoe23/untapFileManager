@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Row, Col, Table } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Table, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Link } from 'react-router-dom';
-import { VectorMap } from '@south-paw/react-vector-maps';
+import { VectorMap } from 'react-jvectormap';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   CardBarChart2,
   LocationMapWrapper,
@@ -22,11 +23,23 @@ import {
   ChartjsLineChart,
   ChartjsDonutChart2,
 } from '../../components/charts/chartjs';
-import worldLowRes from '../../demoData/vector.json';
 
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { chartLinearGradient, customTooltips } from '../../components/utilities/utilities';
+import {
+  performanceFilterData,
+  performanceGetData,
+  generatedFilterData,
+  generatedGetData,
+  topSaleGetData,
+  topSaleFilterData,
+  locationGetData,
+  locationFilterData,
+  deviceFilterData,
+  deviceGetData,
+} from '../../redux/chartContent/actionCreator';
 
 const moreContent = (
   <>
@@ -115,158 +128,6 @@ const revenueColumns = [
     width: 120,
   },
 ];
-const revenueData = [
-  {
-    key: '1',
-    name: 'Google',
-    visitors: '23,397',
-    page_View: '12,201',
-    revenue: '$5,536',
-    trend: (
-      <ChartjsLineChart
-        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-        datasets={[
-          {
-            data: [0, 10, 8, 14, 7, 10],
-            borderColor: '#5F63F2',
-            borderWidth: 2,
-            fill: false,
-          },
-        ]}
-        height={30}
-        width={120}
-        options={{
-          ...chartOptions,
-          elements: {
-            point: {
-              radius: 0,
-            },
-          },
-        }}
-      />
-    ),
-  },
-  {
-    key: '2',
-    name: 'Facebook',
-    visitors: '14,456',
-    page_View: '12,101',
-    revenue: '$4,745',
-    trend: (
-      <ChartjsLineChart
-        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-        datasets={[
-          {
-            data: [10, 7, 14, 8, 5, 11],
-            borderColor: '#FF69A5',
-            borderWidth: 2,
-            fill: false,
-          },
-        ]}
-        height={30}
-        width={120}
-        options={{
-          ...chartOptions,
-          elements: {
-            point: {
-              radius: 0,
-            },
-          },
-        }}
-      />
-    ),
-  },
-  {
-    key: '3',
-    name: 'Email marketing',
-    visitors: '45,148',
-    page_View: '19,105',
-    revenue: '$8,256',
-    trend: (
-      <ChartjsLineChart
-        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-        datasets={[
-          {
-            data: [7, 11, 5, 3, 7, 9],
-            borderColor: '#20C997',
-            borderWidth: 2,
-            fill: false,
-          },
-        ]}
-        height={30}
-        width={120}
-        options={{
-          ...chartOptions,
-          elements: {
-            point: {
-              radius: 0,
-            },
-          },
-        }}
-      />
-    ),
-  },
-  {
-    key: '4',
-    name: 'Direct website',
-    visitors: '26,954',
-    page_View: '17,358',
-    revenue: '$9,852',
-    trend: (
-      <ChartjsLineChart
-        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-        datasets={[
-          {
-            data: [10, 5, 9, 6, 11, 7],
-            borderColor: '#2C99FF',
-            borderWidth: 2,
-            fill: false,
-          },
-        ]}
-        height={30}
-        width={120}
-        options={{
-          ...chartOptions,
-          elements: {
-            point: {
-              radius: 0,
-            },
-          },
-        }}
-      />
-    ),
-  },
-  {
-    key: '5',
-    name: 'Referral',
-    visitors: '89,963',
-    page_View: '75,741',
-    revenue: '$11,159',
-    trend: (
-      <ChartjsLineChart
-        labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
-        datasets={[
-          {
-            data: [5, 15, 6, 21, 9, 16],
-            borderColor: '#FA8B0C',
-            borderWidth: 2,
-            fill: false,
-          },
-        ]}
-        height={30}
-        width={120}
-        options={{
-          ...chartOptions,
-          elements: {
-            point: {
-              radius: 0,
-            },
-          },
-        }}
-      />
-    ),
-  },
-];
 
 const sellingColumns = [
   {
@@ -290,43 +151,6 @@ const sellingColumns = [
     key: 'revenue',
   },
 ];
-const sellingData = [
-  {
-    key: '1',
-    name: 'Samsung Galaxy S8 256GB',
-    price: '$280',
-    sold: '126',
-    revenue: '$38,536',
-  },
-  {
-    key: '2',
-    name: 'Half Sleeve Shirt',
-    price: '$39',
-    sold: '180',
-    revenue: '$20,573',
-  },
-  {
-    key: '3',
-    name: 'Marco Shoes',
-    price: '$89',
-    sold: '581',
-    revenue: '$170,758',
-  },
-  {
-    key: '4',
-    name: 'Marco Shoes',
-    price: '$32',
-    sold: '451',
-    revenue: '$258,105',
-  },
-  {
-    key: '5',
-    name: '15" MackBook Pro',
-    price: '$950',
-    sold: '745',
-    revenue: '$745,154',
-  },
-];
 
 const locationColumns = [
   {
@@ -345,47 +169,53 @@ const locationColumns = [
     key: 'revenue',
   },
 ];
-const locationData = [
-  {
-    key: '1',
-    location: 'United States',
-    order: '397',
-    revenue: '$38,536',
-  },
-  {
-    key: '2',
-    location: 'United Kingdom',
-    order: '420',
-    revenue: '$45,748',
-  },
-  {
-    key: '3',
-    location: 'Canada',
-    order: '210',
-    revenue: '$96,415',
-  },
-  {
-    key: '4',
-    location: 'China',
-    order: '108',
-    revenue: '$25,963',
-  },
-];
 
 const Ecommerce = () => {
-  const [state, setState] = useState({
-    revenue: 'month',
-    generated: 'month',
-    products: 'month',
-    location: 'month',
-    device: 'month',
+  const dispatch = useDispatch();
+  const {
+    performanceState,
+    preIsLoading,
+    generatedState,
+    topSaleState,
+    locationState,
+    deviceState,
+    dvIsLoading,
+  } = useSelector(state => {
+    return {
+      deviceState: state.chartContent.deviceData,
+      dvIsLoading: state.chartContent.dvLoading,
+      generatedState: state.chartContent.generatedData,
+      locationState: state.chartContent.locationData,
+      topSaleState: state.chartContent.topSaleData,
+      performanceState: state.chartContent.performanceData,
+      preIsLoading: state.chartContent.perLoading,
+      geIsLoading: state.chartContent.geLoading,
+    };
   });
+  const [state, setState] = useState({
+    revenue: 'year',
+    generated: 'year',
+    products: 'year',
+    location: 'today',
+    device: 'year',
+  });
+
+  useEffect(() => {
+    if (performanceGetData) {
+      dispatch(performanceGetData());
+      dispatch(generatedGetData());
+      dispatch(topSaleGetData());
+      dispatch(locationGetData());
+      dispatch(deviceGetData());
+    }
+  }, [dispatch]);
 
   const handleActiveChangeRevenue = value => {
     setState({
       ...state,
       revenue: value,
     });
+    return dispatch(performanceFilterData(value));
   };
 
   const handleActiveChangeGenerated = value => {
@@ -393,6 +223,7 @@ const Ecommerce = () => {
       ...state,
       generated: value,
     });
+    dispatch(generatedFilterData(value));
   };
 
   const handleActiveChangeProducts = value => {
@@ -400,6 +231,7 @@ const Ecommerce = () => {
       ...state,
       products: value,
     });
+    dispatch(topSaleFilterData(value));
   };
 
   const handleActiveChangeLocation = value => {
@@ -407,6 +239,7 @@ const Ecommerce = () => {
       ...state,
       location: value,
     });
+    dispatch(locationFilterData(value));
   };
 
   const handleActiveChangeDevice = value => {
@@ -414,7 +247,106 @@ const Ecommerce = () => {
       ...state,
       device: value,
     });
+    dispatch(deviceFilterData(value));
   };
+
+  const performanceDatasets = performanceState !== null && [
+    {
+      data: performanceState.users[1],
+      borderColor: '#5F63F2',
+      borderWidth: 4,
+      fill: true,
+      backgroundColor: () =>
+        chartLinearGradient(document.getElementById('performance'), 300, {
+          start: '#5F63F230',
+          end: '#5F63F200',
+        }),
+      label: 'Current period',
+      pointStyle: 'circle',
+      pointRadius: '0',
+      hoverRadius: '9',
+      pointBorderColor: '#fff',
+      pointBackgroundColor: '#5F63F2',
+      hoverBorderWidth: 5,
+    },
+    {
+      data: performanceState.users[2],
+      borderColor: '#C6D0DC',
+      borderWidth: 2,
+      fill: false,
+      backgroundColor: '#00173750',
+      label: 'Previous period',
+      borderDash: [3, 3],
+      pointRadius: '0',
+      hoverRadius: '0',
+    },
+  ];
+
+  const revenueData = [];
+  if (generatedState !== null)
+    generatedState.map(value => {
+      const { key, name, visitors, page_View, revenue, trend } = value;
+
+      return revenueData.push({
+        key,
+        name,
+        visitors,
+        page_View,
+        revenue,
+        trend: (
+          <ChartjsLineChart
+            labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']}
+            datasets={[
+              {
+                data: trend.data,
+                borderColor: trend.borderColor,
+                borderWidth: 2,
+                fill: false,
+              },
+            ]}
+            height={30}
+            width={120}
+            options={{
+              ...chartOptions,
+              elements: {
+                point: {
+                  radius: 0,
+                },
+              },
+            }}
+          />
+        ),
+      });
+    });
+
+  const sellingData = [];
+
+  if (topSaleState !== null) {
+    topSaleState.map(value => {
+      const { key, name, price, sold, revenue } = value;
+      return sellingData.push({
+        key,
+        name,
+        price,
+        sold,
+        revenue,
+      });
+    });
+  }
+
+  const locationData = [];
+
+  if (locationState !== null) {
+    locationState.map(value => {
+      const { key, location, order, revenue } = value;
+      return locationData.push({
+        key,
+        location,
+        order,
+        revenue,
+      });
+    });
+  }
 
   return (
     <>
@@ -458,6 +390,7 @@ const Ecommerce = () => {
                         data: [20, 60, 50, 45, 50, 60, 70],
                         backgroundColor: '#5F63F210',
                         hoverBackgroundColor: '#5F63F2',
+                        label: 'Orders',
                       },
                     ]}
                     options={chartOptions}
@@ -489,6 +422,7 @@ const Ecommerce = () => {
                         data: [20, 60, 50, 45, 50, 60, 70],
                         backgroundColor: '#FF69A510',
                         hoverBackgroundColor: '#FF69A5',
+                        label: 'Revenue',
                       },
                     ]}
                     options={chartOptions}
@@ -520,6 +454,7 @@ const Ecommerce = () => {
                         data: [20, 60, 50, 45, 50, 60, 70],
                         backgroundColor: '#20C99710',
                         hoverBackgroundColor: '#20C997',
+                        label: 'Avg Orders',
                       },
                     ]}
                     options={chartOptions}
@@ -551,6 +486,7 @@ const Ecommerce = () => {
                         data: [20, 60, 50, 45, 50, 60, 70],
                         backgroundColor: '#2C99FF10',
                         hoverBackgroundColor: '#2C99FF',
+                        label: 'Visitors',
                       },
                     ]}
                     options={chartOptions}
@@ -563,109 +499,148 @@ const Ecommerce = () => {
         <Row gutter={25}>
           <Col xxl={12} xs={24}>
             <RevenueWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.revenue === 'today' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeRevenue('today')} to="#">
-                          Today
-                        </Link>
-                      </li>
-                      <li className={state.revenue === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeRevenue('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.revenue === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeRevenue('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.revenue === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeRevenue('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                more={moreContent}
-                title="Total Revenue"
-                size="large"
-              >
-                <Heading className="revenue-count" as="h1">
-                  <span className="current-revenue color-primary">$72,784</span>
-                  <span className="prev-revenue"> $52,240</span>
-                </Heading>
+              {performanceState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        {/* <li className={state.revenue === 'today' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeRevenue('today')} to="#">
+                            Today
+                          </Link>
+                        </li> */}
+                        <li className={state.revenue === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeRevenue('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.revenue === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeRevenue('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.revenue === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeRevenue('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  more={moreContent}
+                  title="Total Revenue"
+                  size="large"
+                >
+                  {preIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="performance-lineChart">
+                      <ul>
+                        {performanceDatasets &&
+                          performanceDatasets.map(item => {
+                            return (
+                              <li className="custom-label">
+                                <span
+                                  style={{
+                                    backgroundColor: item.borderColor,
+                                  }}
+                                />
+                                {item.label}
+                              </li>
+                            );
+                          })}
+                      </ul>
 
-                <ChartjsAreaChart
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-                  datasets={[
-                    {
-                      data: [5, 25, 18, 22, 15, 30, 25, 35, 20, 22, 20, 40],
-                      borderColor: '#5F63F2',
-                      borderWidth: 3,
-                      fill: true,
-                      backgroundColor: '#5F63F210',
-                      label: 'Current period',
-                    },
-                    {
-                      data: [15, 20, 18, 25, 20, 30, 25, 20, 20, 22, 15, 30],
-                      borderColor: '#C6D0DC',
-                      borderWidth: 2,
-                      fill: false,
-                      backgroundColor: '#00173750',
-                      label: 'Previous period',
-                      borderDash: [10, 5],
-                    },
-                  ]}
-                  options={{
-                    maintainAspectRatio: true,
-                    legend: {
-                      display: false,
-                      labels: {
-                        display: true,
-                      },
-                    },
-                    elements: {
-                      point: {
-                        radius: 0,
-                      },
-                    },
-                    scales: {
-                      yAxes: [
-                        {
-                          stacked: false,
-                          gridLines: {
-                            display: true,
-                            color: '#e5e9f2',
+                      <ChartjsAreaChart
+                        id="performance"
+                        labels={performanceState.labels}
+                        datasets={performanceDatasets}
+                        options={{
+                          maintainAspectRatio: true,
+                          elements: {
+                            z: 9999,
                           },
-                          ticks: {
-                            beginAtZero: false,
-                            fontSize: 13,
-                            display: true,
-                          },
-                        },
-                      ],
-                      xAxes: [
-                        {
-                          stacked: true,
-                          gridLines: {
+                          legend: {
                             display: false,
+                            position: 'bottom',
+                            align: 'start',
+                            labels: {
+                              boxWidth: 6,
+                              display: false,
+                              usePointStyle: true,
+                            },
                           },
-                          ticks: {
-                            beginAtZero: false,
-                            fontSize: 13,
-                            display: true,
+                          hover: {
+                            mode: 'index',
+                            intersect: false,
                           },
-                        },
-                      ],
-                    },
-                  }}
-                  height={120}
-                />
-              </Cards>
+                          tooltips: {
+                            mode: 'label',
+                            intersect: false,
+                            backgroundColor: '#ffffff',
+                            position: 'average',
+                            enabled: false,
+                            custom: customTooltips,
+                            callbacks: {
+                              title() {
+                                return `Total Revenue`;
+                              },
+                              label(t, d) {
+                                const { yLabel, datasetIndex } = t;
+                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
+                              },
+                            },
+                          },
+                          scales: {
+                            yAxes: [
+                              {
+                                gridLines: {
+                                  color: '#e5e9f2',
+                                  borderDash: [3, 3],
+                                  zeroLineColor: '#e5e9f2',
+                                  zeroLineWidth: 1,
+                                  zeroLineBorderDash: [3, 3],
+                                },
+                                ticks: {
+                                  beginAtZero: true,
+                                  fontSize: 13,
+                                  fontColor: '#182b49',
+                                  suggestedMin: 50,
+                                  suggestedMax: 80,
+                                  stepSize: 20,
+
+                                  // padding: 10,
+                                  callback(label) {
+                                    return `${label}k`;
+                                  },
+                                },
+                              },
+                            ],
+                            xAxes: [
+                              {
+                                gridLines: {
+                                  display: true,
+                                  zeroLineWidth: 2,
+                                  zeroLineColor: 'transparent',
+                                  color: 'transparent',
+                                  z: 1,
+                                  tickMarkLength: 0,
+                                },
+                                ticks: {
+                                  padding: 10,
+                                },
+                              },
+                            ],
+                          },
+                        }}
+                        height={120}
+                      />
+                    </div>
+                  )}
+                </Cards>
+              )}
             </RevenueWrapper>
           </Col>
           <Col xxl={12} xs={24}>
@@ -675,11 +650,11 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        <li className={state.generated === 'today' ? 'active' : 'deactivate'}>
+                        {/* <li className={state.generated === 'today' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('today')} to="#">
                             Today
                           </Link>
-                        </li>
+                        </li> */}
                         <li className={state.generated === 'week' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('week')} to="#">
                             Week
@@ -782,7 +757,34 @@ const Ecommerce = () => {
                   size="large"
                 >
                   <div className="location-map d-flex justify-content-center">
-                    <VectorMap {...worldLowRes} fill="#E3E6EF" stroke="white" />
+                    <div style={{ width: '400px', height: 250 }}>
+                      <VectorMap
+                        map="world_mill"
+                        backgroundColor="transparent"
+                        regionStyle={{
+                          initial: {
+                            fill: 'red',
+                            'fill-opacity': 1,
+                            stroke: 'none',
+                            'stroke-width': 0,
+                            'stroke-opacity': 1,
+                          },
+                          hover: {
+                            'fill-opacity': 0.8,
+                            cursor: 'pointer',
+                          },
+                          selected: {
+                            fill: 'yellow',
+                          },
+                          selectedHover: {},
+                        }}
+                        containerStyle={{
+                          width: '100%',
+                          height: '100%',
+                        }}
+                        containerClassName="map"
+                      />
+                    </div>
                   </div>
 
                   <div className="location-table">
@@ -794,48 +796,56 @@ const Ecommerce = () => {
           </Col>
           <Col xxl={8} md={12} xs={24}>
             <RevenueChartWrapper>
-              <Cards
-                isbutton={
-                  <div className="card-nav">
-                    <ul>
-                      <li className={state.device === 'today' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('today')} to="#">
-                          Today
-                        </Link>
-                      </li>
-                      <li className={state.device === 'week' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('week')} to="#">
-                          Week
-                        </Link>
-                      </li>
-                      <li className={state.device === 'month' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('month')} to="#">
-                          Month
-                        </Link>
-                      </li>
-                      <li className={state.device === 'year' ? 'active' : 'deactivate'}>
-                        <Link onClick={() => handleActiveChangeDevice('year')} to="#">
-                          Year
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                }
-                title="Revenue By Device"
-                size="large"
-              >
-                <div className="revenue-doughnut">
-                  <ChartjsDonutChart2
-                    labels={['Desktop', 'Mobile', 'Tablets']}
-                    datasets={[
-                      {
-                        data: [5870, 4483, 2420],
-                        backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
-                      },
-                    ]}
-                  />
-                </div>
-              </Cards>
+              {deviceState !== null && (
+                <Cards
+                  isbutton={
+                    <div className="card-nav">
+                      <ul>
+                        <li className={state.device === 'today' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('today')} to="#">
+                            Today
+                          </Link>
+                        </li>
+                        <li className={state.device === 'week' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('week')} to="#">
+                            Week
+                          </Link>
+                        </li>
+                        <li className={state.device === 'month' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('month')} to="#">
+                            Month
+                          </Link>
+                        </li>
+                        <li className={state.device === 'year' ? 'active' : 'deactivate'}>
+                          <Link onClick={() => handleActiveChangeDevice('year')} to="#">
+                            Year
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                  title="Revenue By Device"
+                  size="large"
+                >
+                  {dvIsLoading ? (
+                    <div>
+                      <Spin />
+                    </div>
+                  ) : (
+                    <div className="revenue-doughnut">
+                      <ChartjsDonutChart2
+                        labels={['Desktop', 'Mobile', 'Tablets']}
+                        datasets={[
+                          {
+                            data: deviceState,
+                            backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
+                          },
+                        ]}
+                      />
+                    </div>
+                  )}
+                </Cards>
+              )}
             </RevenueChartWrapper>
           </Col>
         </Row>

@@ -55,6 +55,78 @@ const actions = {
   REGION_SUCCESS: 'REGION_SUCCESS',
   REGION_ERR: 'REGION_ERR',
 
+  GENERATED_BEGIN: 'GENERATED_BEGIN',
+  GENERATED_SUCCESS: 'GENERATED_SUCCESS',
+  GENERATED_ERR: 'GENERATED_ERR',
+
+  TOP_SALE_BEGIN: 'TOP_SALE_BEGIN',
+  TOP_SALE_SUCCESS: 'TOP_SALE_SUCCESS',
+  TOP_SALE_ERR: 'TOP_SALE_ERR',
+
+  LOCATION_DATA_BEGIN: 'LOCATION_DATA_BEGIN',
+  LOCATION_DATA_SUCCESS: 'LOCATION_DATA_SUCCESS',
+  LOCATION_DATA_ERR: 'LOCATION_DATA_ERR',
+
+  locationBegin: () => {
+    return {
+      type: actions.LOCATION_DATA_BEGIN,
+    };
+  },
+
+  locationSuccess: data => {
+    return {
+      type: actions.LOCATION_DATA_SUCCESS,
+      data,
+    };
+  },
+
+  locationErr: err => {
+    return {
+      type: actions.LOCATION_DATA_ERR,
+      err,
+    };
+  },
+
+  topSaleBegin: () => {
+    return {
+      type: actions.TOP_SALE_BEGIN,
+    };
+  },
+
+  topSaleSuccess: data => {
+    return {
+      type: actions.TOP_SALE_SUCCESS,
+      data,
+    };
+  },
+
+  topSaleErr: err => {
+    return {
+      type: actions.TOP_SALE_ERR,
+      err,
+    };
+  },
+
+  generatedBegin: () => {
+    return {
+      type: actions.GENERATED_BEGIN,
+    };
+  },
+
+  generatedSuccess: data => {
+    return {
+      type: actions.GENERATED_SUCCESS,
+      data,
+    };
+  },
+
+  generatedErr: err => {
+    return {
+      type: actions.GENERATED_ERR,
+      err,
+    };
+  },
+
   regionBegin: () => {
     return {
       type: actions.REGION_BEGIN,

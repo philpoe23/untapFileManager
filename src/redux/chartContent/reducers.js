@@ -27,6 +27,12 @@ const initialState = {
   lpLoading: false,
   regionData: null,
   reLoading: false,
+  generatedData: null,
+  geLoading: false,
+  topSaleData: null,
+  tsLoading: false,
+  locationData: null,
+  loLoading: false,
   error: null,
 };
 
@@ -86,11 +92,77 @@ const {
   REGION_BEGIN,
   REGION_SUCCESS,
   REGION_ERR,
+
+  GENERATED_BEGIN,
+  GENERATED_SUCCESS,
+  GENERATED_ERR,
+
+  TOP_SALE_BEGIN,
+  TOP_SALE_SUCCESS,
+  TOP_SALE_ERR,
+
+  LOCATION_DATA_BEGIN,
+  LOCATION_DATA_SUCCESS,
+  LOCATION_DATA_ERR,
 } = actions;
 
 const chartContentReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
+    case LOCATION_DATA_BEGIN:
+      return {
+        ...state,
+        loLoading: true,
+      };
+    case LOCATION_DATA_SUCCESS:
+      return {
+        ...state,
+        locationData: data,
+        loLoading: false,
+      };
+    case LOCATION_DATA_ERR:
+      return {
+        ...state,
+        error: err,
+        loLoading: false,
+      };
+
+    case TOP_SALE_BEGIN:
+      return {
+        ...state,
+        tsLoading: true,
+      };
+    case TOP_SALE_SUCCESS:
+      return {
+        ...state,
+        topSaleData: data,
+        tsLoading: false,
+      };
+    case TOP_SALE_ERR:
+      return {
+        ...state,
+        error: err,
+        tsLoading: false,
+      };
+
+    case GENERATED_BEGIN:
+      return {
+        ...state,
+        geLoading: true,
+      };
+    case GENERATED_SUCCESS:
+      return {
+        ...state,
+        generatedData: data,
+        geLoading: false,
+      };
+    case GENERATED_ERR:
+      return {
+        ...state,
+        error: err,
+        geLoading: false,
+      };
+
     case REGION_BEGIN:
       return {
         ...state,

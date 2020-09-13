@@ -807,7 +807,7 @@ const ChartjsDonutChart2 = props => {
 };
 
 ChartjsDonutChart2.defaultProps = {
-  height: 220,
+  height: 30,
   // width: 220,
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
   datasets: [
@@ -819,7 +819,7 @@ ChartjsDonutChart2.defaultProps = {
 
   options: {
     maintainAspectRatio: false,
-    responsive: false,
+    responsive: true,
     legend: {
       display: false,
       position: 'bottom',
