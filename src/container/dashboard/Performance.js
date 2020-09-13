@@ -579,7 +579,7 @@ const Performance = () => {
                       onClick={() => onPerformanceTab('users')}
                       className={`growth-upward ${performanceTab === 'users' && 'active'}`}
                       role="button"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex="0"
                     >
                       <p>Users</p>
@@ -596,7 +596,7 @@ const Performance = () => {
                       onClick={() => onPerformanceTab('sessions')}
                       className={`growth-upward ${performanceTab === 'sessions' && 'active'}`}
                       role="button"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex="0"
                     >
                       <p>Sessions</p>
@@ -613,7 +613,7 @@ const Performance = () => {
                       onClick={() => onPerformanceTab('bounce')}
                       className={`growth-downward ${performanceTab === 'bounce' && 'active'}`}
                       role="button"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex="0"
                     >
                       <p>Bounce Rate</p>
@@ -630,7 +630,7 @@ const Performance = () => {
                       onClick={() => onPerformanceTab('duration')}
                       className={`growth-upward ${performanceTab === 'duration' && 'active'}`}
                       role="button"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex="0"
                     >
                       <p>Session Duration</p>
@@ -649,113 +649,106 @@ const Performance = () => {
                       <Spin />
                     </div>
                   ) : (
-                    <div className="performance-lineChart">
-                      <ChartjsAreaChart
-                        id="performance"
-                        labels={performanceState.labels}
-                        datasets={performanceDatasets}
-                        options={{
-                          maintainAspectRatio: true,
-                          elements: {
-                            z: 9999,
-                          },
-                          legend: {
-                            display: false,
-                            position: 'bottom',
-                            align: 'start',
-                            labels: {
-                              boxWidth: 6,
-                              display: true,
-                              usePointStyle: true,
+                      <div className="performance-lineChart">
+                        <ChartjsAreaChart
+                          id="performance"
+                          labels={performanceState.labels}
+                          datasets={performanceDatasets}
+                          options={{
+                            maintainAspectRatio: true,
+                            elements: {
+                              z: 9999,
                             },
-                          },
-                          hover: {
-                            mode: 'index',
-                            intersect: false,
-                          },
-                          tooltips: {
-                            mode: 'label',
-                            intersect: false,
-                            backgroundColor: '#ffffff',
-                            position: 'average',
 
-                            // custom(tooltip) {
-                            //   if (!tooltip) return;
-                            //   tooltip.displayColors = false;
-                            // },
-                            enabled: false,
-                            custom: customTooltips,
-                            callbacks: {
-                              title() {
-                                return performanceTab;
-                              },
-                              label(t, d) {
-                                const { yLabel, datasetIndex } = t;
-                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
-                              },
+                            hover: {
+                              mode: 'index',
+                              intersect: false,
                             },
-                          },
-                          scales: {
-                            yAxes: [
-                              {
-                                gridLines: {
-                                  color: '#e5e9f2',
-                                  borderDash: [3, 3],
-                                  zeroLineColor: '#e5e9f2',
-                                  zeroLineWidth: 1,
-                                  zeroLineBorderDash: [3, 3],
+                            tooltips: {
+                              mode: 'label',
+                              intersect: false,
+                              backgroundColor: '#ffffff',
+                              position: 'average',
+
+                              // custom(tooltip) {
+                              //   if (!tooltip) return;
+                              //   tooltip.displayColors = false;
+                              // },
+                              enabled: false,
+                              custom: customTooltips,
+                              callbacks: {
+                                title() {
+                                  return performanceTab;
                                 },
-                                ticks: {
-                                  beginAtZero: true,
-                                  fontSize: 13,
-                                  fontColor: '#182b49',
-                                  suggestedMin: 50,
-                                  suggestedMax: 80,
-                                  stepSize: 20,
+                                label(t, d) {
+                                  const { yLabel, datasetIndex } = t;
+                                  return `${yLabel}k ${d.datasets[datasetIndex].label}`;
+                                },
+                              },
 
-                                  // padding: 10,
-                                  callback(label) {
-                                    return `${label}k`;
+                              scales: {
+                                yAxes: [
+                                  {
+                                    gridLines: {
+                                      color: '#e5e9f2',
+                                      borderDash: [3, 3],
+                                      zeroLineColor: '#e5e9f2',
+                                      zeroLineWidth: 1,
+                                      zeroLineBorderDash: [3, 3],
+                                    },
+                                    ticks: {
+                                      beginAtZero: true,
+                                      fontSize: 13,
+                                      fontColor: '#182b49',
+                                      suggestedMin: 50,
+                                      suggestedMax: 80,
+                                      stepSize: 20,
+
+                                      // padding: 10,
+                                      callback(label) {
+                                        return `${label}k`;
+                                      },
+                                    },
                                   },
-                                },
+                                ],
+                                xAxes: [
+                                  {
+                                    gridLines: {
+                                      display: true,
+                                      zeroLineWidth: 2,
+                                      zeroLineColor: 'transparent',
+                                      color: 'transparent',
+                                      z: 1,
+                                      tickMarkLength: 0,
+                                    },
+                                    ticks: {
+                                      padding: 10,
+                                    },
+                                  },
+                                ],
                               },
-                            ],
-                            xAxes: [
-                              {
-                                gridLines: {
-                                  display: true,
-                                  zeroLineWidth: 2,
-                                  zeroLineColor: 'transparent',
-                                  color: 'transparent',
-                                  z: 1,
-                                  tickMarkLength: 0,
-                                },
-                                ticks: {
-                                  padding: 10,
-                                },
-                              },
-                            ],
-                          },
-                        }}
-                        height={86}
-                      />
-                      <ul>
-                        {performanceDatasets &&
-                          performanceDatasets.map(item => {
-                            return (
-                              <li className="custom-label">
-                                <span
-                                  style={{
-                                    backgroundColor: item.borderColor,
-                                  }}
-                                />
-                                {item.label}
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    </div>
-                  )}
+                            }
+                          }
+                          }
+                          height={86}
+                        />
+                        <ul>
+                          {performanceDatasets &&
+                            performanceDatasets.map(item => {
+                              return (
+                                <li className="custom-label">
+                                  <span
+                                    style={{
+                                      backgroundColor: item.borderColor,
+                                    }}
+                                  />
+                                  {item.label}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </div>
+                    )}
                 </Cards>
               )}
             </PerformanceChartWrapper>
@@ -829,46 +822,46 @@ const Performance = () => {
                       <Spin />
                     </div>
                   ) : (
-                    <div className="session-chart-inner">
-                      <ChartjsDonutChart
-                        labels={['Desktop', 'Mobiles', 'Tablets']}
-                        datasets={[
-                          {
-                            data: deviceState,
-                            backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
-                            total: '9,283',
-                          },
-                        ]}
-                      />
+                      <div className="session-chart-inner">
+                        <ChartjsDonutChart
+                          labels={['Desktop', 'Mobiles', 'Tablets']}
+                          datasets={[
+                            {
+                              data: deviceState,
+                              backgroundColor: ['#20C997', '#5F63F2', '#FA8B0C'],
+                              total: '9,283',
+                            },
+                          ]}
+                        />
 
-                      <SessionState className="session-wrap d-flex justify-content-center">
-                        <div className="session-single">
-                          <div className="chart-label">
-                            <span className="label-dot dot-success" />
+                        <SessionState className="session-wrap d-flex justify-content-center">
+                          <div className="session-single">
+                            <div className="chart-label">
+                              <span className="label-dot dot-success" />
                             Desktop
                           </div>
-                          <span>{deviceState[0]}</span>
-                          <sub>45%</sub>
-                        </div>
-                        <div className="session-single">
-                          <div className="chart-label">
-                            <span className="label-dot dot-info" />
+                            <span>{deviceState[0]}</span>
+                            <sub>45%</sub>
+                          </div>
+                          <div className="session-single">
+                            <div className="chart-label">
+                              <span className="label-dot dot-info" />
                             Mobile
                           </div>
-                          <span>{deviceState[1]}</span>
-                          <sub>30%</sub>
-                        </div>
-                        <div className="session-single">
-                          <div className="chart-label">
-                            <span className="label-dot dot-warning" />
+                            <span>{deviceState[1]}</span>
+                            <sub>30%</sub>
+                          </div>
+                          <div className="session-single">
+                            <div className="chart-label">
+                              <span className="label-dot dot-warning" />
                             Tablets
                           </div>
-                          <span>{deviceState[1]}</span>
-                          <sub>25%</sub>
-                        </div>
-                      </SessionState>
-                    </div>
-                  )}
+                            <span>{deviceState[1]}</span>
+                            <sub>25%</sub>
+                          </div>
+                        </SessionState>
+                      </div>
+                    )}
                 </Cards>
               )}
             </SessionChartWrapper>
