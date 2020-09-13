@@ -9,7 +9,7 @@ const ProjectRoutes = () => {
   return (
     <Switch>
       <Route path={path} component={Project} />
-      <Route exact path={`${path}/single/:id`} component={ProjectDetails} />
+      <Route exact path={`${path}/projectDetails/:id`} component={ProjectDetails} />
     </Switch>
   );
 };

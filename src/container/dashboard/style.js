@@ -970,6 +970,7 @@ const RevenueWrapper = Styled.div`
     .chart-label{
         justify-content: flex-start;
         margin-bottom: 26px;
+        display: none
     }
 
     >.ant-card{
@@ -1134,48 +1135,45 @@ const Map = Styled.div`
 `;
 
 const ChartContainer = Styled.div`
-
     display: block;
     font-family: "Raleway";
-
-
-
-        .chart-divider {
-            display: block;
-            width: 100%;
-            height: 100px;
-        }
-		.chartjs-tooltip {
-			opacity: 1;
-			position: absolute;
-			background: rgb(255,255,255);
-            box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
-			color: #333;
-			border-radius: 4px;
-            /* padding: 50px; */
-            min-width: 50px;
-            /* min-height: 50px; */
-			-webkit-transition: all 0.5s ease;
-			transition: all 0.5s ease;
-			pointer-events: none;
-			-webkit-transform: translate(-50%, 0);
-			transform: translate(-50%, 5%);
-            z-index: 9999;
-            top: 0;
-            left: 0
-		}
-		.chartjs-tooltip-key {
-			display: inline-block;
-			width: 10px;
-			height: 10px;
-            background: "pink";
-			margin-right: 10px;
-		}
+    .chart-divider {
+        display: block;
+        width: 100%;
+        height: 100px;
+    }
+    .chartjs-tooltip {
+        opacity: 1;
+        position: absolute;
+        background: rgb(255,255,255);
+        box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+        color: #333;
+        border-radius: 4px;
+        /* padding: 50px; */
+        min-width: 50px;
+        /* min-height: 50px; */
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        pointer-events: none;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 5%);
+        z-index: 9999;
+        top: 0;
+        left: 0
+    }
+    .chartjs-tooltip-key {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: "pink";
+        margin-right: 10px;
+    }
     .tooltip-title {
         color: #666;
         font-size: 13px;
         font-weight: 600 !important;
         font-family: "Raleway";
+        text-transform: capitalize;
     }
     .tooltip-value {
         color: #63b963;

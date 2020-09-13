@@ -156,11 +156,11 @@ const Performance = () => {
   } = useSelector(state => {
     return {
       performanceState: state.chartContent.performanceData,
-      deviceState: state.chartContent.deviceData,
       regionState: state.chartContent.regionData,
       landingState: state.chartContent.landingPageData,
       trafficState: state.chartContent.trafficChanelData,
       preIsLoading: state.chartContent.perLoading,
+      deviceState: state.chartContent.deviceData,
       dvIsLoading: state.chartContent.dvLoading,
       lpIsLoading: state.chartContent.lpLoading,
     };
@@ -577,7 +577,7 @@ const Performance = () => {
                   <Pstates>
                     <div
                       onClick={() => onPerformanceTab('users')}
-                      className={performanceTab === 'users' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'users' && 'active'}`}
                       role="button"
                       onKeyPress={() => { }}
                       tabIndex="0"
@@ -594,7 +594,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('sessions')}
-                      className={performanceTab === 'sessions' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'sessions' && 'active'}`}
                       role="button"
                       onKeyPress={() => { }}
                       tabIndex="0"
@@ -611,7 +611,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('bounce')}
-                      className={performanceTab === 'bounce' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-downward ${performanceTab === 'bounce' && 'active'}`}
                       role="button"
                       onKeyPress={() => { }}
                       tabIndex="0"
@@ -628,7 +628,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('duration')}
-                      className={performanceTab === 'duration' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'duration' && 'active'}`}
                       role="button"
                       onKeyPress={() => { }}
                       tabIndex="0"
@@ -659,16 +659,7 @@ const Performance = () => {
                             elements: {
                               z: 9999,
                             },
-                            legend: {
-                              display: false,
-                              position: 'bottom',
-                              align: 'start',
-                              labels: {
-                                boxWidth: 6,
-                                display: true,
-                                usePointStyle: true,
-                              },
-                            },
+
                             hover: {
                               mode: 'index',
                               intersect: false,
@@ -687,56 +678,58 @@ const Performance = () => {
                               custom: customTooltips,
                               callbacks: {
                                 title() {
-                                  return `Users`;
+                                  return performanceTab;
                                 },
                                 label(t, d) {
                                   const { yLabel, datasetIndex } = t;
                                   return `${yLabel}k ${d.datasets[datasetIndex].label}`;
                                 },
                               },
-                            },
-                            scales: {
-                              yAxes: [
-                                {
-                                  gridLines: {
-                                    color: '#e5e9f2',
-                                    borderDash: [3, 3],
-                                    zeroLineColor: '#e5e9f2',
-                                    zeroLineWidth: 1,
-                                    zeroLineBorderDash: [3, 3],
-                                  },
-                                  ticks: {
-                                    beginAtZero: true,
-                                    fontSize: 13,
-                                    fontColor: '#182b49',
-                                    suggestedMin: 50,
-                                    suggestedMax: 80,
-                                    stepSize: 20,
 
-                                    // padding: 10,
-                                    callback(label) {
-                                      return `${label}k`;
+                              scales: {
+                                yAxes: [
+                                  {
+                                    gridLines: {
+                                      color: '#e5e9f2',
+                                      borderDash: [3, 3],
+                                      zeroLineColor: '#e5e9f2',
+                                      zeroLineWidth: 1,
+                                      zeroLineBorderDash: [3, 3],
+                                    },
+                                    ticks: {
+                                      beginAtZero: true,
+                                      fontSize: 13,
+                                      fontColor: '#182b49',
+                                      suggestedMin: 50,
+                                      suggestedMax: 80,
+                                      stepSize: 20,
+
+                                      // padding: 10,
+                                      callback(label) {
+                                        return `${label}k`;
+                                      },
                                     },
                                   },
-                                },
-                              ],
-                              xAxes: [
-                                {
-                                  gridLines: {
-                                    display: true,
-                                    zeroLineWidth: 2,
-                                    zeroLineColor: 'transparent',
-                                    color: 'transparent',
-                                    z: 1,
-                                    tickMarkLength: 0,
+                                ],
+                                xAxes: [
+                                  {
+                                    gridLines: {
+                                      display: true,
+                                      zeroLineWidth: 2,
+                                      zeroLineColor: 'transparent',
+                                      color: 'transparent',
+                                      z: 1,
+                                      tickMarkLength: 0,
+                                    },
+                                    ticks: {
+                                      padding: 10,
+                                    },
                                   },
-                                  ticks: {
-                                    padding: 10,
-                                  },
-                                },
-                              ],
-                            },
-                          }}
+                                ],
+                              },
+                            }
+                          }
+                          }
                           height={86}
                         />
                         <ul>
