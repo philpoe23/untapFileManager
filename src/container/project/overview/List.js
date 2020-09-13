@@ -44,7 +44,7 @@ const List = () => {
         project: (
           <ProjectListTitle>
             <Heading as="h4">
-              <Link to={`/admin/project/single/${id}`}>{title}</Link>
+              <Link to={`/admin/project/projectDetails/${id}`}>{title}</Link>
             </Heading>
 
             <p>{category}</p>

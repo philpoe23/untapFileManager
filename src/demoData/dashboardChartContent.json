@@ -726,6 +726,7 @@
     }
   },
   "device": {
+    "today": [83, 70, 20],
     "week": [483, 870, 420],
     "month": [4483, 5870, 2420],
     "year": [9483, 13870, 15420]
@@ -757,6 +758,435 @@
       ["India", 7242],
       ["Bangladesh", 974],
       ["Brazil", 710]
+    ]
+  },
+  "generated": {
+    "week": [
+      {
+        "key": "1",
+        "name": "Google",
+        "visitors": "3,397",
+        "page_View": "2,201",
+        "revenue": "$536",
+        "trend": {
+          "data": [0, 10, 8, 14, 7, 10],
+          "borderColor": "#5F63F2"
+        }
+      },
+      {
+        "key": "2",
+        "name": "Facebook",
+        "visitors": "4,456",
+        "page_View": "2,101",
+        "revenue": "$745",
+        "trend": {
+          "data": [10, 7, 14, 8, 5, 11],
+          "borderColor": "#FF69A5"
+        }
+      },
+      {
+        "key": "3",
+        "name": "Email marketing",
+        "visitors": "5,148",
+        "page_View": "9,105",
+        "revenue": "$256",
+        "trend": {
+          "data": [7, 11, 5, 3, 7, 9],
+          "borderColor": "#20C997"
+        }
+      },
+      {
+        "key": "4",
+        "name": "Direct website",
+        "visitors": "6,954",
+        "page_View": "7,358",
+        "revenue": "$852",
+        "trend": {
+          "data": [10, 5, 9, 6, 11, 7],
+          "borderColor": "#2C99FF"
+        }
+      },
+      {
+        "key": "5",
+        "name": "Referral",
+        "visitors": "9,963",
+        "page_View": "5,741",
+        "revenue": "$159",
+        "trend": {
+          "data": [5, 15, 6, 21, 9, 16],
+          "borderColor": "#FA8B0C"
+        }
+      }
+    ],
+    "month": [
+      {
+        "key": "1",
+        "name": "Google",
+        "visitors": "23,397",
+        "page_View": "12,201",
+        "revenue": "$5,536",
+        "trend": {
+          "data": [0, 10, 8, 14, 7, 10],
+          "borderColor": "#5F63F2"
+        }
+      },
+      {
+        "key": "2",
+        "name": "Facebook",
+        "visitors": "14,456",
+        "page_View": "12,101",
+        "revenue": "$4,745",
+        "trend": {
+          "data": [10, 7, 14, 8, 5, 11],
+          "borderColor": "#FF69A5"
+        }
+      },
+      {
+        "key": "3",
+        "name": "Email marketing",
+        "visitors": "45,148",
+        "page_View": "19,105",
+        "revenue": "$8,256",
+        "trend": {
+          "data": [7, 11, 5, 3, 7, 9],
+          "borderColor": "#20C997"
+        }
+      },
+      {
+        "key": "4",
+        "name": "Direct website",
+        "visitors": "26,954",
+        "page_View": "17,358",
+        "revenue": "$9,852",
+        "trend": {
+          "data": [10, 5, 9, 6, 11, 7],
+          "borderColor": "#2C99FF"
+        }
+      },
+      {
+        "key": "5",
+        "name": "Referral",
+        "visitors": "89,963",
+        "page_View": "75,741",
+        "revenue": "$11,159",
+        "trend": {
+          "data": [5, 15, 6, 21, 9, 16],
+          "borderColor": "#FA8B0C"
+        }
+      }
+    ],
+    "year": [
+      {
+        "key": "1",
+        "name": "Google",
+        "visitors": "93,397",
+        "page_View": "82,201",
+        "revenue": "$9,536",
+        "trend": {
+          "data": [0, 10, 8, 14, 7, 10],
+          "borderColor": "#5F63F2"
+        }
+      },
+      {
+        "key": "2",
+        "name": "Facebook",
+        "visitors": "74,456",
+        "page_View": "62,101",
+        "revenue": "$9,745",
+        "trend": {
+          "data": [10, 7, 14, 8, 5, 11],
+          "borderColor": "#FF69A5"
+        }
+      },
+      {
+        "key": "3",
+        "name": "Email marketing",
+        "visitors": "95,148",
+        "page_View": "59,105",
+        "revenue": "$10,256",
+        "trend": {
+          "data": [7, 11, 5, 3, 7, 9],
+          "borderColor": "#20C997"
+        }
+      },
+      {
+        "key": "4",
+        "name": "Direct website",
+        "visitors": "86,954",
+        "page_View": "37,358",
+        "revenue": "$10,852",
+        "trend": {
+          "data": [10, 5, 9, 6, 11, 7],
+          "borderColor": "#2C99FF"
+        }
+      },
+      {
+        "key": "5",
+        "name": "Referral",
+        "visitors": "100,963",
+        "page_View": "100,741",
+        "revenue": "$91,159",
+        "trend": {
+          "data": [5, 15, 6, 21, 9, 16],
+          "borderColor": "#FA8B0C"
+        }
+      }
+    ]
+  },
+  "topSale": {
+    "today": [
+      {
+        "key": "1",
+        "name": "Samsung Galaxy S8 256GB",
+        "price": "$280",
+        "sold": "26",
+        "revenue": "$536"
+      },
+      {
+        "key": "2",
+        "name": "Half Sleeve Shirt",
+        "price": "$39",
+        "sold": "80",
+        "revenue": "$573"
+      },
+      {
+        "key": "3",
+        "name": "Marco Shoes",
+        "price": "$89",
+        "sold": "81",
+        "revenue": "$758"
+      },
+      {
+        "key": "4",
+        "name": "Marco Shoes",
+        "price": "$32",
+        "sold": "51",
+        "revenue": "$8,105"
+      },
+      {
+        "key": "5",
+        "name": "15\" MackBook Pro",
+        "price": "$950",
+        "sold": "45",
+        "revenue": "$5,154"
+      }
+    ],
+    "week": [
+      {
+        "key": "1",
+        "name": "Samsung Galaxy S8 256GB",
+        "price": "$280",
+        "sold": "126",
+        "revenue": "$38,536"
+      },
+      {
+        "key": "2",
+        "name": "Half Sleeve Shirt",
+        "price": "$39",
+        "sold": "180",
+        "revenue": "$20,573"
+      },
+      {
+        "key": "3",
+        "name": "Marco Shoes",
+        "price": "$89",
+        "sold": "581",
+        "revenue": "$170,758"
+      },
+      {
+        "key": "4",
+        "name": "Marco Shoes",
+        "price": "$32",
+        "sold": "451",
+        "revenue": "$258,105"
+      },
+      {
+        "key": "5",
+        "name": "15\" MackBook Pro",
+        "price": "$950",
+        "sold": "745",
+        "revenue": "$745,154"
+      }
+    ],
+    "month": [
+      {
+        "key": "1",
+        "name": "Samsung Galaxy S8 256GB",
+        "price": "$280",
+        "sold": "526",
+        "revenue": "$78,536"
+      },
+      {
+        "key": "2",
+        "name": "Half Sleeve Shirt",
+        "price": "$39",
+        "sold": "680",
+        "revenue": "$50,573"
+      },
+      {
+        "key": "3",
+        "name": "Marco Shoes",
+        "price": "$89",
+        "sold": "981",
+        "revenue": "$570,758"
+      },
+      {
+        "key": "4",
+        "name": "Marco Shoes",
+        "price": "$32",
+        "sold": "951",
+        "revenue": "$658,105"
+      },
+      {
+        "key": "5",
+        "name": "15\" MackBook Pro",
+        "price": "$950",
+        "sold": "1045",
+        "revenue": "$945,154"
+      }
+    ],
+    "year": [
+      {
+        "key": "1",
+        "name": "Samsung Galaxy S8 256GB",
+        "price": "$280",
+        "sold": "2026",
+        "revenue": "$308,536"
+      },
+      {
+        "key": "2",
+        "name": "Half Sleeve Shirt",
+        "price": "$39",
+        "sold": "1180",
+        "revenue": "$200,573"
+      },
+      {
+        "key": "3",
+        "name": "Marco Shoes",
+        "price": "$89",
+        "sold": "2581",
+        "revenue": "$1070,758"
+      },
+      {
+        "key": "4",
+        "name": "Marco Shoes",
+        "price": "$32",
+        "sold": "3451",
+        "revenue": "$2508,105"
+      },
+      {
+        "key": "5",
+        "name": "15\" MackBook Pro",
+        "price": "$950",
+        "sold": "3745",
+        "revenue": "$7045,154"
+      }
+    ]
+  },
+  "location": {
+    "today": [
+      {
+        "key": "1",
+        "location": "United States",
+        "order": "97",
+        "revenue": "$536"
+      },
+      {
+        "key": "2",
+        "location": "United Kingdom",
+        "order": "20",
+        "revenue": "$748"
+      },
+      {
+        "key": "3",
+        "location": "Canada",
+        "order": "10",
+        "revenue": "$415"
+      },
+      {
+        "key": "4",
+        "location": "China",
+        "order": "18",
+        "revenue": "$963"
+      }
+    ],
+    "week": [
+      {
+        "key": "1",
+        "location": "United States",
+        "order": "397",
+        "revenue": "$38,536"
+      },
+      {
+        "key": "2",
+        "location": "United Kingdom",
+        "order": "420",
+        "revenue": "$45,748"
+      },
+      {
+        "key": "3",
+        "location": "Canada",
+        "order": "210",
+        "revenue": "$96,415"
+      },
+      {
+        "key": "4",
+        "location": "China",
+        "order": "108",
+        "revenue": "$25,963"
+      }
+    ],
+    "month": [
+      {
+        "key": "1",
+        "location": "United States",
+        "order": "797",
+        "revenue": "$78,536"
+      },
+      {
+        "key": "2",
+        "location": "United Kingdom",
+        "order": "920",
+        "revenue": "$95,748"
+      },
+      {
+        "key": "3",
+        "location": "Canada",
+        "order": "710",
+        "revenue": "$100,415"
+      },
+      {
+        "key": "4",
+        "location": "China",
+        "order": "608",
+        "revenue": "$95,963"
+      }
+    ],
+    "year": [
+      {
+        "key": "1",
+        "location": "United States",
+        "order": "1397",
+        "revenue": "$308,536"
+      },
+      {
+        "key": "2",
+        "location": "United Kingdom",
+        "order": "1420",
+        "revenue": "$405,748"
+      },
+      {
+        "key": "3",
+        "location": "Canada",
+        "order": "1210",
+        "revenue": "$100,415"
+      },
+      {
+        "key": "4",
+        "location": "China",
+        "order": "1508",
+        "revenue": "$250,963"
+      }
     ]
   }
 }

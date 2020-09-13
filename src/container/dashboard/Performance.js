@@ -156,11 +156,11 @@ const Performance = () => {
   } = useSelector(state => {
     return {
       performanceState: state.chartContent.performanceData,
-      deviceState: state.chartContent.deviceData,
       regionState: state.chartContent.regionData,
       landingState: state.chartContent.landingPageData,
       trafficState: state.chartContent.trafficChanelData,
       preIsLoading: state.chartContent.perLoading,
+      deviceState: state.chartContent.deviceData,
       dvIsLoading: state.chartContent.dvLoading,
       lpIsLoading: state.chartContent.lpLoading,
     };
@@ -577,7 +577,7 @@ const Performance = () => {
                   <Pstates>
                     <div
                       onClick={() => onPerformanceTab('users')}
-                      className={performanceTab === 'users' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'users' && 'active'}`}
                       role="button"
                       onKeyPress={() => {}}
                       tabIndex="0"
@@ -594,7 +594,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('sessions')}
-                      className={performanceTab === 'sessions' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'sessions' && 'active'}`}
                       role="button"
                       onKeyPress={() => {}}
                       tabIndex="0"
@@ -611,7 +611,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('bounce')}
-                      className={performanceTab === 'bounce' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-downward ${performanceTab === 'bounce' && 'active'}`}
                       role="button"
                       onKeyPress={() => {}}
                       tabIndex="0"
@@ -628,7 +628,7 @@ const Performance = () => {
                     </div>
                     <div
                       onClick={() => onPerformanceTab('duration')}
-                      className={performanceTab === 'duration' ? 'growth-downward' : 'growth-upward'}
+                      className={`growth-upward ${performanceTab === 'duration' && 'active'}`}
                       role="button"
                       onKeyPress={() => {}}
                       tabIndex="0"
@@ -687,7 +687,7 @@ const Performance = () => {
                             custom: customTooltips,
                             callbacks: {
                               title() {
-                                return `Users`;
+                                return performanceTab;
                               },
                               label(t, d) {
                                 const { yLabel, datasetIndex } = t;

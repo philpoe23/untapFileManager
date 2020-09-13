@@ -12,6 +12,9 @@ import {
   trafficChanel,
   device,
   region,
+  generated,
+  topSale,
+  location,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -70,6 +73,18 @@ const {
   regionBegin,
   regionSuccess,
   regionErr,
+
+  generatedBegin,
+  generatedSuccess,
+  generatedErr,
+
+  topSaleBegin,
+  topSaleSuccess,
+  topSaleErr,
+
+  locationBegin,
+  locationSuccess,
+  locationErr,
 } = actions;
 
 const forcastOverviewGetData = () => {
@@ -410,7 +425,88 @@ const regionFilterData = value => {
   };
 };
 
+const generatedGetData = () => {
+  return async dispatch => {
+    const { year } = generated;
+    try {
+      dispatch(generatedBegin());
+      dispatch(generatedSuccess(year));
+    } catch (err) {
+      dispatch(generatedErr(err));
+    }
+  };
+};
+
+const generatedFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(generatedBegin());
+      setTimeout(() => {
+        dispatch(generatedSuccess(generated[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(generatedErr(err));
+    }
+  };
+};
+
+const topSaleGetData = () => {
+  return async dispatch => {
+    const { year } = topSale;
+    try {
+      dispatch(topSaleBegin());
+      dispatch(topSaleSuccess(year));
+    } catch (err) {
+      dispatch(topSaleErr(err));
+    }
+  };
+};
+
+const topSaleFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(topSaleBegin());
+      setTimeout(() => {
+        dispatch(topSaleSuccess(topSale[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(topSaleErr(err));
+    }
+  };
+};
+
+const locationGetData = () => {
+  return async dispatch => {
+    const { today } = location;
+    try {
+      dispatch(locationBegin());
+      dispatch(locationSuccess(today));
+    } catch (err) {
+      dispatch(locationErr(err));
+    }
+  };
+};
+
+const locationFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(locationBegin());
+      setTimeout(() => {
+        dispatch(locationSuccess(location[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(locationErr(err));
+    }
+  };
+};
+
 export {
+  locationGetData,
+  locationFilterData,
+  topSaleGetData,
+  topSaleFilterData,
+  generatedFilterData,
+  generatedGetData,
   regionGetData,
   regionFilterData,
   landingPageFilterData,
