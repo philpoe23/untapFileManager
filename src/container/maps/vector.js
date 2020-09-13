@@ -10,22 +10,22 @@ import config from '../../config/config';
 const { theme } = config;
 
 const VectorMaps = () => {
-    return (
-        <>
-            <PageHeader title="Vector Maps" />
-            <Main>
-                <Row gutter={25}>
-                    <Col xs={24}>
-                        <div className="vertor-map">
-                            <Cards title="World Map" size="large">
-                                <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
-                            </Cards>
-                        </div>
-                    </Col>
-                </Row>
-            </Main>
-        </>
-    );
+  return (
+    <>
+      <PageHeader title="Vector Maps" />
+      <Main>
+        <Row gutter={25}>
+          <Col xs={24}>
+            <div className="vertor-map">
+              <Cards title="World Map" size="large">
+                <VectorMap {...worldLowRes} fill={theme['primary-color']} stroke="white" />
+              </Cards>
+            </div>
+          </Col>
+        </Row>
+      </Main>
+    </>
+  );
 };
 
 export default VectorMaps;
