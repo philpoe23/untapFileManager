@@ -49,6 +49,10 @@ const EditProduct = () => {
     },
     listType: 'picture',
     defaultFileList: fileList,
+    showUploadList: {
+      showRemoveIcon: true,
+      removeIcon: <FeatherIcon icon="trash-2" onClick={e => console.log(e, 'custom removeIcon event')} />,
+    },
   };
 
   const handleSubmit = values => {
@@ -164,7 +168,7 @@ const EditProduct = () => {
                             <Col xs={24}>
                               <div className="add-product-content">
                                 <Cards title="Product Image">
-                                  <Dragger fileUploadProps={fileUploadProps}>
+                                  <Dragger {...fileUploadProps}>
                                     <p className="ant-upload-drag-icon">
                                       <FeatherIcon icon="upload" size={50} />
                                     </p>
@@ -175,17 +179,6 @@ const EditProduct = () => {
                                   </Dragger>
                                 </Cards>
                               </div>
-                              <Cards title="Product Image">
-                                <Dragger {...fileUploadProps}>
-                                  <p className="ant-upload-drag-icon">
-                                    <FeatherIcon icon="upload" size={50} />
-                                  </p>
-                                  <Heading as="h4" className="ant-upload-text">
-                                    Drag and drop an image
-                                  </Heading>
-                                  <p className="ant-upload-hint">or Browse to choose a file</p>
-                                </Dragger>
-                              </Cards>
                             </Col>
                           </Row>
                         </div>

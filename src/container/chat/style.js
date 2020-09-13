@@ -33,8 +33,11 @@ const UL = Styled.ul`
 
 const Content = Styled.div`
   height: 755px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  ul{
+    overflow-x: hidden;
+  }
   .chat-link-signle{
     position: relative;
     background: #fff;
@@ -118,6 +121,11 @@ const SingleChatWrapper = Styled.div`
       }
     }
   }
+  >.ant-card{
+    .ant-card-body{
+      padding-right: 0 !important;
+    }
+  }
   .ant-card-head{
     padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
@@ -197,7 +205,7 @@ const SingleChatWrapper = Styled.div`
 
   .atbd-chatbox{
     height: 700px;
-    overflow-y: scroll;
+    overflow-y: auto;
     .time-connector{
       position: relative;
       z-index: 10;
@@ -222,6 +230,7 @@ const SingleChatWrapper = Styled.div`
       }
     }
     .atbd-chatbox__single{
+      padding-right: 25px;
       &:not(:last-child){
         margin-bottom: 30px;
       }
@@ -362,7 +371,7 @@ const Footer = Styled.div`
         background: ${({ theme }) => theme['bg-color-normal']};
         &::placeholder{
           font-size: 14px;
-          color: ${({ theme }) => theme['gray-color']};
+          color: ${({ theme }) => theme['light-color']};
         }
         &:focus{
           border: 0 none;

@@ -53,7 +53,13 @@ const Users = () => {
           subTitle={
             <>
               <span className="title-counter">274 Users </span>
-              <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
+              <AutoComplete
+                onSearch={handleSearch}
+                dataSource={notData}
+                placeholder="Search by Name"
+                width="100%"
+                patterns
+              />
             </>
           }
           buttons={[

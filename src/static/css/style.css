@@ -380,7 +380,7 @@ ul {
 }
 
 .ant-btn-white:focus {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .ant-btn-link {
@@ -487,10 +487,6 @@ ul {
 
 .ant-picker-calendar-header .ant-select-selection-search-input {
   height: 30px !important;
-}
-
-.ant-input-affix-wrapper>input.ant-input {
-  padding-left: 0 !important;
 }
 
 .ant-select-single .ant-select-selector .ant-select-selection-item {
@@ -1154,6 +1150,7 @@ ul {
 
 .ant-tooltip-placement-bottom .ant-tooltip-arrow .ant-tooltip-arrow-content {
   border: 1px solid #F1F2F6;
+  box-shadow: 0 0;
 }
 
 .ant-tooltip-placement-bottom .ant-tooltip-arrow {
@@ -1860,10 +1857,10 @@ ul {
 }
 
 /* card spin loader */
-.ant-card-body div{
+.spin{
   position: relative;
 }
-.ant-card-body div .ant-spin{
+.spin .ant-spin{
   display: absolute;
   left: 50%;
   top: 50%;

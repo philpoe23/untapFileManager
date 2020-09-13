@@ -61,8 +61,8 @@ const Badges = () => {
   return (
     <>
       <PageHeader
-      ghost
-      title="Badge"
+        ghost
+        title="Badge"
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />

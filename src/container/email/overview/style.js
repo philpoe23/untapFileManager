@@ -764,6 +764,23 @@ const MessageDetails = Styled.div`
     svg{
       width: 16px;
     }
+    a{
+      i{
+        font-size: 16px;
+      }
+      &.starDeactivate{
+        i:before{
+          content: "\f31b";
+        }
+      }
+      &.starActive{
+        color: ${({ theme }) => theme['warning-color']};
+        i:before{
+          content: "\f318";
+
+        }
+      }
+    }
   }
 
   .message-body{

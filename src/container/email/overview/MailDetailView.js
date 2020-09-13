@@ -10,6 +10,7 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
 import { filterSinglePage, onStarUpdate } from '../../../redux/email/actionCreator';
 import { Cards } from '../../../components/cards/frame/cards-frame';
+import { StarIcon } from 'react-line-awesome';
 
 const MailComposer = lazy(() => import('./MailComposer'));
 
@@ -149,7 +150,7 @@ const Single = props => {
                     onClick={() => onStaredChange(email.id)}
                     to="#"
                   >
-                    <FeatherIcon icon="star" />
+                    <StarIcon />
                   </Link>
                   <Link to="#">
                     <FeatherIcon icon="corner-up-left" />
@@ -262,8 +263,12 @@ const Single = props => {
                 <div className="reply-view__meta">
                   <span className="meta-list">
                     <span className="date-meta">Jan 2, 2020, 5:22 PM</span>
-                    <Link>
-                      <FeatherIcon icon="star" />
+                    <Link
+                      className={email.stared ? 'starActive' : 'starDeactivate'}
+                      onClick={() => onStaredChange(email.id)}
+                      to="#"
+                    >
+                      <StarIcon />
                     </Link>
                     <Link>
                       <FeatherIcon icon="more-vertical" />

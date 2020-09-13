@@ -11,6 +11,7 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { onStarUpdate } from '../../../redux/email/actionCreator';
+import { StarIcon } from 'react-line-awesome';
 
 const Content = ({ searchData, email }) => {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Content = ({ searchData, email }) => {
               to="#"
               className={stared ? 'starActive' : 'starDeactivate'}
             >
-              <FeatherIcon icon="star" size={18} />
+              <StarIcon />
             </Link>
             <img src={img} alt="" />
             <Heading as="h5">

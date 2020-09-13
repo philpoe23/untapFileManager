@@ -48,6 +48,7 @@ const Switches = () => {
                 <Switch checkedChildren="1" unCheckedChildren="0" />
                 <br />
                 <Switch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} defaultChecked />
+                <Switch defaultChecked />
               </div>
             </Cards>
           </Col>

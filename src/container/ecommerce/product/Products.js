@@ -75,7 +75,13 @@ const Product = () => {
             <TopToolBox>
               <Row gutter={0}>
                 <Col xxl={7} lg={12} xs={24}>
-                  <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
+                  <AutoComplete
+                    onSearch={handleSearch}
+                    dataSource={notData}
+                    placeholder="Search"
+                    width="100%"
+                    patterns
+                  />
                 </Col>
                 <Col xxl={7} lg={12} xs={24}>
                   <p className="search-result">Showing 1–8 of 86 results</p>

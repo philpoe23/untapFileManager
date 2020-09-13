@@ -20,7 +20,6 @@ const ProjectHeader = Styled.div`
 
 const ProjectSorting = Styled.div`
     margin-bottom: 25px;
-
     .project-sort-bar{
         display: flex;
         flex-wrap: wrap;
@@ -127,7 +126,7 @@ const ProjectSorting = Styled.div`
                 }
                 a{
                     color: ${({ theme }) => theme['gray-solid']};
-                    font-weight: 500;
+                    font-weight: 400;
                 }
                 &.active{
                     a{
@@ -272,8 +271,9 @@ const ProjectCard = Styled.div`
                 display: block;
             }
             span{
-                color: ${({ theme }) => theme['gray-solid']};
                 font-size: 12px;
+                margin-bottom: 2px;
+                color: ${({ theme }) => theme['gray-solid']};
             }
             strong{
                 font-weight: 500;
@@ -282,7 +282,7 @@ const ProjectCard = Styled.div`
     }
     .project-progress{
         p{
-            margin: 0;
+            margin: 2px 0 0 0;
             color: ${({ theme }) => theme['gray-solid']};
             font-size: 12px;
         }
@@ -372,6 +372,22 @@ const ProjectList = Styled.div`
     .date-started,
     .date-finished{
         font-weight: 500;
+    }
+    .ant-table{
+        .ant-table-thead{
+            th{
+                background-color: ${({ theme }) => theme['bg-color-light']};
+            }
+        }
+        .ant-table-tbody{
+            tr{
+                &:hover{
+                    td{
+                        background-color: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+            }
+        }
     }
     .ant-table-container table > thead > tr th{
         font-weight: 400;
