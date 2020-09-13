@@ -27,7 +27,7 @@ const Product = () => {
     active: 'active',
   });
 
-  const { notData, active } = state;
+  const { notData } = state;
 
   const handleSearch = searchText => {
     const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -93,14 +93,10 @@ const Product = () => {
                     </div>
 
                     <div className="product-list-action__viewmode">
-                      <NavLink
-                        onClick={() => setState({ ...state, active: '' })}
-                        className={active}
-                        to={`${path}/grid`}
-                      >
+                      <NavLink to={`${path}/grid`}>
                         <FeatherIcon icon="grid" size={16} />
                       </NavLink>
-                      <NavLink onClick={() => setState({ ...state, active: '' })} to={`${path}/list`}>
+                      <NavLink to={`${path}/list`}>
                         <FeatherIcon icon="list" size={16} />
                       </NavLink>
                     </div>
