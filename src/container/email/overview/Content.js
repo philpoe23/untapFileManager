@@ -24,6 +24,7 @@ const Content = ({ searchData, email }) => {
   useEffect(() => {
     setState({
       emails: email,
+      selectedRowKeys
     });
   }, [email]);
 
@@ -86,11 +87,11 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
-                    <FeatherIcon icon="paperclip" size={14} />
-                    {item}
-                  </a>
-                ))
+                <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
+                  <FeatherIcon icon="paperclip" size={14} />
+                  {item}
+                </a>
+              ))
               : null}
           </EmailHeader>
         ),
@@ -118,7 +119,7 @@ const Content = ({ searchData, email }) => {
   };
 
   const onSelectChange = selectedRowKey => {
-    setState({ ...state, selectedRowKey });
+    setState({ ...state, selectedRowKeys: selectedRowKey });
   };
 
   const rowSelection = {

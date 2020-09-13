@@ -40,6 +40,7 @@ const Orders = () => {
     if (orders) {
       setState({
         item: orders,
+        selectedRowKeys: selectedRowKeys
       });
     }
   }, [orders]);
@@ -68,7 +69,7 @@ const Orders = () => {
           <span
             className={`status ${
               status === 'Shipped' ? 'Success' : status === 'Awaiting Shipment' ? 'warning' : 'error'
-            }`}
+              }`}
           >
             {status}
           </span>
@@ -128,13 +129,15 @@ const Orders = () => {
   ];
 
   const onSelectChange = selectedRowKey => {
-    setState({ ...state, selectedRowKey });
+    setState({ ...state, selectedRowKeys: selectedRowKey });
   };
 
   const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
+    onChange: (selectedRowKeys, selectedRows) => {
+      onSelectChange(selectedRowKeys);
+    },
   };
+
 
   return (
     <>
