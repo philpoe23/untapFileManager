@@ -43,7 +43,7 @@ const Orders = () => {
         selectedRowKeys: selectedRowKeys
       });
     }
-  }, [orders]);
+  }, [orders, selectedRowKeys]);
 
   const handleSearch = searchText => {
     const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));

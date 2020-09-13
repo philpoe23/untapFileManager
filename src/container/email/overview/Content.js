@@ -26,7 +26,7 @@ const Content = ({ searchData, email }) => {
       emails: email,
       selectedRowKeys
     });
-  }, [email]);
+  }, [email, selectedRowKeys]);
 
   const handleSearch = searchText => {
     const data =

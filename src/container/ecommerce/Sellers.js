@@ -34,7 +34,7 @@ const Sellers = () => {
         selectedRowKeys
       });
     }
-  }, [sellers]);
+  }, [sellers, selectedRowKeys]);
 
   const handleSearch = searchText => {
     const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
