@@ -1860,7 +1860,7 @@ ul {
 }
 
 /* card spin loader */
-.ant-card-body div{
+.ant-card-body > div{
   position: relative;
 }
 .ant-card-body div .ant-spin{

@@ -440,11 +440,7 @@ const OverviewCard = Styled.div`
     overflow: hidden;
     position: relative;
     z-index: 0;
-<<<<<<< HEAD
     margin-bottom: 30px;
-=======
-    margin-bottom: 25px;
->>>>>>> de390a64501acdf58635568e3970278bd1e2f477
     &:before{
         position: absolute;
         content: '';
@@ -1150,7 +1146,7 @@ const ChartContainer = Styled.div`
         color: #333;
         border-radius: 4px;
         /* padding: 50px; */
-        min-width: 50px;
+        min-width: 60px;
         /* min-height: 50px; */
         -webkit-transition: all 0.5s ease;
         transition: all 0.5s ease;
@@ -1160,6 +1156,16 @@ const ChartContainer = Styled.div`
         z-index: 9999;
         top: 0;
         left: 0
+        &:before {
+            position: absolute;
+            content: '';
+            border-bottom: 5px solid #fff;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
     .chartjs-tooltip-key {
         display: inline-block;

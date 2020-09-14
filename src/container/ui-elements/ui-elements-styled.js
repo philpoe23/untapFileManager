@@ -225,7 +225,7 @@ const BadgeDynamicStyle = Styled.div`
   height: 22px;
   margin-left: 15px;
   .ant-switch-handle{
-    top: 0px;    
+    top: 4px;
   }
   .ant-switch-checked .ant-switch-handle{
     left: calc(100% - 14px - 5px);
