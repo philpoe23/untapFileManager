@@ -15,11 +15,11 @@ const {
   sortingProductErr,
 } = actions;
 
-const filterSinglePage = paramsId => {
+const filterSinglePage = (paramsId, currentState) => {
   return async dispatch => {
     try {
       dispatch(singleProductBegin());
-      const data = initialState.filter(product => {
+      const data = currentState.filter(product => {
         return product.id === paramsId;
       });
       dispatch(singleProductSuccess(data));
