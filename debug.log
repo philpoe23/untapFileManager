@@ -1,2 +1,6 @@
 [0520/135031.963:ERROR:settings.cc(320)] Settings magic is not 1129342067
+<<<<<<< HEAD
 [0902/095037.778:ERROR:settings.cc(320)] Settings magic is not 1129342067
+=======
+[0529/091056.921:ERROR:settings.cc(320)] Settings magic is not 1129342067
+>>>>>>> ef1d2502ff988aa069a2d57e1add658a6d80edce
