@@ -457,7 +457,7 @@ const Dashboard = () => {
                     size="large"
                   >
                     {foIsLoading ? (
-                      <div>
+                      <div className="sd-spin">
                         <Spin />
                       </div>
                     ) : (
@@ -655,7 +655,7 @@ const Dashboard = () => {
                 size="large"
               >
                 {yuIsLoading ? (
-                  <div>
+                  <div className="sd-spin">
                     <Spin />
                   </div>
                 ) : (
@@ -792,7 +792,7 @@ const Dashboard = () => {
                   size="large"
                 >
                   {twIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (
@@ -982,7 +982,7 @@ const Dashboard = () => {
                   size="large"
                 >
                   {inIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (
@@ -1172,7 +1172,7 @@ const Dashboard = () => {
                   size="large"
                 >
                   {liIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (

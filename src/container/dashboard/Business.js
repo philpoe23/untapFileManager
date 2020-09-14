@@ -288,7 +288,7 @@ const Business = () => {
                 more={moreContent}
               >
                 {cfIsLoading ? (
-                  <div>
+                  <div className="sd-spin">
                     <Spin />
                   </div>
                 ) : (
@@ -432,7 +432,7 @@ const Business = () => {
                   more={moreContent}
                 >
                   {isIcLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (

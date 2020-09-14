@@ -24,7 +24,7 @@ const DropdownIconStyleWrapper = Styled.div`
     display: inline-flex;
     align-items: center;
     padding: 0 8px;
-    border-left: 1px solid ${({ theme }) => theme['border-color-normal']}
+    border-left: 1px solid ${({ theme }) => theme['border-color-normal']};
   }
 `;
 

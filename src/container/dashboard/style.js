@@ -698,6 +698,7 @@ const RegionMap = Styled.div`
     text-align: center;
     height: 100%;
     margin-top: 25px;
+    padding-left: 20px;
     svg{
         height: 230px;
         margin: 0 auto;

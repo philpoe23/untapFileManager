@@ -213,7 +213,7 @@ const ShoppingCart = () => {
                               <>
                                 <ProductTable>
                                   {isLoading ? (
-                                    <div>
+                                    <div className="sd-spin">
                                       <Spin />
                                     </div>
                                   ) : (
