@@ -12,17 +12,20 @@ const TabColor = colors => `
     margin: 0;
   }
   .ant-tabs-nav{
-    color: #fff;
+    color : ${({ color }) =>
+      color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
   }
   .ant-tabs-nav .ant-tabs-tab:hover, .ant-tabs-nav .ant-tabs-tab:focus {
     //background : ${colors !== 'default' && colors};
     color : ${({ color }) =>
-      color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? color : '#000000'};
+      color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
   }
   .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
     border: none;
     border-radius: 3px;
-    background : ${colors !== 'default' && colors};
+    background : ${colors !== 'default' && colors};    
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
     color : ${
       colors !== 'default' && colors !== '#ffffff' && colors !== '#fff' && colors !== 'white' ? '#ffffff' : '#000000'
     };
@@ -50,7 +53,8 @@ const TabBasic = Styled(Tabs)`
 `;
 
 const Child = Styled(TabPane)` 
-    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
+    /* background: ${({ color }) =>
+      color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'}; */
     ${({ color }) => color && TabChildColor(color)}
 `;
 
