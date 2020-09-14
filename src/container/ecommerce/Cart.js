@@ -1,8 +1,8 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Row, Col, Table, Form, Input, Select, Spin } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { FigureCart, ProductTable, CouponForm, OrderSummary } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -12,109 +12,109 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { cartGetData, cartUpdateQuantity, cartDelete } from '../../redux/cart/actionCreator';
 
 const Checkout = lazy(() => import('./overview/CheckOut'));
 
 const ShoppingCart = () => {
+  const dispatch = useDispatch();
+  const { cartData, isLoading } = useSelector(state => {
+    return {
+      cartData: state.cart.data,
+      isLoading: state.cart.loading,
+    };
+  });
   const { path, isExact } = useRouteMatch();
   const [form] = Form.useForm();
   const [state, setState] = useState({
     coupon: 0,
     promo: 0,
+    current: 0,
   });
 
-  const productTableData = [
-    {
-      key: '1',
-      product: (
-        <div className="cart-single">
-          <FigureCart>
-            <img style={{ width: 80 }} src={require('../../static/img/products/1.png')} alt="" />
-            <figcaption>
-              <div className="cart-single__info">
-                <Heading as="h6">Fiber Base Chair</Heading>
-                <ul className="info-list">
-                  <li>
-                    <span className="info-title">Size :</span>
-                    <span>Large</span>
-                  </li>
-                  <li>
-                    <span className="info-title"> Color :</span>
-                    <span>Brown</span>
-                  </li>
-                </ul>
-              </div>
-            </figcaption>
-          </FigureCart>
-        </div>
-      ),
-      price: <span className="cart-single-price">$248.66</span>,
-      quantity: (
-        <div className="cart-single-quantity">
-          <Button className="btn-dec" type="default">
-            <FeatherIcon icon="minus" size={12} />
-          </Button>
-          1
-          <Button className="btn-inc" type="default">
-            <FeatherIcon icon="plus" size={12} />
-          </Button>
-        </div>
-      ),
-      total: <span className="cart-single-t-price">$248.66</span>,
-      action: (
-        <div className="table-action">
-          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
-            <FeatherIcon icon="trash-2" size={16} />
-          </Button>
-        </div>
-      ),
-    },
-    {
-      key: '1',
-      product: (
-        <div className="cart-single">
-          <FigureCart>
-            <img style={{ width: 80 }} src={require('../../static/img/products/1.png')} alt="" />
-            <figcaption>
-              <div className="cart-single__info">
-                <Heading as="h6">Fiber Base Chair</Heading>
-                <ul className="info-list">
-                  <li>
-                    <span className="info-title">Size :</span>
-                    <span>Large</span>
-                  </li>
-                  <li>
-                    <span className="info-title"> Color :</span>
-                    <span>Brown</span>
-                  </li>
-                </ul>
-              </div>
-            </figcaption>
-          </FigureCart>
-        </div>
-      ),
-      price: <span className="cart-single-price">$248.66</span>,
-      quantity: (
-        <div className="cart-single-quantity">
-          <Button className="btn-dec" type="default">
-            <FeatherIcon icon="minus" size={12} />
-          </Button>
-          1
-          <Button className="btn-inc" type="default">
-            <FeatherIcon icon="plus" size={12} />
-          </Button>
-        </div>
-      ),
-      total: <span className="cart-single-t-price">$248.66</span>,
-      action: (
-        <div className="table-action">
-          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
-            <FeatherIcon icon="trash-2" size={16} />
-          </Button>
-        </div>
-      ),
-    },
-  ];
+  useEffect(() => {
+    if (cartGetData) {
+      dispatch(cartGetData());
+    }
+  }, [dispatch]);
+
+  const incrementUpdate = (id, quantity) => {
+    const data = parseInt(quantity, 10) + 1;
+    dispatch(cartUpdateQuantity(id, data, cartData));
+  };
+
+  const decrementUpdate = (id, quantity) => {
+    const data = parseInt(quantity, 10) >= 2 ? parseInt(quantity, 10) - 1 : 1;
+    dispatch(cartUpdateQuantity(id, data, cartData));
+  };
+
+  const cartDeleted = id => {
+    const confirm = window.confirm('Are you sure to delete this product?');
+    if (confirm) dispatch(cartDelete(id, cartData));
+  };
+
+  const productTableData = [];
+  let subtotal = 0;
+
+  if (cartData !== null) {
+    cartData.map(data => {
+      const { id, img, name, quantity, price, size, color } = data;
+      subtotal += parseInt(quantity, 10) * parseInt(price, 10);
+      return productTableData.push({
+        key: id,
+        product: (
+          <div className="cart-single">
+            <FigureCart>
+              <img style={{ width: 80 }} src={require(`../../${img}`)} alt="" />
+              <figcaption>
+                <div className="cart-single__info">
+                  <Heading as="h6">{name}</Heading>
+                  <ul className="info-list">
+                    <li>
+                      <span className="info-title">Size :</span>
+                      <span>{size}</span>
+                    </li>
+                    <li>
+                      <span className="info-title"> Color :</span>
+                      <span>{color}</span>
+                    </li>
+                  </ul>
+                </div>
+              </figcaption>
+            </FigureCart>
+          </div>
+        ),
+        price: <span className="cart-single-price">${price}</span>,
+        quantity: (
+          <div className="cart-single-quantity">
+            <Button onClick={() => decrementUpdate(id, quantity)} className="btn-dec" type="default">
+              <FeatherIcon icon="minus" size={12} />
+            </Button>
+            {quantity}
+            <Button onClick={() => incrementUpdate(id, quantity)} className="btn-inc" type="default">
+              <FeatherIcon icon="plus" size={12} />
+            </Button>
+          </div>
+        ),
+        total: <span className="cart-single-t-price">${quantity * price}</span>,
+        action: (
+          <div className="table-action">
+            <Button
+              onClick={() => cartDeleted(id)}
+              className="btn-icon"
+              to="#"
+              size="default"
+              type="danger"
+              shape="circle"
+              transparented
+            >
+              <FeatherIcon icon="trash-2" size={16} />
+            </Button>
+          </div>
+        ),
+      });
+    });
+  }
 
   const productTableColumns = [
     {
@@ -153,6 +153,22 @@ const ShoppingCart = () => {
   };
 
   const { Option } = Select;
+
+  const onHandleCurrent = current => {
+    setState({
+      ...state,
+      current,
+    });
+  };
+
+  const onSubmit = () => {
+    document.querySelectorAll('button span').forEach(item => {
+      if (item.innerHTML === 'Done') {
+        item.click();
+      }
+    });
+  };
+
   return (
     <>
       <PageHeader
@@ -185,7 +201,10 @@ const ShoppingCart = () => {
                           </div>
                         }
                       >
-                        <Route path={`${path}/checkout`} component={Checkout} />
+                        <Route
+                          path={`${path}/checkout`}
+                          render={() => <Checkout onCurrentChange={onHandleCurrent} />}
+                        />
                         <Route
                           exact
                           path={path}
@@ -193,13 +212,19 @@ const ShoppingCart = () => {
                             return (
                               <>
                                 <ProductTable>
-                                  <div className="table-cart table-responsive">
-                                    <Table
-                                      pagination={false}
-                                      dataSource={productTableData}
-                                      columns={productTableColumns}
-                                    />
-                                  </div>
+                                  {isLoading ? (
+                                    <div>
+                                      <Spin />
+                                    </div>
+                                  ) : (
+                                    <div className="table-cart table-responsive">
+                                      <Table
+                                        pagination={false}
+                                        dataSource={productTableData}
+                                        columns={productTableColumns}
+                                      />
+                                    </div>
+                                  )}
                                 </ProductTable>
 
                                 <CouponForm>
@@ -248,7 +273,7 @@ const ShoppingCart = () => {
                             <ul className="summary-list">
                               <li>
                                 <span className="summary-list-title">Subtotal :</span>
-                                <span className="summary-list-text">{`$${497.32}`}</span>
+                                <span className="summary-list-text">{`$${subtotal}`}</span>
                               </li>
                               <li>
                                 <span className="summary-list-title">Discount :</span>
@@ -284,13 +309,20 @@ const ShoppingCart = () => {
                             </Form>
                             <Heading className="summary-total" as="h4">
                               <span className="summary-total-label">Total : </span>
-                              <span className="summary-total-amount">{`$${507.32}`}</span>
+                              <span className="summary-total-amount">{`$${subtotal + 30 - 20}`}</span>
                             </Heading>
-                            <Button className="btn-proceed" type="secondary" size="large">
-                              <Link to={`${path}/checkout`}>
-                                Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
-                              </Link>
-                            </Button>
+                            {isExact && (
+                              <Button className="btn-proceed" type="secondary" size="large">
+                                <Link to={`${path}/checkout`}>
+                                  Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
+                                </Link>
+                              </Button>
+                            )}
+                            {state.current === 3 && (
+                              <Button onClick={onSubmit} className="btn-proceed" type="secondary" size="large">
+                                <Link to="#">Place Order</Link>
+                              </Button>
+                            )}
                           </div>
                         </Cards>
                       </OrderSummary>

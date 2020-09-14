@@ -15,6 +15,7 @@ import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
+import cartData from './cart/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -39,6 +40,7 @@ const rootReducers = combineReducers({
   project: SingleProjectReducer,
   ChangeLayoutMode,
   chartContent: chartContentReducer,
+  cart: cartData,
 });
 
 export default rootReducers;
