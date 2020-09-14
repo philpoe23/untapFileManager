@@ -12,19 +12,21 @@ const TabColor = colors => `
     margin: 0;
   }
   .ant-tabs-nav{
-    color: #fff;
+    color : ${({ color }) =>
+    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
   }
   .ant-tabs-nav .ant-tabs-tab:hover, .ant-tabs-nav .ant-tabs-tab:focus {
     //background : ${colors !== 'default' && colors};
     color : ${({ color }) =>
-    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? color : '#000000'};
+    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
   }
   .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
     border: none;
     border-radius: 3px;
-    background : ${colors !== 'default' && colors};
-    color : ${
-  colors !== 'default' && colors !== '#ffffff' && colors !== '#fff' && colors !== 'white' ? '#ffffff' : '#000000'
+    background : ${colors !== 'default' && colors};    
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color : ${colors !== 'default' && colors !== '#ffffff' && colors !== '#fff' && colors !== 'white' ? '#ffffff' : '#000000'
   };
   }
   .ant-tabs-ink-bar {
@@ -36,8 +38,7 @@ const TabChildColor = color => `
   h1, h2, h3, h4, h5, h6, p, span, i {
     padding: 15px;
     background : ${color !== 'default' && color};
-    color : ${
-  color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'
+    color : ${color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'
   };
     margin: 0;
   }
@@ -50,7 +51,12 @@ const TabBasic = Styled(Tabs)`
 `;
 
 const Child = Styled(TabPane)` 
+<<<<<<< HEAD
     // color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
+=======
+    /* background: ${({ color }) =>
+    color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'}; */
+>>>>>>> 4ca73a50d65ff4e638696c64010e4f0bac544452
     ${({ color }) => color && TabChildColor(color)}
 `;
 

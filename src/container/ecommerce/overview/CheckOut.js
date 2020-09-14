@@ -1,134 +1,158 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Steps } from '../../../components/steps/steps';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../styled';
 import { FigureCart, CheckoutWrapper, ProductTable, OrderSummary } from '../Style';
+import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../redux/cart/actionCreator';
 
 const { Option } = Select;
-const CheckOut = () => {
+const CheckOut = ({ onCurrentChange }) => {
+  const dispatch = useDispatch();
+  const { cartData } = useSelector(state => {
+    return {
+      cartData: state.cart.data,
+      isLoading: state.cart.loading,
+    };
+  });
   const [form] = Form.useForm();
 
   const [state, setState] = useState({
     status: 'process',
     isFinished: false,
+    current: 1,
   });
 
-  const { status, isFinished } = state;
+  const { status, isFinished, current } = state;
+
+  useEffect(() => {
+    if (cartGetData) {
+      dispatch(cartGetData());
+    }
+  }, [dispatch]);
+
+  const incrementUpdate = (id, quantity) => {
+    const data = parseInt(quantity, 10) + 1;
+    dispatch(cartUpdateQuantity(id, data, cartData));
+  };
+
+  const decrementUpdate = (id, quantity) => {
+    const data = parseInt(quantity, 10) >= 2 ? parseInt(quantity, 10) - 1 : 1;
+    dispatch(cartUpdateQuantity(id, data, cartData));
+  };
+
+  const cartDeleted = id => {
+    const confirm = window.confirm('Are you sure to delete this product?');
+    if (confirm) dispatch(cartDelete(id, cartData));
+  };
+
+  const PlaceOrder = (
+    <Button className="btn-proceed" type="secondary" size="large">
+      <Link to="#">Place Order</Link>
+    </Button>
+  );
 
   const next = () => {
+    onCurrentChange(current, PlaceOrder);
     setState({
       ...state,
       status: 'process',
+      current: current + 1,
     });
   };
 
   const prev = () => {
+    onCurrentChange(current, PlaceOrder);
     setState({
       ...state,
       status: 'process',
+      current: current - 1,
     });
   };
 
   const done = () => {
-    setState({
-      ...state,
-      status: 'finish',
-      isFinished: true,
-    });
+    const confirm = window.confirm('Are sure to submit order?');
+    onCurrentChange(current, PlaceOrder);
+    if (confirm) {
+      setState({
+        ...state,
+        status: 'finish',
+        isFinished: true,
+        current: 0,
+      });
+    }
   };
 
   const month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
-  const dataSource = [
-    {
-      key: '1',
-      product: (
-        <div className="cart-single">
-          <FigureCart>
-            <img style={{ width: 80 }} src={require('../../../static/img/products/1.png')} alt="" />
-            <figcaption>
-              <div className="cart-single__info">
-                <Heading as="h6">Fiber Base Chair</Heading>
-                <ul className="info-list">
-                  <li>
-                    <span className="info-title">Size :</span>
-                    <span>Large</span>
-                  </li>
-                  <li>
-                    <span className="info-title"> Color :</span>
-                    <span>Brown</span>
-                  </li>
-                </ul>
-              </div>
-            </figcaption>
-          </FigureCart>
-        </div>
-      ),
+  const dataSource = [];
 
-      quantity: (
-        <div className="cart-single-quantity">
-          <Button className="btn-dec" type="default">
-            <FeatherIcon icon="minus" size={12} />
-          </Button>
-          1
-          <Button className="btn-inc" type="default">
-            <FeatherIcon icon="plus" size={12} />
-          </Button>
-        </div>
-      ),
-      total: <span className="cart-single-t-price">$248.66</span>,
-      action: (
-        <div className="table-action">
-          <Button className="btn-icon" to="#" size="default" type="danger" shape="circle" transparented>
-            <FeatherIcon icon="trash-2" size={16} />
-          </Button>
-        </div>
-      ),
-    },
-    {
-      key: '2',
-      product: (
-        <div className="cart-single">
-          <FigureCart>
-            <img style={{ width: 80 }} src={require('../../../static/img/products/1.png')} alt="" />
-            <figcaption>
-              <div className="cart-single__info">
-                <Heading as="h6">Fiber Base Chair</Heading>
-                <ul className="info-list">
-                  <li>
-                    <span className="info-title">Size :</span>
-                    <span>Large</span>
-                  </li>
-                  <li>
-                    <span className="info-title"> Color :</span>
-                    <span>Brown</span>
-                  </li>
-                </ul>
-              </div>
-            </figcaption>
-          </FigureCart>
-        </div>
-      ),
+  let subtotal = 0;
 
-      quantity: (
-        <div className="cart-single-quantity">
-          <Button className="btn-dec" type="default">
-            <FeatherIcon icon="minus" size={12} />
-          </Button>
-          1
-          <Button className="btn-inc" type="default">
-            <FeatherIcon icon="plus" size={12} />
-          </Button>
-        </div>
-      ),
-      total: <span className="cart-single-t-price">$248.66</span>,
-    },
-  ];
+  if (cartData !== null) {
+    cartData.map(data => {
+      const { id, img, name, quantity, price, size, color } = data;
+      subtotal += parseInt(quantity, 10) * parseInt(price, 10);
+      return dataSource.push({
+        key: id,
+        product: (
+          <div className="cart-single">
+            <FigureCart>
+              <img style={{ width: 80 }} src={require(`../../../${img}`)} alt="" />
+              <figcaption>
+                <div className="cart-single__info">
+                  <Heading as="h6">{name}</Heading>
+                  <ul className="info-list">
+                    <li>
+                      <span className="info-title">Size :</span>
+                      <span>{size}</span>
+                    </li>
+                    <li>
+                      <span className="info-title"> Color :</span>
+                      <span>{color}</span>
+                    </li>
+                  </ul>
+                </div>
+              </figcaption>
+            </FigureCart>
+          </div>
+        ),
+        price: <span className="cart-single-price">${price}</span>,
+        quantity: (
+          <div className="cart-single-quantity">
+            <Button onClick={() => decrementUpdate(id, quantity)} className="btn-dec" type="default">
+              <FeatherIcon icon="minus" size={12} />
+            </Button>
+            {quantity}
+            <Button onClick={() => incrementUpdate(id, quantity)} className="btn-inc" type="default">
+              <FeatherIcon icon="plus" size={12} />
+            </Button>
+          </div>
+        ),
+        total: <span className="cart-single-t-price">${quantity * price}</span>,
+        action: (
+          <div className="table-action">
+            <Button
+              onClick={() => cartDeleted(id)}
+              className="btn-icon"
+              to="#"
+              size="default"
+              type="danger"
+              shape="circle"
+              transparented
+            >
+              <FeatherIcon icon="trash-2" size={16} />
+            </Button>
+          </div>
+        ),
+      });
+    });
+  }
 
   const columns = [
     {
@@ -389,7 +413,9 @@ const CheckOut = () => {
                                 </div>
                               </Radio>
                             </Radio.Group>
-                            <Link className="btn-addNew" to="#">+ Add New Address</Link>
+                            <Link className="btn-addNew" to="#">
+                              + Add New Address
+                            </Link>
                           </article>
                         </Cards>
                       </div>
@@ -428,7 +454,7 @@ const CheckOut = () => {
                                     <ul className="summary-list">
                                       <li>
                                         <span className="summary-list-title">Subtotal :</span>
-                                        <span className="summary-list-text">{`$${497.32}`}</span>
+                                        <span className="summary-list-text">{`$${subtotal}`}</span>
                                       </li>
                                       <li>
                                         <span className="summary-list-title">Discount :</span>
@@ -441,7 +467,7 @@ const CheckOut = () => {
                                     </ul>
                                     <Heading className="summary-total" as="h4">
                                       <span className="summary-total-label">Total : </span>
-                                      <span className="summary-total-amount">{`$${507.32}`}</span>
+                                      <span className="summary-total-amount">{`$${subtotal + 30 - 20}`}</span>
                                     </Heading>
                                   </div>
                                 </OrderSummary>
