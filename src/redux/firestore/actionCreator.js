@@ -1,39 +1,38 @@
 import { notification } from 'antd';
 import actions from './actions';
 
-
 const addNotificationSuccess = () => {
-  notification['success']({
+  notification.success({
     message: 'Your Record hasbeen Submited',
   });
 };
 
 const addNotificationError = err => {
-  notification['error']({
+  notification.error({
     message: err,
   });
 };
 
 const deleteNotificationSuccess = () => {
-  notification['success']({
+  notification.success({
     message: 'Your Record hasbeen Deleted',
   });
 };
 
 const deleteNotificationError = err => {
-  notification['error']({
+  notification.error({
     message: err,
   });
 };
 
 const updateNotificationSuccess = () => {
-  notification['success']({
+  notification.success({
     message: 'Your Record hasbeen updated',
   });
 };
 
 const updateNotificationError = err => {
-  notification['error']({
+  notification.error({
     message: err,
   });
 };
@@ -62,7 +61,6 @@ const {
   fbUploadBegin,
   fbUploadSuccess,
   fbUploadErr,
-
 } = actions;
 
 const fbDataSubmit = data => {
@@ -170,32 +168,49 @@ const fbDataSingle = id => {
   };
 };
 
-const fbFileUploder = (imageAsFile) => {
+const fbFileUploder = imageAsFile => {
   return async (dispatch, getState, { getFirebase, getFirestore, storage }) => {
-
-    console.log(storage)
     try {
       await dispatch(fbUploadBegin());
-      const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
+      const uploadTask = storage()
+        .ref(`/images/${imageAsFile.name}`)
+        .put(imageAsFile);
 
-      await uploadTask.on('state_changed',
-        (snapShot) => {
-          //takes a snap shot of the process as it is happening
-          console.log(snapShot)
-        }, (err) => {
-          //catches the errors
-          console.log(err)
-        }, () => {
-          storage.ref('images').child(imageAsFile.name).getDownloadURL()
+      await uploadTask.on(
+        'state_changed',
+        snapShot => {
+          // takes a snap shot of the process as it is happening
+          console.log(snapShot);
+        },
+        err => {
+          // catches the errors
+          console.log(err);
+        },
+        () => {
+          storage()
+            .ref('images')
+            .child(imageAsFile.name)
+            .getDownloadURL()
             .then(fireBaseUrl => {
               dispatch(fbUploadSuccess(fireBaseUrl));
-            })
-        })
-
+            });
+        },
+      );
     } catch (err) {
       await dispatch(fbUploadErr(err));
     }
   };
 };
 
-export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead, fbFileUploder };
+const fbFileClear = () => {
+  return async dispatch => {
+    try {
+      await dispatch(fbUploadBegin());
+      dispatch(fbUploadSuccess(null));
+    } catch (err) {
+      await dispatch(fbUploadErr(err));
+    }
+  };
+};
+
+export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead, fbFileUploder, fbFileClear };

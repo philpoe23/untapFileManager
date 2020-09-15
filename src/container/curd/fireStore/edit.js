@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload } from 'antd';
+import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
@@ -9,7 +9,7 @@ import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
-import { fbDataUpdate, fbDataSingle } from '../../../redux/firestore/actionCreator';
+import { fbDataUpdate, fbDataSingle, fbFileUploder } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
@@ -17,10 +17,12 @@ const dateFormat = 'YYYY/MM/DD';
 const Edit = ({ match }) => {
   const dispatch = useDispatch();
 
-  const { crud, isLoading } = useSelector(state => {
+  const { crud, isLoading, url, isFileLoading } = useSelector(state => {
     return {
       crud: state.singleCrud.data,
       isLoading: state.crud.loading,
+      url: state.crud.url,
+      isFileLoading: state.crud.fileLoading,
     };
   });
   const [state, setState] = useState({
@@ -28,7 +30,6 @@ const Edit = ({ match }) => {
   });
 
   const [form] = Form.useForm();
-
   useEffect(() => {
     let unmounted = false;
     if (!unmounted) {
@@ -41,12 +42,36 @@ const Edit = ({ match }) => {
 
   const handleSubmit = values => {
     dispatch(
-      fbDataUpdate(parseInt(match.params.id, 10), { ...values, join: state.join, id: parseInt(match.params.id, 10) }),
+      fbDataUpdate(parseInt(match.params.id, 10), {
+        ...values,
+        url: url !== null ? url : crud.url,
+        join: state.join,
+        id: parseInt(match.params.id, 10),
+      }),
     );
   };
 
   const onChange = (date, dateString) => {
     setState({ join: dateString });
+  };
+
+  const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    multiple: false,
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        dispatch(fbFileUploder(info.file.originFileObj));
+      }
+      if (info.file.status === 'done') {
+        // message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        // message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
 
   return (
@@ -66,21 +91,38 @@ const Edit = ({ match }) => {
             <Cards headless>
               <Row>
                 <Col md={10} offset={7}>
+                  <figure>
+                    {crud !== null && (
+                      <img
+                        src={
+                          url !== null
+                            ? url
+                            : crud.url !== null
+                            ? crud.url
+                            : require('../../../static/img/avatar/profileImage.png')
+                        }
+                        alt={crud.id}
+                      />
+                    )}
+                    {isFileLoading ? (
+                      <div>
+                        <Spin />
+                      </div>
+                    ) : (
+                      <figcaption>
+                        <Upload {...props}>
+                          <Link to="#">
+                            <FeatherIcon icon="camera" size={16} />
+                          </Link>
+                        </Upload>
+                        <div className="info">
+                          <Heading as="h4">Profile Photo</Heading>
+                        </div>
+                      </figcaption>
+                    )}
+                  </figure>
                   {crud !== null && (
                     <Form style={{ width: '100%' }} layout="vertical" form={form} name="edit" onFinish={handleSubmit}>
-                      <figure>
-                        <img src={require('../../../static/img/avatar/profileImage.png')} alt="" />
-                        <figcaption>
-                          <Upload>
-                            <Link to="#">
-                              <FeatherIcon icon="camera" size={16} />
-                            </Link>
-                          </Upload>
-                          <div className="info">
-                            <Heading as="h4">Profile Photo</Heading>
-                          </div>
-                        </figcaption>
-                      </figure>
                       <Form.Item name="name" initialValue={crud.name} label="Name">
                         <Input />
                       </Form.Item>

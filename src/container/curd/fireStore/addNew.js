@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload } from 'antd';
+import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
@@ -7,7 +7,7 @@ import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
-import { fbDataSubmit, fbFileUploder } from '../../../redux/firestore/actionCreator';
+import { fbDataSubmit, fbFileUploder, fbFileClear } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
@@ -15,10 +15,11 @@ const dateFormat = 'YYYY/MM/DD';
 
 const AddNew = () => {
   const dispatch = useDispatch();
-  const { isLoading, url } = useSelector(state => {
+  const { isLoading, url, isFileLoading } = useSelector(state => {
     return {
       isLoading: state.crud.loading,
       url: state.crud.url,
+      isFileLoading: state.crud.fileLoading,
     };
   });
 
@@ -26,10 +27,18 @@ const AddNew = () => {
   const [state, setState] = useState({
     join: '',
   });
-  console.log(url);
+
   const handleSubmit = values => {
-    dispatch(fbDataSubmit({ ...values, join: state.join, id: new Date().getTime() }));
+    dispatch(
+      fbDataSubmit({
+        ...values,
+        url,
+        join: state.join,
+        id: new Date().getTime(),
+      }),
+    );
     form.resetFields();
+    dispatch(fbFileClear());
   };
 
   const onChange = (date, dateString) => {
@@ -39,6 +48,7 @@ const AddNew = () => {
   const props = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    multiple: false,
     headers: {
       authorization: 'authorization-text',
     },
@@ -73,17 +83,28 @@ const AddNew = () => {
                 <Col md={10} offset={7}>
                   <Form style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
                     <figure>
-                      <img src={require('../../../static/img/avatar/profileImage.png')} alt="" />
-                      <figcaption>
-                        <Upload {...props}>
-                          <Link to="#">
-                            <FeatherIcon icon="camera" size={16} />
-                          </Link>
-                        </Upload>
-                        <div className="info">
-                          <Heading as="h4">Profile Photo</Heading>
+                      {isFileLoading ? (
+                        <div>
+                          <Spin />
                         </div>
-                      </figcaption>
+                      ) : (
+                        <>
+                          <img
+                            src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
+                            alt=""
+                          />
+                          <figcaption>
+                            <Upload {...props}>
+                              <Link to="#">
+                                <FeatherIcon icon="camera" size={16} />
+                              </Link>
+                            </Upload>
+                            <div className="info">
+                              <Heading as="h4">Profile Photo</Heading>
+                            </div>
+                          </figcaption>
+                        </>
+                      )}
                     </figure>
                     <Form.Item name="name" label="Name">
                       <Input placeholder="Input Name" />

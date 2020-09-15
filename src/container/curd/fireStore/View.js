@@ -34,10 +34,15 @@ const ViewPage = () => {
 
   if (crud.length)
     crud.map(person => {
-      const { id, name, email, company, position, status } = person;
+      const { id, name, email, company, position, status, url } = person;
       return dataSource.push({
         key: id,
-        name,
+        name: (
+          <div>
+            <img src={url !== null ? url : require('../../../static/img/avatar/profileImage.png')} alt={id} />
+            <span>{name}</span>
+          </div>
+        ),
         email,
         company,
         position,
