@@ -5,6 +5,10 @@ const {
   FB_ADD_SUCCESS,
   FB_ADD_ERR,
 
+  FB_UPLOAD_BEGIN,
+  FB_UPLOAD_SUCCESS,
+  FB_UPLOAD_ERR,
+
   FB_READ_BEGIN,
   FB_READ_SUCCESS,
   FB_READ_ERR,
@@ -20,10 +24,13 @@ const {
   FB_SINGLE_DATA_BEGIN,
   FB_SINGLE_DATA_SUCCESS,
   FB_SINGLE_DATA_ERR,
+
 } = actions;
 
 const initialState = {
   data: [],
+  url: null,
+  fileLoading: false,
   loading: false,
   error: null,
 };
@@ -37,15 +44,36 @@ const initialStateSingle = {
 const fsCrudReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
+    case FB_UPLOAD_BEGIN:
+      return {
+        ...state,
+        fileLoading: true,
+      };
+
+    case FB_UPLOAD_SUCCESS:
+      return {
+        ...state,
+        url: data,
+        error: false,
+        fileLoading: false,
+      };
+
+    case FB_UPLOAD_ERR:
+      return {
+        ...state,
+        error: err,
+        fileLoading: false,
+      };
+
     case FB_ADD_BEGIN:
       return {
-        ...initialState,
+        ...state,
         loading: true,
       };
 
     case FB_ADD_SUCCESS:
       return {
-        ...initialState,
+        ...state,
         data,
         error: false,
         loading: false,
@@ -53,20 +81,20 @@ const fsCrudReducer = (state = initialState, action) => {
 
     case FB_ADD_ERR:
       return {
-        ...initialState,
+        ...state,
         error: err,
         loading: false,
       };
 
     case FB_READ_BEGIN:
       return {
-        ...initialState,
+        ...state,
         loading: true,
       };
 
     case FB_READ_SUCCESS:
       return {
-        ...initialState,
+        ...state,
         data,
         error: false,
         loading: false,
@@ -74,20 +102,20 @@ const fsCrudReducer = (state = initialState, action) => {
 
     case FB_READ_ERR:
       return {
-        ...initialState,
+        ...state,
         error: err,
         loading: false,
       };
 
     case FB_DELETE_BEGIN:
       return {
-        ...initialState,
+        ...state,
         loading: true,
       };
 
     case FB_DELETE_SUCCESS:
       return {
-        ...initialState,
+        ...state,
         error: false,
         data,
         loading: false,
@@ -95,20 +123,20 @@ const fsCrudReducer = (state = initialState, action) => {
 
     case FB_DELETE_ERR:
       return {
-        ...initialState,
+        ...state,
         error: err,
         loading: false,
       };
 
     case FB_UPDATE_BEGIN:
       return {
-        ...initialState,
+        ...state,
         loading: true,
       };
 
     case FB_UPDATE_SUCCESS:
       return {
-        ...initialState,
+        ...state,
         data,
         error: false,
         loading: false,
@@ -116,7 +144,7 @@ const fsCrudReducer = (state = initialState, action) => {
 
     case FB_UPDATE_ERR:
       return {
-        ...initialState,
+        ...state,
         error: err,
         loading: false,
       };

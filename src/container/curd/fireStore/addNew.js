@@ -7,7 +7,7 @@ import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
-import { fbDataSubmit } from '../../../redux/firestore/actionCreator';
+import { fbDataSubmit, fbFileUploder } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
@@ -15,13 +15,18 @@ const dateFormat = 'YYYY/MM/DD';
 
 const AddNew = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.crud.loading);
+  const { isLoading, url } = useSelector(state => {
+    return {
+      isLoading: state.crud.loading,
+      url: state.crud.url,
+    };
+  });
 
   const [form] = Form.useForm();
   const [state, setState] = useState({
     join: '',
   });
-
+  console.log(url);
   const handleSubmit = values => {
     dispatch(fbDataSubmit({ ...values, join: state.join, id: new Date().getTime() }));
     form.resetFields();
@@ -29,6 +34,24 @@ const AddNew = () => {
 
   const onChange = (date, dateString) => {
     setState({ join: dateString });
+  };
+
+  const props = {
+    name: 'file',
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        dispatch(fbFileUploder(info.file.originFileObj));
+      }
+      if (info.file.status === 'done') {
+        // message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        // message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
 
   return (
@@ -52,7 +75,7 @@ const AddNew = () => {
                     <figure>
                       <img src={require('../../../static/img/avatar/profileImage.png')} alt="" />
                       <figcaption>
-                        <Upload>
+                        <Upload {...props}>
                           <Link to="#">
                             <FeatherIcon icon="camera" size={16} />
                           </Link>

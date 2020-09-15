@@ -19,6 +19,30 @@ const actions = {
   FB_SINGLE_DATA_SUCCESS: 'FB_SINGLE_DATA_SUCCESS',
   FB_SINGLE_DATA_ERR: 'FB_SINGLE_DATA_ERR',
 
+  FB_UPLOAD_BEGIN: 'FB_UPLOAD_BEGIN',
+  FB_UPLOAD_SUCCESS: 'FB_UPLOAD_SUCCESS',
+  FB_UPLOAD_ERR: 'FB_UPLOAD_ERR',
+
+  fbUploadBegin: () => {
+    return {
+      type: actions.FB_UPLOAD_BEGIN,
+    };
+  },
+
+  fbUploadSuccess: data => {
+    return {
+      type: actions.FB_UPLOAD_SUCCESS,
+      data,
+    };
+  },
+
+  fbUploadErr: err => {
+    return {
+      type: actions.FB_UPLOAD_ERR,
+      err,
+    };
+  },
+
   fbAddBegin: () => {
     return {
       type: actions.FB_ADD_BEGIN,

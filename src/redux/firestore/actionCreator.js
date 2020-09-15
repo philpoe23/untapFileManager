@@ -1,6 +1,7 @@
 import { notification } from 'antd';
 import actions from './actions';
 
+
 const addNotificationSuccess = () => {
   notification['success']({
     message: 'Your Record hasbeen Submited',
@@ -57,6 +58,11 @@ const {
   fbSingleDataBegin,
   fbSingleDataSuccess,
   fbSingleDataErr,
+
+  fbUploadBegin,
+  fbUploadSuccess,
+  fbUploadErr,
+
 } = actions;
 
 const fbDataSubmit = data => {
@@ -164,4 +170,32 @@ const fbDataSingle = id => {
   };
 };
 
-export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead };
+const fbFileUploder = (imageAsFile) => {
+  return async (dispatch, getState, { getFirebase, getFirestore, storage }) => {
+
+    console.log(storage)
+    try {
+      await dispatch(fbUploadBegin());
+      const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
+
+      await uploadTask.on('state_changed',
+        (snapShot) => {
+          //takes a snap shot of the process as it is happening
+          console.log(snapShot)
+        }, (err) => {
+          //catches the errors
+          console.log(err)
+        }, () => {
+          storage.ref('images').child(imageAsFile.name).getDownloadURL()
+            .then(fireBaseUrl => {
+              dispatch(fbUploadSuccess(fireBaseUrl));
+            })
+        })
+
+    } catch (err) {
+      await dispatch(fbUploadErr(err));
+    }
+  };
+};
+
+export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead, fbFileUploder };
