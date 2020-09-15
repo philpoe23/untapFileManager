@@ -268,6 +268,8 @@ const Ecommerce = () => {
       pointBorderColor: '#fff',
       pointBackgroundColor: '#5F63F2',
       hoverBorderWidth: 5,
+      amount: '$7,596',
+      amountClass: 'current-amount',
     },
     {
       data: performanceState.users[2],
@@ -279,6 +281,8 @@ const Ecommerce = () => {
       borderDash: [3, 3],
       pointRadius: '0',
       hoverRadius: '0',
+      amount: '$3,258',
+      amountClass: 'prev-amount',
     },
   ];
 
@@ -388,7 +392,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#5F63F210',
+                        backgroundColor: '#EFEFFE',
                         hoverBackgroundColor: '#5F63F2',
                         label: 'Orders',
                       },
@@ -420,7 +424,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#FF69A510',
+                        backgroundColor: '#FFF0F6',
                         hoverBackgroundColor: '#FF69A5',
                         label: 'Revenue',
                       },
@@ -452,7 +456,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#20C99710',
+                        backgroundColor: '#E8FAF4',
                         hoverBackgroundColor: '#20C997',
                         label: 'Avg Orders',
                       },
@@ -484,7 +488,7 @@ const Ecommerce = () => {
                     datasets={[
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
-                        backgroundColor: '#2C99FF10',
+                        backgroundColor: '#E9F5FF',
                         hoverBackgroundColor: '#2C99FF',
                         label: 'Visitors',
                       },
@@ -542,12 +546,15 @@ const Ecommerce = () => {
                           performanceDatasets.map(item => {
                             return (
                               <li className="custom-label">
-                                <span
-                                  style={{
-                                    backgroundColor: item.borderColor,
-                                  }}
-                                />
-                                {item.label}
+                                <strong className={item.amountClass}>{item.amount}</strong>
+                                <div>
+                                  <span
+                                    style={{
+                                      backgroundColor: item.borderColor,
+                                    }}
+                                  />
+                                  {item.label}
+                                </div>
                               </li>
                             );
                           })}
