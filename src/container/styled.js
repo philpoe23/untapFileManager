@@ -622,6 +622,18 @@ const BasicFormWrapper = Styled.div`
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
         }
     }
+    .add-record-form{
+        margin: 25px 0 35px 0;
+        
+        .record-form-actions{
+            padding-right: 40px;
+        }
+        .ant-btn{
+            height: 44px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
 `;
 
 const CardToolbox = Styled.div`
@@ -727,7 +739,8 @@ const FormGroupWrapper = Styled.div`
 
 const TableWrapper = Styled.div`
     &.table-order,
-    &.table-seller{
+    &.table-seller,
+    &.table-data-view{
         .ant-table-selection{
             .ant-checkbox-indeterminate{
                 .ant-checkbox-inner{
@@ -761,6 +774,76 @@ const TableWrapper = Styled.div`
         }
         .ant-pagination{
             margin-top: 25px !important;
+        }
+    }
+    &.table-data-view{
+        .ant-table-container{
+            padding-bottom: 0;
+        }
+        table{
+            thead{
+                th{
+                    padding: 15px 16px;
+                }
+            }
+            tbody{
+                td{
+                    padding: 11px 16px;
+                    .record-img{
+                        img{
+                            max-width: 38px;
+                            margin-right: 12px;
+                        }
+                    }
+                    .record-location{
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                    .status{
+                        font-weight: 500;
+                        text-transform: capitalize;
+                        &.active{
+                            color: ${({ theme }) => theme['success-color']};
+                            background: ${({ theme }) => theme['success-color']}10;
+                        }
+                        &.deactivated{
+                            color: ${({ theme }) => theme['warning-color']};
+                            background: ${({ theme }) => theme['warning-color']}10;
+                        }
+                        &.blocked{
+                            color: ${({ theme }) => theme['danger-color']};
+                            background: ${({ theme }) => theme['danger-color']}10;
+                        }
+                    }
+                    .table-actions{
+                        a{
+                            svg,
+                            i{
+                                width: 16px;
+                                color: ${({ theme }) => theme['extra-light-color']};
+                            }
+                            &.edit{
+                                margin-right: 6px;
+                              &:hover{
+                                svg,
+                                i{
+                                    color: ${({ theme }) => theme['info-color']};
+                                }
+                              }  
+                            }
+                            &.delete{
+                              &:hover{
+                                svg,
+                                i{
+                                    color: ${({ theme }) => theme['danger-color']};
+                              }  
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     table{

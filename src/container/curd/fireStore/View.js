@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Table, Spin } from 'antd';
+import { RecordViewWrapper } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
-import { Main } from '../../styled';
+import { Main, TableWrapper } from '../../styled';
+import { Button } from '../../../components/buttons/buttons';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { fbDataDelete, fbDataRead } from '../../../redux/firestore/actionCreator';
@@ -13,17 +15,36 @@ const ViewPage = () => {
   const dispatch = useDispatch();
   const { crud, isLoading } = useSelector(state => {
     return {
+      // searchData: state.headerSearchData,
       crud: state.crud.data,
       isLoading: state.crud.loading,
     };
   });
+
+  const [state, setState] = useState({
+    // notData: searchData,
+    selectedRowKeys: [],
+  });
+  const { selectedRowKeys } = state;
+
   useEffect(() => {
     if (fbDataRead) {
       dispatch(fbDataRead());
+      setState({
+        selectedRowKeys,
+      });
     }
-  }, [dispatch]);
+  }, [dispatch, selectedRowKeys]);
   const dataSource = [];
 
+  // const { notData } = state;
+  // const handleSearch = searchText => {
+  //   const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
+  //   setState({
+  //     ...state,
+  //     notData: data,
+  //   });
+  // };
   const handleDelete = e => {
     const confirm = window.confirm('Are you sure delete this?');
     if (confirm) {
@@ -34,29 +55,35 @@ const ViewPage = () => {
 
   if (crud.length)
     crud.map(person => {
-      const { id, name, email, company, position, status, url } = person;
+      const { id, name, email, company, position, join, status, city, country, url } = person;
       return dataSource.push({
         key: id,
         name: (
-          <div>
+          <div className="record-img align-center-v">
             <img src={url !== null ? url : require('../../../static/img/avatar/profileImage.png')} alt={id} />
-            <span>{name}</span>
+            <span>
+              <span>{name}</span>
+              <span className="record-location">
+                {city},{country}
+              </span>
+            </span>
           </div>
         ),
         email,
         company,
         position,
-        status: <p className={status}>{status}</p>,
+        jdate: join,
+        status: <span className={`status ${status}`}>{status}</span>,
         action: (
-          <>
-            <Link to={`/admin/firestore/edit/${id}`}>
-              <FeatherIcon icon="edit-2" size={14} />
+          <div className="table-actions">
+            <Link className="edit" to={`/admin/firestore/edit/${id}`}>
+              <FeatherIcon icon="edit" size={14} />
             </Link>
             &nbsp;&nbsp;&nbsp;
-            <Link onClick={handleDelete} data-id={id} to="#">
+            <Link className="delete" onClick={handleDelete} data-id={id} to="#">
               <FeatherIcon icon="trash-2" size={14} />
             </Link>
-          </>
+          </div>
         ),
       });
     });
@@ -88,26 +115,45 @@ const ViewPage = () => {
       key: 'status',
     },
     {
+      title: 'Joining Date',
+      dataIndex: 'jdate',
+      key: 'jdate',
+    },
+    {
       title: 'Actions',
       dataIndex: 'action',
       key: 'action',
       width: '90px',
-    },
+    }
   ];
 
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKeys: selectedRowKey });
+  };
+  const rowSelection = {
+    onChange: (selectedRowKeys, selectedRows) => {
+      onSelectChange(selectedRowKeys);
+    },
+  };
+
   return (
-    <>
+    <RecordViewWrapper>
       <PageHeader
+        subTitle={
+          <>
+            <Button className="btn-add_new" size="default" key="1" type="primary">
+              <FeatherIcon icon="plus" size={14} /> Add New
+            </Button>
+          </>
+        }
         buttons={[
-          <Link to="#" key="1">
-            Reset Record
-          </Link>,
-          <Link to="/admin/firestore/add" key="2">
-            Add New Record
-          </Link>,
+          <div className="search-box">
+            <span className="search-icon"><FeatherIcon icon="search" size={14} /></span>
+            <input type="text" name="recored-search" placeholder="Search Here" />
+          </div>,
         ]}
         ghost
-        title="View All"
+        title="Data List"
       />
       <Main>
         <Row gutter={15}>
@@ -118,13 +164,22 @@ const ViewPage = () => {
                   <Spin />
                 </div>
               ) : (
-                <Table pagination={{ pageSize: 10, showSizeChanger: true }} dataSource={dataSource} columns={columns} />
+                <div>
+                  <TableWrapper className="table-data-view table-responsive">
+                    <Table
+                      rowSelection={rowSelection}
+                      pagination={{ pageSize: 10, showSizeChanger: true }}
+                      dataSource={dataSource}
+                      columns={columns}
+                    />
+                  </TableWrapper>
+                </div>
               )}
             </Cards>
           </Col>
         </Row>
       </Main>
-    </>
+    </RecordViewWrapper>
   );
 };
 

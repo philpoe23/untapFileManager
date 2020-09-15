@@ -3,10 +3,11 @@ import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload, Spin } from '
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
+import { RecordFormWrapper } from './style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
-import { Main } from '../../styled';
+import { Main, BasicFormWrapper } from '../../styled';
 import { fbDataSubmit, fbFileUploder, fbFileClear } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
 
@@ -78,82 +79,88 @@ const AddNew = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless>
-              <Row>
-                <Col md={10} offset={7}>
-                  <Form style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
-                    <figure>
-                      {isFileLoading ? (
-                        <div>
-                          <Spin />
-                        </div>
-                      ) : (
-                        <>
-                          <img
-                            src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
-                            alt=""
-                          />
-                          <figcaption>
-                            <Upload {...props}>
-                              <Link to="#">
-                                <FeatherIcon icon="camera" size={16} />
-                              </Link>
-                            </Upload>
-                            <div className="info">
-                              <Heading as="h4">Profile Photo</Heading>
+            <RecordFormWrapper>
+              <Cards headless>
+                <Row>
+                  <Col md={10} offset={7}>
+                    <BasicFormWrapper>
+                      <Form className="add-record-form" style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
+                        <figure className="pro-image align-center-v">
+                          {isFileLoading ? (
+                            <div>
+                              <Spin />
                             </div>
-                          </figcaption>
-                        </>
-                      )}
-                    </figure>
-                    <Form.Item name="name" label="Name">
-                      <Input placeholder="Input Name" />
-                    </Form.Item>
-                    <Form.Item name="email" rules={[{ type: 'email' }]} label="Email">
-                      <Input placeholder="example@gmail.com" />
-                    </Form.Item>
-                    <Form.Item name="country" initialValue="" label="Country">
-                      <Select style={{ width: '100%' }}>
-                        <Option value="">Please Select</Option>
-                        <Option value="bangladesh">Bangladesh</Option>
-                        <Option value="india">India</Option>
-                        <Option value="pakistan">Pakistan</Option>
-                        <Option value="srilanka">Srilanka</Option>
-                      </Select>
-                    </Form.Item>
-                    <Form.Item name="city" initialValue="" label="City">
-                      <Select style={{ width: '100%' }}>
-                        <Option value="">Please Select</Option>
-                        <Option value="dhaka">Dhaka</Option>
-                        <Option value="mymensingh">Mymensingh</Option>
-                        <Option value="khulna">Khulna</Option>
-                        <Option value="barisal">Barisal</Option>
-                      </Select>
-                    </Form.Item>
-                    <Form.Item name="company" label="Company">
-                      <Input placeholder="Company Name" />
-                    </Form.Item>
-                    <Form.Item name="position" label="Position">
-                      <Input placeholder="Position" />
-                    </Form.Item>
-                    <Form.Item label="Joining Date">
-                      <DatePicker onChange={onChange} style={{ width: '100%' }} format={dateFormat} />
-                    </Form.Item>
-                    <Form.Item name="status" label="Status">
-                      <Radio.Group>
-                        <Radio value="active">Active</Radio>
-                        <Radio value="deactivated">Deactivated</Radio>
-                        <Radio value="blocked">Blocked</Radio>
-                      </Radio.Group>
-                    </Form.Item>
-
-                    <Button htmlType="submit" type="primary">
-                      {isLoading ? 'Loading...' : 'Submit'}
-                    </Button>
-                  </Form>
-                </Col>
-              </Row>
-            </Cards>
+                          ) : (
+                            <>
+                              <img
+                                src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
+                                alt=""
+                              />
+                              <figcaption>
+                                <Upload {...props}>
+                                  <Link className="upload-btn" to="#">
+                                    <FeatherIcon icon="camera" size={16} />
+                                  </Link>
+                                </Upload>
+                                <div className="info">
+                                  <Heading as="h4">Profile Photo</Heading>
+                                </div>
+                              </figcaption>
+                            </>
+                          )}
+                        </figure>
+                        <Form.Item name="name" label="Name">
+                          <Input placeholder="Input Name" />
+                        </Form.Item>
+                        <Form.Item name="email" rules={[{ type: 'email' }]} label="Email">
+                          <Input placeholder="example@gmail.com" />
+                        </Form.Item>
+                        <Form.Item name="country" initialValue="" label="Country">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">Please Select</Option>
+                            <Option value="bangladesh">Bangladesh</Option>
+                            <Option value="india">India</Option>
+                            <Option value="pakistan">Pakistan</Option>
+                            <Option value="srilanka">Srilanka</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item name="city" initialValue="" label="City">
+                          <Select style={{ width: '100%' }}>
+                            <Option value="">Please Select</Option>
+                            <Option value="dhaka">Dhaka</Option>
+                            <Option value="mymensingh">Mymensingh</Option>
+                            <Option value="khulna">Khulna</Option>
+                            <Option value="barisal">Barisal</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item name="company" label="Company">
+                          <Input placeholder="Company Name" />
+                        </Form.Item>
+                        <Form.Item name="position" label="Position">
+                          <Input placeholder="Position" />
+                        </Form.Item>
+                        <Form.Item label="Joining Date">
+                          <DatePicker onChange={onChange} style={{ width: '100%' }} format={dateFormat} />
+                        </Form.Item>
+                        <Form.Item name="status" label="Status">
+                          <Radio.Group>
+                            <Radio value="active">Active</Radio>
+                            <Radio value="deactivated">Deactivated</Radio>
+                            <Radio value="blocked">Blocked</Radio>
+                          </Radio.Group>
+                        </Form.Item>
+                        <div className="record-form-actions text-right">
+                          <Button size="default" htmlType="Save" type="primary">
+                            {isLoading ? 'Loading...' : 'Submit'}
+                          </Button>
+                        </div>
+                      </Form>
+                    </BasicFormWrapper>
+                  </Col>
+                </Row>
+              </Cards>
+            </RecordFormWrapper>
+            
           </Col>
         </Row>
       </Main>
