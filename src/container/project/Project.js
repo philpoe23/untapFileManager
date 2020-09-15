@@ -111,7 +111,7 @@ const Project = ({ match }) => {
                   </nav>
                 </div>
                 <div className="project-sort-search">
-                  <AutoComplete onSearch={handleSearch} dataSource={notData} patterns />
+                  <AutoComplete onSearch={handleSearch} dataSource={notData} placeholder="Search projects" patterns />
                 </div>
                 <div className="project-sort-group">
                   <div className="sort-group">

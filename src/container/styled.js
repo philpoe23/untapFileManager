@@ -108,7 +108,7 @@ const Main = Styled.div`
         border-radius: 5px;
     }
     .ant-collapse.ant-collapse-icon-position-left .ant-collapse-header{
-        color: #5A5F7D !important;
+        color: #5A5F7D;
         padding: 12px 16px 10px 45px;
     }
     .ant-collapse-content p{
@@ -337,6 +337,29 @@ const Main = Styled.div`
         }
         .ant-steps{
             margin-top: -22px;
+        }
+    }
+
+    // Star Active
+    a{
+        i{
+          font-size: 16px;
+          color: ${({ theme }) => theme['extra-light-color']};
+        }
+        &.starDeactivate{
+          i:before{
+            content: "\f31b";
+          }
+        }
+        &.starActive{
+          i{
+            color: ${({ theme }) => theme['warning-color']};
+          }
+          i:before{
+            color: ${({ theme }) => theme['warning-color']};
+            content: "\f318";
+    
+          }
         }
     }
 `;

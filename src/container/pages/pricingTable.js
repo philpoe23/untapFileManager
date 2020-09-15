@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import FeatherIcon from 'feather-icons-react';
 import { PricingCard, ListGroup, Badge } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -7,16 +8,35 @@ import Heading from '../../components/heading/heading';
 import { List } from '../../components/pricing/pricing';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const PricingTable = () => {
   return (
     <>
-      <PageHeader ghost title="Pricing Table" />
+      <PageHeader
+        ghost
+        title="Pricing Table"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25} justify="center">
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge className="pricing-badge" type="dark">Free Forever</Badge>
+              <Badge className="pricing-badge" type="dark">
+                Free Forever
+              </Badge>
               <Heading className="pricing-title" as="h3">
                 Free
               </Heading>
@@ -34,7 +54,9 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge className="pricing-badge" type="primary">Basic Plan</Badge>
+              <Badge className="pricing-badge" type="primary">
+                Basic Plan
+              </Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>19 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -53,7 +75,9 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge className="pricing-badge" type="secondary">Business</Badge>
+              <Badge className="pricing-badge" type="secondary">
+                Business
+              </Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -73,7 +97,9 @@ const PricingTable = () => {
           </Col>
           <Col xxl={6} lg={8} sm={12} xs={24}>
             <PricingCard style={{ marginBottom: 30 }}>
-              <Badge className="pricing-badge" type="success">Enterprise</Badge>
+              <Badge className="pricing-badge" type="success">
+                Enterprise
+              </Badge>
               <Heading className="price-amount" as="h3">
                 <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
               </Heading>
@@ -98,7 +124,9 @@ const PricingTable = () => {
               <Row gutter={25} justify="center">
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge className="pricing-badge" type="dark">Free Forever</Badge>
+                    <Badge className="pricing-badge" type="dark">
+                      Free Forever
+                    </Badge>
                     <Heading className="price-amount" as="h3">
                       Free
                     </Heading>
@@ -116,7 +144,9 @@ const PricingTable = () => {
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge className="pricing-badge" type="primary">Basic Plan</Badge>
+                    <Badge className="pricing-badge" type="primary">
+                      Basic Plan
+                    </Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup> 19 <sub className="pricing-validity">Per month</sub>
                     </Heading>
@@ -135,7 +165,9 @@ const PricingTable = () => {
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard style={{ marginBottom: 30 }}>
-                    <Badge className="pricing-badge" type="secondary">Business</Badge>
+                    <Badge className="pricing-badge" type="secondary">
+                      Business
+                    </Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup>39 <sub className="pricing-validity">Per month</sub>
                     </Heading>
@@ -156,7 +188,9 @@ const PricingTable = () => {
                 </Col>
                 <Col xxl={6} lg={8} sm={12} xs={24}>
                   <PricingCard>
-                    <Badge className="pricing-badge" type="success">Enterprise</Badge>
+                    <Badge className="pricing-badge" type="success">
+                      Enterprise
+                    </Badge>
                     <Heading as="h3">
                       <sup className="currency">$</sup>79 <sub className="pricing-validity">Per month</sub>
                     </Heading>

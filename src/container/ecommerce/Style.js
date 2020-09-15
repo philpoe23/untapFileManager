@@ -1210,6 +1210,7 @@ const AddProductForm = Styled.div`
                 top: 0;
                 i,
                 svg{
+                    width: 15px;
                     color: ${({ theme }) => theme['danger-color']};
                 }
             }

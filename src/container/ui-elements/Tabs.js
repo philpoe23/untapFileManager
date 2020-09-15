@@ -33,7 +33,7 @@ const Tabs = () => {
             <Tab data={data} icon="apple" />
           </Col>
           <Col md={12} xs={24}>
-            <Tab data={data} color="#5F63F2" />
+            <Tab data={data} color="default" />
           </Col>
         </Row>
         <Row gutter={15}>

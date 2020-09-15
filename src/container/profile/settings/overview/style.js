@@ -213,8 +213,17 @@ const ChangePasswordWrapper = Styled.div`
             }
         }
         .input-message{
+            font-size: 13px;
             color: ${({ theme }) => theme['light-color']};
             margin: -22px 0 0;
+        }
+        .ant-form-item-control-input-content{
+            .anticon-eye-invisible{
+                svg,
+                i{
+                    color: ${({ theme }) => theme['extra-light-color']};
+                }
+            }
         }
         .setting-form-actions{
             button{
@@ -245,10 +254,18 @@ const SocialProfileForm = Styled.div`
         button{
             padding: 0px 23px;
         }
+        label{
+            color: ${({ theme }) => theme['dark-color']};
+        }
         .ant-input-affix-wrapper{
             position: relative;
             input{
                 padding-left: 50px;
+            }
+            span.fa,
+            i{
+                font-size: 18px;
+                color: #fff;
             }
             &.facebook{
                 .ant-input-prefix{
@@ -262,7 +279,7 @@ const SocialProfileForm = Styled.div`
                     border-radius: 4px;
                 }
             }
-            &.linkedin{
+            &.dribbble{
                 .ant-input-prefix{
                     background: #DD3E7C;
                     border-radius: 4px;
@@ -280,7 +297,7 @@ const SocialProfileForm = Styled.div`
                     border-radius: 4px;
                 }
             }
-            &.youtube{
+            &.medium{
                 .ant-input-prefix{
                     background: #292929;
                     border-radius: 4px;

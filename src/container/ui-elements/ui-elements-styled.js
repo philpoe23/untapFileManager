@@ -213,7 +213,18 @@ const BadgeDynamicStyle = Styled.div`
 .badge-dynamic{
   .ant-btn-group{
     padding-top: 4px;
-    margin-left: 12px;
+    margin: 6px 0 0 12px;
+    border: 1px solid ${({ theme }) => theme['border-color-normal']};
+    border-radius: 5px;
+    padding: 0;
+    .ant-btn {
+      z-index: 2;
+      &:first-child{
+        z-index: 22;
+        border-right: 1px solid ${({ theme }) => theme['border-color-normal']};
+      }
+    }
+
   }
 }
 .ant-badge-dot{
