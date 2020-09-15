@@ -33,8 +33,11 @@ const UL = Styled.ul`
 
 const Content = Styled.div`
   height: 755px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  ul{
+    overflow-x: hidden;
+  }
   .chat-link-signle{
     position: relative;
     background: #fff;
@@ -118,6 +121,11 @@ const SingleChatWrapper = Styled.div`
       }
     }
   }
+  >.ant-card{
+    .ant-card-body{
+      // padding-right: 0 !important;
+    }
+  }
   .ant-card-head{
     padding: 0 30px !important;
     box-shadow: 0 10px 20px ${({ theme }) => theme['extra-light-color']}15;
@@ -197,7 +205,7 @@ const SingleChatWrapper = Styled.div`
 
   .atbd-chatbox{
     height: 700px;
-    overflow-y: scroll;
+    overflow-y: auto;
     .time-connector{
       position: relative;
       z-index: 10;
@@ -222,6 +230,7 @@ const SingleChatWrapper = Styled.div`
       }
     }
     .atbd-chatbox__single{
+      // padding-right: 25px;
       &:not(:last-child){
         margin-bottom: 30px;
       }
@@ -248,6 +257,7 @@ const SingleChatWrapper = Styled.div`
           text-align: right;
         }
         .message-box{
+          border-radius: 15px 15px 0 15px;
           background: ${({ theme }) => theme['bg-color-deep']};
           color: ${({ theme }) => theme['gray-color']};
         }
@@ -362,7 +372,7 @@ const Footer = Styled.div`
         background: ${({ theme }) => theme['bg-color-normal']};
         &::placeholder{
           font-size: 14px;
-          color: ${({ theme }) => theme['gray-color']};
+          color: ${({ theme }) => theme['light-color']};
         }
         &:focus{
           border: 0 none;
@@ -507,6 +517,11 @@ const ChatSidebar = Styled.div`
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 20px #9299B803;
+  
+  @media only screen and (max-width: 991px){
+    max-width: 370px;
+    margin: 0 auto 40px;
+  }
   @media only screen and (max-width: 575px){
     min-height: 580px;
   }
@@ -536,8 +551,8 @@ const ChatSidebar = Styled.div`
   }
   nav{
     padding: 0 25px;
-    @media only screen and (max-width: 379px){
-      padding: 0 20px;
+    @media only screen and (max-width: 1199px){
+      padding: 0 15px;
     }
     ul{
       margin: 0 0 12px 0;
@@ -568,6 +583,9 @@ const ChatSidebar = Styled.div`
             opacity: 0;
             visibility: hidden;
             background: ${({ theme }) => theme['primary-color']};
+            @media only screen and (max-width: 1199px){
+              display: none;
+            }
           }
           &.active{
             font-weight: 500;

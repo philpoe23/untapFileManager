@@ -17,6 +17,7 @@ import { emailReducer, SingleEmailReducer } from './email/reducers';
 import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
+import cartData from './cart/reducers';
 
 import { fsCrudReducer, fsSingleCrudReducer } from './firestore/reducers';
 
@@ -47,6 +48,7 @@ const rootReducers = combineReducers({
   chartContent: chartContentReducer,
   crud: fsCrudReducer,
   singleCrud: fsSingleCrudReducer,
+  cart: cartData,
 });
 
 export default rootReducers;

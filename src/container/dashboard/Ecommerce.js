@@ -532,7 +532,7 @@ const Ecommerce = () => {
                   size="large"
                 >
                   {preIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (
@@ -828,7 +828,7 @@ const Ecommerce = () => {
                   size="large"
                 >
                   {dvIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (

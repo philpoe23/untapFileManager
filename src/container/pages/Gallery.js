@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import FeatherIcon from 'feather-icons-react';
 import { Row, Col, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import { GalleryNav, GalleryCard } from './style';
@@ -7,6 +8,10 @@ import Heading from '../../components/heading/heading';
 import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { galleryFilter } from '../../redux/gallary/actionCreator';
+import { Button } from '../../components/buttons/buttons';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -31,7 +36,21 @@ const Gallery = () => {
 
   return (
     <>
-      <PageHeader ghost title="Gallery" />
+      <PageHeader
+        ghost
+        title="Gallery"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col xs={24}>

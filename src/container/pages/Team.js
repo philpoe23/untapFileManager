@@ -60,7 +60,13 @@ const Team = () => {
           subTitle={
             <>
               <span className="title-counter">274 Users</span>
-              <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
+              <AutoComplete
+                onSearch={handleSearch}
+                dataSource={notData}
+                width="100%"
+                placeholder="Search by Name"
+                patterns
+              />
             </>
           }
           buttons={[
@@ -86,7 +92,7 @@ const Team = () => {
                           <div className="edit">
                             <Dropdown content={actions}>
                               <Link className="card__more_actions" to="#">
-                                <FeatherIcon icon="more-horizontal" size={14} />
+                                <FeatherIcon icon="more-horizontal" size={16} />
                               </Link>
                             </Dropdown>
                           </div>
@@ -95,16 +101,16 @@ const Team = () => {
                           </Heading>
                           <span className="card__designation">{designation}</span>
                           <div className="card__social">
-                            <Link className="btn-icon" to="#">
+                            <Link className="btn-icon facebook" to="#">
                               <FontAwesome name="facebook" size={14} />
                             </Link>
-                            <Link className="btn-icon" to="#">
+                            <Link className="btn-icon twitter" to="#">
                               <FontAwesome name="twitter" size={14} />
                             </Link>
-                            <Link className="btn-icon" to="#">
-                              <FontAwesome name="youtube" size={14} />
+                            <Link className="btn-icon dribble" to="#">
+                              <FontAwesome name="dribbble" size={14} />
                             </Link>
-                            <Link className="btn-icon" to="#">
+                            <Link className="btn-icon instagram" to="#">
                               <FontAwesome name="instagram" size={14} />
                             </Link>
                           </div>

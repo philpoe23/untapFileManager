@@ -50,7 +50,13 @@ const SearchResult = () => {
         <SearchResultWrapper>
           <Row gutter={25}>
             <Col xs={24}>
-              <AutoComplete onSearch={handleSearch} dataSource={notData} width="40%" patterns />
+              <AutoComplete
+                onSearch={handleSearch}
+                dataSource={notData}
+                placeholder="Type and search"
+                width="40%"
+                patterns
+              />
             </Col>
             <Col xs={24}>
               <div className="search-filter-menu">

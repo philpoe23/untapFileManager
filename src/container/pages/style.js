@@ -211,6 +211,9 @@ const UserCard = Styled.div`
     box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}03;
     .ant-card-body{
       padding: 30px !important;
+      div{
+        position: static;
+      }
     }
     figure{
       margin-bottom: 0;
@@ -257,16 +260,16 @@ const UserCard = Styled.div`
         &:not(:last-child){
           margin-right: 10px;
         }
-        .feather-facebook{
+        &.facebook{
           color: #3B5998;
         }
-        .feather-twitter{
+        &.twitter{
           color: #1DA1F2;
         }
-        .feather-dribble{
+        &.dribble{
           color: #C2185B;
         }
-        .feather-instagram{
+        &.instagram{
           color: #FF0300;
         }
       }
@@ -307,7 +310,7 @@ const UserCard = Styled.div`
         margin: 5px;
         &:hover{
           color: #fff !important;
-          background-color: ${({ theme }) => theme['primary-color']};
+          background-color: ${({ theme }) => theme['primary-color']} !important;
           svg,
           i{
             color: #fff;
@@ -342,6 +345,7 @@ const UserCard = Styled.div`
 
 const FaqCategoryBox = Styled.div`
   .faq-badge{
+    font-weight: 400;
     color: ${({ theme }) => theme['light-color']};
     background: ${({ theme }) => theme['bg-color-light']};
   }
@@ -491,6 +495,7 @@ const FaqSupportBox = Styled.div`
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
+    color: ${({ theme }) => theme['dark-color']};
   }
   button{
     padding: 0 30px;
@@ -512,6 +517,11 @@ const FaqWrapper = Styled.div`
     &.ant-collapse-borderless{
       background: #fff;
     }
+    &.ant-collapse-icon-position-left{
+      .ant-collapse-header{
+        color: ${({ theme }) => theme['dark-color']} !important;
+      }
+    }
   }
   .ant-collapse-item{
     border: 1px solid ${({ theme }) => theme['border-color-light']} !important;
@@ -524,7 +534,6 @@ const FaqWrapper = Styled.div`
       background-color: #fff;
       padding: 18px 25px !important;
       border-radius: 5px !important;
-      color: ${({ theme }) => theme['dark-color']} !important;
       @media only screen and (max-width: 575px){
         padding: 15px 45px 15px 15px !important;
       }
@@ -545,6 +554,7 @@ const FaqWrapper = Styled.div`
       P{
         font-size: 15px;
         margin-bottom: 35px;
+        line-height: 1.667;
         color: ${({ theme }) => theme['gray-color']};
       }
       h1,
@@ -556,6 +566,7 @@ const FaqWrapper = Styled.div`
         font-size: 14px;
         font-weight: 500;
         margin-bottom: 12px;
+        color: ${({ theme }) => theme['dark-color']};
       }
       .panel-actions{
         button{
@@ -605,10 +616,12 @@ const SearchResultWrapper = Styled.div`
           margin-right: 10px;
         }
         a{
+          font-size: 13px;
+          font-weight: 500;
           display: block;
-          color: ${({ theme }) => theme['light-color']};
           padding: 5px 15px;
           border-radius: 5px;
+          color: ${({ theme }) => theme['light-color']};
           box-shdaow: 0 3px 6px ${({ theme }) => theme['light-color']}05;
           background: #fff;
           &.active{

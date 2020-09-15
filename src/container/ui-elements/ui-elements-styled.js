@@ -24,7 +24,7 @@ const DropdownIconStyleWrapper = Styled.div`
     display: inline-flex;
     align-items: center;
     padding: 0 8px;
-    border-left: 1px solid ${({ theme }) => theme['border-color-normal']}
+    border-left: 1px solid ${({ theme }) => theme['border-color-normal']};
   }
 `;
 
@@ -213,7 +213,18 @@ const BadgeDynamicStyle = Styled.div`
 .badge-dynamic{
   .ant-btn-group{
     padding-top: 4px;
-    margin-left: 12px;
+    margin: 6px 0 0 12px;
+    border: 1px solid ${({ theme }) => theme['border-color-normal']};
+    border-radius: 5px;
+    padding: 0;
+    .ant-btn {
+      z-index: 2;
+      &:first-child{
+        z-index: 22;
+        border-right: 1px solid ${({ theme }) => theme['border-color-normal']};
+      }
+    }
+
   }
 }
 .ant-badge-dot{
@@ -226,7 +237,6 @@ const BadgeDynamicStyle = Styled.div`
   margin-left: 15px;
   .ant-switch-handle{
     top: 4px;
-    left: 5px;
   }
   .ant-switch-checked .ant-switch-handle{
     left: calc(100% - 14px - 5px);

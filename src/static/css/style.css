@@ -380,7 +380,7 @@ ul {
 }
 
 .ant-btn-white:focus {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .ant-btn-link {
@@ -487,10 +487,6 @@ ul {
 
 .ant-picker-calendar-header .ant-select-selection-search-input {
   height: 30px !important;
-}
-
-.ant-input-affix-wrapper>input.ant-input {
-  padding-left: 0 !important;
 }
 
 .ant-select-single .ant-select-selector .ant-select-selection-item {
@@ -1154,6 +1150,7 @@ ul {
 
 .ant-tooltip-placement-bottom .ant-tooltip-arrow .ant-tooltip-arrow-content {
   border: 1px solid #F1F2F6;
+  box-shadow: 0 0;
 }
 
 .ant-tooltip-placement-bottom .ant-tooltip-arrow {
@@ -1655,7 +1652,7 @@ ul {
     line-height: 22px;
   }
   .ant-pagination li.ant-pagination-prev .anticon, .ant-pagination li.ant-pagination-next .anticon {
-    vertical-align: -0.25em;
+    vertical-align: 0.15em;
   }
   .ant-table-pagination {
     float: none !important;
@@ -1860,10 +1857,12 @@ ul {
 }
 
 /* card spin loader */
-.ant-card-body div{
+.ant-card-body .sd-spin div,
+.ant-card-body .spin div{
   position: relative;
 }
-.ant-card-body div .ant-spin{
+.ant-card-body .sd-spin .ant-spin,
+.ant-card-body .spin .ant-spin{
   display: absolute;
   left: 50%;
   top: 50%;
@@ -1871,4 +1870,30 @@ ul {
 }
 .starActive svg {
   color: red;
+}
+
+/* vectormap zoom in / zoom out */
+.jvectormap-zoomin,
+.jvectormap-zoomout {
+  width: 27px;
+  height: 27px;
+  background: none;
+  color: #5A5F7D;
+  border: 1px solid #F1F2F6;
+  padding: 0;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: auto;
+  right: 0;
+  top: auto;
+}
+.jvectormap-zoomin{
+  border-radius: 6px 6px 0 0;
+  bottom: 36px;
+}
+.jvectormap-zoomout{
+  border-radius: 0 0 6px 6px;
+  bottom: 10px;
 }

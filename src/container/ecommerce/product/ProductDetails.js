@@ -8,7 +8,7 @@ import FontAwesome from 'react-fontawesome';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
-import { filterSinglePage } from '../../../redux/product/actionCreator';
+import { filterSinglePage, updateWishList } from '../../../redux/product/actionCreator';
 import { ProductDetailsWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
@@ -32,11 +32,11 @@ const ProductDetails = ({ match }) => {
 
   useEffect(() => {
     if (filterSinglePage) {
-      dispatch(filterSinglePage(parseInt(match.params.id, 10)));
+      dispatch(filterSinglePage(parseInt(match.params.id, 10), products));
     }
-  }, [match.params.id, dispatch]);
+  }, [match.params.id, dispatch, products]);
 
-  const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
+  const { name, rate, price, oldPrice, description, img, category, brand, popular } = product[0];
   const { quantity } = state;
 
   const incrementQuantity = e => {
@@ -168,8 +168,20 @@ const ProductDetails = ({ match }) => {
                         <Button className="btn-cart" size="default" type="secondary">
                           <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
                         </Button>
-                        <Button className="btn-icon" size="default" raised type="white" shape="circle">
-                          <FeatherIcon icon="heart" size={14} />
+                        <Button
+                          onClick={() => dispatch(updateWishList(parseInt(match.params.id, 10)))}
+                          className="btn-icon"
+                          size="default"
+                          raised
+                          type="white"
+                          shape="circle"
+                        >
+                          <FeatherIcon
+                            icon="heart"
+                            size={14}
+                            color={popular ? '#FF4D4F' : '#9299B8'}
+                            fill={popular ? '#FF4D4F' : 'none'}
+                          />
                         </Button>
                         <Button className="btn-icon" size="default" raised type="white" shape="circle">
                           <FeatherIcon icon="share-2" size={14} />

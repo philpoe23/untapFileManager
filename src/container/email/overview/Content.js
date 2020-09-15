@@ -11,6 +11,7 @@ import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { onStarUpdate } from '../../../redux/email/actionCreator';
+import { StarIcon } from 'react-line-awesome';
 
 const Content = ({ searchData, email }) => {
   const dispatch = useDispatch();
@@ -24,8 +25,9 @@ const Content = ({ searchData, email }) => {
   useEffect(() => {
     setState({
       emails: email,
+      selectedRowKeys
     });
-  }, [email]);
+  }, [email, selectedRowKeys]);
 
   const handleSearch = searchText => {
     const data =
@@ -67,7 +69,7 @@ const Content = ({ searchData, email }) => {
               to="#"
               className={stared ? 'starActive' : 'starDeactivate'}
             >
-              <FeatherIcon icon="star" size={18} />
+              <StarIcon />
             </Link>
             <img src={img} alt="" />
             <Heading as="h5">
@@ -86,11 +88,11 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                  <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
-                    <FeatherIcon icon="paperclip" size={14} />
-                    {item}
-                  </a>
-                ))
+                <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
+                  <FeatherIcon icon="paperclip" size={14} />
+                  {item}
+                </a>
+              ))
               : null}
           </EmailHeader>
         ),
@@ -118,7 +120,7 @@ const Content = ({ searchData, email }) => {
   };
 
   const onSelectChange = selectedRowKey => {
-    setState({ ...state, selectedRowKey });
+    setState({ ...state, selectedRowKeys: selectedRowKey });
   };
 
   const rowSelection = {

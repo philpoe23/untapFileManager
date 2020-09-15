@@ -31,9 +31,10 @@ const Sellers = () => {
     if (sellers) {
       setState({
         item: sellers,
+        selectedRowKeys
       });
     }
-  }, [sellers]);
+  }, [sellers, selectedRowKeys]);
 
   const handleSearch = searchText => {
     const data = searchData.filter(value => value.title.toUpperCase().startsWith(searchText.toUpperCase()));
@@ -59,7 +60,7 @@ const Sellers = () => {
         ),
         store: storeName,
         product: (
-        <span className="product-id">{product}</span>
+          <span className="product-id">{product}</span>
         ),
         amount,
         date,
@@ -112,7 +113,7 @@ const Sellers = () => {
   ];
 
   const onSelectChange = selectedRowKey => {
-    setState({ ...state, selectedRowKey });
+    setState({ ...state, selectedRowKeys: selectedRowKey });
   };
 
   const rowSelection = {

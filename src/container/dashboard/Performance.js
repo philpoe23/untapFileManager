@@ -645,7 +645,7 @@ const Performance = () => {
                     </div>
                   </Pstates>
                   {preIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (
@@ -659,16 +659,7 @@ const Performance = () => {
                           elements: {
                             z: 9999,
                           },
-                          legend: {
-                            display: false,
-                            position: 'bottom',
-                            align: 'start',
-                            labels: {
-                              boxWidth: 6,
-                              display: true,
-                              usePointStyle: true,
-                            },
-                          },
+
                           hover: {
                             mode: 'index',
                             intersect: false,
@@ -694,47 +685,48 @@ const Performance = () => {
                                 return `${yLabel}k ${d.datasets[datasetIndex].label}`;
                               },
                             },
-                          },
-                          scales: {
-                            yAxes: [
-                              {
-                                gridLines: {
-                                  color: '#e5e9f2',
-                                  borderDash: [3, 3],
-                                  zeroLineColor: '#e5e9f2',
-                                  zeroLineWidth: 1,
-                                  zeroLineBorderDash: [3, 3],
-                                },
-                                ticks: {
-                                  beginAtZero: true,
-                                  fontSize: 13,
-                                  fontColor: '#182b49',
-                                  suggestedMin: 50,
-                                  suggestedMax: 80,
-                                  stepSize: 20,
 
-                                  // padding: 10,
-                                  callback(label) {
-                                    return `${label}k`;
+                            scales: {
+                              yAxes: [
+                                {
+                                  gridLines: {
+                                    color: '#e5e9f2',
+                                    borderDash: [3, 3],
+                                    zeroLineColor: '#e5e9f2',
+                                    zeroLineWidth: 1,
+                                    zeroLineBorderDash: [3, 3],
+                                  },
+                                  ticks: {
+                                    beginAtZero: true,
+                                    fontSize: 13,
+                                    fontColor: '#182b49',
+                                    suggestedMin: 50,
+                                    suggestedMax: 80,
+                                    stepSize: 20,
+
+                                    // padding: 10,
+                                    callback(label) {
+                                      return `${label}k`;
+                                    },
                                   },
                                 },
-                              },
-                            ],
-                            xAxes: [
-                              {
-                                gridLines: {
-                                  display: true,
-                                  zeroLineWidth: 2,
-                                  zeroLineColor: 'transparent',
-                                  color: 'transparent',
-                                  z: 1,
-                                  tickMarkLength: 0,
+                              ],
+                              xAxes: [
+                                {
+                                  gridLines: {
+                                    display: true,
+                                    zeroLineWidth: 2,
+                                    zeroLineColor: 'transparent',
+                                    color: 'transparent',
+                                    z: 1,
+                                    tickMarkLength: 0,
+                                  },
+                                  ticks: {
+                                    padding: 10,
+                                  },
                                 },
-                                ticks: {
-                                  padding: 10,
-                                },
-                              },
-                            ],
+                              ],
+                            },
                           },
                         }}
                         height={86}
@@ -825,7 +817,7 @@ const Performance = () => {
                   size="large"
                 >
                   {dvIsLoading ? (
-                    <div>
+                    <div className="sd-spin">
                       <Spin />
                     </div>
                   ) : (
@@ -952,15 +944,16 @@ const Performance = () => {
                         backgroundColor="transparent"
                         regionStyle={{
                           initial: {
-                            fill: 'red',
+                            fill: '#DBE1E8',
                             'fill-opacity': 1,
                             stroke: 'none',
                             'stroke-width': 0,
                             'stroke-opacity': 1,
                           },
                           hover: {
-                            'fill-opacity': 0.8,
+                            'fill-opacity': 1,
                             cursor: 'pointer',
+                            fill: '#5F63F2',
                           },
                           selected: {
                             fill: 'yellow',
