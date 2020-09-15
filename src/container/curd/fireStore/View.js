@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Row, Col, Table, Spin } from 'antd';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
@@ -9,24 +9,25 @@ import { Cards } from '../../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { fbDataDelete, fbDataRead } from '../../../redux/firestore/actionCreator';
 
-const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
+const ViewPage = () => {
   const dispatch = useDispatch();
-  // const { state } = useSelector(state => {});
-  useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      fbDataRead();
-    }
-    return () => {
-      unmounted = true;
+  const { crud, isLoading } = useSelector(state => {
+    return {
+      crud: state.crud.data,
+      isLoading: state.crud.loading,
     };
-  }, [fbDataRead]);
+  });
+  useEffect(() => {
+    if (fbDataRead) {
+      dispatch(fbDataRead());
+    }
+  }, [dispatch]);
   const dataSource = [];
 
   const handleDelete = e => {
-    const confirme = window.confirm('Are you sure delete this?');
-    if (confirme) {
-      fbDataDelete(parseInt(e.currentTarget.getAttribute('data-id'), 10));
+    const confirm = window.confirm('Are you sure delete this?');
+    if (confirm) {
+      dispatch(fbDataDelete(parseInt(e.currentTarget.getAttribute('data-id'), 10)));
     }
     return false;
   };
@@ -122,22 +123,8 @@ const ViewPage = ({ crud, fbDataDelete, isLoading, fbDataRead }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    crud: state.crud.data,
-    isLoading: state.crud.loading,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fbDataDelete: id => dispatch(fbDataDelete(id)),
-    fbDataRead: () => dispatch(fbDataRead()),
-  };
-};
-
 ViewPage.propTypes = {
   crud: PropTypes.array,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewPage);
+export default ViewPage;

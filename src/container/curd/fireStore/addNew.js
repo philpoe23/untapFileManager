@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from 'react';
-import { PageHeader } from '../../../components/page-headers/page-headers';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Select, DatePicker, Radio, Upload } from 'antd';
-import { Button } from '../../../components/buttons/buttons';
-import { Main } from '../../styled';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fbDataSubmit } from '../../../redux/firestore/actionCreator';
 import FeatherIcon from 'feather-icons-react';
+import { PageHeader } from '../../../components/page-headers/page-headers';
+import { Cards } from '../../../components/cards/frame/cards-frame';
+import { Button } from '../../../components/buttons/buttons';
+import { Main } from '../../styled';
+import { fbDataSubmit } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
@@ -32,10 +32,10 @@ const AddNew = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <PageHeader
         buttons={[
-          <Link key="1" to="/firestore/view">
+          <Link key="1" to="/admin/firestore/view">
             View All
           </Link>,
         ]}
@@ -113,7 +113,7 @@ const AddNew = () => {
           </Col>
         </Row>
       </Main>
-    </Fragment>
+    </>
   );
 };
 
