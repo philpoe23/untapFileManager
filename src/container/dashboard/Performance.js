@@ -659,7 +659,9 @@ const Performance = () => {
                           elements: {
                             z: 9999,
                           },
-
+                          legend: {
+                            display: false,
+                          },
                           hover: {
                             mode: 'index',
                             intersect: false,
