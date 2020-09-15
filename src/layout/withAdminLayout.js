@@ -26,7 +26,7 @@ const footerStyle = {
 };
 
 const SideBarStyle = {
-  margin: '64px 0 0 0',
+  margin: '63px 0 0 0',
   padding: '15px 15px 55px 15px',
   overflowY: 'auto',
   height: '100vh',

@@ -245,6 +245,7 @@ const SingleChat = ({ match }) => {
                                     <SmileOutlined />
                                   </Link>
                                 </Dropdown>
+
                                 <Dropdown
                                   action={['hover']}
                                   content={
@@ -374,7 +375,50 @@ const SingleChat = ({ match }) => {
             >
               <div className="chatbox-reply-input">
                 <span className="smile-icon">
-                  <FeatherIcon icon="smile" size={24} />
+                  <Dropdown
+                    action={['hover']}
+                    content={
+                      <div className="atbd-chatbox__emoji">
+                        <ul>
+                          <li>
+                            <Link to="#">
+                              <span role="img">&#127773;</span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="#">
+                              <span role="img">&#128116;</span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="#">
+                              <span role="img">&#128127;</span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="#">
+                              <span role="img">&#128151;</span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="#">
+                              <span role="img">&#128400;</span>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="#">
+                              <MoreOutlined />
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    }
+                    placement="bottomCenter"
+                  >
+                    <Link to="#">
+                      <FeatherIcon icon="smile" size={24} />
+                    </Link>
+                  </Dropdown>
                 </span>
                 <input
                   onChange={handleChange}

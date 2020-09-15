@@ -8,7 +8,7 @@ import FontAwesome from 'react-fontawesome';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import Heading from '../../../components/heading/heading';
-import { filterSinglePage } from '../../../redux/product/actionCreator';
+import { filterSinglePage, updateWishList } from '../../../redux/product/actionCreator';
 import { ProductDetailsWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
@@ -32,11 +32,11 @@ const ProductDetails = ({ match }) => {
 
   useEffect(() => {
     if (filterSinglePage) {
-      dispatch(filterSinglePage(parseInt(match.params.id, 10)));
+      dispatch(filterSinglePage(parseInt(match.params.id, 10), products));
     }
   }, [match.params.id, dispatch]);
 
-  const { name, rate, price, oldPrice, description, img, category, brand } = product[0];
+  const { name, rate, price, oldPrice, description, img, category, brand, popular } = product[0];
   const { quantity } = state;
 
   const incrementQuantity = e => {
@@ -56,6 +56,8 @@ const ProductDetails = ({ match }) => {
         quantity: quantity - 1,
       });
   };
+
+
 
   return (
     <>
@@ -88,28 +90,28 @@ const ProductDetails = ({ match }) => {
                       <Row gutter={5}>
                         {products.length
                           ? products
-                              .filter(value => {
-                                return value.category === category;
-                              })
-                              .map((value, index) => {
-                                return (
-                                  index <= 3 && (
-                                    <Col md={4} key={value.id}>
-                                      <div className="pdbl__image">
-                                        <figure>
-                                          <Link to={`/admin/ecommerce/productDetails/${value.id}`}>
-                                            <img
-                                              style={{ width: '100%' }}
-                                              src={require(`../../../${value.img}`)}
-                                              alt=""
-                                            />
-                                          </Link>
-                                        </figure>
-                                      </div>
-                                    </Col>
-                                  )
-                                );
-                              })
+                            .filter(value => {
+                              return value.category === category;
+                            })
+                            .map((value, index) => {
+                              return (
+                                index <= 3 && (
+                                  <Col md={4} key={value.id}>
+                                    <div className="pdbl__image">
+                                      <figure>
+                                        <Link to={`/admin/ecommerce/productDetails/${value.id}`}>
+                                          <img
+                                            style={{ width: '100%' }}
+                                            src={require(`../../../${value.img}`)}
+                                            alt=""
+                                          />
+                                        </Link>
+                                      </figure>
+                                    </div>
+                                  </Col>
+                                )
+                              );
+                            })
                           : null}
                       </Row>
                     </div>
@@ -168,8 +170,17 @@ const ProductDetails = ({ match }) => {
                         <Button className="btn-cart" size="default" type="secondary">
                           <FeatherIcon icon="shopping-bag" size={14} /> Add To Cart
                         </Button>
-                        <Button className="btn-icon" size="default" raised type="white" shape="circle">
-                          <FeatherIcon icon="heart" size={14} />
+                        <Button
+                          onClick={() => dispatch(updateWishList(parseInt(match.params.id, 10)))}
+                          className="btn-icon" size="default" raised type="white" shape="circle">
+
+                          <FeatherIcon
+                            icon="heart"
+                            size={14}
+                            color={popular ? '#FF4D4F' : '#9299B8'}
+                            fill={popular ? '#FF4D4F' : 'none'}
+                          />
+
                         </Button>
                         <Button className="btn-icon" size="default" raised type="white" shape="circle">
                           <FeatherIcon icon="share-2" size={14} />

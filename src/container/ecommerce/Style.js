@@ -893,6 +893,8 @@ const ProductTable = Styled.div`
             font-size: 15px;
             font-weight: 500;
             color: ${({ theme }) => theme['primary-color']};
+            display: inline-block;
+            min-width: 80px;
         }
         .cart-single-quantity{
             button{

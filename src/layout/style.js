@@ -18,6 +18,11 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
     }
+    .header-more{
+        .head-example{
+            ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
+        }
+    }
     .certain-category-search-wrapper{
         ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
         @media only screen and (max-width: 767px){
@@ -25,7 +30,7 @@ const Div = Styled.div`
         }
         input{
             ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
-            color: #fff;
+            ${({ darkMode }) => (darkMode ? `color: #fff;` : '#5A5F7D')};
         }
     }
     .ant-layout-sider-children {
@@ -46,7 +51,6 @@ const Div = Styled.div`
         }
         &.ant-layout-sider-dark{
             background: ${({ theme }) => theme['dark-color']};
-            padding: 15px 0 55px !important;
             .ant-layout-sider-children{
                 .ant-menu{
                     .ant-menu-submenu-inline{
@@ -284,7 +288,7 @@ const SmallScreenAuthInfo = Styled.div`
         top: 0;
         left: 0;
         transition: .3s;
-        border-top: 1px solid #9299b8;
+        // border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
         box-shadow: 0 2px 30px #9299b810;
@@ -296,10 +300,10 @@ const SmallScreenSearch = Styled.div`
         width: 100%;
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
-        top: 0;
+        top: 1px;
         left: 0;
         transition: .3s;
-        border-top: 1px solid #9299b8;
+        // border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}
         box-shadow: 0 2px 30px #9299b810;

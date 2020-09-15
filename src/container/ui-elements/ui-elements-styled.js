@@ -24,7 +24,7 @@ const DropdownIconStyleWrapper = Styled.div`
     display: inline-flex;
     align-items: center;
     padding: 0 8px;
-    border-left: 1px solid ${({ theme }) => theme['border-color-normal']}
+    border-left: 1px solid ${({ theme }) => theme['border-color-normal']};
   }
 `;
 
@@ -236,7 +236,7 @@ const BadgeDynamicStyle = Styled.div`
   height: 22px;
   margin-left: 15px;
   .ant-switch-handle{
-    top: 0px;    
+    top: 4px;
   }
   .ant-switch-checked .ant-switch-handle{
     left: calc(100% - 14px - 5px);
