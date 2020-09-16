@@ -464,6 +464,9 @@ const OverviewCard = Styled.div`
         .ant-progress{
             margin-bottom: 15px;
         }
+        .ant-progress-bg{
+            height: 6px !important;
+        }
         .overview-box-single{
             h1{
                 margin-bottom: 2px;
@@ -519,6 +522,11 @@ const OverviewCard = Styled.div`
             padding: 0px 11px;
             border: 0 none;
             color: #fff;
+            svg,
+            img,
+            i{
+                margin-left: 8px;
+            }
         }
     }
 `;
@@ -897,6 +905,16 @@ const RatioCard = Styled.div`
 const IncomeExpenseWrapper = Styled.div`
     .ant-card-body{
         padding: 0 25px !important;
+    }
+    .ant-card-extra{
+        .card-nav{
+            ul{
+                padding: 0;
+                li{
+                    padding: 0;
+                }
+            }
+        }
     }
     canvas{
         padding: 25px 0 0;
