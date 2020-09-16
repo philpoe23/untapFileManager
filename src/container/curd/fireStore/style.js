@@ -1,6 +1,18 @@
 import Styled from 'styled-components';
 
 const RecordViewWrapper = Styled.div`
+    .btn-add_new{
+        margin-left: 10px;
+        a{
+            display: flex;
+            align-items: center;
+            svg,
+            img,
+            i{
+                margin-right: 6px;
+            }
+        }
+    }
     .search-box{
         position: relative;
         box-shadow: 0 5px 5px rgba(#9299B8,.3);
@@ -24,6 +36,9 @@ const RecordViewWrapper = Styled.div`
             border-radius: 6px;
             &::placeholder{
                 color: #ADB4D2;
+            }
+            &:focus{
+                outline: none;
             }
         }
     }

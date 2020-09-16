@@ -79,9 +79,11 @@ const Edit = ({ match }) => {
     <>
       <PageHeader
         buttons={[
-          <Link key="1" to="/admin/firestore/view">
-            View All
-          </Link>,
+          <Button className="btn-add_new" size="default" key="1" type="primary">
+            <Link key="1" to="/admin/firestore/view">
+              View All
+            </Link>
+          </Button>,
         ]}
         ghost
         title="Update Your Recored"

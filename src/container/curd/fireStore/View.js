@@ -130,13 +130,13 @@ const ViewPage = () => {
     <RecordViewWrapper>
       <PageHeader
         subTitle={
-          <>
+          <div>
             <Button className="btn-add_new" size="default" key="1" type="primary">
               <Link to="/admin/firestore/add">
                 <FeatherIcon icon="plus" size={14} /> Add New
               </Link>
             </Button>
-          </>
+          </div>
         }
         buttons={[
           <div className="search-box">
