@@ -239,7 +239,7 @@ const Dashboard = () => {
       key: 'sessions',
     },
     {
-      title: 'Bounce Rate',
+      title: 'Behavior',
       dataIndex: 'bounceRate',
       key: 'bounceRate',
     },

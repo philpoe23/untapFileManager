@@ -20,6 +20,9 @@ const EChartCard = Styled.div`
             }
         }
     }
+    .chartjs-tooltip {
+        min-width: 132px !important;
+    }
 `;
 const DashboardBaseStyleWrap = Styled.div`
     h1{
@@ -186,6 +189,18 @@ const CardBarChart = Styled.div`
     ul{
         margin-top: 15px;
     }
+    .chart-dataIndicator{
+        li{
+            font-size: 13px;
+            color: ${({ theme }) => theme['gray-color']};
+            &:not(:last-child){
+                margin-right: 16px;
+            }
+        }
+    }
+    .chartjs-tooltip{
+        min-width: 160px !important;
+    }
 `;
 
 const CardGroup = Styled.div`
@@ -317,6 +332,7 @@ const CardGroup = Styled.div`
     }
 
     .traffic-table{
+        min-height: 438px;
         .ant-table{
             border-radius: 10px;
         }
@@ -324,7 +340,8 @@ const CardGroup = Styled.div`
             color: #333;
             thead{
                 th{
-                    padding: 10px 16px;
+                    background-color: ${({ theme }) => theme['bg-color-light']};
+                    padding: 11.5px 16px;
                     &:nth-child(2){
                         border-left: 1px solid ${({ theme }) => theme['border-color-light']};
                     }
@@ -345,9 +362,13 @@ const CardGroup = Styled.div`
                     }
                 }
                 td{
+                    padding: 14.5px 15px;
+                    text-align: right;
                     border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+                    color: ${({ theme }) => theme['gray-color']};
                     &:first-child{
                         border-left: 0 none;
+                        text-align: left;
                     }
                     &:last-child{
                         border-right: 0 none;
@@ -469,7 +490,7 @@ const OverviewCard = Styled.div`
         }
         .overview-box-single{
             h1{
-                margin-bottom: 2px;
+                margin-bottom: 0;
             }
             p{
                 color: ${({ theme }) => theme['light-color']};
@@ -518,6 +539,7 @@ const OverviewCard = Styled.div`
             color: #fff;
         }
         .ant-btn-default{
+            font-size: 12px;
             background: rgba(255,255,255,0.1);
             padding: 0px 11px;
             border: 0 none;
@@ -539,7 +561,15 @@ const PerformanceChartWrapper = Styled.div`
         }
         ul{
             margin-top: 16px;
+            li{
+                &:not(:last-child){
+                    margin-right: 25px;
+                }
+            }
         }
+    }
+    .chartjs-tooltip{
+        min-width: 175px !important;
     }
 `;
 
@@ -560,6 +590,7 @@ const Pstates = Styled.div`
         &:hover{
             box-shadow: 0 15px 30px rgba(146,153,184,0.15);
             p{
+                font-weight: 500;
                 color: ${({ theme }) => theme['primary-color']};
             }
         }
@@ -575,6 +606,11 @@ const Pstates = Styled.div`
         }
         h1{
             font-size: 24px;
+            sub{
+                span{
+                    font-weight: 500;
+                }
+            }
         }
     }
 `;
@@ -694,13 +730,18 @@ const RegionList = Styled.div`
                 }
             }
             th{
+                font-size: 13px;
+                font-weight: 500;
+                color: ${({ theme }) => theme['dark-color']};
                 background: ${({ theme }) => theme['bg-color-light']};
                 padding: 9px 20px;
                 border: 0 none;
             }
             td{
+                font-size: 13px;
                 border: 0 none;
-                padding: 5px 20px;
+                padding: 6px 20px;
+                color: ${({ theme }) => theme['gray-color']};
             }
         }
     }
@@ -712,6 +753,10 @@ const RegionMap = Styled.div`
     height: 100%;
     margin-top: 25px;
     padding-left: 20px;
+    >div{
+        width: 100%;
+        height: 250px;
+    }
     svg{
         height: 230px;
         margin: 0 auto;
@@ -747,6 +792,7 @@ const LadingPages = Styled.div`
             tr{
                 td{
                     text-align: right;
+                    color: ${({ theme }) => theme['gray-color']};
                     &:first-child{
                         text-align: left;
                     }
@@ -821,7 +867,7 @@ const SocialMediaWrapper = Styled.div`
 
 const LineChartWrapper = Styled.div`
     .linkedin-chart-wrap{
-        min-height: 379px;
+        min-height: 388px;
     }
     .growth-upward,
     .growth-downward{
@@ -832,7 +878,7 @@ const LineChartWrapper = Styled.div`
     }
     .line-chart-row{
         &:not(:last-child){
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         .border-linechart{
             border-bottom: 1px solid ${({ theme }) => theme['border-color-deep']};
@@ -922,27 +968,43 @@ const IncomeExpenseWrapper = Styled.div`
             padding-top: 5px;
         }
     }
-    ul{
-        padding: 10px 0 25px 0;
+    .chart-dataIndicator{
+        padding: 15px 0 25px 0;
         margin: -5px -12px;
         li{
             padding: 5px 12px;
+            font-size: 13px;
+            color: ${({ theme }) => theme['light-gray-color']};
+            &:not(:last-child){
+                margin-right: 20px;
+            }
         }
+    }
+    .chartjs-tooltip{
+        min-width: 185px !important;
     }
 `;
 
 const LocationMapWrapper = Styled.div`
     .location-map{
         padding: 20px 0;
+        >div{
+            width: 100%;
+            height: 160px;
+        }
         svg{
             @media only screen and (max-width: 991px){
                height: 100%;
                width: auto;
             }
         }
+        .jvectormap-zoomin, 
+        .jvectormap-zoomout{
+            right: 25px;
+        }
     }
     .location-table{
-        margin: 0 25px 15px;
+        margin: 0 25px 18px;
         padding-top: 12px;
         min-height: 180px;
         border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
@@ -969,7 +1031,7 @@ const LocationMapWrapper = Styled.div`
                 }
                 th,
                 td{
-                    padding: 6px 16px;
+                    padding: 7px 16px;
                     &:first-child{
                         padding-left: 0;
                     }
@@ -1024,13 +1086,17 @@ const RevenueWrapper = Styled.div`
             }
         }
     }
+
+    .chartjs-tooltip{
+        min-width: 166px !important;
+    }
 `;
 
 const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 487px;
+            min-height: 500px;
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }
@@ -1047,6 +1113,20 @@ const RevenueTableWrapper = Styled.div`
                     padding-right: 25px;
                 }
             }
+            thead{
+                th{
+                    font-weight: 500;
+                    color: ${({ theme }) => theme['dark-color']};
+                    &:last-child{
+                        text-align: left;
+                    }
+                }
+            }
+            tbody{
+                td{
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+            }
         }
     }
 `;
@@ -1058,7 +1138,7 @@ const RevenueChartWrapper = Styled.div`
         align-items: flex-start;
         .chart-label{
             &:not(:last-child){
-                margin-bottom: 12px;
+                margin-bottom: 18px;
             }
             .label-dot{
                 &.dot-Desktop{
@@ -1075,9 +1155,13 @@ const RevenueChartWrapper = Styled.div`
     }
     .revenue-chart-data{
         p{
-            margin-bottom: 14px;
+            font-size: 18px;
+            margin-bottom: 12px;
             &:last-child{
                 margin-bottom: 0;
+            }
+            strong{
+                font-weight: 500;
             }
         }
     }
@@ -1178,17 +1262,15 @@ const ChartContainer = Styled.div`
     .chartjs-tooltip {
         opacity: 1;
         position: absolute;
-        background: rgb(255,255,255);
-        box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
-        color: #333;
-        border-radius: 4px;
-        /* padding: 50px; */
-        min-width: 60px;
-        /* min-height: 50px; */
+        background: #fff
+        box-shadow: 0 8px 10px #9299B815;
+        padding: 10px 12px !important;
+        border-radius: 3px;
+        border: 1px solid #F1F2F6;
+        min-width: 80px;
         -webkit-transition: all 0.5s ease;
         transition: all 0.5s ease;
         pointer-events: none;
-        -webkit-transform: translate(-50%, 0);
         transform: translate(-50%, 5%);
         z-index: 9999;
         top: 0;
@@ -1212,20 +1294,31 @@ const ChartContainer = Styled.div`
         margin-right: 10px;
     }
     .tooltip-title {
-        color: #666;
-        font-size: 13px;
-        font-weight: 600 !important;
-        font-family: "Raleway";
+        color: ${({ theme }) => theme['gray-color']};
+        font-size: 12px;
+        font-weight: 500 !important;
+        font-family: 'Inter', sans-serif;
         text-transform: capitalize;
+        margin-bottom: 4px;
     }
     .tooltip-value {
         color: #63b963;
         font-size: 22px;
         font-weight: 600 !important;
-        font-family: "Raleway";
+        font-family: 'Inter', sans-serif;
     }
     .tooltip-value sup {
         font-size: 12px;
+    }
+    table{
+        tbody{
+            td{
+                font-size: 13px;
+                font-weight: 500;
+                padding-bottom: 3px;
+                color: ${({ theme }) => theme['dark-color']}
+            }
+        }
     }
 `;
 
