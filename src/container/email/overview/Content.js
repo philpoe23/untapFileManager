@@ -75,7 +75,7 @@ const Content = ({ searchData, email }) => {
             </Link>
             <img src={img} alt="" />
             <Heading as="h5">
-              <Link to={`/admin/email/single/${id}`}>{userName}</Link>
+              <Link>{userName}</Link>
             </Heading>
           </EmailAuthor>
         ),

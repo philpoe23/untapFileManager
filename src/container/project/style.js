@@ -286,6 +286,10 @@ const ProjectCard = Styled.div`
             color: ${({ theme }) => theme['gray-solid']};
             font-size: 12px;
         }
+        .ant-progress-text{
+            font-size: 12px;
+            font-weight: 500;
+        }
     }
     .project-assignees{
         border-top: 1px solid ${({ theme }) => theme['border-color-light']};
