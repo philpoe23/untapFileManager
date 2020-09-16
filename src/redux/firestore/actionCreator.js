@@ -61,6 +61,10 @@ const {
   fbUploadBegin,
   fbUploadSuccess,
   fbUploadErr,
+
+  fbSearchBegin,
+  fbSearchSuccess,
+  fbSearchErr,
 } = actions;
 
 const fbDataSubmit = data => {
@@ -94,6 +98,24 @@ const fbDataRead = () => {
       await dispatch(fbReadSuccess(data));
     } catch (err) {
       await dispatch(fbReadErr(err));
+    }
+  };
+};
+
+const fbDataSearch = value => {
+  return async (dispatch, getState, { getFirebase, getFirestore }) => {
+    const db = getFirestore();
+    const data = [];
+    try {
+      await dispatch(fbSearchBegin());
+      const query = await db.collection('crud').get();
+      await query.forEach(doc => {
+        data.push(doc.data());
+      });
+      const searchValue = data.filter(item => item.name.toLowerCase().startsWith(value.toLowerCase()));
+      await dispatch(fbSearchSuccess(searchValue));
+    } catch (err) {
+      await dispatch(fbSearchErr(err));
     }
   };
 };
@@ -213,4 +235,4 @@ const fbFileClear = () => {
   };
 };
 
-export { fbDataSubmit, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead, fbFileUploder, fbFileClear };
+export { fbDataSubmit, fbDataSearch, fbDataDelete, fbDataSingle, fbDataUpdate, fbDataRead, fbFileUploder, fbFileClear };

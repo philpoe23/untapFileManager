@@ -25,6 +25,9 @@ const {
   FB_SINGLE_DATA_SUCCESS,
   FB_SINGLE_DATA_ERR,
 
+  FB_SEARCH_BEGIN,
+  FB_SEARCH_SUCCESS,
+  FB_SEARCH_ERR,
 } = actions;
 
 const initialState = {
@@ -84,6 +87,24 @@ const fsCrudReducer = (state = initialState, action) => {
         ...state,
         error: err,
         loading: false,
+      };
+
+    case FB_SEARCH_BEGIN:
+      return {
+        ...state,
+      };
+
+    case FB_SEARCH_SUCCESS:
+      return {
+        ...state,
+        data,
+        error: false,
+      };
+
+    case FB_SEARCH_ERR:
+      return {
+        ...state,
+        error: err,
       };
 
     case FB_READ_BEGIN:

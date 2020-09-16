@@ -23,6 +23,30 @@ const actions = {
   FB_UPLOAD_SUCCESS: 'FB_UPLOAD_SUCCESS',
   FB_UPLOAD_ERR: 'FB_UPLOAD_ERR',
 
+  FB_SEARCH_BEGIN: 'FB_SEARCH_BEGIN',
+  FB_SEARCH_SUCCESS: 'FB_SEARCH_SUCCESS',
+  FB_SEARCH_ERR: 'FB_SEARCH_ERR',
+
+  fbSearchBegin: () => {
+    return {
+      type: actions.FB_SEARCH_BEGIN,
+    };
+  },
+
+  fbSearchSuccess: data => {
+    return {
+      type: actions.FB_SEARCH_SUCCESS,
+      data,
+    };
+  },
+
+  fbSearchErr: err => {
+    return {
+      type: actions.FB_SEARCH_ERR,
+      err,
+    };
+  },
+
   fbUploadBegin: () => {
     return {
       type: actions.FB_UPLOAD_BEGIN,

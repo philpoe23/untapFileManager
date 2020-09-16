@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Table, Spin } from 'antd';
-import { RecordViewWrapper } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import PropTypes from 'prop-types';
+import { RecordViewWrapper } from './style';
 import { Main, TableWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../../components/page-headers/page-headers';
-import { fbDataDelete, fbDataRead } from '../../../redux/firestore/actionCreator';
+import { fbDataDelete, fbDataRead, fbDataSearch } from '../../../redux/firestore/actionCreator';
 
 const ViewPage = () => {
   const dispatch = useDispatch();
   const { crud, isLoading } = useSelector(state => {
     return {
-      // searchData: state.headerSearchData,
       crud: state.crud.data,
       isLoading: state.crud.loading,
     };
   });
 
   const [state, setState] = useState({
-    // notData: searchData,
     selectedRowKeys: [],
   });
   const { selectedRowKeys } = state;
@@ -30,34 +28,27 @@ const ViewPage = () => {
   useEffect(() => {
     if (fbDataRead) {
       dispatch(fbDataRead());
-      setState({
-        selectedRowKeys,
-      });
     }
-  }, [dispatch, selectedRowKeys]);
+  }, [dispatch]);
   const dataSource = [];
 
-  // const { notData } = state;
-  // const handleSearch = searchText => {
-  //   const data = searchData.filter(item => item.title.toUpperCase().startsWith(searchText.toUpperCase()));
-  //   setState({
-  //     ...state,
-  //     notData: data,
-  //   });
-  // };
-  const handleDelete = e => {
+  const handleDelete = id => {
     const confirm = window.confirm('Are you sure delete this?');
     if (confirm) {
-      dispatch(fbDataDelete(parseInt(e.currentTarget.getAttribute('data-id'), 10)));
+      dispatch(fbDataDelete(parseInt(id, 10)));
     }
     return false;
   };
 
+  const onHandleSearch = e => {
+    dispatch(fbDataSearch(e.target.value, crud));
+  };
+
   if (crud.length)
-    crud.map(person => {
+    crud.map((person, key) => {
       const { id, name, email, company, position, join, status, city, country, url } = person;
       return dataSource.push({
-        key: id,
+        key: key + 1,
         name: (
           <div className="record-img align-center-v">
             <img src={url !== null ? url : require('../../../static/img/avatar/profileImage.png')} alt={id} />
@@ -80,7 +71,7 @@ const ViewPage = () => {
               <FeatherIcon icon="edit" size={14} />
             </Link>
             &nbsp;&nbsp;&nbsp;
-            <Link className="delete" onClick={handleDelete} data-id={id} to="#">
+            <Link className="delete" onClick={() => handleDelete(id)} to="#">
               <FeatherIcon icon="trash-2" size={14} />
             </Link>
           </div>
@@ -124,16 +115,15 @@ const ViewPage = () => {
       dataIndex: 'action',
       key: 'action',
       width: '90px',
-    }
+    },
   ];
-
   const onSelectChange = selectedRowKey => {
     setState({ ...state, selectedRowKeys: selectedRowKey });
   };
+
   const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      onSelectChange(selectedRowKeys);
-    },
+    selectedRowKeys,
+    onChange: onSelectChange,
   };
 
   return (
@@ -142,14 +132,18 @@ const ViewPage = () => {
         subTitle={
           <>
             <Button className="btn-add_new" size="default" key="1" type="primary">
-              <FeatherIcon icon="plus" size={14} /> Add New
+              <Link to="/admin/firestore/add">
+                <FeatherIcon icon="plus" size={14} /> Add New
+              </Link>
             </Button>
           </>
         }
         buttons={[
           <div className="search-box">
-            <span className="search-icon"><FeatherIcon icon="search" size={14} /></span>
-            <input type="text" name="recored-search" placeholder="Search Here" />
+            <span className="search-icon">
+              <FeatherIcon icon="search" size={14} />
+            </span>
+            <input onChange={onHandleSearch} type="text" name="recored-search" placeholder="Search Here" />
           </div>,
         ]}
         ghost
