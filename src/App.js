@@ -22,7 +22,7 @@ const ProviderConfig = () => {
   });
 
   return (
-    <ThemeProvider theme={{ ...theme, rtl }}>
+    <ThemeProvider theme={{ ...theme, rtl, dir: "rtl" }}>
       <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={Auth} />
         <ProtectedRoute path="/admin" component={Admin} />
