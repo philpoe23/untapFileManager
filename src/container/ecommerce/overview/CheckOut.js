@@ -10,6 +10,7 @@ import { Button } from '../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../styled';
 import { FigureCart, CheckoutWrapper, ProductTable, OrderSummary } from '../Style';
 import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../redux/cart/actionCreator';
+import { CheckIcon } from 'react-line-awesome';
 
 const { Option } = Select;
 const CheckOut = ({ onCurrentChange }) => {
@@ -186,6 +187,7 @@ const CheckOut = ({ onCurrentChange }) => {
         steps={[
           {
             title: 'Create Account',
+            icon: <CheckIcon />,
             content: (
               <BasicFormWrapper className="basic-form-inner">
                 <div className="atbd-form-checkout">

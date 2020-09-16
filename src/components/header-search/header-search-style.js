@@ -11,7 +11,15 @@ const Div = Styled.div`
     }
     .certain-category-icon{
         font-size: 16px;
-        color: ${({ theme }) => theme['gray-color']}
+        position: relative;
+        bottom: -2px;
+        // color: ${({ theme, darkMode }) => theme['gray-color']};
+        color: ${({ theme, darkMode }) => (darkMode ? `#A8AAB3;` : theme['gray-color'])};
+
+        // ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
+        svg{
+            margin-top: 4px;
+        }
     }
 `;
 
