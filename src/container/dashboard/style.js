@@ -192,6 +192,9 @@ const CardGroup = Styled.div`
     .forcast-overview{
         .ant-card-body{
             padding: 0 24px !important;
+            @media only screen and (max-width: 1199px){
+                padding: 24px 24px 0 24px !important;
+            }
         }
     }
     .card-radio{
@@ -230,14 +233,17 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 0 25px 12px;
+        padding: 24px 0 25px 24px;
+        @media only screen and (max-width: 1350px){
+            padding: 24px 0 25px 10px;
+        }
         @media only screen and (max-width: 1199px){
             margin: 0;
         }
         .ant-col-md-12{
-            padding: 0 12px 0 12px;
+            padding: 0 18px 0 12px;
             @media only screen and (max-width: 1350px){
-                padding: 0 6px;
+                padding: 0 14px 0 6px;
             }
             @media only screen and (max-width: 575px){
                 &:not(:last-child){
@@ -247,7 +253,6 @@ const CardGroup = Styled.div`
             &:first-child{
                 @media only screen and (max-width: 1350px){
                     padding-left: 20px;
-                    padding-right: 0;
                 }
                 @media only screen and (max-width: 1199px){
                     padding: 0 12px 0 0;
@@ -257,10 +262,10 @@ const CardGroup = Styled.div`
                 }
             }
             &:last-child{
-                padding: 0 12px 0 12px;
+                padding: 0 14px 0 18px;
                 @media only screen and (max-width: 1350px){
                     &:last-child{
-                        padding: 0 6px 0 14px;
+                        padding: 0 10px 0 14px;
                     }
                 }
                 @media only screen and (max-width: 1199px){
@@ -280,13 +285,13 @@ const CardGroup = Styled.div`
             border-right: 1px solid ${({ theme }) => theme['border-color-light']} !important;
             @media only screen and (max-width: 1199px){
                 border-right: 0 none !important;
-                padding: 0;
+                padding: 0 0 0 10px;
             }
             .ant-col-md-12{
                 &:first-child{
-                    padding: 0 12px 0 12px;
+                    padding: 0 16px 0 24px;
                     @media only screen and (max-width: 1350px){
-                        padding: 0 6px;
+                        padding: 0 10px 0 20px;
                     }
                     @media only screen and (max-width: 1199px){
                         padding: 0 12px 0 0;
@@ -296,9 +301,9 @@ const CardGroup = Styled.div`
                     }
                 }
                 &:last-child{
-                    padding: 0 12px 0 12px;
+                    padding: 0 10px 0 18px;
                     @media only screen and (max-width: 1350px){
-                        padding: 0 6px;
+                        padding: 0 4px 0 20px;
                     }
                     @media only screen and (max-width: 1199px){
                         padding: 0 0 0 12px;
@@ -459,6 +464,9 @@ const OverviewCard = Styled.div`
         .ant-progress{
             margin-bottom: 15px;
         }
+        .ant-progress-bg{
+            height: 6px !important;
+        }
         .overview-box-single{
             h1{
                 margin-bottom: 2px;
@@ -514,6 +522,11 @@ const OverviewCard = Styled.div`
             padding: 0px 11px;
             border: 0 none;
             color: #fff;
+            svg,
+            img,
+            i{
+                margin-left: 8px;
+            }
         }
     }
 `;
@@ -893,6 +906,16 @@ const IncomeExpenseWrapper = Styled.div`
     .ant-card-body{
         padding: 0 25px !important;
     }
+    .ant-card-extra{
+        .card-nav{
+            ul{
+                padding: 0;
+                li{
+                    padding: 0;
+                }
+            }
+        }
+    }
     canvas{
         padding: 25px 0 0;
         @media only screen and (max-width: 1599px){
@@ -915,8 +938,6 @@ const LocationMapWrapper = Styled.div`
     .location-map{
         padding: 20px 0;
         svg{
-            width: 320px;
-            height: 160px;
             @media only screen and (max-width: 991px){
                height: 100%;
                width: auto;

@@ -7,6 +7,7 @@ import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { Scrollbars } from 'react-custom-scrollbars';
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
 import { SingleChatWrapper, MessageList, Footer } from '../style';
 import Heading from '../../../components/heading/heading';
@@ -119,6 +120,14 @@ const SingleGroupChat = ({ match }) => {
       }
     },
   };
+  
+  const renderThumb = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
 
   const content = (
     <>
@@ -176,192 +185,201 @@ const SingleGroupChat = ({ match }) => {
         more={content}
       >
         <ul className="atbd-chatbox">
-          {singleContent.length ? (
-            singleContent.map((mes, index) => {
-              const id = mes.time;
-              const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
-              return (
-                <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
-                  <div className={mes.email !== me ? 'left' : 'right'}>
-                    {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
+        <Scrollbars
+            className="custom-scrollbar"
+            autoHide
+            autoHideTimeout={500}
+            autoHideDuration={200}
+            renderThumbHorizontal={renderThumb}
+            renderThumbVertical={renderThumb}
+          >
+            {singleContent.length ? (
+              singleContent.map((mes, index) => {
+                const id = mes.time;
+                const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
+                return (
+                  <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
+                    <div className={mes.email !== me ? 'left' : 'right'}>
+                      {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
 
-                    <div className="atbd-chatbox__content">
-                      <Heading as="h5" className="atbd-chatbox__name">
-                        {mes.email !== me && name}
-                        <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
-                      </Heading>
-                      {mes.email !== me ? (
-                        <div className="atbd-chatbox__contentInner d-flex">
-                          <div className="atbd-chatbox__message">
-                            <MessageList className="message-box">{mes.content}</MessageList>
-                          </div>
+                      <div className="atbd-chatbox__content">
+                        <Heading as="h5" className="atbd-chatbox__name">
+                          {mes.email !== me && name}
+                          <span>{same ? moment(id).format('hh:mm A') : moment(id).format('LL')}</span>
+                        </Heading>
+                        {mes.email !== me ? (
+                          <div className="atbd-chatbox__contentInner d-flex">
+                            <div className="atbd-chatbox__message">
+                              <MessageList className="message-box">{mes.content}</MessageList>
+                            </div>
 
-                          <div className="atbd-chatbox__actions">
-                            <Dropdown
-                              action={['hover']}
-                              content={
-                                <div className="atbd-chatbox__emoji">
-                                  <ul>
-                                    <li>
-                                      <Link to="#">
-                                        <span role="img">&#127773;</span>
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <span role="img">&#128116;</span>
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <span role="img">&#128127;</span>
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <span role="img">&#128151;</span>
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <span role="img">&#128400;</span>
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <FeatherIcon icon="more-horizontal" size={16} />
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              }
-                              placement="bottomCenter"
-                            >
-                              <Link to="#">
-                                <SmileOutlined />
-                              </Link>
-                            </Dropdown>
-                            <Dropdown
-                              action={['hover']}
-                              content={
-                                <div className="atbd-chatbox__messageControl">
-                                  <ul>
-                                    <li>
-                                      <Link to="#">Edit</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Copy</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Quote</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Forward</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Remove</Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              }
-                              placement="bottomCenter"
-                            >
-                              <Link to="#">
-                                <FeatherIcon icon="more-horizontal" size={16} />
-                              </Link>
-                            </Dropdown>
+                            <div className="atbd-chatbox__actions">
+                              <Dropdown
+                                action={['hover']}
+                                content={
+                                  <div className="atbd-chatbox__emoji">
+                                    <ul>
+                                      <li>
+                                        <Link to="#">
+                                          <span role="img">&#127773;</span>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <span role="img">&#128116;</span>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <span role="img">&#128127;</span>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <span role="img">&#128151;</span>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <span role="img">&#128400;</span>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <FeatherIcon icon="more-horizontal" size={16} />
+                                        </Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                }
+                                placement="bottomCenter"
+                              >
+                                <Link to="#">
+                                  <SmileOutlined />
+                                </Link>
+                              </Dropdown>
+                              <Dropdown
+                                action={['hover']}
+                                content={
+                                  <div className="atbd-chatbox__messageControl">
+                                    <ul>
+                                      <li>
+                                        <Link to="#">Edit</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Copy</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Quote</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Forward</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Remove</Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                }
+                                placement="bottomCenter"
+                              >
+                                <Link to="#">
+                                  <FeatherIcon icon="more-horizontal" size={16} />
+                                </Link>
+                              </Dropdown>
+                            </div>
                           </div>
-                        </div>
-                      ) : (
-                        <div className="atbd-chatbox__contentInner d-flex">
-                          <div className="atbd-chatbox__actions">
-                            <Dropdown
-                              action={['hover']}
-                              content={
-                                <div className="atbd-chatbox__emoji">
-                                  <ul>
-                                    <li>
-                                      <Link to="#">&#127773;</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">&#128116;</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">&#128127;</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">&#128151;</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">&#128400;</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">
-                                        <MoreOutlined />
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              }
-                              placement="bottomCenter"
-                            >
-                              <Link to="#">
-                                <SmileOutlined />
-                              </Link>
-                            </Dropdown>
-                            <Dropdown
-                              action={['hover']}
-                              content={
-                                <div className="atbd-chatbox__messageControl">
-                                  <ul>
-                                    <li>
-                                      <Link to="#">Edit</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Copy</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Quote</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Forward</Link>
-                                    </li>
-                                    <li>
-                                      <Link to="#">Remove</Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              }
-                              placement="bottomCenter"
-                            >
-                              <Link to="#">
-                                <FeatherIcon icon="more-horizontal" size={16} />
-                              </Link>
-                            </Dropdown>
+                        ) : (
+                          <div className="atbd-chatbox__contentInner d-flex">
+                            <div className="atbd-chatbox__actions">
+                              <Dropdown
+                                action={['hover']}
+                                content={
+                                  <div className="atbd-chatbox__emoji">
+                                    <ul>
+                                      <li>
+                                        <Link to="#">&#127773;</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">&#128116;</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">&#128127;</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">&#128151;</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">&#128400;</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">
+                                          <MoreOutlined />
+                                        </Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                }
+                                placement="bottomCenter"
+                              >
+                                <Link to="#">
+                                  <SmileOutlined />
+                                </Link>
+                              </Dropdown>
+                              <Dropdown
+                                action={['hover']}
+                                content={
+                                  <div className="atbd-chatbox__messageControl">
+                                    <ul>
+                                      <li>
+                                        <Link to="#">Edit</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Copy</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Quote</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Forward</Link>
+                                      </li>
+                                      <li>
+                                        <Link to="#">Remove</Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                }
+                                placement="bottomCenter"
+                              >
+                                <Link to="#">
+                                  <FeatherIcon icon="more-horizontal" size={16} />
+                                </Link>
+                              </Dropdown>
+                            </div>
+                            <div className="atbd-chatbox__message">
+                              <MessageList className="message-box">{mes.content}</MessageList>
+                            </div>
                           </div>
-                          <div className="atbd-chatbox__message">
-                            <MessageList className="message-box">{mes.content}</MessageList>
+                        )}
+                        {singleContent.length === index + 1 ? (
+                          <div className="group-seen">
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                            <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
                           </div>
-                        </div>
-                      )}
-                      {singleContent.length === index + 1 ? (
-                        <div className="group-seen">
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
-                        </div>
-                      ) : null}
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })
-          ) : (
-            <p>No data found</p>
-          )}
+                  </li>
+                );
+              })
+            ) : (
+              <p>No data found</p>
+            )}
+          </Scrollbars>
         </ul>
         <Footer>
           <form onSubmit={handleSubmit}>

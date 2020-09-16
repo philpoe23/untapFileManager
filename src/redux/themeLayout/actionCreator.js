@@ -1,6 +1,13 @@
 import actions from './actions';
 
-const { changeLayoutBegin, changeLayoutSuccess, changeLayoutErr } = actions;
+const {
+  changeLayoutBegin,
+  changeLayoutSuccess,
+  changeLayoutErr,
+  changeRtlBegin,
+  changeRtlSuccess,
+  changeRtlErr,
+} = actions;
 
 const changeLayoutMode = value => {
   return async dispatch => {
@@ -13,4 +20,15 @@ const changeLayoutMode = value => {
   };
 };
 
-export { changeLayoutMode };
+const changeRtlMode = value => {
+  return async dispatch => {
+    try {
+      dispatch(changeRtlBegin());
+      dispatch(changeRtlSuccess(value));
+    } catch (err) {
+      dispatch(changeRtlErr(err));
+    }
+  };
+};
+
+export { changeLayoutMode, changeRtlMode };
