@@ -130,7 +130,7 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col md={6} sm={0} xs={0}>
-                  <HeaderSearch />
+                  <HeaderSearch darkMode={darkMode} />
                 </Col>
 
                 <Col md={14} sm={0} xs={0}>

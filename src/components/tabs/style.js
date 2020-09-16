@@ -23,7 +23,7 @@ const TabColor = colors => `
   .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
     border: none;
     border-radius: 3px;
-    background : ${colors !== 'default' && colors};    
+    background : ${colors !== 'default' && colors};
   }
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
     color : ${colors !== 'default' && colors !== '#ffffff' && colors !== '#fff' && colors !== 'white' ? '#ffffff' : '#000000'
@@ -51,12 +51,8 @@ const TabBasic = Styled(Tabs)`
 `;
 
 const Child = Styled(TabPane)` 
-<<<<<<< HEAD
-    // color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'};
-=======
     /* background: ${({ color }) =>
     color !== 'default' && color !== '#ffffff' && color !== '#fff' && color !== 'white' ? '#ffffff' : '#000000'}; */
->>>>>>> 4ca73a50d65ff4e638696c64010e4f0bac544452
     ${({ color }) => color && TabChildColor(color)}
 `;
 
