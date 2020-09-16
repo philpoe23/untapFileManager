@@ -4,14 +4,14 @@ import moment from 'moment';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { StarIcon } from 'react-line-awesome';
 import { Style, EmailAuthor, EmailHeader } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
 import Heading from '../../../components/heading/heading';
 import { textRefactor } from '../../../components/utilities/utilities';
 import { Dropdown } from '../../../components/dropdown/dropdown';
-import { onStarUpdate } from '../../../redux/email/actionCreator';
-import { StarIcon } from 'react-line-awesome';
+import { onStarUpdate, onSortingAscending, onSortingDescending } from '../../../redux/email/actionCreator';
 
 const Content = ({ searchData, email }) => {
   const dispatch = useDispatch();
@@ -19,15 +19,17 @@ const Content = ({ searchData, email }) => {
     selectedRowKeys: [],
     notData: searchData,
     emails: email,
+    sort: true,
   });
-  const { selectedRowKeys, notData, emails } = state;
+  const { selectedRowKeys, notData, emails, sort } = state;
 
   useEffect(() => {
     setState({
       emails: email,
-      selectedRowKeys
+      selectedRowKeys,
+      sort,
     });
-  }, [email, selectedRowKeys]);
+  }, [email, selectedRowKeys, sort]);
 
   const handleSearch = searchText => {
     const data =
@@ -88,11 +90,11 @@ const Content = ({ searchData, email }) => {
             <p>{textRefactor(body, 10)}</p>
             {attach.length
               ? attach.map(item => (
-                <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
-                  <FeatherIcon icon="paperclip" size={14} />
-                  {item}
-                </a>
-              ))
+                  <a key={item} className="btn-attachment" download href={require(`../../../static/img/email/${item}`)}>
+                    <FeatherIcon icon="paperclip" size={14} />
+                    {item}
+                  </a>
+                ))
               : null}
           </EmailHeader>
         ),
@@ -186,7 +188,20 @@ const Content = ({ searchData, email }) => {
               </Link>
             </div>
             <div className="email-extra">
-              <Link to="#">
+              <Link
+                onClick={() => {
+                  setState({
+                    ...state,
+                    sort: !sort,
+                  });
+                  if (sort) {
+                    dispatch(onSortingAscending());
+                  } else {
+                    dispatch(onSortingDescending());
+                  }
+                }}
+                to="#"
+              >
                 <FeatherIcon icon="sliders" size={16} />
               </Link>
               <Dropdown

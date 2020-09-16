@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { Link } from 'react-router-dom';
 import { UserTableStyleWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox } from '../styled';
@@ -145,8 +146,8 @@ const UserListDataTable = () => {
             </>
           }
           buttons={[
-            <Button className="btn-add_new" size="default" key="1" type="primary">
-              + Add New User
+            <Button className="btn-add_new" size="default" type="primary" key="1">
+              <Link to="/admin/pages/add-user/info">+ Add New User</Link>
             </Button>,
           ]}
         />
