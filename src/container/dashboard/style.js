@@ -970,6 +970,8 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chart-dataIndicator{
         padding: 15px 0 25px 0;
+    ul{
+        padding: 10px 0 20px 0;
         margin: -5px -12px;
         li{
             padding: 5px 12px;
@@ -982,6 +984,8 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chartjs-tooltip{
         min-width: 185px !important;
+    .ant-card-extra{
+        padding: 0;
     }
 `;
 
