@@ -236,7 +236,6 @@ const ChartjsLineChart = props => {
           ...layout,
         }}
       />
-      ;
     </ChartContainer>
   );
 };
