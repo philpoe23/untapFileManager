@@ -900,11 +900,14 @@ const IncomeExpenseWrapper = Styled.div`
         }
     }
     ul{
-        padding: 10px 0 25px 0;
+        padding: 10px 0 20px 0;
         margin: -5px -12px;
         li{
             padding: 5px 12px;
         }
+    }
+    .ant-card-extra{
+        padding: 0;
     }
 `;
 
