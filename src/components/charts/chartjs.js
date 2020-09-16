@@ -236,7 +236,6 @@ const ChartjsLineChart = props => {
           ...layout,
         }}
       />
-      ;
     </ChartContainer>
   );
 };
@@ -734,6 +733,7 @@ ChartjsDonutChart.defaultProps = {
   ],
 
   options: {
+    cutoutPercentage: 70,
     maintainAspectRatio: true,
     responsive: true,
     legend: {

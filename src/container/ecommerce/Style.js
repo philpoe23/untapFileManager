@@ -693,8 +693,7 @@ const ProductDetailsWrapper = Styled.div`
                 &:hover{
                     background: transparent;
                 }
-                i,
-                svg{
+                i{
                     color: #707070;
                 }
             }
@@ -1412,8 +1411,36 @@ const CheckoutWrapper = Styled.div`
             margin-top: 30px !important;
         }
     }
+    .ant-steps-item-container{
+        position: relative;
+        &:after{
+            position: absolute;
+            left: 100%;
+            top: 20px;
+            color: #333;
+            background-image: url(${require('../../static/img/progress.svg')});
+            width: 140%;
+            height: 6px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: transparent !important;
+            content: '';
+            @media only screen and (max-width: 991px) {
+                display: none;
+            }
+        }
+    }
     .ant-steps-item{
-        padding: 0 25px;
+        padding: 0 25px 0 0 !important;
+        &:last-child{
+            padding-left: 15px !important;
+            .ant-steps-item-container{
+                &:after{
+                    display: none;
+                }
+            }
+        }
         &:last-child{
             @media only screen and (max-width: 991px) {
                 flex: 1 1;
@@ -1430,13 +1457,13 @@ const CheckoutWrapper = Styled.div`
         .ant-steps-item-title{
             font-size: 15px;
             font-weight: 500;
+            margin-top: 8px;
             color: ${({ theme }) => theme['gray-solid']} !important;
             @media only screen and (max-width: 767px) {
                 padding: 0;
             }
             &:after{
-                color: #333;
-                content: url('../../static/img/progress.svg');
+                display: none;
                 @media only screen and (max-width: 991px) {
                     display: none;
                 }
@@ -1474,10 +1501,15 @@ const CheckoutWrapper = Styled.div`
             }
         }
         &.ant-steps-item-finish{
+            .ant-steps-item-container{
+                &:after{
+                    background-image: url(${require('../../static/img/progress-active.svg')});
+                }
+            }
             .ant-steps-item-title{
                 color: ${({ theme }) => theme['dark-color']} !important;
                 &:after{
-                    background: ${({ theme }) => theme['success-color']} !important;
+                    background-image: url(${require('../../static/img/progress-active.svg')});
                 }
             }
             .ant-steps-item-icon{

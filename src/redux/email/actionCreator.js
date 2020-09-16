@@ -40,4 +40,32 @@ const onStarUpdate = id => {
   };
 };
 
-export { filterSinglePage, onStarUpdate };
+const onSortingAscending = () => {
+  return async dispatch => {
+    try {
+      dispatch(starUpdateBegin());
+      const data = initialState.allMessage.sort((a, b) => {
+        return parseInt(b.id, 10) - parseInt(a.id, 10);
+      });
+      dispatch(starUpdateSuccess(data));
+    } catch (err) {
+      dispatch(starUpdateErr(err));
+    }
+  };
+};
+
+const onSortingDescending = () => {
+  return async dispatch => {
+    try {
+      dispatch(starUpdateBegin());
+      const data = initialState.allMessage.sort((a, b) => {
+        return parseInt(a.id, 10) - parseInt(b.id, 10);
+      });
+      dispatch(starUpdateSuccess(data));
+    } catch (err) {
+      dispatch(starUpdateErr(err));
+    }
+  };
+};
+
+export { filterSinglePage, onStarUpdate, onSortingAscending, onSortingDescending };

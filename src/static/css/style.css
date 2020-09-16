@@ -542,6 +542,10 @@ ul {
   line-height: 2.6;
 }
 
+.ant-pagination .ant-pagination-jump-prev .ant-pagination-item-link, .ant-pagination .ant-pagination-jump-next .ant-pagination-item-link {
+  display: block;
+}
+
 .ant-pagination-prev, .ant-pagination-next {
   line-height: 28px !important;
 }
@@ -1511,6 +1515,14 @@ ul {
   display: inline-flex;
 }
 
+.ant-menu-submenu-popup{
+  z-index: 105;
+}
+
+.ant-menu-submenu-popup .ant-menu-sub{
+  padding: 8px 0;
+}
+
 .ant-menu-submenu-popup .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title, .ant-menu-submenu-popup .ant-menu-item {
   display: block;
 }
@@ -1554,10 +1566,11 @@ ul {
   margin-left: 8px;
 }
 
-.page-header-actions button svg {
+.page-header-actions button.ant-btn-default svg {
   width: 12px;
   height: 12px;
   margin-right: 2px;
+  color: #5F63F2;
 }
 
 /* Layout Css */

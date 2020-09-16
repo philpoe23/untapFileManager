@@ -1,7 +1,7 @@
 import Styled from 'styled-components';
 
 const Main = Styled.div`
-    padding: 0px 30px;
+    padding: 0px 30px 20px;
     min-height: 780px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
@@ -577,6 +577,7 @@ const BasicFormWrapper = Styled.div`
                 border: 1px solid ${({ theme }) => theme['border-color-normal']};
                 .ant-select-selection-item{
                     line-height: 46px !important;
+                    padding: 0 !important;
                 }
             }
         }

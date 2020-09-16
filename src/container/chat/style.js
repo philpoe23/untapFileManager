@@ -123,7 +123,7 @@ const SingleChatWrapper = Styled.div`
   }
   >.ant-card{
     .ant-card-body{
-      // padding-right: 0 !important;
+      padding: 25px 0 !important;
     }
   }
   .ant-card-head{
@@ -230,7 +230,7 @@ const SingleChatWrapper = Styled.div`
       }
     }
     .atbd-chatbox__single{
-      // padding-right: 25px;
+      padding: 0 25px;
       &:not(:last-child){
         margin-bottom: 30px;
       }
@@ -333,6 +333,7 @@ const MessageList = Styled.div`
 `;
 
 const Footer = Styled.div`
+  padding: 0 25px;
   .chatbox-reply-form{
     position: relative;
     margin-top: 35px;
