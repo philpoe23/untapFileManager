@@ -81,6 +81,14 @@ const ThemeLayout = WrappedComponent => {
         });
       };
 
+      const toggleCollapsedMobile = () => {
+        if (window.innerWidth <= 990) {
+          this.setState({
+            collapsed: !collapsed,
+          });
+        }
+      };
+
       const onShowHide = () => {
         this.setState({
           hide: !hide,
@@ -169,7 +177,7 @@ const ThemeLayout = WrappedComponent => {
                     renderThumbVertical={this.renderThumb}
                   >
                     <p className="sidebar-nav-title">MAIN MENU</p>
-                    <MenueItems darkMode={darkMode} />
+                    <MenueItems toggleCollapsed={toggleCollapsedMobile} darkMode={darkMode} />
                   </Scrollbars>
                 </Sider>
               </ThemeProvider>
