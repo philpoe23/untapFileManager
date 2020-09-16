@@ -693,8 +693,7 @@ const ProductDetailsWrapper = Styled.div`
                 &:hover{
                     background: transparent;
                 }
-                i,
-                svg{
+                i{
                     color: #707070;
                 }
             }

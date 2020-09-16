@@ -976,16 +976,31 @@ const RevenueWrapper = Styled.div`
             min-height: 100%;
         }
     }
-
-    .revenue-count{
-        margin-bottom: 0;
-        span{
+    .performance-lineChart{
+        ul{
+            margin: -25px -25px 20px;
+        }
+    }
+    .custom-label{
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 25px;
+        .current-amount{
+            display: block;
             font-size: 24px;
             font-weight: 600;
+            color: ${({ theme }) => theme['primary-color']};
         }
-
-        span + span{
-            margin-left: 50px;
+        .prev-amount{
+            display: block;
+            font-size: 24px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        div{
+            span{
+                display: inline-block;
+            }
         }
     }
 `;
