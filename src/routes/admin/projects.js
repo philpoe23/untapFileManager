@@ -8,8 +8,8 @@ const ProjectRoutes = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
+      <Route path={`${path}/projectDetails/:id`} component={ProjectDetails} />
       <Route path={path} component={Project} />
-      <Route exact path={`${path}/projectDetails/:id`} component={ProjectDetails} />
     </Switch>
   );
 };

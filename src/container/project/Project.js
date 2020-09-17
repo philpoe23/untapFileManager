@@ -144,9 +144,9 @@ const Project = ({ match }) => {
                     </div>
                   }
                 >
-                  <Route exact path={path} component={Grid} />
-                  <Route exact path={`${path}/grid`} component={Grid} />
-                  <Route exact path={`${path}/list`} component={List} />
+                  <Route path={path} component={Grid} exact />
+                  <Route path={`${path}/grid`} component={Grid} />
+                  <Route path={`${path}/list`} component={List} />
                 </Suspense>
               </Switch>
             </div>
