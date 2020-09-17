@@ -362,6 +362,13 @@ const Main = Styled.div`
           }
         }
     }
+
+    .ant-timeline{
+        color: ${({ theme }) => theme['gray-color']};
+        .ant-timeline-item-content{
+            font-size: 16px;
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
