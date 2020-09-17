@@ -11,7 +11,6 @@ import Auth from './routes/auth';
 import './static/css/style.css';
 import config from './config/config';
 import ProtectedRoute from './components/utilities/protectedRoute';
-// import rtl from "styled-components-rtl";
 
 const { theme } = config;
 
