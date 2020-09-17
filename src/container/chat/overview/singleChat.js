@@ -29,7 +29,7 @@ const SingleChat = ({ match }) => {
     fileList2: [],
   });
 
-  const { singleContent, name, me, inputValue } = state;
+  const { singleContent, name, me, inputValue, fileList, fileList2 } = state;
 
   // ?
   useEffect(() => {
@@ -41,14 +41,14 @@ const SingleChat = ({ match }) => {
         name: chat[0].userName,
         inputValue: '',
         me: 'woadud@gmail.com',
-        fileList: [],
-        fileList2: [],
+        fileList,
+        fileList2,
       });
     }
     return () => {
       unmounted = true;
     };
-  }, [match, chat]);
+  }, [match, chat, fileList, fileList2]);
 
   const handleChange = e => {
     setState({
@@ -283,6 +283,35 @@ const SingleChat = ({ match }) => {
                                 <Dropdown
                                   action={['hover']}
                                   content={
+                                    <div className="atbd-chatbox__messageControl">
+                                      <ul>
+                                        <li>
+                                          <Link to="#">Edit </Link>
+                                        </li>
+                                        <li>
+                                          <Link to="#">Copy </Link>
+                                        </li>
+                                        <li>
+                                          <Link to="#">Quote</Link>
+                                        </li>
+                                        <li>
+                                          <Link to="#">Forward</Link>
+                                        </li>
+                                        <li>
+                                          <Link to="#">Remove</Link>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  }
+                                  placement="bottomCenter"
+                                >
+                                  <Link to="#">
+                                    <FeatherIcon icon="more-horizontal" size={16} />
+                                  </Link>
+                                </Dropdown>
+                                <Dropdown
+                                  action={['hover']}
+                                  content={
                                     <div className="atbd-chatbox__emoji">
                                       <ul>
                                         <li>
@@ -314,35 +343,7 @@ const SingleChat = ({ match }) => {
                                     <SmileOutlined />
                                   </Link>
                                 </Dropdown>
-                                <Dropdown
-                                  action={['hover']}
-                                  content={
-                                    <div className="atbd-chatbox__messageControl">
-                                      <ul>
-                                        <li>
-                                          <Link to="#">Edit </Link>
-                                        </li>
-                                        <li>
-                                          <Link to="#">Copy </Link>
-                                        </li>
-                                        <li>
-                                          <Link to="#">Quote</Link>
-                                        </li>
-                                        <li>
-                                          <Link to="#">Forward</Link>
-                                        </li>
-                                        <li>
-                                          <Link to="#">Remove</Link>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  }
-                                  placement="bottomCenter"
-                                >
-                                  <Link to="#">
-                                    <FeatherIcon icon="more-horizontal" size={16} />
-                                  </Link>
-                                </Dropdown>
+                                
                               </div>
                               <div className="atbd-chatbox__message">
                                 <MessageList className="message-box">{mes.content}</MessageList>

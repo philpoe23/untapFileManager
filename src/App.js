@@ -16,14 +16,16 @@ import ProtectedRoute from './components/utilities/protectedRoute';
 const { theme } = config;
 
 const ProviderConfig = () => {
-  const { rtl } = useSelector(state => {
+  const { rtl, isLoggedIn } = useSelector(state => {
     return {
       rtl: state.ChangeLayoutMode.rtlData,
+      isLoggedIn: state.auth.login,
     };
   });
 
   return (
     <ThemeProvider theme={{ ...theme, rtl }}>
+<<<<<<< HEAD
       <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
@@ -32,6 +34,11 @@ const ProviderConfig = () => {
           </Router>
         </ReactReduxFirebaseProvider>
       </Provider>
+=======
+      <Router basename={process.env.PUBLIC_URL}>
+        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
+      </Router>
+>>>>>>> master
     </ThemeProvider>
   );
 };

@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
 import withAdminLayout from '../../layout/withAdminLayout';
 
 const Dashboard = lazy(() => import('./dashboard'));
