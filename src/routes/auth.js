@@ -21,10 +21,10 @@ const FrontendRoutes = () => {
           </div>
         }
       >
+        <Route exact path="/forgotPassword" component={ForgotPass} />
+        <Route exact path="/register" component={SignUp} />
         <Route exact path="/" component={Login} />
-        <Route path="/register" component={SignUp} />
-        <Route path="/forgotPassword" component={ForgotPass} />
-        <Route path="*" component={NotFound} />
+        <Route exact path="*" component={NotFound} />
       </Suspense>
     </Switch>
   );

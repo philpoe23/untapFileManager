@@ -10,22 +10,22 @@ import Auth from './routes/auth';
 import './static/css/style.css';
 import config from './config/config';
 import ProtectedRoute from './components/utilities/protectedRoute';
-import rtl from "styled-components-rtl";
+// import rtl from "styled-components-rtl";
 
 const { theme } = config;
 
 const ProviderConfig = () => {
-  const { rtl } = useSelector(state => {
+  const { rtl, isLoggedIn } = useSelector(state => {
     return {
       rtl: state.ChangeLayoutMode.rtlData,
+      isLoggedIn: state.auth.login,
     };
   });
 
   return (
     <ThemeProvider theme={{ ...theme, rtl }}>
       <Router basename={process.env.PUBLIC_URL}>
-        <Route exact path="/" component={Auth} />
-        <ProtectedRoute path="/admin" component={Admin} />
+        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
       </Router>
     </ThemeProvider>
   );
