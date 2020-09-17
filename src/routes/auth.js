@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Spin } from 'antd';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import AuthLayout from '../container/profile/authentication/Index';
 
 const Login = lazy(() => import('../container/profile/authentication/overview/SignIn'));
@@ -12,6 +13,10 @@ const NotFound = () => {
 };
 
 const FrontendRoutes = () => {
+  const { isLoading } = useSelector(state => {
+    return { isLoggedIn: state.auth.login };
+  });
+
   return (
     <Switch>
       <Suspense
