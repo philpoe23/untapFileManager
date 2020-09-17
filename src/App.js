@@ -3,7 +3,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Redirect, Route, browserHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import store from './redux/store';
 import Admin from './routes/admin';
 import Auth from './routes/auth';
@@ -25,8 +25,10 @@ const ProviderConfig = () => {
   return (
     <ThemeProvider theme={{ ...theme, rtl, dir: "rtl" }}>
       <Router basename={process.env.PUBLIC_URL}>
-        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
+        {/* {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />} */}
         {/* {!isLoggedIn ? <Redirect to="/" /> : <Redirect to="/admin" />} */}
+        <Route path="/" component={Auth} />
+        <ProtectedRoute path="/admin" component={Admin} />
       </Router>
     </ThemeProvider>
   );
