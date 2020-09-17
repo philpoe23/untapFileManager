@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector } from 'react-redux';
@@ -22,13 +22,21 @@ const ProviderConfig = () => {
     };
   });
 
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    let unmounted = false;
+    if (!unmounted) {
+      setPath(window.location.pathname);
+    }
+    return () => (unmounted = true);
+  }, [setPath]);
+
   return (
     <ThemeProvider theme={{ ...theme, rtl, dir: "rtl" }}>
       <Router basename={process.env.PUBLIC_URL}>
-        {/* {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />} */}
-        {/* {!isLoggedIn ? <Redirect to="/" /> : <Redirect to="/admin" />} */}
-        <Route path="/" component={Auth} />
-        <ProtectedRoute path="/admin" component={Admin} />
+        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
+        {isLoggedIn && path === '/' && <Redirect to="/admin" />}
       </Router>
     </ThemeProvider>
   );
