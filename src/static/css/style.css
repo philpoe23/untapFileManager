@@ -1718,8 +1718,8 @@ ul {
   .ant-page-header {
     padding: 16px 20px !important;
   }
-  
-  
+
+
   .ant-layout-header {
     height: auto;
   }
@@ -1918,4 +1918,10 @@ ul {
 .jvectormap-zoomout{
   border-radius: 0 0 6px 6px;
   bottom: 10px;
+}
+.jvectormap-tip{
+  padding: 7px 12px;
+  border: 0 none;
+  font-size: 12px;
+  background: #272B41;
 }
