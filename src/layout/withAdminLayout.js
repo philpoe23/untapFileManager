@@ -116,11 +116,11 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col md={4} sm={5} xs={12} className="align-center-v navbar-brand">
+                <Col lg={4} md={6} sm={5} xs={12} className="align-center-v navbar-brand">
                   <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                     <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
                   </Button>
-                  <Link to="/">
+                  <Link to="/admin">
                     <img
                       style={{ width: '120px' }}
                       src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
@@ -129,11 +129,11 @@ const ThemeLayout = WrappedComponent => {
                   </Link>
                 </Col>
 
-                <Col md={6} sm={0} xs={0}>
+                <Col lg={6} md={7} sm={0} xs={0}>
                   <HeaderSearch darkMode={darkMode} />
                 </Col>
 
-                <Col md={14} sm={0} xs={0}>
+                <Col lg={14} md={11} sm={0} xs={0}>
                   <AuthInfo />
                 </Col>
 

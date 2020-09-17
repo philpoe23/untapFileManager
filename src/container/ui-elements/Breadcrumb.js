@@ -119,7 +119,13 @@ const Breadcrumbs = () => {
                 </Breadcrumb>
               </BreadcrumbWrapperStyle>
             </Cards>
-
+            <Cards title="Other Router Integration">
+              <BreadcrumbWrapperStyle>
+                <Router>
+                  <Home />
+                </Router>
+              </BreadcrumbWrapperStyle>
+            </Cards>
             <Cards title="Bread crumbs with drop down menu">
               <BreadcrumbWrapperStyle>
                 <Breadcrumb>
@@ -131,19 +137,11 @@ const Breadcrumbs = () => {
                   </Breadcrumb.Item>
                   <Breadcrumb.Item overlay={menu}>
                     <NavLink to="#">
-                      <UserOutlined />
                       <span>General</span>
                     </NavLink>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>Button</Breadcrumb.Item>
                 </Breadcrumb>
-              </BreadcrumbWrapperStyle>
-            </Cards>
-            <Cards title="Other Router Integration">
-              <BreadcrumbWrapperStyle>
-                <Router>
-                  <Home />
-                </Router>
               </BreadcrumbWrapperStyle>
             </Cards>
           </Col>

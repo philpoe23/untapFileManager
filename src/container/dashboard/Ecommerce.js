@@ -596,7 +596,7 @@ const Ecommerce = () => {
                               },
                               label(t, d) {
                                 const { yLabel, datasetIndex } = t;
-                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
+                                return `<span class="chart-data">${yLabel}k</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
                               },
                             },
                           },
@@ -764,7 +764,7 @@ const Ecommerce = () => {
                   size="large"
                 >
                   <div className="location-map d-flex justify-content-center">
-                    <div style={{ width: '400px', height: 250 }}>
+                    <div>
                       <VectorMap
                         map="world_mill"
                         backgroundColor="transparent"

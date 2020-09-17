@@ -46,7 +46,7 @@ const Rating = () => {
               <Rate allowHalf defaultValue={2.5} />
             </Cards>
             <Cards title="Rater">
-              <span>
+              <span className="ant-rate-content">
                 <Rate tooltips={desc} onChange={handleChange} value={value} />
                 &nbsp;&nbsp;
                 {`${value} Star`}

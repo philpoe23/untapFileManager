@@ -151,6 +151,7 @@ ul {
 }
 
 .card-nav ul li a {
+  font-weight: 500;
   color: #868EAE;
   font-size: 12px;
 }
@@ -258,7 +259,7 @@ ul {
 }
 
 .revenue-chat-percentage span:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* progressbars */
@@ -1389,7 +1390,7 @@ ul {
 }
 
 .full-width-table .top-seller-table {
-  min-height: 395px;
+  min-height: 406px;
 }
 
 .full-width-table .top-seller-table .ant-table-content .ant-table-cell {
@@ -1407,6 +1408,13 @@ ul {
 .full-width-table .top-seller-table th,
 .full-width-table .top-seller-table td{
   text-align: right;
+}
+.full-width-table .top-seller-table td{
+  color: #5A5F7D;
+}
+.full-width-table .top-seller-table th{
+  color: #272B41;
+  font-weight: 500;
 }
 .full-width-table .top-seller-table th:first-child,
 .full-width-table .top-seller-table td:first-child{
@@ -1548,6 +1556,7 @@ ul {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin: -6px -4px;
 }
 
 .page-header-actions button {
@@ -1556,10 +1565,7 @@ ul {
   height: 34px;
   padding: 0 12.32px;
   box-shadow: 0 3px 5px #9299B805;
-}
-
-.page-header-actions button+button {
-  margin-left: 8px;
+  margin: 6px 4px;
 }
 
 .page-header-actions button.ant-btn-default svg {
@@ -1649,6 +1655,24 @@ ul {
 }
 
 @media only screen and (max-width: 767px) {
+  .ant-page-header-heading {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center !important;
+  }
+  .ant-page-header-heading .ant-page-header-heading-title{
+    margin-right: 0;
+    white-space: normal;
+    text-align: center;
+  }
+  .ant-page-header-heading-extra {
+    white-space: normal !important;
+    margin: 12px 0 4px !important;
+  }
+  .ant-page-header-heading-extra .page-header-actions {
+    white-space: normal !important;
+    text-align: center;
+  }
   .ant-card-body {
     padding: 20px !important;
   }
@@ -1694,23 +1718,8 @@ ul {
   .ant-page-header {
     padding: 16px 20px !important;
   }
-  .ant-page-header-heading {
-    flex-flow: column;
-    align-items: center;
-    justify-content: center !important;
-  }
-  .ant-page-header-heading-extra {
-    white-space: normal !important;
-    margin: 12px 0 4px !important;
-  }
-  .ant-page-header-heading-extra .page-header-actions {
-    white-space: normal !important;
-    text-align: center;
-    margin-bottom: -15px;
-  }
-  .ant-page-header-heading-extra .page-header-actions button {
-    margin-bottom: 15px;
-  }
+  
+  
   .ant-layout-header {
     height: auto;
   }

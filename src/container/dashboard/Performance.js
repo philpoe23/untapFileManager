@@ -684,7 +684,7 @@ const Performance = () => {
                               },
                               label(t, d) {
                                 const { yLabel, datasetIndex } = t;
-                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
+                                return `<span class="chart-data">${yLabel}k</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
                               },
                             },
 
@@ -940,7 +940,7 @@ const Performance = () => {
                 </Col>
                 <Col xxl={14} md={13} xs={24}>
                   <RegionMap>
-                    <div style={{ width: 400, height: 250 }}>
+                    <div>
                       <VectorMap
                         map="world_mill"
                         backgroundColor="transparent"
