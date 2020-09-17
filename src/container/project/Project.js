@@ -69,7 +69,7 @@ const Project = ({ match }) => {
           subTitle={<>12 Running Projects</>}
           buttons={[
             <Button onClick={showModal} key="1" type="primary" size="default">
-              + Create Projects
+              <FeatherIcon icon="plus" size={16} /> Create Projects
             </Button>,
           ]}
         />
