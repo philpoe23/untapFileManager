@@ -234,6 +234,9 @@ const SingleChatWrapper = Styled.div`
       &:not(:last-child){
         margin-bottom: 30px;
       }
+      &:last-child{
+        padding-bottom: 5px;
+      }
       .left{
         display: flex;
         align-items: flex-start;
@@ -303,12 +306,17 @@ const SingleChatWrapper = Styled.div`
     }
     .atbd-chatbox__actions{
       display: flex;
+      align-items: center
       margin-left: 15px;
       @media only screen and (max-width: 767px){
         flex-flow: column;
       }
       .ant-dropdown-trigger{
-        color: ${({ theme }) => theme['light-color']};
+        line-height: 1;
+        color: ${({ theme }) => theme['border-color-deep']};
+        .anticon-smile{
+          color: ${({ theme }) => theme['extra-light-color']};
+        }
         &{
           + .ant-dropdown-trigger{
             margin-left: 12px;
@@ -336,8 +344,11 @@ const Footer = Styled.div`
   padding: 0 25px;
   .chatbox-reply-form{
     position: relative;
-    margin-top: 35px;
+    margin-top: 30px;
     align-items: center;
+    @media only screen and (max-width: 575px){
+      flex-flow: column;
+    }
     .smile-icon{
       position: absolute;
       left: 25px;
@@ -353,14 +364,19 @@ const Footer = Styled.div`
         color: ${({ theme }) => theme['extra-light-color']};
       }
     }
-    @media only screen and (max-width: 575px){
-      flex-flow: column;
+    &.hasFile{
+      .ant-upload-list{
+        &.ant-upload-list-text{
+          padding: 15px;
+        }
+      }
+      
     }
     .ant-upload-list{
       display: flex;
-    position: absolute;
-    top: -70px;
-    left: 0;
+      position: absolute;
+      top: -70px;
+      left: 0;
     }
     .chatbox-reply-input{
       width: 100%;
@@ -444,7 +460,7 @@ const Footer = Styled.div`
         top: auto;
         bottom: 136px;
         background: #fff;
-        padding: 15px;
+        padding: 0;
         border-radius: 5px;
         box-shadow: 0 5px 20px #9299B803;
         >div{
