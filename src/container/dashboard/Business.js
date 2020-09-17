@@ -373,7 +373,7 @@ const Business = () => {
                         },
                       }}
                     />
-                    <ul>
+                    <ul className="chart-dataIndicator">
                       {cashFlowDataset &&
                         cashFlowDataset.map(item => {
                           return (
@@ -385,7 +385,7 @@ const Business = () => {
                                   display: 'flex',
                                   backgroundColor: item.hoverBackgroundColor,
                                   borderRadius: '50%',
-                                  margin: '0px 5px',
+                                  margin: '0px 6.5px',
                                 }}
                               />
                               {item.label}
@@ -557,7 +557,7 @@ const Business = () => {
                             },
                           }}
                         />
-                        <ul>
+                        <ul className="chart-dataIndicator">
                           {incomeDataset &&
                             incomeDataset.map(item => {
                               return (

@@ -65,7 +65,7 @@ const Content = Styled.div`
     }
     a{
       display: flex;
-      padding: 16px 24px;
+      padding: 20px 24px;
       position: relative;
       z-index: 1;
     }
