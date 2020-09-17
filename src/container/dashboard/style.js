@@ -594,7 +594,7 @@ const Pstates = Styled.div`
                 color: ${({ theme }) => theme['primary-color']};
             }
         }
-        &.growth-downward{
+        &.active{
             background: ${({ theme }) => theme['bg-color-light']};
         }
     }
@@ -1002,7 +1002,7 @@ const LocationMapWrapper = Styled.div`
                width: auto;
             }
         }
-        .jvectormap-zoomin, 
+        .jvectormap-zoomin,
         .jvectormap-zoomout{
             right: 25px;
         }
