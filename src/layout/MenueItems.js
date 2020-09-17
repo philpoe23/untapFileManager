@@ -125,6 +125,15 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         </NavLink>
       </Menu.Item> */}
 
+      <SubMenu key="firestore" icon={<FeatherIcon icon="database" />} title="Firestore Crud">
+        <Menu.Item key="view">
+          <NavLink to="/admin/firestore/view">View All</NavLink>
+        </Menu.Item>
+        <Menu.Item key="add">
+          <NavLink to="/admin/firestore/add">Add New</NavLink>
+        </Menu.Item>
+      </SubMenu>
+
       <Menu.Item icon={<FeatherIcon icon="target" />} key="project">
         <NavLink onClick={toggleCollapsed} to="/admin/project">
           Project
