@@ -25,20 +25,13 @@ const ProviderConfig = () => {
 
   return (
     <ThemeProvider theme={{ ...theme, rtl }}>
-<<<<<<< HEAD
       <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
-            <Route exact path="/" component={Auth} />
-            <ProtectedRoute path="/admin" component={Admin} />
+            {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
           </Router>
         </ReactReduxFirebaseProvider>
       </Provider>
-=======
-      <Router basename={process.env.PUBLIC_URL}>
-        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
-      </Router>
->>>>>>> master
     </ThemeProvider>
   );
 };
