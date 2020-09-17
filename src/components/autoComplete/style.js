@@ -13,6 +13,9 @@ const AutoCompleteStyled = Styled(AutoComplete)`
         padding: 0 !important;
         border-color: #E3E6EF !important;
         .ant-select-selection-search{
+            .ant-input-affix-wrapper{
+                padding: 0 20px;
+            }
             .ant-input-suffix{
                 svg,
                 i{
@@ -23,8 +26,10 @@ const AutoCompleteStyled = Styled(AutoComplete)`
     }
     .ant-select-selector input{
         height: 33px !important;
+        padding-left: 0 !important;
     }
     .ant-select-selection-search{
+        left: 20px;
         width: auto !important;
         @media only screen and (max-width: 575px){
             width: 100% !important;

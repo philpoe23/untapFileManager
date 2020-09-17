@@ -834,7 +834,15 @@ ul {
 
 .ant-select-item {
   min-height: 20px !important;
-  padding: 0px 12px !important;
+  padding: 4px 12px !important;
+}
+
+.ant-select-item-group{
+  color: #9299B8;
+}
+
+.ant-select-item.ant-select-item-option-grouped{
+  padding-left: 25px !important; 
 }
 
 .ant-select-dropdown .ant-select-item.ant-select-item-option-active {

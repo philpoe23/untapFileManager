@@ -744,7 +744,10 @@ const CardToolbox = Styled.div`
         }
     }
     .btn-add_new{
+        border-radius: 6px;
         height: 40px;
+        padding: 0 14px;
+        font-size: 12px;
         @media only screen and (max-width: 991px){
             margin-top: 10px;
         }
