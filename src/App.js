@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import store, { rrfProps } from './redux/store';
 import Admin from './routes/admin';
@@ -23,12 +23,23 @@ const ProviderConfig = () => {
     };
   });
 
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    let unmounted = false;
+    if (!unmounted) {
+      setPath(window.location.pathname);
+    }
+    return () => (unmounted = true);
+  }, [setPath]);
+
   return (
     <ThemeProvider theme={{ ...theme, rtl }}>
       <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
             {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
+            {isLoggedIn && path === '/' && <Redirect to="/admin" />}
           </Router>
         </ReactReduxFirebaseProvider>
       </Provider>
