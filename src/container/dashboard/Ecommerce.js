@@ -764,7 +764,7 @@ const Ecommerce = () => {
                   size="large"
                 >
                   <div className="location-map d-flex justify-content-center">
-                    <div style={{ width: '400px', height: 250 }}>
+                    <div>
                       <VectorMap
                         map="world_mill"
                         backgroundColor="transparent"
