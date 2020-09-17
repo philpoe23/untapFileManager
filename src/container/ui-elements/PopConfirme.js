@@ -61,51 +61,51 @@ const Confirme = () => {
               <div className="demo placement-confirm">
                 <div className="pop-confirm pop-confirm-top" style={{ marginLeft: 90, whiteSpace: 'nowrap' }}>
                   <Popconfirm placement="topLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       TL
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="top" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       Top
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="topRight" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       TR
                     </Button>
                   </Popconfirm>
                 </div>
                 <div className="pop-confirm pop-confirm-left" style={{ width: 90, float: 'left' }}>
                   <Popconfirm placement="leftTop" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       LT
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="left" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       Left
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="leftBottom" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       LB
                     </Button>
                   </Popconfirm>
                 </div>
                 <div className="pop-confirm pop-confirm-right" style={{ width: 90, marginLeft: 390 }}>
                   <Popconfirm placement="rightTop" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       RT
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="right" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       Right
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="rightBottom" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       RB
                     </Button>
                   </Popconfirm>
@@ -115,17 +115,17 @@ const Confirme = () => {
                   style={{ marginLeft: 100, clear: 'both', whiteSpace: 'nowrap' }}
                 >
                   <Popconfirm placement="bottomLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       BL
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="bottom" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       Bottom
                     </Button>
                   </Popconfirm>
                   <Popconfirm placement="bottomRight" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
-                    <Button size="default" type="light" outlined>
+                    <Button size="default" type="white" outlined>
                       BR
                     </Button>
                   </Popconfirm>
