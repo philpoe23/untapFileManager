@@ -199,7 +199,10 @@ const CardBarChart = Styled.div`
         }
     }
     .chartjs-tooltip{
-        min-width: 160px !important;
+        min-width: 140px !important;
+        @media only screen and (max-width: 1199px){
+            min-width: 115px !important;
+        }
     }
 `;
 
@@ -369,9 +372,11 @@ const CardGroup = Styled.div`
                     &:first-child{
                         border-left: 0 none;
                         text-align: left;
+                        padding-left: 25px;
                     }
                     &:last-child{
                         border-right: 0 none;
+                        padding-right: 25px;
                     }
                     .traffic-title{
                         font-weight: 500;
@@ -570,6 +575,9 @@ const PerformanceChartWrapper = Styled.div`
     }
     .chartjs-tooltip{
         min-width: 175px !important;
+        @media only screen and (max-width: 767px){
+            min-width: 150px !important;
+        }
     }
 `;
 
@@ -970,6 +978,7 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chart-dataIndicator{
         padding: 15px 0 25px 0;
+    }
     ul{
         padding: 10px 0 20px 0;
         margin: -5px -12px;
@@ -984,6 +993,10 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chartjs-tooltip{
         min-width: 185px !important;
+        @media only screen and (max-width: 1199px){
+            min-width: 170px !important;
+        }
+    }
     .ant-card-extra{
         padding: 0;
     }
@@ -1093,6 +1106,9 @@ const RevenueWrapper = Styled.div`
 
     .chartjs-tooltip{
         min-width: 166px !important;
+        @media only screen and (max-width: 1199px){
+            min-width: 150px !important;
+        }
     }
 `;
 
@@ -1279,6 +1295,9 @@ const ChartContainer = Styled.div`
         z-index: 9999;
         top: 0;
         left: 0
+        @media only screen and (max-width: 1199px){
+            padding: 6px 8px !important;
+        }
         &:before {
             position: absolute;
             content: '';
@@ -1313,6 +1332,9 @@ const ChartContainer = Styled.div`
     }
     .tooltip-value sup {
         font-size: 12px;
+        @media only screen and (max-width: 1199px){
+            font-size: 11px;
+        }
     }
     table{
         tbody{
@@ -1320,7 +1342,15 @@ const ChartContainer = Styled.div`
                 font-size: 13px;
                 font-weight: 500;
                 padding-bottom: 3px;
-                color: ${({ theme }) => theme['dark-color']}
+                white-space: nowrap;
+                color: ${({ theme }) => theme['dark-color']};
+                @media only screen and (max-width: 1199px){
+                    font-size: 12px;
+                }
+                .data-label{
+                    margin-left: 3px;
+                    color: ${({ theme }) => theme['light-gray-color']}
+                }
             }
         }
     }
