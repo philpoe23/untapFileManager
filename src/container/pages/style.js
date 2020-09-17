@@ -11,6 +11,7 @@ const PricingCard = Styled.div`
   }
   .price-amount{
     font-size: 36px;
+    margin-bottom: 10px;
     .currency{
       font-size: 16px;
       font-weight: 600;

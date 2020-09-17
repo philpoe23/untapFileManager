@@ -198,9 +198,9 @@ const Div = Styled.div`
         }
         .sidebar-nav-title{
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
-            ${({ darkMode }) => (darkMode ? `color: rgba(255, 255, 255, .38);` : '#868EAE;')};
+            ${({ darkMode }) => (darkMode ? `color: rgba(255, 255, 255, .38);` : 'color: #9299B8;')};
             padding: 0 15px;
         }
         &.ant-layout-sider-collapsed{

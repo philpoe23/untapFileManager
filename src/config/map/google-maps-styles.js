@@ -3,7 +3,6 @@ import config from '../config';
 const { theme } = config;
 
 const mapdata = {
-  apiKey: 'AIzaSyBgYKHZB_QKKLWfIRaYPCadza3nhTAbv7c',
   mapOneStyles: [
     {
       featureType: 'water',
