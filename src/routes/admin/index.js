@@ -18,10 +18,6 @@ const Inbox = lazy(() => import('../../container/email/Email'));
 const Chat = lazy(() => import('../../container/chat/ChatApp'));
 const Settings = lazy(() => import('../../container/profile/settings/Settings'));
 
-const NotFound = () => {
-  return <Redirect to="/admin" />;
-};
-
 const Admin = () => {
   const { path } = useRouteMatch();
 
@@ -50,8 +46,6 @@ const Admin = () => {
         <Route path={`${path}/email/:page`} component={Inbox} />
         <Route path={`${path}/chat`} component={Chat} />
         <Route path={`${path}/settings`} component={Settings} />
-
-        <Route path="*" component={NotFound} />
       </Suspense>
     </Switch>
   );
