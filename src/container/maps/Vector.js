@@ -17,13 +17,13 @@ const VectorMaps = () => {
           <Col xs={24}>
             <div className="vertor-map">
               <Cards title="World Map" size="large">
-                <div style={{ width: 410, height: 450 }}>
+                <div className="world-map">
                   <VectorMap
                     map="world_mill"
                     backgroundColor="transparent"
                     regionStyle={{
                       initial: {
-                        fill: 'red',
+                        fill: '#E3E6EF',
                         'fill-opacity': 1,
                         stroke: 'none',
                         'stroke-width': 0,

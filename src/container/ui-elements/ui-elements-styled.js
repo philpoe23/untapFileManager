@@ -273,6 +273,7 @@ const CardStyleWrapper = Styled.div`
 }
 .ant-card-body p{
   margin-bottom: 4px;
+  color: ${({ theme }) => theme['gray-color']};
 }
 .ant-card.ant-card-bordered {
   border-radius: 5px;
