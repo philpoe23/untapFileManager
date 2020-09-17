@@ -479,7 +479,7 @@ const ChartjsBarChartTransparent = props => {
               label(t, d) {
                 const dstLabel = d.datasets[t.datasetIndex].label;
                 const { yLabel } = t;
-                return `${yLabel} ${dstLabel}`;
+              return `<span class="chart-data">${yLabel}</span> <span class="data-label">${dstLabel}</span>`;
               },
               labelColor(tooltipItem, chart) {
                 const dataset = chart.config.data.datasets[tooltipItem.datasetIndex];

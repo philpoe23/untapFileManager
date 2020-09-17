@@ -596,7 +596,7 @@ const Ecommerce = () => {
                               },
                               label(t, d) {
                                 const { yLabel, datasetIndex } = t;
-                                return `${yLabel}k ${d.datasets[datasetIndex].label}`;
+                                return `<span class="chart-data">${yLabel}k</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
                               },
                             },
                           },

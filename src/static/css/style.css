@@ -151,6 +151,7 @@ ul {
 }
 
 .card-nav ul li a {
+  font-weight: 500;
   color: #868EAE;
   font-size: 12px;
 }
