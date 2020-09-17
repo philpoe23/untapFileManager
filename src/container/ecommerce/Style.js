@@ -1525,6 +1525,9 @@ const CheckoutWrapper = Styled.div`
         @media only screen and (max-width: 575px){
             width: 100%
         }
+        .ant-input-password.ant-input-affix-wrapper{
+            padding-left: 0;
+        }
     }
     .atbd-form-checkout{
        h1{

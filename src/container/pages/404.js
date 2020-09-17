@@ -13,7 +13,7 @@ const NotFound = () => {
         <Heading className="error-text" as="h3">
           404
         </Heading>
-        <p>Sorry! the page you are looking for doesn&apost exist.</p>
+        <p>Sorry! the page you are looking for doesn't exist.</p>
         <NavLink to="/admin">
           <Button size="default" type="primary" to="/admin">
             Return Home
