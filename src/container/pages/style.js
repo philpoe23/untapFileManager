@@ -256,7 +256,7 @@ const UserCard = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}10;
+        box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}15;
         background: #fff;
         &:not(:last-child){
           margin-right: 10px;

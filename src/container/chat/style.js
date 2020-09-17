@@ -72,6 +72,10 @@ const Content = Styled.div`
     .author-figure{
       margin-right: 15px;
       flex: .1;
+      img{
+        max-width: 46px;
+        border-radius: 50%;
+      }
     }
     .author-info{
       margin-right: 6px;
@@ -206,6 +210,7 @@ const SingleChatWrapper = Styled.div`
   .atbd-chatbox{
     height: 700px;
     overflow-y: auto;
+    overflow-x: hidden;
     .time-connector{
       position: relative;
       z-index: 10;
@@ -241,6 +246,7 @@ const SingleChatWrapper = Styled.div`
         display: flex;
         align-items: flex-start;
         img{
+          max-width: 46px;
           border-radius: 50%;
           margin-right: 15px;
         }

@@ -24,14 +24,14 @@ const PrivateChat = ({ match }) => {
             return b.time - a.time;
           })
           .map((user, key) => {
-            const { userName, content, email, active } = user;
+            const { userName, content, email, img, active } = user;
             const id = content[content.length - 1].time;
             const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
             return (
               <li key={id} className="chat-link-signle">
                 <NavLink onClick={() => dataFiltering(email)} to={`${match.path}/${email}`}>
                   <div className="author-figure">
-                    <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                    <img src={require(`../../../static/img/chat-author/${img}`)} alt="" />
                     <span className={active ? 'active' : 'inactive'} />
                   </div>
                   <div className="author-info">

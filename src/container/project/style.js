@@ -642,6 +642,7 @@ const ProjectDetailsWrapper = Styled.div`
                     color: ${({ theme }) => theme['dark-color']};
                 }
                 &.file-size{
+                    margin: 2px 0;;
                     color: ${({ theme }) => theme['gray-solid']};
                 }
                 &.file-content-action{
@@ -722,6 +723,7 @@ const TaskLists = Styled.div`
         }
     }
     table{
+        margin-top: 15px;
         .ant-checkbox-checked{
             .ant-checkbox-inner{
                 background: ${({ theme }) => theme['success-color']};
@@ -730,6 +732,9 @@ const TaskLists = Styled.div`
             &:after{
                 border-color: ${({ theme }) => theme['success-color']};
             }
+        }
+        thead{
+            display: none;
         }
         tr{
             th{
@@ -806,7 +811,8 @@ const TaskLists = Styled.div`
             font-size: 12px;
             font-weight: 500;
             &.ant-btn-primary{
-                background: ${({ theme }) => theme['primary-color']}08;
+                border-radius: 6px;
+                background: ${({ theme }) => theme['primary-color']}10;
             }
         }
     }
@@ -824,6 +830,15 @@ const TasklistAction = Styled.div`
     }
     span, a{
         color: ${({ theme }) => theme['gray-solid']};
+    }
+    .task-created{
+        color: #9299b8 !important;
+    }
+    .task-move{
+        svg,
+        i{
+            color: #D8DCEB;
+        }
     }
 `;
 

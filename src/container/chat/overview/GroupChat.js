@@ -34,14 +34,14 @@ const GroupChat = ({ match }) => {
               return b.time - a.time;
             })
             .map((user, key) => {
-              const { groupName, content, id } = user;
+              const { groupName, content, id, img } = user;
               const { time } = content[content.length - 1];
               const same = moment(time).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
               return (
                 <li key={id} className="chat-link-signle">
                   <NavLink onClick={() => dataFiltering(id)} to={`${match.path}/${id}`}>
                     <div className="author-figure">
-                      <img src={require('../../../static/img/avatar/NoPath (2).png')} alt="" />
+                      <img src={require(`../../../static/img/chat-author/${img}`)} alt="" />
                     </div>
 
                     <div className="author-info">

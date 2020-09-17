@@ -185,7 +185,7 @@ const SingleChat = ({ match }) => {
                     <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                       <div className={mes.email !== me ? 'left' : 'right'}>
                         {mes.email !== me ? (
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require(`../../../static/img/chat-author/${mes.img}`)} alt="" />
                         ) : null}
 
                         <div className="atbd-chatbox__content">
@@ -353,7 +353,7 @@ const SingleChat = ({ match }) => {
                           {mes.email === me && singleContent.length === index + 1 ? (
                             <div className="message-seen text-right">
                               <span className="message-seen__time">Seen 9:20 PM </span>
-                              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                              <img src={require(`../../../static/img/chat-author/${mes.img}`)} alt="" />
                             </div>
                           ) : null}
                         </div>
