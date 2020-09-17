@@ -16,7 +16,7 @@ const GoogleMap = () => {
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="Google Map Basic" size="large">
-              <GoogleMaps />
+              <GoogleMaps latitude="55.797897" longitude="-1.077641" />
             </Cards>
           </Col>
 
