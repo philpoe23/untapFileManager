@@ -26,6 +26,11 @@ const Main = Styled.div`
     }
 
     // ant Calendar Picker
+    .ant-picker-calendar{
+        .ant-badge-status-text{
+            color: ${({ theme }) => theme['gray-color']}
+        }
+    }
     .ant-picker-calendar-header .ant-picker-calendar-year-select{
         @media only screen and (max-width: 400px){
             width: 50% !important;
@@ -110,6 +115,7 @@ const Main = Styled.div`
     .ant-collapse.ant-collapse-icon-position-left .ant-collapse-header{
         color: #5A5F7D;
         padding: 12px 16px 10px 45px;
+        background-color: ${({ theme }) => theme['bg-color-light']};
     }
     .ant-collapse-content p{
         color: #9299B8;
@@ -325,6 +331,16 @@ const Main = Styled.div`
     // Vector Map
     .vertor-map{
         min-height: 505px;
+        .world-map{
+            width: 100%;
+            height: 600px;
+            @media only screen and (max-width: 575px){
+                height: 400px;
+            }
+            @media only screen and (max-width: 375px){
+                height: 350px;
+            }
+        }
     }
 
     // Checkout Wrapper
@@ -369,6 +385,12 @@ const Main = Styled.div`
             font-size: 16px;
         }
     }
+
+    
+  .ant-rate-content{
+    font-weight: 500;
+    color: ${({ theme }) => theme['gray-color']}
+  }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -586,6 +608,9 @@ const BasicFormWrapper = Styled.div`
                     line-height: 46px !important;
                     padding: 0 !important;
                 }
+                .ant-select-selection-placeholder{
+                    line-height: 46px !important;
+                }
             }
         }
     }
@@ -627,6 +652,7 @@ const BasicFormWrapper = Styled.div`
             }
         }
         .ant-input-number{
+            width: 100% !important;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
         }
     }
@@ -718,7 +744,10 @@ const CardToolbox = Styled.div`
         }
     }
     .btn-add_new{
+        border-radius: 6px;
         height: 40px;
+        padding: 0 14px;
+        font-size: 12px;
         @media only screen and (max-width: 991px){
             margin-top: 10px;
         }

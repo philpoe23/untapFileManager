@@ -71,7 +71,7 @@ const Team = () => {
           }
           buttons={[
             <Button className="btn-add_new" size="default" key="1" type="primary">
-              + Add New User
+              <FeatherIcon icon="plus" size={14} /> Add New Member
             </Button>,
           ]}
         />

@@ -10,6 +10,7 @@ const onSelect = () => {
 
 const renderItem = (title, count) => {
   return {
+    value: title,
     label: (
       <div
         style={{
@@ -32,6 +33,7 @@ const AutoComplete = props => {
     dataSource.map(group => {
       const { title, count } = group;
       return {
+        label: title,
         options: [renderItem(title, <span className="certain-search-item-count">{count} people</span>)],
       };
     });

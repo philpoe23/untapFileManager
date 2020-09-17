@@ -64,7 +64,7 @@ const Users = () => {
           }
           buttons={[
             <Button className="btn-add_new" size="default" type="primary" key="1">
-              <Link to="/admin/pages/add-user/info">+ Add New User</Link>
+              <Link to="/admin/pages/add-user/info"><FeatherIcon icon="plus" size={14} /> Add New User</Link>
             </Button>,
           ]}
         />
