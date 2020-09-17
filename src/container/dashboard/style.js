@@ -372,9 +372,11 @@ const CardGroup = Styled.div`
                     &:first-child{
                         border-left: 0 none;
                         text-align: left;
+                        padding-left: 25px;
                     }
                     &:last-child{
                         border-right: 0 none;
+                        padding-right: 25px;
                     }
                     .traffic-title{
                         font-weight: 500;
