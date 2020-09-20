@@ -671,11 +671,6 @@ const Performance = () => {
                             intersect: false,
                             backgroundColor: '#ffffff',
                             position: 'average',
-
-                            // custom(tooltip) {
-                            //   if (!tooltip) return;
-                            //   tooltip.displayColors = false;
-                            // },
                             enabled: false,
                             custom: customTooltips,
                             callbacks: {
@@ -687,57 +682,53 @@ const Performance = () => {
                                 return `<span class="chart-data">${yLabel}k</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
                               },
                             },
-
-                            scales: {
-                              yAxes: [
-                                {
-                                  gridLines: {
-                                    color: '#e5e9f2',
-                                    borderDash: [3, 3],
-                                    zeroLineColor: '#e5e9f2',
-                                    zeroLineWidth: 1,
-                                    zeroLineBorderDash: [3, 3],
-                                  },
-                                  ticks: {
-                                    beginAtZero: true,
-                                    fontSize: 13,
-                                    fontColor: '#182b49',
-                                    suggestedMin: 50,
-                                    suggestedMax: 80,
-                                    stepSize: 40,
-
-                                    // padding: 10,
-                                    callback(label) {
-                                      return `${label}k`;
-                                    },
+                          },
+                          scales: {
+                            yAxes: [
+                              {
+                                gridLines: {
+                                  color: '#e5e9f2',
+                                  borderDash: [3, 3],
+                                  zeroLineColor: '#e5e9f2',
+                                  zeroLineWidth: 1,
+                                  zeroLineBorderDash: [3, 3],
+                                },
+                                ticks: {
+                                  beginAtZero: true,
+                                  fontSize: 13,
+                                  fontColor: '#182b49',
+                                  max: 80,
+                                  stepSize: 20,
+                                  callback(label) {
+                                    return `${label}k`;
                                   },
                                 },
-                              ],
-                              xAxes: [
-                                {
-                                  gridLines: {
-                                    display: true,
-                                    zeroLineWidth: 2,
-                                    zeroLineColor: 'transparent',
-                                    color: 'transparent',
-                                    z: 1,
-                                    tickMarkLength: 0,
-                                  },
-                                  ticks: {
-                                    padding: 10,
-                                  },
+                              },
+                            ],
+                            xAxes: [
+                              {
+                                gridLines: {
+                                  display: true,
+                                  zeroLineWidth: 2,
+                                  zeroLineColor: 'transparent',
+                                  color: 'transparent',
+                                  z: 1,
+                                  tickMarkLength: 0,
                                 },
-                              ],
-                            },
+                                ticks: {
+                                  padding: 10,
+                                },
+                              },
+                            ],
                           },
                         }}
                         height={86}
                       />
                       <ul>
                         {performanceDatasets &&
-                          performanceDatasets.map(item => {
+                          performanceDatasets.map((item, index) => {
                             return (
-                              <li className="custom-label">
+                              <li key={index + 1} className="custom-label">
                                 <span
                                   style={{
                                     backgroundColor: item.borderColor,

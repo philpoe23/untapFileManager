@@ -153,7 +153,7 @@ const Email = ({ match }) => {
 };
 
 Email.propTypes = {
-  match: propTypes.shape(propTypes.object).isRequired,
+  match: propTypes.object,
 };
 
 export default Email;

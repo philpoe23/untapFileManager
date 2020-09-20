@@ -44,8 +44,8 @@ const Admin = () => {
         <Route path={`${path}/forms`} component={Forms} />
 
         <Route path={`${path}/email/:page`} component={Inbox} />
-        <Route path={`${path}/chat`} component={Chat} />
-        <Route path={`${path}/settings`} component={Settings} />
+        <Route path={`${path}/main/chat`} component={Chat} />
+        <Route path={`${path}/profile/settings`} component={Settings} />
       </Suspense>
     </Switch>
   );
