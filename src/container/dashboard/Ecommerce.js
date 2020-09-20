@@ -259,7 +259,7 @@ const Ecommerce = () => {
       backgroundColor: () =>
         chartLinearGradient(document.getElementById('performance'), 300, {
           start: '#5F63F230',
-          end: '#5F63F200',
+          end: '#ffffff05',
         }),
       label: 'Current period',
       pointStyle: 'circle',
