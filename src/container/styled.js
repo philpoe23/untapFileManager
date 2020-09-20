@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Main = Styled.div`
     padding: 0px 30px 20px;
-    min-height: 780px;
+    min-height: 490px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
@@ -387,10 +387,10 @@ const Main = Styled.div`
     }
 
     
-  .ant-rate-content{
-    font-weight: 500;
-    color: ${({ theme }) => theme['gray-color']}
-  }
+    .ant-rate-content{
+        font-weight: 500;
+        color: ${({ theme }) => theme['gray-color']}
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

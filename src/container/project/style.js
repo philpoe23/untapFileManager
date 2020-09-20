@@ -52,11 +52,24 @@ const ProjectSorting = Styled.div`
             }
         }
     }
-    @media (max-width: 1300px){
+    @media (min-width: 1201px) and (max-width: 1300px) {
         .project-sort-search{
             .ant-select{
-                width: 145px !important;
+                width: 170px !important;
             }
+        }
+        .project-sort-group{
+            padding: 0 5px;
+            
+        }
+        .project-sort-group .sort-group .layout-style a{
+                width: 35px;
+                height: 35px;
+            }
+        .project-sort-group .sort-group .ant-select {
+            min-width: 170px;
+            padding-left: 5px;
+            margin-right: 5px;
         }
     }
     @media (max-width: 1199px){

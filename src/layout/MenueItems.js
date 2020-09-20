@@ -123,13 +123,6 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
         {/* <Menu.Item key="18">Transactions</Menu.Item> */}
       </SubMenu>
 
-      {/* <Menu.Item key="calendar">
-        <NavLink onClick={toggleCollapsed} to="/calendar">
-          <FeatherIcon icon="calendar" />
-          <span>Calendar</span>
-        </NavLink>
-      </Menu.Item> */}
-
       <SubMenu key="firestore" icon={<FeatherIcon icon="database" />} title="Firestore Crud">
         <Menu.Item key="view">
           <NavLink to="/admin/firestore/view">View All</NavLink>
@@ -139,14 +132,20 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={<FeatherIcon icon="target" />} key="main">
-        <NavLink onClick={toggleCollapsed} to="/admin/project/main">
-          Project
-        </NavLink>
-      </Menu.Item>
+      <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
+        <Menu.Item key="view">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/view">
+            Project
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="projectDetails">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/projectDetails/1">
+            Project Details
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
-        {/* <Menu.Item key="20">Sidebar with User</Menu.Item> */}
         <Menu.Item key="21">
           <NavLink
             to="#"
@@ -169,21 +168,14 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
             Dark Sidebar
           </NavLink>
         </Menu.Item>
-        {/* <Menu.Item key="23">Light Topbar</Menu.Item>
-        <Menu.Item key="24">Dark Topbar</Menu.Item>
-        <Menu.Item key="25">Sidebar Collapsed</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="profile" icon={<FeatherIcon icon="user" />} title="Profile">
-        {/* <Menu.Item key="26">Profile</Menu.Item> */}
         <Menu.Item key="settings">
           <NavLink onClick={toggleCollapsed} to="/admin/profile/settings">
             Settings
           </NavLink>
         </Menu.Item>
-        {/* <Menu.Item key="28">Login</Menu.Item>
-        <Menu.Item key="29">Register</Menu.Item>
-        <Menu.Item key="30">Forgot Password</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">

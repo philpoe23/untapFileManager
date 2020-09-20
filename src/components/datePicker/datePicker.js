@@ -4,7 +4,8 @@ import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
-import { Button, DatePicker } from 'antd';
+import { DatePicker } from 'antd';
+import { Button } from '../../components/buttons/buttons';
 import { ItemWraper, ButtonGroup } from './style';
 
 const DateRangePickerOne = () => {
@@ -47,8 +48,8 @@ const DateRangePickerOne = () => {
 
       <ButtonGroup>
         <p>{`${start[1]} ${start[2]} ${start[3]} - ${end[1]} ${end[2]} ${end[3]}`}</p>
-        <Button type="primary">Apply</Button>
-        <Button>Cancel</Button>
+        <Button size="small" type="primary">Apply</Button>
+        <Button size="small" type="white" outlined>Cancel</Button>
       </ButtonGroup>
     </ItemWraper>
   );
