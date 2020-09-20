@@ -136,8 +136,8 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
         </NavLink>
       </Menu.Item>
 
-      <SubMenu key="email" icon={<FeatherIcon icon="target" />} title="Project">
-        <Menu.Item key="inbox">
+      <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
+        <Menu.Item key="main">
           <NavLink onClick={toggleCollapsed} to="/admin/project/main">
             Project
           </NavLink>
