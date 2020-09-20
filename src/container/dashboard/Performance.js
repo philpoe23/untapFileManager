@@ -704,7 +704,7 @@ const Performance = () => {
                                     fontColor: '#182b49',
                                     suggestedMin: 50,
                                     suggestedMax: 80,
-                                    stepSize: 20,
+                                    stepSize: 40,
 
                                     // padding: 10,
                                     callback(label) {

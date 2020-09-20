@@ -424,6 +424,7 @@ ChartjsAreaChart.defaultProps = {
             beginAtZero: true,
             fontSize: 10,
             display: false,
+            stepSize: 20,
           },
         },
       ],

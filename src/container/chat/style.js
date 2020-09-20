@@ -32,7 +32,7 @@ const UL = Styled.ul`
 `;
 
 const Content = Styled.div`
-  height: 755px;
+  height: 485px;
   overflow-y: auto;
   overflow-x: hidden;
   ul{
@@ -116,7 +116,6 @@ const BlockSpan = Styled.span`
 `;
 
 const SingleChatWrapper = Styled.div`
-  margin-bottom: 40px;
   &.group-chat{
     .chatbox-reply-form{
       input{
@@ -208,7 +207,7 @@ const SingleChatWrapper = Styled.div`
   }
 
   .atbd-chatbox{
-    height: 700px;
+    height: 455px;
     overflow-y: auto;
     overflow-x: hidden;
     .time-connector{
@@ -535,8 +534,7 @@ const Footer = Styled.div`
 `;
 
 const ChatSidebar = Styled.div`
-  margin-bottom: 40px;
-  min-height: 935px;
+  min-height: 550px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 20px #9299B803;
