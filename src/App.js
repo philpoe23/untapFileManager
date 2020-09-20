@@ -33,10 +33,10 @@ const ProviderConfig = () => {
   }, [setPath]);
 
   return (
-    <ThemeProvider theme={{ ...theme, rtl, dir: "rtl" }}>
+    <ThemeProvider theme={{ ...theme, rtl, dir: 'rtl' }}>
       <Router basename={process.env.PUBLIC_URL}>
         {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
-        {isLoggedIn && path === '/' && <Redirect to="/admin" />}
+        {isLoggedIn && path === process.env.PUBLIC_URL && <Redirect to="/admin" />}
       </Router>
     </ThemeProvider>
   );

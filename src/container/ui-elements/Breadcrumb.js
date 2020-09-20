@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Breadcrumb, Menu, Alert } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined } from '@ant-design/icons';
 import { BreadcrumbWrapperStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
