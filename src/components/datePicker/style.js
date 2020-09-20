@@ -24,7 +24,7 @@ const ItemWraper = Styled.div`
                 &:hover{
                     span{
                         color: ${({ theme }) => theme['primary-color']};
-                        background-color: ${({ theme }) => theme['primary-color']}10;
+                        background-color: #EFEFFE;
                     }
                 }
             }
@@ -39,14 +39,21 @@ const ItemWraper = Styled.div`
         .rdrMonthsHorizontal{
             .rdrMonth{
                 .rdrMonthName{
-                    font-size: 14px;
+                    font-size: 13px;
                     font-weight: 600;
                     color: ${({ theme }) => theme['dark-color']};
                 }
             }
             .rdrDays{
+
                 .rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span{
                     color: ${({ theme }) => theme['dark-color']} !important;
+                    z-index: 10;
+                }
+                .rdrDay:not(.rdrDayPassive) .rdrDayInPreview ~ .rdrDayNumber span,
+                .rdrDay:not(.rdrDayPassive) .rdrDayEndPreview ~ .rdrDayNumber span{
+                    color: ${({ theme }) => theme['dark-color']} !important;
+                    z-index: 10;
                 }
                 .rdrStartEdge.rdrEndEdge{
                     background-color: transparent !important;
@@ -56,36 +63,71 @@ const ItemWraper = Styled.div`
                     color: ${({ theme }) => theme['primary-color']};
                 }
                 .rdrStartEdge ~ .rdrDayNumber{
-                    width: 35px;
+                    // width: 35px;
+                    &:after{
+                        position: absolute;
+                        left: 20px;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #EFEFFE;
+                        content: '';
+                    }
                     span{
                         color: #fff !important;
+                        padding-right: 8px;
+                        z-index: 10;
                     }
                     
                 }
                 .rdrEndEdge ~ .rdrDayNumber{
                     // width: 35px;
+                    width: 100%;
+                    height: 100%;
                     left: 0 !important;
+                    &:after{
+                        position: absolute;
+                        right: 20px;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #EFEFFE;
+                        content: '';
+                    }
                     span{
                         color: #fff !important;
+                        padding-right: 8px;
+                        z-index: 10;
                     }
                 }
                 .rdrDay{
                     height: 3em;
+                    margin-bottom: 3px;
+                    // width: 2.25rem;
                     // width: 3.25em;
                     // border-radius: 50%;
-                    // >span{
-                    //     height: 36px;
-                    // }
+                    &.rdrDayPassive{
+                        .rdrDayNumber{
+                            span{
+                                color: ${({ theme }) => theme['extra-light-color']};
+                            }
+                        }
+                    }
+                    >span{
+                        line-height: 1;
+                    }
                     .rdrStartEdge,
                     .rdrEndEdge{
                         // border-radius: 50%;
                         // width: 36px;
                         // height: 36px;
-                        // width: 35px;
+                        width: 35px;
                         background-color: ${({ theme }) => theme['primary-color']} !important;
                     }
                     .rdrInRange{
-                        background-color: ${({ theme }) => theme['primary-color']}10;
+                        top: 0;
+                        bottom: 0;
+                        background-color: #EFEFFE;
                     }
                     .rdrEndEdge{
                         // border-radius: 0 50% 50% 0;
@@ -94,6 +136,11 @@ const ItemWraper = Styled.div`
                     .rdrStartEdge{
                         // border-radius: 50% 0 0 50%;
                         border-radius: 50%;
+                    }
+                    .rdrSelected, .rdrInRange, .rdrDayInPreview, .rdrDayEndPreview, .rdrStartEdge, .rdrEndEdge{
+                        top: 0;
+                        bottom: 0;
+                        z-index: 10;
                     }
                     // .rdrStartEdge,
                     // .rdrEndEdge,
@@ -129,15 +176,16 @@ const ItemWraper = Styled.div`
                             }
                         }
                     }
-                    .rdrDayInPreview{
+                    .rdrDayInPreview,
+                    .rdrDayEndPreview{
                         border: 0 none;
-                        background-color: ${({ theme }) => theme['primary-color']}10;
+                        background-color: #EFEFFE;
                     }
                     .rdrDayStartPreview{
                         border: 0 none !important;
                     }
                     .rdrDayEndPreview{
-                        background-color: ${({ theme }) => theme['primary-color']}10;
+                        background-color: #EFEFFE;
                     }
                     // .rdrEndEdge{
                     //     width: 100%;
@@ -146,9 +194,9 @@ const ItemWraper = Styled.div`
                     // }
                     .rdrDayNumber{
                         border-radius: 50%;
-                        top: 6px;
-                        bottom: 6px;
-                        left: 3px;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
                         span{
                             font-size: 14px;
                             color: ${({ theme }) => theme['dark-color']};
