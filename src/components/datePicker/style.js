@@ -63,14 +63,14 @@ const ItemWraper = Styled.div`
                     
                 }
                 .rdrEndEdge ~ .rdrDayNumber{
-                    width: 35px;
+                    // width: 35px;
                     left: 0 !important;
                     span{
                         color: #fff !important;
                     }
                 }
                 .rdrDay{
-                    height: 3.917em;
+                    height: 3em;
                     // width: 3.25em;
                     // border-radius: 50%;
                     // >span{
@@ -81,7 +81,7 @@ const ItemWraper = Styled.div`
                         // border-radius: 50%;
                         // width: 36px;
                         // height: 36px;
-                        width: 35px;
+                        // width: 35px;
                         background-color: ${({ theme }) => theme['primary-color']} !important;
                     }
                     .rdrInRange{
