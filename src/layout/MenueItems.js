@@ -136,6 +136,19 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
         </NavLink>
       </Menu.Item>
 
+      <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
+        <Menu.Item key="main">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/main">
+            Project
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="single">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/main/projectDetails/1">
+            Project Details
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+
       <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
         {/* <Menu.Item key="20">Sidebar with User</Menu.Item> */}
         <Menu.Item key="21">
