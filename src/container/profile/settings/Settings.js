@@ -168,7 +168,7 @@ const Settings = ({ match }) => {
 };
 
 Settings.propTypes = {
-  match: propTypes.shape(propTypes.object).isRequired,
+  match: propTypes.object,
 };
 
 export default Settings;

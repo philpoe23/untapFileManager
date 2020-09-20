@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 import { UserCard } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, CardToolbox } from '../styled';
@@ -11,7 +12,6 @@ import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../components/dropdown/dropdown';
-import FontAwesome from 'react-fontawesome';
 
 const Team = () => {
   const { searchData, team } = useSelector(state => {
@@ -102,16 +102,16 @@ const Team = () => {
                           <span className="card__designation">{designation}</span>
                           <div className="card__social">
                             <Link className="btn-icon facebook" to="#">
-                              <FontAwesome name="facebook" size={14} />
+                              <FontAwesome name="facebook" />
                             </Link>
                             <Link className="btn-icon twitter" to="#">
-                              <FontAwesome name="twitter" size={14} />
+                              <FontAwesome name="twitter" />
                             </Link>
                             <Link className="btn-icon dribble" to="#">
-                              <FontAwesome name="dribbble" size={14} />
+                              <FontAwesome name="dribbble" />
                             </Link>
                             <Link className="btn-icon instagram" to="#">
-                              <FontAwesome name="instagram" size={14} />
+                              <FontAwesome name="instagram" />
                             </Link>
                           </div>
                         </figcaption>

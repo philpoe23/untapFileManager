@@ -375,9 +375,9 @@ const Business = () => {
                     />
                     <ul className="chart-dataIndicator">
                       {cashFlowDataset &&
-                        cashFlowDataset.map(item => {
+                        cashFlowDataset.map((item, key) => {
                           return (
-                            <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            <li key={key + 1} style={{ display: 'inline-flex', alignItems: 'center' }}>
                               <span
                                 style={{
                                   width: '10px',
@@ -559,9 +559,9 @@ const Business = () => {
                         />
                         <ul className="chart-dataIndicator">
                           {incomeDataset &&
-                            incomeDataset.map(item => {
+                            incomeDataset.map((item, index) => {
                               return (
-                                <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <li key={index + 1} style={{ display: 'inline-flex', alignItems: 'center' }}>
                                   <span
                                     style={{
                                       width: '10px',

@@ -479,7 +479,7 @@ const ChartjsBarChartTransparent = props => {
               label(t, d) {
                 const dstLabel = d.datasets[t.datasetIndex].label;
                 const { yLabel } = t;
-              return `<span class="chart-data">${yLabel}</span> <span class="data-label">${dstLabel}</span>`;
+                return `<span class="chart-data">${yLabel}</span> <span class="data-label">${dstLabel}</span>`;
               },
               labelColor(tooltipItem, chart) {
                 const dataset = chart.config.data.datasets[tooltipItem.datasetIndex];
@@ -761,17 +761,16 @@ const ChartjsDonutChart2 = props => {
     labels,
     datasets,
   };
-  let counter = 0;
+
   return (
     <div>
       <Doughnut ref={ref} data={dataInfo} height={height} options={options} width="auto" />
 
       <div className="align-center-v justify-content-between rd-labels">
         <div className="revenue-chat-label">
-          {labels.map(label => {
-            counter += 1;
+          {labels.map((label, key) => {
             return (
-              <div key={counter} className="chart-label">
+              <div key={key + 1} className="chart-label">
                 <span className={`label-dot dot-${label}`} />
                 {label}
               </div>
@@ -779,10 +778,10 @@ const ChartjsDonutChart2 = props => {
           })}
         </div>
         <div className="revenue-chart-data">
-          {datasets.map(item => {
+          {datasets.map((item, key) => {
             const { data } = item;
             return (
-              <div>
+              <div key={key + 1}>
                 {data.map(value => {
                   return (
                     <>

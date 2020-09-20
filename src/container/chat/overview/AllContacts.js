@@ -69,6 +69,6 @@ const AllContacts = ({ match }) => {
   );
 };
 AllContacts.propTypes = {
-  match: PropTypes.shape(PropTypes.object),
+  match: PropTypes.object,
 };
 export default AllContacts;
