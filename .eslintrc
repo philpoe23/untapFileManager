@@ -33,10 +33,11 @@
     "import/no-extraneous-dependencies": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "react/jsx-props-no-spreading": 0,
-    "react/forbid-prop-types": 1,
+    "react/forbid-prop-types": 0,
     "react/require-default-props": 0,
     "no-nested-ternary": 0,
     "global-require": 0,
-    "import/no-dynamic-require": 0
+    "import/no-dynamic-require": 0,
+    "react/no-array-index-key": 0
   }
 }

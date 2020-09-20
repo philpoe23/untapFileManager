@@ -543,9 +543,9 @@ const Ecommerce = () => {
                     <div className="performance-lineChart">
                       <ul>
                         {performanceDatasets &&
-                          performanceDatasets.map(item => {
+                          performanceDatasets.map((item, key) => {
                             return (
-                              <li className="custom-label">
+                              <li key={key + 1} className="custom-label">
                                 <strong className={item.amountClass}>{item.amount}</strong>
                                 <div>
                                   <span

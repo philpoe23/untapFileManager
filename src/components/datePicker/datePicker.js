@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -7,63 +7,52 @@ import { DateRangePicker } from 'react-date-range';
 import { Button, DatePicker } from 'antd';
 import { ItemWraper, ButtonGroup } from './style';
 
-class DateRangePickerOne extends Component {
-  constructor(props, context) {
-    super(props, context);
+const DateRangePickerOne = () => {
+  const [state, setState] = useState({
+    datePickerInternational: null,
+    dateRangePicker: {
+      selection: {
+        startDate: new Date(),
+        endDate: addDays(new Date(), 7),
+        key: 'selection',
+      },
+    },
+  });
 
-    this.state = {
-      datePickerInternational: null,
+  const handleRangeChange = which => {
+    setState({
+      ...state,
       dateRangePicker: {
-        selection: {
-          startDate: new Date(),
-          endDate: addDays(new Date(), 7),
-          key: 'selection',
-        },
+        ...state.dateRangePicker,
+        ...which,
       },
-    };
-  }
-
-  handleChange(which, payload) {
-    this.setState({
-      [which]: payload,
     });
-  }
+  };
 
-  handleRangeChange(which, payload) {
-    this.setState(state => ({
-      [which]: {
-        ...state[which],
-        ...payload,
-      },
-    }));
-  }
+  const { dateRangePicker } = state;
+  const start = dateRangePicker.selection.startDate.toString().split(' ');
+  const end = dateRangePicker.selection.endDate.toString().split(' ');
 
-  render() {
-    const { dateRangePicker } = this.state;
-    const start = dateRangePicker.selection.startDate.toString().split(' ');
-    const end = dateRangePicker.selection.endDate.toString().split(' ');
+  return (
+    <ItemWraper>
+      <DateRangePicker
+        onChange={handleRangeChange}
+        showSelectionPreview
+        moveRangeOnFirstSelection={false}
+        className="PreviewArea"
+        months={2}
+        ranges={[dateRangePicker.selection]}
+        direction="horizontal"
+      />
 
-    return (
-      <ItemWraper>
-        <DateRangePicker
-          onChange={() => this.handleRangeChange(this, 'dateRangePicker')}
-          showSelectionPreview
-          moveRangeOnFirstSelection={false}
-          className="PreviewArea"
-          months={2}
-          ranges={[dateRangePicker.selection]}
-          direction="horizontal"
-        />
-
-        <ButtonGroup>
-          <p>{`${start[1]} ${start[2]} ${start[3]} - ${end[1]} ${end[2]} ${end[3]}`}</p>
-          <Button type="primary">Apply</Button>
-          <Button>Cancel</Button>
-        </ButtonGroup>
-      </ItemWraper>
-    );
-  }
-}
+      <ButtonGroup>
+        <p>{`${start[1]} ${start[2]} ${start[3]} - ${end[1]} ${end[2]} ${end[3]}`}</p>
+        <Button type="primary">Apply</Button>
+        <Button>Cancel</Button>
+      </ButtonGroup>
+    </ItemWraper>
+  );
+};
 
 class CustomDateRange extends React.Component {
   // eslint-disable-next-line react/state-in-constructor

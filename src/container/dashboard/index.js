@@ -679,9 +679,9 @@ const Dashboard = () => {
                       </div>
                       <ul>
                         {youtubeSubscribeDatasets &&
-                          youtubeSubscribeDatasets.map(item => {
+                          youtubeSubscribeDatasets.map((item, key) => {
                             return (
-                              <li className="custom-label">
+                              <li key={key + 1} className="custom-label">
                                 <span
                                   style={{
                                     backgroundColor: item.hoverBackgroundColor,

@@ -735,9 +735,9 @@ const Performance = () => {
                       />
                       <ul>
                         {performanceDatasets &&
-                          performanceDatasets.map(item => {
+                          performanceDatasets.map((item, index) => {
                             return (
-                              <li className="custom-label">
+                              <li key={index + 1} className="custom-label">
                                 <span
                                   style={{
                                     backgroundColor: item.borderColor,

@@ -63,6 +63,6 @@ const GroupChat = ({ match }) => {
   );
 };
 GroupChat.propTypes = {
-  match: PropTypes.shape(PropTypes.object),
+  match: PropTypes.object,
 };
 export default GroupChat;
