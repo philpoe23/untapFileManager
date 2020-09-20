@@ -153,6 +153,7 @@ const SingleChatWrapper = Styled.div`
   }
 
   .group-chat-header{
+    padding: 8px 0;
     align-items: center;
     width: 100%;
     text-align: center;
@@ -207,7 +208,7 @@ const SingleChatWrapper = Styled.div`
   }
 
   .atbd-chatbox{
-    height: 455px;
+    height: 450px;
     overflow-y: auto;
     overflow-x: hidden;
     .time-connector{
@@ -349,7 +350,7 @@ const Footer = Styled.div`
   padding: 0 25px;
   .chatbox-reply-form{
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     align-items: center;
     @media only screen and (max-width: 575px){
       flex-flow: column;
