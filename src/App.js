@@ -4,7 +4,8 @@ import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-import store from './redux/store';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import store, { rrfProps } from './redux/store';
 import Admin from './routes/admin';
 import Auth from './routes/auth';
 import './static/css/style.css';
@@ -33,11 +34,15 @@ const ProviderConfig = () => {
   }, [setPath]);
 
   return (
-    <ThemeProvider theme={{ ...theme, rtl, dir: 'rtl' }}>
-      <Router basename={process.env.PUBLIC_URL}>
-        {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
-        {isLoggedIn && path === process.env.PUBLIC_URL && <Redirect to="/admin" />}
-      </Router>
+    <ThemeProvider theme={{ ...theme, rtl }}>
+      <Provider store={store}>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <Router basename={process.env.PUBLIC_URL}>
+            {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
+            {isLoggedIn && path === process.env.PUBLIC_URL && <Redirect to="/admin" />}
+          </Router>
+        </ReactReduxFirebaseProvider>
+      </Provider>
     </ThemeProvider>
   );
 };

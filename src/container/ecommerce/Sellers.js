@@ -31,7 +31,7 @@ const Sellers = () => {
     if (sellers) {
       setState({
         item: sellers,
-        selectedRowKeys
+        selectedRowKeys,
       });
     }
   }, [sellers, selectedRowKeys]);
@@ -59,9 +59,7 @@ const Sellers = () => {
           </div>
         ),
         store: storeName,
-        product: (
-          <span className="product-id">{product}</span>
-        ),
+        product: <span className="product-id">{product}</span>,
         amount,
         date,
         action: (
