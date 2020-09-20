@@ -39,7 +39,9 @@ const ProviderConfig = () => {
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
             {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
-            {isLoggedIn && path === process.env.PUBLIC_URL && <Redirect to="/admin" />}
+            {isLoggedIn && (path === process.env.PUBLIC_URL || path === `${process.env.PUBLIC_URL}/`) && (
+              <Redirect to="/admin" />
+            )}
           </Router>
         </ReactReduxFirebaseProvider>
       </Provider>
