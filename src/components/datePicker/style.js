@@ -17,6 +17,50 @@ const ItemWraper = Styled.div`
         left: 100px;
         font-weight: 400;
     }
+    .rdrDefinedRangesWrapper{
+        .rdrStaticRanges{
+            .rdrStaticRange{
+                border-bottom: 0 none;
+                &:hover{
+                    span{
+                        color: ${({ theme }) => theme['primary-color']};
+                        background-color: ${({ theme }) => theme['primary-color']}10;
+                    }
+                }
+            }
+        }
+    }
+    .rdrCalendarWrapper{
+        .rdrPprevButton,
+        .rdrNextButton{
+            padding: 0;
+            background: transparent;
+        }
+        .rdrMonthsHorizontal{
+            .rdrMonth{
+                .rdrMonthName{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: ${({ theme }) => theme['dark-color']};
+                }
+            }
+            .rdrDays{
+                .rdrDay{
+                    width: 36px;
+                    height: 36px;
+                    .rdrEndEdge{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                    .rdrDayNumber{
+                        top: 10px;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 const ButtonGroup = Styled.div`

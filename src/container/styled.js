@@ -387,10 +387,10 @@ const Main = Styled.div`
     }
 
     
-  .ant-rate-content{
-    font-weight: 500;
-    color: ${({ theme }) => theme['gray-color']}
-  }
+    .ant-rate-content{
+        font-weight: 500;
+        color: ${({ theme }) => theme['gray-color']}
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

@@ -16,16 +16,16 @@
     },
     "week": {
       "Engaged": "55,872",
-      "EnLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "EnLabels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       "EnData": [1000, 5000, 1500, 10000, 14000, 24000, 20000],
       "Impressions": "85,534",
-      "ImLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "ImLabels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       "ImData": [10000, 15000, 10000, 15000, 14000, 24000, 20000],
       "Like": "45,254",
-      "LiLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "LiLabels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       "LiData": [100, 300, 150, 200, 500, 400, 500],
       "Impressions2": "14,452",
-      "ImLabels2": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "ImLabels2": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       "ImData2": [100, 300, 150, 200, 500, 400, 500]
     },
     "month": {
@@ -44,24 +44,24 @@
     },
     "year": {
       "Engaged": "514,872",
-      "EnLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"],
-      "EnData": [95000, 55000, 19000, 55000, 90000, 240000, 95000, 55000, 19000, 55000, 90000, 240000],
+      "EnLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "EnData": [95000, 55000, 19000, 55000, 90000, 240000, 95000, 55000, 19000, 55000, 66000, 90000, 240000],
       "Impressions": "954,534",
-      "ImLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"],
-      "ImData": [98000, 65000, 20000, 55000, 90000, 240000, 95000, 55000, 19000, 55000, 90000, 240000],
+      "ImLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "ImData": [98000, 65000, 20000, 55000, 90000, 240000, 95000, 55000, 19000, 55000, 66000, 90000, 240000],
       "Like": "520,142",
-      "LiLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"],
-      "LiData": [9500, 5500, 1900, 5500, 9000, 24000, 9500, 5500, 1900, 5500, 9000, 24000],
+      "LiLabels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "LiData": [9500, 5500, 1900, 5500, 9000, 24000, 9500, 5500, 1900, 5500, 9000, 10000, 24000],
       "Impressions2": "445,320",
-      "ImLabels2": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"],
-      "ImData2": [5000, 7000, 19000, 15000, 19000, 20000, 35000, 20000, 19000, 27000, 15000, 20000]
+      "ImLabels2": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "ImData2": [5000, 7000, 19000, 15000, 19000, 20000, 35000, 20000, 19000, 27000, 10000, 15000, 20000]
     }
   },
 
   "youtubeSubscribe": {
     "week": {
       "Subscribe": "25,472",
-      "labels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "labels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       "gained": [1000, 5000, 1500, 10000, 14000, 24000, 20000],
       "lost": [800, 3500, 1000, 9000, 10000, 14000, 15000],
       "percent": 25
@@ -75,7 +75,7 @@
     },
     "year": {
       "Subscribe": "985,872",
-      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"],
+      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Oct", "Dec"],
       "gained": [95000, 55000, 19000, 55000, 90000, 240000, 95000, 55000, 19000, 55000, 90000, 240000],
       "lost": [90000, 50000, 20000, 50000, 80000, 300000, 90000, 55000, 23000, 50000, 80000, 200000],
       "percent": 75
@@ -494,7 +494,7 @@
       "out": "5,798",
       "dataIn": [20, 60, 50, 45, 50, 60, 70],
       "dataOut": [10, 40, 30, 40, 60, 55, 45],
-      "labels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      "labels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     },
     "month": {
       "current": "25,472",
@@ -510,7 +510,7 @@
       "out": "95,798",
       "dataIn": [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       "dataOut": [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
-      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"]
+      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Oct", "Dec"]
     }
   },
   "income": {
@@ -519,7 +519,7 @@
       "sale": ["74,820", [10, 20, 30, 40, 30, 20, 45]],
       "expense": ["32,143", [5, 10, 7, 15, 25, 30, 20]],
       "profit": ["52,727", [10, 40, 30, 40, 60, 55, 45]],
-      "labels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      "labels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     },
     "month": {
       "total": ["952,784", [70, 100, 80, 85, 90, 87, 110]],
@@ -533,7 +533,7 @@
       "sale": ["3052,784", [150, 270, 350, 240, 360, 570, 450, 170, 900, 380, 285, 390]],
       "expense": ["5052,784", [135, 230, 340, 250, 345, 560, 440, 170, 900, 380, 285, 390]],
       "profit": ["4052,784", [150, 270, 350, 240, 360, 570, 450, 170, 900, 380, 285, 390]],
-      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"]
+      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Oct", "Dec"]
     }
   },
   "performance": {
@@ -542,7 +542,7 @@
       "sessions": ["27.2k", [65, 35, 45, 42, 55, 40, 30], [45, 20, 35, 32, 40, 30, 25]],
       "bounce": ["26.3%", [60, 42, 45, 35, 55, 40, 30], [45, 32, 35, 25, 40, 30, 25]],
       "duration": ["2m 18s", [65, 35, 45, 42, 65, 60, 42], [45, 20, 35, 32, 50, 45, 32]],
-      "labels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      "labels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     },
     "month": {
       "users": [
@@ -588,7 +588,7 @@
         [65, 35, 45, 42, 65, 60, 42, 45, 35, 55, 40, 65],
         [45, 20, 35, 32, 50, 45, 32, 35, 25, 40, 30, 55]
       ],
-      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"]
+      "labels": ["Jan", "Feb", "Mar", "App", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Oct", "Dec"]
     }
   },
   "trafficChanel": {
