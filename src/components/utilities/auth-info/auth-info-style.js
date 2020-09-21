@@ -63,6 +63,13 @@ const InfoWraper = Styled.div`
             margin: 0 3px;
         }
     }
+    .nav-author{
+        a{
+            img{
+                max-width: 20px;
+            }
+        }
+    }
 
     .flag-select {
         ul{
