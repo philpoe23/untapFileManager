@@ -202,26 +202,50 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
-          <Link className="customizer-trigger">
+          <Link className="customizer-trigger show">
             <FeatherIcon icon="settings" />
           </Link>
-          <div className="customier-wrapper">
+          <div className="customier-wrapper show">
             <div className="customizer">
               <div className="customizer__head">
                 <h4 className="customizer__title">CUSTOMIZER</h4>
                 <span className="customizer__sub-title">Customize & Preview Real Time</span>
+                <Link className="customizer-close">
+                  <FeatherIcon icon="x" />
+                </Link>
               </div>
               <div className="customizer__body">
                 <div className="customizer__single">
-                  <h6>Sidebar Type</h6>
-                  <ul className="customizer-list">
+                  <h4>Sidebar Type</h4>
+                  <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      {/* <img src={require('../static/img/light-mode.png')} alt="" /> */}
-                      <Link to="#">Light Sidebar</Link>
+                      <Link to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>Light Sidebar</span>
+                      </Link>
                     </li>
-                    <li>
-                      {/* <img src={require('../static/img/dark-mode.png')} alt="" /> */}
-                      <Link to="#">Dark Sidebar</Link>
+                    <li className="customizer-list__item">
+                      <Link to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> Dark Sidebar</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="customizer__single">
+                  <h4>Layout Type</h4>
+                  <ul className="customizer-list d-flex">
+                    <li className="customizer-list__item">
+                      <Link to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>LTR</span>
+                      </Link>
+                    </li>
+                    <li className="customizer-list__item">
+                      <Link to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> RTL</span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
