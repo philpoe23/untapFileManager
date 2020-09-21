@@ -866,8 +866,7 @@ const TableWrapper = Styled.div`
                     }
                     .table-actions{
                         a{
-                            svg,
-                            i{
+                            svg, i{
                                 width: 16px;
                                 color: ${({ theme }) => theme['extra-light-color']};
                             }
@@ -885,6 +884,7 @@ const TableWrapper = Styled.div`
                                 svg,
                                 i{
                                     color: ${({ theme }) => theme['danger-color']};
+                                }
                               }  
                             }
                         }
@@ -916,25 +916,24 @@ const TableWrapper = Styled.div`
                 }
             }
         }
-
         tbody{
-            >tr{
+            tr{
                 &:hover{
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
                 &.ant-table-row-selected{
                     &:hover{
-                        >td{
+                        td{
                             background: ${({ theme }) => theme['bg-color-light']};
                         }
                     }
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
-                >td{
+                td{
                     border: 0 none;
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
@@ -1014,7 +1013,7 @@ const TableWrapper = Styled.div`
                 color: ${({ theme }) => theme['light-color']};
             }
         }
-    }
+    }    
 `;
 
 export {
