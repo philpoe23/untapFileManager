@@ -864,6 +864,9 @@ const AddUser = Styled.div`
         justify-content: center;
       }
     }
+    img{
+      border-radius: 50%;
+    }
     figcaption{
       margin-left: 20px;
       .info{
