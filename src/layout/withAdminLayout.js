@@ -202,6 +202,32 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
+          <Link className="customizer-trigger">
+            <FeatherIcon icon="settings" />
+          </Link>
+          <div className="customier-wrapper">
+            <div className="customizer">
+              <div className="customizer__head">
+                <h4 className="customizer__title">CUSTOMIZER</h4>
+                <span className="customizer__sub-title">Customize & Preview Real Time</span>
+              </div>
+              <div className="customizer__body">
+                <div className="customizer__single">
+                  <h6>Sidebar Type</h6>
+                  <ul className="customizer-list">
+                    <li className="customizer-list__item">
+                      {/* <img src={require('../static/img/light-mode.png')} alt="" /> */}
+                      <Link to="#">Light Sidebar</Link>
+                    </li>
+                    <li>
+                      {/* <img src={require('../static/img/dark-mode.png')} alt="" /> */}
+                      <Link to="#">Dark Sidebar</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </Div>
       );
     }

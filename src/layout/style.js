@@ -20,6 +20,40 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
     }
+    .customier-wrapper{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 30px #9299B810;
+        z-index: 22;
+    }
+    .customizer-list{
+        .customizer-list__item{
+            position: relative;
+            display: inline-block;
+            min-height: 60px;
+            background-size: cover;
+            margin: 10px;
+            box-shadow: 0 15px 20px #ADB4D240;
+            a{
+                color: #272B41;
+            }
+            // &:after{
+            //     position: absolute;
+            //     left: 0;
+            //     top: 0;
+            //     width: 100%;
+            //     height: 100%;
+            //     content: "";
+            //     z-index: -1;
+            //     background-color: #272B4120;
+            // }
+        }
+    }
     .certain-category-search-wrapper{
         ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
         @media only screen and (max-width: 767px){
