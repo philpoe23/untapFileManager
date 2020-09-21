@@ -160,6 +160,12 @@ const Div = Styled.div`
                             color: ${({ theme }) => theme['dark-color']};
                         }
                     }
+                    &.ant-menu-item-selected{
+                        svg,
+                        i{
+                            color: ${({ theme }) => theme['primary-color']};
+                        }
+                    }
                 }
                 .ant-menu-submenu,
                 .ant-menu-item{
