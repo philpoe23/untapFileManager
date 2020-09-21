@@ -31,7 +31,7 @@ const ExportButtonPageHeader = () => {
   );
   return (
     <Popover placement="bottomLeft" content={content} trigger="click">
-      <Button size="small" type="default">
+      <Button size="small" type="white">
         <FeatherIcon icon="download" size={14} />
         Export
       </Button>
