@@ -8,7 +8,7 @@ import { changeLayoutMode } from '../redux/themeLayout/actionCreator';
 
 const { SubMenu } = Menu;
 
-const MenuItems = ({ darkMode, toggleCollapsed }) => {
+const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);

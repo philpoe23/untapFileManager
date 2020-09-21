@@ -16,25 +16,6 @@ const { darkTheme } = require('../config/theme/themeVariables');
 const { Header, Footer, Sider, Content } = Layout;
 // const { darkMode } = config;
 
-const footerStyle = {
-  padding: '20px 30px 18px',
-  color: 'rgba(0, 0, 0, 0.65)',
-  fontSize: '14px',
-  background: 'rgba(255, 255, 255, .90)',
-  width: '100%',
-  boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
-};
-
-const SideBarStyle = {
-  margin: '63px 0 0 0',
-  padding: '15px 15px 55px 15px',
-  overflowY: 'auto',
-  height: '100vh',
-  position: 'fixed',
-  left: 0,
-  zIndex: 998,
-};
-
 const ThemeLayout = WrappedComponent => {
   class LayoutComponent extends Component {
     constructor(props) {
@@ -62,18 +43,11 @@ const ThemeLayout = WrappedComponent => {
       });
     }
 
-    renderThumb = ({ style, ...props }) => {
-      const { ChangeLayoutMode } = this.props;
-      const thumbStyle = {
-        borderRadius: 6,
-        backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
-      };
-      return <div style={{ ...style, ...thumbStyle }} props={props} />;
-    };
-
     render() {
       const { collapsed, hide, searchHide } = this.state;
-      const { ChangeLayoutMode } = this.props;
+      const { ChangeLayoutMode, rtl } = this.props;
+      const left = !rtl ? 'left' : 'right';
+
       const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
         this.setState({
@@ -102,6 +76,65 @@ const ThemeLayout = WrappedComponent => {
           searchHide: !searchHide,
           hide: true,
         });
+      };
+
+      const footerStyle = {
+        padding: '20px 30px 18px',
+        color: 'rgba(0, 0, 0, 0.65)',
+        fontSize: '14px',
+        background: 'rgba(255, 255, 255, .90)',
+        width: '100%',
+        boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
+      };
+
+      const SideBarStyle = {
+        margin: '63px 0 0 0',
+        padding: '15px 15px 55px 15px',
+        overflowY: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        [left]: 0,
+        zIndex: 998,
+      };
+
+      const renderView = ({ style, ...props }) => {
+        const customStyle = {
+          [rtl ? 'marginLeft' : 'marginRight']: '-17px',
+        };
+        return <div {...props} style={{ ...style, ...customStyle }} />;
+      };
+
+      const renderThumbVertical = ({ style, ...props }) => {
+        const { ChangeLayoutMode } = this.props;
+        const thumbStyle = {
+          borderRadius: 6,
+          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
+          [left]: '2px',
+        };
+        return <div style={{ ...style, ...thumbStyle }} props={props} />;
+      };
+
+      const renderTrackVertical = () => {
+        const thumbStyle = {
+          position: 'absolute',
+          width: '6px',
+          transition: 'opacity 200ms ease 0s',
+          opacity: 0,
+          [rtl ? 'left' : 'right']: '2px',
+          bottom: '2px',
+          top: '2px',
+          borderRadius: '3px',
+        };
+        return <div className="hello" style={thumbStyle} />;
+      };
+
+      const renderThumbHorizontal = ({ style, ...props }) => {
+        const { ChangeLayoutMode } = this.props;
+        const thumbStyle = {
+          borderRadius: 6,
+          backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
+        };
+        return <div style={{ ...style, ...thumbStyle }} props={props} />;
       };
 
       return (
@@ -173,11 +206,13 @@ const ThemeLayout = WrappedComponent => {
                     autoHide
                     autoHideTimeout={500}
                     autoHideDuration={200}
-                    renderThumbHorizontal={this.renderThumb}
-                    renderThumbVertical={this.renderThumb}
+                    renderThumbHorizontal={renderThumbHorizontal}
+                    renderThumbVertical={renderThumbVertical}
+                    renderView={renderView}
+                    renderTrackVertical={renderTrackVertical}
                   >
                     <p className="sidebar-nav-title">MAIN MENU</p>
-                    <MenueItems toggleCollapsed={toggleCollapsedMobile} darkMode={darkMode} />
+                    <MenueItems rtl={rtl} toggleCollapsed={toggleCollapsedMobile} darkMode={darkMode} />
                   </Scrollbars>
                 </Sider>
               </ThemeProvider>
@@ -210,6 +245,7 @@ const ThemeLayout = WrappedComponent => {
   const mapStateToProps = state => {
     return {
       ChangeLayoutMode: state.ChangeLayoutMode.data,
+      rtl: state.ChangeLayoutMode.rtlData,
     };
   };
 

@@ -64,6 +64,7 @@ const Div = Styled.div`
                 }
             }
         }
+        
         .ant-layout-sider-children{
             padding-bottom: 15px;
             >.sidebar-nav-title{
@@ -80,7 +81,7 @@ const Div = Styled.div`
                         color: ${({ theme }) => theme['extra-light-color']};
                     }
                     span{
-                        padding-left: 20px;
+                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                         display: inline-block;
                         color: ${({ theme }) => theme['dark-color']};
                         transition: 0.3s ease;
@@ -102,8 +103,10 @@ const Div = Styled.div`
                             width: 16px;
                             height: 16px;
                         }
+                                                
                         .ant-menu-submenu-arrow{
-                            right: 24px;
+                            right: auto;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 24px;
                             &:after,
                             &:before{
                                 width: 7px;
@@ -111,10 +114,10 @@ const Div = Styled.div`
                                 height: 1.25px;
                             }
                             &:before{
-                                transform: rotate(45deg) translateY(-3.3px);
+                                transform: rotate(45deg) translateY(3.3px);
                             }
                             &:after{
-                                transform: rotate(-45deg) translateY(3.3px);
+                                transform: rotate(-45deg) translateY(-3.3px);
                             }
                         }
                     }
@@ -132,8 +135,8 @@ const Div = Styled.div`
                         }
                     }
                     .ant-menu-item{
-                        padding-left: 50px !important;
-                        padding-right: 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 50px !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0 !important;
                         transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
                     }
                 }
@@ -161,6 +164,8 @@ const Div = Styled.div`
                 }
                 .ant-menu-submenu,
                 .ant-menu-item{
+                    ${({ theme }) => theme.rtl && `padding-right: 5px;`}
+                    
                     &.ant-menu-item-selected{
                         border-radius: 4px;
                         &:after{
@@ -178,7 +183,7 @@ const Div = Styled.div`
                 }
                 &.ant-menu-inline-collapsed{
                     .ant-menu-submenu{
-                        text-align: left;
+                        text-align: left;                        
                         .ant-menu-submenu-title{
                             padding: 0 20px;
                             justify-content: center;
@@ -201,7 +206,8 @@ const Div = Styled.div`
             font-weight: 500;
             text-transform: uppercase;
             ${({ darkMode }) => (darkMode ? `color: rgba(255, 255, 255, .38);` : 'color: #9299B8;')};
-            padding: 0 15px;
+            padding: 0 ${({ theme }) => (theme.rtl ? '20px' : '15px')};
+            display: flex;
         }
         &.ant-layout-sider-collapsed{
             padding: 15px 0px 55px !important;
@@ -221,7 +227,7 @@ const Div = Styled.div`
     }
 
     .atbd-main-layout{
-        margin-left: 280px;
+    ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 280px;
         margin-top: 64px;
         transition: 0.3s ease;
         @media only screen and (max-width: 991px){
@@ -277,7 +283,7 @@ const Div = Styled.div`
                 }
             }
         }
-    }
+    }    
 `;
 
 const SmallScreenAuthInfo = Styled.div`
