@@ -26,7 +26,7 @@ const Div = Styled.div`
         justify-content: center;
         width: 50px;
         height: 50px;
-        border-radius: 50%;
+        border-radius: 10px 0 0 10px;
         background-color: #5F63F2;
         position: fixed;
         right: 0;
@@ -44,7 +44,7 @@ const Div = Styled.div`
             color: #fff;
         }
     }
-    .customier-wrapper{
+    .customizer-wrapper{
         position: fixed;
         top: 64px;
         right: 0;

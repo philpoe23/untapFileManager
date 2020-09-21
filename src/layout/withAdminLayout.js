@@ -43,6 +43,7 @@ const ThemeLayout = WrappedComponent => {
         collapsed: false,
         hide: true,
         searchHide: true,
+        customizerAction: false,
       };
       this.updateDimensions = this.updateDimensions.bind(this);
     }
@@ -72,7 +73,7 @@ const ThemeLayout = WrappedComponent => {
     };
 
     render() {
-      const { collapsed, hide, searchHide } = this.state;
+      const { collapsed, hide, searchHide, customizerAction } = this.state;
       const { ChangeLayoutMode } = this.props;
       const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
@@ -93,6 +94,12 @@ const ThemeLayout = WrappedComponent => {
         this.setState({
           hide: !hide,
           searchHide: true,
+        });
+      };
+
+      const showCustomizer = () => {
+        this.setState({
+          customizerAction: !customizerAction
         });
       };
 
@@ -202,15 +209,25 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
-          <Link className="customizer-trigger show">
+          <Link
+            className={`${customizerAction ? 'customizer-trigger show' : 'customizer-trigger'}`}
+            onClick={() => {
+              showCustomizer();
+            }}
+          >
             <FeatherIcon icon="settings" />
           </Link>
-          <div className="customier-wrapper show">
+          <div className={`${customizerAction ? 'customizer-wrapper show' : 'customizer-wrapper'}`}>
             <div className="customizer">
               <div className="customizer__head">
                 <h4 className="customizer__title">CUSTOMIZER</h4>
                 <span className="customizer__sub-title">Customize & Preview Real Time</span>
-                <Link className="customizer-close">
+                <Link
+                  className="customizer-close"
+                  onClick={() => {
+                    showCustomizer();
+                  }}
+                >
                   <FeatherIcon icon="x" />
                 </Link>
               </div>
