@@ -22,7 +22,9 @@ const Work = () => {
         <div className="user-work-form">
           <BasicFormWrapper>
             <Form style={{ width: '100%' }} form={form} name="work" onFinish={handleSubmit}>
-              <Heading className="form-title" as="h4">Work Information</Heading>
+              <Heading className="form-title" as="h4">
+                Work Information
+              </Heading>
 
               <Form.Item name="company" label="Company Name">
                 <Input placeholder="Company Name" />
@@ -56,10 +58,10 @@ const Work = () => {
                       return form.resetFields();
                     }}
                   >
-                    Cancel
+                    Reset
                   </Button>
                   <Button htmlType="submit" type="primary">
-                    <Link to="/pages/add-user/social">Next</Link>
+                    <Link to="social">Next</Link>
                   </Button>
                 </div>
               </Form.Item>

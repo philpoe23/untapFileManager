@@ -358,7 +358,8 @@ const Main = Styled.div`
 
     // Star Active
     a{
-        i{
+        i,
+        span.fa{
           font-size: 16px;
           color: ${({ theme }) => theme['extra-light-color']};
         }
@@ -368,12 +369,14 @@ const Main = Styled.div`
           }
         }
         &.starActive{
-          i{
+          i,
+          span.fa{
             color: ${({ theme }) => theme['warning-color']};
           }
-          i:before{
+          i:before,
+          span.fa:before{
             color: ${({ theme }) => theme['warning-color']};
-            content: "\f318";
+            content: "\f005";
     
           }
         }
@@ -762,6 +765,13 @@ const CardToolbox = Styled.div`
         font-size: 12px;
         @media only screen and (max-width: 991px){
             margin-top: 10px;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            svg{
+                margin-right: 6px;
+            }
         }
     }
 `;

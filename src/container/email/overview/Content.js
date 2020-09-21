@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { StarIcon } from 'react-line-awesome';
+import FontAwesome from 'react-fontawesome';
 import { Style, EmailAuthor, EmailHeader } from './style';
 import Topbar from './Topbar';
 import { AutoComplete } from '../../../components/autoComplete/autoComplete';
@@ -71,7 +71,7 @@ const Content = ({ searchData, email }) => {
               to="#"
               className={stared ? 'starActive' : 'starDeactivate'}
             >
-              <StarIcon />
+              <FontAwesome name="star-o" />
             </Link>
             <img src={img} alt="" />
             <Heading as="h5">

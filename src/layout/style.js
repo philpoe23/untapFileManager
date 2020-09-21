@@ -5,9 +5,6 @@ const Div = Styled.div`
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
         z-index: 999;
-        button{
-            padding: 0px 15px 0px 0px;
-        }
 
         .ant-btn-link{
             ${({ darkMode }) =>
@@ -38,8 +35,13 @@ const Div = Styled.div`
     }
     .navbar-brand{
         button{
+            padding: 0 25px 0 15px;
             line-height: 0;
+            margin-top: 4px;
             color: ${({ theme }) => theme['extra-light-color']};
+            @media only screen and (max-width: 479px){
+                padding: 0 15px 0 10px;
+            }
         }
     }
 
@@ -156,6 +158,12 @@ const Div = Styled.div`
                             padding-left: 20px;
                             display: inline-block;
                             color: ${({ theme }) => theme['dark-color']};
+                        }
+                    }
+                    &.ant-menu-item-selected{
+                        svg,
+                        i{
+                            color: ${({ theme }) => theme['primary-color']};
                         }
                     }
                 }

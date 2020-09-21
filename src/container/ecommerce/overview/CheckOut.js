@@ -3,6 +3,7 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
+import FontAwesome from 'react-fontawesome';
 import { Steps } from '../../../components/steps/steps';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
@@ -10,7 +11,6 @@ import { Button } from '../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../styled';
 import { FigureCart, CheckoutWrapper, ProductTable, OrderSummary } from '../Style';
 import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../redux/cart/actionCreator';
-import { CheckIcon } from 'react-line-awesome';
 
 const { Option } = Select;
 const CheckOut = ({ onCurrentChange }) => {
@@ -187,7 +187,7 @@ const CheckOut = ({ onCurrentChange }) => {
         steps={[
           {
             title: 'Create Account',
-            icon: <CheckIcon />,
+            icon: <FontAwesome name="check" />,
             content: (
               <BasicFormWrapper className="basic-form-inner">
                 <div className="atbd-form-checkout">
