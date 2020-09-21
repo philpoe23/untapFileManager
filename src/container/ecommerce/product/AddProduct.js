@@ -26,10 +26,10 @@ const AddProduct = () => {
   const fileList = [
     {
       uid: '1',
-      name: 'xxx.png',
+      name: '1.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: require('../../../static/img/products/1.png'),
+      thumbUrl: require('../../../static/img/products/1.png'),
     },
   ];
 
