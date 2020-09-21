@@ -6,7 +6,6 @@ import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { Button } from '../../../../components/buttons/buttons';
 import Heading from '../../../../components/heading/heading';
 import { BasicFormWrapper } from '../../../styled';
-import { MediumIcon } from 'react-line-awesome';
 
 const SocialProfile = () => {
   const [form] = Form.useForm();
@@ -108,7 +107,18 @@ const SocialProfile = () => {
                   />
                 </Form.Item>
                 <Form.Item name="Medium" label="Medium">
-                  <Input className="medium" prefix={<MediumIcon />} placeholder="Url" />
+                  <Input
+                    className="medium"
+                    prefix={
+                      <FontAwesome
+                        className="super-crazy-colors"
+                        size="2x"
+                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        name="medium"
+                      />
+                    }
+                    placeholder="Url"
+                  />
                 </Form.Item>
                 <div className="setting-form-actions">
                   <Button size="default" htmlType="submit" type="primary">
