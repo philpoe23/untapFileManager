@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button } from 'antd';
-import FeatherIcon from 'feather-icons-react';
+import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 import { BasicFormWrapper } from '../../styled';
 import Heading from '../../../components/heading/heading';
@@ -27,7 +27,7 @@ const SocialProfile = () => {
                 <Input
                   prefix={
                     <span className="facebook">
-                      <FeatherIcon icon="facebook" size={16} />
+                      <FontAwesome name="facebook" />
                     </span>
                   }
                   placeholder="URL"
@@ -37,17 +37,17 @@ const SocialProfile = () => {
                 <Input
                   prefix={
                     <span className="twitter">
-                      <FeatherIcon icon="twitter" size={16} />
+                      <FontAwesome name="twitter" />
                     </span>
                   }
-                  placeholder="@username"
+                  placeholder="URL"
                 />
               </Form.Item>
               <Form.Item name="linkedin" label="Linkedin">
                 <Input
                   prefix={
                     <span className="linkedin">
-                      <FeatherIcon icon="linkedin" size={16} />
+                      <FontAwesome name="linkedin" />
                     </span>
                   }
                   placeholder="URL"
@@ -57,7 +57,7 @@ const SocialProfile = () => {
                 <Input
                   prefix={
                     <span className="instagram">
-                      <FeatherIcon icon="instagram" size={16} />
+                      <FontAwesome name="instagram" />
                     </span>
                   }
                   placeholder="URL"
@@ -67,17 +67,17 @@ const SocialProfile = () => {
                 <Input
                   prefix={
                     <span className="github">
-                      <FeatherIcon icon="github" size={16} />
+                      <FontAwesome name="github" />
                     </span>
                   }
-                  placeholder="Username"
+                  placeholder="URL"
                 />
               </Form.Item>
               <Form.Item name="youtube" label="Youtube">
                 <Input
                   prefix={
                     <span className="youtube">
-                      <FeatherIcon icon="youtube" size={16} />
+                      <FontAwesome name="youtube" />
                     </span>
                   }
                   placeholder="Url"
@@ -87,7 +87,7 @@ const SocialProfile = () => {
               <Form.Item>
                 <div className="add-user-bottom text-right">
                   <Button htmlType="submit">
-                    <Link to="/pages/add-user/work">Back</Link>
+                    <Link to="work">Back</Link>
                   </Button>
                   <Button onClick={handleSubmit} type="primary">
                     Save Profile

@@ -754,6 +754,13 @@ const CardToolbox = Styled.div`
         @media only screen and (max-width: 991px){
             margin-top: 10px;
         }
+        a{
+            display: flex;
+            align-items: center;
+            svg{
+                margin-right: 6px;
+            }
+        }
     }
 `;
 
