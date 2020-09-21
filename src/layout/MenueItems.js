@@ -467,11 +467,6 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
             Font Awesome
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="line-awesome">
-          <NavLink onClick={toggleCollapsed} to="/admin/icons/line-awesome">
-            Line Awesome
-          </NavLink>
-        </Menu.Item>
         <Menu.Item key="antd">
           <NavLink onClick={toggleCollapsed} to="/admin/icons/antd">
             Ant Design icons
