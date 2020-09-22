@@ -59,6 +59,22 @@ const RecordFormWrapper = Styled.div`
             align-items: center;
             justify-content: center;
             text-align: center;
+            z-index: 10;
+            &:after{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #272B4120;
+                content: '';
+                z-index: -1;
+            }
+            .ant-spin-dot {
+                position: relative;
+                z-index: 10;
+            }
         }
         img{
             max-width: 120px;
@@ -81,6 +97,7 @@ const RecordFormWrapper = Styled.div`
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            z-index: 222;
             span{
                 display: inline-flex;
                 height: 32px;

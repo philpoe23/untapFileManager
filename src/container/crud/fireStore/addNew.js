@@ -107,7 +107,7 @@ const AddNew = () => {
                             <div className="info">
                               <Heading as="h4">Profile Photo</Heading>
                             </div>
-                            {isFileLoading && (
+                            {!isFileLoading && (
                               <div className="isUploadSpain">
                                 <Spin />
                               </div>
