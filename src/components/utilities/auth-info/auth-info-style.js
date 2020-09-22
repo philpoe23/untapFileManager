@@ -5,6 +5,10 @@ const InfoWraper = Styled.div`
     justify-content: flex-end;
     align-items: center;
     padding: 16px 0;
+
+    .ant-dropdown a i, .ant-dropdown a svg, .ant-dropdown a img {
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+    }
     
     .head-example{
         text-decoration: none;
@@ -142,7 +146,11 @@ const SettingDropdwon = Styled.div`
                 color: ${({ theme }) => theme['gray-solid']};
             }
             img{
-                margin-right: 16px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
+                transform: ${({ theme }) => (theme.rtl ? 'rotatey(180deg)' : 'rotatey(0deg)')};
+            }
+            figcaption{
+                text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
             }
         }
     }
@@ -151,6 +159,7 @@ const SettingDropdwon = Styled.div`
 const NestedDropdwon = Styled.div`
     .support-dropdwon{
         padding: 10px 15px;
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
         ul{
             &:not(:last-child){
                 margin-bottom: 16px;
