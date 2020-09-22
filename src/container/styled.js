@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Main = Styled.div`
     padding: 0px 30px 20px;
-    min-height: 490px;
+    min-height: 720px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
@@ -839,6 +839,7 @@ const TableWrapper = Styled.div`
                     .record-img{
                         img{
                             max-width: 38px;
+                            border-radius: 50%;
                             margin-right: 12px;
                         }
                     }
