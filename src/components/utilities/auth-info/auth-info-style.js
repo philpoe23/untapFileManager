@@ -5,6 +5,7 @@ const InfoWraper = Styled.div`
     justify-content: flex-end;
     align-items: center;
     padding: 16px 0;
+    
     .head-example{
         text-decoration: none;
         color: ${({ theme }) => theme['text-color-secondary']};
@@ -248,4 +249,61 @@ const UserDropDwon = Styled.div`
     }
 `;
 
-export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon };
+const AtbdTopDropdwon = Styled.div`
+    .atbd-top-dropdwon__title .title-text {        
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+    }
+    .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
+        min-width: 216px;
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+    }
+    .atbd-top-dropdwon__content .notification-icon {
+        width: 39.2px;
+        height: 32px;
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .atbd-top-dropdwon__content .notification-icon.bg-primary {
+        background: #5F63F215;
+        color: #5F63F2;
+    }
+    .atbd-top-dropdwon__content .notification-icon.bg-secondary {
+        background: #FF69A515;
+        color: #FF69A5;
+    }
+    .atbd-top-dropdwon__content .notification-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    .atbd-top-dropdwon__content .notification-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .notification-text h1 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #5A5F7D;
+        margin-bottom: 4px;
+    }
+
+    .notification-text h1 span {
+        color: #5F63F2;
+        font-weight: 500;
+        padding-left: 0;
+    }
+
+    .notification-text p {
+        font-size: 12px;
+        color: #ADB4D2;
+        margin-bottom: 0;
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
+    }
+`;
+
+export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, AtbdTopDropdwon };

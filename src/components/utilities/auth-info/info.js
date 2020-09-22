@@ -14,7 +14,7 @@ import { Dropdown } from '../../dropdown/dropdown';
 import { logOut } from '../../../redux/authentication/actionCreator';
 import Heading from '../../heading/heading';
 
-const AuthInfo = () => {
+const AuthInfo = ({ rtl }) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({
     flag: 'english',

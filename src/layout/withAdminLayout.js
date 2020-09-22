@@ -192,7 +192,7 @@ const ThemeLayout = WrappedComponent => {
                       <HeaderSearch rtl={rtl} />
                     </SmallScreenSearch>
                     <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
-                      <AuthInfo />
+                      <AuthInfo rtl={rtl} />
                     </SmallScreenAuthInfo>
                   </div>
                 </Col>
