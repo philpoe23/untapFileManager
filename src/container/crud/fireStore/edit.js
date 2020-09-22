@@ -29,7 +29,6 @@ const Edit = ({ match }) => {
   const [state, setState] = useState({
     join: null,
   });
-
   const [form] = Form.useForm();
   useEffect(() => {
     if (fbDataSingle) {
@@ -90,103 +89,109 @@ const Edit = ({ match }) => {
           <Col md={24}>
             <RecordFormWrapper>
               <Cards headless>
-                <Row>
-                  <Col md={10} offset={7}>
-                    <figure className="pro-image align-center-v mt-25">
-                      {crud !== null && (
-                        <img
-                          src={
-                            url !== null
-                              ? url
-                              : crud.url !== null
-                              ? crud.url
-                              : require('../../../static/img/avatar/profileImage.png')
-                          }
-                          alt={crud.id}
-                        />
-                      )}
-
-                      <figcaption>
-                        <Upload {...props}>
-                          <Link className="upload-btn" to="#">
-                            <FeatherIcon icon="camera" size={16} />
-                          </Link>
-                        </Upload>
-                        <div className="info">
-                          <Heading as="h4">Profile Photo</Heading>
-                        </div>
-                        {isFileLoading && (
-                          <div className="isUploadSpain">
-                            <Spin />
-                          </div>
+                {crud === null ? (
+                  <div className="record-spin">
+                    <Spin />
+                  </div>
+                ) : (
+                  <Row>
+                    <Col md={10} offset={7}>
+                      <figure className="pro-image align-center-v mt-25">
+                        {crud !== null && (
+                          <img
+                            src={
+                              url !== null
+                                ? url
+                                : crud.url !== null
+                                ? crud.url
+                                : require('../../../static/img/avatar/profileImage.png')
+                            }
+                            alt={crud.id}
+                          />
                         )}
-                      </figcaption>
-                    </figure>
-                    {crud !== null && (
-                      <BasicFormWrapper>
-                        <Form
-                          className="add-record-form"
-                          style={{ width: '100%' }}
-                          layout="vertical"
-                          form={form}
-                          name="edit"
-                          onFinish={handleSubmit}
-                        >
-                          <Form.Item name="name" initialValue={crud.name} label="Name">
-                            <Input />
-                          </Form.Item>
-                          <Form.Item initialValue={crud.email} name="email" rules={[{ type: 'email' }]} label="Email">
-                            <Input />
-                          </Form.Item>
-                          <Form.Item name="country" initialValue={crud.country} label="Country">
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">Please Select</Option>
-                              <Option value="bangladesh">Bangladesh</Option>
-                              <Option value="india">India</Option>
-                              <Option value="pakistan">Pakistan</Option>
-                              <Option value="srilanka">Srilanka</Option>
-                            </Select>
-                          </Form.Item>
-                          <Form.Item name="city" initialValue={crud.city} label="City">
-                            <Select style={{ width: '100%' }}>
-                              <Option value="">Please Select</Option>
-                              <Option value="dhaka">Dhaka</Option>
-                              <Option value="mymensingh">Mymensingh</Option>
-                              <Option value="khulna">Khulna</Option>
-                              <Option value="barisal">Barisal</Option>
-                            </Select>
-                          </Form.Item>
-                          <Form.Item name="company" initialValue={crud.company} label="Company">
-                            <Input />
-                          </Form.Item>
-                          <Form.Item name="position" initialValue={crud.position} label="Position">
-                            <Input />
-                          </Form.Item>
-                          <Form.Item label="Joining Date">
-                            <DatePicker
-                              defaultValue={moment(`${state.join === null ? crud.join : state.join}`, dateFormat)}
-                              onChange={onChange}
-                              style={{ width: '100%' }}
-                              format={dateFormat}
-                            />
-                          </Form.Item>
-                          <Form.Item name="status" initialValue={crud.status} label="Status">
-                            <Radio.Group>
-                              <Radio value="active">Active</Radio>
-                              <Radio value="deactivated">Deactivated</Radio>
-                              <Radio value="blocked">Blocked</Radio>
-                            </Radio.Group>
-                          </Form.Item>
-                          <div className="record-form-actions text-right">
-                            <Button htmlType="submit" type="primary">
-                              {isLoading ? 'Loading...' : 'Update'}
-                            </Button>
+
+                        <figcaption>
+                          <Upload {...props}>
+                            <Link className="upload-btn" to="#">
+                              <FeatherIcon icon="camera" size={16} />
+                            </Link>
+                          </Upload>
+                          <div className="info">
+                            <Heading as="h4">Profile Photo</Heading>
                           </div>
-                        </Form>
-                      </BasicFormWrapper>
-                    )}
-                  </Col>
-                </Row>
+                          {isFileLoading && (
+                            <div className="isUploadSpain">
+                              <Spin />
+                            </div>
+                          )}
+                        </figcaption>
+                      </figure>
+                      {crud !== null && (
+                        <BasicFormWrapper>
+                          <Form
+                            className="add-record-form"
+                            style={{ width: '100%' }}
+                            layout="vertical"
+                            form={form}
+                            name="edit"
+                            onFinish={handleSubmit}
+                          >
+                            <Form.Item name="name" initialValue={crud.name} label="Name">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item initialValue={crud.email} name="email" rules={[{ type: 'email' }]} label="Email">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item name="country" initialValue={crud.country} label="Country">
+                              <Select style={{ width: '100%' }}>
+                                <Option value="">Please Select</Option>
+                                <Option value="bangladesh">Bangladesh</Option>
+                                <Option value="india">India</Option>
+                                <Option value="pakistan">Pakistan</Option>
+                                <Option value="srilanka">Srilanka</Option>
+                              </Select>
+                            </Form.Item>
+                            <Form.Item name="city" initialValue={crud.city} label="City">
+                              <Select style={{ width: '100%' }}>
+                                <Option value="">Please Select</Option>
+                                <Option value="dhaka">Dhaka</Option>
+                                <Option value="mymensingh">Mymensingh</Option>
+                                <Option value="khulna">Khulna</Option>
+                                <Option value="barisal">Barisal</Option>
+                              </Select>
+                            </Form.Item>
+                            <Form.Item name="company" initialValue={crud.company} label="Company">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item name="position" initialValue={crud.position} label="Position">
+                              <Input />
+                            </Form.Item>
+                            <Form.Item label="Joining Date">
+                              <DatePicker
+                                defaultValue={moment(`${state.join === null ? crud.join : state.join}`, dateFormat)}
+                                onChange={onChange}
+                                style={{ width: '100%' }}
+                                format={dateFormat}
+                              />
+                            </Form.Item>
+                            <Form.Item name="status" initialValue={crud.status} label="Status">
+                              <Radio.Group>
+                                <Radio value="active">Active</Radio>
+                                <Radio value="deactivated">Deactivated</Radio>
+                                <Radio value="blocked">Blocked</Radio>
+                              </Radio.Group>
+                            </Form.Item>
+                            <div className="record-form-actions text-right">
+                              <Button htmlType="submit" type="primary">
+                                {isLoading ? 'Loading...' : 'Update'}
+                              </Button>
+                            </div>
+                          </Form>
+                        </BasicFormWrapper>
+                      )}
+                    </Col>
+                  </Row>
+                )}
               </Cards>
             </RecordFormWrapper>
           </Col>
