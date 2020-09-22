@@ -116,10 +116,12 @@ const Div = Styled.div`
                                 height: 1.25px;
                             }
                             &:before{
-                                transform: rotate(45deg) translateY(-3.3px);
+                                transform: rotate(45deg) ${({ theme }) =>
+                                  !theme.rtl ? 'translateY(-3.3px)' : 'translateY(3.3px)'};
                             }
                             &:after{
-                                transform: rotate(-45deg) translateY(3.3px);
+                                transform: rotate(-45deg) ${({ theme }) =>
+                                  theme.rtl ? 'translateY(-3.3px)' : 'translateY(3.3px)'};
                             }
                         }
                     }
