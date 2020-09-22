@@ -30,9 +30,7 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `color: #fff;` : '#5A5F7D')};
         }
     }
-    .ant-layout-sider-children {
-        /* height: auto; */
-    }
+    
     .navbar-brand{
         button{
             padding: 0 25px 0 15px;
@@ -235,9 +233,6 @@ const Div = Styled.div`
         @media only screen and (max-width: 991px){
             margin-left: auto !important;
         }
-        /* @media only screen and (max-width: 767px){
-            margin-left: 0 !important;
-        } */
     }
 
     /* Mobile Actions */
