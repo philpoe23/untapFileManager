@@ -124,11 +124,11 @@ const MenuItems = ({ darkMode, toggleCollapsed }) => {
       </SubMenu>
 
       <SubMenu key="firestore" icon={<FeatherIcon icon="database" />} title="Firestore Crud">
-        <Menu.Item key="view">
-          <NavLink to="/admin/firestore/view">View All</NavLink>
+        <Menu.Item key="fbView">
+          <NavLink to="/admin/firestore/fbView">View All</NavLink>
         </Menu.Item>
-        <Menu.Item key="add">
-          <NavLink to="/admin/firestore/add">Add New</NavLink>
+        <Menu.Item key="fbAdd">
+          <NavLink to="/admin/firestore/fbAdd">Add New</NavLink>
         </Menu.Item>
       </SubMenu>
 
