@@ -365,6 +365,10 @@ const Footer = Styled.div`
       @media only screen and (max-width: 575px){
         top: 26px;
       }
+      .ant-dropdown-trigger{
+        display: flex;
+        align-items: center;
+      }
       svg,
       i{
         color: ${({ theme }) => theme['extra-light-color']};
@@ -404,10 +408,6 @@ const Footer = Styled.div`
           height: 50px;
           margin-bottom: 20px;
         }
-      }
-      .ant-dropdown-trigger{
-        display: flex;
-        align-items: center;
       }
     }
     input,
