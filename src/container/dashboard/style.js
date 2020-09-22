@@ -930,6 +930,9 @@ const RatioCard = Styled.div`
         }
         .ant-progress{
             margin-bottom: 12px;
+            .ant-progress-bg{
+                height: 6px !important;
+            }
             .ant-progress-text{
                 position: absolute;
                 right: 0;
