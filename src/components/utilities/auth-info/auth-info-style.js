@@ -64,7 +64,7 @@ const InfoWraper = Styled.div`
         }
     }
     .nav-author{
-        a{
+        a.ant-dropdown-trigger{
             img{
                 max-width: 20px;
             }
