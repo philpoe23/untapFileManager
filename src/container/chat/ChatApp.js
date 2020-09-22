@@ -135,6 +135,6 @@ const ChatApp = ({ match }) => {
 };
 
 ChatApp.propTypes = {
-  match: PropTypes.shape(PropTypes.object),
+  match: PropTypes.object,
 };
 export default ChatApp;

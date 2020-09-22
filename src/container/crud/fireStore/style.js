@@ -46,14 +46,50 @@ const RecordViewWrapper = Styled.div`
 
 const RecordFormWrapper = Styled.div`
     .pro-image{
+        position: relative;
         margin-bottom: 30px;
-        figcaption{
-            position: relative;
+        .ant-spin.ant-spin-spinning{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background: #ffffff90;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+            &:after{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #272B4120;
+                content: '';
+                z-index: -1;
+            }
+            .ant-spin-dot {
+                position: relative;
+                z-index: 10;
+            }
+        }
+        img{
+            max-width: 120px;
+            border-radius: 50%;
+        }
+        .ant-spin{
+            height: 120px;
+            width: 120px;
+            display: flex;
+            align-items: center;
         }
         .ant-upload-select{
             position: absolute;
-            left: -40px;
-            bottom: -40px;
+            left: 80px;
+            bottom: -5px;
             height: 40px;
             width: 40px;
             background: #fff;
@@ -61,6 +97,7 @@ const RecordFormWrapper = Styled.div`
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            z-index: 222;
             span{
                 display: inline-flex;
                 height: 32px;
@@ -82,8 +119,35 @@ const RecordFormWrapper = Styled.div`
             h1{
                 font-size: 15px;
                 font-weight: 500;
+                margin-bottom: 0;
             }
         }
+        .ant-upload-list-item{
+            margin-top: 0;
+            &:hover{
+                .ant-upload-list-item-info{
+                    background-color: transparent;
+                }
+            }
+            .ant-upload-list-item-info{
+                >span{
+                    display: flex;
+                    align-items: center;
+                    padding-left: 14px;
+                    padding-right: 10px;
+                }
+                .ant-upload-list-item-card-actions {
+                    // top: -8px;
+                }
+            }
+        }
+    }
+
+    .record-spin{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `;
 export { RecordViewWrapper, RecordFormWrapper };

@@ -259,7 +259,7 @@ const Ecommerce = () => {
       backgroundColor: () =>
         chartLinearGradient(document.getElementById('performance'), 300, {
           start: '#5F63F230',
-          end: '#5F63F200',
+          end: '#ffffff05',
         }),
       label: 'Current period',
       pointStyle: 'circle',
@@ -543,9 +543,9 @@ const Ecommerce = () => {
                     <div className="performance-lineChart">
                       <ul>
                         {performanceDatasets &&
-                          performanceDatasets.map(item => {
+                          performanceDatasets.map((item, key) => {
                             return (
-                              <li className="custom-label">
+                              <li key={key + 1} className="custom-label">
                                 <strong className={item.amountClass}>{item.amount}</strong>
                                 <div>
                                   <span
@@ -786,6 +786,40 @@ const Ecommerce = () => {
                           },
                           selectedHover: {},
                         }}
+                        markerStyle={{
+                          initial: {
+                            'stroke-width': 6,
+                            fill: '#fff',
+                            stroke: '#5F63F2',
+                            r: 6,
+                          },
+                          hover: {
+                            fill: '#5F63F2',
+                            stroke: '#fff',
+                          },
+                        }}
+                        markers={[
+                          {
+                            latLng: [38, -97],
+                            name: 'United States',
+                          },
+                          {
+                            latLng: [20, 77],
+                            name: 'India',
+                          },
+                          {
+                            latLng: [60, -95],
+                            name: 'Canada',
+                          },
+                          {
+                            latLng: [51, 9],
+                            name: 'Germany',
+                          },
+                          {
+                            latLng: [54, -2],
+                            name: 'United Kingdom',
+                          },
+                        ]}
                         containerStyle={{
                           width: '100%',
                           height: '100%',

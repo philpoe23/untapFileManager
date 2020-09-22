@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Main = Styled.div`
     padding: 0px 30px 20px;
-    min-height: 780px;
+    min-height: 490px;
     background-color: rgb(244, 245, 247);
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
@@ -14,7 +14,7 @@ const Main = Styled.div`
         margin-bottom: 0;
     }
 
-    // ant alert
+    /* // ant alert */
     .ant-alert-closable{
         .ant-alert-message{
           margin-right: 15px;
@@ -25,7 +25,7 @@ const Main = Styled.div`
         display: inline-block;
     }
 
-    // ant Calendar Picker
+    /* // ant Calendar Picker */
     .ant-picker-calendar{
         .ant-badge-status-text{
             color: ${({ theme }) => theme['gray-color']}
@@ -42,7 +42,7 @@ const Main = Styled.div`
         }
     }
 
-    // Card Grid
+    /* // Card Grid */
     .card-grid-wrap{
         .ant-card-grid{
             @media only screen and (max-width: 575px){
@@ -51,7 +51,7 @@ const Main = Styled.div`
         }
     }
 
-    // Drawer
+    /* // Drawer */
     .atbd-drawer{
         .ant-card-body{
             text-align: center;
@@ -73,7 +73,7 @@ const Main = Styled.div`
         }
     }
 
-    // Input
+    /* // Input */
     .input-wrap{
         @media only screen and (max-width: 991px){
             min-height: 500px;
@@ -82,7 +82,7 @@ const Main = Styled.div`
             color: ${({ theme }) => theme['light-color']};
         }
     }
-    // Modal Buttons
+    /* // Modal Buttons */
     .modal-btns-wrap{
         margin: 0 -5px;
     }
@@ -161,7 +161,7 @@ const Main = Styled.div`
         border-radius: 0;
     }
 
-    // Ant Radio
+    /* // Ant Radio */
     .ant-radio-button-wrapper{
         height: 48px;
         line-height: 46px;
@@ -177,7 +177,7 @@ const Main = Styled.div`
         }
     }
 
-    // Select
+    /* // Select */
     .ant-tree-select .ant-select-selector{
         height: 42px;
     }
@@ -225,7 +225,7 @@ const Main = Styled.div`
         }
     }
 
-    // Slider
+    /* // Slider */
     .slider-with-input{
         .ant-slider{
             margin-right: 15px;
@@ -235,7 +235,7 @@ const Main = Styled.div`
         }
     }
 
-    // Taglist
+    /* // Taglist */
     .taglist-wrap{
         margin: -5px;
         .ant-tag {
@@ -283,7 +283,7 @@ const Main = Styled.div`
         }
     }
 
-    // Timepicker List
+    /* // Timepicker List */
     .timepicker-list{
         margin: -5px;
         .ant-picker{
@@ -291,7 +291,7 @@ const Main = Styled.div`
         }
     }
 
-    // Ant Menu
+    /* // Ant Menu */
     .ant-menu{
         .ant-menu-submenu-title{
             svg{
@@ -328,7 +328,7 @@ const Main = Styled.div`
         border-radius: 5px;
     }
 
-    // Vector Map
+    /* // Vector Map */
     .vertor-map{
         min-height: 505px;
         .world-map{
@@ -343,7 +343,7 @@ const Main = Styled.div`
         }
     }
 
-    // Checkout Wrapper
+    /* // Checkout Wrapper */
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
@@ -356,9 +356,10 @@ const Main = Styled.div`
         }
     }
 
-    // Star Active
+    /* // Star Active */
     a{
-        i{
+        i,
+        span.fa{
           font-size: 16px;
           color: ${({ theme }) => theme['extra-light-color']};
         }
@@ -368,12 +369,14 @@ const Main = Styled.div`
           }
         }
         &.starActive{
-          i{
+          i,
+          span.fa{
             color: ${({ theme }) => theme['warning-color']};
           }
-          i:before{
+          i:before,
+          span.fa:before{
             color: ${({ theme }) => theme['warning-color']};
-            content: "\f318";
+            content: "\f005";
     
           }
         }
@@ -387,10 +390,10 @@ const Main = Styled.div`
     }
 
     
-  .ant-rate-content{
-    font-weight: 500;
-    color: ${({ theme }) => theme['gray-color']}
-  }
+    .ant-rate-content{
+        font-weight: 500;
+        color: ${({ theme }) => theme['gray-color']}
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -763,6 +766,13 @@ const CardToolbox = Styled.div`
         @media only screen and (max-width: 991px){
             margin-top: 10px;
         }
+        a{
+            display: flex;
+            align-items: center;
+            svg{
+                margin-right: 6px;
+            }
+        }
     }
 `;
 
@@ -856,8 +866,7 @@ const TableWrapper = Styled.div`
                     }
                     .table-actions{
                         a{
-                            svg,
-                            i{
+                            svg, i{
                                 width: 16px;
                                 color: ${({ theme }) => theme['extra-light-color']};
                             }
@@ -875,6 +884,7 @@ const TableWrapper = Styled.div`
                                 svg,
                                 i{
                                     color: ${({ theme }) => theme['danger-color']};
+                                }
                               }  
                             }
                         }
@@ -906,25 +916,24 @@ const TableWrapper = Styled.div`
                 }
             }
         }
-
         tbody{
-            >tr{
+            tr{
                 &:hover{
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
                 &.ant-table-row-selected{
                     &:hover{
-                        >td{
+                        td{
                             background: ${({ theme }) => theme['bg-color-light']};
                         }
                     }
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
-                >td{
+                td{
                     border: 0 none;
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
@@ -1004,7 +1013,7 @@ const TableWrapper = Styled.div`
                 color: ${({ theme }) => theme['light-color']};
             }
         }
-    }
+    }    
 `;
 
 export {

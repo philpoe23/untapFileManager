@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -8,11 +8,14 @@ import { changeLayoutMode } from '../redux/themeLayout/actionCreator';
 
 const { SubMenu } = Menu;
 
-const MenueItems = ({ darkMode, toggleCollapsed }) => {
-  const pathArray = window.location.pathname.split('/');
+const MenuItems = ({ darkMode, toggleCollapsed }) => {
+  const { path } = useRouteMatch();
+  const pathName = window.location.pathname;
+  const pathArray = pathName.split(path);
+  const mainPath = pathArray[1];
+  const mainPathSplit = mainPath.split('/');
 
   const dispatch = useDispatch();
-
   const modeChangeDark = () => {
     dispatch(changeLayoutMode(true));
   };
@@ -26,8 +29,10 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
       mode="inline"
       theme={darkMode && 'dark'}
       // eslint-disable-next-line no-nested-ternary
-      defaultSelectedKeys={[`${pathArray[1] === '' ? 'home' : pathArray.length === 2 ? pathArray[1] : pathArray[2]}`]}
-      defaultOpenKeys={[`${pathArray[1] !== '' ? pathArray[1] : 'dashboard'}`]}
+      defaultSelectedKeys={[
+        `${mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]}`,
+      ]}
+      defaultOpenKeys={[`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`]}
     >
       <SubMenu key="dashboard" icon={<FeatherIcon icon="home" />} title="Dashboard">
         <Menu.Item key="home">
@@ -66,7 +71,7 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
       </SubMenu>
 
       <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
-        <NavLink onClick={toggleCollapsed} to="/admin/chat/private/rofiq@gmail.com">
+        <NavLink onClick={toggleCollapsed} to="/admin/main/chat/private/rofiq@gmail.com">
           Chat
         </NavLink>
       </Menu.Item>
@@ -118,13 +123,6 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         {/* <Menu.Item key="18">Transactions</Menu.Item> */}
       </SubMenu>
 
-      {/* <Menu.Item key="calendar">
-        <NavLink onClick={toggleCollapsed} to="/calendar">
-          <FeatherIcon icon="calendar" />
-          <span>Calendar</span>
-        </NavLink>
-      </Menu.Item> */}
-
       <SubMenu key="firestore" icon={<FeatherIcon icon="database" />} title="Firestore Crud">
         <Menu.Item key="view">
           <NavLink to="/admin/firestore/view">View All</NavLink>
@@ -134,14 +132,25 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={<FeatherIcon icon="target" />} key="project">
-        <NavLink onClick={toggleCollapsed} to="/admin/project">
-          Project
-        </NavLink>
-      </Menu.Item>
+      <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
+        <Menu.Item key="view">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/view">
+            Project
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="ProjectCreate">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/create">
+            Create Project
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="projectDetails">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/projectDetails/1">
+            Project Details
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
-        {/* <Menu.Item key="20">Sidebar with User</Menu.Item> */}
         <Menu.Item key="21">
           <NavLink
             to="#"
@@ -164,21 +173,14 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
             Dark Sidebar
           </NavLink>
         </Menu.Item>
-        {/* <Menu.Item key="23">Light Topbar</Menu.Item>
-        <Menu.Item key="24">Dark Topbar</Menu.Item>
-        <Menu.Item key="25">Sidebar Collapsed</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="profile" icon={<FeatherIcon icon="user" />} title="Profile">
-        {/* <Menu.Item key="26">Profile</Menu.Item> */}
         <Menu.Item key="settings">
-          <NavLink onClick={toggleCollapsed} to="/admin/settings">
+          <NavLink onClick={toggleCollapsed} to="/admin/profile/settings">
             Settings
           </NavLink>
         </Menu.Item>
-        {/* <Menu.Item key="28">Login</Menu.Item>
-        <Menu.Item key="29">Register</Menu.Item>
-        <Menu.Item key="30">Forgot Password</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">
@@ -190,6 +192,11 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         <Menu.Item key="users">
           <NavLink onClick={toggleCollapsed} to="/admin/pages/users">
             Users
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="addUser">
+          <NavLink onClick={toggleCollapsed} to="/admin/pages/add-user/info">
+            Add User
           </NavLink>
         </Menu.Item>
         <Menu.Item key="dataTable">
@@ -468,7 +475,7 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="icon" icon={<FeatherIcon icon="grid" />} title="Icons">
+      <SubMenu key="icons" icon={<FeatherIcon icon="grid" />} title="Icons">
         <Menu.Item key="feathers">
           <NavLink onClick={toggleCollapsed} to="/admin/icons/feathers">
             Feather icons (svg)
@@ -477,11 +484,6 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
         <Menu.Item key="font-awesome">
           <NavLink onClick={toggleCollapsed} to="/admin/icons/font-awesome">
             Font Awesome
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="line-awesome">
-          <NavLink onClick={toggleCollapsed} to="/admin/icons/line-awesome">
-            Line Awesome
           </NavLink>
         </Menu.Item>
         <Menu.Item key="antd">
@@ -580,8 +582,9 @@ const MenueItems = ({ darkMode, toggleCollapsed }) => {
   );
 };
 
-MenueItems.propTypes = {
+MenuItems.propTypes = {
   darkMode: propTypes.bool,
+  toggleCollapsed: propTypes.func,
 };
 
-export default MenueItems;
+export default MenuItems;

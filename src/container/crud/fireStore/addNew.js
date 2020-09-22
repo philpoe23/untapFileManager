@@ -50,6 +50,7 @@ const AddNew = () => {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     multiple: false,
+    showUploadList: false,
     headers: {
       authorization: 'authorization-text',
     },
@@ -70,9 +71,7 @@ const AddNew = () => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link to="/admin/firestore/view">
-              View All
-            </Link>
+            <Link to="/admin/firestore/view">View All</Link>
           </Button>,
         ]}
         ghost
@@ -86,30 +85,34 @@ const AddNew = () => {
                 <Row>
                   <Col md={10} offset={7}>
                     <BasicFormWrapper>
-                      <Form className="add-record-form" style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
+                      <Form
+                        className="add-record-form"
+                        style={{ width: '100%' }}
+                        layout="vertical"
+                        form={form}
+                        name="addnew"
+                        onFinish={handleSubmit}
+                      >
                         <figure className="pro-image align-center-v">
-                          {isFileLoading ? (
-                            <div>
-                              <Spin />
+                          <img
+                            src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
+                            alt=""
+                          />
+                          <figcaption>
+                            <Upload {...props}>
+                              <Link className="upload-btn" to="#">
+                                <FeatherIcon icon="camera" size={16} />
+                              </Link>
+                            </Upload>
+                            <div className="info">
+                              <Heading as="h4">Profile Photo</Heading>
                             </div>
-                          ) : (
-                            <>
-                              <img
-                                src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
-                                alt=""
-                              />
-                              <figcaption>
-                                <Upload {...props}>
-                                  <Link className="upload-btn" to="#">
-                                    <FeatherIcon icon="camera" size={16} />
-                                  </Link>
-                                </Upload>
-                                <div className="info">
-                                  <Heading as="h4">Profile Photo</Heading>
-                                </div>
-                              </figcaption>
-                            </>
-                          )}
+                            {isFileLoading && (
+                              <div className="isUploadSpain">
+                                <Spin />
+                              </div>
+                            )}
+                          </figcaption>
                         </figure>
                         <Form.Item name="name" label="Name">
                           <Input placeholder="Input Name" />
@@ -162,7 +165,6 @@ const AddNew = () => {
                 </Row>
               </Cards>
             </RecordFormWrapper>
-            
           </Col>
         </Row>
       </Main>

@@ -117,8 +117,8 @@ const ThemeLayout = WrappedComponent => {
             >
               <Row>
                 <Col lg={4} md={6} sm={5} xs={12} className="align-center-v navbar-brand">
-                  <Button type="link" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
-                    <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
+                  <Button type="link" onClick={toggleCollapsed}>
+                    <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
                   </Button>
                   <Link to="/admin">
                     <img

@@ -3,7 +3,6 @@ import { Row, Col, Table, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import PropTypes from 'prop-types';
 import { RecordViewWrapper } from './style';
 import { Main, TableWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
@@ -139,7 +138,7 @@ const ViewPage = () => {
           </div>
         }
         buttons={[
-          <div className="search-box">
+          <div key={1} className="search-box">
             <span className="search-icon">
               <FeatherIcon icon="search" size={14} />
             </span>
@@ -175,10 +174,6 @@ const ViewPage = () => {
       </Main>
     </RecordViewWrapper>
   );
-};
-
-ViewPage.propTypes = {
-  crud: PropTypes.array,
 };
 
 export default ViewPage;

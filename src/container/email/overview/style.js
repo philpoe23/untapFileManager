@@ -581,6 +581,10 @@ const EmailAuthor = Styled.div`
       transition: .3s;
     }
   }
+  i,
+  span.fa{
+    color: ${({ theme }) => theme['extra-light-color']};
+  }
 `;
 
 const EmailHeader = Styled.div`
@@ -765,7 +769,8 @@ const MessageDetails = Styled.div`
       width: 16px;
     }
     a{
-      i{
+      i,
+      span.fa{
         font-size: 16px;
       }
       &.starDeactivate{
@@ -775,9 +780,9 @@ const MessageDetails = Styled.div`
       }
       &.starActive{
         color: ${({ theme }) => theme['warning-color']};
-        i:before{
-          content: "\f318";
-
+        i:before,
+        span.fa:before{
+          content: "\f005";
         }
       }
     }
@@ -1072,6 +1077,10 @@ const ReplyList = Styled.div`
       i,
       span{
         color: ${({ theme }) => theme['light-color']};
+      }
+      i,
+      span.fa{
+        font-size: 16px;
       }
       svg,
       img{

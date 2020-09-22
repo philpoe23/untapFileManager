@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import store, { rrfProps } from './redux/store';
 import Admin from './routes/admin';
@@ -38,7 +38,9 @@ const ProviderConfig = () => {
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
             {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
-            {isLoggedIn && path === '/' && <Redirect to="/admin" />}
+            {isLoggedIn && (path === process.env.PUBLIC_URL || path === `${process.env.PUBLIC_URL}/`) && (
+              <Redirect to="/admin" />
+            )}
           </Router>
         </ReactReduxFirebaseProvider>
       </Provider>

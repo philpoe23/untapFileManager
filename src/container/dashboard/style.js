@@ -604,6 +604,9 @@ const Pstates = Styled.div`
         }
         &.active{
             background: ${({ theme }) => theme['bg-color-light']};
+            &:hover{
+                box-shadow: 0 15px 30px #fff;
+            }
         }
     }
     .growth-upward,

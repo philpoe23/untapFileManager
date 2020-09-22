@@ -1580,7 +1580,7 @@ ul {
   margin: 6px 4px;
 }
 
-.page-header-actions button.ant-btn-default svg {
+.page-header-actions button.ant-btn-white svg {
   width: 12px;
   height: 12px;
   margin-right: 2px;
@@ -1730,8 +1730,8 @@ ul {
   .ant-page-header {
     padding: 16px 20px !important;
   }
-  
-  
+
+
   .ant-layout-header {
     height: auto;
   }
@@ -1897,7 +1897,7 @@ ul {
 }
 .ant-card-body .sd-spin .ant-spin,
 .ant-card-body .spin .ant-spin{
-  display: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -1930,4 +1930,10 @@ ul {
 .jvectormap-zoomout{
   border-radius: 0 0 6px 6px;
   bottom: 10px;
+}
+.jvectormap-tip{
+  padding: 7px 12px;
+  border: 0 none;
+  font-size: 12px;
+  background: #272B41;
 }

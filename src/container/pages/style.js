@@ -256,21 +256,21 @@ const UserCard = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}10;
+        box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}15;
         background: #fff;
         &:not(:last-child){
           margin-right: 10px;
         }
-        &.facebook{
+        &.facebook span.fa{
           color: #3B5998;
         }
-        &.twitter{
+        &.twitter span.fa{
           color: #1DA1F2;
         }
-        &.dribble{
+        &.dribble span.fa{
           color: #C2185B;
         }
-        &.instagram{
+        &.instagram span.fa{
           color: #FF0300;
         }
       }
@@ -847,8 +847,8 @@ const AddUser = Styled.div`
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         z-index: -1;
         background-color: ${({ theme }) => theme['primary-color']};
@@ -863,6 +863,9 @@ const AddUser = Styled.div`
         align-items: center;
         justify-content: center;
       }
+    }
+    img{
+      border-radius: 50%;
     }
     figcaption{
       margin-left: 20px;
@@ -885,6 +888,11 @@ const AddUser = Styled.div`
       padding: 0 15px 0 0;
     }
   }
+  .user-info-form{
+    .ant-select-single .ant-select-selector .ant-select-selection-item{
+      color: ${({ theme }) => theme['gray-color']};
+    }
+  }
   .social-form{
     .ant-form-item-control-input-content{
       .ant-input-prefix{
@@ -903,6 +911,7 @@ const AddUser = Styled.div`
         }
         .ant-input{
           height: 42px;
+          padding-left: 0;
         }
       }
     }
@@ -917,22 +926,28 @@ const AddUser = Styled.div`
         width: 100%;
         height: 100%;
         background-color: ${({ theme }) => theme['primary-color']};
-        &.facebook{
+        i,
+        svg,
+        span.fa{
+          color: #fff;
+          font-size: 16px;
+        }
+        .fa-facebook{
           background-color: #3B5998;
         }
-        &.twitter{
+        .fa-twitter{
           background-color: #38B8FF;
         }
-        &.linkedin{
+        .fa-linkedin{
           background-color: #2CAAE1;
         }
-        &.instagram{
+        .fa-instagram{
           background-color: #FF0300;
         }
-        &.github{
+        .fa-github{
           background-color: #292929;
         }
-        &.youtube{
+        .fa-youtube{
           background-color: #FE0909;
         }
       }

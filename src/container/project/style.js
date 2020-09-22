@@ -52,11 +52,24 @@ const ProjectSorting = Styled.div`
             }
         }
     }
-    @media (max-width: 1300px){
+    @media (min-width: 1201px) and (max-width: 1300px) {
         .project-sort-search{
             .ant-select{
-                width: 145px !important;
+                width: 170px !important;
             }
+        }
+        .project-sort-group{
+            padding: 0 5px;
+            
+        }
+        .project-sort-group .sort-group .layout-style a{
+                width: 35px;
+                height: 35px;
+            }
+        .project-sort-group .sort-group .ant-select {
+            min-width: 170px;
+            padding-left: 5px;
+            margin-right: 5px;
         }
     }
     @media (max-width: 1199px){
@@ -642,6 +655,7 @@ const ProjectDetailsWrapper = Styled.div`
                     color: ${({ theme }) => theme['dark-color']};
                 }
                 &.file-size{
+                    margin: 2px 0;;
                     color: ${({ theme }) => theme['gray-solid']};
                 }
                 &.file-content-action{
@@ -722,6 +736,7 @@ const TaskLists = Styled.div`
         }
     }
     table{
+        margin-top: 15px;
         .ant-checkbox-checked{
             .ant-checkbox-inner{
                 background: ${({ theme }) => theme['success-color']};
@@ -730,6 +745,9 @@ const TaskLists = Styled.div`
             &:after{
                 border-color: ${({ theme }) => theme['success-color']};
             }
+        }
+        thead{
+            display: none;
         }
         tr{
             th{
@@ -806,7 +824,8 @@ const TaskLists = Styled.div`
             font-size: 12px;
             font-weight: 500;
             &.ant-btn-primary{
-                background: ${({ theme }) => theme['primary-color']}08;
+                border-radius: 6px;
+                background: ${({ theme }) => theme['primary-color']}10;
             }
         }
     }
@@ -824,6 +843,15 @@ const TasklistAction = Styled.div`
     }
     span, a{
         color: ${({ theme }) => theme['gray-solid']};
+    }
+    .task-created{
+        color: #9299b8 !important;
+    }
+    .task-move{
+        svg,
+        i{
+            color: #D8DCEB;
+        }
     }
 `;
 

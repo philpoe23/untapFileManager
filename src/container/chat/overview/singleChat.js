@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Upload, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
@@ -176,7 +176,7 @@ const SingleChat = ({ match }) => {
                 const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
 
                 return (
-                  <>
+                  <Fragment key={id}>
                     {index === 1 && (
                       <p className="time-connector text-center text-capitalize">
                         <span>today</span>
@@ -185,7 +185,7 @@ const SingleChat = ({ match }) => {
                     <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                       <div className={mes.email !== me ? 'left' : 'right'}>
                         {mes.email !== me ? (
-                          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                          <img src={require(`../../../static/img/chat-author/${mes.img}`)} alt="" />
                         ) : null}
 
                         <div className="atbd-chatbox__content">
@@ -343,7 +343,6 @@ const SingleChat = ({ match }) => {
                                     <SmileOutlined />
                                   </Link>
                                 </Dropdown>
-                                
                               </div>
                               <div className="atbd-chatbox__message">
                                 <MessageList className="message-box">{mes.content}</MessageList>
@@ -353,13 +352,13 @@ const SingleChat = ({ match }) => {
                           {mes.email === me && singleContent.length === index + 1 ? (
                             <div className="message-seen text-right">
                               <span className="message-seen__time">Seen 9:20 PM </span>
-                              <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                              <img src={require(`../../../static/img/chat-author/${mes.img}`)} alt="" />
                             </div>
                           ) : null}
                         </div>
                       </div>
                     </li>
-                  </>
+                  </Fragment>
                 );
               })
             ) : (
@@ -454,6 +453,6 @@ const SingleChat = ({ match }) => {
 };
 
 SingleChat.propTypes = {
-  match: PropTypes.shape(PropTypes.object),
+  match: PropTypes.object,
 };
 export default SingleChat;

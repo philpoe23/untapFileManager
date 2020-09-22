@@ -159,7 +159,7 @@ const Project = ({ match }) => {
 };
 
 Project.propTypes = {
-  match: propTypes.shape(propTypes.object),
+  match: propTypes.object,
 };
 
 export default Project;
