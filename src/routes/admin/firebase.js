@@ -10,8 +10,8 @@ const FirebaseRoute = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path={`${path}/view`} component={FbView} />
-      <Route path={`${path}/add`} component={FbAdd} />
+      <Route path={`${path}/fbView`} component={FbView} />
+      <Route path={`${path}/fbAdd`} component={FbAdd} />
       <Route exact path={`${path}/edit/:id`} component={FbUpdate} />
     </Switch>
   );

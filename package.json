@@ -44,11 +44,7 @@
     "firebase": "^7.14.2",
     "styled-components": "^4.4.1"
   },
-<<<<<<< HEAD
-  "homepage": "/test",
-=======
   "homepage": "/strikingdash",
->>>>>>> dce02c5495828a8c8960c7870db4eb0b41f3408c
   "scripts": {
     "start": "react-app-rewired start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-app-rewired build",
