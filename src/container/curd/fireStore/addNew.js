@@ -10,6 +10,7 @@ import { Button } from '../../../components/buttons/buttons';
 import { Main, BasicFormWrapper } from '../../styled';
 import { fbDataSubmit, fbFileUploder, fbFileClear } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
+import { nominalTypeHack } from 'prop-types';
 
 const { Option } = Select;
 const dateFormat = 'YYYY/MM/DD';
@@ -50,6 +51,7 @@ const AddNew = () => {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     multiple: false,
+    showUploadList: false,
     headers: {
       authorization: 'authorization-text',
     },
@@ -70,9 +72,7 @@ const AddNew = () => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link to="/admin/firestore/view">
-              View All
-            </Link>
+            <Link to="/admin/firestore/view">View All</Link>
           </Button>,
         ]}
         ghost
@@ -86,7 +86,14 @@ const AddNew = () => {
                 <Row>
                   <Col md={10} offset={7}>
                     <BasicFormWrapper>
-                      <Form className="add-record-form" style={{ width: '100%' }} layout="vertical" form={form} name="addnew" onFinish={handleSubmit}>
+                      <Form
+                        className="add-record-form"
+                        style={{ width: '100%' }}
+                        layout="vertical"
+                        form={form}
+                        name="addnew"
+                        onFinish={handleSubmit}
+                      >
                         <figure className="pro-image align-center-v">
                           {isFileLoading ? (
                             <div>
@@ -162,7 +169,6 @@ const AddNew = () => {
                 </Row>
               </Cards>
             </RecordFormWrapper>
-            
           </Col>
         </Row>
       </Main>
