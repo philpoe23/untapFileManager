@@ -10,7 +10,6 @@ import { Button } from '../../../components/buttons/buttons';
 import { Main, BasicFormWrapper } from '../../styled';
 import { fbDataSubmit, fbFileUploder, fbFileClear } from '../../../redux/firestore/actionCreator';
 import Heading from '../../../components/heading/heading';
-import { nominalTypeHack } from 'prop-types';
 
 const { Option } = Select;
 const dateFormat = 'YYYY/MM/DD';
@@ -95,28 +94,25 @@ const AddNew = () => {
                         onFinish={handleSubmit}
                       >
                         <figure className="pro-image align-center-v">
-                          {isFileLoading ? (
-                            <div>
-                              <Spin />
+                          <img
+                            src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
+                            alt=""
+                          />
+                          <figcaption>
+                            <Upload {...props}>
+                              <Link className="upload-btn" to="#">
+                                <FeatherIcon icon="camera" size={16} />
+                              </Link>
+                            </Upload>
+                            <div className="info">
+                              <Heading as="h4">Profile Photo</Heading>
                             </div>
-                          ) : (
-                            <>
-                              <img
-                                src={url === null ? require('../../../static/img/avatar/profileImage.png') : url}
-                                alt=""
-                              />
-                              <figcaption>
-                                <Upload {...props}>
-                                  <Link className="upload-btn" to="#">
-                                    <FeatherIcon icon="camera" size={16} />
-                                  </Link>
-                                </Upload>
-                                <div className="info">
-                                  <Heading as="h4">Profile Photo</Heading>
-                                </div>
-                              </figcaption>
-                            </>
-                          )}
+                            {isFileLoading && (
+                              <div className="isUploadSpain">
+                                <Spin />
+                              </div>
+                            )}
+                          </figcaption>
                         </figure>
                         <Form.Item name="name" label="Name">
                           <Input placeholder="Input Name" />

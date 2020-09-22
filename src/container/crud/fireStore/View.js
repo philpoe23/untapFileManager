@@ -138,7 +138,7 @@ const ViewPage = () => {
           </div>
         }
         buttons={[
-          <div className="search-box">
+          <div key={1} className="search-box">
             <span className="search-icon">
               <FeatherIcon icon="search" size={14} />
             </span>

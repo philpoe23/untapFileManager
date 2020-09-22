@@ -32,14 +32,10 @@ const Edit = ({ match }) => {
 
   const [form] = Form.useForm();
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
+    if (fbDataSingle) {
       dispatch(fbDataSingle(parseInt(match.params.id, 10)));
     }
-    return () => {
-      unmounted = true;
-    };
-  }, [dispatch, match]);
+  }, [dispatch, match.params.id]);
 
   const handleSubmit = values => {
     dispatch(
@@ -60,6 +56,7 @@ const Edit = ({ match }) => {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     multiple: false,
+    showUploadList: false,
     headers: {
       authorization: 'authorization-text',
     },
@@ -108,26 +105,33 @@ const Edit = ({ match }) => {
                           alt={crud.id}
                         />
                       )}
-                      {isFileLoading ? (
-                        <div>
-                          <Spin />
+
+                      <figcaption>
+                        <Upload {...props}>
+                          <Link className="upload-btn" to="#">
+                            <FeatherIcon icon="camera" size={16} />
+                          </Link>
+                        </Upload>
+                        <div className="info">
+                          <Heading as="h4">Profile Photo</Heading>
                         </div>
-                      ) : (
-                        <figcaption>
-                          <Upload {...props}>
-                            <Link className="upload-btn" to="#">
-                              <FeatherIcon icon="camera" size={16} />
-                            </Link>
-                          </Upload>
-                          <div className="info">
-                            <Heading as="h4">Profile Photo</Heading>
+                        {isFileLoading && (
+                          <div className="isUploadSpain">
+                            <Spin />
                           </div>
-                        </figcaption>
-                      )}
+                        )}
+                      </figcaption>
                     </figure>
                     {crud !== null && (
                       <BasicFormWrapper>
-                        <Form className="add-record-form" style={{ width: '100%' }} layout="vertical" form={form} name="edit" onFinish={handleSubmit}>
+                        <Form
+                          className="add-record-form"
+                          style={{ width: '100%' }}
+                          layout="vertical"
+                          form={form}
+                          name="edit"
+                          onFinish={handleSubmit}
+                        >
                           <Form.Item name="name" initialValue={crud.name} label="Name">
                             <Input />
                           </Form.Item>

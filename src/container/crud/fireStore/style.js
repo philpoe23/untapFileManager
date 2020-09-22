@@ -48,6 +48,18 @@ const RecordFormWrapper = Styled.div`
     .pro-image{
         position: relative;
         margin-bottom: 30px;
+        .ant-spin.ant-spin-spinning{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            background: #ffffff90;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
         img{
             max-width: 120px;
             border-radius: 50%;

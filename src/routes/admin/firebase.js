@@ -2,9 +2,9 @@ import React, { lazy } from 'react';
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import { Route, useRouteMatch } from 'react-router-dom';
 
-const FbView = lazy(() => import('../../container/curd/fireStore/View'));
-const FbAdd = lazy(() => import('../../container/curd/fireStore/addNew'));
-const FbUpdate = lazy(() => import('../../container/curd/fireStore/edit'));
+const FbView = lazy(() => import('../../container/crud/fireStore/View'));
+const FbAdd = lazy(() => import('../../container/crud/fireStore/addNew'));
+const FbUpdate = lazy(() => import('../../container/crud/fireStore/edit'));
 
 const FirebaseRoute = () => {
   const { path } = useRouteMatch();
