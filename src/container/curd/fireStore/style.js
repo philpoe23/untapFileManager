@@ -46,14 +46,22 @@ const RecordViewWrapper = Styled.div`
 
 const RecordFormWrapper = Styled.div`
     .pro-image{
+        position: relative;
         margin-bottom: 30px;
-        figcaption{
-            position: relative;
+        img{
+            max-width: 120px;
+            border-radius: 50%;
+        }
+        .ant-spin{
+            height: 120px;
+            width: 120px;
+            display: flex;
+            align-items: center;
         }
         .ant-upload-select{
             position: absolute;
-            left: -40px;
-            bottom: -40px;
+            left: 80px;
+            bottom: -5px;
             height: 40px;
             width: 40px;
             background: #fff;
@@ -82,6 +90,26 @@ const RecordFormWrapper = Styled.div`
             h1{
                 font-size: 15px;
                 font-weight: 500;
+                margin-bottom: 0;
+            }
+        }
+        .ant-upload-list-item{
+            margin-top: 0;
+            &:hover{
+                .ant-upload-list-item-info{
+                    background-color: transparent;
+                }
+            }
+            .ant-upload-list-item-info{
+                >span{
+                    display: flex;
+                    align-items: center;
+                    padding-left: 14px;
+                    padding-right: 10px;
+                }
+                .ant-upload-list-item-card-actions {
+                    // top: -8px;
+                }
             }
         }
     }

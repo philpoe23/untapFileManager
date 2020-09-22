@@ -1897,7 +1897,7 @@ ul {
 }
 .ant-card-body .sd-spin .ant-spin,
 .ant-card-body .spin .ant-spin{
-  display: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
