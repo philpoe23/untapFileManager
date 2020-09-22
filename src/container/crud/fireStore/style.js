@@ -142,5 +142,12 @@ const RecordFormWrapper = Styled.div`
             }
         }
     }
+
+    .record-spin{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 export { RecordViewWrapper, RecordFormWrapper };
