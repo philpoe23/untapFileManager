@@ -129,6 +129,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
             Project
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="ProjectCreate">
+          <NavLink onClick={toggleCollapsed} to="/admin/project/create">
+            Create Project
+          </NavLink>
+        </Menu.Item>
         <Menu.Item key="projectDetails">
           <NavLink onClick={toggleCollapsed} to="/admin/project/projectDetails/1">
             Project Details
@@ -178,6 +183,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         <Menu.Item key="users">
           <NavLink onClick={toggleCollapsed} to="/admin/pages/users">
             Users
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="addUser">
+          <NavLink onClick={toggleCollapsed} to="/admin/pages/add-user/info">
+            Add User
           </NavLink>
         </Menu.Item>
         <Menu.Item key="dataTable">

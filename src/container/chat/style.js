@@ -32,7 +32,7 @@ const UL = Styled.ul`
 `;
 
 const Content = Styled.div`
-  height: 485px;
+  height: 495px;
   overflow-y: auto;
   overflow-x: hidden;
   ul{

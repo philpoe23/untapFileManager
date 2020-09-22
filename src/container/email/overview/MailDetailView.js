@@ -5,7 +5,7 @@ import { Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Tooltip, Row, Col, Spin } from 'antd';
 import moment from 'moment';
 import propTypes from 'prop-types';
-import { StarIcon } from 'react-line-awesome';
+import FontAwesome from 'react-fontawesome';
 import { MailDetailsWrapper, MessageAction, MessageDetails, ReplyList, MessageReply, MailRightAction } from './style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import Heading from '../../../components/heading/heading';
@@ -150,7 +150,7 @@ const Single = props => {
                     onClick={() => onStaredChange(email.id)}
                     to="#"
                   >
-                    <StarIcon />
+                    <FontAwesome name="star-o" />
                   </Link>
                   <Link to="#">
                     <FeatherIcon icon="corner-up-left" />
@@ -268,7 +268,7 @@ const Single = props => {
                       onClick={() => onStaredChange(email.id)}
                       to="#"
                     >
-                      <StarIcon />
+                      <FontAwesome name="star-o" />
                     </Link>
                     <Link>
                       <FeatherIcon icon="more-vertical" />
