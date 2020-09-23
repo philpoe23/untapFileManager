@@ -39,8 +39,8 @@ const ReChartArea = () => {
                 data={data}
                 margin={{
                   top: 10,
-                  right: 30,
-                  left: 0,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 0,
                 }}
               >
@@ -61,8 +61,8 @@ const ReChartArea = () => {
                 data={data}
                 margin={{
                   top: 10,
-                  right: 30,
-                  left: 0,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 0,
                 }}
               >
@@ -85,9 +85,9 @@ const ReChartArea = () => {
                   data={nullChart}
                   margin={{
                     top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 15,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -18 : 0,
+                    bottom: 0,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -102,8 +102,8 @@ const ReChartArea = () => {
                   data={data}
                   margin={{
                     top: 10,
-                    right: 30,
-                    left: 0,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -18 : 0,
                     bottom: 0,
                   }}
                 >
@@ -126,9 +126,9 @@ const ReChartArea = () => {
                   syncId="anyId"
                   margin={{
                     top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 15,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -18 : 0,
+                    bottom: 0,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -145,8 +145,8 @@ const ReChartArea = () => {
                   syncId="anyId"
                   margin={{
                     top: 10,
-                    right: 30,
-                    left: 0,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -18 : 0,
                     bottom: 0,
                   }}
                 >

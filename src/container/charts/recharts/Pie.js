@@ -134,18 +134,30 @@ const ReChartPie = () => {
                   dataKey="value"
                   cx={responsive / 2}
                   cy={responsive / 4}
-                  outerRadius={60}
+                  outerRadius={55}
                   fill="#8884d8"
+                  margin={{
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
+                  }}
                 />
                 <Pie
                   data={data02}
                   dataKey="value"
                   cx={responsive / 2}
                   cy={responsive / 4}
-                  innerRadius={70}
-                  outerRadius={90}
+                  innerRadius={60}
+                  outerRadius={80}
                   fill="#82ca9d"
                   label
+                  margin={{
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
+                  }}
                 />
               </PieChart>
             </Cards>

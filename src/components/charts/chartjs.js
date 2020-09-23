@@ -340,7 +340,7 @@ const ChartjsAreaChart = props => {
         <Line
           id={id}
           data={data}
-          height={height}
+          height={window.innerWidth <= 575 ? 230 : height}
           options={{
             tooltips: {
               mode: 'nearest',
@@ -462,11 +462,12 @@ const ChartjsBarChartTransparent = props => {
     labels,
     datasets,
   };
+
   return (
     <ChartContainer className="parentContainer">
       <Bar
         data={data}
-        height={height}
+        height={window.innerWidth <= 575 ? 230 : height}
         options={{
           ...options,
           ...layout,

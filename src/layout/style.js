@@ -20,6 +20,18 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
     }
+    .striking-logo{
+        @media only screen and (max-width: 875px){
+            margin-right: 4px;
+        }
+        @media only screen and (max-width: 767px){
+            margin-right: 0;
+        }
+        img{
+            max-width: 120px;
+            width: 100%;
+        }
+    }
     .certain-category-search-wrapper{
         ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
         @media only screen and (max-width: 767px){
@@ -28,6 +40,9 @@ const Div = Styled.div`
         input{
             ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
             ${({ darkMode }) => (darkMode ? `color: #fff;` : '#5A5F7D')};
+            @media only screen and (max-width: 875px){
+                padding-left: 5px;
+            }
         }
     }
     
@@ -37,8 +52,11 @@ const Div = Styled.div`
             line-height: 0;
             margin-top: 4px;
             color: ${({ theme }) => theme['extra-light-color']};
-            @media only screen and (max-width: 479px){
-                padding: 0 15px 0 10px;
+            @media only screen and (max-width: 875px){
+                padding: 0 25px 0 10px;
+            }
+            @media only screen and (max-width: 767px){
+                padding: 0 15px 0 0px;
             }
         }
     }
@@ -243,6 +261,9 @@ const Div = Styled.div`
         transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
+        @media only screen and (max-width: 767px){
+            right: 0;
+        }
         a{
             display: inline-flex;
             color: ${({ theme }) => theme['light-color']};
@@ -287,11 +308,10 @@ const SmallScreenAuthInfo = Styled.div`
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
-        margin-top: ${({ hide }) => (hide ? '0px' : '65px')};
+        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
         left: 0;
         transition: .3s;
-        // border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
         box-shadow: 0 2px 30px #9299b810;
@@ -303,10 +323,9 @@ const SmallScreenSearch = Styled.div`
         width: 100%;
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
-        top: 1px;
+        top: 0;
         left: 0;
         transition: .3s;
-        // border-top: 1px solid #9299b8;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}
         box-shadow: 0 2px 30px #9299b810;

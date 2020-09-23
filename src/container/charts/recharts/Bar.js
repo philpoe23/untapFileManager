@@ -35,7 +35,17 @@ const ReChartBar = () => {
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="TINY BAR CHART" size="large" more={false}>
-              <BarChart width={responsive - (5 * responsive) / 100} height={responsive / 2} data={data}>
+              <BarChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
+                data={data}
+                margin={{
+                  top: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
+                  bottom: 5,
+                }}
+              >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -55,8 +65,8 @@ const ReChartBar = () => {
                 data={data}
                 margin={{
                   top: 20,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 5,
                 }}
               >
@@ -78,8 +88,8 @@ const ReChartBar = () => {
                 data={data}
                 margin={{
                   top: 20,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 5,
                 }}
               >
@@ -102,8 +112,8 @@ const ReChartBar = () => {
                 data={positiveAndNegative}
                 margin={{
                   top: 20,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 5,
                 }}
               >
@@ -126,8 +136,8 @@ const ReChartBar = () => {
                 data={positiveAndNegative}
                 margin={{
                   top: 20,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 5,
                 }}
               >
@@ -150,8 +160,8 @@ const ReChartBar = () => {
                 data={data}
                 margin={{
                   top: 20,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 30 : 40,
+                  left: window.innerWidth <= 375 ? -18 : 0,
                   bottom: 5,
                 }}
               >

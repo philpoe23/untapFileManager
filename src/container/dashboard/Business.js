@@ -489,7 +489,7 @@ const Business = () => {
                           </div>
                         </ExList>
                       </Col>
-                      <Col xxl={18} sm={24}>
+                      <Col xxl={18} xs={24}>
                         <ChartjsBarChartTransparent
                           labels={incomeState.labels}
                           datasets={incomeDataset}
@@ -603,7 +603,7 @@ const Business = () => {
                     z: 5,
                   },
                 ]}
-                height={100}
+                height={window.innerWidth <= 575 ? 230 : 100}
                 options={{
                   legend: {
                     display: false,
@@ -711,7 +711,7 @@ const Business = () => {
                     z: 5,
                   },
                 ]}
-                height={100}
+                height={window.innerWidth <= 575 ? 230 : 100}
                 options={{
                   legend: {
                     display: false,
