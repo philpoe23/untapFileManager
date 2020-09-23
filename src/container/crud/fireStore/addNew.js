@@ -79,11 +79,11 @@ const AddNew = () => {
       />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <RecordFormWrapper>
               <Cards headless>
-                <Row>
-                  <Col md={10} offset={7}>
+                <Row justify="center">
+                  <Col xl={10} md={16} xs={24}>
                     <BasicFormWrapper>
                       <Form
                         className="add-record-form"
