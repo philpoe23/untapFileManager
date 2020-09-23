@@ -38,6 +38,13 @@ const VectorMaps = () => {
                       },
                       selectedHover: {},
                     }}
+                    series={{
+                      regions: [
+                        {
+                          scale: ['#C8EEFF', '#0071A4'],
+                        },
+                      ],
+                    }}
                     containerStyle={{
                       width: '100%',
                       height: '100%',
