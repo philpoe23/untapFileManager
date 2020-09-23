@@ -767,6 +767,9 @@ const AddUser = Styled.div`
     font-weight: 500;
     margin-bottom: 36px;
   }
+  .add-user-wrap{
+    margin-left: 
+  }
   .add-user-bottom{
     margin-top: 20px;
     button + button{
@@ -779,9 +782,18 @@ const AddUser = Styled.div`
   }
   .card-nav{
     ul{
+      flex-wrap: wrap;
+      margin-bottom: -4px -10px;
+      @media only screen and (max-width: 575px){
+        justify-content: center;
+      }
       li{
+        margin: 4px 10px !important;
         &:not(:last-child){
           margin-right: 26px;
+          @media only screen and (max-width: 575px){
+            margin-right: 0;
+          }
         }
         a{
           position: relative;
@@ -789,10 +801,13 @@ const AddUser = Styled.div`
           font-size: 14px;
           font-weight: 500;
           color: ${({ theme }) => theme['gray-color']};
+          @media only screen and (max-width: 575px){
+            padding: 0;
+          }
           &:after{
             position: absolute;
             left: 0;
-            bottom: -1px;
+            bottom: -4px;
             width: 100%;
             height: 2px;
             border-radius: 4px;
@@ -800,6 +815,9 @@ const AddUser = Styled.div`
             opacity: 0;
             visibility: hidden;
             background-color: ${({ theme }) => theme['primary-color']};
+            @media only screen and (max-width: 575px){
+              display: none;
+            }
           }
           &.active{
             color: ${({ theme }) => theme['primary-color']};

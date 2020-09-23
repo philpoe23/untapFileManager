@@ -17,8 +17,8 @@ const Work = () => {
   };
 
   return (
-    <Row>
-      <Col md={10} offset={7}>
+    <Row justify="center">
+      <Col xl={10} md={16} xs={24}>
         <div className="user-work-form">
           <BasicFormWrapper>
             <Form style={{ width: '100%' }} form={form} name="work" onFinish={handleSubmit}>

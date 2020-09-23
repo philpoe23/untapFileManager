@@ -1588,6 +1588,10 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
+.ant-page-header-heading {
+  align-items: center;
+}
+
 .ant-page-header-heading-title {
   text-transform: capitalize;
 }
@@ -1771,9 +1775,6 @@ ul {
   }
 }
 
-@media (max-width: 767px) {
-}
-
 @media only screen and (max-width: 575px) {
   .btn-inc,
   .btn-dec {
@@ -1904,12 +1905,18 @@ ul {
   .atbd-top-dropdwon .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
     min-width: 155px;
   }
+  .ant-drawer-content-wrapper {
+    width: 260px !important;
+  }
 }
 
 @media only screen and (max-width: 379px) {
   .ant-card-head-wrapper .ant-card-extra .ant-radio-button-wrapper {
     height: 32px !important;
     line-height: 30px !important;
+  }
+  .ant-notification-notice {
+    width: 275px;
   }
 }
 
