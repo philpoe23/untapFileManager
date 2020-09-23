@@ -7,10 +7,12 @@ import PropTypes from 'prop-types';
 import { Div } from './header-search-style';
 import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import { Popover } from '../popup/popup';
+import { Title } from '../popup/style';
 
-const HeaderSearch = ({ darkMode, rtl }) => {
+const HeaderSearch = ({ darkMode }) => {
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.headerSearchData);
+  const rtl = useSelector(state => state.ChangeLayoutMode.rtlData);
 
   const search = e => {
     dispatch(headerSearchAction(e.target.value));
@@ -38,7 +40,7 @@ const HeaderSearch = ({ darkMode, rtl }) => {
     <>
       <Div className="certain-category-search-wrapper" style={{ width: '100%' }} darkMode={darkMode}>
         <Row>
-          <Col md={2} className="text-right">
+          <Col md={2} className={rtl ? 'text-left' : 'text-right'}>
             <span className="certain-category-icon">
               <FeatherIcon icon="search" size={16} />
             </span>
@@ -47,8 +49,8 @@ const HeaderSearch = ({ darkMode, rtl }) => {
             <Popover
               placement={!rtl ? 'bottomLeft' : 'bottomRight'}
               content={content}
-              title="Search List"
-              trigger="focus"
+              title={<Title>Search List</Title>}
+              action="focus"
             >
               <Input placeholder="Search..." onInput={search} />
             </Popover>

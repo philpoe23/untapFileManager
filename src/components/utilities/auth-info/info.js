@@ -3,7 +3,7 @@ import { Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
-import { InfoWraper, UserDropDwon } from './auth-info-style';
+import { InfoWraper, NavAuth, UserDropDwon } from './auth-info-style';
 import Message from './message';
 import Notification from './notification';
 import Settings from './settings';
@@ -78,7 +78,7 @@ const AuthInfo = ({ rtl }) => {
   };
 
   const country = (
-    <>
+    <NavAuth>
       <Link onClick={() => onFlagChangeHandle('english')} to="#">
         <img src={require('../../../static/img/flag/english.png')} alt="" />
         <span>English</span>
@@ -95,7 +95,7 @@ const AuthInfo = ({ rtl }) => {
         <img src={require('../../../static/img/flag/turky.png')} alt="" />
         <span>Turky</span>
       </Link>
-    </>
+    </NavAuth>
   );
 
   return (

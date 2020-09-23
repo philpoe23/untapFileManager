@@ -4,12 +4,7 @@ const InfoWraper = Styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 16px 0;
-
-    .ant-dropdown a i, .ant-dropdown a svg, .ant-dropdown a img {
-        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
-    }
-    
+    padding: 16px 0;        
     .head-example{
         text-decoration: none;
         color: ${({ theme }) => theme['text-color-secondary']};
@@ -195,7 +190,7 @@ const UserDropDwon = Styled.div`
             margin-bottom: 12px;
             background: ${({ theme }) => theme['bg-color-normal']};
             img{
-                margin-right: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
             }
             figcaption{
                 h1{
@@ -224,11 +219,12 @@ const UserDropDwon = Styled.div`
                 &:hover{
                     background: ${({ theme }) => theme['primary-color']}05;
                     color: ${({ theme }) => theme['primary-color']};
-                    padding-left: 22px;
+                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 22px;
                 }
                 svg{
                     width: 16px;
-                    margin-right: 14px;
+                    transform: ${({ theme }) => (theme.rtl ? 'rotateY(180deg)' : 'rotateY(0deg)')};
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 14px;
                 }
             }
         }
@@ -252,7 +248,7 @@ const UserDropDwon = Styled.div`
             svg{
                 width: 15px;
                 height: 15px;
-                margin-right: 8px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
             }
         }
     }
@@ -315,4 +311,10 @@ const AtbdTopDropdwon = Styled.div`
     }
 `;
 
-export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, AtbdTopDropdwon };
+const NavAuth = Styled.span`
+    i, svg, img {
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+    }
+`;
+
+export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, AtbdTopDropdwon, NavAuth };
