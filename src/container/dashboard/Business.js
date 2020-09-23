@@ -603,7 +603,7 @@ const Business = () => {
                     z: 5,
                   },
                 ]}
-                height={100}
+                height={window.innerWidth <= 575 ? 230 : 100}
                 options={{
                   legend: {
                     display: false,
@@ -711,7 +711,7 @@ const Business = () => {
                     z: 5,
                   },
                 ]}
-                height={100}
+                height={window.innerWidth <= 575 ? 230 : 100}
                 options={{
                   legend: {
                     display: false,
