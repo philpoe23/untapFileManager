@@ -1811,7 +1811,7 @@ ul {
     align-items: center;
   }
   .ant-card-head-wrapper .ant-card-extra {
-    padding: 10px 0 16px;
+    padding: 10px 0 16px !important;
     float: none;
     margin: 0;
     flex-flow: column;
