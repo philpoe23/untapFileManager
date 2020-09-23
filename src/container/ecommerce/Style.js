@@ -292,6 +292,12 @@ const TopToolBox = Styled.div`
     }
     .table-toolbox-menu{
         color: ${({ theme }) => theme['gray-color']};
+        @media only screen and (max-width: 1599px){
+            text-align: right;
+        }
+        @media only screen and (max-width: 991px){
+            margin-top: 20px;
+        }
         .ant-radio-button-wrapper{
             height: 40px;
             line-height: 40px;
@@ -304,7 +310,6 @@ const TopToolBox = Styled.div`
         }
         @media only screen and (max-width: 991px){
             text-align: center;
-            margin-bottom: 20px;
         }
     }
     .ant-select{
@@ -432,6 +437,12 @@ const TopToolBox = Styled.div`
             margin-bottom: 20px;
             text-align: center;
         }
+        @media only screen and (max-width: 344px){
+            .ant-radio-group-outline{
+                margin-top: 8px;
+                margin-left: 0;;
+            }
+        }
     }
 
     .product-list-action__viewmode{
@@ -456,7 +467,7 @@ const TopToolBox = Styled.div`
     .table-search-box{
         @media only screen and (max-width: 991px){
             max-width: 600px;
-            margin: 0 auto 20px;
+            margin: 0 auto;
         }
         .ant-select{
             margin-bottom: 0;
@@ -479,7 +490,9 @@ const TopToolBox = Styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        @media only screen and (max-width: 991px){
+        @media only screen and (max-width: 1599px){
+            margin-top: 20px;
+            justify-content: center !important;
             text-align: center !important;
         }
         button{
@@ -523,6 +536,9 @@ const PaginationWrapper = Styled.div`
 const ProductDetailsWrapper = Styled.div`
     .product-details-box{
         padding: 15px;
+        @media only screen and (max-width: 575px){
+            padding: 0;
+        }
     }
     .product-details-box__left{
         figure{
@@ -621,9 +637,9 @@ const ProductDetailsWrapper = Styled.div`
             font-weight: 500;
             margin-right: 30px;
             color: ${({ theme }) => theme['dark-color']};
-            @media only screen and (max-width: 575px){
+            @media only screen and (max-width: 1000px){
                 margin-right: 15px;
-              }
+            }
         }
         .stock-status{
             &.in-stock{
@@ -701,9 +717,13 @@ const ProductDetailsWrapper = Styled.div`
         .pdbr__socials{
             margin: 0px 0 0 5px;
             a{
-                color: #707070;
+                color: #666666;
                 &:not(:last-child){
                     margin-right: 12px;
+                }
+                span{
+                    font-size: 14px;
+                    color: #666666;
                 }
             }
         }
@@ -733,7 +753,7 @@ const ProductDetailsWrapper = Styled.div`
 const ProductTable = Styled.div`
     .table-cart{
         .ant-table-content{
-            padding-bottom: 30px;
+            padding-bottom: 10px;
         }
         .ant-table-tbody{
             .cart-single{
@@ -939,7 +959,7 @@ const ProductTable = Styled.div`
 `;
 
 const CouponForm = Styled.div`
-    margin: -10px 0 20px 0;
+    margin: 10px 0 20px 0;
     .coupon-form-input{
         margin-right: 10px;
         input::placeholder{
@@ -962,6 +982,10 @@ const CouponForm = Styled.div`
                 border-color:  ${({ theme }) => theme['border-color-light']};
                 @media only screen and (max-width: 991px){
                     max-width: 100%;
+                }
+                @media only screen and (max-width: 575px){
+                    max-width: 200px;
+                    margin-bottom: 15px;
                 }
             }
         }
@@ -1074,9 +1098,15 @@ const OrderSummary = Styled.div`
         }
         .ant-form-item-control-input-content{
             display: flex;
+            @media only screen and (max-width: 479px){
+                flex-flow: column;
+            }
             input{
                 margin: 0 6px 20px 0;
                 height: 40px;
+                @media only screen and (max-width: 479px){
+                    width: 100% !important;
+                }
             }
             button{
                 height: 40px;
@@ -1087,7 +1117,6 @@ const OrderSummary = Styled.div`
         display: inline-flex;
         justify-content: space-between;
         width: 100%;
-        margin-bottom: 22px;
         .summary-total-label{
             font-size: 16px;
             font-weight: 500;
@@ -1105,6 +1134,7 @@ const OrderSummary = Styled.div`
         width: 100%;
         height: 50px;
         border-radius: 8px;
+        margin-top: 22px;
         @media only screen and (max-width: 575px){
             font-size: 13px;
         }
@@ -1121,6 +1151,9 @@ const OrderSummary = Styled.div`
 
 const AddProductForm = Styled.div`
     margin-top: 28px;
+    @media only screen and (max-width: 575px){
+        margin-top: 15px;
+    }
     .add-product-block{
         background: ${({ theme }) => theme['bg-color-light']};
         border-radius: 20px;
@@ -1252,6 +1285,9 @@ const AddProductForm = Styled.div`
 
 const InvoiceHeader = Styled.div`
     margin: 50px 0;
+    @media only screen and (max-width: 575px){
+        margin: 25px 0;
+    }
     .top-img{
         max-width: 140px;
     }
@@ -1265,6 +1301,7 @@ const InvoiceHeader = Styled.div`
         line-height: 1.6;
         @media only screen and (max-width: 575px){
             text-align: center !important;
+            margin-bottom: 0;
         }
     }
 `;
@@ -1273,7 +1310,10 @@ const InvoiceLetterBox = Styled.div`
     .invoice-letter-inner{
         background: #F8F9FB;
         padding: 30px 50px 25px;
-        border-radius: 20px
+        border-radius: 20px;
+        @media only screen and (max-width: 575px){
+            padding: 25px;
+        }
     }
     .invoice-author{
         @media only screen and (max-width: 991px){
@@ -1283,6 +1323,9 @@ const InvoiceLetterBox = Styled.div`
             font-size: 36px;
             font-weight: 600;
             margin-bottom: 16px;
+            @media only screen and (max-width: 575px){
+                font-size: 30px;
+            }
         }
         p{
             font-size: 15px;
@@ -1337,6 +1380,7 @@ const InvoiceAction = Styled.div`
     }
     @media only screen and (max-width: 479px){
         text-align: center;
+        margin-top: 30px;
     }
     .ant-btn-default{
         color: ${({ theme }) => theme['gray-color']};
@@ -1362,7 +1406,7 @@ const InvoiceAction = Styled.div`
 const CheckoutWrapper = Styled.div`
     padding: 25px 0;
     .ant-steps {
-        @media only screen and (max-width: 575px) {
+        @media only screen and (max-width: 767px) {
             flex-flow: column;
             align-items: center;
         }
@@ -1419,9 +1463,9 @@ const CheckoutWrapper = Styled.div`
             top: 20px;
             color: #333;
             background-image: url(${require('../../static/img/progress.svg')});
-            width: 140%;
+            width: 137%;
             height: 6px;
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-color: transparent !important;
@@ -1433,8 +1477,17 @@ const CheckoutWrapper = Styled.div`
     }
     .ant-steps-item{
         padding: 0 25px 0 0 !important;
+        @media only screen and (max-width: 767px) {
+            padding: 0 !important;
+            &:not(:last-child){
+                margin-bottom: 20px;
+            }
+        }
         &:last-child{
             padding-left: 15px !important;
+            @media only screen and (max-width: 767px) {
+                padding: 0 !important;
+            }
             .ant-steps-item-container{
                 &:after{
                     display: none;
@@ -1446,19 +1499,15 @@ const CheckoutWrapper = Styled.div`
                 flex: 1 1;
             }
         }
-        @media only screen and (max-width: 767px) {
-            padding: 0;
-        }
-        @media only screen and (max-width: 575px) {
-            &:not(:last-child){
-                margin-bottom: 20px;
-            }
-        }
         .ant-steps-item-title{
             font-size: 15px;
             font-weight: 500;
             margin-top: 8px;
+            padding: 0 0 0 10px;
             color: ${({ theme }) => theme['gray-solid']} !important;
+            @media only screen and (max-width: 1210px) {
+                padding: 0 0 0 20px;
+            }
             @media only screen and (max-width: 767px) {
                 padding: 0;
             }
@@ -1626,6 +1675,11 @@ const CheckoutWrapper = Styled.div`
                    span + span{
                        display: flex;
                        justify-content: space-between;
+                       @media only screen and (max-width: 375px){
+                            img{
+                                display: none;
+                            }
+                        }
                    }
                }
            }
@@ -1694,7 +1748,7 @@ const CheckoutWrapper = Styled.div`
             h1{
                 font-size: 18px;
                 font-weight: 400;
-                margin-bottom: 28px;
+                margin-bottom: 0;
             }
             .method-info{
                 margin-top: -2px;

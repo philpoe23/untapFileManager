@@ -80,7 +80,7 @@ const Email = ({ match }) => {
       <Main>
         <EmailWrapper>
           <Row className="justify-content-center" gutter={25}>
-            <Col xxl={5} xl={7} lg={10} xs={24}>
+            <Col className="trigger-col" xxl={5} xl={7} lg={10} xs={24}>
               {responsive <= 991 && (
                 <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />

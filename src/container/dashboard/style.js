@@ -48,6 +48,9 @@ const Focard = Styled.div`
         &.growth-downward{
             h1{
                 font-size: 30px;
+                @media only screen and (max-width: 767px){
+                    font-size: 24px;
+                }
             }
             .focard-status{
                 .focard-status__percentage{
@@ -122,17 +125,26 @@ const Focard = Styled.div`
                 font-size: 16px;
                 font-weight: 500;
                 margin-bottom: 26px;
+                @media only screen and (max-width: 767px){
+                    margin-bottom: 16px;
+                }
             }
         }
 
         .focard-details{
             margin-top: 15px;
             padding: 0 25px 22px;
+            @media only screen and (max-width: 767px){
+                padding: 0 25px 0;
+            }
             h1{
                 padding: 0;
                 font-size: 30px;
                 font-weight: 600;
                 margin-bottom: 4px;
+                @media only screen and (max-width: 767px){
+                    font-size: 24px;
+                }
             }
             p{
                 margin-bottom: 0;
@@ -767,12 +779,15 @@ const RegionMap = Styled.div`
     >div{
         width: 100%;
         height: 250px;
+        @media only screen and (max-width: 479px){
+            height: 200px;
+        }
     }
     svg{
         height: 230px;
         margin: 0 auto;
         @media only screen and (max-width: 479px){
-            width: 280px;
+            height: 180px;
         }
     }
 `;
@@ -784,7 +799,7 @@ const LadingPages = Styled.div`
     @media only screen and (max-width: 1199px){
         min-height: 100%;
     }
-    .ant-table-content{
+    .ant-table-tbody{
         .ant-table-cell{
             white-space: normal !important;
             @media only screen and (max-width: 991px){
@@ -794,6 +809,7 @@ const LadingPages = Styled.div`
     }
     table{
         th{
+            white-space: nowrap !important;
             text-align: right !important;
             &:first-child{
                 text-align: left !important;
@@ -922,11 +938,17 @@ const RatioCard = Styled.div`
         }
     }
     .ratio-content{
-        margin-top: 30px;
+        margin-top: 30px
+        @media only screen and (max-width: 767px){
+            margin-top: 25px;
+        }
         h1{
             margin-bottom: 2px;
             font-size: 36px;
             font-weight: 600;
+            @media only screen and (max-width: 767px){
+                font-size: 30px;
+            }
         }
         .ant-progress{
             margin-bottom: 12px;
@@ -992,8 +1014,14 @@ const IncomeExpenseWrapper = Styled.div`
             padding: 5px 12px;
             font-size: 13px;
             color: ${({ theme }) => theme['light-gray-color']};
+            @media only screen and (max-width: 575px){
+                display: flex !important;
+            }
             &:not(:last-child){
                 margin-right: 20px;
+                @media only screen and (max-width: 575px){
+                    margin-right: 0;
+                }
             }
         }
     }

@@ -1588,12 +1588,6 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
-@media (max-width: 767px) {
-  .ant-page-header {
-    padding: 26px 15px 26px 15px !important;
-  }
-}
-
 .ant-page-header-heading-title {
   text-transform: capitalize;
 }
@@ -1703,11 +1697,23 @@ ul {
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .ant-page-header-heading-left {
+    max-width: 320px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
   .ant-page-header-heading {
     flex-flow: column;
     align-items: center;
     justify-content: center !important;
+  }
+  .ant-page-header-heading-left {
+    max-width: 100%;
   }
   .ant-page-header-heading .ant-page-header-heading-title {
     margin-right: 0;
@@ -1763,6 +1769,9 @@ ul {
   .ant-pagination .ant-select-single .ant-select-selector .ant-select-selection-item {
     line-height: 23px !important;
   }
+}
+
+@media (max-width: 767px) {
 }
 
 @media only screen and (max-width: 575px) {
@@ -1977,6 +1986,7 @@ ul {
   left: auto;
   right: 0;
   top: auto;
+  background-color: #fff;
 }
 .jvectormap-zoomin {
   border-radius: 6px 6px 0 0;

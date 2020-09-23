@@ -347,8 +347,14 @@ const Main = Styled.div`
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
+            @media only screen and (max-width: 575px){
+                padding: 25px !important;
+            }
             .ant-card-body{
                 padding: 25px !important;
+                @media only screen and (max-width: 375px){
+                    padding: 15px !important;
+                }
             }
         }
         .ant-steps{

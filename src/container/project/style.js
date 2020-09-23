@@ -231,6 +231,7 @@ const ProjectCard = Styled.div`
     }
     .project-title{
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
         h1{
