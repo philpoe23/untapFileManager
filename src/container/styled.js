@@ -670,6 +670,12 @@ const BasicFormWrapper = Styled.div`
             font-size: 14px;
             font-weight: 500;
         }
+        .ant-radio-group{
+            margin-bottom: -4px;
+            .ant-radio-wrapper{
+                margin-bottom: 4px;
+            }
+        }
     }
 `;
 
