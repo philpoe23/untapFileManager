@@ -606,8 +606,9 @@ const Pstates = Styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: -25px 0 25px;
+    margin: -24px 0 25px;
     @media only screen and (max-width: 767px){
+        margin: -19px 0 25px;
         flex-flow: column;
     }
     >div{

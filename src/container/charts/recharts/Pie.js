@@ -132,32 +132,22 @@ const ReChartPie = () => {
                 <Pie
                   data={data01}
                   dataKey="value"
-                  cx={responsive / 2}
-                  cy={responsive / 4}
-                  outerRadius={55}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius="50%"
                   fill="#8884d8"
-                  margin={{
-                    top: 5,
-                    right: window.innerWidth <= 375 ? 34 : 40,
-                    left: window.innerWidth <= 375 ? -16 : 0,
-                    bottom: 5,
-                  }}
+                  margin={{ top: 0, left: -50, right: 0, bottom: 0 }}
                 />
                 <Pie
                   data={data02}
                   dataKey="value"
-                  cx={responsive / 2}
-                  cy={responsive / 4}
-                  innerRadius={60}
-                  outerRadius={80}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius="60%"
+                  outerRadius="80%"
                   fill="#82ca9d"
                   label
-                  margin={{
-                    top: 5,
-                    right: window.innerWidth <= 375 ? 34 : 40,
-                    left: window.innerWidth <= 375 ? -16 : 0,
-                    bottom: 5,
-                  }}
+                  margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
                 />
               </PieChart>
             </Cards>
@@ -170,8 +160,8 @@ const ReChartPie = () => {
                   startAngle={180}
                   endAngle={0}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx="50%"
+                  cy="50%"
                   outerRadius={80}
                   fill="#8884d8"
                   label
@@ -186,8 +176,8 @@ const ReChartPie = () => {
                   activeIndex={state.activeIndex}
                   activeShape={renderActiveShape}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx="50%"
+                  cy="50%"
                   innerRadius={60}
                   outerRadius={80}
                   fill="#8884d8"
@@ -202,8 +192,8 @@ const ReChartPie = () => {
               <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
                 <Pie
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx="50%"
+                  cy="50%"
                   labelLine={false}
                   label={renderCustomizedLabel}
                   outerRadius={80}
@@ -224,8 +214,8 @@ const ReChartPie = () => {
                   dataKey="value"
                   isAnimationActive={false}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx="50%"
+                  cy="50%"
                   outerRadius={80}
                   fill="#8884d8"
                   label
