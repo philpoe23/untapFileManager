@@ -489,7 +489,7 @@ const Business = () => {
                           </div>
                         </ExList>
                       </Col>
-                      <Col xxl={18} sm={24}>
+                      <Col xxl={18} xs={24}>
                         <ChartjsBarChartTransparent
                           labels={incomeState.labels}
                           datasets={incomeDataset}

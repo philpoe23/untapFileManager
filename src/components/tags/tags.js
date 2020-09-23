@@ -133,7 +133,7 @@ const AnimatedTags = props => {
 
   return (
     <div>
-      <div style={{ marginBottom: 16 }}>{tagChild}</div>
+      <div style={{ marginBottom: 10 }}>{tagChild}</div>
 
       {inputVisible && (
         <Input
