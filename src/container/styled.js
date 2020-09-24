@@ -11,7 +11,12 @@ const Main = Styled.div`
         min-height: 580px;
     }
     .w-100{
-        width: 100%
+        width: 100%;
+    }
+    .product-sidebar-col{
+        @media only screen and (max-width: 767px){
+            order: 2;
+        }
     }
     .ant-skeleton-paragraph{
         margin-bottom: 0;

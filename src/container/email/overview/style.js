@@ -1188,6 +1188,7 @@ const EmailWrapper = Styled.div`
     background: #fff !important;
     margin-bottom: 25px;
     border-radius: 6px;
+    color: ${({ theme }) => theme['primary-color']} !important;
     &:focus{
       color: ${({ theme }) => theme['primary-color']} !important;
     }

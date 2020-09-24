@@ -642,7 +642,7 @@ const Ecommerce = () => {
                             ],
                           },
                         }}
-                        height={120}
+                        height={window.innerWidth <= 575 ? 200 : 120}
                       />
                     </div>
                   )}

@@ -131,6 +131,14 @@ const ProductCard = Styled.div`
         max-width: 350px;
         margin: 0 auto;
     }
+    &.list-view{
+        max-width: 100%;
+        .product-single-price__offer{
+            @media only screen and (max-width: 991px) and (min-width: 768px){
+                display: block;
+            }
+        }
+    }
     .product-list{
         background-color: #fff;
         padding: 20px;
@@ -385,6 +393,9 @@ const TopToolBox = Styled.div`
         @media only screen and (max-width: 1792px){
             padding: 0 7.5px;
         }
+        @media only screen and (max-width: 1599px){
+            padding: 0 12.5px;
+        }
         &.ant-radio-button-wrapper-checked{
             &:focus-within{
                 box-shadow: 0 0;
@@ -436,15 +447,30 @@ const TopToolBox = Styled.div`
         }
     }
     .product-list-action__tab{
+        margin: -10px;
         color: ${({ theme }) => theme['gray-color']};
-        @media only screen and (max-width: 991px){
-            margin-bottom: 20px;
+        
+        @media only screen and (max-width: 767px){
+            margin-bottom: 15px;
             text-align: center;
+        }
+        @media only screen and (max-width: 991px) and (min-width: 768px){
+            margin: -10px -10px 0;
+        }
+        @media only screen and (max-width: 575px){
+            margin: -6px -6px 0;
         }
         @media only screen and (max-width: 344px){
             .ant-radio-group-outline{
                 margin-top: 8px;
                 margin-left: 0;;
+            }
+        }
+        .toolbox-menu-title,
+        .ant-radio-group{
+            margin: 10px;
+            @media only screen and (max-width: 575px){
+                margin: 6px
             }
         }
     }
@@ -522,6 +548,9 @@ const TopToolBox = Styled.div`
 const PaginationWrapper = Styled.div`
     display: flex;
     justify-content: flex-end;
+    @media only screen and (max-width: 767px){
+        margin-top: 0px !important
+    }
     @media only screen and (max-width: 1199px){
         justify-content: center;
     }

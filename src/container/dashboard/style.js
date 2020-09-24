@@ -41,7 +41,7 @@ const Focard = Styled.div`
         width: 100% !important;
         margin-top: 43px;
         @media only screen and (max-width: 1199px){
-            margin-top: 45px;
+            margin-top: 15px;
         }
     }}
     .focard-details{
