@@ -1336,7 +1336,7 @@ const ChartContainer = Styled.div`
         transition: all 0.5s ease;
         pointer-events: none;
         transform: translate(-50%, 5%);
-        z-index: 9999;
+        z-index: 222;
         top: 0;
         left: 0
         @media only screen and (max-width: 1199px){

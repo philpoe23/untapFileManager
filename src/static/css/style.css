@@ -146,11 +146,11 @@ ul {
 .card-nav ul {
   list-style: none;
   display: flex;
-  margin: 0 -8px;
+  margin: 0 -8px !important;
 }
 
 .card-nav ul li {
-  margin: 0 8px;
+  margin: 0 8px !important;
   position: relative;
 }
 
@@ -1175,10 +1175,6 @@ ul {
   box-shadow: 0 8px 15px #9299b815;
 }
 
-.ant-tooltip .ant-tooltip-arrow {
-  /* position: relative; */
-}
-
 .ant-tooltip .ant-tooltip-arrow:after {
   position: absolute;
   left: 50%;
@@ -1617,6 +1613,10 @@ ul {
   margin: 6px 4px;
 }
 
+.page-header-actions button.ant-btn-white:focus {
+  background-color: #fff !important;
+}
+
 .page-header-actions button.ant-btn-white svg {
   width: 12px;
   height: 12px;
@@ -1684,6 +1684,9 @@ ul {
   z-index: 99999 !important;
 }
 
+.rdrInputRange {
+  padding-left: 10px !important;
+}
 /* Responsive CSS */
 
 @media only screen and (max-width: 1500px) {
@@ -1702,6 +1705,14 @@ ul {
   .rdrMonths .rdrMonth {
     width: 100%;
     margin-bottom: 30px;
+  }
+  .rdrDateRangePickerWrapper.PreviewArea {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .rdrCalendarWrapper.rdrDateRangeWrapper {
+    margin-top: 20px;
   }
 }
 
@@ -1776,6 +1787,9 @@ ul {
   }
   .ant-pagination .ant-select-single .ant-select-selector .ant-select-selection-item {
     line-height: 23px !important;
+  }
+  .rdrDefinedRangesWrapper {
+    border-right: 0 none;
   }
 }
 
@@ -1872,9 +1886,6 @@ ul {
     margin-left: 0px !important;
     margin-top: 0px !important;
   }
-  /* .pop-confirm.pop-confirm-bottom button{
-    margin-right: 0;
-  } */
 }
 
 @media only screen and (max-width: 400px) {
@@ -1911,6 +1922,9 @@ ul {
   }
   .ant-drawer-content-wrapper {
     width: 260px !important;
+  }
+  .rdrCalendarWrapper.rdrDateRangeWrapper {
+    margin-top: 0;
   }
 }
 

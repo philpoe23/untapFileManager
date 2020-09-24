@@ -403,6 +403,23 @@ const Main = Styled.div`
         font-weight: 500;
         color: ${({ theme }) => theme['gray-color']}
     }
+
+    .account-card{
+        .ant-card-head{
+            .ant-card-extra{
+                @media only screen and (max-width: 575px){
+                   padding-top: 0 !important;
+                }
+            }
+        }
+    }
+
+    // Rechart
+    .recharts-default-legend{
+        .recharts-legend-item{
+            min-width: 100px !important;
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
