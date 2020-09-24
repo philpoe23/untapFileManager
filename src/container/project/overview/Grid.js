@@ -41,7 +41,7 @@ const Grid = () => {
         projects.map(value => {
           const { id, title, status, content, percentage } = value;
           return (
-            <Col key={id} lg={8} xs={24}>
+            <Col key={id} xl={8} md={12} xs={24}>
               <ProjectCard>
                 <Cards headless>
                   <div className="project-top">

@@ -127,7 +127,7 @@ const DatePickers = () => {
               <CustomDateRange />
             </Cards>
           </Col>
-          <Col xxl={16} xs={20}>
+          <Col xxl={16} md={20} xs={24}>
             <Cards headless title="Date Range" caption="The simplest use of Date picker">
               <DateRangePickerOne />
             </Cards>

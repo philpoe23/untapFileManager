@@ -161,6 +161,15 @@ const Focard = Styled.div`
 `;
 
 const CardBarChart = Styled.div`
+    >div{
+        @media only screen and (max-width: 575px) {
+            flex-flow: column;
+            align-items: flex-start !important;
+            ul{
+                margin: 0 0 15px;
+            }
+        }
+    }
     .card-bar-top{
         &.flex-grid{
             margin-left: -20px;
@@ -597,8 +606,9 @@ const Pstates = Styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: -25px 0 25px;
+    margin: -24px 0 25px;
     @media only screen and (max-width: 767px){
+        margin: -19px 0 25px;
         flex-flow: column;
     }
     >div{
@@ -1006,6 +1016,7 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chart-dataIndicator{
         padding: 15px 0 25px 0;
+        margin-top: 0 !important;
     }
     ul{
         padding: 10px 0 20px 0;
@@ -1326,7 +1337,7 @@ const ChartContainer = Styled.div`
         transition: all 0.5s ease;
         pointer-events: none;
         transform: translate(-50%, 5%);
-        z-index: 9999;
+        z-index: 222;
         top: 0;
         left: 0
         @media only screen and (max-width: 1199px){

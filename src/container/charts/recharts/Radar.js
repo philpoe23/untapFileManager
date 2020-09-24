@@ -34,9 +34,9 @@ const ReChartRadar = () => {
           <Col md={12} xs={24}>
             <Cards title="SIMPLE RADAR CHART" size="large">
               <RadarChart
-                cx={responsive / 2.5}
-                cy={responsive / 3}
-                outerRadius={150}
+                cx={window.innerWidth <= 480 ? responsive / 2.2 : responsive / 2.5}
+                cy={window.innerWidth <= 480 ? responsive / 2.8 : responsive / 3}
+                outerRadius={window.innerWidth <= 480 ? 85 : 150}
                 width={responsive - (5 * responsive) / 100}
                 height={responsive / 1.4}
                 data={radar}
@@ -51,9 +51,9 @@ const ReChartRadar = () => {
           <Col md={12} xs={24}>
             <Cards title="SPECIFIED DOMAIN RADAR CHART" size="large">
               <RadarChart
-                cx={responsive / 2.5}
-                cy={responsive / 3}
-                outerRadius={150}
+                cx={window.innerWidth <= 480 ? responsive / 2.2 : responsive / 2.5}
+                cy={window.innerWidth <= 480 ? responsive / 2.8 : responsive / 3}
+                outerRadius={window.innerWidth <= 480 ? 85 : 150}
                 width={responsive - (5 * responsive) / 100}
                 height={responsive / 1.4}
                 data={radar}

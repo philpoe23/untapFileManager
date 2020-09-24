@@ -209,8 +209,10 @@ const ProjectSorting = Styled.div`
             nav ul{
                 flex-wrap: wrap;
                 justify-content: center;
+                margin-bottom: -5px;
                 li{
                     border-right: 0 none;
+                    margin-bottom: 5px;
                 }
             }
         }
@@ -231,16 +233,21 @@ const ProjectCard = Styled.div`
     }
     .project-title{
         display: flex;
-        flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
         h1{
             font-size: 16px;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
+            margin: -2px;
             a{
                 color: ${({ theme }) => theme['dark-color']};
-                margin-right: 11px;
+                margin-right: 11px !important;
+            }
+            a,
+            .ant-tag{
+                margin: 2px;
             }
             .ant-tag{
                 text-transform: uppercase;
@@ -337,7 +344,7 @@ const ProjectPagination = Styled.div`
     .ant-pagination{
         display: flex;
         justify-content: flex-end;
-        @media only screen and (max-width: 575px) {
+        @media only screen and (max-width: 767px) {
             justify-content: center;
         }
     }
@@ -382,7 +389,7 @@ const ProjectList = Styled.div`
 
     .project-list-progress{
         p{
-            margin: 0;
+            margin: 4px 0 0 0;
             font-size: 12px;
             color: ${({ theme }) => theme['gray-solid']};
         }
@@ -431,6 +438,9 @@ const ProjectDetailsWrapper = Styled.div`
     .project-header{
         display: flex;
         align-items: center;
+        @media only screen and (max-width: 800px) {
+            flex-wrap: wrap;
+        }
         @media only screen and (max-width: 575px) {
             flex-flow: column;
             button{
@@ -441,6 +451,9 @@ const ProjectDetailsWrapper = Styled.div`
             margin-right: 20px;
             margin-bottom: 0;
             font-size: 20px;
+            @media only screen and (max-width: 800px) {
+                margin-bottom: 10px;
+            }
             @media only screen and (max-width: 575px) {
                 margin: 0;
             }

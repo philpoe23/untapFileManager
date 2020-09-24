@@ -15,8 +15,8 @@ const SocialProfile = () => {
   };
 
   return (
-    <Row>
-      <Col md={10} offset={7}>
+    <Row justify="center">
+      <Col xl={10} md={16} xs={24}>
         <div className="social-form">
           <BasicFormWrapper>
             <Form form={form} name="editAccount" onFinish={handleSubmit}>
