@@ -12,40 +12,40 @@ const initState = {
  *
  * @todo impure state mutation/explaination
  */
-const Reducer = (state = initState, action) => {
+const AuthReducer = (state = initState, action) => {
   const { type, data, err } = action;
   switch (type) {
     case LOGIN_BEGIN:
       return {
-        ...initState,
+        ...state,
         loading: true,
       };
     case LOGIN_SUCCESS:
       return {
-        ...initState,
+        ...state,
         login: data,
         loading: false,
       };
     case LOGIN_ERR:
       return {
-        ...initState,
+        ...state,
         error: err,
         loading: false,
       };
     case LOGOUT_BEGIN:
       return {
-        ...initState,
+        ...state,
         loading: true,
       };
     case LOGOUT_SUCCESS:
       return {
-        ...initState,
+        ...state,
         login: data,
         loading: false,
       };
     case LOGOUT_ERR:
       return {
-        ...initState,
+        ...state,
         error: err,
         loading: false,
       };
@@ -53,4 +53,4 @@ const Reducer = (state = initState, action) => {
       return state;
   }
 };
-export default Reducer;
+export default AuthReducer;
