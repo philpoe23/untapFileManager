@@ -288,6 +288,10 @@ const AtbdTopDropdwon = Styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }  
+
+    .atbd-top-dropdwon__content figcaption span {
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
     }
 
     .notification-text h1 {
@@ -300,7 +304,7 @@ const AtbdTopDropdwon = Styled.div`
     .notification-text h1 span {
         color: #5F63F2;
         font-weight: 500;
-        padding-left: 0;
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
     }
 
     .notification-text p {
