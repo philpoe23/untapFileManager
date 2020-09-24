@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { Div } from './header-search-style';
 import { headerSearchAction } from '../../redux/headerSearch/actionCreator';
 import { Popover } from '../popup/popup';
-import { Title } from '../popup/style';
 
 const HeaderSearch = ({ darkMode }) => {
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ const HeaderSearch = ({ darkMode }) => {
             <Popover
               placement={!rtl ? 'bottomLeft' : 'bottomRight'}
               content={content}
-              title={<Title>Search List</Title>}
+              title="Search List"
               action="focus"
             >
               <Input placeholder="Search..." onInput={search} />

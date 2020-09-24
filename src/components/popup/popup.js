@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import './style.css';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { Content, PopoverStyle } from './style';
+import { Content, PopoverStyle, Title } from './style';
 
 const Popover = props => {
   const { content, placement, title, action, children } = props;
   const content1 = <Content>{content}</Content>;
 
   return (
-    <PopoverStyle placement={placement} title={title} content={content1} trigger={action}>
+    <PopoverStyle placement={placement} title={title && <Title>{title}</Title>} content={content1} trigger={action}>
       {children}
     </PopoverStyle>
   );

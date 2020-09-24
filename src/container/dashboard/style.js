@@ -272,7 +272,8 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 0 25px 24px;
+        ${({ theme }) => (theme.rtl ? 'padding: 24px 24px 25px 0;' : 'padding: 24px 0 25px 24px;')}
+        
         @media only screen and (max-width: 1350px){
             padding: 24px 0 25px 10px;
         }
@@ -280,9 +281,10 @@ const CardGroup = Styled.div`
             margin: 0;
         }
         .ant-col-md-12{
-            padding: 0 18px 0 12px;
+            ${({ theme }) => (theme.rtl ? 'padding: 0 12px 0 18px;' : 'padding: 0 18px 0 12px;')}
+            
             @media only screen and (max-width: 1350px){
-                padding: 0 14px 0 6px;
+                ${({ theme }) => (theme.rtl ? 'padding: 0 6px 0 14px;' : 'padding: 0 14px 0 6px;')}                
             }
             @media only screen and (max-width: 575px){
                 &:not(:last-child){
@@ -291,7 +293,7 @@ const CardGroup = Styled.div`
             }
             &:first-child{
                 @media only screen and (max-width: 1350px){
-                    padding-left: 20px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                 }
                 @media only screen and (max-width: 1199px){
                     padding: 0 12px 0 0;
@@ -319,9 +321,10 @@ const CardGroup = Styled.div`
         }
 
         &.focard-divider{
-            padding-left: 0;
-            padding-right: 15px;
-            border-right: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 0;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 15px;
+            ${({ theme }) => (!theme.rtl ? 'border-right' : 'border-left')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']} !important;
             @media only screen and (max-width: 1199px){
                 border-right: 0 none !important;
                 padding: 0 0 0 10px;
@@ -1358,7 +1361,8 @@ const ChartContainer = Styled.div`
         width: 10px;
         height: 10px;
         background: "pink";
-        margin-right: 10px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}
+        : 10px;
     }
     .tooltip-title {
         color: ${({ theme }) => theme['gray-color']};
