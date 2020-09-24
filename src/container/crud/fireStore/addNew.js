@@ -71,7 +71,7 @@ const AddNew = () => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link to="/admin/firestore/view">View All</Link>
+            <Link to="/admin/firestore/fbView">View All</Link>
           </Button>,
         ]}
         ghost
