@@ -40,12 +40,12 @@ const HeaderSearch = ({ darkMode }) => {
     <>
       <Div className="certain-category-search-wrapper" style={{ width: '100%' }} darkMode={darkMode}>
         <Row>
-          <Col md={2} className={rtl ? 'text-left' : 'text-right'}>
+          <Col md={2} xs={1} className={rtl ? 'text-left' : 'text-right'}>
             <span className="certain-category-icon">
               <FeatherIcon icon="search" size={16} />
             </span>
           </Col>
-          <Col md={22} xs={24}>
+          <Col md={22} xs={23}>
             <Popover
               placement={!rtl ? 'bottomLeft' : 'bottomRight'}
               content={content}
@@ -63,7 +63,6 @@ const HeaderSearch = ({ darkMode }) => {
 
 HeaderSearch.propTypes = {
   darkMode: PropTypes.bool,
-  rtl: PropTypes.bool,
 };
 
 export default HeaderSearch;

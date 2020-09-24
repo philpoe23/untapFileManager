@@ -71,6 +71,9 @@ const Main = Styled.div`
         @media only screen and (max-width: 400px){
             width: 260px !important;
         }
+        @media only screen and (max-width: 375px){
+            width: 220px !important;
+        }
     }
 
     // Input
@@ -347,8 +350,14 @@ const Main = Styled.div`
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
+            @media only screen and (max-width: 575px){
+                padding: 25px !important;
+            }
             .ant-card-body{
                 padding: 25px !important;
+                @media only screen and (max-width: 375px){
+                    padding: 15px !important;
+                }
             }
         }
         .ant-steps{
@@ -544,7 +553,9 @@ const TagInput = Styled.div`
     padding: 12px;
     border-radius: 4px;
     border: 1px solid ${({ theme }) => theme['border-color-normal']};
+    margin: -3px;
     .ant-tag{
+        margin: 3px;
         font-size: 11px;
         padding: 0 4px;
         border: 0 none;
@@ -619,6 +630,9 @@ const BasicFormWrapper = Styled.div`
     }
     .setting-form-actions{
         margin: 48px 0 14px;
+        @media only screen and (max-width: 575px){
+            margin: 40px 0 14px;
+        }
         button{
             border-radius: 6px;
             height: 44px;
@@ -673,6 +687,9 @@ const CardToolbox = Styled.div`
         @media only screen and (max-width: 575px){
             flex-flow: column;
         }
+        @media only screen and (max-width: 800px){
+            max-width: 100%;
+        }
         .ant-page-header-back{
             @media only screen and (max-width: 575px){
                 margin: 0;
@@ -708,6 +725,10 @@ const CardToolbox = Styled.div`
         position: relative;
         padding-right: 24px;
         margin-right: 24px;
+        @media only screen and (max-width: 767px){
+            padding-right: 12px;
+            margin-right: 12px !important;
+        }
         &:after{
             position: absolute;
             right: 0px;

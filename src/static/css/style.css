@@ -1499,10 +1499,8 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
-@media (max-width: 767px) {
-  .ant-page-header {
-    padding: 26px 15px 26px 15px !important;
-  }
+.ant-page-header-heading {
+  align-items: center;
 }
 
 .ant-page-header-heading-title {
@@ -1612,11 +1610,23 @@ ul {
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .ant-page-header-heading-left {
+    max-width: 320px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
   .ant-page-header-heading {
     flex-flow: column;
     align-items: center;
     justify-content: center !important;
+  }
+  .ant-page-header-heading-left {
+    max-width: 100%;
   }
   .ant-page-header-heading .ant-page-header-heading-title {
     margin-right: 0;
@@ -1698,7 +1708,7 @@ ul {
     align-items: center;
   }
   .ant-card-head-wrapper .ant-card-extra {
-    padding: 10px 0 16px;
+    padding: 10px 0 16px !important;
     float: none;
     margin: 0;
     flex-flow: column;
@@ -1795,12 +1805,18 @@ ul {
   .atbd-top-dropdwon .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
     min-width: 155px;
   }
+  .ant-drawer-content-wrapper {
+    width: 260px !important;
+  }
 }
 
 @media only screen and (max-width: 379px) {
   .ant-card-head-wrapper .ant-card-extra .ant-radio-button-wrapper {
     height: 32px !important;
     line-height: 30px !important;
+  }
+  .ant-notification-notice {
+    width: 275px;
   }
 }
 
@@ -1878,6 +1894,7 @@ ul {
   left: auto;
   right: 0;
   top: auto;
+  background-color: #fff;
 }
 
 .jvectormap-zoomin {

@@ -18,7 +18,7 @@ const AddNew = ({ match }) => {
       <PageHeader ghost title="Add User" />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <AddUser>
               <Cards
                 title={

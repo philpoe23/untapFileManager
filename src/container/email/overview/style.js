@@ -673,6 +673,9 @@ const MessageDetails = Styled.div`
       display: flex;
       align-items: center;
       font-weight: 500;
+      @media only screen and (max-width: 767){
+        font-size: 20px;
+      }
       @media only screen and (max-width: 375px){
         flex-flow: column;
         align-items: flex-start;
@@ -737,6 +740,10 @@ const MessageDetails = Styled.div`
         display: flex;
         align-items: center;
         color: ${({ theme }) => theme['gray-solid']};
+        svg,
+        i{
+          margin-left: 5px;
+        }
       }
     }
 
@@ -750,13 +757,18 @@ const MessageDetails = Styled.div`
     }
     span + span{
       font-size: 13px;
+      line-height: 1.5;
     }
     span, a{
       display: block;
       padding: 0 15px;
+      line-height: 1;
       color: ${({ theme }) => theme['gray-solid']};
       @media only screen and (max-width: 767px){
         padding: 0 8px;
+      }
+      @media only screen and (max-width: 479px){
+        padding: 0 5px;
       }
     }
     & > span{
@@ -1097,9 +1109,15 @@ const ReplyList = Styled.div`
             justify-content: flex-start;
             margin-bottom: 20px;
         }
+        a{
+          line-height: 1;
+        }
         .date-meta{
           min-width: 135px;
           margin-right: 30px
+          @media only screen and (max-width: 767px){
+            margin-right: 15px;
+          }
           @media only screen and (max-width: 575px){
             margin: 0 0 15px 0;
           }
@@ -1110,6 +1128,9 @@ const ReplyList = Styled.div`
         a{
           &:not(:last-child){
             margin-right: 30px;
+            @media only screen and (max-width: 767px){
+              margin-right: 15px;
+            }
             @media only screen and (max-width: 575px){
                 margin: 0 0 15px 0;
             }
@@ -1139,6 +1160,11 @@ const EmailWrapper = Styled.div`
     z-index: 99;
     padding: 0;
     background: transparent !important;
+  }
+  .trigger-col {
+    @media only screen and (max-width: 991px){
+      text-align: center;
+    }
   }
   .ant-btn-link{
     background: #fff !important;

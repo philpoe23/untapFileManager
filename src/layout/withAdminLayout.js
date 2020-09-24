@@ -149,28 +149,27 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col lg={4} md={6} sm={5} xs={12} className="align-center-v navbar-brand">
+                <Col lg={4} sm={6} xs={12} className="align-center-v navbar-brand">
                   <Button type="link" onClick={toggleCollapsed}>
                     <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
                   </Button>
-                  <Link to="/admin">
+                  <Link className="striking-logo" to="/admin">
                     <img
-                      style={{ width: '120px' }}
                       src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
                       alt=""
                     />
                   </Link>
                 </Col>
 
-                <Col lg={6} md={7} sm={0} xs={0}>
+                <Col lg={10} md={8} sm={0} xs={0}>
                   <HeaderSearch rtl={rtl} darkMode={darkMode} />
                 </Col>
 
-                <Col lg={14} md={11} sm={0} xs={0}>
+                <Col md={10} sm={0} xs={0}>
                   <AuthInfo />
                 </Col>
 
-                <Col md={0} sm={19} xs={12}>
+                <Col md={0} sm={18} xs={12}>
                   <>
                     <div className="mobile-action">
                       <Link className="btn-search" onClick={handleSearchHide} to="#">
