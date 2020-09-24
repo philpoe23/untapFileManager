@@ -98,6 +98,37 @@ const CardFrame = Styled(Card)`
       overflow: hidden;
       border: none;
   }
+  .custom-label {
+    font-size: 13px;
+    color: #868eae;
+    display: inline-flex;
+    align-items: center;
+  }
+  .custom-label:not(:last-child) {
+    ${({ theme }) => (theme.rtl ? ' margin-left' : ' margin-right')} : 20px;
+  }
+
+  .custom-label span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    ${({ theme }) => (theme.rtl ? ' margin-left' : ' margin-right')}: 7px;
+  }
+
+  .ant-card-extra .ant-dropdown-trigger {
+    line-height: 0;
+    order: 1;
+    ${({ theme }) => (!theme.rtl ? ' margin-left' : ' margin-right')}: 20px;
+  }
+
+  .growth-downward h1 sub,
+  .growth-upward h1 sub {
+    font-size: 14px;
+    font-weight: 600;
+    bottom: 0;
+    ${({ theme }) => (!theme.rtl ? ' left' : ' right')}: 5px;
+  }
+ 
 `;
 
 export { CardFrame };

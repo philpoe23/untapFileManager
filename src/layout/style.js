@@ -22,10 +22,10 @@ const Div = Styled.div`
     }
     .striking-logo{
         @media only screen and (max-width: 875px){
-            margin-right: 4px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
         }
         @media only screen and (max-width: 767px){
-            margin-right: 0;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
         img{
             max-width: 120px;
@@ -41,7 +41,7 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
             ${({ darkMode }) => (darkMode ? `color: #fff;` : '#5A5F7D')};
             @media only screen and (max-width: 875px){
-                padding-left: 5px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
             }
         }
     }
@@ -176,7 +176,7 @@ const Div = Styled.div`
                             color: ${({ theme }) => theme['extra-light-color']};
                         }
                         span{
-                            padding-left: 20px;
+                            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                             display: inline-block;
                             color: ${({ theme }) => theme['dark-color']};
                         }
@@ -209,7 +209,7 @@ const Div = Styled.div`
                 }
                 &.ant-menu-inline-collapsed{
                     .ant-menu-submenu{
-                        text-align: left;                        
+                        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};                        
                         .ant-menu-submenu-title{
                             padding: 0 20px;
                             justify-content: center;
@@ -241,13 +241,13 @@ const Div = Styled.div`
                 display: none;
             }
             & + .atbd-main-layout{
-                margin-left: 80px;
+                ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 80px;
             }
         }
     }
     @media only screen and (max-width: 991px){
         .ant-layout-sider.ant-layout-sider-collapsed{
-            left: -80px !important;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -80px !important;
         }
 
     }
@@ -257,26 +257,26 @@ const Div = Styled.div`
         margin-top: 64px;
         transition: 0.3s ease;
         @media only screen and (max-width: 991px){
-            margin-left: auto !important;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: auto !important;
         }
     }
 
     /* Mobile Actions */
     .mobile-action{
         position: absolute;
-        right: 20px;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 20px;
         top: 50%;
         transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
         @media only screen and (max-width: 767px){
-            right: 0;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         }
         a{
             display: inline-flex;
             color: ${({ theme }) => theme['light-color']};
             &.btn-search{
-                margin-right: 18px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 18px;
             }
             svg{
                 width: 20px
@@ -295,14 +295,14 @@ const Div = Styled.div`
             }
         }
         .admin-footer__links{
-            text-align: right;
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             @media only screen and (max-width: 767px){
                 text-align: center;
             }
             a{
                 color: ${({ theme }) => theme['light-color']};
                 &:not(:last-child){
-                    margin-right: 15px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
                 }
                 &:hover{
                     color: ${({ theme }) => theme['primary-color']};
@@ -318,7 +318,7 @@ const SmallScreenAuthInfo = Styled.div`
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
-        left: 0;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
         transition: .3s;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
@@ -332,7 +332,7 @@ const SmallScreenSearch = Styled.div`
         position: fixed;
         margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
-        left: 0;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
         transition: .3s;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}

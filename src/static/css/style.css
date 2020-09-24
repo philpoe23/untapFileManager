@@ -129,12 +129,6 @@ ul {
   color: #868eae;
 }
 
-.ant-card-extra .ant-dropdown-trigger {
-  line-height: 0;
-  order: 1;
-  margin-left: 20px;
-}
-
 /* ant radio group */
 
 .ant-radio-button-wrapper-checked {
@@ -182,14 +176,6 @@ ul {
   font-size: 14px;
   color: #868eae;
   margin: 0;
-}
-
-.growth-downward h1 sub,
-.growth-upward h1 sub {
-  font-size: 14px;
-  font-weight: 600;
-  left: 5px;
-  bottom: 0;
 }
 
 .growth-downward h1 sub svg,
@@ -1882,24 +1868,6 @@ ul {
 } */
 
 /* custom label */
-
-.custom-label {
-  font-size: 13px;
-  color: #868eae;
-  display: inline-flex;
-  align-items: center;
-}
-
-.custom-label:not(:last-child) {
-  margin-right: 20px;
-}
-
-.custom-label span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 7px;
-}
 
 /* card spin loader */
 

@@ -418,12 +418,13 @@ const CardGroup = Styled.div`
 const ExList = Styled.div`
     padding: 25px 0 0;
     height: 100%;
-    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
     @media only screen and (max-width: 1599px){
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        border-right: 0 none;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
         margin: 0 -15px;
         padding: 15px 0 0;
 
