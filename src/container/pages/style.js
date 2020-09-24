@@ -779,6 +779,11 @@ const AddUser = Styled.div`
       background: ${({ theme }) => theme['bg-color-light']};
       border: 1px solid #F1F2F6;
     }
+    &.text-right{
+      @media only screen and (max-width: 767px){
+        text-align: left !important;
+      }
+    }
   }
   .card-nav{
     ul{

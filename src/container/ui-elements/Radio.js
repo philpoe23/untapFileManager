@@ -60,31 +60,33 @@ const Radios = () => {
 
           <Col lg={12} xs={24}>
             <Cards title="Radio Style" caption="The simplest use of Radio">
-              <div>
-                <Radio.Group defaultValue="a">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b">Shanghai</Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div style={{ marginTop: 16 }}>
-                <Radio.Group defaultValue="a">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b" disabled>
-                    Shanghai
-                  </Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div style={{ marginTop: 16 }}>
-                <Radio.Group disabled defaultValue="a">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b">Shanghai</Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
+              <div className="radio-size-wrap">
+                <div>
+                  <Radio.Group defaultValue="a">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b">Shanghai</Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
+                <div style={{ marginTop: 16 }}>
+                  <Radio.Group defaultValue="a">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b" disabled>
+                      Shanghai
+                    </Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
+                <div style={{ marginTop: 16 }}>
+                  <Radio.Group disabled defaultValue="a">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b">Shanghai</Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
               </div>
             </Cards>
             <Cards title="Horizontal Radio" caption="The simplest use of Radio">
@@ -97,32 +99,34 @@ const Radios = () => {
             </Cards>
           </Col>
           <Col md={12} xs={24}>
-            <Cards title="Radio Size" caption="The simplest use of Radio">
-              <div>
-                <Radio.Group defaultValue="a" size="large">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b">Shanghai</Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div style={{ marginTop: 16 }}>
-                <Radio.Group defaultValue="a">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b">Shanghai</Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
-              </div>
-              <div style={{ marginTop: 16 }}>
-                <Radio.Group defaultValue="a" size="small">
-                  <Radio.Button value="a">Hangzhou</Radio.Button>
-                  <Radio.Button value="b">Shanghai</Radio.Button>
-                  <Radio.Button value="c">Beijing</Radio.Button>
-                  <Radio.Button value="d">Chengdu</Radio.Button>
-                </Radio.Group>
-              </div>
-            </Cards>
+            <div className="radio-size-wrap">
+              <Cards title="Radio Size" caption="The simplest use of Radio">
+                <div>
+                  <Radio.Group defaultValue="a" size="large">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b">Shanghai</Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
+                <div style={{ marginTop: 16 }}>
+                  <Radio.Group defaultValue="a">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b">Shanghai</Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
+                <div style={{ marginTop: 16 }}>
+                  <Radio.Group defaultValue="a" size="small">
+                    <Radio.Button value="a">Hangzhou</Radio.Button>
+                    <Radio.Button value="b">Shanghai</Radio.Button>
+                    <Radio.Button value="c">Beijing</Radio.Button>
+                    <Radio.Button value="d">Chengdu</Radio.Button>
+                  </Radio.Group>
+                </div>
+              </Cards>
+            </div>
           </Col>
         </Row>
       </Main>

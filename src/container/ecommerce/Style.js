@@ -291,6 +291,7 @@ const TopToolBox = Styled.div`
         align-items: center;
     }
     .table-toolbox-menu{
+        margin: -10px;
         color: ${({ theme }) => theme['gray-color']};
         @media only screen and (max-width: 1599px){
             text-align: right;
@@ -310,6 +311,10 @@ const TopToolBox = Styled.div`
         }
         @media only screen and (max-width: 991px){
             text-align: center;
+        }
+        .toolbox-menu-title,
+        .ant-radio-group-outline{
+            margin: 10px;
         }
     }
     .ant-select{
@@ -358,14 +363,13 @@ const TopToolBox = Styled.div`
             }
         }
     }
+
     .ant-radio-group-outline{
-        margin-left: 20px;
         padding: 0 10px;
         border-radius: 5px;
         background: #fff;
         border: 1px solid ${({ theme }) => theme['border-color-normal']};
         @media only screen and (max-width: 1792px){
-            margin-left: 10px;
             padding: 0 5px;
         }
         @media only screen and (max-width: 991px){
@@ -473,6 +477,7 @@ const TopToolBox = Styled.div`
             margin-bottom: 0;
         }
         .ant-select-selection-search{
+            width: 100% !important;
             .ant-select-selection-search-input {
                 border-radius: 20px;
                 border: 0 none;

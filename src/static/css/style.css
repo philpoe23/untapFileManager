@@ -1693,6 +1693,18 @@ ul {
   .full-width-table .revenue-table {
     min-height: 100%;
   }
+  .pop-confirm .ant-btn {
+    padding: 0 20px;
+    max-width: 60px;
+  }
+  .pop-confirm.pop-confirm-right {
+    margin-left: 300px !important;
+  }
+
+  .pop-confirm.pop-confirm-bottom,
+  .pop-confirm.pop-confirm-top {
+    margin-left: 80px !important;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
