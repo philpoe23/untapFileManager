@@ -146,7 +146,7 @@ ul {
 }
 
 .card-nav ul li {
-  margin: 0 8px;
+  margin: 0 8px !important;
   position: relative;
 }
 
@@ -1171,10 +1171,6 @@ ul {
   box-shadow: 0 8px 15px #9299b815;
 }
 
-.ant-tooltip .ant-tooltip-arrow {
-  /* position: relative; */
-}
-
 .ant-tooltip .ant-tooltip-arrow:after {
   position: absolute;
   left: 50%;
@@ -1611,6 +1607,10 @@ ul {
   padding: 0 12.32px;
   box-shadow: 0 3px 5px #9299b805;
   margin: 6px 4px;
+}
+
+.page-header-actions button.ant-btn-white:focus {
+  background-color: #fff !important;
 }
 
 .page-header-actions button.ant-btn-white svg {
