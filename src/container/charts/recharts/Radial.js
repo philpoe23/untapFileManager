@@ -81,7 +81,7 @@ const ReChartRadial = () => {
   }, []);
   const height = responsive >= 797 ? responsive / 3 : responsive / 1.5;
   const width = responsive - (5 * responsive) / 100;
-  console.log(responsive);
+
   return (
     <>
       <PageHeader
