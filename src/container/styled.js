@@ -10,6 +10,9 @@ const Main = Styled.div`
     @media only screen and (max-width: 991px){
         min-height: 580px;
     }
+    .w-100{
+        width: 100%
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }

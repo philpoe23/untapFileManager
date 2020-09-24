@@ -150,7 +150,7 @@ const ViewPage = () => {
       />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col className="w-100" md={24}>
             <Cards headless>
               {isLoading ? (
                 <div className="spin">
