@@ -43,6 +43,17 @@ const Dropdowns = () => {
                 <Link to="#">Hover me</Link>
               </Dropdown>
             </Cards>
+            <Cards title="Event menu " caption="The simplest use of Dropdown">
+              <Dropdown action={['hover']} placement="bottomLeft">
+                <Link to="#">hover me </Link>
+              </Dropdown>
+              <Dropdown action={['click']} placement="bottomCenter">
+                <Link to="#">click </Link>
+              </Dropdown>
+              <Dropdown action={['contextMenu']} placement="bottomRight">
+                <Link to="#">context</Link>
+              </Dropdown>
+            </Cards>
           </Col>
           <Col md={12} xs={24}>
             <Cards title="Placement" caption="The simplest use of Dropdown">
@@ -78,21 +89,6 @@ const Dropdowns = () => {
                 </Button>
               </Dropdown>
             </Cards>
-          </Col>
-          <Col md={12} xs={24}>
-            <Cards title="Event menu " caption="The simplest use of Dropdown">
-              <Dropdown action={['hover']} placement="bottomLeft">
-                <Link to="#">hover me </Link>
-              </Dropdown>
-              <Dropdown action={['click']} placement="bottomCenter">
-                <Link to="#">click </Link>
-              </Dropdown>
-              <Dropdown action={['contextMenu']} placement="bottomRight">
-                <Link to="#">context</Link>
-              </Dropdown>
-            </Cards>
-          </Col>
-          <Col md={12} xs={24}>
             <Cards title="Button with dropdown menu" caption="The simplest use of Dropdown">
               <DropdownIconStyleWrapper>
                 <Button onClick={handleButtonClick} className="btn-outlined" size="default" outlined type="light">

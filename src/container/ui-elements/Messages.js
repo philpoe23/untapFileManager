@@ -76,15 +76,17 @@ const Messages = () => {
           <Col md={12} sm={24} xs={24}>
             <Cards title="Other types of message">
               <Space>
-                <Button className="btn-outlined" type="light" outlined size="large" onClick={success}>
-                  Success
-                </Button>
-                <Button className="btn-outlined" type="light" outlined size="large" onClick={error}>
-                  Error
-                </Button>
-                <Button className="btn-outlined" type="light" outlined size="large" onClick={warning}>
-                  Warning
-                </Button>
+                <div className="message-button-list">
+                  <Button className="btn-outlined" type="light" outlined size="large" onClick={success}>
+                    Success
+                  </Button>
+                  <Button className="btn-outlined" type="light" outlined size="large" onClick={error}>
+                    Error
+                  </Button>
+                  <Button className="btn-outlined" type="light" outlined size="large" onClick={warning}>
+                    Warning
+                  </Button>
+                </div>
               </Space>
             </Cards>
           </Col>
