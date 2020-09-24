@@ -1016,6 +1016,7 @@ const IncomeExpenseWrapper = Styled.div`
     }
     .chart-dataIndicator{
         padding: 15px 0 25px 0;
+        margin-top: 0 !important;
     }
     ul{
         padding: 10px 0 20px 0;
