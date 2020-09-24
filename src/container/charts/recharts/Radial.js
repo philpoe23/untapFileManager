@@ -12,7 +12,7 @@ import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-b
 
 const style = {
   top: 0,
-  left: 350,
+  right: '20%',
   lineHeight: '24px',
 };
 const data = [
@@ -79,7 +79,9 @@ const ReChartRadial = () => {
     updateSize();
     return () => window.removeEventListener('resize', updateSize);
   }, []);
-
+  const height = responsive >= 797 ? responsive / 3 : responsive / 1.5;
+  const width = responsive - (5 * responsive) / 100;
+  console.log(responsive);
   return (
     <>
       <PageHeader
@@ -102,12 +104,12 @@ const ReChartRadial = () => {
           <Col xs={24}>
             <Cards title="SIMPLE RADIAL BAR CHART" size="large">
               <RadialBarChart
-                width={responsive - (5 * responsive) / 100}
-                height={responsive >= 1200 ? responsive / 3 : responsive}
+                width={width}
+                height={height}
                 cx={responsive >= 1200 ? responsive / 2.2 : responsive / 3}
-                cy={responsive >= 1200 ? responsive / 10 : responsive / 3}
-                innerRadius={20}
-                outerRadius={140}
+                cy={responsive >= 797 ? responsive / 2 - height : responsive / 2 - height / 3 + 15}
+                innerRadius={responsive >= 797 ? 20 : 10}
+                outerRadius={responsive >= 797 ? 140 : 90}
                 barSize={10}
                 data={data}
               >
