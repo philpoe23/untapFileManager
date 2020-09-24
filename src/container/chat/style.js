@@ -365,6 +365,10 @@ const Footer = Styled.div`
       @media only screen and (max-width: 575px){
         top: 26px;
       }
+      .ant-dropdown-trigger{
+        display: flex;
+        align-items: center;
+      }
       svg,
       i{
         color: ${({ theme }) => theme['extra-light-color']};
@@ -438,7 +442,7 @@ const Footer = Styled.div`
         .ant-upload{
           margin-right: 0;
           svg{
-            margin-top: 5px;
+            margin-top: 8px;
             color: ${({ theme }) => theme['light-color']};
           }
         }
@@ -457,7 +461,7 @@ const Footer = Styled.div`
       background-color: ${({ theme }) => theme['bg-color-normal']} !important;
       svg,
       i{
-        margin-top: 6px !important;
+        margin-top: 7px !important;
       }
     }
     .ant-upload-list{

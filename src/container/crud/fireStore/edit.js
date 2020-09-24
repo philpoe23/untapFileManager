@@ -76,7 +76,7 @@ const Edit = ({ match }) => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link key="1" to="/admin/firestore/view">
+            <Link key="1" to="/admin/firestore/fbView">
               View All
             </Link>
           </Button>,

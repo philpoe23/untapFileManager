@@ -117,6 +117,9 @@ const SettingWrapper = Styled.div`
         }
     }
     .setting-card-title{
+        @media only screen and (max-width: 479px){
+            text-align: center;
+        }
         h1,
         h2,
         h3,
