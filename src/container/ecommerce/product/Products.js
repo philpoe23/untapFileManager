@@ -60,7 +60,7 @@ const Product = () => {
       />
       <Main>
         <Row gutter={30}>
-          <Col xxl={5} xl={7} lg={7} md={10} xs={24}>
+          <Col className="product-sidebar-col" xxl={5} xl={7} lg={7} md={10} xs={24}>
             <Suspense
               fallback={
                 <div className="spin">
@@ -71,7 +71,7 @@ const Product = () => {
               <Filters />
             </Suspense>
           </Col>
-          <Col xxl={19} lg={17} md={14} xs={24}>
+          <Col className="product-content-col" xxl={19} lg={17} md={14} xs={24}>
             <TopToolBox>
               <Row gutter={0}>
                 <Col xxl={7} lg={12} xs={24}>
@@ -89,7 +89,7 @@ const Product = () => {
                 <Col xxl={10} xs={24}>
                   <div className="product-list-action d-flex justify-content-between align-items-center">
                     <div className="product-list-action__tab">
-                      Sort By :
+                      <span className="toolbox-menu-title"> Status:</span>
                       <Radio.Group onChange={onSorting} defaultValue="rate">
                         <Radio.Button value="rate">Top Rated</Radio.Button>
                         <Radio.Button value="popular">Popular</Radio.Button>
@@ -97,15 +97,17 @@ const Product = () => {
                         <Radio.Button value="price">Price</Radio.Button>
                       </Radio.Group>
                     </div>
-
-                    <div className="product-list-action__viewmode">
-                      <NavLink to={`${path}/grid`}>
-                        <FeatherIcon icon="grid" size={16} />
-                      </NavLink>
-                      <NavLink to={`${path}/list`}>
-                        <FeatherIcon icon="list" size={16} />
-                      </NavLink>
-                    </div>
+                    {(window.innerWidth <= 991 && window.innerWidth >= 768) ||
+                      (window.innerWidth > 575 && (
+                        <div className="product-list-action__viewmode">
+                          <NavLink to={`${path}/grid`}>
+                            <FeatherIcon icon="grid" size={16} />
+                          </NavLink>
+                          <NavLink to={`${path}/list`}>
+                            <FeatherIcon icon="list" size={16} />
+                          </NavLink>
+                        </div>
+                      ))}
                   </div>
                 </Col>
               </Row>

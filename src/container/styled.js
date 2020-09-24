@@ -10,6 +10,11 @@ const Main = Styled.div`
     @media only screen and (max-width: 991px){
         min-height: 580px;
     }
+    .product-sidebar-col{
+        @media only screen and (max-width: 767px){
+            order: 2;
+        }
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }

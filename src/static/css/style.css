@@ -1722,6 +1722,9 @@ ul {
   .rdrCalendarWrapper.rdrDateRangeWrapper {
     margin-top: 20px;
   }
+  .ant-menu-inline-collapsed-tooltip {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) {

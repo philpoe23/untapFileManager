@@ -340,7 +340,7 @@ const ChartjsAreaChart = props => {
         <Line
           id={id}
           data={data}
-          height={window.innerWidth <= 575 ? 230 : height}
+          height={height}
           options={{
             tooltips: {
               mode: 'nearest',
