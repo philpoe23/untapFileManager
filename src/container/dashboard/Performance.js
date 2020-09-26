@@ -722,7 +722,7 @@ const Performance = () => {
                             ],
                           },
                         }}
-                        height={86}
+                        height={window.innerWidth <= 575 ? 200 : 86}
                       />
                       <ul>
                         {performanceDatasets &&

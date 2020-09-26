@@ -161,14 +161,14 @@ const Orders = () => {
             <Col xs={24}>
               <TopToolBox>
                 <Row gutter={15} className="justify-content-center">
-                  <Col lg={8} xs={24}>
+                  <Col lg={6} xs={24}>
                     <div className="table-search-box">
                       <AutoComplete onSearch={handleSearch} dataSource={notData} width="100%" patterns />
                     </div>
                   </Col>
                   <Col xxl={14} lg={16} xs={24}>
                     <div className="table-toolbox-menu">
-                      Status:
+                      <span className="toolbox-menu-title"> Status:</span>
                       <Radio.Group onChange={handleChangeForFilter} defaultValue="">
                         <Radio.Button value="">All</Radio.Button>
                         {item.length &&

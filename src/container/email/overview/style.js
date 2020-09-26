@@ -193,16 +193,20 @@ const Style = Styled(Table)`
 
 const small = () => {
   return `
-  max-width: 600px;
-  width: 100%;
-  position: fixed;
-  min-height: 600px;
-  bottom: 75px;
-  right: 15px;
-  @media only screen and (max-width: 575px){
-    min-height: 450px;
-    bottom: 45px;
-  }
+    max-width: 600px;
+    width: 100%;
+    position: fixed;
+    height: calc(100vh - 40%);
+    bottom: 140px;
+    right: 15px;
+    @media only screen and (max-width: 1450px){
+      height: calc(100vh - 50%);
+      bottom: 35%;
+    }
+    @media only screen and (max-width: 575px){
+      min-height: 450px;
+      bottom: 80px;
+    }
 `;
 };
 
@@ -214,6 +218,7 @@ const big = () => {
   min-height: 600px;
   bottom: 100px;
   right: 100px;
+  z-index: 9999;
   `;
 };
 
@@ -296,6 +301,13 @@ const MailBox = Styled.div`
     }
   }
   .body {
+    @media only screen and (max-width: 1599px){
+      height: 450px;
+      overflow-y: scroll;
+    }
+    @media only screen and (max-width: 1450px){
+      height: 400px;
+    }
     .group {
       padding: 0px 30px;
       position: relative;
@@ -322,6 +334,12 @@ const MailBox = Styled.div`
     .public-DraftEditor-content {
       height: 275px;
       padding-top: 20px;
+      @media only screen and (max-width: 1599px){
+        height: 220px
+      }
+      @media only screen and (max-width: 1450px){
+        height: 170px
+      }
       @media only screen and (max-width: 575px){
         height: 160px
       }
@@ -1170,8 +1188,9 @@ const EmailWrapper = Styled.div`
     background: #fff !important;
     margin-bottom: 25px;
     border-radius: 6px;
+    color: ${({ theme }) => theme['primary-color']} !important;
     &:focus{
-      color: ${({ theme }) => theme['primary-color']};
+      color: ${({ theme }) => theme['primary-color']} !important;
     }
   }
   .mail-sideabr{

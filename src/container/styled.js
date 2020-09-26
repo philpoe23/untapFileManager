@@ -10,6 +10,11 @@ const Main = Styled.div`
     @media only screen and (max-width: 991px){
         min-height: 580px;
     }
+    .product-sidebar-col{
+        @media only screen and (max-width: 767px){
+            order: 2;
+        }
+    }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
     }
@@ -418,6 +423,24 @@ const Main = Styled.div`
     .recharts-default-legend{
         .recharts-legend-item{
             min-width: 100px !important;
+        }
+    }
+
+    // Radio
+    .radio-size-wrap{
+            .ant-radio-button-wrapper{
+                @media only screen and (max-width: 1450px){
+                    padding: 0 11.5px;
+                }
+            }
+        }
+    }
+
+    // Message 
+    .message-button-list{
+        margin: -4px;
+        .ant-btn {
+            margin: 4px;
         }
     }
 `;

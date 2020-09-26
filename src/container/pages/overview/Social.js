@@ -86,7 +86,7 @@ const SocialProfile = () => {
 
               <Form.Item>
                 <div className="add-user-bottom text-right">
-                  <Button htmlType="submit">
+                  <Button className="ant-btn ant-btn-light" type="default" htmlType="submit">
                     <Link to="work">Back</Link>
                   </Button>
                   <Button onClick={handleSubmit} type="primary">

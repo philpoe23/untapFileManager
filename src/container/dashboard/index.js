@@ -464,7 +464,7 @@ const Dashboard = () => {
                       <Row gutter={25}>
                         <Col xl={12} md={24}>
                           <Row className="focard-wrapper focard-divider">
-                            <Col md={12} sm={12}>
+                            <Col md={12} sm={12} xs={24}>
                               <Focard>
                                 <div className="focard-details growth-upward">
                                   <Heading as="h1">{forcastOverviewState.Engaged}</Heading>
@@ -496,12 +496,12 @@ const Dashboard = () => {
                                         pointHoverBorderColor: 'transparent',
                                       },
                                     ]}
-                                    height={165}
+                                    height={window.innerWidth <= 1199 ? 100 : 165}
                                   />
                                 </div>
                               </Focard>
                             </Col>
-                            <Col md={12} sm={12}>
+                            <Col md={12} sm={12} xs={24}>
                               <Focard>
                                 <div className="focard-details growth-upward">
                                   <Heading as="h1">{forcastOverviewState.Impressions}</Heading>
@@ -533,14 +533,14 @@ const Dashboard = () => {
                                         pointHoverBorderColor: 'transparent',
                                       },
                                     ]}
-                                    height={165}
+                                    height={window.innerWidth <= 1199 ? 100 : 165}
                                   />
                                 </div>
                               </Focard>
                             </Col>
                           </Row>
                         </Col>
-                        <Col xl={12} md={24}>
+                        <Col xl={12} xs={24}>
                           <Row className="focard-wrapper">
                             <Col md={12} sm={12}>
                               <Focard>
@@ -575,12 +575,12 @@ const Dashboard = () => {
                                         pointHoverBorderColor: 'transparent',
                                       },
                                     ]}
-                                    height={165}
+                                    height={window.innerWidth <= 1199 ? 100 : 165}
                                   />
                                 </div>
                               </Focard>
                             </Col>
-                            <Col md={12} sm={12}>
+                            <Col md={12} sm={12} xs={24}>
                               <Focard>
                                 <div className="focard-details growth-upward">
                                   <Heading as="h1">{forcastOverviewState.Impressions2}</Heading>
@@ -612,7 +612,7 @@ const Dashboard = () => {
                                         pointHoverBorderColor: 'transparent',
                                       },
                                     ]}
-                                    height={165}
+                                    height={window.innerWidth <= 1199 ? 100 : 165}
                                   />
                                 </div>
                               </Focard>
