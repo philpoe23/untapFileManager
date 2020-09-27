@@ -33,7 +33,8 @@ const Div = Styled.div`
         }
     }
     .certain-category-search-wrapper{
-        ${({ darkMode }) => (darkMode ? `border-right: 1px solid #272B41;` : '')};
+        ${({ darkMode, theme }) =>
+          darkMode ? `${!theme.rtl ? 'border-right' : 'border-left'}: 1px solid #272B41;` : ''};
         @media only screen and (max-width: 767px){
             padding: 0 15px;
         }
@@ -48,15 +49,15 @@ const Div = Styled.div`
     
     .navbar-brand{
         button{
-            padding: 0 25px 0 15px;
+            padding: ${({ theme }) => (theme.rtl ? '0 15px 0 25px' : '0 25px 0 15px')};
             line-height: 0;
             margin-top: 4px;
             color: ${({ theme }) => theme['extra-light-color']};
             @media only screen and (max-width: 875px){
-                padding: 0 25px 0 10px;
+                padding: ${({ theme }) => (theme.rtl ? '0 10px 0 25px' : '0 25px 0 10px')};
             }
             @media only screen and (max-width: 767px){
-                padding: 0 15px 0 0px;
+                padding: ${({ theme }) => (theme.rtl ? '0 0px 0 15px' : '0 15px 0 0px')};
             }
         }
     }
@@ -91,7 +92,7 @@ const Div = Styled.div`
 
             .ant-menu{
                 overflow-x: hidden;
-                border-right: 0 none;
+                ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                 .ant-menu-submenu, .ant-menu-item{
                     .feather{
                         width: 16px;
@@ -344,7 +345,7 @@ const ModeSwitch = Styled.div`
     background: #ddd;
     width: 200px;
     position: fixed;
-    right: 0;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
     top: 50%;
     margin-top: -100px;
     z-index: 9999;

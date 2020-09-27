@@ -18,7 +18,13 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleGroupChat = ({ match }) => {
   const dispatch = useDispatch();
-  const chat = useSelector(state => state.chatSingleGroup.data);
+  const { rtl, chat } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+      chat: state.chatSingle.data,
+    };
+  });
+  const left = !rtl ? 'left' : 'right';
 
   const [state, setState] = useState({
     chatData: chat,
@@ -120,8 +126,40 @@ const SingleGroupChat = ({ match }) => {
       }
     },
   };
-  
-  const renderThumb = ({ style, ...props }) => {
+
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: 'auto',
+      [rtl ? 'left' : 'right']: '2px',
+      [rtl ? 'marginLeft' : 'marginRight']: '-19px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
+  const renderThumbVertical = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+      [left]: '2px',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
+
+  const renderTrackVertical = () => {
+    const thumbStyle = {
+      position: 'absolute',
+      width: '6px',
+      transition: 'opacity 200ms ease 0s',
+      opacity: 0,
+      [rtl ? 'left' : 'right']: '6px',
+      bottom: '2px',
+      top: '2px',
+      borderRadius: '3px',
+    };
+    return <div style={thumbStyle} />;
+  };
+
+  const renderThumbHorizontal = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
@@ -185,13 +223,15 @@ const SingleGroupChat = ({ match }) => {
         more={content}
       >
         <ul className="atbd-chatbox">
-        <Scrollbars
+          <Scrollbars
             className="custom-scrollbar"
             autoHide
             autoHideTimeout={500}
             autoHideDuration={200}
-            renderThumbHorizontal={renderThumb}
-            renderThumbVertical={renderThumb}
+            renderThumbHorizontal={renderThumbHorizontal}
+            renderThumbVertical={renderThumbVertical}
+            renderView={renderView}
+            renderTrackVertical={renderTrackVertical}
           >
             {singleContent.length ? (
               singleContent.map((mes, index) => {
@@ -200,7 +240,9 @@ const SingleGroupChat = ({ match }) => {
                 return (
                   <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                     <div className={mes.email !== me ? 'left' : 'right'}>
-                      {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
+                      {mes.email !== me ? (
+                        <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                      ) : null}
 
                       <div className="atbd-chatbox__content">
                         <Heading as="h5" className="atbd-chatbox__name">

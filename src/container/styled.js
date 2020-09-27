@@ -19,7 +19,7 @@ const Main = Styled.div`
         margin-bottom: 0;
     }
 
-    // ant alert
+    /* // ant alert */
     .ant-alert-closable{
         .ant-alert-message{
           margin-right: 15px;
@@ -30,7 +30,7 @@ const Main = Styled.div`
         display: inline-block;
     }
 
-    // ant Calendar Picker
+    /* // ant Calendar Picker */
     .ant-picker-calendar{
         .ant-badge-status-text{
             color: ${({ theme }) => theme['gray-color']}
@@ -47,7 +47,7 @@ const Main = Styled.div`
         }
     }
 
-    // Card Grid
+    /* // Card Grid */
     .card-grid-wrap{
         .ant-card-grid{
             @media only screen and (max-width: 575px){
@@ -56,7 +56,7 @@ const Main = Styled.div`
         }
     }
 
-    // Drawer
+    /* // Drawer */
     .atbd-drawer{
         .ant-card-body{
             text-align: center;
@@ -81,7 +81,7 @@ const Main = Styled.div`
         }
     }
 
-    // Input
+    /* // Input */
     .input-wrap{
         @media only screen and (max-width: 991px){
             min-height: 500px;
@@ -90,7 +90,7 @@ const Main = Styled.div`
             color: ${({ theme }) => theme['light-color']};
         }
     }
-    // Modal Buttons
+    /* // Modal Buttons */
     .modal-btns-wrap{
         margin: 0 -5px;
     }
@@ -169,7 +169,7 @@ const Main = Styled.div`
         border-radius: 0;
     }
 
-    // Ant Radio
+    /* // Ant Radio */
     .ant-radio-button-wrapper{
         height: 48px;
         line-height: 46px;
@@ -185,7 +185,7 @@ const Main = Styled.div`
         }
     }
 
-    // Select
+    /* // Select */
     .ant-tree-select .ant-select-selector{
         height: 42px;
     }
@@ -233,7 +233,7 @@ const Main = Styled.div`
         }
     }
 
-    // Slider
+    /* // Slider */
     .slider-with-input{
         .ant-slider{
             margin-right: 15px;
@@ -243,7 +243,7 @@ const Main = Styled.div`
         }
     }
 
-    // Taglist
+    /* // Taglist */
     .taglist-wrap{
         margin: -5px;
         .ant-tag {
@@ -291,7 +291,7 @@ const Main = Styled.div`
         }
     }
 
-    // Timepicker List
+    /* // Timepicker List */
     .timepicker-list{
         margin: -5px;
         .ant-picker{
@@ -299,7 +299,7 @@ const Main = Styled.div`
         }
     }
 
-    // Ant Menu
+    /* // Ant Menu */
     .ant-menu{
         .ant-menu-submenu-title{
             svg{
@@ -336,7 +336,7 @@ const Main = Styled.div`
         border-radius: 5px;
     }
 
-    // Vector Map
+    /* // Vector Map */
     .vertor-map{
         min-height: 505px;
         .world-map{
@@ -351,7 +351,7 @@ const Main = Styled.div`
         }
     }
 
-    // Checkout Wrapper
+    /* // Checkout Wrapper */
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
@@ -370,7 +370,7 @@ const Main = Styled.div`
         }
     }
 
-    // Star Active
+    /* // Star Active */
     a{
         i,
         span.fa{
@@ -419,14 +419,14 @@ const Main = Styled.div`
         }
     }
 
-    // Rechart
+    /* // Rechart */
     .recharts-default-legend{
         .recharts-legend-item{
             min-width: 100px !important;
         }
     }
 
-    // Radio
+    /* // Radio */
     .radio-size-wrap{
             .ant-radio-button-wrapper{
                 @media only screen and (max-width: 1450px){
@@ -436,12 +436,48 @@ const Main = Styled.div`
         }
     }
 
-    // Message 
+    /* // Message  */
     .message-button-list{
         margin: -4px;
         .ant-btn {
             margin: 4px;
         }
+    }
+    /* Chart Label */
+
+    .chart-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+        color: #5a5f7d;
+    }
+
+    .chart-label .label-dot {
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
+
+    .chart-label .label-dot.dot-success {
+        background: #20c997;
+    }
+
+    .chart-label .label-dot.dot-info {
+        background: #5f63f2;
+    }
+
+    .chart-label .label-dot.dot-warning {
+        background: #fa8b0c;
+    }
+
+    .chart-label .label-dot {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
     }
 `;
 

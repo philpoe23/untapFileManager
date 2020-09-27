@@ -17,7 +17,7 @@ const ChatWrapper = Styled.div`
       svg,
       img,
       i{
-        margin-right: 4px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
       }
     }
   }
@@ -70,7 +70,7 @@ const Content = Styled.div`
       z-index: 1;
     }
     .author-figure{
-      margin-right: 15px;
+      ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
       flex: .1;
       img{
         max-width: 46px;
@@ -78,7 +78,7 @@ const Content = Styled.div`
       }
     }
     .author-info{
-      margin-right: 6px;
+      ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
       flex: .76;
       .author-name{
         font-weight: 600;
@@ -97,7 +97,7 @@ const Content = Styled.div`
         justify-content: center;
       }
       span{
-        float: right;
+        float: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         font-size: 12px;
         color: ${({ theme }) => theme['light-color']};
       }
@@ -135,7 +135,7 @@ const SingleChatWrapper = Styled.div`
     border: 0 none;
     .ant-card-extra{
       .ant-dropdown-trigger{
-        margin-left: 0;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0;
       }
     }
     .ant-card-head-title{
@@ -172,7 +172,7 @@ const SingleChatWrapper = Styled.div`
       align-items: center;
       a{
         :not(:last-child){
-          margin-right: 4px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
         }
       }
       img{
@@ -219,7 +219,7 @@ const SingleChatWrapper = Styled.div`
         position: absolute;
         width: 100%;
         height: 1px;
-        left: 0;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
         top: 50%;
         transform: translateY(-50%);
         background-color: ${({ theme }) => theme['border-color-light']};
@@ -248,7 +248,7 @@ const SingleChatWrapper = Styled.div`
         img{
           max-width: 46px;
           border-radius: 50%;
-          margin-right: 15px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
         .atbd-chatbox__content{
           margin-top: -4px;
@@ -258,12 +258,12 @@ const SingleChatWrapper = Styled.div`
         }
       }
       .right{
-        float: right;
+        float: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         .atbd-chatbox__actions{
-          margin: 0 15px 0 0;
+          margin: ${({ theme }) => (theme.rtl ? '0 0 0 15px' : '0 15px 0 0')};
         }
         .atbd-chatbox__name{
-          text-align: right;
+          text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         }
         .message-box{
           border-radius: 15px 15px 0 15px;
@@ -278,7 +278,7 @@ const SingleChatWrapper = Styled.div`
       span{
         font-size: 12px;
         font-weight: 400;
-        margin-left: 15px;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         color: ${({ theme }) => theme['light-color']};
       }
     }
@@ -302,18 +302,18 @@ const SingleChatWrapper = Styled.div`
     }
     .group-seen{
       margin-top: 5px;
-      text-align: right;
+      text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
       img{
         max-width: 20px;
         &:not(:last-child){
-          margin-right: 3px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 3px;
         }
       }
     }
     .atbd-chatbox__actions{
       display: flex;
       align-items: center
-      margin-left: 15px;
+      ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
       @media only screen and (max-width: 767px){
         flex-flow: column;
       }
@@ -325,7 +325,7 @@ const SingleChatWrapper = Styled.div`
         }
         &{
           + .ant-dropdown-trigger{
-            margin-left: 12px;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             @media only screen and (max-width: 767px){
               margin: 10px 0 0;
             }
@@ -357,7 +357,7 @@ const Footer = Styled.div`
     }
     .smile-icon{
       position: absolute;
-      left: 25px;
+      ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 25px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -386,13 +386,13 @@ const Footer = Styled.div`
       display: flex;
       position: absolute;
       top: -70px;
-      left: 0;
+      ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
     }
     .chatbox-reply-input{
       width: 100%;
-      margin-right: 8px;
+      ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
       input{
-        padding: 0 25px 0 70px;
+        padding: ${({ theme }) => (theme.rtl ? '0 70px 0 25px' : '0 25px 0 70px')};
         height: 70px;
         border: 0 none;
         border-radius: 35px;
@@ -412,7 +412,7 @@ const Footer = Styled.div`
     }
     input,
     span{
-      margin-right: 8px;
+      ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
     }
     .chatbox-reply-action{
       align-items: center;
@@ -433,14 +433,14 @@ const Footer = Styled.div`
         align-items: center;
         justify-content: center;
         span{
-          margin-right: 0;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
           color: #fff;
         }
       }
       .ant-upload-select {
         background: ${({ theme }) => theme['bg-color-normal']};
         .ant-upload{
-          margin-right: 0;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
           svg{
             margin-top: 8px;
             color: ${({ theme }) => theme['light-color']};
@@ -622,7 +622,7 @@ const ChatSidebar = Styled.div`
             }
           }
           .ant-badge{
-            margin-left: 6px;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
           }
           @media (max-width: 480px){
             padding-bottom: 10px;

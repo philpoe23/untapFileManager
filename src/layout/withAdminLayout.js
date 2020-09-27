@@ -47,7 +47,6 @@ const ThemeLayout = WrappedComponent => {
       const { collapsed, hide, searchHide } = this.state;
       const { ChangeLayoutMode, rtl } = this.props;
       const left = !rtl ? 'left' : 'right';
-
       const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
         this.setState({
@@ -99,6 +98,7 @@ const ThemeLayout = WrappedComponent => {
 
       const renderView = ({ style, ...props }) => {
         const customStyle = {
+          marginRight: 'auto',
           [rtl ? 'marginLeft' : 'marginRight']: '-17px',
         };
         return <div {...props} style={{ ...style, ...customStyle }} />;
@@ -125,7 +125,7 @@ const ThemeLayout = WrappedComponent => {
           top: '2px',
           borderRadius: '3px',
         };
-        return <div className="hello" style={thumbStyle} />;
+        return <div style={thumbStyle} />;
       };
 
       const renderThumbHorizontal = ({ style, ...props }) => {
@@ -145,7 +145,7 @@ const ThemeLayout = WrappedComponent => {
                 position: 'fixed',
                 width: '100%',
                 top: 0,
-                left: 0,
+                [!rtl ? 'left' : 'right']: 0,
               }}
             >
               <Row>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -64,20 +64,20 @@ const SignIn = () => {
           </p>
           <ul className="social-login">
             <li>
-              <a className="google-signup" href="/">
-                <img src={require('../../../../static/img/google.png')} alt="" /> 
+              <Link className="google-signup" to="#">
+                <img src={require('../../../../static/img/google.png')} alt="" />
                 <span>Sign in with Google</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="facebook-sign" href="/">
+              <Link className="facebook-sign" to="#">
                 <FacebookOutlined />
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="twitter-sign" href="/">
+              <Link className="twitter-sign" to="#">
                 <TwitterOutlined />
-              </a>
+              </Link>
             </li>
           </ul>
         </Form>

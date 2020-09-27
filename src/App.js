@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom';
+// import { ConfigProvider } from 'antd';
 import store from './redux/store';
 import Admin from './routes/admin';
 import Auth from './routes/auth';
@@ -40,6 +41,7 @@ const ProviderConfig = () => {
   };
 
   return (
+    // <ConfigProvider direction={rtl ? 'rtl' : 'ltr'}>
     <ThemeProvider theme={{ ...theme, rtl }}>
       <Router basename={process.env.PUBLIC_URL}>
         <Link onClick={onRtlChange} to="#" className="btn-rtl">
@@ -52,6 +54,7 @@ const ProviderConfig = () => {
         )}
       </Router>
     </ThemeProvider>
+    // </ConfigProvider>
   );
 };
 
