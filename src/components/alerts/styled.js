@@ -49,7 +49,7 @@ const Style = Styled(Alert)`
 
   ${({ outlined, theme, type }) => outlined && outline(theme, type)}
 
-  ${({ showIcon }) =>
+  ${({ showIcon, theme }) =>
     showIcon &&
     `padding: 16px 40px 20px!important;
     alert-empty-message{
@@ -57,23 +57,25 @@ const Style = Styled(Alert)`
     }
     .ant-alert-icon{
       top: 20px !important;
-      left: 15px !important;
+      ${theme.rtl ? 'right' : 'left'}: 15px !important;
     }
     .ant-alert-message{
       margin-top: -2px;
     }
     i.ant-alert-icon {
-      color: ${({ type, theme }) => theme[`${type}-color`]} !important;
+      color: ${({ type }) => theme[`${type}-color`]} !important;
       background: #ffffff80 !important;
       height: 100%;
       width: 50px;
       position: absolute;
       top: 0;
-      left: 0;
+      ${theme.rtl ? 'right' : 'left'}: 0;
     }`}
+
+
   .ant-alert-close-icon {
     top: 12px !important;
-    right: 20px !important;
+    ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 20px !important;
     svg,
     span,
     img,

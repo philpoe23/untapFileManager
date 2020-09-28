@@ -23,11 +23,14 @@ const BtnWraper = theme => `
         border-radius: 2px;
         height: 30px;
         margin: 0px;
-        margin-left: -1px;
+        ${theme.rtl ? 'margin-right' : 'margin-left'}: -1px;
         display: inline-flex;
         align-items: center;
         border: 1px solid ${theme['border-color-base']};
         background: #fff;
+        span svg {
+          ${theme.rtl ? 'padding-right' : 'padding-left'}: 5px !important;
+        }
       }
       .ant-tabs-nav .ant-tabs-tab-active {
         font-weight: 500;

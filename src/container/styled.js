@@ -4,37 +4,44 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+    .ant-tabs-tab span svg {        
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
+    }
+    /* Picker Under Input */
+    .ant-form-item-control-input .ant-picker {
+        padding: ${({ theme }) => (theme.rtl ? '0 0 0 12px' : '0 12px 0 0')} !important;
+    }
 
     /* progressbars */
 
-.ant-progress {
-  display: inline-flex !important;
-  align-items: center;
-}
+    .ant-progress {
+        display: inline-flex !important;
+        align-items: center;
+    }
 
-.ant-progress>div {
-  display: flex;
-  flex-direction: column;
-}
+    .ant-progress>div {
+        display: flex;
+        flex-direction: column;
+    }
 
-.ant-progress .ant-progress-outer {
-    ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 0 !important;
-    ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
-}
+    .ant-progress .ant-progress-outer {
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 0 !important;
+        ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
+    }
 
-.ant-progress .ant-progress-text {
-  order: 0;
-  margin-left: auto;
-  ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
-  align-self: flex-end;
-  text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
-}
+    .ant-progress .ant-progress-text {
+        order: 0;
+        margin-left: auto;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px !important;
+        align-self: flex-end;
+        text-align: center;
+    }
 
-.ant-progress-status-warning .ant-progress-bg {
-  background: #fa8b0c;
-}
+    .ant-progress-status-warning .ant-progress-bg {
+        background: #fa8b0c;
+    }
 
-/* progress bars */
+    /* progress bars */
     
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
@@ -54,7 +61,7 @@ const Main = Styled.div`
     /* // ant alert */
     .ant-alert-closable{
         .ant-alert-message{
-          margin-right: 15px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
     }
 
@@ -128,9 +135,9 @@ const Main = Styled.div`
     }
     /* spinner */
     .ant-spin{
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         &:last-child{
-            margin-right: 0;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
     }
 
@@ -234,11 +241,11 @@ const Main = Styled.div`
     .ant-select{
         &.ant-select-multiple{
             .ant-select-selection-item{
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
         }
         .ant-select-selection-item{
-            padding-left: 10px !important;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px !important;
         }
         &.ant-select-lg{
             height: 50px;
@@ -249,7 +256,7 @@ const Main = Styled.div`
             }
             .ant-select-selection-item{
                 line-height: 48px !important;
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
             &.ant-select-multiple.ant-select-lg .ant-select-selection-item{
                 height: 32px;
@@ -268,7 +275,7 @@ const Main = Styled.div`
     /* // Slider */
     .slider-with-input{
         .ant-slider{
-            margin-right: 15px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
         .slider-with-input__single{
             margin-bottom: 15px;
@@ -528,9 +535,9 @@ const ButtonsGroupWrapper = Styled.div`
     .button-group-single .ant-btn-white{
         border: 1px solid #E3E6EF;
         background: #fff !important;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
         &:hover{
             color: ${({ theme }) => theme['gray-color']} !important;
@@ -539,17 +546,17 @@ const ButtonsGroupWrapper = Styled.div`
     }
     .button-group-single .ant-btn-light{
         border: 1px solid #E3E6EF;
-        margin-right: 20px;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         font-weight: 500;
         color: ${({ theme }) => theme['extra-light-color']} !important;
         background: ${({ theme }) => theme['bg-color-normal']} !important;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
     }
     .ant-btn-group:not(:last-child){
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
     }
 `;
 
@@ -574,7 +581,7 @@ const BtnWithIcon = Styled.div`
         height: 10px;
     }
     .ant-btn-group button.active{
-        border-right: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0px;
     }
 `;
 
@@ -708,11 +715,15 @@ const BasicFormWrapper = Styled.div`
         .ant-form-item-control-input{
             input,
             textarea{
-                padding: 12px 20px;
+                /* padding: 12px 20px; */
                 color: ${({ theme }) => theme['gray-color']};
                 &:placeholder{
                     color: ${({ theme }) => theme['light-color']};
                 }
+            }
+            input[type="password"]{
+                padding-top: 12px;
+                padding-bottom: 12px;
             }
             button{
                 height: 44px;
@@ -754,13 +765,13 @@ const BasicFormWrapper = Styled.div`
     .ant-form-item-control-input{
         .input-prepend{
             position: absolute;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0 20px;
             height: 48px;
-            border-radius: 4px 0 0 4px;
+            border-radius: ${({ theme }) => (theme.rtl ? '0 4px 4px 0' : '4px 0 0 4px')};
             z-index: 10;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
             background-color: ${({ theme }) => theme['bg-color-light']};
@@ -772,7 +783,7 @@ const BasicFormWrapper = Styled.div`
         .input-prepend-wrap{
             .ant-input-number{
                 input{
-                    padding-left: 70px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 70px;
                 }
             }
         }

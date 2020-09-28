@@ -735,10 +735,6 @@ ul {
   align-items: center;
 }
 
-.ant-tabs-tab span svg {
-  padding-right: 5px;
-}
-
 /* list */
 
 .ant-list-bordered {
@@ -1228,19 +1224,9 @@ ul {
   color: #5a5f7d;
 }
 
-.ant-dropdown a i, .ant-dropdown a svg, .ant-dropdown a img {
-  margin-right: 8px;
-}
-
 .ant-dropdown div {
   box-shadow: 0 0;
   border-radius: 5px;
-}
-
-/* Picker Under Input */
-
-.ant-form-item-control-input .ant-picker {
-  padding: 0 12px 0 0;
 }
 
 /* Leaflet COntainer */

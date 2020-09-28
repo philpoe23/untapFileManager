@@ -15,7 +15,7 @@ const ItemWraper = Styled.div`
         font-size: 18px;
         position: absolute;
         top: -50px;
-        left: 100px;
+        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 100px;
         font-weight: 400;
     }
     .rdrDefinedRangesWrapper{
@@ -52,8 +52,7 @@ const ItemWraper = Styled.div`
             }
             .rdrDays{
                 .rdrSelected, 
-                .rdrInRange{
-                    
+                .rdrInRange{                    
                     background-color: #EFEFFE;
                 }
                 .rdrStartEdge{
@@ -162,7 +161,7 @@ const ButtonGroup = Styled.div`
     margin: -4px -4px -15px;
     p{
         font-size: 13px;
-        margin: 0 20px 0 0;
+    margin: ${({ theme }) => (theme.rtl ? '0 0 0 20px' : '0 20px 0 0')};
         font-weight: 500;
         color: ${({ theme }) => theme['gray-color']};
     }

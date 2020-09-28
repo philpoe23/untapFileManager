@@ -3,6 +3,7 @@ import { Row, Col, Avatar, Badge } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UserOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 import { AvatarWraperStyle } from './ui-elements-styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -11,10 +12,12 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
 const ColorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
 
 const Avatars = () => {
+  const rtl = useSelector(state => state.ChangeLayoutMode.rtlData);
   const [user, setUser] = useState(UserList[0]);
   const [color, setColor] = useState(ColorList[0]);
   const changeUser = () => {
@@ -90,7 +93,7 @@ const Avatars = () => {
             </Cards>
             <Cards title="with badge">
               <AvatarWraperStyle>
-                <span style={{ marginRight: 10 }}>
+                <span style={{ [!rtl ? 'marginRight' : 'marginLeft']: 10 }}>
                   <Badge count={1}>
                     <Avatar shape="square" icon={<UserOutlined />} />
                   </Badge>
