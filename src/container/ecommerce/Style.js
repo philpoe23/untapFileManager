@@ -841,6 +841,9 @@ const ProductTable = Styled.div`
         }
     }
     .table-invoice{
+        .ant-table table {
+            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
+        }
         table{
             thead{
                 >tr{
@@ -848,7 +851,8 @@ const ProductTable = Styled.div`
                         border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                         border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                         &:first-child{
-                            border-left: 1px solid ${({ theme }) => theme['border-color-light']};
+                            ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
                         }
                         &:last-child{
                             ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
@@ -904,10 +908,10 @@ const ProductTable = Styled.div`
                     border-bottom: 0 none;
                     background:  ${({ theme }) => theme['bg-color-light']};
                     &:first-child{
-                        border-radius: 10px 0 0 10px !important;
+                    border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                 }
             }
@@ -918,10 +922,10 @@ const ProductTable = Styled.div`
                 td{
                     border-bottom: 0 none;
                     &:first-child{
-                        border-radius: 10px 0 0 10px;
+                        border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')};
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                 }
             }
@@ -1194,6 +1198,13 @@ const AddProductForm = Styled.div`
     @media only screen and (max-width: 575px){
         margin-top: 15px;
     }
+    .ant-select-arrow{
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 11px;
+    }
+    
+    .ant-table table {
+        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+    }
     .add-product-block{
         background: ${({ theme }) => theme['bg-color-light']};
         border-radius: 20px;
@@ -1340,6 +1351,7 @@ const InvoiceHeader = Styled.div`
     .invoice-info{
         font-weight: 500;
         line-height: 1.6;
+        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         @media only screen and (max-width: 575px){
             text-align: center !important;
             margin-bottom: 0;
@@ -1393,7 +1405,8 @@ const InvoiceLetterBox = Styled.div`
         }
     }
     .invoice-customer{
-        float: right;
+        float: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         @media only screen and (max-width: 991px){
             float: none;
             text-align: center;
@@ -1441,11 +1454,22 @@ const InvoiceAction = Styled.div`
         .feather-download{
             color: #fff;
         }
+        svg +span{
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
+        }
     }
 `;
 
 const CheckoutWrapper = Styled.div`
     padding: 25px 0;
+    .steps-action button.btn-next svg {
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    .steps-action button.btn-prev svg {
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
     .ant-steps {
         @media only screen and (max-width: 767px) {
             flex-flow: column;
@@ -1517,7 +1541,7 @@ const CheckoutWrapper = Styled.div`
         }
     }
     .ant-steps-item{
-        padding: 0 25px 0 0 !important;
+    padding: ${({ theme }) => (theme.rtl ? '0 0 0 25px !important' : '0 25px 0 0 !important')} ;
         @media only screen and (max-width: 767px) {
             padding: 0 !important;
             &:not(:last-child){
@@ -1547,7 +1571,7 @@ const CheckoutWrapper = Styled.div`
             padding: 0 0 0 10px;
             color: ${({ theme }) => theme['gray-solid']} !important;
             @media only screen and (max-width: 1210px) {
-                padding: 0 0 0 20px;
+                padding: ${({ theme }) => (!theme.rtl ? '0 0 0 20px' : '0 20px 0 0')};
             }
             @media only screen and (max-width: 767px) {
                 padding: 0;

@@ -2,9 +2,9 @@ import Styled from 'styled-components';
 
 const ProjectHeader = Styled.div`
     .ant-page-header-heading-sub-title{
-        margin-right: 0;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         position: relative;
-        padding-left: 15px;
+        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 15px;
         font-weight: 500;
         &:before{
             position: absolute;
@@ -12,7 +12,7 @@ const ProjectHeader = Styled.div`
             width: 1px;
             height: 24px;
             background: ${({ theme }) => theme['dash-color']};
-            left: 0;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
             top:0;
         }
     }
@@ -32,7 +32,7 @@ const ProjectSorting = Styled.div`
         }
 
         .project-sort-group{
-            margin-left: auto;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: auto;
         }
         .project-sort-search{
             .ant-select-selection-search{
@@ -93,13 +93,13 @@ const ProjectSorting = Styled.div`
     }
     @media (max-width: 991px){
         .project-sort-group{
-            margin-left: unset;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: unset;
             flex: 0 0 100%;
             margin-top: 15px;
             .sort-group{
                 justify-content: flex-start;
                 .layout-style{
-                    margin-left: auto;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: auto;
                 }
             }
         }
@@ -243,7 +243,7 @@ const ProjectCard = Styled.div`
             margin: -2px;
             a{
                 color: ${({ theme }) => theme['dark-color']};
-                margin-right: 11px !important;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 11px !important;
             }
             a,
             .ant-tag{
@@ -678,7 +678,7 @@ const ProjectDetailsWrapper = Styled.div`
                         color: ${({ theme }) => theme['primary-color']};
                     }
                     a + a{
-                        margin-left: 8px;
+                        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 8px;
                     }
                 }
             }

@@ -245,36 +245,6 @@ ul {
   margin-bottom: 20px;
 }
 
-/* progressbars */
-
-.ant-progress {
-  display: inline-flex !important;
-  align-items: center;
-}
-
-.ant-progress>div {
-  display: flex;
-  flex-direction: column;
-}
-
-.ant-progress .ant-progress-outer {
-  margin-right: 0 !important;
-  padding-right: 0 !important;
-}
-
-.ant-progress .ant-progress-text {
-  order: 0;
-  margin-left: 10px;
-  align-self: flex-end;
-  text-align: right;
-}
-
-.ant-progress-status-warning .ant-progress-bg {
-  background: #fa8b0c;
-}
-
-/* progress bars */
-
 .progress-primary .ant-progress-bg {
   background: #5f63f2;
 }

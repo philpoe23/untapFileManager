@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { useSelector } from 'react-redux';
 import { InvoiceHeader, InvoiceLetterBox, InvoiceAction, ProductTable, OrderSummary } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -12,6 +13,11 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Invoice = () => {
+  const { rtl } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+    };
+  });
   const invoiceTableData = [
     {
       key: '1',
@@ -125,7 +131,7 @@ const Invoice = () => {
                   </Col>
                   <Col sm={12} xs={24}>
                     <div>
-                      <address className="invoice-info" style={{ textAlign: 'right' }}>
+                      <address className="invoice-info">
                         Admin Company <br />
                         795 Folsom Ave, Suite 600 <br />
                         San Francisco, CA 94107, USA <br />
@@ -180,7 +186,7 @@ const Invoice = () => {
               </ProductTable>
 
               <Row justify="end">
-                <Col xxl={4} xl={5} sm={8} xs={14} offset={10}>
+                <Col xxl={4} xl={5} sm={8} xs={14} offset={rtl ? 0 : 10}>
                   <OrderSummary>
                     <div className="invoice-summary-inner">
                       <ul className="summary-list">

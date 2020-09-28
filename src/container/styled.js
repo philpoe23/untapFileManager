@@ -4,6 +4,38 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+
+    /* progressbars */
+
+.ant-progress {
+  display: inline-flex !important;
+  align-items: center;
+}
+
+.ant-progress>div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-progress .ant-progress-outer {
+    ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 0 !important;
+    ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
+}
+
+.ant-progress .ant-progress-text {
+  order: 0;
+  margin-left: auto;
+  ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+  align-self: flex-end;
+  text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
+}
+
+.ant-progress-status-warning .ant-progress-bg {
+  background: #fa8b0c;
+}
+
+/* progress bars */
+    
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
@@ -667,7 +699,7 @@ const BasicFormWrapper = Styled.div`
             margin-bottom: 0;
         }
         .ant-form-item-label{
-            text-align: left;
+            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
             label{
                 height: fit-content;
                 margin-bottom: 6px;
@@ -799,15 +831,15 @@ const CardToolbox = Styled.div`
 
     .ant-page-header-heading-title{
         position: relative;
-        padding-right: 24px;
-        margin-right: 24px;
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 24px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 24px;
         @media only screen and (max-width: 767px){
-            padding-right: 12px;
-            margin-right: 12px !important;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 12px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px !important;
         }
         &:after{
             position: absolute;
-            right: 0px;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0px;
             top: 0;
             height: 100%;
             width: 1px;
@@ -821,9 +853,9 @@ const CardToolbox = Styled.div`
         align-items: center;
     }
     .ant-select{
-        margin-left: 25px;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
         @media only screen and (max-width: 575px){
-            margin-left: 0;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
         .ant-select-selector{
             height: 46px !important;
@@ -855,7 +887,7 @@ const CardToolbox = Styled.div`
             display: flex;
             align-items: center;
             svg{
-                margin-right: 6px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
             }
         }
     }
@@ -870,6 +902,18 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    .ant-table table{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    .ant-table-thead > tr > th{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    span.anticon.anticon-right{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    span.anticon.anticon-left{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
     &.table-order,
     &.table-seller{
         .ant-table-selection{
@@ -898,7 +942,7 @@ const TableWrapper = Styled.div`
                 td{
                     .product-id{
                         max-width: 60px;
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -913,19 +957,21 @@ const TableWrapper = Styled.div`
                 border-radius: 10px;
                 th{
                     &:last-child{
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                     color: ${({ theme }) => theme['gray-color']};
                     background: ${({ theme }) => theme['bg-color-light']};
                     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 10px 0 0 10px !important;
+                        ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 0 10px 10px 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                 }
             }
@@ -953,10 +999,10 @@ const TableWrapper = Styled.div`
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
                     &:first-child{
-                        border-radius: 10px 0 0 10px !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                     span{
                         display: block;
@@ -983,7 +1029,7 @@ const TableWrapper = Styled.div`
             }
         }
         .table-actions{
-            text-align: right;
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             min-width: 150px !important;
             button{
                 height: 40px;
@@ -1009,7 +1055,7 @@ const TableWrapper = Styled.div`
         }
         .seller-info{
             img{
-                margin-right: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             }
         }
         .user-info{

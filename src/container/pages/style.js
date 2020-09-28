@@ -152,7 +152,7 @@ const GalleryCard = Styled.nav`
 const UsercardWrapper = Styled.nav`
   .user-card-pagination{
     margin: 15px 0 40px 0;
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     @media only screen and (max-width: 991px){
       text-align: center;
     }
@@ -195,7 +195,7 @@ const UserTableStyleWrapper = Styled.nav`
   }
   .ant-table-pagination.ant-pagination{
     width: 100%;
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
     margin-top: 0 !important;
     padding-top: 30px;
@@ -659,11 +659,11 @@ const ResultList = Styled.div`
     }
   }
   .result-limit{
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     margin-bottom: 0;
     color: ${({ theme }) => theme['light-color']};
     @media only screen and (max-width: 767px){
-      text-align: left;
+      text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
       margin-top: 10px;
     }
   }
