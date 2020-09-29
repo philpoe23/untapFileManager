@@ -87,7 +87,7 @@ const Style = Styled(Table)`
             a{
               color: ${({ theme }) => theme['gray-solid']};
               &:not(:last-child){
-                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
               }
             }
           }
@@ -1128,7 +1128,7 @@ const ReplyList = Styled.div`
         }
         @media only screen and (max-width: 375px){
             flex-flow: row;
-            justify-content: ${({ theme }) => (theme.rtl ? 'flex-end' : 'flex-start')};
+            justify-content: flex-start;
             margin-bottom: 20px;
         }
         a{

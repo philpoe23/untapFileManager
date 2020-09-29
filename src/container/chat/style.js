@@ -548,6 +548,13 @@ const ChatSidebar = Styled.div`
   border-radius: 10px;
   box-shadow: 0 5px 20px #9299B803;
   
+  .custom-scrollbar{
+    >div{
+      @media only screen and (max-width: 1800px){
+        ${({ theme }) => (theme.rtl ? 'margin-left: 0 !important;' : 'margin-left: auto !important;')}:;
+      }
+    }
+  }
   @media only screen and (max-width: 991px){
     max-width: 370px;
     margin: 0 auto 40px;

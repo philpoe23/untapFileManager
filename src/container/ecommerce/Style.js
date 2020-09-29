@@ -611,13 +611,16 @@ const ProductDetailsWrapper = Styled.div`
         .ant-rate{
             margin-bottom: 6px;
         }
+        .ant-rate-star:not(:last-child){
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 2px !important;
+        }
     }
     .pdbr__title{
         margin-bottom: 10px;
     }
     .pdbr__rating{
         display: inline-block;
-        margin: 0 4px 0 8px;
+        margin: ${({ theme }) => (theme.rtl ? '0 8px 0 4px' : '0 4px 0 8px')};
         font-size: 12px;
         font-weight: 500;
         color: ${({ theme }) => theme['dark-color']};
@@ -1816,7 +1819,7 @@ const CheckoutWrapper = Styled.div`
             h1{
                 font-size: 18px;
                 font-weight: 400;
-                margin-bottom: 0;
+                margin-bottom: 30px;
             }
             .method-info{
                 margin-top: -2px;
@@ -1877,6 +1880,7 @@ const CheckoutWrapper = Styled.div`
         .atbd-review-order__shippingTitle{
             h1{
                 display: flex;
+                margin-bottom: 30px;
                 justify-content: space-between;
                 color: ${({ theme }) => theme['gray-color']};
                 @media only screen and (max-width: 479px) {
