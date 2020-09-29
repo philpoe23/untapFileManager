@@ -3,8 +3,6 @@ import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { changeLayoutMode } from '../redux/themeLayout/actionCreator';
 
 const { SubMenu } = Menu;
 
@@ -14,15 +12,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
   const pathArray = pathName.split(path);
   const mainPath = pathArray[1];
   const mainPathSplit = mainPath.split('/');
-
-  const dispatch = useDispatch();
-  const modeChangeDark = () => {
-    dispatch(changeLayoutMode(true));
-  };
-
-  const modeChangeLight = () => {
-    dispatch(changeLayoutMode(false));
-  };
 
   return (
     <Menu
@@ -137,31 +126,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         <Menu.Item key="projectDetails">
           <NavLink onClick={toggleCollapsed} to={`${path}/project/projectDetails/1`}>
             Project Details
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
-
-      <SubMenu key="sub4" icon={<FeatherIcon icon="layout" />} title="Layouts">
-        <Menu.Item key="21">
-          <NavLink
-            to="#"
-            onClick={() => {
-              modeChangeLight();
-              toggleCollapsed();
-            }}
-          >
-            Light Sidebar
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="22">
-          <NavLink
-            to="#"
-            onClick={() => {
-              modeChangeDark();
-              toggleCollapsed();
-            }}
-          >
-            Dark Sidebar
           </NavLink>
         </Menu.Item>
       </SubMenu>

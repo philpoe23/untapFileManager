@@ -9,7 +9,7 @@ import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { changeRtlMode } from '../redux/themeLayout/actionCreator';
+import { changeRtlMode, changeLayoutMode } from '../redux/themeLayout/actionCreator';
 // import config from '../config/config';
 
 const { darkTheme } = require('../config/theme/themeVariables');
@@ -47,7 +47,8 @@ const ThemeLayout = WrappedComponent => {
 
     render() {
       const { collapsed, hide, searchHide, customizerAction } = this.state;
-      const { ChangeLayoutMode, rtl, changeRtl } = this.props;
+      const { ChangeLayoutMode, rtl, changeRtl, changeLayout } = this.props;
+
       const left = !rtl ? 'left' : 'right';
       const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
@@ -149,18 +150,20 @@ const ThemeLayout = WrappedComponent => {
         const html = document.querySelector('html');
         html.setAttribute('dir', 'rtl');
         changeRtl(true);
-        this.setState({
-          customizerAction: false,
-        });
       };
 
       const onLtrChange = () => {
         const html = document.querySelector('html');
         html.setAttribute('dir', 'ltr');
         changeRtl(false);
-        this.setState({
-          customizerAction: false,
-        });
+      };
+
+      const modeChangeDark = () => {
+        changeLayout(true);
+      };
+
+      const modeChangeLight = () => {
+        changeLayout(false);
       };
 
       return (
@@ -289,13 +292,13 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link to="#">
+                      <Link onClick={modeChangeLight} to="#">
                         <img src={require('../static/img/light-mode.png')} alt="" />
                         <span>Light Sidebar</span>
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link to="#">
+                      <Link onClick={modeChangeDark} to="#">
                         <img src={require(`../static/img/dark-mode.png`)} alt="" />
                         <span> Dark Sidebar</span>
                       </Link>
@@ -337,6 +340,7 @@ const ThemeLayout = WrappedComponent => {
   const mapStateToDispatch = dispatch => {
     return {
       changeRtl: rtl => dispatch(changeRtlMode(rtl)),
+      changeLayout: show => dispatch(changeLayoutMode(show)),
     };
   };
 
