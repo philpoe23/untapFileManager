@@ -891,7 +891,7 @@ const AddUser = Styled.div`
       border-radius: 50%;
     }
     figcaption{
-      margin-left: 20px;
+      ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
       .info{
         h1,
         h2,

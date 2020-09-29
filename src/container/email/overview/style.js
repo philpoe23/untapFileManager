@@ -195,14 +195,14 @@ const Style = Styled(Table)`
   
 `;
 
-const small = () => {
+const small = ({ rtl }) => {
   return `
     max-width: 600px;
     width: 100%;
     position: fixed;
     height: calc(100vh - 40%);
     bottom: 140px;
-    ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 15px;
+    ${!rtl ? 'right' : 'left'}: 15px;
     @media only screen and (max-width: 1450px){
       height: calc(100vh - 50%);
       bottom: 35%;
@@ -214,21 +214,21 @@ const small = () => {
 `;
 };
 
-const big = () => {
+const big = ({ rtl }) => {
   return `
   max-width: 1200px;
   width: 100%;
   position: fixed;
   min-height: 600px;
   bottom: 100px;
-  ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 100px;
+  ${!rtl ? 'right' : 'left'}: 100px;
   z-index: 9999;
   `;
 };
 
 const MailBox = Styled.div`
-  ${({ size }) => size === 'small' && small()}
-  ${({ size }) => size === 'big' && big()}
+  ${({ size, theme }) => size === 'small' && small(theme)}
+  ${({ size, theme }) => size === 'big' && big(theme)}
 
   background: #fff;
   z-index: 999;
