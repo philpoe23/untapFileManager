@@ -729,7 +729,7 @@ const BasicFormWrapper = Styled.div`
                 padding-bottom: 12px;
             }
             .ant-picker-input input{
-                padding: 12px 20px;
+                padding: 12px;
             }
             button{
                 height: 44px;
