@@ -1650,6 +1650,11 @@ const CheckoutWrapper = Styled.div`
         }
     }
     .atbd-form-checkout{
+        .ant-input-affix-wrapper-rtl{
+            input[type="password"]{
+                padding-right: 15px;
+            }
+        }
        h1{
             font-size: 20px;
             font-weight: 500;

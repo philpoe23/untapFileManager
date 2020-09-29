@@ -111,6 +111,9 @@ const Div = Styled.div`
                     color: #5F63F2;
                 }
             }
+            a{
+                display: block;
+            }
             img{
                 width: 100%;
                 box-shadow: 0 15px 20px #ADB4D240;
