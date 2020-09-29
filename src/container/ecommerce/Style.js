@@ -261,6 +261,9 @@ const ProductCard = Styled.div`
         .ant-rate{
             ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
         }
+        .ant-rate-star:not(:last-child) {
+            ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 2px !important;
+        }
         .total-reviews{
             font-weight: 400;
             ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
@@ -348,7 +351,7 @@ const TopToolBox = Styled.div`
         }
     }
     .search-result{
-        margin: 0 0 0 25px;
+        margin: ${({ theme }) => (theme.rtl ? '0 25px 0 0' : '0 0 0 25px')};
         color: ${({ theme }) => theme['gray-color']};
         @media only screen and (max-width: 1599px){
             text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};

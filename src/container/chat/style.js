@@ -266,7 +266,8 @@ const SingleChatWrapper = Styled.div`
           text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
         }
         .message-box{
-          border-radius: 15px 15px 0 15px;
+          
+          ${({ theme }) => (!theme.rtl ? 'border-radius: 15px 15px 0 15px;' : 'border-radius: 15px 15px 15px 0')};
           background: ${({ theme }) => theme['bg-color-deep']};
           color: ${({ theme }) => theme['gray-color']};
         }
@@ -278,7 +279,7 @@ const SingleChatWrapper = Styled.div`
       span{
         font-size: 12px;
         font-weight: 400;
-        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
+        margin-left: 15px;
         color: ${({ theme }) => theme['light-color']};
       }
     }
@@ -290,6 +291,9 @@ const SingleChatWrapper = Styled.div`
     }
     .message-seen{
       margin-top: 10px;
+      &.text-right{
+        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+      }
       img{
         max-width: 20px;
         border-radius: 50%;
@@ -340,7 +344,7 @@ const MessageList = Styled.div`
   display: block;
   max-width: 670px;
   font-size: 15px;
-  border-radius: 0 15px 15px;
+  ${({ theme }) => (!theme.rtl ? 'border-radius: 0 15px 15px' : 'border-radius: 15px 0 15px 15px')};
   padding: 18px 20px;
   line-height: 1.67;
   color: #fff;

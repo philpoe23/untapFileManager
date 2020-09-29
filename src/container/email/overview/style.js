@@ -512,7 +512,7 @@ const EmailNav = Styled.nav`
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
-      text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
+      text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
     }
     ul{
       margin-top: 6px;
