@@ -109,7 +109,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
             Invoices
           </NavLink>
         </Menu.Item>
-        {/* <Menu.Item key="18">Transactions</Menu.Item> */}
       </SubMenu>
 
       <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
@@ -267,6 +266,9 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
           <NavLink onClick={toggleCollapsed} to={`${path}/components/date-picker`}>
             DatePicker
           </NavLink>
+        </Menu.Item>
+        <Menu.Item key="drag">
+          <NavLink to="/admin/components/drag">Drag & Drop</NavLink>
         </Menu.Item>
         <Menu.Item key="drawer">
           <NavLink onClick={toggleCollapsed} to={`${path}/components/drawer`}>

@@ -16,6 +16,7 @@ import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
+import Todo from './todo/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -41,6 +42,7 @@ const rootReducers = combineReducers({
   ChangeLayoutMode,
   chartContent: chartContentReducer,
   cart: cartData,
+  Todo,
 });
 
 export default rootReducers;
