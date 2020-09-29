@@ -4,6 +4,9 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+    .ant-card-rtl .ant-card-extra{
+                margin-right: 0 !important;
+            }
     .ant-tabs-tab span svg {        
         ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
     }
@@ -455,7 +458,9 @@ const Main = Styled.div`
                    padding-top: 0 !important;
                 }
             }
+            
         }
+                
     }
 
     /* // Rechart */

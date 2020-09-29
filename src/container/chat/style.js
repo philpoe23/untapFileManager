@@ -135,7 +135,7 @@ const SingleChatWrapper = Styled.div`
     border: 0 none;
     .ant-card-extra{
       .ant-dropdown-trigger{
-        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0 !important;
       }
     }
     .ant-card-head-title{
