@@ -87,7 +87,7 @@ const Style = Styled(Table)`
             a{
               color: ${({ theme }) => theme['gray-solid']};
               &:not(:last-child){
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
               }
             }
           }
@@ -1199,7 +1199,7 @@ const EmailWrapper = Styled.div`
   }
   .mail-sideabr{
     &.hide{
-      transform: translateX(-100%);
+      transform: translateX(${({ theme }) => (theme.rtl ? '100%' : '-100%')});
       transition: .35s ease-in;
     }
     &.show{
