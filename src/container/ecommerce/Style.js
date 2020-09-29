@@ -261,6 +261,9 @@ const ProductCard = Styled.div`
         .ant-rate{
             ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
         }
+        .ant-rate-star:not(:last-child) {
+            ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 2px !important;
+        }
         .total-reviews{
             font-weight: 400;
             ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
@@ -348,7 +351,7 @@ const TopToolBox = Styled.div`
         }
     }
     .search-result{
-        margin: 0 0 0 25px;
+        margin: ${({ theme }) => (theme.rtl ? '0 25px 0 0' : '0 0 0 25px')};
         color: ${({ theme }) => theme['gray-color']};
         @media only screen and (max-width: 1599px){
             text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
@@ -610,13 +613,16 @@ const ProductDetailsWrapper = Styled.div`
         .ant-rate{
             margin-bottom: 6px;
         }
+        .ant-rate-star:not(:last-child){
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 2px !important;
+        }
     }
     .pdbr__title{
         margin-bottom: 10px;
     }
     .pdbr__rating{
         display: inline-block;
-        margin: 0 4px 0 8px;
+        margin: ${({ theme }) => (theme.rtl ? '0 8px 0 4px' : '0 4px 0 8px')};
         font-size: 12px;
         font-weight: 500;
         color: ${({ theme }) => theme['dark-color']};
@@ -1646,6 +1652,11 @@ const CheckoutWrapper = Styled.div`
         }
     }
     .atbd-form-checkout{
+        .ant-input-affix-wrapper-rtl{
+            input[type="password"]{
+                padding-right: 15px;
+            }
+        }
        h1{
             font-size: 20px;
             font-weight: 500;
@@ -1815,7 +1826,7 @@ const CheckoutWrapper = Styled.div`
             h1{
                 font-size: 18px;
                 font-weight: 400;
-                margin-bottom: 0;
+                margin-bottom: 30px;
             }
             .method-info{
                 margin-top: -2px;
@@ -1876,6 +1887,7 @@ const CheckoutWrapper = Styled.div`
         .atbd-review-order__shippingTitle{
             h1{
                 display: flex;
+                margin-bottom: 30px;
                 justify-content: space-between;
                 color: ${({ theme }) => theme['gray-color']};
                 @media only screen and (max-width: 479px) {

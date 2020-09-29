@@ -66,9 +66,10 @@ const Div = Styled.div`
             position: relative
             padding: 20px;
             border-bottom: 1px solid #f0f0f0;
+            text-align: left;
             .customizer-close{
                 position: absolute;
-                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px;
+                right: 15px;
                 top: 15px;
                 svg,
                 i{
@@ -109,6 +110,9 @@ const Div = Styled.div`
                 span{
                     color: #5F63F2;
                 }
+            }
+            a{
+                display: block;
             }
             img{
                 width: 100%;

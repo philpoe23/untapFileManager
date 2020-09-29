@@ -117,11 +117,12 @@ const CardFrame = Styled(Card)`
     border-radius: 50%;
     ${({ theme }) => (theme.rtl ? ' margin-left' : ' margin-right')}: 7px;
   }
+  
 
   .ant-card-extra .ant-dropdown-trigger {
     line-height: 0;
     order: 1;
-    ${({ theme }) => (!theme.rtl ? ' margin-left' : ' margin-right')}: 20px;
+    ${({ theme }) => (!theme.rtl ? ' margin-left' : ' margin-right')}: 20px !important;
   }
 
   .growth-downward h1 sub,

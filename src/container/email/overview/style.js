@@ -87,7 +87,7 @@ const Style = Styled(Table)`
             a{
               color: ${({ theme }) => theme['gray-solid']};
               &:not(:last-child){
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
               }
             }
           }
@@ -195,14 +195,14 @@ const Style = Styled(Table)`
   
 `;
 
-const small = () => {
+const small = ({ rtl }) => {
   return `
     max-width: 600px;
     width: 100%;
     position: fixed;
     height: calc(100vh - 40%);
     bottom: 140px;
-    ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 15px;
+    ${!rtl ? 'right' : 'left'}: 15px;
     @media only screen and (max-width: 1450px){
       height: calc(100vh - 50%);
       bottom: 35%;
@@ -214,21 +214,21 @@ const small = () => {
 `;
 };
 
-const big = () => {
+const big = ({ rtl }) => {
   return `
   max-width: 1200px;
   width: 100%;
   position: fixed;
   min-height: 600px;
   bottom: 100px;
-  ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 100px;
+  ${!rtl ? 'right' : 'left'}: 100px;
   z-index: 9999;
   `;
 };
 
 const MailBox = Styled.div`
-  ${({ size }) => size === 'small' && small()}
-  ${({ size }) => size === 'big' && big()}
+  ${({ size, theme }) => size === 'small' && small(theme)}
+  ${({ size, theme }) => size === 'big' && big(theme)}
 
   background: #fff;
   z-index: 999;
@@ -512,7 +512,7 @@ const EmailNav = Styled.nav`
       margin: 0;
       padding: 0 15px;
       color: #9299b8;
-      text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
+      text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
     }
     ul{
       margin-top: 6px;
@@ -1128,7 +1128,7 @@ const ReplyList = Styled.div`
         }
         @media only screen and (max-width: 375px){
             flex-flow: row;
-            justify-content: ${({ theme }) => (theme.rtl ? 'flex-end' : 'flex-start')};
+            justify-content: flex-start;
             margin-bottom: 20px;
         }
         a{
@@ -1199,7 +1199,7 @@ const EmailWrapper = Styled.div`
   }
   .mail-sideabr{
     &.hide{
-      transform: translateX(-100%);
+      transform: translateX(${({ theme }) => (theme.rtl ? '100%' : '-100%')});
       transition: .35s ease-in;
     }
     &.show{
