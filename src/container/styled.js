@@ -724,9 +724,12 @@ const BasicFormWrapper = Styled.div`
                     color: ${({ theme }) => theme['light-color']};
                 }
             }
-            input[type="password"], .ant-picker-input input{
+            input[type="password"]{
                 padding-top: 12px;
                 padding-bottom: 12px;
+            }
+            .ant-picker-input input{
+                padding: 12px 20px;
             }
             button{
                 height: 44px;
