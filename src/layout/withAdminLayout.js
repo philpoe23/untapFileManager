@@ -9,6 +9,7 @@ import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
+import { changeRtlMode } from '../redux/themeLayout/actionCreator';
 // import config from '../config/config';
 
 const { darkTheme } = require('../config/theme/themeVariables');
@@ -24,6 +25,7 @@ const ThemeLayout = WrappedComponent => {
         collapsed: false,
         hide: true,
         searchHide: true,
+        customizerAction: false,
       };
       this.updateDimensions = this.updateDimensions.bind(this);
     }
@@ -44,8 +46,8 @@ const ThemeLayout = WrappedComponent => {
     }
 
     render() {
-      const { collapsed, hide, searchHide } = this.state;
-      const { ChangeLayoutMode, rtl } = this.props;
+      const { collapsed, hide, searchHide, customizerAction } = this.state;
+      const { ChangeLayoutMode, rtl, changeRtl } = this.props;
       const left = !rtl ? 'left' : 'right';
       const darkMode = ChangeLayoutMode;
       const toggleCollapsed = () => {
@@ -66,6 +68,12 @@ const ThemeLayout = WrappedComponent => {
         this.setState({
           hide: !hide,
           searchHide: true,
+        });
+      };
+
+      const showCustomizer = () => {
+        this.setState({
+          customizerAction: !customizerAction,
         });
       };
 
@@ -135,6 +143,24 @@ const ThemeLayout = WrappedComponent => {
           backgroundColor: ChangeLayoutMode ? '#ffffff16' : '#F1F2F6',
         };
         return <div style={{ ...style, ...thumbStyle }} props={props} />;
+      };
+
+      const onRtlChange = () => {
+        const html = document.querySelector('html');
+        html.setAttribute('dir', 'rtl');
+        changeRtl(true);
+        this.setState({
+          customizerAction: false,
+        });
+      };
+
+      const onLtrChange = () => {
+        const html = document.querySelector('html');
+        html.setAttribute('dir', 'ltr');
+        changeRtl(false);
+        this.setState({
+          customizerAction: false,
+        });
       };
 
       return (
@@ -236,6 +262,66 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
+          <Link
+            className={`${customizerAction ? 'customizer-trigger show' : 'customizer-trigger'}`}
+            onClick={() => {
+              showCustomizer();
+            }}
+          >
+            <FeatherIcon icon="settings" />
+          </Link>
+          <div className={`${customizerAction ? 'customizer-wrapper show' : 'customizer-wrapper'}`}>
+            <div className="customizer">
+              <div className="customizer__head">
+                <h4 className="customizer__title">CUSTOMIZER</h4>
+                <span className="customizer__sub-title">Customize & Preview Real Time</span>
+                <Link
+                  className="customizer-close"
+                  onClick={() => {
+                    showCustomizer();
+                  }}
+                >
+                  <FeatherIcon icon="x" />
+                </Link>
+              </div>
+              <div className="customizer__body">
+                <div className="customizer__single">
+                  <h4>Sidebar Type</h4>
+                  <ul className="customizer-list d-flex">
+                    <li className="customizer-list__item">
+                      <Link to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>Light Sidebar</span>
+                      </Link>
+                    </li>
+                    <li className="customizer-list__item">
+                      <Link to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> Dark Sidebar</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="customizer__single">
+                  <h4>Layout Type</h4>
+                  <ul className="customizer-list d-flex">
+                    <li className="customizer-list__item">
+                      <Link onClick={onLtrChange} to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>LTR</span>
+                      </Link>
+                    </li>
+                    <li className="customizer-list__item">
+                      <Link onClick={onRtlChange} to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> RTL</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </Div>
       );
     }
@@ -248,6 +334,12 @@ const ThemeLayout = WrappedComponent => {
     };
   };
 
-  return connect(mapStateToProps)(LayoutComponent);
+  const mapStateToDispatch = dispatch => {
+    return {
+      changeRtl: rtl => dispatch(changeRtlMode(rtl)),
+    };
+  };
+
+  return connect(mapStateToProps, mapStateToDispatch)(LayoutComponent);
 };
 export default ThemeLayout;

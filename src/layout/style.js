@@ -20,6 +20,107 @@ const Div = Styled.div`
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
     }
+    .customizer-trigger{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')};
+        background-color: #5F63F2;
+        position: fixed;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all .3s ease;
+        z-index: 99999999999;
+        box-shadow: 0 10px 15px rgba(#5F63F2,.20);
+        &.show{
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 295px;
+        }
+        svg,
+        img{
+            width: 20px;
+            color: #fff;
+        }
+    }
+    .customizer-wrapper{
+        position: fixed;
+        top: 64px;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+        width: 300px;
+        transform: translateX(${({ theme }) => (theme.rtl ? '-300px' : '300px')});
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #fff;
+        box-shadow: 0 0 30px #9299B810;
+        z-index: 99999999999;
+        transition: all .3s ease;
+        &.show{
+            transform: translateX(0);
+        }
+    }
+    .customizer{
+        height: 100%;
+        .customizer__head{
+            position: relative
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            .customizer-close{
+                position: absolute;
+                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px;
+                top: 15px;
+                svg,
+                i{
+                    color: #FF4D4F;
+                }
+            }
+            .customizer__title{
+                font-weight: 600;
+                color: #272B41;
+                font-size: 16px;
+                margin-bottom: 2px;
+            }
+        }
+        .customizer__body{
+            padding: 20px;
+        }
+        .customizer__single{
+            &:not(:last-child){
+                margin-bottom: 30px;
+            }
+            h4{
+                font-weight: 600;
+                font-size: 16px;
+                margin-bottom: 20px;
+                color: #272B41;
+            }
+        }
+    }
+    .customizer-list{
+        margin: -10px;
+        .customizer-list__item{
+            position: relative;
+            display: inline-block;
+            min-height: 60px;
+            background-size: cover;
+            margin: 10px;
+            &:hover{
+                span{
+                    color: #5F63F2;
+                }
+            }
+            img{
+                width: 100%;
+                box-shadow: 0 15px 20px #ADB4D240;
+            }
+            span{
+                display: inline-block;
+                margin-top: 15px;
+                color: #272B41;
+            }
+        }
+    }
     .striking-logo{
         @media only screen and (max-width: 875px){
             ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
