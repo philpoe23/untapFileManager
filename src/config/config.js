@@ -2,7 +2,7 @@ import { theme, darkTheme } from './theme/themeVariables';
 
 const config = {
   darkMode: false,
-  rtl: false,
+  rtl: true,
   theme,
   darkTheme,
 };

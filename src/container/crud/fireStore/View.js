@@ -131,7 +131,7 @@ const ViewPage = () => {
         subTitle={
           <div>
             <Button className="btn-add_new" size="default" key="1" type="primary">
-              <Link to="/admin/firestore/add">
+              <Link to="/admin/firestore/fbAdd">
                 <FeatherIcon icon="plus" size={14} /> Add New
               </Link>
             </Button>

@@ -16,14 +16,14 @@ const PricingCard = Styled.div`
       font-size: 16px;
       font-weight: 600;
       top: -12px;
-      margin-right: 2px;
+      ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 2px;
       color: ${({ theme }) => theme['extra-light-color']};
     }
     .pricing-validity{
       font-size: 13px;
       font-weight: 400;
       bottom: 0;
-      left: -2px;
+      ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -2px;
       color: ${({ theme }) => theme['light-color']};
     }
   }
@@ -61,7 +61,7 @@ const ListGroup = Styled.div`
     }
     .icon{
       display: inline-block;
-      margin: 0px 10px -4px 0;
+      margin: ${({ theme }) => (theme.rtl ? '0px 0 -4px 10px' : '0px 10px -4px 0')};
     }
   }
 `;
@@ -105,7 +105,7 @@ const GalleryNav = Styled.nav`
         }
         &:after{
           position: absolute;
-          left: 0;
+          ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
           bottom: 0;
           width: 100%;
           height: 2px;
@@ -152,7 +152,7 @@ const GalleryCard = Styled.nav`
 const UsercardWrapper = Styled.nav`
   .user-card-pagination{
     margin: 15px 0 40px 0;
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     @media only screen and (max-width: 991px){
       text-align: center;
     }
@@ -195,7 +195,7 @@ const UserTableStyleWrapper = Styled.nav`
   }
   .ant-table-pagination.ant-pagination{
     width: 100%;
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
     margin-top: 0 !important;
     padding-top: 30px;
@@ -227,8 +227,8 @@ const UserCard = Styled.div`
     }
     .card__more_actions{
       position: absolute;
-      right: 28px;
-      top 20px;
+      ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 28px;
+      top: 20px;
       color: ${({ theme }) => theme['extra-light-color']};
     }
     .card__name{
@@ -259,7 +259,7 @@ const UserCard = Styled.div`
         box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}15;
         background: #fff;
         &:not(:last-child){
-          margin-right: 10px;
+          ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         }
         &.facebook span.fa{
           color: #3B5998;
@@ -356,7 +356,7 @@ const FaqCategoryBox = Styled.div`
         display: inline-block;
         font-weight: 500;
         position: relative;
-        padding: 12px 0 12px 20px;
+        padding: ${({ theme }) => (!theme.rtl ? '12px 0 12px 20px' : '12px 20px 12px 0')};
         transition: all .3s ease;
         color: ${({ theme }) => theme['gray-color']};
         &.active{
@@ -364,10 +364,10 @@ const FaqCategoryBox = Styled.div`
           &:before{
             opacity: 1;
             visibility: visible;
-            left: -15px;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -15px;
           }
           &:after{
-            left: 5px;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 5px;
           }
           &.primary{
             &:after{
@@ -402,7 +402,7 @@ const FaqCategoryBox = Styled.div`
         }
         &:before{
           position: absolute;
-          left: -25px;
+          ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -25px;
           top: 0;
           height: 100%;
           width: 2px;
@@ -415,7 +415,7 @@ const FaqCategoryBox = Styled.div`
         }
         &:after{
           position: absolute;
-          left: 0;
+          ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
           top: 50%;
           transform: translatey(-50%);
           width: 8px;
@@ -535,12 +535,12 @@ const FaqWrapper = Styled.div`
       background-color: #fff;
       padding: 18px 25px !important;
       border-radius: 5px !important;
-      @media only screen and (max-width: 575px){
-        padding: 15px 45px 15px 15px !important;
+      @media only screen and (max-width: 575px){        
+        padding: ${({ theme }) => (!theme.rtl ? '15px 45px 15px 15px' : '15px 15px 15px 45px')} !important;
       }
       .ant-collapse-arrow{
-        left: auto !important;
-        right: 25px !important;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: auto !important;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 25px !important;
         top: 22px !important;
         transform: translateY(0) !important;
       }
@@ -574,7 +574,7 @@ const FaqWrapper = Styled.div`
           height: 36px;
           padding: 0 15px;
           &:not(:last-child){
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
           }
         }
       }
@@ -614,7 +614,7 @@ const SearchResultWrapper = Styled.div`
         display: inline-block;
         margin-bottom: 10px;
         &:not(:last-child){
-          margin-right: 10px;
+          ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         }
         a{
           font-size: 13px;
@@ -623,7 +623,7 @@ const SearchResultWrapper = Styled.div`
           padding: 5px 15px;
           border-radius: 5px;
           color: ${({ theme }) => theme['light-color']};
-          box-shdaow: 0 3px 6px ${({ theme }) => theme['light-color']}05;
+          box-shadow: 0 3px 6px ${({ theme }) => theme['light-color']}05;
           background: #fff;
           &.active{
             color: #fff;
@@ -647,10 +647,10 @@ const ResultList = Styled.div`
     margin-bottom: 0;
     color: ${({ theme }) => theme['light-color']};
     .result-count{
-      margin-right: 5px;
+      ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
     }
     .result-keyword{
-      margin-left: 4px;
+      ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
     }
     .result-count,
     .result-keyword{
@@ -659,11 +659,11 @@ const ResultList = Styled.div`
     }
   }
   .result-limit{
-    text-align: right;
+    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
     margin-bottom: 0;
     color: ${({ theme }) => theme['light-color']};
     @media only screen and (max-width: 767px){
-      text-align: left;
+      text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
       margin-top: 10px;
     }
   }
@@ -773,7 +773,7 @@ const AddUser = Styled.div`
   .add-user-bottom{
     margin-top: 20px;
     button + button{
-      margin-left: 15px;
+      ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
     }
     .ant-btn-light{
       background: ${({ theme }) => theme['bg-color-light']};
@@ -781,7 +781,7 @@ const AddUser = Styled.div`
     }
     &.text-right{
       @media only screen and (max-width: 767px){
-        text-align: left !important;
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')} !important;
       }
     }
   }
@@ -795,9 +795,9 @@ const AddUser = Styled.div`
       li{
         margin: 4px 10px !important;
         &:not(:last-child){
-          margin-right: 26px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 26px;
           @media only screen and (max-width: 575px){
-            margin-right: 0;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
           }
         }
         a{
@@ -811,7 +811,7 @@ const AddUser = Styled.div`
           }
           &:after{
             position: absolute;
-            left: 0;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
             bottom: -4px;
             width: 100%;
             height: 2px;
@@ -842,14 +842,14 @@ const AddUser = Styled.div`
           i,
           span{
             color: ${({ theme }) => theme['light-color']};
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
           }
         }
       }
     }
   }
 
-  // Photo Upload
+  /* // Photo Upload */
   .photo-upload{
     position: relative;
     max-width: 260px;
@@ -862,7 +862,7 @@ const AddUser = Styled.div`
       width: 40px;
       border-radius: 50%;
       position: absolute;
-      left: 85px;
+      ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 85px;
       bottom: 5px;
       z-index: 10;
       background-color: ${({ theme }) => theme['white-color']};
@@ -921,7 +921,7 @@ const AddUser = Styled.div`
       .ant-input-prefix{
         width: 44px;
         height: 44px;
-        border-raduis: 4px;
+        border-radius: 4px;
       }
     }
     .ant-form-item-control-input{
@@ -934,13 +934,13 @@ const AddUser = Styled.div`
         }
         .ant-input{
           height: 42px;
-          padding-left: 0;
+          ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 0;
         }
       }
     }
     .ant-input-prefix{
       position: relative;
-      left: -11px;
+      ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -11px;
       span{
         display: flex;
         align-items: center;

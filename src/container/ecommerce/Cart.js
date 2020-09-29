@@ -18,10 +18,11 @@ const Checkout = lazy(() => import('./overview/CheckOut'));
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
-  const { cartData, isLoading } = useSelector(state => {
+  const { cartData, isLoading, rtl } = useSelector(state => {
     return {
       cartData: state.cart.data,
       isLoading: state.cart.loading,
+      rtl: state.ChangeLayoutMode.rtlData,
     };
   });
   const { path, isExact } = useRouteMatch();
@@ -314,7 +315,8 @@ const ShoppingCart = () => {
                             {isExact && (
                               <Button className="btn-proceed" type="secondary" size="large">
                                 <Link to={`${path}/checkout`}>
-                                  Proceed To Checkout <FeatherIcon icon="arrow-right" size={14} />
+                                  Proceed To Checkout
+                                  <FeatherIcon icon={!rtl ? 'arrow-right' : 'arrow-left'} size={14} />
                                 </Link>
                               </Button>
                             )}

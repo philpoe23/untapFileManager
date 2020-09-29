@@ -2,6 +2,7 @@ import React from 'react';
 import { Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { SearchOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 import { AutoCompleteStyled } from './style';
 
 const onSelect = () => {
@@ -26,6 +27,11 @@ const renderItem = (title, count) => {
 };
 
 const AutoComplete = props => {
+  const { rtl } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+    };
+  });
   const { customComponent, patterns, patternButtons, width, onSearch, dataSource, placeholder } = props;
 
   const content =
@@ -60,7 +66,7 @@ const AutoComplete = props => {
       <Input
         suffix={
           patternButtons ? (
-            <Button className="search-btn" style={{ marginRight: -20 }} type="primary">
+            <Button className="search-btn" style={{ [rtl ? 'marginLeft' : 'marginRight']: -20 }} type="primary">
               <SearchOutlined />
             </Button>
           ) : (

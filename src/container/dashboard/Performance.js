@@ -153,6 +153,7 @@ const Performance = () => {
     dvIsLoading,
     landingState,
     regionState,
+    rtl,
   } = useSelector(state => {
     return {
       performanceState: state.chartContent.performanceData,
@@ -163,6 +164,7 @@ const Performance = () => {
       deviceState: state.chartContent.deviceData,
       dvIsLoading: state.chartContent.dvLoading,
       lpIsLoading: state.chartContent.lpLoading,
+      rtl: state.ChangeLayoutMode.rtlData,
     };
   });
 
@@ -510,7 +512,7 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-up" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                    <span className="overview-box-percentage" style={{ float: !rtl ? 'right' : 'left' }}>
                       70%
                     </span>
                   </p>
@@ -537,7 +539,7 @@ const Performance = () => {
                       <FeatherIcon icon="arrow-down" size={14} />
                       25% <span>Since yesterday</span>
                     </span>
-                    <span className="overview-box-percentage" style={{ float: 'right' }}>
+                    <span className="overview-box-percentage" style={{ float: !rtl ? 'right' : 'left' }}>
                       70%
                     </span>
                   </p>

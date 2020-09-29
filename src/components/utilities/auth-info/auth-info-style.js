@@ -4,7 +4,7 @@ const InfoWraper = Styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 16px 0;
+    padding: 16px 0;        
     .head-example{
         text-decoration: none;
         color: ${({ theme }) => theme['text-color-secondary']};
@@ -141,7 +141,11 @@ const SettingDropdwon = Styled.div`
                 color: ${({ theme }) => theme['gray-solid']};
             }
             img{
-                margin-right: 16px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
+                transform: ${({ theme }) => (theme.rtl ? 'rotatey(180deg)' : 'rotatey(0deg)')};
+            }
+            figcaption{
+                text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
             }
         }
     }
@@ -150,6 +154,7 @@ const SettingDropdwon = Styled.div`
 const NestedDropdwon = Styled.div`
     .support-dropdwon{
         padding: 10px 15px;
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
         ul{
             &:not(:last-child){
                 margin-bottom: 16px;
@@ -185,7 +190,7 @@ const UserDropDwon = Styled.div`
             margin-bottom: 12px;
             background: ${({ theme }) => theme['bg-color-normal']};
             img{
-                margin-right: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
             }
             figcaption{
                 h1{
@@ -214,11 +219,12 @@ const UserDropDwon = Styled.div`
                 &:hover{
                     background: ${({ theme }) => theme['primary-color']}05;
                     color: ${({ theme }) => theme['primary-color']};
-                    padding-left: 22px;
+                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 22px;
                 }
                 svg{
                     width: 16px;
-                    margin-right: 14px;
+                    transform: ${({ theme }) => (theme.rtl ? 'rotateY(180deg)' : 'rotateY(0deg)')};
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 14px;
                 }
             }
         }
@@ -242,10 +248,77 @@ const UserDropDwon = Styled.div`
             svg{
                 width: 15px;
                 height: 15px;
-                margin-right: 8px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
             }
         }
     }
 `;
 
-export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon };
+const AtbdTopDropdwon = Styled.div`
+    .atbd-top-dropdwon__title .title-text {        
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+    }
+    .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
+        min-width: 216px;
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+    }
+    .atbd-top-dropdwon__content .notification-icon {
+        width: 39.2px;
+        height: 32px;
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .atbd-top-dropdwon__content .notification-icon.bg-primary {
+        background: #5F63F215;
+        color: #5F63F2;
+    }
+    .atbd-top-dropdwon__content .notification-icon.bg-secondary {
+        background: #FF69A515;
+        color: #FF69A5;
+    }
+    .atbd-top-dropdwon__content .notification-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    .atbd-top-dropdwon__content .notification-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }  
+
+    .atbd-top-dropdwon__content figcaption span {
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
+    }
+
+    .notification-text h1 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #5A5F7D;
+        margin-bottom: 4px;
+    }
+
+    .notification-text h1 span {
+        color: #5F63F2;
+        font-weight: 500;
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
+    }
+
+    .notification-text p {
+        font-size: 12px;
+        color: #ADB4D2;
+        margin-bottom: 0;
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
+    }
+`;
+
+const NavAuth = Styled.span`
+    i, svg, img {
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+    }
+`;
+
+export { InfoWraper, SettingDropdwon, NestedDropdwon, UserDropDwon, AtbdTopDropdwon, NavAuth };

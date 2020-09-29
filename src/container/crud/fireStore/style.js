@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const RecordViewWrapper = Styled.div`
     .btn-add_new{
-        margin-left: 10px;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
         a{
             display: flex;
             align-items: center;
@@ -18,7 +18,7 @@ const RecordViewWrapper = Styled.div`
         box-shadow: 0 5px 5px rgba(#9299B8,.3);
         .search-icon{
             position: absolute;
-            left: 18px;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 18px;
             top: 50%;
             transform: translateY(-50%);
             svg,
@@ -32,7 +32,7 @@ const RecordViewWrapper = Styled.div`
             border: 0 none;
             height: 40px;
             min-width: 280px;
-            padding: 0 20px 0 45px;
+            padding: ${({ theme }) => (theme.rtl ? '0 45px 0 20px' : '0 20px 0 45px')};
             border-radius: 6px;
             &::placeholder{
                 color: #ADB4D2;
@@ -51,7 +51,7 @@ const RecordFormWrapper = Styled.div`
         .ant-spin.ant-spin-spinning{
             position: absolute;
             top: 0;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             width: 120px;
             height: 120px;
             background: #ffffff90;
@@ -62,7 +62,7 @@ const RecordFormWrapper = Styled.div`
             z-index: 10;
             &:after{
                 position: absolute;
-                left: 0;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
@@ -88,7 +88,7 @@ const RecordFormWrapper = Styled.div`
         }
         .ant-upload-select{
             position: absolute;
-            left: 80px;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 80px;
             bottom: -5px;
             height: 40px;
             width: 40px;
@@ -115,7 +115,7 @@ const RecordFormWrapper = Styled.div`
             color: #fff;
         }
         .info{
-            margin-left: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
             h1{
                 font-size: 15px;
                 font-weight: 500;
@@ -133,11 +133,11 @@ const RecordFormWrapper = Styled.div`
                 >span{
                     display: flex;
                     align-items: center;
-                    padding-left: 14px;
-                    padding-right: 10px;
+                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 14px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 10px;
                 }
                 .ant-upload-list-item-card-actions {
-                    // top: -8px;
+                    /* // top: -8px; */
                 }
             }
         }

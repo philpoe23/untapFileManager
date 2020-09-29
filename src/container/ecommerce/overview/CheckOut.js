@@ -15,10 +15,11 @@ import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../redux/cart
 const { Option } = Select;
 const CheckOut = ({ onCurrentChange }) => {
   const dispatch = useDispatch();
-  const { cartData } = useSelector(state => {
+  const { cartData, rtl } = useSelector(state => {
     return {
       cartData: state.cart.data,
       isLoading: state.cart.loading,
+      rtl: state.ChangeLayoutMode.rtlData,
     };
   });
   const [form] = Form.useForm();
@@ -450,7 +451,7 @@ const CheckOut = ({ onCurrentChange }) => {
                             </ProductTable>
 
                             <Row justify="end">
-                              <Col xxl={8} xl={5} md={9} sm={14} xs={24} offset={10}>
+                              <Col xxl={8} xl={5} md={9} sm={14} xs={24} offset={!rtl ? 10 : 0}>
                                 <OrderSummary>
                                   <div className="invoice-summary-inner">
                                     <ul className="summary-list">

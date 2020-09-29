@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Progress, Button, Tooltip } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { useSelector } from 'react-redux';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
@@ -12,6 +13,7 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const ButtonGroup = Button.Group;
 
 const ProgressBar = () => {
+  const rtl = useSelector(state => state.ChangeLayoutMode.rtlData);
   const [state, setState] = useState({
     percent: 0,
   });
@@ -60,8 +62,19 @@ const ProgressBar = () => {
               <Progress percent={50} showInfo={false} />
             </Cards>
             <Cards title="Mini size Circular progress bar" caption="The simplest use of Progress bar">
-              <Progress type="circle" percent={30} width={80} style={{ marginRight: '15px' }} />
-              <Progress type="circle" percent={70} width={80} status="exception" style={{ marginRight: '15px' }} />
+              <Progress
+                type="circle"
+                percent={30}
+                width={80}
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+              />
+              <Progress
+                type="circle"
+                percent={70}
+                width={80}
+                status="exception"
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+              />
               <Progress type="circle" percent={100} width={80} />
             </Cards>
             <Cards title="Dashboard" caption="The simplest use of Progress bar">
@@ -69,7 +82,12 @@ const ProgressBar = () => {
             </Cards>
             <Cards title="Square linecaps" caption="The simplest use of Progress bar">
               <Progress strokeLinecap="square" percent={75} style={{ marginBottom: '15px' }} />
-              <Progress strokeLinecap="square" type="circle" percent={75} style={{ marginRight: '15px' }} />
+              <Progress
+                strokeLinecap="square"
+                type="circle"
+                percent={75}
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+              />
               <Progress strokeLinecap="square" type="dashboard" percent={75} />
             </Cards>
             <Cards title="Dynamic circle" caption="The simplest use of Progress bar">
@@ -84,7 +102,12 @@ const ProgressBar = () => {
                 <Progress percent={60} successPercent={30} style={{ marginBottom: '15px' }} />
               </Tooltip>
               <Tooltip title="3 done / 3 in progress / 4 to do">
-                <Progress percent={60} successPercent={30} type="circle" style={{ marginRight: '15px' }} />
+                <Progress
+                  percent={60}
+                  successPercent={30}
+                  type="circle"
+                  style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+                />
               </Tooltip>
               <Tooltip title="3 done / 3 in progress / 4 to do">
                 <Progress percent={60} successPercent={30} type="dashboard" />
@@ -93,8 +116,13 @@ const ProgressBar = () => {
           </Col>
           <Col lg={12} md={12} xs={24}>
             <Cards title="Circular progress bar" caption="The simplest use of Progress bar">
-              <Progress type="circle" percent={75} style={{ marginRight: '15px' }} />
-              <Progress type="circle" percent={70} status="exception" style={{ marginRight: '15px' }} />
+              <Progress type="circle" percent={75} style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }} />
+              <Progress
+                type="circle"
+                percent={70}
+                status="exception"
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+              />
               <Progress type="circle" percent={100} />
             </Cards>
             <Cards title="Mini size progress bar" caption="The simplest use of Progress bar">
@@ -104,7 +132,12 @@ const ProgressBar = () => {
             </Cards>
             <Cards title="Square linecaps" caption="The simplest use of Progress bar">
               <Progress strokeLinecap="square" percent={75} style={{ marginBottom: '15px' }} />
-              <Progress strokeLinecap="square" type="circle" percent={75} style={{ marginRight: '15px' }} />
+              <Progress
+                strokeLinecap="square"
+                type="circle"
+                percent={75}
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
+              />
               <Progress strokeLinecap="square" type="dashboard" percent={75} />
             </Cards>
             <Cards title="Dynamic" caption="The simplest use of Progress bar">
@@ -119,7 +152,7 @@ const ProgressBar = () => {
                 type="circle"
                 percent={75}
                 format={percent => `${percent} Days`}
-                style={{ marginRight: '15px' }}
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
               />
               <Progress type="circle" percent={100} format={() => 'Done'} />
             </Cards>
@@ -148,7 +181,7 @@ const ProgressBar = () => {
                   '100%': '#20C997',
                 }}
                 percent={90}
-                style={{ marginRight: '15px' }}
+                style={{ [!rtl ? 'marginRight' : 'marginLeft']: '15px' }}
               />
               <Progress
                 type="circle"
