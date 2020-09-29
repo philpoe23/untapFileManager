@@ -9,7 +9,7 @@ const RecordViewWrapper = Styled.div`
             svg,
             img,
             i{
-                margin-right: 6px;
+                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
             }
         }
     }

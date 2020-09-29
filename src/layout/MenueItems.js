@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
 
 const { SubMenu } = Menu;
 
-const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
+const MenuItems = ({ darkMode, toggleCollapsed }) => {
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);

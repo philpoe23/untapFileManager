@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
@@ -5,12 +6,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 import { changeRtlMode, changeLayoutMode } from '../redux/themeLayout/actionCreator';
-// import config from '../config/config';
 
 const { darkTheme } = require('../config/theme/themeVariables');
 
@@ -342,6 +343,13 @@ const ThemeLayout = WrappedComponent => {
       changeRtl: rtl => dispatch(changeRtlMode(rtl)),
       changeLayout: show => dispatch(changeLayoutMode(show)),
     };
+  };
+
+  LayoutComponent.propTypes = {
+    ChangeLayoutMode: propTypes.bool,
+    rtl: propTypes.bool,
+    changeRtl: propTypes.func,
+    changeLayout: propTypes.func,
   };
 
   return connect(mapStateToProps, mapStateToDispatch)(LayoutComponent);
