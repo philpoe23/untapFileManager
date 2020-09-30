@@ -1091,6 +1091,8 @@ const TableWrapper = Styled.div`
             }
         }
     }
+
+    
 `;
 
 export {
