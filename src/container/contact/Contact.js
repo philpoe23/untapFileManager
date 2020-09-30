@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Table, Form, Input, Select } from 'antd';
+import { Row, Col, Table, Form, Input } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import { Action } from './style';
@@ -10,12 +10,10 @@ import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { UserTableStyleWrapper } from '../pages/style';
+import { AddUser, UserTableStyleWrapper } from '../pages/style';
 import { onStarUpdate, contactDeleteData, contactSearchData, contactAddData } from '../../redux/contact/actionCreator';
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { Modal } from '../../components/modals/antd-modals';
-
-const { Option } = Select;
 
 const UserListDataTable = () => {
   const dispatch = useDispatch();
@@ -31,6 +29,7 @@ const UserListDataTable = () => {
     selectedRows: 0,
     visible: false,
     modalType: 'primary',
+    url: null,
   });
 
   const handleSearch = searchText => {
@@ -70,6 +69,8 @@ const UserListDataTable = () => {
           ...values,
           id: max + 1,
           time: new Date().getTime(),
+          img: 'static/img/users/6.png',
+          live: false,
           stared: false,
         },
       ]),
@@ -83,60 +84,64 @@ const UserListDataTable = () => {
 
   const usersTableData = [];
 
-  users.map(user => {
-    const { id, name, designation, img, stared } = user;
+  users
+    .sort((a, b) => {
+      return b.time - a.time;
+    })
+    .map(user => {
+      const { id, name, designation, img, stared } = user;
 
-    return usersTableData.push({
-      key: id,
-      user: (
-        <div className="user-info">
-          <figure>
-            <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
-          </figure>
-          <figcaption>
-            <Heading className="user-name" as="h6">
-              {name}
-            </Heading>
-            <span className="user-designation">San Francisco, CA</span>
-          </figcaption>
-        </div>
-      ),
-      email: 'john@gmail.com',
-      company: 'Business Development',
-      position: designation,
-      phone: '+90014525',
-      action: (
-        <Action className="table-actions">
-          <Button
-            onClick={() => dispatch(onStarUpdate(users, id))}
-            className="btn-icon"
-            type="primary"
-            to="#"
-            shape="circle"
-          >
-            <FeatherIcon className={stared ? 'active' : 'deactivate'} icon="star" size={16} />
-          </Button>
-          <Dropdown
-            content={
-              <>
-                <Link to="#">
-                  <span>Edit</span>
-                </Link>
-                <Link onClick={() => onHandleDelete(id)} to="#">
-                  <span>Delete</span>
-                </Link>
-              </>
-            }
-            action="click"
-          >
-            <Button className="btn-icon" type="info" to="#" shape="circle">
-              <FeatherIcon icon="more-vertical" size={16} />
+      return usersTableData.push({
+        key: id,
+        user: (
+          <div className="user-info">
+            <figure>
+              <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
+            </figure>
+            <figcaption>
+              <Heading className="user-name" as="h6">
+                {name}
+              </Heading>
+              <span className="user-designation">San Francisco, CA</span>
+            </figcaption>
+          </div>
+        ),
+        email: 'john@gmail.com',
+        company: 'Business Development',
+        position: designation,
+        phone: '+90014525',
+        action: (
+          <Action className="table-actions">
+            <Button
+              onClick={() => dispatch(onStarUpdate(users, id))}
+              className="btn-icon"
+              type="primary"
+              to="#"
+              shape="circle"
+            >
+              <FeatherIcon className={stared ? 'active' : 'deactivate'} icon="star" size={16} />
             </Button>
-          </Dropdown>
-        </Action>
-      ),
+            <Dropdown
+              content={
+                <>
+                  <Link to="#">
+                    <span>Edit</span>
+                  </Link>
+                  <Link onClick={() => onHandleDelete(id)} to="#">
+                    <span>Delete</span>
+                  </Link>
+                </>
+              }
+              action="click"
+            >
+              <Button className="btn-icon" type="info" to="#" shape="circle">
+                <FeatherIcon icon="more-vertical" size={16} />
+              </Button>
+            </Dropdown>
+          </Action>
+        ),
+      });
     });
-  });
 
   const usersTableColumns = [
     {
@@ -230,36 +235,42 @@ const UserListDataTable = () => {
         </Row>
         <Modal type={state.modalType} title={null} visible={state.visible} footer={null} onCancel={handleCancel}>
           <div className="project-modal">
-            <BasicFormWrapper>
-              <Form form={form} name="createProject" onFinish={handleOk}>
-                <Form.Item
-                  rules={[{ required: true, message: 'Please input your note title!' }]}
-                  name="title"
-                  label="Title"
-                >
-                  <Input placeholder="Note Title" />
-                </Form.Item>
+            <AddUser>
+              <BasicFormWrapper>
+                <Form form={form} name="contact" onFinish={handleOk}>
+                  <Heading className="form-title" as="h4">
+                    Personal Information
+                  </Heading>
+                  <Form.Item label="Name" name="name">
+                    <Input placeholder="Input Name" />
+                  </Form.Item>
 
-                <Form.Item
-                  rules={[{ required: true, message: 'Please input your note description!' }]}
-                  name="description"
-                  label="Description"
-                >
-                  <Input.TextArea rows={4} placeholder="Note Description" />
-                </Form.Item>
-                <Form.Item name="label" initialValue="personal" label="Note Label">
-                  <Select style={{ width: '100%' }}>
-                    <Option value="personal">Personal</Option>
-                    <Option value="work">Work</Option>
-                    <Option value="social">Social</Option>
-                    <Option value="important">Important</Option>
-                  </Select>
-                </Form.Item>
-                <Button htmlType="submit" size="default" type="primary" key="submit">
-                  Add New Note
-                </Button>
-              </Form>
-            </BasicFormWrapper>
+                  <Form.Item
+                    label="Email Address"
+                    name="email"
+                    rules={[{ message: 'Please input your email!', type: 'email' }]}
+                  >
+                    <Input placeholder="name@example.com" />
+                  </Form.Item>
+
+                  <Form.Item name="phone" label="Phone Number">
+                    <Input placeholder="+440 2546 5236" />
+                  </Form.Item>
+
+                  <Form.Item name="position" label="Position">
+                    <Input placeholder="Input Position" />
+                  </Form.Item>
+
+                  <Form.Item name="company" label="Company Name">
+                    <Input placeholder="Company Name" />
+                  </Form.Item>
+
+                  <Button htmlType="submit" size="default" type="primary" key="submit">
+                    Add New Contact
+                  </Button>
+                </Form>
+              </BasicFormWrapper>
+            </AddUser>
           </div>
         </Modal>
       </Main>
