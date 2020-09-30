@@ -4,6 +4,7 @@ import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
+import PropTypes from 'prop-types';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -121,6 +122,11 @@ const UserListDataTable = () => {
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
+  };
+
+  DraggableBodyRow.propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
   };
 
   const DraggableContainer = props => (

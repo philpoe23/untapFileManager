@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Table, Input, Form } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
+import PropTypes from 'prop-types';
+import { Span } from './style';
 import { Main, TableWrapper } from '../styled';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -13,14 +15,21 @@ import { PageHeader } from '../../components/page-headers/page-headers';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { ToDoGetData } from '../../redux/todo/actionCreator';
+import { ToDoAddData, ToDoDeleteData, onStarUpdate } from '../../redux/todo/actionCreator';
 
 const DragHandle = sortableHandle(() => (
   <FeatherIcon size={16} style={{ cursor: 'pointer', color: '#999' }} icon="move" />
 ));
+
 const ToDo = () => {
   const todoData = useSelector(state => state.Todo.data);
   const dispatch = useDispatch();
+
+  const [state, setState] = useState({
+    inputData: '',
+    selectedRowKeys: [],
+  });
+  const { selectedRowKeys, inputData } = state;
 
   const columns = [
     {
@@ -33,52 +42,55 @@ const ToDo = () => {
       width: 120,
     },
   ];
+
+  const onHandleDelete = key => {
+    const data = todoData.filter(item => item.key !== key);
+    dispatch(ToDoDeleteData(data));
+  };
+
   const dataSource = [];
 
-  if (todoData !== null)
+  if (todoData !== null) {
     todoData.map((item, index) => {
       return dataSource.push({
         key: index + 1,
         index,
-        item: item.item,
+        item: <Span className={selectedRowKeys.includes(index) ? 'active' : 'inactive'}>{item.item}</Span>,
         action: (
           <div>
             <DragHandle />
-            <Link to="#">
+            <Link onClick={() => dispatch(onStarUpdate(todoData, item.key))} to="#">
               <FeatherIcon icon="star" style={{ color: item.favorite ? 'gold' : '#888' }} size={16} />
             </Link>
-            <Link to="#">
+            <Link onClick={() => onHandleDelete(item.key)} to="#">
               <FeatherIcon icon="trash-2" size={16} />
             </Link>
           </div>
         ),
       });
     });
+  }
+  const [form] = Form.useForm();
 
-  // rowSelection object indicates the need for row selection
+  const onSelectChange = selectedRowKey => {
+    setState({ ...state, selectedRowKeys: selectedRowKey });
+  };
+
   const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-    },
+    onChange: onSelectChange,
     getCheckboxProps: record => ({
       disabled: record.name === 'Disabled User', // Column configuration not to be checked
       name: record.name,
     }),
   };
 
-  useEffect(() => {
-    if (ToDoGetData) {
-      dispatch(ToDoGetData());
-    }
-  }, [dispatch]);
-
   const SortableItem = sortableElement(props => <tr {...props} />);
   const SortableContainer = sortableContainer(props => <tbody {...props} />);
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
-      // setState({ ...state, dataSource: newData });
+      const newData = arrayMove([].concat(todoData), oldIndex, newIndex).filter(el => !!el);
+      return dispatch(ToDoAddData(newData));
     }
   };
 
@@ -88,9 +100,44 @@ const ToDo = () => {
     return <SortableItem index={index} {...restProps} />;
   };
 
+  DraggableBodyRow.propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
+  };
+
   const DraggableContainer = props => (
     <SortableContainer useDragHandle helperClass="row-dragging" onSortEnd={onSortEnd} {...props} />
   );
+
+  const onInputChange = e => {
+    setState({
+      ...state,
+      inputData: e.target.value,
+    });
+  };
+
+  const onSubmitHandler = () => {
+    const arrayData = [];
+    todoData.map(data => {
+      return arrayData.push(data.key);
+    });
+    const max = Math.max(...arrayData);
+    dispatch(
+      ToDoAddData([
+        ...todoData,
+        {
+          key: max + 1,
+          item: inputData,
+          time: new Date().getTime(),
+          favorite: false,
+        },
+      ]),
+    );
+    setState({
+      ...state,
+      inputData: '',
+    });
+  };
 
   return (
     <>
@@ -132,21 +179,22 @@ const ToDo = () => {
                   }}
                 />
               </TableWrapper>
+
               <br />
-              <Form>
-                <Input placeholder="Input Item Name......." />
+              <Form name="todoAdd" form={form} onFinish={onSubmitHandler}>
+                <Input value={inputData} onChange={onInputChange} placeholder="Input Item Name......." />
                 <br />
                 <br />
 
-                <Button type="primary" size="large">
+                <Button htmlType="submit" type="primary" size="large">
                   + Add New Task
                 </Button>
               </Form>
             </Cards>
           </Col>
-          <Col md={12}>
+          {/* <Col md={12}>
             <Cards title="Task Lists" />
-          </Col>
+          </Col> */}
         </Row>
       </Main>
     </>

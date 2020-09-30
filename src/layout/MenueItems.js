@@ -65,6 +65,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         </NavLink>
       </Menu.Item>
 
+      <Menu.Item icon={<FeatherIcon icon="activity" />} key="to-do">
+        <NavLink onClick={toggleCollapsed} to={`${path}/main/to-do/`}>
+          To Do
+        </NavLink>
+      </Menu.Item>
+
       <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
         <Menu.Item key="products">
           <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products`}>
