@@ -18,6 +18,7 @@ const Inbox = lazy(() => import('../../container/email/Email'));
 const Chat = lazy(() => import('../../container/chat/ChatApp'));
 const Settings = lazy(() => import('../../container/profile/settings/Settings'));
 const ToDo = lazy(() => import('../../container/toDo/ToDo'));
+const Note = lazy(() => import('../../container/note/Note'));
 
 const Admin = () => {
   const { path } = useRouteMatch();
@@ -47,7 +48,8 @@ const Admin = () => {
         <Route path={`${path}/email/:page`} component={Inbox} />
         <Route path={`${path}/main/chat`} component={Chat} />
         <Route path={`${path}/profile/settings`} component={Settings} />
-        <Route path={`${path}/main/to-do`} component={ToDo} />
+        <Route path={`${path}/app/to-do`} component={ToDo} />
+        <Route path={`${path}/app/note`} component={Note} />
       </Suspense>
     </Switch>
   );

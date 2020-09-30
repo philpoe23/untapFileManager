@@ -17,6 +17,7 @@ import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReduce
 import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
 import Todo from './todo/reducers';
+import Note from './note/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -43,6 +44,7 @@ const rootReducers = combineReducers({
   chartContent: chartContentReducer,
   cart: cartData,
   Todo,
+  Note,
 });
 
 export default rootReducers;

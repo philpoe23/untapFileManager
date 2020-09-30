@@ -66,8 +66,14 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
       </Menu.Item>
 
       <Menu.Item icon={<FeatherIcon icon="activity" />} key="to-do">
-        <NavLink onClick={toggleCollapsed} to={`${path}/main/to-do/`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do/`}>
           To Do
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item icon={<FeatherIcon icon="bookmark" />} key="note">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/`}>
+          Note
         </NavLink>
       </Menu.Item>
 
