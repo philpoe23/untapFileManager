@@ -18,6 +18,7 @@ import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
 import Todo from './todo/reducers';
 import Note from './note/reducers';
+import Contact from './contact/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -45,6 +46,7 @@ const rootReducers = combineReducers({
   cart: cartData,
   Todo,
   Note,
+  Contact,
 });
 
 export default rootReducers;

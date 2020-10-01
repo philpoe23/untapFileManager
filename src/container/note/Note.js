@@ -63,6 +63,7 @@ const Note = () => {
         },
       ]),
     );
+    form.resetFields();
   };
 
   const handleCancel = () => {
