@@ -46,72 +46,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
-        <Menu.Item key="inbox">
-          <NavLink onClick={toggleCollapsed} to={`${path}/email/inbox`}>
-            Inbox
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="single">
-          <NavLink onClick={toggleCollapsed} to={`${path}/email/single/1585118055048`}>
-            Read Email
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
-
-      <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
-        <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
-          Chat
-        </NavLink>
-      </Menu.Item>
-
-      <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
-        <Menu.Item key="products">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products`}>
-            Products
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="productDetails">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/productDetails/1`}>
-            Product detail
-          </NavLink>
-        </Menu.Item>
-
-        <Menu.Item key="add-product">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/add-product`}>
-            Product Add
-          </NavLink>
-        </Menu.Item>
-
-        <Menu.Item key="edit-product">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/edit-product`}>
-            Product Edit
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="cart">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/cart`}>
-            Cart
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="orders">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/orders`}>
-            Orders
-          </NavLink>
-        </Menu.Item>
-        {/* <Menu.Item key="15">Credit Card</Menu.Item> */}
-        <Menu.Item key="sellers">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/sellers`}>
-            Sellers
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="Invoice">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/Invoice`}>
-            Invoices
-          </NavLink>
-        </Menu.Item>
-        {/* <Menu.Item key="18">Transactions</Menu.Item> */}
-      </SubMenu>
-
       <SubMenu key="project" icon={<FeatherIcon icon="target" />} title="Project">
         <Menu.Item key="view">
           <NavLink onClick={toggleCollapsed} to={`${path}/project/view`}>
@@ -137,7 +71,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-
       <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">
         <Menu.Item key="team">
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/team`}>
@@ -190,6 +123,89 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
+
+      <p className="sidebar-nav-title">Applications</p>
+      <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
+        <Menu.Item key="inbox">
+          <NavLink onClick={toggleCollapsed} to={`${path}/email/inbox`}>
+            Inbox
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="single">
+          <NavLink onClick={toggleCollapsed} to={`${path}/email/single/1585118055048`}>
+            Read Email
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+      <SubMenu key="ecommerce" icon={<FeatherIcon icon="shopping-cart" />} title="eCommerce">
+        <Menu.Item key="products">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products`}>
+            Products
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="productDetails">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/productDetails/1`}>
+            Product detail
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="add-product">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/add-product`}>
+            Product Add
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="edit-product">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/edit-product`}>
+            Product Edit
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="cart">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/cart`}>
+            Cart
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="orders">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/orders`}>
+            Orders
+          </NavLink>
+        </Menu.Item>
+        {/* <Menu.Item key="15">Credit Card</Menu.Item> */}
+        <Menu.Item key="sellers">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/sellers`}>
+            Sellers
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="Invoice">
+          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/Invoice`}>
+            Invoices
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+
+      <Menu.Item icon={<FeatherIcon icon="message-square" />} key="chat">
+        <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
+          Chat
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item icon={<FeatherIcon icon="activity" />} key="to-do">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do/`}>
+          To Do
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item icon={<FeatherIcon icon="bookmark" />} key="note">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
+          Note
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={<FeatherIcon icon="user-check" />} key="contact">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/contact`}>
+          Contact
+        </NavLink>
+      </Menu.Item>
+
       <p className="sidebar-nav-title">Components</p>
 
       <SubMenu key="components" icon={<FeatherIcon icon="layers" />} title="UI Elements">
@@ -267,6 +283,9 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
           <NavLink onClick={toggleCollapsed} to={`${path}/components/date-picker`}>
             DatePicker
           </NavLink>
+        </Menu.Item>
+        <Menu.Item key="drag">
+          <NavLink to="/admin/components/drag">Drag & Drop</NavLink>
         </Menu.Item>
         <Menu.Item key="drawer">
           <NavLink onClick={toggleCollapsed} to={`${path}/components/drawer`}>
