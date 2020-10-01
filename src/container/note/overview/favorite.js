@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col } from 'antd';
+import { NoteCardWrap } from '../style';
 import NoteCard from '../../../components/note/Card';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 
@@ -12,17 +13,19 @@ const Favorite = () => {
   });
   return (
     <Cards title="Favorite">
-      <Row gutter={15}>
-        {noteData
-          .filter(item => item.stared)
-          .map(item => {
-            return (
-              <Col md={8} key={item.key}>
-                <NoteCard data={item} />
-              </Col>
-            );
-          })}
-      </Row>
+      <NoteCardWrap>
+        <Row gutter={15}>
+          {noteData
+            .filter(item => item.stared)
+            .map(item => {
+              return (
+                <Col md={8} key={item.key}>
+                  <NoteCard data={item} />
+                </Col>
+              );
+            })}
+        </Row>
+      </NoteCardWrap>
     </Cards>
   );
 };

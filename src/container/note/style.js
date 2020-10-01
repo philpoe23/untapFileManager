@@ -202,7 +202,7 @@ const Style = Styled(Table)`
   
 `;
 
-const EmailNav = Styled.nav`
+const NoteNav = Styled.nav`
   ul{
     list-style: none;
     margin: 20px 0;
@@ -231,7 +231,7 @@ const EmailNav = Styled.nav`
         }
       }
       a{
-        padding: 8px 15px;
+        padding: 8px 20px;
         display: flex;
         align-items: center;
         transition: 0.3s ease;
@@ -239,7 +239,7 @@ const EmailNav = Styled.nav`
         color: ${({ theme }) => theme['gray-color']};
         svg{
           min-width: 18px;
-          ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
+          ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 14px;
           color: ${({ theme }) => theme['extra-light-color']};
         }
         &.active{
@@ -321,6 +321,11 @@ const EmailNav = Styled.nav`
       padding: 0 15px;
       color: #9299b8;
       text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
+      img,
+      svg,
+      i{
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+      }
     }
     ul{
       margin-top: 6px;
@@ -369,7 +374,19 @@ const MailRightAction = Styled.div`
   }
 `;
 
-const EmailWrapper = Styled.div`
+const NoteCardWrap = Styled.div`
+  min-height: 600px;
+`;
+
+const NoteWrapper = Styled.div`
+  .sidebar-card{
+    .ant-card{
+      min-height: 710px;
+      .ant-card-body{
+        padding: 25px 0 !important;
+      }
+    }
+  }
   position: relative;
   .trigger-close.ant-btn-link{
     margin: 0 !important;
@@ -394,7 +411,7 @@ const EmailWrapper = Styled.div`
       color: ${({ theme }) => theme['primary-color']} !important;
     }
   }
-  .mail-sideabr{
+  .note-sideabr{
     &.hide{
       transform: translateX(${({ theme }) => (theme.rtl ? '100%' : '-100%')});
       transition: .35s ease-in;
@@ -421,14 +438,17 @@ const EmailWrapper = Styled.div`
     }
   }
 
-  .mail-sidebar-top{
+  .note-sidebar-top{
     padding: 30px 30px 0;
     @media only screen and (max-width: 991px){
       padding: 60px 30px 0;
     }
+    .ant-btn{
+      height: 44px;
+    }
   }
 
-  .mail-sidebar-bottom{
+  .note-sidebar-bottom{
     padding: 0 15px 25px 15px;
   }
 
@@ -459,4 +479,4 @@ const Bullet = Styled.span`
     }
 `;
 
-export { Span, Style, EmailNav, MessageAction, MailRightAction, EmailWrapper, Bullet };
+export { Span, Style, NoteNav, MessageAction, MailRightAction, NoteWrapper, Bullet, NoteCardWrap };
