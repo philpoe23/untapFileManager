@@ -72,7 +72,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
       </Menu.Item>
 
       <Menu.Item icon={<FeatherIcon icon="bookmark" />} key="note">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
           Note
         </NavLink>
       </Menu.Item>

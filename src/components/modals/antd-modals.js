@@ -15,14 +15,16 @@ const Modal = props => {
       type={color ? type : false}
       width={width}
       footer={
-        footer || [
-          <Button type="secondary" key="back" onClick={onCancel}>
-            Cancel
-          </Button>,
-          <Button type={type} key="submit" onClick={onOk}>
-            Save Change
-          </Button>,
-        ]
+        footer || footer === null
+          ? footer
+          : [
+              <Button type="secondary" key="back" onClick={onCancel}>
+                Cancel
+              </Button>,
+              <Button type={type} key="submit" onClick={onOk}>
+                Save Change
+              </Button>,
+            ]
       }
     >
       {children}

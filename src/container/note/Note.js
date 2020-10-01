@@ -1,20 +1,21 @@
-import React from 'react';
-import { Row, Col } from 'antd';
+import React, { useState, lazy, Suspense } from 'react';
+import { Row, Col, Form, Input, Select, Spin } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch, Switch, Route, NavLink } from 'react-router-dom';
 import { EmailNav, EmailWrapper, Bullet } from './style';
-import { Main } from '../styled';
+import { BasicFormWrapper, Main } from '../styled';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
-
+import { Modal } from '../../components/modals/antd-modals';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import NoteCard from '../../components/note/Card';
-import { onLabelFilter } from '../../redux/note/actionCreator';
 
+import { noteAddData } from '../../redux/note/actionCreator';
+
+const { Option } = Select;
 const Note = () => {
   const { noteData } = useSelector(state => {
     return {
@@ -22,10 +23,58 @@ const Note = () => {
     };
   });
   const dispatch = useDispatch();
+  const [form] = Form.useForm();
+  const { path } = useRouteMatch();
+  const [state, setState] = useState({
+    visible: false,
+    modalType: 'primary',
+    checked: [],
+  });
 
-  const onFilterData = label => {
-    dispatch(onLabelFilter(label));
+  const showModal = () => {
+    setState({
+      ...state,
+      visible: true,
+    });
   };
+
+  const onCancel = () => {
+    setState({
+      ...state,
+      visible: false,
+    });
+  };
+
+  const handleOk = values => {
+    onCancel();
+    const arrayData = [];
+    noteData.map(data => {
+      return arrayData.push(data.key);
+    });
+    const max = Math.max(...arrayData);
+    dispatch(
+      noteAddData([
+        ...noteData,
+        {
+          ...values,
+          key: max + 1,
+          time: new Date().getTime(),
+          stared: false,
+        },
+      ]),
+    );
+  };
+
+  const handleCancel = () => {
+    onCancel();
+  };
+
+  const All = lazy(() => import('./overview/all'));
+  const Favorite = lazy(() => import('./overview/favorite'));
+  const Personal = lazy(() => import('./overview/personal'));
+  const Work = lazy(() => import('./overview/work'));
+  const Social = lazy(() => import('./overview/social'));
+  const Important = lazy(() => import('./overview/important'));
 
   return (
     <>
@@ -51,7 +100,7 @@ const Note = () => {
             <Col xxl={5} xl={7} lg={10} xs={24}>
               <Cards headless>
                 <div className="mail-sidebar-top">
-                  <Button shape="round" type="primary" size="default" block>
+                  <Button onClick={showModal} shape="round" type="primary" size="default" block>
                     <FeatherIcon icon="plus" size={18} /> Add Notes
                   </Button>
                 </div>
@@ -60,21 +109,20 @@ const Note = () => {
                   <EmailNav>
                     <ul>
                       <li>
-                        <Link onClick={() => onFilterData('all')} to="#">
+                        <NavLink to={`${path}/all`}>
                           <FeatherIcon icon="edit" size={18} />
                           <span className="nav-text">
                             <span>All</span>
-                            {/* <span className="badge badge-primary">3</span> */}
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link onClick={() => onFilterData('favorite')} to="#">
+                        <NavLink to={`${path}/favorite`}>
                           <FeatherIcon icon="star" size={18} />
                           <span className="nav-text">
                             <span>Favorites</span>
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                     <div className="nav-labels">
@@ -83,22 +131,22 @@ const Note = () => {
                       </p>
                       <ul>
                         <li>
-                          <Link onClick={() => onFilterData('personal')} to="#">
+                          <NavLink to={`${path}/personal`}>
                             <Bullet className="personal" /> Personal
-                          </Link>
+                          </NavLink>
                         </li>
                         <li>
-                          <Link onClick={() => onFilterData('work')} to="#">
+                          <Link to={`${path}/work`}>
                             <Bullet className="work" /> Work
                           </Link>
                         </li>
                         <li>
-                          <Link onClick={() => onFilterData('social')} to="#">
+                          <Link to={`${path}/social`}>
                             <Bullet className="social" /> Social
                           </Link>
                         </li>
                         <li>
-                          <Link onClick={() => onFilterData('important')} to="#">
+                          <Link to={`${path}/important`}>
                             <Bullet className="important" /> Important
                           </Link>
                         </li>
@@ -109,20 +157,59 @@ const Note = () => {
               </Cards>
             </Col>
             <Col md={19}>
-              <Cards title="Task Lists">
-                <Row gutter={15}>
-                  {noteData.map(item => {
-                    return (
-                      <Col md={8} key={item.key}>
-                        <NoteCard data={item} />
-                      </Col>
-                    );
-                  })}
-                </Row>
-              </Cards>
+              <Switch>
+                <Suspense
+                  fallback={
+                    <div className="spin">
+                      <Spin />
+                    </div>
+                  }
+                >
+                  <Route exact path={`${path}/all`} component={All} />
+                  <Route path={`${path}/favorite`} component={Favorite} />
+                  <Route path={`${path}/personal`} component={Personal} />
+                  <Route path={`${path}/work`} component={Work} />
+                  <Route path={`${path}/social`} component={Social} />
+                  <Route path={`${path}/important`} component={Important} />
+                </Suspense>
+              </Switch>
             </Col>
           </Row>
         </EmailWrapper>
+        <Modal type={state.modalType} title={null} visible={state.visible} footer={null} onCancel={handleCancel}>
+          <div className="project-modal">
+            <BasicFormWrapper>
+              <Form form={form} name="createProject" onFinish={handleOk}>
+                <Form.Item
+                  rules={[{ required: true, message: 'Please input your note title!' }]}
+                  name="title"
+                  label="Title"
+                >
+                  <Input placeholder="Note Title" />
+                </Form.Item>
+
+                <Form.Item
+                  rules={[{ required: true, message: 'Please input your note description!' }]}
+                  name="description"
+                  label="Description"
+                >
+                  <Input.TextArea rows={4} placeholder="Note Description" />
+                </Form.Item>
+                <Form.Item name="label" initialValue="personal" label="Note Label">
+                  <Select style={{ width: '100%' }}>
+                    <Option value="personal">Personal</Option>
+                    <Option value="work">Work</Option>
+                    <Option value="social">Social</Option>
+                    <Option value="important">Important</Option>
+                  </Select>
+                </Form.Item>
+                <Button htmlType="submit" size="default" type="primary" key="submit">
+                  Add New Note
+                </Button>
+              </Form>
+            </BasicFormWrapper>
+          </div>
+        </Modal>
       </Main>
     </>
   );
