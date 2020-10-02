@@ -6,7 +6,7 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import arrayMove from 'array-move';
 import PropTypes from 'prop-types';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper, CardToolbox, DragDropStyle } from '../styled';
+import { Main, TableWrapper, DragDropStyle } from '../styled';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -25,7 +25,7 @@ const UserListDataTable = () => {
 
   const usersTableData = [];
   users.map((user, index) => {
-    const { name, designation, img, status } = user;
+    const { name, designation, img } = user;
 
     return usersTableData.push({
       key: index + 1,
