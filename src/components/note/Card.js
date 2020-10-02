@@ -55,16 +55,19 @@ const NoteCard = ({ data }) => {
   return (
     <Card className={label}>
       <Cards headless>
-        <h4>{title}</h4>
+        <h4>
+          {title}
+          <span className={`status-bullet ${label}`} />
+        </h4>
         <p>{description}</p>
         <div className="actions">
           <span>
             <Link
-              className={{ color: stared ? 'star active' : 'star' }}
+              className={stared ? 'star active' : 'star'}
               onClick={() => dispatch(onStarUpdate(noteData, key))}
               to="#"
             >
-              <FeatherIcon icon="star" style={{ color: stared ? 'gold' : '#888' }} size={16} />
+              <FeatherIcon icon="star" size={16} />
             </Link>
             <Link onClick={() => onHandleDelete()} to="#">
               <FeatherIcon icon="trash-2" size={16} />

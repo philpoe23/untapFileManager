@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useLayoutEffect } from 'react';
 import { Row, Col, Form, Input, Select, Spin } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
@@ -29,7 +29,21 @@ const Note = () => {
     visible: false,
     modalType: 'primary',
     checked: [],
+    responsive: 0,
+    collapsed: false,
   });
+
+  const { responsive, collapsed } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const width = window.innerWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   const showModal = () => {
     setState({
@@ -70,6 +84,13 @@ const Note = () => {
     onCancel();
   };
 
+  const toggleCollapsed = () => {
+    setState({
+      ...state,
+      collapsed: !collapsed,
+    });
+  };
+
   const All = lazy(() => import('./overview/all'));
   const Favorite = lazy(() => import('./overview/favorite'));
   const Personal = lazy(() => import('./overview/personal'));
@@ -97,67 +118,142 @@ const Note = () => {
 
       <Main>
         <NoteWrapper>
-          <Row gutter={30}>
-            <Col xxl={5} xl={7} xs={24}>
-              <div className="sidebar-card">
-                <Cards headless>
-                  <div className="note-sidebar-top">
-                    <Button onClick={showModal} shape="round" type="primary" size="default" block>
-                      <FeatherIcon icon="plus" size={18} /> Add Notes
-                    </Button>
-                  </div>
+          <Row className="justify-content-center" gutter={25}>
+            <Col className="trigger-col" xxl={5} xl={7} lg={10} xs={24}>
+              {responsive <= 991 && (
+                <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
+                  <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
+                </Button>
+              )}
+              {responsive > 991 ? (
+                <div className="sidebar-card">
+                  <Cards headless>
+                    <div className="note-sidebar-top">
+                      <Button onClick={showModal} shape="round" type="primary" size="default" block>
+                        <FeatherIcon icon="plus" size={18} /> Add Notes
+                      </Button>
+                    </div>
 
-                  <div className="note-sidebar-bottom">
-                    <NoteNav>
-                      <ul>
-                        <li>
-                          <NavLink to={`${path}/all`}>
-                            <FeatherIcon icon="edit" size={18} />
-                            <span className="nav-text">
-                              <span>All</span>
-                            </span>
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink to={`${path}/favorite`}>
-                            <FeatherIcon icon="star" size={18} />
-                            <span className="nav-text">
-                              <span>Favorites</span>
-                            </span>
-                          </NavLink>
-                        </li>
-                      </ul>
-                      <div className="nav-labels">
-                        <p>
-                          <img src={require('../../static/img/icon/label.png')} alt="icon" /> Labels
-                        </p>
+                    <div className="note-sidebar-bottom">
+                      <NoteNav>
                         <ul>
                           <li>
-                            <NavLink to={`${path}/personal`}>
-                              <Bullet className="personal" /> Personal
+                            <NavLink to={`${path}/all`}>
+                              <FeatherIcon icon="edit" size={18} />
+                              <span className="nav-text">
+                                <span>All</span>
+                              </span>
                             </NavLink>
                           </li>
                           <li>
-                            <Link to={`${path}/work`}>
-                              <Bullet className="work" /> Work
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={`${path}/social`}>
-                              <Bullet className="social" /> Social
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to={`${path}/important`}>
-                              <Bullet className="important" /> Important
-                            </Link>
+                            <NavLink to={`${path}/favorite`}>
+                              <FeatherIcon icon="star" size={18} />
+                              <span className="nav-text">
+                                <span>Favorites</span>
+                              </span>
+                            </NavLink>
                           </li>
                         </ul>
-                      </div>
-                    </NoteNav>
-                  </div>
-                </Cards>
-              </div>
+                        <div className="nav-labels">
+                          <p>
+                            <img src={require('../../static/img/icon/label.png')} alt="icon" /> Labels
+                          </p>
+                          <ul>
+                            <li>
+                              <NavLink to={`${path}/personal`}>
+                                <Bullet className="personal" /> Personal
+                              </NavLink>
+                            </li>
+                            <li>
+                              <Link to={`${path}/work`}>
+                                <Bullet className="work" /> Work
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${path}/social`}>
+                                <Bullet className="social" /> Social
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${path}/important`}>
+                                <Bullet className="important" /> Important
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </NoteNav>
+                    </div>
+                  </Cards>
+                </div>
+              ) : (
+                <div className={collapsed ? 'sidebar-card note-sideabr show' : 'sidebar-card note-sideabr hide'}>
+                  <Cards headless>
+                    <Button
+                      type="link"
+                      className="mail-sidebar-trigger trigger-close"
+                      style={{ marginTop: 0 }}
+                      onClick={toggleCollapsed}
+                    >
+                      <FeatherIcon icon="x" />
+                    </Button>
+                    <div className="note-sidebar-top">
+                      <Button onClick={showModal} shape="round" type="primary" size="default" block>
+                        <FeatherIcon icon="plus" size={18} /> Add Notes
+                      </Button>
+                    </div>
+
+                    <div className="note-sidebar-bottom">
+                      <NoteNav>
+                        <ul>
+                          <li>
+                            <NavLink to={`${path}/all`}>
+                              <FeatherIcon icon="edit" size={18} />
+                              <span className="nav-text">
+                                <span>All</span>
+                              </span>
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink to={`${path}/favorite`}>
+                              <FeatherIcon icon="star" size={18} />
+                              <span className="nav-text">
+                                <span>Favorites</span>
+                              </span>
+                            </NavLink>
+                          </li>
+                        </ul>
+                        <div className="nav-labels">
+                          <p>
+                            <img src={require('../../static/img/icon/label.png')} alt="icon" /> Labels
+                          </p>
+                          <ul>
+                            <li>
+                              <NavLink to={`${path}/personal`}>
+                                <Bullet className="personal" /> Personal
+                              </NavLink>
+                            </li>
+                            <li>
+                              <Link to={`${path}/work`}>
+                                <Bullet className="work" /> Work
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${path}/social`}>
+                                <Bullet className="social" /> Social
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${path}/important`}>
+                                <Bullet className="important" /> Important
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </NoteNav>
+                    </div>
+                  </Cards>
+                </div>
+              )}
             </Col>
             <Col xl={17} xs={24}>
               <Switch>
