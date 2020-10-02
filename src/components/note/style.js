@@ -11,6 +11,25 @@ const Card = Styled.div`
             font-size: 16px;
             margin-bottom: 16px;
             color: ${({ theme }) => theme['dark-color']};
+            .status-bullet{
+                width: 7px;
+                height: 7px;
+                display: inline-block;
+                border-radius: 50%;
+               ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')} : 20px;
+               &.personal{
+                background: #5F63F2;
+               }
+               &.work{
+                background: #20C997;
+               }
+               &.social{
+                background: #FA8B0C;
+               }
+               &.important{
+                background: #2C99FF;
+               }
+            }
         }
         .actions{
             display: flex;
