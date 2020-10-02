@@ -24,7 +24,7 @@ const customTooltips = function(tooltip) {
     tooltipEl.innerHTML = '<table></table>';
 
     document.querySelectorAll('.parentContainer').forEach(el => {
-      if (el.contains(document.querySelector('.chartjs-tooltip'))) {       
+      if (el.contains(document.querySelector('.chartjs-tooltip'))) {
         document.querySelector('.chartjs-tooltip').remove();
       }
     });
