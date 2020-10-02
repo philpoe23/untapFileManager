@@ -98,7 +98,7 @@ const Note = () => {
       <Main>
         <NoteWrapper>
           <Row gutter={30}>
-            <Col xxl={5} xl={7} lg={10} xs={24}>
+            <Col xxl={5} xl={7} xs={24}>
               <div className="sidebar-card">
                 <Cards headless>
                   <div className="note-sidebar-top">
@@ -159,7 +159,7 @@ const Note = () => {
                 </Cards>
               </div>
             </Col>
-            <Col xl={17} md={19}>
+            <Col xl={17} xs={24}>
               <Switch>
                 <Suspense
                   fallback={

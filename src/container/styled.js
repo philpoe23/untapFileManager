@@ -860,7 +860,7 @@ const CardToolbox = Styled.div`
             height: 100%;
             width: 1px;
             content: '';
-            background: ${({ theme }) => theme['border-color-normal']}
+            background: ${({ theme }) => theme['border-color-normal']};
         }
     }
     .ant-page-header-heading-sub-title{
@@ -1095,6 +1095,57 @@ const TableWrapper = Styled.div`
     
 `;
 
+const DragDropStyle = Styled.div`
+    .ant-card-body{
+        padding: 15px !important;
+    }
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            >tr{
+                &:not(:last-child){
+                    td{
+                         border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']} !important;
+                    }
+                 }
+                 &:hover{
+                     td{
+                         background-color: transparent !important;
+                     }
+                 }
+                >td{
+                    font-size: 14px;
+                    &:first-child,
+                    &:last-child{
+                        border-radius: 0 !important;
+                    }
+                }
+            }
+        }
+        tr{
+            td{
+                &.drag-visible{
+                    svg,
+                    img{
+                        width: 20px;
+                    }
+                    svg,
+                    i{
+                        color: ${({ theme }) => theme['extra-light-color']} !important;
+                    }
+                }
+            }
+        }
+        .user-info{
+            .user-name{
+                font-size: 14px;
+                margin-left: 8px;
+            }
+        }
+    }
+`;
 export {
   Main,
   ButtonsGroupWrapper,
@@ -1112,5 +1163,6 @@ export {
   BasicFormWrapper,
   CardToolbox,
   FormGroupWrapper,
+  DragDropStyle,
   TableWrapper,
 };
