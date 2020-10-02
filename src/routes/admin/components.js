@@ -47,6 +47,7 @@ const Message = lazy(() => import('../../container/ui-elements/Messages'));
 const Confirme = lazy(() => import('../../container/ui-elements/PopConfirme'));
 const Menu = lazy(() => import('../../container/ui-elements/Menu'));
 const Upload = lazy(() => import('../../container/ui-elements/Upload'));
+const DragDrop = lazy(() => import('../../container/ui-elements/DragAndDrop'));
 
 const ComponentRoute = () => {
   const { path } = useRouteMatch();
@@ -99,6 +100,7 @@ const ComponentRoute = () => {
       <Route path={`${path}/confirme`} component={Confirme} />
       <Route path={`${path}/menu`} component={Menu} />
       <Route path={`${path}/upload`} component={Upload} />
+      <Route path={`${path}/drag`} component={DragDrop} />
     </Switch>
   );
 };

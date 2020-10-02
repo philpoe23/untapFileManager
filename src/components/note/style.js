@@ -1,0 +1,79 @@
+import Styled from 'styled-components';
+
+const Card = Styled.div`
+    .ant-card .ant-card-body{        
+        border-radius: 15px !important;
+        color: ${({ theme }) => theme['gray-color']};    
+        padding-bottom: 20px !important;
+        padding-top: 20px !important;
+        transition: .35s;
+        h4{
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        .actions{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            .star{
+                svg,
+                i,
+                span{
+                    color: ${({ theme }) => theme['gray-color']} !important;
+                }
+                &.active{
+                    svg,
+                    i,
+                    span{
+                        color: ${({ theme }) => theme['warning-color']} !important;
+                    } 
+                } 
+            }
+            span{
+                display: inline-block;
+                margin: -5px;
+                a {
+                    margin: 5px;
+                    svg,
+                    i,
+                    span{
+                        color: ${({ theme }) => theme['gray-color']} !important;
+                    }
+                }
+            }
+            .ant-dropdown-trigger{
+                svg{
+                    color: #868EAE;
+                }
+            }
+        }        
+    } 
+    &.personal .ant-card .ant-card-body{
+        background: #5F63F240;
+        &:hover{
+            background: #5F63F290;
+        }
+    }
+    &.work .ant-card .ant-card-body{
+        background: #20C99740;
+        &:hover{
+            background: #20C99790;
+        }
+    }
+    &.social .ant-card .ant-card-body{
+        background: #FA8B0C40;
+        &:hover{
+            background: #FA8B0C90;
+        }
+    }
+    &.important .ant-card .ant-card-body{
+        background: #2C99FF40;
+        &:hover{
+            background: #2C99FF90;
+        }
+    }  
+`;
+
+export { Card };

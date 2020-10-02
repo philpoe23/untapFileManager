@@ -133,6 +133,12 @@ ul {
   color: #868eae;
 }
 
+.ant-card-extra .ant-dropdown-trigger {
+  line-height: 0;
+  order: 1;
+  margin-left: 20px;
+}
+
 /* ant radio group */
 
 .ant-radio-button-wrapper-checked {
@@ -186,6 +192,10 @@ ul {
 .growth-upward h1 sub svg {
   position: relative;
   top: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  left: 5px;
+  bottom: 0;
 }
 
 /*
@@ -243,6 +253,31 @@ ul {
 
 .revenue-chat-percentage span {
   display: block;
+}
+
+.revenue-chat-percentage span:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+/* progressbars */
+
+.ant-progress {
+  display: inline-flex !important;
+  align-items: center;
+}
+
+.ant-progress > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-progress .ant-progress-outer {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.revenue-chat-percentage span {
+  display: block;
   font-size: 13px;
   color: #868eae;
 }
@@ -250,6 +285,12 @@ ul {
 .revenue-chat-percentage span:not(:last-child) {
   margin-bottom: 20px;
 }
+
+.ant-progress-status-warning .ant-progress-bg {
+  background: #fa8b0c;
+}
+
+/* progress bars */
 
 .progress-primary .ant-progress-bg {
   background: #5f63f2;
@@ -607,6 +648,10 @@ ul {
 
 .ant-rate-star.ant-rate-star-zero span svg {
   color: #c6d0dc;
+}
+
+.ant-rate-star:not(:last-child) {
+  margin-right: 2px !important;
 }
 
 .ant-rate-text {
@@ -999,6 +1044,57 @@ ul {
   margin-bottom: 0;
 }
 
+.atbd-top-dropdwon .atbd-top-dropdwon__content .notification-icon {
+  width: 39.2px;
+  height: 32px;
+  margin-right: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atbd-top-dropdwon .atbd-top-dropdwon__content .notification-icon.bg-primary {
+  background: #5f63f215;
+  color: #5f63f2;
+}
+
+.atbd-top-dropdwon .atbd-top-dropdwon__content .notification-icon.bg-secondary {
+  background: #ff69a515;
+  color: #ff69a5;
+}
+
+.atbd-top-dropdwon .atbd-top-dropdwon__content .notification-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.atbd-top-dropdwon .atbd-top-dropdwon__content .notification-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.atbd-top-dropdwon .notification-text h1 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5a5f7d;
+  margin-bottom: 4px;
+}
+
+.atbd-top-dropdwon .notification-text h1 span {
+  color: #5f63f2;
+  font-weight: 500;
+  padding-left: 0;
+}
+
+.atbd-top-dropdwon .notification-text p {
+  font-size: 12px;
+  color: #adb4d2;
+  margin-bottom: 0;
+}
+
 .atbd-top-dropdwon .atbd-top-dropdwon__content img {
   max-width: 40px;
 }
@@ -1053,6 +1149,10 @@ ul {
   align-items: center;
   border: 1px solid #f1f2f6;
   box-shadow: 0 8px 15px #9299b815;
+}
+
+.ant-tooltip .ant-tooltip-arrow {
+  /* position: relative; */
 }
 
 .ant-tooltip .ant-tooltip-arrow:after {
@@ -1256,9 +1356,21 @@ ul {
   color: #5a5f7d;
 }
 
+.ant-dropdown a i,
+.ant-dropdown a svg,
+.ant-dropdown a img {
+  margin-right: 8px;
+}
+
 .ant-dropdown div {
   box-shadow: 0 0;
   border-radius: 5px;
+}
+
+/* Picker Under Input */
+
+.ant-form-item-control-input .ant-picker {
+  padding: 0 12px 0 0;
 }
 
 /* Leaflet COntainer */
@@ -1342,6 +1454,7 @@ ul {
 .table-responsive .ant-table-content .ant-table-cell {
   white-space: nowrap;
 }
+
 /* Rich TextEditor  */
 
 .RichTextEditor__root___2QXK- {
@@ -1460,6 +1573,42 @@ ul {
   text-transform: capitalize;
 }
 
+/* Antd drag & drop */
+
+.row-dragging {
+  /* background: #fafafa; */
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 15px 50px #9299b820;
+  display: flex;
+}
+
+.row-dragging tr {
+  box-shadow: 0 15px 50px #9299b820;
+}
+
+.row-dragging td {
+  padding: 16px;
+  color: #000;
+  position: relative;
+  z-index: 9999;
+  opacity: 0.5;
+}
+.row-dragging td .todos-action {
+  min-width: 100px;
+  text-align: right;
+  display: none;
+}
+
+.row-dragging .drag-visible {
+  visibility: visible;
+}
+
+@media (max-width: 767px) {
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
+}
+
 .page-header-actions {
   display: flex;
   align-items: center;
@@ -1479,6 +1628,10 @@ ul {
 
 .page-header-actions button.ant-btn-white:focus {
   background-color: #fff !important;
+}
+
+.page-header-actions button + button {
+  margin-left: 8px;
 }
 
 .page-header-actions button.ant-btn-white svg {
@@ -1511,6 +1664,35 @@ ul {
 
 .ant-menu-inline-collapsed-tooltip a {
   color: #000 !important;
+}
+
+/* Chart Label */
+
+.chart-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  color: #5a5f7d;
+}
+
+.chart-label .label-dot {
+  margin-right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.chart-label .label-dot.dot-success {
+  background: #20c997;
+}
+
+.chart-label .label-dot.dot-info {
+  background: #5f63f2;
+}
+
+.chart-label .label-dot.dot-warning {
+  background: #fa8b0c;
 }
 
 /* NOtification CSS */

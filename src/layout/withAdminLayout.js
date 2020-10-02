@@ -267,6 +267,7 @@ const ThemeLayout = WrappedComponent => {
             </Layout>
           </Layout>
           <Link
+            to="#"
             className={`${customizerAction ? 'customizer-trigger show' : 'customizer-trigger'}`}
             onClick={() => {
               showCustomizer();
@@ -280,6 +281,7 @@ const ThemeLayout = WrappedComponent => {
                 <h4 className="customizer__title">CUSTOMIZER</h4>
                 <span className="customizer__sub-title">Customize & Preview Real Time</span>
                 <Link
+                  to="#"
                   className="customizer-close"
                   onClick={() => {
                     showCustomizer();

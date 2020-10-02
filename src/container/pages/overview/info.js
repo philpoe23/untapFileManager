@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Input, Upload, Select } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import propTypes from 'prop-types';
 import { BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import Heading from '../../../components/heading/heading';
 
 const { Option } = Select;
-const Info = ({ match }) => {
+const Info = () => {
   const [state, setState] = useState({
     values: '',
   });
@@ -100,10 +99,6 @@ const Info = ({ match }) => {
       </Col>
     </Row>
   );
-};
-
-Info.propTypes = {
-  match: propTypes.shape(propTypes.object).isRequired,
 };
 
 export default Info;

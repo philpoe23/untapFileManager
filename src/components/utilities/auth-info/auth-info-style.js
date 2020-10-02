@@ -17,7 +17,7 @@ const InfoWraper = Styled.div`
     }
     .ant-badge{
         .ant-badge-dot{
-            right: 50% !important;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 50% !important;
         }
     }
     .flag-select{
