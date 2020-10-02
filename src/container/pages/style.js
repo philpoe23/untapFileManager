@@ -203,6 +203,37 @@ const UserTableStyleWrapper = Styled.nav`
       text-align: center;
     }
   }
+  .contact-table{
+    table{
+      tr{
+        th{
+          &:first-child{
+            padding-left: 20px;
+          }
+          &:last-child{
+            padding-right: 20px;
+          }
+        }
+      }
+      .table-actions{
+        button{
+          width: auto;
+          height: auto;
+          padding: 0;
+          border-radius: 50%;
+          background-color: transparent;
+          &:hover{
+            background-color: transparent;
+          }
+          &.ant-btn-primary{
+            &:hover{
+              color: #ADB4D2;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 const UserCard = Styled.div`

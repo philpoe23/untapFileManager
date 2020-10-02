@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Table, Form, Input } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
-import { Action } from './style';
+import { Action, ContactPageheaderStyle } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, TableWrapper, CardToolbox, BasicFormWrapper } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -206,7 +206,7 @@ const UserListDataTable = () => {
       key: 'phone',
     },
     {
-      title: 'Actions',
+      title: '',
       dataIndex: 'action',
       key: 'action',
       width: '90px',
@@ -226,26 +226,28 @@ const UserListDataTable = () => {
   return (
     <>
       <CardToolbox>
-        <PageHeader
-          ghost
-          title="Contacts"
-          subTitle={
-            <>
-              <AutoComplete
-                onSearch={handleSearch}
-                // dataSource={notData}
-                placeholder="Search by Name"
-                width="100%"
-                patterns
-              />
-            </>
-          }
-          buttons={[
-            <Button onClick={showModal} className="btn-add_new" size="default" type="primary" key="1">
-              <Link to="#">+ Add New</Link>
-            </Button>,
-          ]}
-        />
+        <ContactPageheaderStyle>
+          <PageHeader
+            ghost
+            title="Contacts"
+            subTitle={
+              <>
+                <AutoComplete
+                  onSearch={handleSearch}
+                  // dataSource={notData}
+                  placeholder="Search by Name"
+                  width="100%"
+                  patterns
+                />
+              </>
+            }
+            buttons={[
+              <Button onClick={showModal} className="btn-add_new" size="default" type="primary" key="1">
+                <Link to="#">+ Add New</Link>
+              </Button>,
+            ]}
+          />
+        </ContactPageheaderStyle>
       </CardToolbox>
 
       <Main>
@@ -253,18 +255,20 @@ const UserListDataTable = () => {
           <Col md={24}>
             <Cards headless>
               <UserTableStyleWrapper>
-                <TableWrapper className="table-responsive">
-                  <Table
-                    rowSelection={rowSelection}
-                    dataSource={usersTableData}
-                    columns={usersTableColumns}
-                    pagination={{
-                      defaultPageSize: 5,
-                      total: usersTableData.length,
-                      showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-                    }}
-                  />
-                </TableWrapper>
+                <div className="contact-table">
+                  <TableWrapper className="table-responsive">
+                    <Table
+                      rowSelection={rowSelection}
+                      dataSource={usersTableData}
+                      columns={usersTableColumns}
+                      pagination={{
+                        defaultPageSize: 5,
+                        total: usersTableData.length,
+                        showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
+                      }}
+                    />
+                  </TableWrapper>
+                </div>
               </UserTableStyleWrapper>
             </Cards>
           </Col>
