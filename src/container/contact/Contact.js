@@ -28,9 +28,13 @@ const UserListDataTable = () => {
     selectedRowKeys: 0,
     selectedRows: 0,
     visible: false,
+    editVisible: false,
     modalType: 'primary',
     url: null,
+    update: null,
   });
+
+  const { update } = state;
 
   const handleSearch = searchText => {
     dispatch(contactSearchData(searchText));
@@ -48,10 +52,19 @@ const UserListDataTable = () => {
     });
   };
 
+  const showEditModal = data => {
+    setState({
+      ...state,
+      editVisible: true,
+      update: data,
+    });
+  };
+
   const onCancel = () => {
     setState({
       ...state,
       visible: false,
+      editVisible: false,
     });
   };
 
@@ -72,6 +85,23 @@ const UserListDataTable = () => {
           img: 'static/img/users/6.png',
           live: false,
           stared: false,
+        },
+      ]),
+    );
+    form.resetFields();
+  };
+
+  const handleEditOk = values => {
+    onCancel();
+
+    dispatch(
+      contactAddData([
+        {
+          ...values,
+          id: update.id,
+          time: update.time,
+          img: update.img,
+          stared: update.stared,
         },
       ]),
     );
