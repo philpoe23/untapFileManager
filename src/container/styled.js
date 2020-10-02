@@ -797,6 +797,11 @@ const BasicFormWrapper = Styled.div`
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
         }
     }
+    .adTodo-form{
+        .btn-adTodo {
+            font-size: 14px;
+        }
+    }
 `;
 
 const CardToolbox = Styled.div`

@@ -46,6 +46,7 @@ const Style = Styled(Table)`
           display: flex;
           justify-content: ${({ theme }) => (theme.rtl ? 'flex-start' : 'flex-end')};
           align-items: center;
+          min-width: 350px;
           @media only screen and (max-width: 575px){
             display: none;
           }
@@ -471,6 +472,7 @@ const EmailNav = Styled.nav`
         @media only screen and (max-width: 1199px){
           width: calc(100% + 40px);
           padding: 15px;
+          bottom: 150px;
         }
         h1{
           text-align: left;

@@ -392,7 +392,7 @@ const NoteWrapper = Styled.div`
     }
   }
   .ant-card-body{
-    padding-bottom: 0 !important;
+    padding: 30px 30px 0 30px !important;
   }
   .trigger-close.ant-btn-link{
     margin: 0 !important;

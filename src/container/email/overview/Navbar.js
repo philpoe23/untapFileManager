@@ -8,7 +8,7 @@ import { EmailNav } from './style';
 import { Button } from '../../../components/buttons/buttons';
 import Title from '../../../components/heading/heading';
 
-const EmailNavbar = ({ path }) => {
+const EmailNavbar = ({ path, toggleCollapsed }) => {
   const [state, setState] = useState({
     labels: ['personal', 'social', 'promotions'],
     newLabel: '',
@@ -37,11 +37,15 @@ const EmailNavbar = ({ path }) => {
   const handelChange = e => {
     e.preventDefault();
     e.stopPropagation();
-    setState({
-      ...state,
-      labels: [...labels, newLabel],
-      newLabel: '',
-    });
+    if (newLabel !== '') {
+      setState({
+        ...state,
+        labels: [...labels, newLabel],
+        newLabel: '',
+      });
+    } else {
+      alert('Please Give a label...');
+    }
   };
 
   const onLabelChange = e => {
@@ -56,7 +60,7 @@ const EmailNavbar = ({ path }) => {
       <EmailNav>
         <ul>
           <li>
-            <NavLink to={`${path}inbox`}>
+            <NavLink to={`${path}inbox`} onClick={toggleCollapsed}>
               <FeatherIcon icon="inbox" size={18} />
               <span className="nav-text">
                 <span>Inbox</span>
@@ -65,7 +69,7 @@ const EmailNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`${path}starred`}>
+            <NavLink to={`${path}starred`} onClick={toggleCollapsed}>
               <FeatherIcon icon="star" size={18} />
               <span className="nav-text">
                 <span>Starred</span>
@@ -73,7 +77,7 @@ const EmailNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`${path}sent`}>
+            <NavLink to={`${path}sent`} onClick={toggleCollapsed}>
               <FeatherIcon icon="send" size={18} />
               <span className="nav-text">
                 <span>Sent</span>
@@ -81,7 +85,7 @@ const EmailNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`${path}drafts`}>
+            <NavLink to={`${path}drafts`} onClick={toggleCollapsed}>
               <FeatherIcon icon="edit" size={18} />
               <span className="nav-text">
                 <span>Drafts</span>
@@ -90,7 +94,7 @@ const EmailNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`${path}spam`}>
+            <NavLink to={`${path}spam`} onClick={toggleCollapsed}>
               <FeatherIcon icon="alert-octagon" size={18} />
               <span className="nav-text">
                 <span>Spam</span>
@@ -98,7 +102,7 @@ const EmailNavbar = ({ path }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`${path}trash`}>
+            <NavLink to={`${path}trash`} onClick={toggleCollapsed}>
               <FeatherIcon icon="trash-2" size={18} />
               <span className="nav-text">
                 <span>Trash</span>
