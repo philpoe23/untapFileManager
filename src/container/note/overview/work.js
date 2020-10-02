@@ -14,7 +14,7 @@ const Favorite = () => {
   return (
     <Cards title="Work Lists">
       <NoteCardWrap>
-        <Row gutter={15}>
+        <Row gutter={24}>
           {noteData
             .filter(item => item.label === 'work')
             .map(item => {

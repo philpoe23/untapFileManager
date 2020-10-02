@@ -167,7 +167,7 @@ const ToDo = () => {
 
       <Main>
         <Row gutter={30}>
-          <Col md={12}>
+          <Col md={24}>
             <TodoStyleWrapper>
               <Cards title="Task Lists">
                 <TableWrapper>
