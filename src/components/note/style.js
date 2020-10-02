@@ -8,15 +8,17 @@ const Card = Styled.div`
         padding-top: 20px !important;
         transition: .35s;
         h4{
+            display: flex;
+            align-items: center;
             font-size: 16px;
             margin-bottom: 16px;
             color: ${({ theme }) => theme['dark-color']};
             .status-bullet{
-                width: 7px;
+                min-width: 7px;
                 height: 7px;
                 display: inline-block;
                 border-radius: 50%;
-               ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')} : 20px;
+               ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')} : 8px;
                &.personal{
                 background: #5F63F2;
                }

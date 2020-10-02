@@ -119,7 +119,7 @@ const Email = ({ match }) => {
                     </div>
 
                     <div className="mail-sidebar-bottom">
-                      <EmailNavbar path={pathName} />
+                      <EmailNavbar path={pathName} toggleCollapsed={toggleCollapsed} />
                     </div>
                   </Cards>
                 </MailSideBar>
