@@ -1594,6 +1594,10 @@ ul {
   opacity: 0.5;
   vertical-align: middle;
 }
+.row-dragging td .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #20c997;
+  border-color: #20c997;
+}
 .row-dragging td .todos-action,
 .row-dragging td .table-actions {
   display: none;

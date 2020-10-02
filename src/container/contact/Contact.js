@@ -262,7 +262,7 @@ const UserListDataTable = () => {
                       dataSource={usersTableData}
                       columns={usersTableColumns}
                       pagination={{
-                        defaultPageSize: 5,
+                        defaultPageSize: 7,
                         total: usersTableData.length,
                         showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
                       }}
@@ -300,7 +300,7 @@ const UserListDataTable = () => {
                     <Input placeholder="+440 2546 5236" />
                   </Form.Item>
 
-                  <Form.Item name="position" label="Position">
+                  <Form.Item name="designation" label="Position">
                     <Input placeholder="Input Position" />
                   </Form.Item>
 

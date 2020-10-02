@@ -7,7 +7,8 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import arrayMove from 'array-move';
 import PropTypes from 'prop-types';
 import { Span, TodoStyleWrapper } from './style';
-import { Main, TableWrapper } from '../styled';
+import { Main, TableWrapper, BasicFormWrapper } from '../styled';
+import { Modal } from '../../components/modals/antd-modals';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -55,7 +56,11 @@ const ToDo = () => {
       return dataSource.push({
         key: index + 1,
         index,
-        item: <Span className={selectedRowKeys.includes(index) ? 'active' : 'inactive'}>{item.item}</Span>,
+        item: (
+          <Span className={selectedRowKeys.includes(index) ? 'todo-title active' : 'todo-title inactive'}>
+            {item.item}
+          </Span>
+        ),
         action: (
           <div className="todos-action">
             <DragHandle />
@@ -96,6 +101,7 @@ const ToDo = () => {
       const newData = arrayMove([].concat(todoData), oldIndex, newIndex).filter(el => !!el);
       return dispatch(ToDoAddData(newData));
     }
+    return true;
   };
 
   const DraggableBodyRow = ({ className, style, ...restProps }) => {
@@ -141,10 +147,29 @@ const ToDo = () => {
       setState({
         ...state,
         inputData: '',
+        visible: false,
       });
     } else {
       alert('Please Give a Task Title...');
     }
+  };
+
+  const showModal = () => {
+    setState({
+      ...state,
+      visible: true,
+    });
+  };
+
+  const onCancel = () => {
+    setState({
+      ...state,
+      visible: false,
+    });
+  };
+
+  const handleCancel = () => {
+    onCancel();
   };
 
   return (
@@ -167,10 +192,10 @@ const ToDo = () => {
 
       <Main>
         <Row gutter={30}>
-          <Col md={12}>
+          <Col md={24}>
             <TodoStyleWrapper>
               <Cards title="Task Lists">
-                <TableWrapper>
+                <TableWrapper className="table-responsive">
                   <Table
                     rowSelection={{
                       type: 'checkbox',
@@ -188,16 +213,11 @@ const ToDo = () => {
                     }}
                   />
                 </TableWrapper>
-
-                <Form className="adTodo-form" name="todoAdd" form={form} onFinish={onSubmitHandler}>
-                  <Input value={inputData} onChange={onInputChange} placeholder="Input Item Name......." />
-                  <br />
-                  <br />
-
-                  <Button className="btn-toDoAdd" htmlType="submit" transparented type="primary" size="large">
+                <div className="new-todo-wrap">
+                  <Button onClick={showModal} className="btn-toDoAdd" transparented type="primary" size="large">
                     + Add New Task
                   </Button>
-                </Form>
+                </div>
               </Cards>
             </TodoStyleWrapper>
           </Col>
@@ -205,6 +225,27 @@ const ToDo = () => {
             <Cards title="Task Lists" />
           </Col> */}
         </Row>
+        <Modal
+          type={state.modalType}
+          title="Add New Todo"
+          visible={state.visible}
+          footer={null}
+          onCancel={handleCancel}
+        >
+          <div className="todo-modal">
+            <BasicFormWrapper>
+              <Form className="adTodo-form" name="todoAdd" form={form} onFinish={onSubmitHandler}>
+                <Input value={inputData} onChange={onInputChange} placeholder="Input Item Name......." />
+                <br />
+                <br />
+
+                <Button onClick={showModal} htmlType="submit" className="btn-adTodo" type="primary" size="large">
+                  Add New
+                </Button>
+              </Form>
+            </BasicFormWrapper>
+          </div>
+        </Modal>
       </Main>
     </>
   );

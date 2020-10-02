@@ -14,10 +14,10 @@ const All = () => {
   return (
     <Cards title="Note Lists">
       <NoteCardWrap>
-        <Row gutter={15}>
+        <Row gutter={24}>
           {noteData.map(item => {
             return (
-              <Col xxl={8} xl={12} lg={8} sm={12} xs={24} key={item.key}>
+              <Col xxl={8} xl={12} lg={12} sm={12} xs={24} key={item.key}>
                 <NoteCard data={item} />
               </Col>
             );

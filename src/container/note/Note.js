@@ -12,8 +12,14 @@ import { Modal } from '../../components/modals/antd-modals';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-
 import { noteAddData } from '../../redux/note/actionCreator';
+
+const All = lazy(() => import('./overview/all'));
+const Favorite = lazy(() => import('./overview/favorite'));
+const Personal = lazy(() => import('./overview/personal'));
+const Work = lazy(() => import('./overview/work'));
+const Social = lazy(() => import('./overview/social'));
+const Important = lazy(() => import('./overview/important'));
 
 const { Option } = Select;
 const Note = () => {
@@ -91,12 +97,12 @@ const Note = () => {
     });
   };
 
-  const All = lazy(() => import('./overview/all'));
-  const Favorite = lazy(() => import('./overview/favorite'));
-  const Personal = lazy(() => import('./overview/personal'));
-  const Work = lazy(() => import('./overview/work'));
-  const Social = lazy(() => import('./overview/social'));
-  const Important = lazy(() => import('./overview/important'));
+  const collapseSidebar = () => {
+    setState({
+      ...state,
+      collapsed: false,
+    });
+  };
 
   return (
     <>
@@ -119,7 +125,7 @@ const Note = () => {
       <Main>
         <NoteWrapper>
           <Row className="justify-content-center" gutter={25}>
-            <Col className="trigger-col" xxl={5} xl={7} lg={10} xs={24}>
+            <Col className="trigger-col" xxl={5} xl={7} lg={9} xs={24}>
               {responsive <= 991 && (
                 <Button type="link" className="mail-sidebar-trigger" style={{ marginTop: 0 }} onClick={toggleCollapsed}>
                   <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
@@ -206,7 +212,7 @@ const Note = () => {
                       <NoteNav>
                         <ul>
                           <li>
-                            <NavLink to={`${path}/all`}>
+                            <NavLink to={`${path}/all`} onClick={collapseSidebar}>
                               <FeatherIcon icon="edit" size={18} />
                               <span className="nav-text">
                                 <span>All</span>
@@ -214,7 +220,7 @@ const Note = () => {
                             </NavLink>
                           </li>
                           <li>
-                            <NavLink to={`${path}/favorite`}>
+                            <NavLink to={`${path}/favorite`} onClick={collapseSidebar}>
                               <FeatherIcon icon="star" size={18} />
                               <span className="nav-text">
                                 <span>Favorites</span>
@@ -228,24 +234,24 @@ const Note = () => {
                           </p>
                           <ul>
                             <li>
-                              <NavLink to={`${path}/personal`}>
+                              <NavLink to={`${path}/personal`} onClick={collapseSidebar}>
                                 <Bullet className="personal" /> Personal
                               </NavLink>
                             </li>
                             <li>
-                              <Link to={`${path}/work`}>
+                              <NavLink to={`${path}/work`} onClick={collapseSidebar}>
                                 <Bullet className="work" /> Work
-                              </Link>
+                              </NavLink>
                             </li>
                             <li>
-                              <Link to={`${path}/social`}>
+                              <NavLink to={`${path}/social`} onClick={collapseSidebar}>
                                 <Bullet className="social" /> Social
-                              </Link>
+                              </NavLink>
                             </li>
                             <li>
-                              <Link to={`${path}/important`}>
+                              <NavLink to={`${path}/important`} onClick={collapseSidebar}>
                                 <Bullet className="important" /> Important
-                              </Link>
+                              </NavLink>
                             </li>
                           </ul>
                         </div>
@@ -255,7 +261,7 @@ const Note = () => {
                 </div>
               )}
             </Col>
-            <Col xl={17} xs={24}>
+            <Col xxl={19} xl={17} lg={15} xs={24}>
               <Switch>
                 <Suspense
                   fallback={

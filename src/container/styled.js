@@ -821,6 +821,11 @@ const BasicFormWrapper = Styled.div`
             }
         }
     }
+    .adTodo-form{
+        .btn-adTodo {
+            font-size: 14px;
+        }
+    }
 `;
 
 const CardToolbox = Styled.div`

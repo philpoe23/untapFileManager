@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Span = Styled.span`
     &.active{
-        color: ${({ theme }) => theme['success-color']};
+        color: ${({ theme }) => theme['primary-color']};
         text-decoration: line-through;
     }
 `;
@@ -45,9 +45,18 @@ const TodoStyleWrapper = Styled.div`
                             }
                         }
                     }
+                    .ant-checkbox-checked{
+                        &:after{
+                            border-color: ${({ theme }) => theme['success-color']};
+                        }
+                    }
                     .ant-checkbox-checked .ant-checkbox-inner{
                         background-color: ${({ theme }) => theme['success-color']};
                         border-color: ${({ theme }) => theme['success-color']};
+                    }
+                    .todo-title{
+                        min-width: 150px;
+                        line-height: 1.5;
                     }
                 }
             }
@@ -75,9 +84,9 @@ const TodoStyleWrapper = Styled.div`
             
         }
     }
-    .adTodo-form{
-        padding: 0 25px;
-        margin-top: 20px;
+    
+    .new-todo-wrap{
+        padding: 16px 25px 0;
         .btn-toDoAdd{
             font-size: 12px;
             font-weight: 500;
