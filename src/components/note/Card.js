@@ -59,7 +59,11 @@ const NoteCard = ({ data }) => {
         <p>{description}</p>
         <div className="actions">
           <span>
-            <Link onClick={() => dispatch(onStarUpdate(noteData, key))} to="#">
+            <Link
+              className={{ color: stared ? 'star active' : 'star' }}
+              onClick={() => dispatch(onStarUpdate(noteData, key))}
+              to="#"
+            >
               <FeatherIcon icon="star" style={{ color: stared ? 'gold' : '#888' }} size={16} />
             </Link>
             <Link onClick={() => onHandleDelete()} to="#">

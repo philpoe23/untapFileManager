@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 import PropTypes from 'prop-types';
-import { Span } from './style';
+import { Span, TodoStyleWrapper } from './style';
 import { Main, TableWrapper } from '../styled';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -57,9 +57,13 @@ const ToDo = () => {
         index,
         item: <Span className={selectedRowKeys.includes(index) ? 'active' : 'inactive'}>{item.item}</Span>,
         action: (
-          <div>
+          <div className="todos-action">
             <DragHandle />
-            <Link onClick={() => dispatch(onStarUpdate(todoData, item.key))} to="#">
+            <Link
+              className={item.favorite ? 'star active' : 'star'}
+              onClick={() => dispatch(onStarUpdate(todoData, item.key))}
+              to="#"
+            >
               <FeatherIcon icon="star" style={{ color: item.favorite ? 'gold' : '#888' }} size={16} />
             </Link>
             <Link onClick={() => onHandleDelete(item.key)} to="#">
@@ -122,21 +126,25 @@ const ToDo = () => {
       return arrayData.push(data.key);
     });
     const max = Math.max(...arrayData);
-    dispatch(
-      ToDoAddData([
-        ...todoData,
-        {
-          key: max + 1,
-          item: inputData,
-          time: new Date().getTime(),
-          favorite: false,
-        },
-      ]),
-    );
-    setState({
-      ...state,
-      inputData: '',
-    });
+    if (inputData !== '') {
+      dispatch(
+        ToDoAddData([
+          ...todoData,
+          {
+            key: max + 1,
+            item: inputData,
+            time: new Date().getTime(),
+            favorite: false,
+          },
+        ]),
+      );
+      setState({
+        ...state,
+        inputData: '',
+      });
+    } else {
+      alert('Please Give a Task Title...');
+    }
   };
 
   return (
@@ -160,37 +168,38 @@ const ToDo = () => {
       <Main>
         <Row gutter={30}>
           <Col md={12}>
-            <Cards title="Task Lists">
-              <TableWrapper>
-                <Table
-                  rowSelection={{
-                    type: 'checkbox',
-                    ...rowSelection,
-                  }}
-                  columns={columns}
-                  dataSource={dataSource}
-                  pagination={false}
-                  rowKey="index"
-                  components={{
-                    body: {
-                      wrapper: DraggableContainer,
-                      row: DraggableBodyRow,
-                    },
-                  }}
-                />
-              </TableWrapper>
+            <TodoStyleWrapper>
+              <Cards title="Task Lists">
+                <TableWrapper>
+                  <Table
+                    rowSelection={{
+                      type: 'checkbox',
+                      ...rowSelection,
+                    }}
+                    columns={columns}
+                    dataSource={dataSource}
+                    pagination={false}
+                    rowKey="index"
+                    components={{
+                      body: {
+                        wrapper: DraggableContainer,
+                        row: DraggableBodyRow,
+                      },
+                    }}
+                  />
+                </TableWrapper>
 
-              <br />
-              <Form name="todoAdd" form={form} onFinish={onSubmitHandler}>
-                <Input value={inputData} onChange={onInputChange} placeholder="Input Item Name......." />
-                <br />
-                <br />
+                <Form className="adTodo-form" name="todoAdd" form={form} onFinish={onSubmitHandler}>
+                  <Input value={inputData} onChange={onInputChange} placeholder="Input Item Name......." />
+                  <br />
+                  <br />
 
-                <Button htmlType="submit" type="primary" size="large">
-                  + Add New Task
-                </Button>
-              </Form>
-            </Cards>
+                  <Button className="btn-toDoAdd" htmlType="submit" transparented type="primary" size="large">
+                    + Add New Task
+                  </Button>
+                </Form>
+              </Cards>
+            </TodoStyleWrapper>
           </Col>
           {/* <Col md={12}>
             <Cards title="Task Lists" />
