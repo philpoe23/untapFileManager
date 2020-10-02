@@ -208,10 +208,10 @@ const UserTableStyleWrapper = Styled.nav`
       tr{
         th{
           &:first-child{
-            padding-left: 20px;
+            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 20px;
           }
           &:last-child{
-            padding-right: 20px;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
           }
         }
       }
@@ -220,7 +220,6 @@ const UserTableStyleWrapper = Styled.nav`
           width: auto;
           height: auto;
           padding: 0;
-          border-radius: 50%;
           background-color: transparent;
           &:hover{
             background-color: transparent;
@@ -231,6 +230,9 @@ const UserTableStyleWrapper = Styled.nav`
             }
           }
         }
+      }
+      tbody >tr.ant-table-row-selected >td{
+        background-color: ${({ theme }) => theme['primary-color']}10;
       }
     }
   }

@@ -273,14 +273,17 @@ const UserListDataTable = () => {
             </Cards>
           </Col>
         </Row>
-        <Modal type={state.modalType} title={null} visible={state.visible} footer={null} onCancel={handleCancel}>
+        <Modal
+          type={state.modalType}
+          title="Contact Information"
+          visible={state.visible}
+          footer={null}
+          onCancel={handleCancel}
+        >
           <div className="project-modal">
             <AddUser>
               <BasicFormWrapper>
                 <Form form={form} name="contact" onFinish={handleOk}>
-                  <Heading className="form-title" as="h4">
-                    Personal Information
-                  </Heading>
                   <Form.Item label="Name" name="name">
                     <Input placeholder="Input Name" />
                   </Form.Item>
@@ -313,14 +316,17 @@ const UserListDataTable = () => {
             </AddUser>
           </div>
         </Modal>
-        <Modal type={state.modalType} title={null} visible={state.editVisible} footer={null} onCancel={handleCancel}>
+        <Modal
+          type={state.modalType}
+          title="Contact Information"
+          visible={state.editVisible}
+          footer={null}
+          onCancel={handleCancel}
+        >
           <div className="project-modal">
             <AddUser>
               <BasicFormWrapper>
                 <Form form={form} name="contactEdit" onFinish={handleEditOk}>
-                  <Heading className="form-title" as="h4">
-                    Personal Information
-                  </Heading>
                   <Form.Item initialValue={update.name} label="Name" name="name">
                     <Input placeholder="Input Name" />
                   </Form.Item>

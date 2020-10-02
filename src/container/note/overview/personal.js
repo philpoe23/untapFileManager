@@ -19,7 +19,7 @@ const Favorite = () => {
             .filter(item => item.label === 'personal')
             .map(item => {
               return (
-                <Col md={8} key={item.key}>
+                <Col xxl={8} xl={12} lg={8} sm={12} xs={24} key={item.key}>
                   <NoteCard data={item} />
                 </Col>
               );

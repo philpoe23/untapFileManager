@@ -375,10 +375,14 @@ const MailRightAction = Styled.div`
 `;
 
 const NoteCardWrap = Styled.div`
-  min-height: 600px;
+  min-height: 625px;
+  @media only screen and (max-width: 1199px){
+    min-height: 100%;
+  }
 `;
 
 const NoteWrapper = Styled.div`
+  position: relative;
   .sidebar-card{
     .ant-card{
       min-height: 710px;
@@ -387,7 +391,9 @@ const NoteWrapper = Styled.div`
       }
     }
   }
-  position: relative;
+  .ant-card-body{
+    padding-bottom: 0 !important;
+  }
   .trigger-close.ant-btn-link{
     margin: 0 !important;
     position: absolute;

@@ -1592,11 +1592,23 @@ ul {
   position: relative;
   z-index: 9999;
   opacity: 0.5;
+  vertical-align: middle;
 }
-.row-dragging td .todos-action {
-  min-width: 100px;
-  text-align: right;
+.row-dragging td .todos-action,
+.row-dragging td .table-actions {
   display: none;
+}
+.row-dragging td .user-info figcaption {
+  display: none;
+}
+.row-dragging td .feather-move,
+.row-dragging td .drag_email,
+.row-dragging td .drag_company,
+.row-dragging td .drag_designation,
+.row-dragging td .drag_join-date,
+.row-dragging td .active {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .row-dragging .drag-visible {

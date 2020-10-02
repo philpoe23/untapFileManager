@@ -6,10 +6,13 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import arrayMove from 'array-move';
 import PropTypes from 'prop-types';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper, CardToolbox } from '../styled';
+import { Main, TableWrapper, DragDropStyle } from '../styled';
 import Heading from '../../components/heading/heading';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const DragHandle = sortableHandle(() => <FeatherIcon style={{ cursor: 'pointer', color: '#999' }} icon="move" />);
 
@@ -22,7 +25,7 @@ const UserListDataTable = () => {
 
   const usersTableData = [];
   users.map((user, index) => {
-    const { name, designation, img, status } = user;
+    const { name, designation, img } = user;
 
     return usersTableData.push({
       key: index + 1,
@@ -36,21 +39,16 @@ const UserListDataTable = () => {
             <Heading className="user-name" as="h6">
               {name}
             </Heading>
-            <span className="user-designation">San Francisco, CA</span>
           </figcaption>
         </div>
       ),
-      email: 'john@gmail.com',
-      company: 'Business Development',
-      position: designation,
-      joinDate: 'January 20, 2020',
-      status: <span className={status}>{status}</span>,
+      email: <span className="drag_email">john@gmail.com</span>,
+      company: <span className="drag_company">Business Development</span>,
+      position: <span className="drag_designation">{designation}</span>,
+      joinDate: <span className="drag_join-date">January 20, 2020</span>,
       action: (
         <div className="table-actions">
           <>
-            <Button className="btn-icon" type="primary" to="#" shape="circle">
-              <FeatherIcon icon="eye" size={16} />
-            </Button>
             <Button className="btn-icon" type="info" to="#" shape="circle">
               <FeatherIcon icon="edit" size={16} />
             </Button>
@@ -65,38 +63,27 @@ const UserListDataTable = () => {
 
   const usersTableColumns = [
     {
-      title: 'Sort',
       dataIndex: 'sort',
       width: 30,
       className: 'drag-visible',
       render: () => <DragHandle />,
     },
     {
-      title: 'User',
       dataIndex: 'user',
     },
     {
-      title: 'Email',
       dataIndex: 'email',
     },
     {
-      title: 'Company',
       dataIndex: 'company',
     },
     {
-      title: 'Position',
       dataIndex: 'position',
     },
     {
-      title: 'Join Date',
       dataIndex: 'joinDate',
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-    },
-    {
-      title: 'Actions',
       dataIndex: 'action',
       width: '90px',
     },
@@ -135,29 +122,42 @@ const UserListDataTable = () => {
 
   return (
     <>
-      <CardToolbox>
-        <PageHeader ghost title="Drag & Drop" />
-      </CardToolbox>
+      <PageHeader
+        title="Drag & Drop"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
 
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
-            <Cards headless>
-              <TableWrapper className="table-responsive">
-                <Table
-                  pagination={false}
-                  dataSource={dataSource}
-                  columns={usersTableColumns}
-                  rowKey="index"
-                  components={{
-                    body: {
-                      wrapper: DraggableContainer,
-                      row: DraggableBodyRow,
-                    },
-                  }}
-                />
-              </TableWrapper>
-            </Cards>
+          <Col xs={24}>
+            <DragDropStyle>
+              <Cards title="Drag & Drop">
+                <TableWrapper className="table-responsive">
+                  <Table
+                    pagination={false}
+                    dataSource={dataSource}
+                    columns={usersTableColumns}
+                    rowKey="index"
+                    components={{
+                      body: {
+                        wrapper: DraggableContainer,
+                        row: DraggableBodyRow,
+                      },
+                    }}
+                  />
+                </TableWrapper>
+              </Cards>
+            </DragDropStyle>
           </Col>
         </Row>
       </Main>
