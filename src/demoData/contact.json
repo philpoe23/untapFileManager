@@ -5,6 +5,9 @@
     "name": "Duran Clayton",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/1.png"
   },
   {
@@ -13,6 +16,9 @@
     "name": "David Milar",
     "designation": "UI/UX Designer",
     "stared": true,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/2.png"
   },
   {
@@ -21,6 +27,9 @@
     "name": "Tom Curan",
     "designation": "UI/UX Designer",
     "stared": true,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/1.png"
   },
   {
@@ -29,6 +38,9 @@
     "name": "Stuard Broad",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/4.png"
   },
   {
@@ -37,6 +49,9 @@
     "name": "Crish Moris",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/5.png"
   },
   {
@@ -45,6 +60,9 @@
     "name": "Salman But",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/6.png"
   },
   {
@@ -53,6 +71,9 @@
     "name": "Mohammad Amir",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/7.png"
   },
   {
@@ -61,6 +82,9 @@
     "name": "Musfiqur Rohim",
     "designation": "UI/UX Designer",
     "stared": false,
+    "phone": "+90014525",
+    "company": "Business Development",
+    "email": "john@gmail.com",
     "img": "static/img/users/8.png"
   }
 ]

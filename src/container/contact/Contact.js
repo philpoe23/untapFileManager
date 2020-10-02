@@ -31,7 +31,7 @@ const UserListDataTable = () => {
     editVisible: false,
     modalType: 'primary',
     url: null,
-    update: null,
+    update: {},
   });
 
   const { update } = state;
@@ -93,18 +93,24 @@ const UserListDataTable = () => {
 
   const handleEditOk = values => {
     onCancel();
+    const updateUsers = users;
 
-    dispatch(
-      contactAddData([
-        {
-          ...values,
-          id: update.id,
-          time: update.time,
-          img: update.img,
-          stared: update.stared,
-        },
-      ]),
-    );
+    updateUsers.map(user => {
+      if (user.id === update.id) {
+        const updateUser = user;
+        updateUser.id = update.id;
+        updateUser.name = values.name;
+        updateUser.email = values.email;
+        updateUser.phone = values.phone;
+        updateUser.designation = values.designation;
+        updateUser.company = values.company;
+        updateUser.time = update.time;
+        updateUser.img = update.img;
+        updateUser.stared = update.stared;
+      }
+      return true;
+    });
+    dispatch(contactAddData(updateUsers));
     form.resetFields();
   };
 
@@ -119,7 +125,7 @@ const UserListDataTable = () => {
       return b.time - a.time;
     })
     .map(user => {
-      const { id, name, designation, img, stared } = user;
+      const { id, name, designation, img, stared, email, phone, company } = user;
 
       return usersTableData.push({
         key: id,
@@ -136,10 +142,10 @@ const UserListDataTable = () => {
             </figcaption>
           </div>
         ),
-        email: 'john@gmail.com',
-        company: 'Business Development',
+        email,
+        company,
         position: designation,
-        phone: '+90014525',
+        phone,
         action: (
           <Action className="table-actions">
             <Button
@@ -154,7 +160,7 @@ const UserListDataTable = () => {
             <Dropdown
               content={
                 <>
-                  <Link to="#">
+                  <Link onClick={() => showEditModal(user, id)} to="#">
                     <span>Edit</span>
                   </Link>
                   <Link onClick={() => onHandleDelete(id)} to="#">
@@ -296,6 +302,47 @@ const UserListDataTable = () => {
                   </Form.Item>
 
                   <Form.Item name="company" label="Company Name">
+                    <Input placeholder="Company Name" />
+                  </Form.Item>
+
+                  <Button htmlType="submit" size="default" type="primary" key="submit">
+                    Add New Contact
+                  </Button>
+                </Form>
+              </BasicFormWrapper>
+            </AddUser>
+          </div>
+        </Modal>
+        <Modal type={state.modalType} title={null} visible={state.editVisible} footer={null} onCancel={handleCancel}>
+          <div className="project-modal">
+            <AddUser>
+              <BasicFormWrapper>
+                <Form form={form} name="contactEdit" onFinish={handleEditOk}>
+                  <Heading className="form-title" as="h4">
+                    Personal Information
+                  </Heading>
+                  <Form.Item initialValue={update.name} label="Name" name="name">
+                    <Input placeholder="Input Name" />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Email Address"
+                    name="email"
+                    rules={[{ message: 'Please input your email!', type: 'email' }]}
+                    initialValue={update.email}
+                  >
+                    <Input placeholder="name@example.com" />
+                  </Form.Item>
+
+                  <Form.Item initialValue={update.phone} name="phone" label="Phone Number">
+                    <Input placeholder="+440 2546 5236" />
+                  </Form.Item>
+
+                  <Form.Item initialValue={update.designation} name="designation" label="Position">
+                    <Input placeholder="Input Position" />
+                  </Form.Item>
+
+                  <Form.Item initialValue={update.company} name="company" label="Company Name">
                     <Input placeholder="Company Name" />
                   </Form.Item>
 
