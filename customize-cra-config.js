@@ -22,12 +22,12 @@ module.exports = override(
       ...theme,
     },
   }),
-
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: true,
     modules: true,
+
     options: {
       modules: true, // must add this
     },
