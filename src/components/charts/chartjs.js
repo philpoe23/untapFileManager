@@ -321,21 +321,8 @@ const ChartjsAreaChart = props => {
     labels,
     datasets,
   };
-  let count = 0;
   return (
     <div>
-      <div className="chart-label">
-        {datasets.map(item => {
-          const { label, backgroundColor } = item;
-          count += 1;
-          return (
-            <div key={count} className="chart-label__single d-flex">
-              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }} />
-              <p>{label}</p>
-            </div>
-          );
-        })}
-      </div>
       <ChartContainer className="parentContainer">
         <Line
           id={id}

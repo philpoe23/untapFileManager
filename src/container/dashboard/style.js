@@ -51,6 +51,11 @@ const Focard = Styled.div`
                 @media only screen and (max-width: 767px){
                     font-size: 24px;
                 }
+                svg,
+                i,
+                img{
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
+                }
             }
             .focard-status{
                 .focard-status__percentage{
