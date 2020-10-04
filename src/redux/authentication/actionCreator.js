@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import actions from './actions';
 
 const { loginBegin, loginSuccess, loginErr, logoutBegin, logoutSuccess, logoutErr } = actions;
@@ -7,7 +8,7 @@ const login = () => {
     try {
       dispatch(loginBegin());
       setTimeout(() => {
-        window.localStorage.setItem('logedIn', true);
+        Cookies.set('logedIn', true);
         return dispatch(loginSuccess(true));
       }, 1000);
     } catch (err) {
@@ -20,7 +21,7 @@ const logOut = () => {
   return async dispatch => {
     try {
       dispatch(logoutBegin());
-      window.localStorage.removeItem('logedIn');
+      Cookies.remove('logedIn');
       dispatch(logoutSuccess(null));
     } catch (err) {
       dispatch(logoutErr(err));
