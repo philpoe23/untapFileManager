@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Table } from 'antd';
-import { topSaleGetData, topSaleFilterData } from '../../../redux/chartContent/actionCreator';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import { topSaleGetData, topSaleFilterData } from '../../../../redux/chartContent/actionCreator';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 
 const TopSellingProduct = () => {
   const dispatch = useDispatch();
