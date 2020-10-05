@@ -919,7 +919,7 @@ const LineChartWrapper = Styled.div`
             svg,
             i,
             img{
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+                margin-right: 6px;
             }
         }
     }
