@@ -46,15 +46,10 @@ const Focard = Styled.div`
     }}
     .focard-details{
         &.growth-downward{
-            h1{
+            h1{                
                 font-size: 30px;
                 @media only screen and (max-width: 767px){
                     font-size: 24px;
-                }
-                svg,
-                i,
-                img{
-                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
                 }
             }
             .focard-status{
