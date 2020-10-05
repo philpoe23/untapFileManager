@@ -43,7 +43,7 @@ const Focard = Styled.div`
         @media only screen and (max-width: 1199px){
             margin-top: 15px;
         }
-    }}
+    }
     .focard-details{
         &.growth-downward{
             h1{                
@@ -916,6 +916,11 @@ const LineChartWrapper = Styled.div`
         line-height: 2.2;
         h1{
             margin-bottom: 0;
+            svg,
+            i,
+            img{
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+            }
         }
     }
     .line-chart-row{
