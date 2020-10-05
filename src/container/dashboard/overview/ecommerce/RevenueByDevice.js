@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Spin } from 'antd';
-import { RevenueChartWrapper } from '../style';
-import { ChartjsDonutChart2 } from '../../../components/charts/chartjs';
-import { deviceGetData, deviceFilterData } from '../../../redux/chartContent/actionCreator';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import { RevenueChartWrapper } from '../../style';
+import { ChartjsDonutChart2 } from '../../../../components/charts/chartjs';
+import { deviceGetData, deviceFilterData } from '../../../../redux/chartContent/actionCreator';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 
 const RevenueByDevice = () => {
   const dispatch = useDispatch();

@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Spin } from 'antd';
-import { RevenueWrapper } from '../style';
-import { ChartjsAreaChart } from '../../../components/charts/chartjs';
-import { customTooltips, chartLinearGradient } from '../../../components/utilities/utilities';
-import { performanceFilterData, performanceGetData } from '../../../redux/chartContent/actionCreator';
-import { Cards } from '../../../components/cards/frame/cards-frame';
+import { RevenueWrapper } from '../../style';
+import { ChartjsAreaChart } from '../../../../components/charts/chartjs';
+import { customTooltips, chartLinearGradient } from '../../../../components/utilities/utilities';
+import { performanceFilterData, performanceGetData } from '../../../../redux/chartContent/actionCreator';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 
 const moreContent = (
   <>

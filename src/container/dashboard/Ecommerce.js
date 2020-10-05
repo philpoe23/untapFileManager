@@ -14,11 +14,11 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const TotalRevenue = lazy(() => import('./overview/TotalRevenue'));
-const RevenueGenerated = lazy(() => import('./overview/RevenueGenerated'));
-const TopSellingProduct = lazy(() => import('./overview/TopSellingProduct'));
-const SalesByLocation = lazy(() => import('./overview/SalesByLocation'));
-const RevenueByDevice = lazy(() => import('./overview/RevenueByDevice'));
+const TotalRevenue = lazy(() => import('./overview/ecommerce/TotalRevenue'));
+const RevenueGenerated = lazy(() => import('./overview/ecommerce/RevenueGenerated'));
+const TopSellingProduct = lazy(() => import('./overview/ecommerce/TopSellingProduct'));
+const SalesByLocation = lazy(() => import('./overview/ecommerce/SalesByLocation'));
+const RevenueByDevice = lazy(() => import('./overview/ecommerce/RevenueByDevice'));
 
 const chartOptions = {
   legend: {
@@ -205,27 +205,57 @@ const Ecommerce = () => {
         </Row>
         <Row gutter={25}>
           <Col xxl={12} xs={24}>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
               <TotalRevenue />
             </Suspense>
           </Col>
           <Col xxl={12} xs={24}>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
               <RevenueGenerated />
             </Suspense>
           </Col>
           <Col xxl={8} xs={24}>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
               <TopSellingProduct />
             </Suspense>
           </Col>
           <Col xxl={8} md={12} xs={24}>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
               <SalesByLocation />
             </Suspense>
           </Col>
           <Col xxl={8} md={12} xs={24}>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
               <RevenueByDevice />
             </Suspense>
           </Col>
