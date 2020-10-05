@@ -276,31 +276,6 @@ ChartjsLineChart.defaultProps = {
         display: false,
       },
     },
-    scales: {
-      yAxes: [
-        {
-          gridLines: {
-            color: '#e5e9f2',
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 10,
-            max: 80,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 11,
-          },
-        },
-      ],
-    },
   },
 };
 

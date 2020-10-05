@@ -508,11 +508,6 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        {/* <li className={state.revenue === 'today' ? 'active' : 'deactivate'}>
-                          <Link onClick={() => handleActiveChangeRevenue('today')} to="#">
-                            Today
-                          </Link>
-                        </li> */}
                         <li className={state.revenue === 'week' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeRevenue('week')} to="#">
                             Week
@@ -617,8 +612,6 @@ const Ecommerce = () => {
                                   suggestedMin: 50,
                                   suggestedMax: 80,
                                   stepSize: 20,
-
-                                  // padding: 10,
                                   callback(label) {
                                     return `${label}k`;
                                   },
@@ -657,11 +650,6 @@ const Ecommerce = () => {
                   isbutton={
                     <div className="card-nav">
                       <ul>
-                        {/* <li className={state.generated === 'today' ? 'active' : 'deactivate'}>
-                          <Link onClick={() => handleActiveChangeGenerated('today')} to="#">
-                            Today
-                          </Link>
-                        </li> */}
                         <li className={state.generated === 'week' ? 'active' : 'deactivate'}>
                           <Link onClick={() => handleActiveChangeGenerated('week')} to="#">
                             Week
