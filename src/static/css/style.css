@@ -1427,11 +1427,14 @@ ul {
   padding-right: 25px;
 }
 
-.full-width-table .top-seller-table th,
-.full-width-table .top-seller-table td {
+.full-width-table .top-seller-table th {
   text-align: right;
   color: #272b41;
   font-weight: 500;
+}
+
+.full-width-table .top-seller-table td {
+  color: #5a5f7d;
 }
 
 .full-width-table .top-seller-table th:first-child,

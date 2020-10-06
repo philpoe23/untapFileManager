@@ -63,9 +63,9 @@ const ProjectSorting = Styled.div`
             
         }
         .project-sort-group .sort-group .layout-style a{
-                width: 35px;
-                height: 35px;
-            }
+            width: 35px;
+            height: 35px;
+        }
         .project-sort-group .sort-group .ant-select {
             min-width: 170px;
             ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
@@ -185,6 +185,7 @@ const ProjectSorting = Styled.div`
         .layout-style{
             display: flex;
             align-items: center;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
             a{
                 display: flex;
                 width: 40px;

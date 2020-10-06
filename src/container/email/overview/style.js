@@ -788,11 +788,8 @@ const MessageDetails = Styled.div`
       padding: 0 15px;
       line-height: 1;
       color: ${({ theme }) => theme['gray-solid']};
-      @media only screen and (max-width: 767px){
-        padding: 0 8px;
-      }
-      @media only screen and (max-width: 479px){
-        padding: 0 5px;
+      @media only screen and (max-width: 1199px){
+        padding: 0 6px;
       }
     }
     & > span{

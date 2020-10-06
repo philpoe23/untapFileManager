@@ -647,7 +647,7 @@ const SearchResultWrapper = Styled.div`
         display: inline-block;
         margin-bottom: 10px;
         &:not(:last-child){
-          ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+          ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
         }
         a{
           font-size: 13px;
