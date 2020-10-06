@@ -8,24 +8,8 @@ import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
-const TeamCard = ({ user }) => {
+const TeamCard = ({ user, actions }) => {
   const { name, designation, img } = user;
-  const actions = (
-    <>
-      <Link to="#">
-        <FeatherIcon size={14} icon="eye" />
-        <span>View</span>
-      </Link>
-      <Link to="#">
-        <FeatherIcon size={14} icon="edit" />
-        <span>Edit</span>
-      </Link>
-      <Link to="#">
-        <FeatherIcon size={14} icon="trash-2" />
-        <span>Delete</span>
-      </Link>
-    </>
-  );
 
   return (
     <UserCard>
@@ -69,6 +53,7 @@ const TeamCard = ({ user }) => {
 
 TeamCard.propTypes = {
   user: PropTypes.object,
+  actions: PropTypes.node,
 };
 
 export default TeamCard;

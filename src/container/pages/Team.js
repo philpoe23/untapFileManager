@@ -2,19 +2,18 @@ import React, { lazy, useState, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { Link } from 'react-router-dom';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, CardToolbox } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
-const TeamCard = lazy(() => import('./overview/TeamCard'));
-
 const Team = () => {
   const { searchData, team } = useSelector(state => {
     return {
       searchData: state.headerSearchData,
-      team: state.team,
+      team: state.team.data,
     };
   });
 
@@ -30,6 +29,23 @@ const Team = () => {
       notData: data,
     });
   };
+
+  const actions = (
+    <>
+      <Link to="#">
+        <FeatherIcon size={14} icon="eye" />
+        <span>View</span>
+      </Link>
+      <Link to="#">
+        <FeatherIcon size={14} icon="edit" />
+        <span>Edit</span>
+      </Link>
+      <Link to="#">
+        <FeatherIcon size={14} icon="trash-2" />
+        <span>Delete</span>
+      </Link>
+    </>
+  );
 
   return (
     <>
@@ -60,17 +76,18 @@ const Team = () => {
       <Main>
         <Row gutter={25}>
           {team.map(user => {
+            const TeamCard = lazy(() => import('./overview/TeamCard'));
             const { id } = user;
             return (
               <Col key={id} xxl={6} lg={8} sm={12} xs={24}>
                 <Suspense
                   fallback={
                     <Cards headless>
-                      <Skeleton active />
+                      <Skeleton avatar active />
                     </Cards>
                   }
                 >
-                  <TeamCard user={user} />
+                  <TeamCard actions={actions} user={user} />
                 </Suspense>
               </Col>
             );
