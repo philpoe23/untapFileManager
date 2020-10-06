@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Row, Col, Spin, Badge } from 'antd';
+import { Row, Col, Badge, Skeleton } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -143,9 +143,17 @@ const ChatApp = ({ match }) => {
                     renderTrackVertical={renderTrackVertical}
                   >
                     <Switch>
-                      <Route path={`${match.path}/private`} component={PrivetChat} />
-                      <Route path={`${match.path}/group`} component={GroupChat} />
-                      <Route path={`${match.path}/all`} component={AllContacts} />
+                      <Suspense
+                        fallback={
+                          <Cards headless>
+                            <Skeleton avatar paragraph={{ rows: 10 }} active />
+                          </Cards>
+                        }
+                      >
+                        <Route path={`${match.path}/private`} component={PrivetChat} />
+                        <Route path={`${match.path}/group`} component={GroupChat} />
+                        <Route path={`${match.path}/all`} component={AllContacts} />
+                      </Suspense>
                     </Switch>
                   </Scrollbars>
                 </Content>
@@ -156,9 +164,9 @@ const ChatApp = ({ match }) => {
             <Switch>
               <Suspense
                 fallback={
-                  <div className="spin">
-                    <Spin />
-                  </div>
+                  <Cards headless>
+                    <Skeleton avatar paragraph={{ rows: 10 }} active />
+                  </Cards>
                 }
               >
                 <Route exact path={match.path} component={SingleChat} />
