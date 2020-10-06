@@ -17,6 +17,7 @@ const Forms = lazy(() => import('../../container/forms/Forms'));
 const Inbox = lazy(() => import('../../container/email/Email'));
 const Chat = lazy(() => import('../../container/chat/ChatApp'));
 const Settings = lazy(() => import('../../container/profile/settings/Settings'));
+const Myprofile = lazy(() => import('../../container/profile/myProfile/Index'));
 const ToDo = lazy(() => import('../../container/toDo/ToDo'));
 const Note = lazy(() => import('../../container/note/Note'));
 const Contact = lazy(() => import('../../container/contact/Contact'));
@@ -49,6 +50,7 @@ const Admin = () => {
         <Route path={`${path}/email/:page`} component={Inbox} />
         <Route path={`${path}/main/chat`} component={Chat} />
         <Route path={`${path}/profile/settings`} component={Settings} />
+        <Route path={`${path}/profile/myProfile`} component={Myprofile} />
         <Route path={`${path}/app/to-do`} component={ToDo} />
         <Route path={`${path}/app/note`} component={Note} />
         <Route path={`${path}/app/contact`} component={Contact} />
