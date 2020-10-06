@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import Dashboard from './dashboard';
+import Pages from './pages';
+import Ecommerce from './ecommerce';
 import withAdminLayout from '../../layout/withAdminLayout';
 
-const Dashboard = lazy(() => import('./dashboard'));
-const Ecommerce = lazy(() => import('./ecommerce'));
 const Charts = lazy(() => import('./charts'));
-const Pages = lazy(() => import('./pages'));
 const Components = lazy(() => import('./components'));
 const Maps = lazy(() => import('./maps'));
 const Icons = lazy(() => import('./icons'));
