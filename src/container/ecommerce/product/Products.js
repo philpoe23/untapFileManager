@@ -1,6 +1,6 @@
 import React, { lazy, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Radio, Spin } from 'antd';
+import { Row, Col, Radio, Spin, Skeleton } from 'antd';
 import { Switch, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
@@ -12,6 +12,7 @@ import { Button } from '../../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
@@ -63,9 +64,9 @@ const Product = () => {
           <Col className="product-sidebar-col" xxl={5} xl={7} lg={7} md={10} xs={24}>
             <Suspense
               fallback={
-                <div className="spin">
-                  <Spin />
-                </div>
+                <Cards headless>
+                  <Skeleton paragraph={{ rows: 22 }} active />
+                </Cards>
               }
             >
               <Filters />
