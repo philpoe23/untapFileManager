@@ -14,18 +14,18 @@ const galleryReducer = (state = initialState, action) => {
   switch (type) {
     case FILTER_GALLERY_BEGIN:
       return {
-        ...initialState,
+        ...state,
         loading: true,
       };
     case FILTER_GALLERY_SUCCESS:
       return {
-        ...initialState,
+        ...state,
         data,
         loading: false,
       };
     case FILTER_GALLERY_ERR:
       return {
-        ...initialState,
+        ...state,
         error: err,
         loading: false,
       };
