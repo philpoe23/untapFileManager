@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const DropdownStyle = Styled.div`
   .ant-card-body .ant-btn {
-      margin-right: 10px;
+    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
       margin-bottom: 10px;
       height: 36px;
       font-weight: 400;
@@ -16,7 +16,7 @@ const DropdownIconStyleWrapper = Styled.div`
   button{
     padding: 0 !important;
     >span{
-      padding: 0 10px 0 16px
+      padding: ${({ theme }) => (theme.rtl ? '0 16px 0 10px' : '0 10px 0 16px')}
     }
   }
   .ant-dropdown-trigger{
@@ -24,7 +24,8 @@ const DropdownIconStyleWrapper = Styled.div`
     display: inline-flex;
     align-items: center;
     padding: 0 8px;
-    border-left: 1px solid ${({ theme }) => theme['border-color-normal']};
+    ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-normal']};
   }
 `;
 
@@ -55,7 +56,7 @@ const CarouselStyleWraper = Styled.div`
     margin-bottom: 16px !important;
   }
   .ant-radio-button-wrapper{
-    height: 38px;
+    height: 38px !important;
     line-height: 36px !important;
     font-weight: 600;
     color: ${({ theme }) => theme['light-color']}
@@ -75,7 +76,7 @@ const AvatarWraperStyle = Styled.div`
   }
   .ant-badge-count{
     top: 10px;
-    right: 10px;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px !important;
     padding: 0 4px;
     font-size: 10px;
     font-weight: 600;
@@ -84,7 +85,7 @@ const AvatarWraperStyle = Styled.div`
   }
   .ant-badge-dot{
     top: 10px;
-    right: 10px;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px !important;
     width: 10px;
     height: 10px;
     border: 2px solid #fff;
@@ -105,41 +106,41 @@ const BadgeWraperStyle = Styled.div`
   }
   .ant-badge-count{
     top: 10px;
-    right: 15px;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px !important;
     font-size: 10px;
     font-weight: 600;
     min-width: 20px;
     padding: 0;
     height: 20px;
     line-height: 14px;
-    border: 3px solid #fff
+    border: 3px solid #fff;    
   }
   .ant-scroll-number-custom-component{
     top: 10px !important;
-    right: 15px !important;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px !important;
   }
   .ant-badge-dot{
     top: 0;
-    right: -1px;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -1px !important;
     border: 1px solid #fff;
     width: 10px;
     height: 10px;
   }
   .ant-badge-status-text{
-    margin-left: 10px;
+    ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px !important;
     color: #9299B8;
   }
 `;
 
 const BadgeRedStyle = Styled.div`
   .ant-badge:not(:last-child){
-    margin-right: 20px;
+    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px !important;
   }
 `;
 
 const BadgeStandAloneStyle = Styled.div`
   .ant-badge-count{
-    left: 0;
+    ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0 !important;
     border: 0;
     font-size: 12px !important;
     font-weight: 500;
@@ -163,7 +164,7 @@ const BreadcrumbWrapperStyle = Styled.div`
     color: #5A5F7D;
     .ant-breadcrumb-link{
       .anticon{
-        margin-right: 2px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 2px !important;
       }
     }
   }
@@ -213,7 +214,7 @@ const BadgeDynamicStyle = Styled.div`
 .badge-dynamic{
   .ant-btn-group{
     padding-top: 4px;
-    margin: 6px 0 0 12px;
+    margin: ${({ theme }) => (theme.rtl ? '6px 12px 0 0' : '6px 0 0 12px')};
     border: 1px solid ${({ theme }) => theme['border-color-normal']};
     border-radius: 5px;
     padding: 0;
@@ -221,25 +222,26 @@ const BadgeDynamicStyle = Styled.div`
       z-index: 2;
       &:first-child{
         z-index: 22;
-        border-right: 1px solid ${({ theme }) => theme['border-color-normal']};
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-normal']};
       }
     }
 
   }
 }
 .ant-badge-dot{
-  right: 16px;
+  ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 16px !important;
   top: 8px;
 }
 .ant-switch{
   min-width: 44px;
   height: 22px;
-  margin-left: 15px;
+  ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
   .ant-switch-handle{
     top: 4px;
   }
   .ant-switch-checked .ant-switch-handle{
-    left: calc(100% - 14px - 5px);
+    ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: calc(100% - 14px - 5px);
   }
 }
 `;

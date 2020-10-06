@@ -19,7 +19,7 @@ const info = () => {
         <p>some messages...some messages...</p>
       </div>
     ),
-    onOk() { },
+    onOk() {},
   });
 };
 
@@ -70,9 +70,9 @@ const showConfirm = () => {
     onOk() {
       return new Promise((resolve, reject) => {
         setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-      }).catch(() => { });
+      }).catch(() => {});
     },
-    onCancel() { },
+    onCancel() {},
   });
 };
 

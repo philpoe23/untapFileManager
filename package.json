@@ -1,6 +1,6 @@
 {
-  "name": "admin",
-  "version": "0.1.0",
+  "name": "strikingDash",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@south-paw/react-vector-maps": "^3.0.0",
@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.2.2",
+    "array-move": "^3.0.1",
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "cors": "^2.8.5",
@@ -16,6 +17,7 @@
     "date-fns": "^2.9.0",
     "feather-icons-react": "^0.4.1",
     "google-maps-react": "^2.0.2",
+    "js-cookie": "^2.2.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
     "moment": "^2.27.0",
@@ -35,6 +37,7 @@
     "react-router-dom": "^5.1.2",
     "react-rte": "^0.16.1",
     "react-scripts": "^3.4.3",
+    "react-sortable-hoc": "^1.11.0",
     "react-tagsinput": "^3.19.0",
     "recharts": "^2.0.0-beta.1",
     "redux": "^4.0.5",
@@ -78,7 +81,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^4.0.5",
-    "yarn": "^1.22.4",
     "esm": "^3.2.25",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
@@ -87,6 +89,7 @@
     "react-app-rewired": "^2.1.6",
     "react-hot-loader": "^4.12.18",
     "redux-devtools": "^3.5.0",
-    "webpack-bundle-analyzer": "^3.7.0"
+    "webpack-bundle-analyzer": "^3.7.0",
+    "yarn": "^1.22.4"
   }
 }

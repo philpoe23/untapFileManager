@@ -18,6 +18,9 @@ import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
+import Todo from './todo/reducers';
+import Note from './note/reducers';
+import Contact from './contact/reducers';
 
 import { fsCrudReducer, fsSingleCrudReducer } from './firestore/reducers';
 
@@ -49,6 +52,9 @@ const rootReducers = combineReducers({
   crud: fsCrudReducer,
   singleCrud: fsSingleCrudReducer,
   cart: cartData,
+  Todo,
+  Note,
+  Contact,
 });
 
 export default rootReducers;

@@ -41,6 +41,10 @@
   text-align: right;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -146,11 +150,11 @@ ul {
 .card-nav ul {
   list-style: none;
   display: flex;
-  margin: 0 -8px;
+  margin: 0 -8px !important;
 }
 
 .card-nav ul li {
-  margin: 0 8px;
+  margin: 0 8px !important;
   position: relative;
 }
 
@@ -184,18 +188,14 @@ ul {
   margin: 0;
 }
 
-.growth-downward h1 sub,
-.growth-upward h1 sub {
-  font-size: 14px;
-  font-weight: 600;
-  left: 5px;
-  bottom: 0;
-}
-
 .growth-downward h1 sub svg,
 .growth-upward h1 sub svg {
   position: relative;
   top: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  left: 5px;
+  bottom: 0;
 }
 
 /*
@@ -216,14 +216,6 @@ ul {
 
 .chart-label {
   display: flex;
-}
-
-.chart-label .label-dot {
-  display: block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  margin-right: 10px;
 }
 
 .chart-label .chart-label__single {
@@ -261,12 +253,10 @@ ul {
 
 .revenue-chat-percentage span {
   display: block;
-  font-size: 13px;
-  color: #868eae;
 }
 
 .revenue-chat-percentage span:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* progressbars */
@@ -286,11 +276,14 @@ ul {
   padding-right: 0 !important;
 }
 
-.ant-progress .ant-progress-text {
-  order: 0;
-  margin-left: 10px;
-  align-self: flex-end;
-  text-align: right;
+.revenue-chat-percentage span {
+  display: block;
+  font-size: 13px;
+  color: #868eae;
+}
+
+.revenue-chat-percentage span:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .ant-progress-status-warning .ant-progress-bg {
@@ -817,10 +810,6 @@ ul {
   align-items: center;
 }
 
-.ant-tabs-tab span svg {
-  padding-right: 5px;
-}
-
 /* list */
 
 .ant-list-bordered {
@@ -970,10 +959,6 @@ ul {
 
 .atbd-top-dropdwon {
   width: 340px;
-}
-
-.atbd-top-dropdwon .atbd-top-dropdwon__title .title-text {
-  margin-right: 10px;
 }
 
 .atbd-top-dropdwon .atbd-top-dropdwon__nav {
@@ -1149,15 +1134,6 @@ ul {
   display: flex;
   align-items: center;
   margin-bottom: 0;
-}
-
-.atbd-top-dropdwon .atbd-top-dropdwon__content figcaption span {
-  padding-left: 0;
-}
-
-.atbd-top-dropdwon .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
-  min-width: 216px;
-  margin-right: 15px;
 }
 
 /* Tooltip Styles */
@@ -1454,17 +1430,14 @@ ul {
 .full-width-table .top-seller-table .ant-table-content .ant-table-cell:last-child {
   padding-right: 25px;
 }
+
 .full-width-table .top-seller-table th,
 .full-width-table .top-seller-table td {
   text-align: right;
-}
-.full-width-table .top-seller-table td {
-  color: #5a5f7d;
-}
-.full-width-table .top-seller-table th {
   color: #272b41;
   font-weight: 500;
 }
+
 .full-width-table .top-seller-table th:first-child,
 .full-width-table .top-seller-table td:first-child {
   text-align: left;
@@ -1592,14 +1565,64 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
-@media (max-width: 767px) {
-  .ant-page-header {
-    padding: 26px 15px 26px 15px !important;
-  }
+.ant-page-header-heading {
+  align-items: center;
 }
 
 .ant-page-header-heading-title {
   text-transform: capitalize;
+}
+
+/* Antd drag & drop */
+
+.row-dragging {
+  /* background: #fafafa; */
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 15px 50px #9299b820;
+  display: flex;
+}
+
+.row-dragging tr {
+  box-shadow: 0 15px 50px #9299b820;
+}
+
+.row-dragging td {
+  padding: 16px;
+  color: #000;
+  position: relative;
+  z-index: 9999;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+.row-dragging td .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #20c997;
+  border-color: #20c997;
+}
+.row-dragging td .todos-action,
+.row-dragging td .table-actions {
+  display: none;
+}
+.row-dragging td .user-info figcaption {
+  display: none;
+}
+.row-dragging td .feather-move,
+.row-dragging td .drag_email,
+.row-dragging td .drag_company,
+.row-dragging td .drag_designation,
+.row-dragging td .drag_join-date,
+.row-dragging td .active {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.row-dragging .drag-visible {
+  visibility: visible;
+}
+
+@media (max-width: 767px) {
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
 }
 
 .page-header-actions {
@@ -1617,6 +1640,14 @@ ul {
   padding: 0 12.32px;
   box-shadow: 0 3px 5px #9299b805;
   margin: 6px 4px;
+}
+
+.page-header-actions button.ant-btn-white:focus {
+  background-color: #fff !important;
+}
+
+.page-header-actions button + button {
+  margin-left: 8px;
 }
 
 .page-header-actions button.ant-btn-white svg {
@@ -1686,11 +1717,26 @@ ul {
   z-index: 99999 !important;
 }
 
+.rdrInputRange {
+  padding-left: 10px !important;
+}
+
 /* Responsive CSS */
 
 @media only screen and (max-width: 1500px) {
   .full-width-table .revenue-table {
     min-height: 100%;
+  }
+  .pop-confirm .ant-btn {
+    padding: 0 20px;
+    max-width: 60px;
+  }
+  .pop-confirm.pop-confirm-right {
+    margin-left: 300px !important;
+  }
+  .pop-confirm.pop-confirm-bottom,
+  .pop-confirm.pop-confirm-top {
+    margin-left: 80px !important;
   }
 }
 
@@ -1705,13 +1751,36 @@ ul {
     width: 100%;
     margin-bottom: 30px;
   }
+  .rdrDateRangePickerWrapper.PreviewArea {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .rdrCalendarWrapper.rdrDateRangeWrapper {
+    margin-top: 20px;
+  }
+  .ant-menu-inline-collapsed-tooltip {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .ant-page-header-heading-left {
+    max-width: 320px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
+  .ant-page-header {
+    padding: 26px 15px 26px 15px !important;
+  }
   .ant-page-header-heading {
     flex-flow: column;
     align-items: center;
     justify-content: center !important;
+  }
+  .ant-page-header-heading-left {
+    max-width: 100%;
   }
   .ant-page-header-heading .ant-page-header-heading-title {
     margin-right: 0;
@@ -1767,6 +1836,9 @@ ul {
   .ant-pagination .ant-select-single .ant-select-selector .ant-select-selection-item {
     line-height: 23px !important;
   }
+  .rdrDefinedRangesWrapper {
+    border-right: 0 none;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -1778,7 +1850,6 @@ ul {
   .ant-page-header {
     padding: 16px 20px !important;
   }
-
   .ant-layout-header {
     height: auto;
   }
@@ -1801,7 +1872,7 @@ ul {
     align-items: center;
   }
   .ant-card-head-wrapper .ant-card-extra {
-    padding: 10px 0 16px;
+    padding: 10px 0 16px !important;
     float: none;
     margin: 0;
     flex-flow: column;
@@ -1862,9 +1933,6 @@ ul {
     margin-left: 0px !important;
     margin-top: 0px !important;
   }
-  /* .pop-confirm.pop-confirm-bottom button{
-    margin-right: 0;
-  } */
 }
 
 @media only screen and (max-width: 400px) {
@@ -1899,12 +1967,21 @@ ul {
   .atbd-top-dropdwon .atbd-top-dropdwon__content figcaption .atbd-top-dropdwonText {
     min-width: 155px;
   }
+  .ant-drawer-content-wrapper {
+    width: 260px !important;
+  }
+  .rdrCalendarWrapper.rdrDateRangeWrapper {
+    margin-top: 0;
+  }
 }
 
 @media only screen and (max-width: 379px) {
   .ant-card-head-wrapper .ant-card-extra .ant-radio-button-wrapper {
     height: 32px !important;
     line-height: 30px !important;
+  }
+  .ant-notification-notice {
+    width: 275px;
   }
 }
 
@@ -1920,29 +1997,13 @@ ul {
 
 /* custom label */
 
-.custom-label {
-  font-size: 13px;
-  color: #868eae;
-  display: inline-flex;
-  align-items: center;
-}
-
-.custom-label:not(:last-child) {
-  margin-right: 20px;
-}
-
-.custom-label span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 7px;
-}
-
 /* card spin loader */
+
 .ant-card-body .sd-spin div,
 .ant-card-body .spin div {
   position: relative;
 }
+
 .ant-card-body .sd-spin,
 .ant-card-body .spin {
   height: 200px;
@@ -1951,6 +2012,7 @@ ul {
 .ant-card-body {
   position: relative;
 }
+
 .ant-card-body .sd-spin .ant-spin,
 .ant-card-body .spin .ant-spin {
   display: flex;
@@ -1961,11 +2023,13 @@ ul {
   transform: translate(-50%, -50%);
   min-height: 200px;
 }
+
 .starActive svg {
   color: red;
 }
 
 /* vectormap zoom in / zoom out */
+
 .jvectormap-zoomin,
 .jvectormap-zoomout {
   width: 27px;
@@ -1981,18 +2045,39 @@ ul {
   left: auto;
   right: 0;
   top: auto;
+  background-color: #fff;
 }
+
 .jvectormap-zoomin {
   border-radius: 6px 6px 0 0;
   bottom: 36px;
 }
+
 .jvectormap-zoomout {
   border-radius: 0 0 6px 6px;
   bottom: 10px;
 }
+
 .jvectormap-tip {
   padding: 7px 12px;
   border: 0 none;
   font-size: 12px;
   background: #272b41;
+}
+
+.btn-rtl {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #fff;
+  background: #4347d9;
+  color: #fff;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 99999999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -76,7 +76,7 @@ const Edit = ({ match }) => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link key="1" to="/admin/firestore/view">
+            <Link key="1" to="/admin/firestore/fbView">
               View All
             </Link>
           </Button>,
@@ -86,7 +86,7 @@ const Edit = ({ match }) => {
       />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <RecordFormWrapper>
               <Cards headless>
                 {crud === null ? (
@@ -94,8 +94,8 @@ const Edit = ({ match }) => {
                     <Spin />
                   </div>
                 ) : (
-                  <Row>
-                    <Col md={10} offset={7}>
+                  <Row justify="center">
+                    <Col xl={10} md={16} xs={24}>
                       <figure className="pro-image align-center-v mt-25">
                         {crud !== null && (
                           <img

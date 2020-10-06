@@ -1,6 +1,6 @@
 import React, { lazy, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Radio, Spin } from 'antd';
+import { Row, Col, Radio, Spin, Skeleton } from 'antd';
 import { Switch, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../../components/page-headers/page-headers';
@@ -12,6 +12,7 @@ import { Button } from '../../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const Filters = lazy(() => import('./overview/Filters'));
 const Grid = lazy(() => import('./overview/Grid'));
@@ -60,18 +61,18 @@ const Product = () => {
       />
       <Main>
         <Row gutter={30}>
-          <Col xxl={5} xl={7} lg={7} md={10} xs={24}>
+          <Col className="product-sidebar-col" xxl={5} xl={7} lg={7} md={10} xs={24}>
             <Suspense
               fallback={
-                <div className="spin">
-                  <Spin />
-                </div>
+                <Cards headless>
+                  <Skeleton paragraph={{ rows: 22 }} active />
+                </Cards>
               }
             >
               <Filters />
             </Suspense>
           </Col>
-          <Col xxl={19} lg={17} md={14} xs={24}>
+          <Col className="product-content-col" xxl={19} lg={17} md={14} xs={24}>
             <TopToolBox>
               <Row gutter={0}>
                 <Col xxl={7} lg={12} xs={24}>
@@ -89,7 +90,7 @@ const Product = () => {
                 <Col xxl={10} xs={24}>
                   <div className="product-list-action d-flex justify-content-between align-items-center">
                     <div className="product-list-action__tab">
-                      Sort By :
+                      <span className="toolbox-menu-title"> Status:</span>
                       <Radio.Group onChange={onSorting} defaultValue="rate">
                         <Radio.Button value="rate">Top Rated</Radio.Button>
                         <Radio.Button value="popular">Popular</Radio.Button>
@@ -97,15 +98,17 @@ const Product = () => {
                         <Radio.Button value="price">Price</Radio.Button>
                       </Radio.Group>
                     </div>
-
-                    <div className="product-list-action__viewmode">
-                      <NavLink to={`${path}/grid`}>
-                        <FeatherIcon icon="grid" size={16} />
-                      </NavLink>
-                      <NavLink to={`${path}/list`}>
-                        <FeatherIcon icon="list" size={16} />
-                      </NavLink>
-                    </div>
+                    {(window.innerWidth <= 991 && window.innerWidth >= 768) ||
+                      (window.innerWidth > 575 && (
+                        <div className="product-list-action__viewmode">
+                          <NavLink to={`${path}/grid`}>
+                            <FeatherIcon icon="grid" size={16} />
+                          </NavLink>
+                          <NavLink to={`${path}/list`}>
+                            <FeatherIcon icon="list" size={16} />
+                          </NavLink>
+                        </div>
+                      ))}
                   </div>
                 </Col>
               </Row>

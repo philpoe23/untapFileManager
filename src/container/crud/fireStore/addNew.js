@@ -71,7 +71,7 @@ const AddNew = () => {
       <PageHeader
         buttons={[
           <Button className="btn-add_new" size="default" key="1" type="primary">
-            <Link to="/admin/firestore/view">View All</Link>
+            <Link to="/admin/firestore/fbView">View All</Link>
           </Button>,
         ]}
         ghost
@@ -79,11 +79,11 @@ const AddNew = () => {
       />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <RecordFormWrapper>
               <Cards headless>
-                <Row>
-                  <Col md={10} offset={7}>
+                <Row justify="center">
+                  <Col xl={10} md={16} xs={24}>
                     <BasicFormWrapper>
                       <Form
                         className="add-record-form"

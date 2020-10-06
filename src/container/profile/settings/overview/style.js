@@ -15,7 +15,7 @@ const ProfileAuthorBox = Styled.div`
         margin: 0 auto 18px;
         .ant-upload-select{
             position: absolute;
-            right: 0;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
             bottom: -2px;
             height: 40px;
             width: 40px;
@@ -71,7 +71,7 @@ const ProfileAuthorBox = Styled.div`
                 i,
                 svg,
                 img{
-                    margin-right: 13px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 13px;
                 }
                 &.active{
                     font-weight: 500;
@@ -89,13 +89,13 @@ const SettingWrapper = Styled.div`
         margin-bottom: 25px;
         .ant-upload-select{
             position: absolute;
-            right: 20px;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 20px;
             top: 20px;
             border: 1px solid #ffffff50;
             border-radius: 6px;
             @media only screen and (max-width: 991px){
                 top: 50%;
-                right: auto;
+                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: auto;
                 left: 50%;
                 transform: translate(-50%,-50%);
             }
@@ -111,12 +111,15 @@ const SettingWrapper = Styled.div`
                 svg,
                 img
                 {
-                    margin-right: 8px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
                 }
             }
         }
     }
     .setting-card-title{
+        @media only screen and (max-width: 479px){
+            text-align: center;
+        }
         h1,
         h2,
         h3,
@@ -209,7 +212,7 @@ const ChangePasswordWrapper = Styled.div`
     form{
         .ant-form-item-control-input-content{
             .ant-input-password{
-                padding: 0 20px 0 0 !important;
+            padding: ${({ theme }) => (theme.rtl ? '0 0 0 20px' : '0 20px 0 0')} !important;
             }
         }
         .input-message{
@@ -242,7 +245,7 @@ const SocialProfileForm = Styled.div`
         min-height: 44px;
         .ant-form-item-control-input-content{
             input{
-                padding: 12px 20px 12px 50px !important;
+            padding: ${({ theme }) => (theme.rtl ? '12px 50px 12px 20px' : '12px 20px 12px 50px')} !important;
             }
             input::placeholder{
                 font-size: 13px;
@@ -260,7 +263,7 @@ const SocialProfileForm = Styled.div`
         .ant-input-affix-wrapper{
             position: relative;
             input{
-                padding-left: 50px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 50px;
             }
             span.fa,
             i{
@@ -310,7 +313,7 @@ const SocialProfileForm = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                left: 0;
+                ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 background: #ddd;

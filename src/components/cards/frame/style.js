@@ -23,11 +23,14 @@ const BtnWraper = theme => `
         border-radius: 2px;
         height: 30px;
         margin: 0px;
-        margin-left: -1px;
+        ${theme.rtl ? 'margin-right' : 'margin-left'}: -1px;
         display: inline-flex;
         align-items: center;
         border: 1px solid ${theme['border-color-base']};
         background: #fff;
+        span svg {
+          ${theme.rtl ? 'padding-right' : 'padding-left'}: 5px !important;
+        }
       }
       .ant-tabs-nav .ant-tabs-tab-active {
         font-weight: 500;
@@ -98,6 +101,38 @@ const CardFrame = Styled(Card)`
       overflow: hidden;
       border: none;
   }
+  .custom-label {
+    font-size: 13px;
+    color: #868eae;
+    display: inline-flex;
+    align-items: center;
+  }
+  .custom-label:not(:last-child) {
+    ${({ theme }) => (theme.rtl ? ' margin-left' : ' margin-right')} : 20px;
+  }
+
+  .custom-label span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    ${({ theme }) => (theme.rtl ? ' margin-left' : ' margin-right')}: 7px;
+  }
+  
+
+  .ant-card-extra .ant-dropdown-trigger {
+    line-height: 0;
+    order: 1;
+    ${({ theme }) => (!theme.rtl ? ' margin-left' : ' margin-right')}: 20px !important;
+  }
+
+  .growth-downward h1 sub,
+  .growth-upward h1 sub {
+    font-size: 14px;
+    font-weight: 600;
+    bottom: 0;
+    ${({ theme }) => (!theme.rtl ? ' left' : ' right')}: 5px;
+  }
+ 
 `;
 
 export { CardFrame };

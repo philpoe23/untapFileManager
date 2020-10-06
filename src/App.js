@@ -5,6 +5,7 @@ import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { ConfigProvider } from 'antd';
 import store, { rrfProps } from './redux/store';
 import Admin from './routes/admin';
 import Auth from './routes/auth';
@@ -29,12 +30,13 @@ const ProviderConfig = () => {
     if (!unmounted) {
       setPath(window.location.pathname);
     }
+    // eslint-disable-next-line no-return-assign
     return () => (unmounted = true);
   }, [setPath]);
 
   return (
-    <ThemeProvider theme={{ ...theme, rtl }}>
-      <Provider store={store}>
+    <ConfigProvider direction={rtl ? 'rtl' : 'ltr'}>
+      <ThemeProvider theme={{ ...theme, rtl }}>
         <ReactReduxFirebaseProvider {...rrfProps}>
           <Router basename={process.env.PUBLIC_URL}>
             {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
@@ -43,8 +45,8 @@ const ProviderConfig = () => {
             )}
           </Router>
         </ReactReduxFirebaseProvider>
-      </Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </ConfigProvider>
   );
 };
 

@@ -152,8 +152,8 @@ const Project = ({ match }) => {
             </div>
           </Col>
         </Row>
+        <CreateProject onCancel={onCancel} visible={visible} />
       </Main>
-      <CreateProject onCancel={onCancel} visible={visible} />
     </>
   );
 };

@@ -5,7 +5,7 @@ const Icon = Styled.div`
     align-items: center;
     padding: 8px 15px;
     span {
-        padding-left: 10px;
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 10px;
     }
 `;
 
@@ -14,7 +14,7 @@ const AnIcon = Styled.div`
     align-items: center;
     padding: 8px 15px;
     span {
-        padding-left: 10px;
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 10px;
     }
 `;
 
@@ -27,14 +27,14 @@ const IconWrapper = Styled.div`
 
     .icon-single{
         span{
-            padding-left: 0;
+            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
         }
         span.fa,
         svg,
         i{
             font-size: 18px;
             min-width: 20px;
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         }
     }
 `;

@@ -4,11 +4,61 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+    .ant-card-rtl .ant-card-extra{
+                margin-right: 0 !important;
+            }
+    .ant-tabs-tab span svg {        
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
+    }
+    /* Picker Under Input */
+    .ant-form-item-control-input .ant-picker {
+        padding: ${({ theme }) => (theme.rtl ? '0 0 0 12px' : '0 12px 0 0')} !important;
+    }
+
+    /* progressbars */
+
+    .ant-progress {
+        display: inline-flex !important;
+        align-items: center;
+    }
+
+    .ant-progress>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ant-progress .ant-progress-outer {
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 0 !important;
+        ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
+    }
+
+    .ant-progress .ant-progress-text {
+        order: 0;
+        margin-left: auto;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px !important;
+        align-self: flex-end;
+        text-align: center;
+    }
+
+    .ant-progress-status-warning .ant-progress-bg {
+        background: #fa8b0c;
+    }
+
+    /* progress bars */
+    
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
     @media only screen and (max-width: 991px){
         min-height: 580px;
+    }
+    .w-100{
+        width: 100%;
+    }
+    .product-sidebar-col{
+        @media only screen and (max-width: 767px){
+            order: 2;
+        }
     }
     .ant-skeleton-paragraph{
         margin-bottom: 0;
@@ -17,7 +67,7 @@ const Main = Styled.div`
     /* // ant alert */
     .ant-alert-closable{
         .ant-alert-message{
-          margin-right: 15px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
     }
 
@@ -71,6 +121,9 @@ const Main = Styled.div`
         @media only screen and (max-width: 400px){
             width: 260px !important;
         }
+        @media only screen and (max-width: 375px){
+            width: 220px !important;
+        }
     }
 
     /* // Input */
@@ -88,9 +141,9 @@ const Main = Styled.div`
     }
     /* spinner */
     .ant-spin{
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         &:last-child{
-            margin-right: 0;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
     }
 
@@ -194,11 +247,11 @@ const Main = Styled.div`
     .ant-select{
         &.ant-select-multiple{
             .ant-select-selection-item{
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
         }
         .ant-select-selection-item{
-            padding-left: 10px !important;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px !important;
         }
         &.ant-select-lg{
             height: 50px;
@@ -209,7 +262,7 @@ const Main = Styled.div`
             }
             .ant-select-selection-item{
                 line-height: 48px !important;
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
             &.ant-select-multiple.ant-select-lg .ant-select-selection-item{
                 height: 32px;
@@ -228,7 +281,7 @@ const Main = Styled.div`
     /* // Slider */
     .slider-with-input{
         .ant-slider{
-            margin-right: 15px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
         .slider-with-input__single{
             margin-bottom: 15px;
@@ -347,8 +400,14 @@ const Main = Styled.div`
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
+            @media only screen and (max-width: 575px){
+                padding: 25px !important;
+            }
             .ant-card-body{
                 padding: 25px !important;
+                @media only screen and (max-width: 375px){
+                    padding: 15px !important;
+                }
             }
         }
         .ant-steps{
@@ -394,6 +453,79 @@ const Main = Styled.div`
         font-weight: 500;
         color: ${({ theme }) => theme['gray-color']}
     }
+
+    .account-card{
+        .ant-card-head{
+            .ant-card-extra{
+                @media only screen and (max-width: 575px){
+                   padding-top: 0 !important;
+                }
+            }
+            
+        }
+                
+    }
+
+    /* // Rechart */
+    .recharts-default-legend{
+        .recharts-legend-item{
+            min-width: 100px !important;
+        }
+    }
+
+    /* // Radio */
+    .radio-size-wrap{
+            .ant-radio-button-wrapper{
+                @media only screen and (max-width: 1450px){
+                    padding: 0 11.5px;
+                }
+            }
+        }
+    }
+
+    /* // Message  */
+    .message-button-list{
+        margin: -4px;
+        .ant-btn {
+            margin: 4px;
+        }
+    }
+    /* Chart Label */
+
+    .chart-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+        color: #5a5f7d;
+    }
+
+    .chart-label .label-dot {
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
+
+    .chart-label .label-dot.dot-success {
+        background: #20c997;
+    }
+
+    .chart-label .label-dot.dot-info {
+        background: #5f63f2;
+    }
+
+    .chart-label .label-dot.dot-warning {
+        background: #fa8b0c;
+    }
+
+    .chart-label .label-dot {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -411,9 +543,9 @@ const ButtonsGroupWrapper = Styled.div`
     .button-group-single .ant-btn-white{
         border: 1px solid #E3E6EF;
         background: #fff !important;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
         &:hover{
             color: ${({ theme }) => theme['gray-color']} !important;
@@ -422,17 +554,17 @@ const ButtonsGroupWrapper = Styled.div`
     }
     .button-group-single .ant-btn-light{
         border: 1px solid #E3E6EF;
-        margin-right: 20px;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         font-weight: 500;
         color: ${({ theme }) => theme['extra-light-color']} !important;
         background: ${({ theme }) => theme['bg-color-normal']} !important;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
     }
     .ant-btn-group:not(:last-child){
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
     }
 `;
 
@@ -457,7 +589,7 @@ const BtnWithIcon = Styled.div`
         height: 10px;
     }
     .ant-btn-group button.active{
-        border-right: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0px;
     }
 `;
 
@@ -544,7 +676,9 @@ const TagInput = Styled.div`
     padding: 12px;
     border-radius: 4px;
     border: 1px solid ${({ theme }) => theme['border-color-normal']};
+    margin: -3px;
     .ant-tag{
+        margin: 3px;
         font-size: 11px;
         padding: 0 4px;
         border: 0 none;
@@ -580,7 +714,7 @@ const BasicFormWrapper = Styled.div`
             margin-bottom: 0;
         }
         .ant-form-item-label{
-            text-align: left;
+            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
             label{
                 height: fit-content;
                 margin-bottom: 6px;
@@ -589,11 +723,18 @@ const BasicFormWrapper = Styled.div`
         .ant-form-item-control-input{
             input,
             textarea{
-                padding: 12px 20px;
+                /* padding: 12px 20px; */
                 color: ${({ theme }) => theme['gray-color']};
                 &:placeholder{
                     color: ${({ theme }) => theme['light-color']};
                 }
+            }
+            input[type="password"]{
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+            .ant-picker-input input{
+                padding: 12px;
             }
             button{
                 height: 44px;
@@ -619,6 +760,9 @@ const BasicFormWrapper = Styled.div`
     }
     .setting-form-actions{
         margin: 48px 0 14px;
+        @media only screen and (max-width: 575px){
+            margin: 40px 0 14px;
+        }
         button{
             border-radius: 6px;
             height: 44px;
@@ -632,13 +776,13 @@ const BasicFormWrapper = Styled.div`
     .ant-form-item-control-input{
         .input-prepend{
             position: absolute;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0 20px;
             height: 48px;
-            border-radius: 4px 0 0 4px;
+            border-radius: ${({ theme }) => (theme.rtl ? '0 4px 4px 0' : '4px 0 0 4px')};
             z-index: 10;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
             background-color: ${({ theme }) => theme['bg-color-light']};
@@ -650,7 +794,7 @@ const BasicFormWrapper = Styled.div`
         .input-prepend-wrap{
             .ant-input-number{
                 input{
-                    padding-left: 70px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 70px;
                 }
             }
         }
@@ -670,6 +814,17 @@ const BasicFormWrapper = Styled.div`
             font-size: 14px;
             font-weight: 500;
         }
+        .ant-radio-group{
+            margin-bottom: -4px;
+            .ant-radio-wrapper{
+                margin-bottom: 4px;
+            }
+        }
+    }
+    .adTodo-form{
+        .btn-adTodo {
+            font-size: 14px;
+        }
     }
 `;
 
@@ -684,6 +839,9 @@ const CardToolbox = Styled.div`
     .ant-page-header-heading-left{
         @media only screen and (max-width: 575px){
             flex-flow: column;
+        }
+        @media only screen and (max-width: 800px){
+            max-width: 100%;
         }
         .ant-page-header-back{
             @media only screen and (max-width: 575px){
@@ -718,16 +876,20 @@ const CardToolbox = Styled.div`
 
     .ant-page-header-heading-title{
         position: relative;
-        padding-right: 24px;
-        margin-right: 24px;
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 24px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 24px;
+        @media only screen and (max-width: 767px){
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 12px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px !important;
+        }
         &:after{
             position: absolute;
-            right: 0px;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0px;
             top: 0;
             height: 100%;
             width: 1px;
             content: '';
-            background: ${({ theme }) => theme['border-color-normal']}
+            background: ${({ theme }) => theme['border-color-normal']};
         }
     }
     .ant-page-header-heading-sub-title{
@@ -736,9 +898,9 @@ const CardToolbox = Styled.div`
         align-items: center;
     }
     .ant-select{
-        margin-left: 25px;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
         @media only screen and (max-width: 575px){
-            margin-left: 0;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
         .ant-select-selector{
             height: 46px !important;
@@ -770,7 +932,7 @@ const CardToolbox = Styled.div`
             display: flex;
             align-items: center;
             svg{
-                margin-right: 6px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
             }
         }
     }
@@ -785,6 +947,22 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    .ant-pagination-prev, .ant-pagination-next {
+        line-height: 28px !important;
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    .ant-table table{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    .ant-table-thead > tr > th{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    span.anticon.anticon-right{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    span.anticon.anticon-left{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
     &.table-order,
     &.table-seller,
     &.table-data-view{
@@ -814,7 +992,7 @@ const TableWrapper = Styled.div`
                 td{
                     .product-id{
                         max-width: 60px;
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -839,7 +1017,8 @@ const TableWrapper = Styled.div`
                     .record-img{
                         img{
                             max-width: 38px;
-                            margin-right: 12px;
+                            border-radius: 50%;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                         }
                     }
                     .record-location{
@@ -871,7 +1050,7 @@ const TableWrapper = Styled.div`
                                 color: ${({ theme }) => theme['extra-light-color']};
                             }
                             &.edit{
-                                margin-right: 6px;
+                                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
                               &:hover{
                                 svg,
                                 i{
@@ -899,19 +1078,21 @@ const TableWrapper = Styled.div`
                 border-radius: 10px;
                 th{
                     &:last-child{
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                     color: ${({ theme }) => theme['gray-color']};
                     background: ${({ theme }) => theme['bg-color-light']};
                     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 10px 0 0 10px !important;
+                        ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 0 10px 10px 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                 }
             }
@@ -938,10 +1119,10 @@ const TableWrapper = Styled.div`
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
                     &:first-child{
-                        border-radius: 10px 0 0 10px !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                     span{
                         display: block;
@@ -968,7 +1149,7 @@ const TableWrapper = Styled.div`
             }
         }
         .table-actions{
-            text-align: right;
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             min-width: 150px !important;
             button{
                 height: 40px;
@@ -994,7 +1175,7 @@ const TableWrapper = Styled.div`
         }
         .seller-info{
             img{
-                margin-right: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             }
         }
         .user-info{
@@ -1016,6 +1197,57 @@ const TableWrapper = Styled.div`
     }    
 `;
 
+const DragDropStyle = Styled.div`
+    .ant-card-body{
+        padding: 15px !important;
+    }
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            >tr{
+                &:not(:last-child){
+                    td{
+                         border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']} !important;
+                    }
+                 }
+                 &:hover{
+                     td{
+                         background-color: transparent !important;
+                     }
+                 }
+                >td{
+                    font-size: 14px;
+                    &:first-child,
+                    &:last-child{
+                        border-radius: 0 !important;
+                    }
+                }
+            }
+        }
+        tr{
+            td{
+                &.drag-visible{
+                    svg,
+                    img{
+                        width: 20px;
+                    }
+                    svg,
+                    i{
+                        color: ${({ theme }) => theme['extra-light-color']} !important;
+                    }
+                }
+            }
+        }
+        .user-info{
+            .user-name{
+                font-size: 14px;
+                margin-left: 8px;
+            }
+        }
+    }
+`;
 export {
   Main,
   ButtonsGroupWrapper,
@@ -1033,5 +1265,6 @@ export {
   BasicFormWrapper,
   CardToolbox,
   FormGroupWrapper,
+  DragDropStyle,
   TableWrapper,
 };

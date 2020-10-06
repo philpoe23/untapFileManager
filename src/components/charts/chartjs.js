@@ -276,31 +276,6 @@ ChartjsLineChart.defaultProps = {
         display: false,
       },
     },
-    scales: {
-      yAxes: [
-        {
-          gridLines: {
-            color: '#e5e9f2',
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 10,
-            max: 80,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 11,
-          },
-        },
-      ],
-    },
   },
 };
 
@@ -321,21 +296,8 @@ const ChartjsAreaChart = props => {
     labels,
     datasets,
   };
-  let count = 0;
   return (
     <div>
-      <div className="chart-label">
-        {datasets.map(item => {
-          const { label, backgroundColor } = item;
-          count += 1;
-          return (
-            <div key={count} className="chart-label__single d-flex">
-              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }} />
-              <p>{label}</p>
-            </div>
-          );
-        })}
-      </div>
       <ChartContainer className="parentContainer">
         <Line
           id={id}
@@ -462,11 +424,12 @@ const ChartjsBarChartTransparent = props => {
     labels,
     datasets,
   };
+
   return (
     <ChartContainer className="parentContainer">
       <Bar
         data={data}
-        height={height}
+        height={window.innerWidth <= 575 ? 230 : height}
         options={{
           ...options,
           ...layout,

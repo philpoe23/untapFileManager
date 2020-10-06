@@ -120,7 +120,7 @@ img{
     width: 16px;
     height: 16px;
     +span{
-        margin-left: 6px;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
     }
 }
 

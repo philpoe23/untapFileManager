@@ -6,8 +6,9 @@ const Content = Styled.div`
       display: block;
       color: #888;
       padding: 6px 12px;
+      text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
       span {
-          padding-left: 12px;
+        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 12px;
       }
   }
   a:hover {
@@ -16,8 +17,11 @@ const Content = Styled.div`
   }
   
 `;
-const PopoverStyle = Styled(Popover)`
- 
+const Title = Styled.p`
+  text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
+  margin: 0;
 `;
-
-export { Content, PopoverStyle };
+const PopoverStyle = Styled(Popover)` 
+  
+`;
+export { Content, PopoverStyle, Title };

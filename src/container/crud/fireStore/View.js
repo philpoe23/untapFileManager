@@ -131,7 +131,7 @@ const ViewPage = () => {
         subTitle={
           <div>
             <Button className="btn-add_new" size="default" key="1" type="primary">
-              <Link to="/admin/firestore/add">
+              <Link to="/admin/firestore/fbAdd">
                 <FeatherIcon icon="plus" size={14} /> Add New
               </Link>
             </Button>
@@ -150,7 +150,7 @@ const ViewPage = () => {
       />
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col className="w-100" md={24}>
             <Cards headless>
               {isLoading ? (
                 <div className="spin">

@@ -74,8 +74,8 @@ const ReChartLine = () => {
                 data={data}
                 margin={{
                   top: 5,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
                   bottom: 5,
                 }}
               >
@@ -97,9 +97,9 @@ const ReChartLine = () => {
                 height={responsive / 2}
                 data={data}
                 margin={{
-                  top: 20,
-                  right: 30,
-                  left: 20,
+                  top: 5,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
                   bottom: 5,
                 }}
               >
@@ -121,8 +121,8 @@ const ReChartLine = () => {
                 data={data}
                 margin={{
                   top: 5,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
                   bottom: 5,
                 }}
               >
@@ -143,9 +143,9 @@ const ReChartLine = () => {
                 height={responsive / 2}
                 data={data}
                 margin={{
-                  top: 20,
-                  right: 50,
-                  left: 20,
+                  top: 5,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
                   bottom: 5,
                 }}
               >
@@ -169,8 +169,8 @@ const ReChartLine = () => {
                 data={data}
                 margin={{
                   top: 5,
-                  right: 30,
-                  left: 20,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
                   bottom: 5,
                 }}
               >
@@ -186,7 +186,17 @@ const ReChartLine = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="LINE CHART WITH X-AXIS PADDING" size="large" more={false}>
-              <LineChart width={630} height={300} data={data}>
+              <LineChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive / 2}
+                data={data}
+                margin={{
+                  top: 5,
+                  right: window.innerWidth <= 375 ? 34 : 40,
+                  left: window.innerWidth <= 375 ? -16 : 0,
+                  bottom: 5,
+                }}
+              >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
                 <YAxis />
@@ -202,15 +212,15 @@ const ReChartLine = () => {
               <div>
                 <h4>A demo of synchronized AreaCharts</h4>
                 <LineChart
-                  width={630}
-                  height={200}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   syncId="anyId"
                   margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 15,
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -221,15 +231,15 @@ const ReChartLine = () => {
                 </LineChart>
                 <p>Maybe some other content</p>
                 <LineChart
-                  width={630}
-                  height={200}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   syncId="anyId"
                   margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 22,
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -240,15 +250,15 @@ const ReChartLine = () => {
                   <Brush />
                 </LineChart>
                 <AreaChart
-                  width={630}
-                  height={200}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   syncId="anyId"
                   margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 0,
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -264,14 +274,14 @@ const ReChartLine = () => {
             <Cards title="LINE CHART CONNECT NULLS" size="large" more={false}>
               <div>
                 <LineChart
-                  width={630}
-                  height={300}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 15,
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -281,14 +291,14 @@ const ReChartLine = () => {
                   <Line type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
                 </LineChart>
                 <LineChart
-                  width={630}
-                  height={360}
+                  width={responsive - (5 * responsive) / 100}
+                  height={responsive / 2}
                   data={data}
                   margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 0,
+                    top: 5,
+                    right: window.innerWidth <= 375 ? 34 : 40,
+                    left: window.innerWidth <= 375 ? -16 : 0,
+                    bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />

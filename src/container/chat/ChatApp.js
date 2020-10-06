@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Row, Col, Spin, Badge } from 'antd';
+import { Row, Col, Badge, Skeleton } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -23,7 +23,13 @@ const SingleChat = lazy(() => import('./overview/singleChat'));
 const SingleGroup = lazy(() => import('./overview/SingleGroupChat'));
 
 const ChatApp = ({ match }) => {
-  const searchData = useSelector(state => state.headerSearchData);
+  const { rtl, searchData } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+      searchData: state.headerSearchData,
+    };
+  });
+  const left = !rtl ? 'left' : 'right';
   const [state, setState] = useState({
     search: searchData,
     me: 'woadud@gmail.com',
@@ -39,7 +45,39 @@ const ChatApp = ({ match }) => {
     });
   };
 
-  const renderThumb = ({ style, ...props }) => {
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: 'auto',
+      [rtl ? 'left' : 'right']: '2px',
+      [rtl ? 'marginLeft' : 'marginRight']: '-19px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
+  const renderThumbVertical = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+      [left]: '2px',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
+
+  const renderTrackVertical = () => {
+    const thumbStyle = {
+      position: 'absolute',
+      width: '6px',
+      transition: 'opacity 200ms ease 0s',
+      opacity: 0,
+      [rtl ? 'left' : 'right']: '6px',
+      bottom: '2px',
+      top: '2px',
+      borderRadius: '3px',
+    };
+    return <div style={thumbStyle} />;
+  };
+
+  const renderThumbHorizontal = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
@@ -99,13 +137,23 @@ const ChatApp = ({ match }) => {
                     autoHide
                     autoHideTimeout={500}
                     autoHideDuration={200}
-                    renderThumbHorizontal={renderThumb}
-                    renderThumbVertical={renderThumb}
+                    renderThumbHorizontal={renderThumbHorizontal}
+                    renderThumbVertical={renderThumbVertical}
+                    renderView={renderView}
+                    renderTrackVertical={renderTrackVertical}
                   >
                     <Switch>
-                      <Route path={`${match.path}/private`} component={PrivetChat} />
-                      <Route path={`${match.path}/group`} component={GroupChat} />
-                      <Route path={`${match.path}/all`} component={AllContacts} />
+                      <Suspense
+                        fallback={
+                          <Cards headless>
+                            <Skeleton avatar paragraph={{ rows: 10 }} active />
+                          </Cards>
+                        }
+                      >
+                        <Route path={`${match.path}/private`} component={PrivetChat} />
+                        <Route path={`${match.path}/group`} component={GroupChat} />
+                        <Route path={`${match.path}/all`} component={AllContacts} />
+                      </Suspense>
                     </Switch>
                   </Scrollbars>
                 </Content>
@@ -116,9 +164,9 @@ const ChatApp = ({ match }) => {
             <Switch>
               <Suspense
                 fallback={
-                  <div className="spin">
-                    <Spin />
-                  </div>
+                  <Cards headless>
+                    <Skeleton avatar paragraph={{ rows: 10 }} active />
+                  </Cards>
                 }
               >
                 <Route exact path={match.path} component={SingleChat} />
