@@ -703,10 +703,10 @@ const ProductDetailsWrapper = Styled.div`
         button{
             background-color: ${({ theme }) => theme['bg-color-normal']};
             &.btn-inc{
-                ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
+                margin-right: 15px;
             }
             &.btn-dec{
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
+                margin-left: 15px;
             }
         }
         .pdbr__availability{

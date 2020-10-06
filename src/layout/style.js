@@ -351,7 +351,7 @@ const Div = Styled.div`
             }
         }
     }
-    @media only screen and (max-width: 991px){
+    @media only screen and (max-width: 1150px){
         .ant-layout-sider.ant-layout-sider-collapsed{
             ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -80px !important;
         }
@@ -362,7 +362,7 @@ const Div = Styled.div`
     ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 280px;
         margin-top: 64px;
         transition: 0.3s ease;
-        @media only screen and (max-width: 991px){
+        @media only screen and (max-width: 1150px){
             ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: auto !important;
         }
     }
