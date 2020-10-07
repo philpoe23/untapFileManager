@@ -2,14 +2,12 @@ import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { CardBarChart2, EChartCard } from './style';
-
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { Main } from '../styled';
 import Heading from '../../components/heading/heading';
 import { ChartjsBarChartTransparent } from '../../components/charts/chartjs';
-
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -203,6 +201,7 @@ const Ecommerce = () => {
             </Cards>
           </Col>
         </Row>
+
         <Row gutter={25}>
           <Col xxl={12} xs={24}>
             <Suspense

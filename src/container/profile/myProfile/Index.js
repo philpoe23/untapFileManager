@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { Switch, Route } from 'react-router-dom';
-import propTypes from 'prop-types';
+import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom';
+// import propTypes from 'prop-types';
 import { SettingWrapper } from './overview/style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
@@ -12,22 +12,20 @@ import { ShareButtonPageHeader } from '../../../components/buttons/share-button/
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
-const Profile = lazy(() => import('./overview/Profile'));
-const Account = lazy(() => import('./overview/Account'));
-const Password = lazy(() => import('./overview/Passwoard'));
-const SocialProfiles = lazy(() => import('./overview/SocialProfile'));
-const Notification = lazy(() => import('./overview/Notification'));
-const AuthorBox = lazy(() => import('./overview/ProfileAuthorBox'));
+const UserCards = lazy(() => import('../../pages/overview/UserCard'));
 const CoverSection = lazy(() => import('../overview/CoverSection'));
+const UserBio = lazy(() => import('./overview/UserBio'));
+const Overview = lazy(() => import('./overview/Overview'));
+const Timeline = lazy(() => import('./overview/Timeline'));
+const Activity = lazy(() => import('./overview/Activity'));
 
-const Settings = ({ match }) => {
-  const { path } = match;
-
+const MyProfile = () => {
+  const { path } = useRouteMatch();
   return (
     <>
       <PageHeader
         ghost
-        title="Profile Settings"
+        title="My Profile"
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />
@@ -47,11 +45,22 @@ const Settings = ({ match }) => {
             <Suspense
               fallback={
                 <Cards headless>
-                  <Skeleton avatar />
+                  <Skeleton avatar active paragraph={{ rows: 3 }} />
                 </Cards>
               }
             >
-              <AuthorBox />
+              <UserCards
+                user={{ name: 'Duran Clyton', designation: 'UI/UX Designer', img: 'static/img/users/1.png' }}
+              />
+            </Suspense>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active paragraph={{ rows: 10 }} />
+                </Cards>
+              }
+            >
+              <UserBio />
             </Suspense>
           </Col>
           <Col xxl={18} lg={16} md={14} xs={24}>
@@ -59,26 +68,38 @@ const Settings = ({ match }) => {
               <Suspense
                 fallback={
                   <Cards headless>
-                    <Skeleton avatar />
+                    <Skeleton active />
                   </Cards>
                 }
               >
-                <CoverSection />
+                <div className="coverWrapper">
+                  <CoverSection />
+                  <nav>
+                    <ul>
+                      <li>
+                        <NavLink to={path}>Overview</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={`${path}/timeline`}>Timeline</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={`${path}/activity`}>Activity</NavLink>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </Suspense>
               <Switch>
                 <Suspense
                   fallback={
                     <Cards headless>
-                      <Skeleton paragraph={{ rows: 20 }} />
+                      <Skeleton active paragraph={{ rows: 10 }} />
                     </Cards>
                   }
                 >
-                  <Route exact path={`${path}`} component={Profile} />
-                  <Route exact path={`${path}/profile`} component={Profile} />
-                  <Route exact path={`${path}/account`} component={Account} />
-                  <Route exact path={`${path}/password`} component={Password} />
-                  <Route exact path={`${path}/social`} component={SocialProfiles} />
-                  <Route exact path={`${path}/notification`} component={Notification} />
+                  <Route exact path={path} component={Overview} />
+                  <Route path={`${path}/timeline`} component={Timeline} />
+                  <Route path={`${path}/activity`} component={Activity} />
                 </Suspense>
               </Switch>
             </SettingWrapper>
@@ -89,8 +110,8 @@ const Settings = ({ match }) => {
   );
 };
 
-Settings.propTypes = {
-  match: propTypes.object,
+MyProfile.propTypes = {
+  // match: propTypes.object,
 };
 
-export default Settings;
+export default MyProfile;
