@@ -70,6 +70,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
             Settings
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="myProfile">
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile`}>
+            My Profile
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
       <SubMenu key="pages" icon={<FeatherIcon icon="folder" />} title="Pages">
         <Menu.Item key="team">
