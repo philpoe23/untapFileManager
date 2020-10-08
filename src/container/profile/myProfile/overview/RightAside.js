@@ -72,7 +72,7 @@ const RightAside = () => {
             {gallery.map(({ img, id }) => {
               return (
                 id <= 6 && (
-                  <Col key={id} md={8} sm={12} xs={12}>
+                  <Col key={id} xxl={8} md={24} sm={6} xs={8}>
                     <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
                   </Col>
                 )
@@ -94,7 +94,7 @@ const RightAside = () => {
             {gallery.map(({ img, id }) => {
               return (
                 id <= 6 && (
-                  <Col key={id} md={8} sm={12} xs={12}>
+                  <Col key={id} xxl={8} md={24} sm={6} xs={8}>
                     <Link onClick={() => setOpen(true)} className="video" to="#">
                       <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
                       <span>

@@ -256,11 +256,28 @@ const RightAsideWrapper = Styled.div`
     }
     .ff-widget{
         li{
+            @media only screen and (max-width: 1599px){
+                flex-flow: column;
+                padding: 20px !important;
+                align-items: flex-start !important;
+            }
             .ff-info{
+                @media only screen and (max-width: 1199px){
+                    flex-flow: column;
+                }
+                @media only screen and (max-width: 767px){
+                    flex-flow: row;
+                }
                 p{
                     font-size: 14px;
                     font-weight: 600;
                     color: ${({ theme }) => theme['dark-color']};
+                    @media only screen and (max-width: 1199px){
+                        margin-top: 12px;
+                    }
+                    @media only screen and (max-width: 767px){
+                        margin-top: 0;
+                    }
                     span{
                         margin-top: 3px;
                         font-weight: 400;
@@ -272,6 +289,9 @@ const RightAsideWrapper = Styled.div`
                 font-size: 12px;
                 font-weight: 500;
                 padding: 0 12.88px;
+                @media only screen and (max-width: 1599px){
+                    margin-top: 15px;
+                }
                 svg,
                 i,
                 img{
@@ -282,7 +302,7 @@ const RightAsideWrapper = Styled.div`
     }
     .widget-photo-list,
     .widget-video-list{
-        padding: 25px 25px 0;
+        padding: 20px 25px 0;
         .ant-row{
             argin: -4px 0;
             .ant-col{
@@ -297,7 +317,7 @@ const RightAsideWrapper = Styled.div`
 
     .widget-video-list{
         .video{
-            display: block;
+            display: inline-block;
             position: relative;
             z-index: 4;
             &:after{
@@ -335,36 +355,94 @@ const RightAsideWrapper = Styled.div`
 `;
 const ActivityContents = Styled.div`
     .ant-card-body{
-        ul{
-            margin: 0;
-            li{
+        padding: 25px 0 !important;
+    }
+    .activity-list{
+        margin: 0;
+        .activity-list__single{
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            .activity-icon{
+                width: 31px;
+                height: 31px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #00000015;
+                margin-right: 15px;
+                &.primary{
+                    background-color: ${({ theme }) => theme['primary-color']}15;
+                    color: ${({ theme }) => theme['primary-color']};
+                }
+                &.secondary{
+                    background-color: ${({ theme }) => theme['secondary-color']}15;
+                    color: ${({ theme }) => theme['secondary-color']};
+                }
+                &.success{
+                    background-color: ${({ theme }) => theme['success-color']}15;
+                    color: ${({ theme }) => theme['success-color']};
+                }
+                &.info{
+                    background-color: ${({ theme }) => theme['info-color']}15;
+                    color: ${({ theme }) => theme['info-color']};
+                }
+                &.danger{
+                    background-color: ${({ theme }) => theme['danger-color']}15;
+                    color: ${({ theme }) => theme['danger-color']};
+                }
+                &.warning{
+                    background-color: ${({ theme }) => theme['warning-color']}15;
+                    color: ${({ theme }) => theme['warning-color']};
+                }
+            }
+            .more{
+                visibility: hidden;
+            }
+            &:hover{
+                box-shadow: 0 15px 50px #88888820;
+                .more{                        
+                    visibility: visible;
+                }
+            }
+            .activity-content{
+                flex: auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                .more{
-                    visibility: hidden;
+            }
+            .activity-info{
+                display: flex;
+                align-items: center;
+                img{
+                    max-width: 40px;
+                    border-radius: 50%;
+                    margin-right: 20px;
                 }
-                &:hover{
-                    box-shadow: 0 15px 50px #88888820;
-                    .more{                        
-                        visibility: visible;
+                p{
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    color: ${({ theme }) => theme['gray-color']};
+                    .inline-text{
+                        font-weight: 500;
+                        display: inline;
                     }
-                }
-                div{
-                    display: flex;
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                    }
-                    p{
-                        span{
-                            display: block;
-                        }
+                    .hour{
+                        display: block;
+                        margin-top: 3px;
+                        color: ${({ theme }) => theme['extra-light-color']};
                     }
                 }
             }
-        }        
+            .activity-more{
+                svg,
+                i{
+                    color: ${({ theme }) => theme['extra-light-color']};
+                }
+            }
+        }
+                
     }
 `;
 const ProductOverviewTable = Styled.div`

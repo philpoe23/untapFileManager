@@ -8,7 +8,7 @@ const ActivityContent = lazy(() => import('../overview/ActivityContent'));
 const Activity = () => {
   return (
     <Row gutter={25}>
-      <Col md={16}>
+      <Col md={16} xs={24}>
         <Suspense
           fallback={
             <Cards headless>
