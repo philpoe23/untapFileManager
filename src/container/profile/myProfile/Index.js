@@ -73,7 +73,7 @@ const MyProfile = () => {
               >
                 <div className="coverWrapper">
                   <CoverSection />
-                  <nav>
+                  <nav className="profileTab-menu">
                     <ul>
                       <li>
                         <NavLink to={path}>Overview</NavLink>

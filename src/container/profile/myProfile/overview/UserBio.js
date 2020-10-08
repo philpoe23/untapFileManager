@@ -10,45 +10,49 @@ const UserBio = () => {
   return (
     <UserBioBox>
       <Cards headless>
-        <article>
-          <h5>User Bio</h5>
+        <article className="user-info">
+          <h5 className="user-info__title">User Bio</h5>
           <p>
             Nam malesuada dolor tellus pretium amet was hendrerit facilisi id vitae enim sed ornare there suspendisse
             sed orci neque ac sed aliquet risus faucibus in pretium molestie nisl tempor quis odio habitant.
           </p>
         </article>
-        <address>
-          <h4>Contact Info</h4>
-          <p>
-            <FeatherIcon icon="mail" size={14} /> <span>Clayton@example.com</span>
-          </p>
-          <p>
-            <FeatherIcon icon="phone" size={14} /> <span>+44 (0161) 347 8854</span>
-          </p>
-          <p>
-            <FeatherIcon icon="globe" size={14} /> <span>www.example.com</span>
-          </p>
+        <address className="user-info">
+          <h5 className="user-info__title">Contact Info</h5>
+          <ul className="user-info__contact">
+            <li>
+              <FeatherIcon icon="mail" size={14} /> <span>Clayton@example.com</span>
+            </li>
+            <li>
+              <FeatherIcon icon="phone" size={14} /> <span>+44 (0161) 347 8854</span>
+            </li>
+            <li>
+              <FeatherIcon icon="globe" size={14} /> <span>www.example.com</span>
+            </li>
+          </ul>
         </address>
-        <div>
-          <h4>Skills</h4>
-          <Button type="light" outlined className="btn-outlined">
-            UI/UX
-          </Button>
-          <Button type="light" outlined className="btn-outlined">
-            Branding
-          </Button>
-          <Button type="light" outlined className="btn-outlined">
-            product design
-          </Button>
-          <Button type="light" outlined className="btn-outlined">
-            web design
-          </Button>
-          <Button type="light" outlined className="btn-outlined">
-            Application
-          </Button>
+        <div className="user-info">
+          <h5 className="user-info__title">Skills</h5>
+          <div className="user-info__skills">
+            <Button type="light" outlined className="btn-outlined">
+              UI/UX
+            </Button>
+            <Button type="light" outlined className="btn-outlined">
+              Branding
+            </Button>
+            <Button type="light" outlined className="btn-outlined">
+              product design
+            </Button>
+            <Button type="light" outlined className="btn-outlined">
+              web design
+            </Button>
+            <Button type="light" outlined className="btn-outlined">
+              Application
+            </Button>
+          </div>
         </div>
-        <div>
-          <h4>Social Profiles</h4>
+        <div className="user-info">
+          <h5 className="user-info__title">Social Profiles</h5>
           <div className="card__social">
             <Link className="btn-icon facebook" to="#">
               <FontAwesome name="facebook" />

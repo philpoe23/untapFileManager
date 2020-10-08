@@ -2,9 +2,99 @@ import Styled from 'styled-components';
 
 const UserBioBox = Styled.div`
     .ant-card-body{
-        padding: 25px 15px 25px !important;
-        .btn-outlined{
-        margin: ${({ theme }) => (theme.rtl ? '0 0 10px 10px' : '0 10px 10px 0')};
+        padding: 25px 0 25px 0 !important;
+    }
+    
+    .user-info{
+        margin-bottom: 22px;
+        padding: 0 25px 22px 25px;
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        &:last-child{
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .user-info__title{
+            font-size: 12px;
+            color: ${({ theme }) => theme['light-color']};
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        p{
+            font-size: 15px;
+            line-height: 1.667;
+            color: ${({ theme }) => theme['gray-color']};
+            &:last-child{
+                margin-bottom:0;
+            }
+        }
+        .user-info__contact{
+            li{
+                display: flex;
+                align-items: center;
+                &:not(:last-child){
+                    margin-bottom: 14px;
+                }
+                svg,
+                i,
+                img{
+                    margin-right: 12px;
+                    color: ${({ theme }) => theme['light-color']};
+                }
+                span{
+                    font-size: 14px;
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+            }
+        }
+
+        .user-info__skills{
+            margin: -3px;
+            .btn-outlined{
+                margin: 3px !important;
+                font-size: 11px;
+                height: 25px;
+                padding: 0px 8.75px;
+                text-transform: uppercase;
+                border-radius: 5px;
+                border-color: ${({ theme }) => theme['border-color-normal']};
+                margin: ${({ theme }) => (theme.rtl ? '0 0 10px 10px' : '0 10px 10px 0')};
+                color: ${({ theme }) => theme['gray-color']} !important;
+            }
+        }
+        .card__social{
+            a{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}20;
+                &:not(:last-child){
+                    margin-right: 10px;
+                }
+                &.facebook{
+                    span{
+                        color: #3B5998;
+                    }
+                }
+                &.twitter{
+                    span{
+                        color: #1DA1F2;
+                    }
+                }
+                &.dribble{
+                    span{
+                        color: #C2185B;
+                    }
+                }
+                &.instagram{
+                    span{
+                        color: #FF0300;
+                    }
+                }
+            }
         }
     }
     
@@ -13,7 +103,6 @@ const UserBioBox = Styled.div`
 const SettingWrapper = Styled.div`
     .cover-image{
         position: relative;
-        margin-bottom: 25px;
         .ant-upload-select{
             position: absolute;
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 20px;
@@ -42,25 +131,49 @@ const SettingWrapper = Styled.div`
                 }
             }
         }
+        .ant-upload-list {
+            display: none;
+        }
     }
     .coverWrapper{
         position: relative;
         z-index: 1;
-        margin-bottom: 60px;
+        margin-bottom: 25px;
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
         nav{
-            background: #ffff;
-            position: absolute;
-            bottom: -40px;
-            width: 100%;
-            z-index: -1;
-            border-radius: 10px;
+            padding: 0 25px;
             ul{
                 margin: 0;
                 li{
                     display: inline-block;
+                    &:not(:last-child){
+                        margin-right: 22px;
+                    }
                     a{
+                        position: relative;
                         display: block;
                         padding: 20px 5px;
+                        color: ${({ theme }) => theme['light-color']};
+                        &:after{
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            width: 100%;
+                            height: 1.5px;
+                            content: '';
+                            opacity: 0;
+                            visibility: hidden;
+                            background-color: ${({ theme }) => theme['primary-color']};;
+                        }
+                        &.active{
+                            font-weight: 500;
+                            color: ${({ theme }) => theme['primary-color']};
+                            &:after{
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
                     }
                 }
             }
@@ -180,4 +293,55 @@ const ActivityContents = Styled.div`
         }        
     }
 `;
-export { UserBioBox, SettingWrapper, RightAsideWrapper, ActivityContents };
+const ProductOverviewTable = Styled.div`
+    .ant-card-body{
+        padding: 0 !important;
+        .ant-table{
+            border-radius: 0 0 10px 10px;
+            margin-top: 1px;
+        }
+    }
+    table{
+        margin-bottom: 25px;
+        .ant-table-thead > tr > th{
+            background-color: #fff;
+            color: ${({ theme }) => theme['dark-color']};
+            &:first-child{
+                padding-left: 25px;
+            }
+            &:last-child{
+                text-align: right;
+                padding-right: 25px;
+            }
+            &.p_name{
+                min-width: 420px;
+            }
+            &.p_price{
+                min-width: 100px;
+            }
+        }
+        .ant-table-tbody{
+            tr{
+                &:hover{
+                    td{
+                        background-color: ${({ theme }) => theme['bg-color-light']};
+                    }
+                }
+                td{
+                    padding: 14px 16px;
+                    font-size: 14px;
+                    color: ${({ theme }) => theme['gray-color']};
+                    border-color: ${({ theme }) => theme['border-color-light']};
+                    &:first-child{
+                        padding-left: 25px;
+                    }
+                    &:last-child{
+                        padding-right: 25px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+`;
+export { UserBioBox, SettingWrapper, RightAsideWrapper, ActivityContents, ProductOverviewTable };
