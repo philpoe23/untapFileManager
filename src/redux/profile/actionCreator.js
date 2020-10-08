@@ -1,7 +1,14 @@
 import actions from './actions';
 import initialState from '../../demoData/friends.json';
 
-const { profileFriendsBegin, profileFriendsSuccess, profileFriendsErr } = actions;
+const {
+  profileFriendsBegin,
+  profileFriendsSuccess,
+  profileFriendsErr,
+  postDataBegin,
+  postDataSuccess,
+  postDataErr,
+} = actions;
 
 const profileFriendsChangeStatus = key => {
   return async dispatch => {
@@ -19,4 +26,31 @@ const profileFriendsChangeStatus = key => {
   };
 };
 
-export { profileFriendsChangeStatus };
+const submitPost = data => {
+  return async dispatch => {
+    try {
+      dispatch(postDataBegin());
+      dispatch(postDataSuccess(data));
+    } catch (err) {
+      dispatch(postDataErr(err));
+    }
+  };
+};
+
+const likeUpdate = (data, key) => {
+  return async dispatch => {
+    try {
+      dispatch(postDataBegin());
+      data.map(post => {
+        if (post.postId === key) {
+          return (post.like += 1);
+        }
+        return dispatch(postDataSuccess(data));
+      });
+    } catch (err) {
+      dispatch(postDataErr(err));
+    }
+  };
+};
+
+export { profileFriendsChangeStatus, submitPost, likeUpdate };

@@ -30,23 +30,13 @@ const BackShadow = Styled.div`
     z-index: -0;
 `;
 
-const AllPosts = Styled.div`
-    position: relative;
-    z-index: 21;
+const AllPosts = Styled.div`     
     .ant-card-body{
-        
-        .postBody{
+        .gallery{
             img{
-                width: 46px;
-                height: 46px;
-                border-radius: 50%;
+                margin-bottom: 10px;
             }
-        }
-        .postFooter{
-            margin-top: 10px;
-            padding: 10px 0;
-            border-top: 1px solid #ddd;
-        }
+        }        
     }    
 `;
 
