@@ -71,7 +71,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="myProfile">
-          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/overview`}>
             My Profile
           </NavLink>
         </Menu.Item>

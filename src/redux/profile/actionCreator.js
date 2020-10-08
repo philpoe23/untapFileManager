@@ -53,4 +53,41 @@ const likeUpdate = (data, key) => {
   };
 };
 
-export { profileFriendsChangeStatus, submitPost, likeUpdate };
+const commentUpdate = (data, key, comment) => {
+  return async dispatch => {
+    try {
+      dispatch(postDataBegin());
+      data.map(post => {
+        if (post.postId === key) {
+          return (post.comment = [
+            ...post.comment,
+            {
+              time: new Date().getTime(),
+              from: 'David Warner',
+              text: comment,
+            },
+          ]);
+        }
+        return dispatch(postDataSuccess(data));
+      });
+    } catch (err) {
+      dispatch(postDataErr(err));
+    }
+  };
+};
+
+const postDelete = (data, key) => {
+  return async dispatch => {
+    try {
+      dispatch(postDataBegin());
+      const posts = data.filter(post => {
+        return post.postId !== key;
+      });
+      return dispatch(postDataSuccess(posts));
+    } catch (err) {
+      dispatch(postDataErr(err));
+    }
+  };
+};
+
+export { profileFriendsChangeStatus, submitPost, likeUpdate, commentUpdate, postDelete };

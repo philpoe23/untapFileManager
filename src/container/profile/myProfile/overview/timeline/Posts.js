@@ -8,14 +8,15 @@ import { Input, Upload, message, Comment, Avatar } from 'antd';
 import Picker from 'emoji-picker-react';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { AllPosts, Title } from './style';
 import { Cards } from '../../../../../components/cards/frame/cards-frame';
 import { Button } from '../../../../../components/buttons/buttons';
-import { likeUpdate } from '../../../../../redux/profile/actionCreator';
+import { likeUpdate, commentUpdate, postDelete } from '../../../../../redux/profile/actionCreator';
 
 const ExampleComment = ({ children, replay }) => (
   <Comment
-    actions={[<span key="comment-nested-reply-to">Reply to</span>]}
+    actions={[<span key="comment-nested-reply-to">Reply |{moment(parseInt(replay.time, 10)).fromNow()}</span>]}
     author={<span>{replay.name}</span>}
     avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
     content={<p>{replay.text}</p>}
@@ -23,6 +24,11 @@ const ExampleComment = ({ children, replay }) => (
     {children}
   </Comment>
 );
+
+ExampleComment.propTypes = {
+  children: PropTypes.node,
+  replay: PropTypes.object,
+};
 
 const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
   const dispatch = useDispatch();
@@ -102,6 +108,15 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
     return dispatch(likeUpdate(posts, id));
   };
 
+  const onCommentUpdate = id => {
+    dispatch(commentUpdate(posts, id, textValue));
+    setTextValue('');
+  };
+
+  const onPostDelete = id => {
+    dispatch(postDelete(posts, id));
+  };
+
   return (
     <AllPosts>
       <Cards
@@ -115,7 +130,9 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
         }
         more={
           <>
-            <Link to="#">Delete</Link>
+            <Link onClick={() => onPostDelete(postId)} to="#">
+              Delete
+            </Link>
           </>
         }
       >
@@ -196,7 +213,11 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
                   <FeatherIcon icon="paperclip" size={18} />
                 </Upload>
               </Link>
-              <Button type="primary" className="btn-send">
+              <Button
+                onClick={() => (textValue === '' ? alert('Please input your comment...') : onCommentUpdate(postId))}
+                type="primary"
+                className="btn-send"
+              >
                 <FeatherIcon icon="send" size={18} />
               </Button>
             </div>
@@ -206,6 +227,7 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
           <div className="commentReplay">
             <ExampleComment
               replay={{
+                time: comment[0].time,
                 name: comment[0].from,
                 text: comment[0].text,
               }}
@@ -213,9 +235,10 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
               {comment.length > 1
                 ? comment.map((item, key) => {
                     return (
-                      key <= 1 && (
+                      key >= 1 && (
                         <ExampleComment
                           replay={{
+                            time: item.time,
                             name: item.name,
                             text: item.text,
                           }}
@@ -230,6 +253,17 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
       </Cards>
     </AllPosts>
   );
+};
+
+Posts.propTypes = {
+  postId: PropTypes.number,
+  from: PropTypes.string,
+  time: PropTypes.string,
+  img: PropTypes.array,
+  like: PropTypes.number,
+  comment: PropTypes.array,
+  content: PropTypes.string,
+  author: PropTypes.string,
 };
 
 export default Posts;
