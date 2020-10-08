@@ -145,16 +145,29 @@ const SettingWrapper = Styled.div`
             padding: 0 25px;
             ul{
                 margin: 0;
+                @media only screen and (max-width: 375px){
+                    text-align: center;
+                    padding: 10px 0;
+                }
                 li{
                     display: inline-block;
+                    @media only screen and (max-width: 375px){
+                        display: block;
+                    }
                     &:not(:last-child){
                         margin-right: 22px;
+                        @media only screen and (max-width: 375px){
+                            margin-right: 0;
+                        }
                     }
                     a{
                         position: relative;
                         display: block;
                         padding: 20px 5px;
                         color: ${({ theme }) => theme['light-color']};
+                        @media only screen and (max-width: 375px){
+                            padding: 10px 5px;
+                        }
                         &:after{
                             position: absolute;
                             left: 0;
@@ -164,7 +177,10 @@ const SettingWrapper = Styled.div`
                             content: '';
                             opacity: 0;
                             visibility: hidden;
-                            background-color: ${({ theme }) => theme['primary-color']};;
+                            background-color: ${({ theme }) => theme['primary-color']};
+                            @media only screen and (max-width: 375px){
+                                display: none;
+                            }
                         }
                         &.active{
                             font-weight: 500;

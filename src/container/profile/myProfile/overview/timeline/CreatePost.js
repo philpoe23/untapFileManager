@@ -60,24 +60,28 @@ const Post = () => {
       {drawer && <BackShadow onClick={() => setDrawer(false)} />}
       <Cards title="Post Something">
         <div onClick={() => setDrawer(true)} className="postBody">
-          <img src={require('../../../../../static/img/chat-author/t4.jpg')} alt="" />
+          <img className="post-author" src={require('../../../../../static/img/chat-author/t4.jpg')} alt="" />
           <Input.TextArea onChange={onTextChange} placeholder="Write something..." />
         </div>
         <div onClick={() => setDrawer(true)} className="postFooter">
-          <Upload>
-            <Button shape="circle" type="light">
-              <img src={require('../../../../../static/img/icon/image.png')} alt="" />
-              Photo/Video
+          <div className="postFooter_left">
+            <Upload>
+              <Button shape="circle" type="light">
+                <img src={require('../../../../../static/img/icon/image.png')} alt="" />
+                Photo/Video
+              </Button>
+            </Upload>
+            <Button className="btn-more" shape="circle" type="light">
+              <FeatherIcon icon="more-horizontal" />
             </Button>
-          </Upload>
-          <Button shape="circle" type="light">
-            <FeatherIcon icon="more-horizontal" />
-          </Button>
-          {drawer && (
-            <Button onClick={onCreate} type="primary">
-              Publish Post
-            </Button>
-          )}
+          </div>
+          <div className="postFooter_right">
+            {drawer && (
+              <Button className="btn-post" onClick={onCreate} type="primary">
+                Publish Post
+              </Button>
+            )}
+          </div>
         </div>
       </Cards>
     </CreatePost>
