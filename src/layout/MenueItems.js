@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
 
 const { SubMenu } = Menu;
 
-const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
+const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);
@@ -15,7 +15,8 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
 
   return (
     <Menu
-      mode="inline"
+      mode={topMenu ? 'inline' : 'horizontal'}
+      inlineCollapsed
       theme={darkMode && 'dark'}
       // eslint-disable-next-line no-nested-ternary
       defaultSelectedKeys={[
@@ -563,6 +564,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
 
 MenuItems.propTypes = {
   darkMode: propTypes.bool,
+  topMenu: propTypes.bool,
   toggleCollapsed: propTypes.func,
 };
 

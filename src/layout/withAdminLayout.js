@@ -47,7 +47,7 @@ const ThemeLayout = WrappedComponent => {
 
     render() {
       const { collapsed, hide, searchHide, customizerAction } = this.state;
-      const { ChangeLayoutMode, rtl, changeRtl, changeLayout } = this.props;
+      const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu } = this.props;
 
       const left = !rtl ? 'left' : 'right';
       const darkMode = ChangeLayoutMode;
@@ -168,7 +168,7 @@ const ThemeLayout = WrappedComponent => {
 
       return (
         <Div darkMode={darkMode}>
-          <Layout>
+          <Layout className="layout">
             <Header
               style={{
                 position: 'fixed',
@@ -191,7 +191,16 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col lg={10} md={8} sm={0} xs={0}>
-                  <HeaderSearch rtl={rtl} darkMode={darkMode} />
+                  {topMenu ? (
+                    <MenueItems
+                      topMenu={topMenu}
+                      rtl={rtl}
+                      toggleCollapsed={toggleCollapsedMobile}
+                      darkMode={darkMode}
+                    />
+                  ) : (
+                    <HeaderSearch rtl={rtl} darkMode={darkMode} />
+                  )}
                 </Col>
 
                 <Col md={10} sm={0} xs={0}>
@@ -227,23 +236,30 @@ const ThemeLayout = WrappedComponent => {
               </Row>
             </div>
             <Layout>
-              <ThemeProvider theme={darkTheme}>
-                <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
-                  <Scrollbars
-                    className="custom-scrollbar"
-                    autoHide
-                    autoHideTimeout={500}
-                    autoHideDuration={200}
-                    renderThumbHorizontal={renderThumbHorizontal}
-                    renderThumbVertical={renderThumbVertical}
-                    renderView={renderView}
-                    renderTrackVertical={renderTrackVertical}
-                  >
-                    <p className="sidebar-nav-title">MAIN MENU</p>
-                    <MenueItems rtl={rtl} toggleCollapsed={toggleCollapsedMobile} darkMode={darkMode} />
-                  </Scrollbars>
-                </Sider>
-              </ThemeProvider>
+              {!topMenu && (
+                <ThemeProvider theme={darkTheme}>
+                  <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
+                    <Scrollbars
+                      className="custom-scrollbar"
+                      autoHide
+                      autoHideTimeout={500}
+                      autoHideDuration={200}
+                      renderThumbHorizontal={renderThumbHorizontal}
+                      renderThumbVertical={renderThumbVertical}
+                      renderView={renderView}
+                      renderTrackVertical={renderTrackVertical}
+                    >
+                      <p className="sidebar-nav-title">MAIN MENU</p>
+                      <MenueItems
+                        topMenu={topMenu}
+                        rtl={rtl}
+                        toggleCollapsed={toggleCollapsedMobile}
+                        darkMode={darkMode}
+                      />
+                    </Scrollbars>
+                  </Sider>
+                </ThemeProvider>
+              )}
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
@@ -336,6 +352,7 @@ const ThemeLayout = WrappedComponent => {
     return {
       ChangeLayoutMode: state.ChangeLayoutMode.data,
       rtl: state.ChangeLayoutMode.rtlData,
+      topMenu: state.ChangeLayoutMode.topMenu,
     };
   };
 
@@ -349,6 +366,7 @@ const ThemeLayout = WrappedComponent => {
   LayoutComponent.propTypes = {
     ChangeLayoutMode: propTypes.bool,
     rtl: propTypes.bool,
+    topMenu: propTypes.bool,
     changeRtl: propTypes.func,
     changeLayout: propTypes.func,
   };

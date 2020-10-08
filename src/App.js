@@ -15,9 +15,10 @@ import ProtectedRoute from './components/utilities/protectedRoute';
 const { theme } = config;
 
 const ProviderConfig = () => {
-  const { rtl, isLoggedIn } = useSelector(state => {
+  const { rtl, isLoggedIn, topMenu } = useSelector(state => {
     return {
       rtl: state.ChangeLayoutMode.rtlData,
+      topMenu: state.ChangeLayoutMode.topMenu,
       isLoggedIn: state.auth.login,
     };
   });
@@ -35,7 +36,7 @@ const ProviderConfig = () => {
 
   return (
     <ConfigProvider direction={rtl ? 'rtl' : 'ltr'}>
-      <ThemeProvider theme={{ ...theme, rtl }}>
+      <ThemeProvider theme={{ ...theme, rtl, topMenu }}>
         <Router basename={process.env.PUBLIC_URL}>
           {!isLoggedIn ? <Route path="/" component={Auth} /> : <ProtectedRoute path="/admin" component={Admin} />}
           {isLoggedIn && (path === process.env.PUBLIC_URL || path === `${process.env.PUBLIC_URL}/`) && (
