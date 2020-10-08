@@ -76,7 +76,7 @@ const MyProfile = () => {
                   <nav className="profileTab-menu">
                     <ul>
                       <li>
-                        <NavLink to={path}>Overview</NavLink>
+                        <NavLink to={`${path}/overview`}>Overview</NavLink>
                       </li>
                       <li>
                         <NavLink to={`${path}/timeline`}>Timeline</NavLink>
@@ -96,7 +96,7 @@ const MyProfile = () => {
                     </Cards>
                   }
                 >
-                  <Route exact path={path} component={Overview} />
+                  <Route exact path={`${path}/overview`} component={Overview} />
                   <Route path={`${path}/timeline`} component={Timeline} />
                   <Route path={`${path}/activity`} component={Activity} />
                 </Suspense>
