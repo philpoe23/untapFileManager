@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom';
-// import propTypes from 'prop-types';
 import { SettingWrapper } from './overview/style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
