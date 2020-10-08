@@ -45,6 +45,7 @@
     "recharts": "^2.0.0-beta.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "simple-react-lightbox": "^3.3.4-1",
     "styled-components": "^4.4.1"
   },
   "homepage": "/strikingDash",
