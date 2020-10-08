@@ -204,26 +204,15 @@ const SettingWrapper = Styled.div`
 `;
 
 const RightAsideWrapper = Styled.div`
-    .ant-card-body{
-        padding: 0 !important;
-        .video{
-            display: block;
-            position: relative;
-            z-index: 4;
-            margin-bottom: 10px;
-            span{
-                width: 100%;
-                height: 100%;
-                background: #272B4120;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 5;
-            }
+    .ant-card-head{
+        .btn-seeAll{
+            font-size: 13px;
+            font-weight: 500;
+            color: ${({ theme }) => theme['primary-color']};
         }
+    }
+    .ant-card-body{
+        padding: 0 0 25px !important;
         ul{
             margin: 0;
             padding: 0;
@@ -232,7 +221,7 @@ const RightAsideWrapper = Styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 15px;
+                padding: 20px 25px;
                 cursor: pointer;
 
                 &:hover{
@@ -254,6 +243,91 @@ const RightAsideWrapper = Styled.div`
                             display: block;
                         }
                     }
+                }
+            }
+            .btn-loadMore{
+                display: inline-block;
+                margin-top: 10px;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 0 25px;
+            }
+        }
+    }
+    .ff-widget{
+        li{
+            .ff-info{
+                p{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: ${({ theme }) => theme['dark-color']};
+                    span{
+                        margin-top: 3px;
+                        font-weight: 400;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                }
+            }
+            .btn-ff{
+                font-size: 12px;
+                font-weight: 500;
+                padding: 0 12.88px;
+                svg,
+                i,
+                img{
+                    margin-right: 6px;
+                }
+            }
+        }
+    }
+    .widget-photo-list,
+    .widget-video-list{
+        padding: 25px 25px 0;
+        .ant-row{
+            argin: -4px 0;
+            .ant-col{
+                margin: 4px 0;
+            }
+        }
+        img{
+            max-width: 103px;
+            border-radius: 6px;
+        }
+    }
+
+    .widget-video-list{
+        .video{
+            display: block;
+            position: relative;
+            z-index: 4;
+            &:after{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+                border-radius: 6px;
+                background-color: ${({ theme }) => theme['dark-color']}20;
+            }
+            span{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                z-index: 5;
+                background-color: ${({ theme }) => theme['dark-color']}60;
+                svg,
+                img,
+                i{
+                    width: 14px;
+                    color: #fff;
                 }
             }
         }
