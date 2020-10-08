@@ -3,6 +3,7 @@ import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { ProductOverviewTable } from './style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import Heading from '../../../../components/heading/heading';
 import { CardBarChart2, EChartCard, PerformanceChartWrapper } from '../../../dashboard/style';
@@ -126,11 +127,13 @@ const Overview = () => {
       title: 'Products Name',
       dataIndex: 'name',
       key: 'name',
+      className: 'p_name',
     },
     {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
+      className: 'p_price',
     },
     {
       title: 'Sold',
@@ -167,7 +170,7 @@ const Overview = () => {
 
   return (
     <Row gutter={25}>
-      <Col xxl={8} md={12} sm={12} xs={24}>
+      <Col xxl={8} lg={12} md={24} sm={12} xs={24}>
         <Cards headless>
           <EChartCard>
             <div className="card-chunk">
@@ -199,7 +202,7 @@ const Overview = () => {
           </EChartCard>
         </Cards>
       </Col>
-      <Col xxl={8} md={12} sm={12} xs={24}>
+      <Col xxl={8} lg={12} md={24} sm={12} xs={24}>
         <Cards headless>
           <EChartCard>
             <div className="card-chunk">
@@ -231,7 +234,7 @@ const Overview = () => {
           </EChartCard>
         </Cards>
       </Col>
-      <Col xxl={8} md={12} sm={12} xs={24}>
+      <Col xxl={8} lg={12} md={24} sm={12} xs={24}>
         <Cards headless>
           <EChartCard>
             <div className="card-chunk">
@@ -263,7 +266,7 @@ const Overview = () => {
           </EChartCard>
         </Cards>
       </Col>
-      <Col md={24}>
+      <Col xs={24}>
         <PerformanceChartWrapper>
           {performanceState !== null && (
             <Cards more={moreContent} title="General Statistics" size="default">
@@ -347,10 +350,12 @@ const Overview = () => {
           )}
         </PerformanceChartWrapper>
       </Col>
-      <Col md={24}>
-        <Cards more={moreContent} title="My Products" size="default">
-          <Table className="table-responsive" pagination={false} dataSource={dataSource} columns={columns} />
-        </Cards>
+      <Col xs={24}>
+        <ProductOverviewTable>
+          <Cards more={moreContent} title="My Products" size="default">
+            <Table className="table-responsive" pagination={false} dataSource={dataSource} columns={columns} />
+          </Cards>
+        </ProductOverviewTable>
       </Col>
     </Row>
   );
