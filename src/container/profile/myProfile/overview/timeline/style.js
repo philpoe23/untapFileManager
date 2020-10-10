@@ -14,11 +14,11 @@ const CreatePost = Styled.div`
                 position: absolute;
                 top: 5px;
                 z-index: 22;
-                left: 0;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             }
             textarea{
                 border: 0 none;
-                padding-left: 70px;
+                padding-${({ theme }) => (theme.rtl ? 'right' : 'left')}: 70px;
                 min-height: 55px;
                 resize: none;
                 &:focus{
@@ -35,7 +35,7 @@ const CreatePost = Styled.div`
             border-top: 1px solid #F1F2F6;
             padding-top: 15px;
             .ant-upload{
-                margin-right: 8px;
+                margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 8px;
                 .ant-btn{
                     height: 30px;
                     font-size: 12px;
@@ -64,7 +64,7 @@ const BackShadow = Styled.div`
     background: #11121760;
     position: fixed;
     top: 0;
-    left: 0;
+    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
     z-index: -0;
 `;
 
@@ -100,7 +100,7 @@ const AllPosts = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 color: ${({ theme }) => theme['extra-light-color']};
-                margin-right: 20px;
+                margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 20px;
             }
             a{
                 display: inline-flex;
@@ -109,7 +109,7 @@ const AllPosts = Styled.div`
                 color: ${({ theme }) => theme['extra-light-color']};
                 svg,
                 i{
-                    margin-right: 6px;
+                    margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 6px;
                 }
             }
         }
@@ -127,20 +127,20 @@ const AllPosts = Styled.div`
                 position: relative;
                 display: flex;
                 align-items: center;
-                margin-right: 10px;
+                margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 10px;
                 @media only screen and (max-width: 991px){
                     flex-flow: column;
                     align-items: flex-start;
                     width: 100%;
-                    margin-right: 0;
+                    margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 0;
                     margin-bottom: 15px;
                 }
                 img{
                     max-width: 36px;
-                    margin-right: 10px;
+                    margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 10px;
                     border-radius: 50%;
                     @media only screen and (max-width: 991px){
-                        margin-right: 0;
+                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 0;
                         margin-bottom: 15px;
                     }
                 }
@@ -178,24 +178,24 @@ const AllPosts = Styled.div`
             }
             .chatbox-reply-action{
                 position: absolute;
-                right: 22px;
+                ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 22px;
                 align-items: center;
                 @media only screen and (max-width: 991px){
                     bottom: 10px;
                 }
                 .smile-icon{
-                    margin-right: 18px;
+                    margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 18px;
                     line-height: 1;
                     @media only screen and (max-width: 991px){
-                        margin-right: 6px;
+                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 6px;
                     }
                 }
                 a{
                     line-height: 1;
                     &:not(:last-child){
-                        margin-right: 18px;
+                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 18px;
                         @media only screen and (max-width: 991px){
-                            margin-right: 6px;
+                            margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 6px;
                         }
                     }
                     svg,

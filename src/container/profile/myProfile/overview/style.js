@@ -38,7 +38,7 @@ const UserBioBox = Styled.div`
                 svg,
                 i,
                 img{
-                    margin-right: 12px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                     color: ${({ theme }) => theme['light-color']};
                 }
                 span{
@@ -72,7 +72,7 @@ const UserBioBox = Styled.div`
                 border-radius: 50%;
                 box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}20;
                 &:not(:last-child){
-                    margin-right: 10px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
                 }
                 &.facebook{
                     span{
@@ -155,9 +155,9 @@ const SettingWrapper = Styled.div`
                         display: block;
                     }
                     &:not(:last-child){
-                        margin-right: 22px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 22px;
                         @media only screen and (max-width: 375px){
-                            margin-right: 0;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
                         }
                     }
                     a{
@@ -170,7 +170,7 @@ const SettingWrapper = Styled.div`
                         }
                         &:after{
                             position: absolute;
-                            left: 0;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                             bottom: 0;
                             width: 100%;
                             height: 1.5px;
@@ -311,7 +311,7 @@ const RightAsideWrapper = Styled.div`
                 svg,
                 i,
                 img{
-                    margin-right: 6px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
                 }
             }
         }
@@ -320,7 +320,7 @@ const RightAsideWrapper = Styled.div`
     .widget-video-list{
         padding: 20px 25px 0;
         .ant-row{
-            argin: -4px 0;
+            margin: -4px 0;
             .ant-col{
                 margin: 4px 0;
             }
@@ -338,7 +338,7 @@ const RightAsideWrapper = Styled.div`
             z-index: 4;
             &:after{
                 position: absolute;
-                left: 0;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
@@ -387,7 +387,7 @@ const ActivityContents = Styled.div`
                 justify-content: center;
                 align-items: center;
                 background-color: #00000015;
-                margin-right: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
                 &.primary{
                     background-color: ${({ theme }) => theme['primary-color']}15;
                     color: ${({ theme }) => theme['primary-color']};
@@ -434,7 +434,7 @@ const ActivityContents = Styled.div`
                 img{
                     max-width: 40px;
                     border-radius: 50%;
-                    margin-right: 20px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
                 }
                 p{
                     margin-bottom: 0;
@@ -465,7 +465,7 @@ const ProductOverviewTable = Styled.div`
     .ant-card-body{
         padding: 0 !important;
         .ant-table{
-            border-radius: 0 0 10px 10px;
+            border-radius: ${({ theme }) => (theme.rtl ? '10px 10px 0 0' : '0 0 10px 10px')};
             margin-top: 1px;
         }
     }
@@ -475,11 +475,11 @@ const ProductOverviewTable = Styled.div`
             background-color: #fff;
             color: ${({ theme }) => theme['dark-color']};
             &:first-child{
-                padding-left: 25px;
+                padding-${({ theme }) => (theme.rtl ? 'right' : 'left')}: 25px;
             }
             &:last-child{
-                text-align: right;
-                padding-right: 25px;
+                text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
+                padding-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 25px;
             }
             &.p_name{
                 min-width: 420px;
@@ -501,11 +501,11 @@ const ProductOverviewTable = Styled.div`
                     color: ${({ theme }) => theme['gray-color']};
                     border-color: ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        padding-left: 25px;
+                        padding-${({ theme }) => (theme.rtl ? 'right' : 'left')}: 25px;
                     }
                     &:last-child{
-                        padding-right: 25px;
-                        text-align: right;
+                        padding-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 25px;
+                        text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
                     }
                 }
             }
