@@ -61,7 +61,7 @@ const Post = () => {
       <Cards title="Post Something">
         <div onClick={() => setDrawer(true)} className="postBody">
           <img className="post-author" src={require('../../../../../static/img/chat-author/t4.jpg')} alt="" />
-          <Input.TextArea onChange={onTextChange} placeholder="Write something..." />
+          <Input.TextArea value={textValue} onChange={onTextChange} placeholder="Write something..." />
         </div>
         <div onClick={() => setDrawer(true)} className="postFooter">
           <div className="postFooter_left">
