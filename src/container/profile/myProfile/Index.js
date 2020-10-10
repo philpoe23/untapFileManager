@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom';
-// import propTypes from 'prop-types';
 import { SettingWrapper } from './overview/style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
@@ -74,10 +73,10 @@ const MyProfile = () => {
               >
                 <div className="coverWrapper">
                   <CoverSection />
-                  <nav>
+                  <nav className="profileTab-menu">
                     <ul>
                       <li>
-                        <NavLink to={path}>Overview</NavLink>
+                        <NavLink to={`${path}/overview`}>Overview</NavLink>
                       </li>
                       <li>
                         <NavLink to={`${path}/timeline`}>Timeline</NavLink>
@@ -97,7 +96,7 @@ const MyProfile = () => {
                     </Cards>
                   }
                 >
-                  <Route exact path={path} component={Overview} />
+                  <Route exact path={`${path}/overview`} component={Overview} />
                   <Route path={`${path}/timeline`} component={Timeline} />
                   <Route path={`${path}/activity`} component={Activity} />
                 </Suspense>
