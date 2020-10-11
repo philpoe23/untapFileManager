@@ -10,7 +10,7 @@ import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { changeRtlMode, changeLayoutMode } from '../redux/themeLayout/actionCreator';
+import { changeRtlMode, changeLayoutMode, changeMenuMode } from '../redux/themeLayout/actionCreator';
 
 const { darkTheme } = require('../config/theme/themeVariables');
 
@@ -47,7 +47,7 @@ const ThemeLayout = WrappedComponent => {
 
     render() {
       const { collapsed, hide, searchHide, customizerAction } = this.state;
-      const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu } = this.props;
+      const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu, changeMenuMode } = this.props;
 
       const left = !rtl ? 'left' : 'right';
       const darkMode = ChangeLayoutMode;
@@ -166,6 +166,14 @@ const ThemeLayout = WrappedComponent => {
         changeLayout(false);
       };
 
+      const modeChangeTopNav = () => {
+        changeMenuMode(true);
+      };
+
+      const modeChangeSideNav = () => {
+        changeMenuMode(false);
+      };
+
       return (
         <Div darkMode={darkMode}>
           <Layout className="layout">
@@ -179,9 +187,11 @@ const ThemeLayout = WrappedComponent => {
             >
               <Row>
                 <Col lg={4} sm={6} xs={12} className="align-center-v navbar-brand">
-                  <Button type="link" onClick={toggleCollapsed}>
-                    <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
-                  </Button>
+                  {!topMenu || window.innerWidth <= 991 ? (
+                    <Button type="link" onClick={toggleCollapsed}>
+                      <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
+                    </Button>
+                  ) : null}
                   <Link className="striking-logo" to="/admin">
                     <img
                       src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
@@ -191,7 +201,7 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col lg={10} md={8} sm={0} xs={0}>
-                  {topMenu ? (
+                  {topMenu && window.innerWidth > 991 ? (
                     <MenueItems
                       topMenu={topMenu}
                       rtl={rtl}
@@ -236,7 +246,7 @@ const ThemeLayout = WrappedComponent => {
               </Row>
             </div>
             <Layout>
-              {!topMenu && (
+              {!topMenu || window.innerWidth <= 991 ? (
                 <ThemeProvider theme={darkTheme}>
                   <Sider width={280} style={SideBarStyle} collapsed={collapsed} theme={!darkMode ? 'light' : 'dark'}>
                     <Scrollbars
@@ -259,7 +269,7 @@ const ThemeLayout = WrappedComponent => {
                     </Scrollbars>
                   </Sider>
                 </ThemeProvider>
-              )}
+              ) : null}
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
@@ -340,6 +350,23 @@ const ThemeLayout = WrappedComponent => {
                     </li>
                   </ul>
                 </div>
+                <div className="customizer__single">
+                  <h4>Navbar Type</h4>
+                  <ul className="customizer-list d-flex">
+                    <li className="customizer-list__item">
+                      <Link onClick={modeChangeSideNav} to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>Side Nav</span>
+                      </Link>
+                    </li>
+                    <li className="customizer-list__item">
+                      <Link onClick={modeChangeTopNav} to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> Top Nav</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -360,6 +387,7 @@ const ThemeLayout = WrappedComponent => {
     return {
       changeRtl: rtl => dispatch(changeRtlMode(rtl)),
       changeLayout: show => dispatch(changeLayoutMode(show)),
+      changeMenuMode: show => dispatch(changeMenuMode(show)),
     };
   };
 
@@ -369,6 +397,7 @@ const ThemeLayout = WrappedComponent => {
     topMenu: propTypes.bool,
     changeRtl: propTypes.func,
     changeLayout: propTypes.func,
+    changeMenuMode: propTypes.func,
   };
 
   return connect(mapStateToProps, mapStateToDispatch)(LayoutComponent);

@@ -15,7 +15,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
 
   return (
     <Menu
-      mode={!topMenu ? 'inline' : 'horizontal'}
+      mode={!topMenu || window.innerWidth <= 991 ? 'inline' : 'horizontal'}
       theme={darkMode && 'dark'}
       // // eslint-disable-next-line no-nested-ternary
       defaultSelectedKeys={
