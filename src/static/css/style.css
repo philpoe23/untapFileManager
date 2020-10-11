@@ -2151,6 +2151,10 @@ html[dir="rtl"] .ant-menu.ant-menu-vertical{
   text-align: right !important;
 }
 
+html[dir="rtl"] .ant-menu.ant-menu-vertical ul{
+  right: 200px;
+}
+
 html[dir="rtl"] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow{
   right: auto;
   left: 16px;
