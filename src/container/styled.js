@@ -585,6 +585,7 @@ const Main = Styled.div`
             margin: 5px !important;
         }
     }
+    
 `;
 
 const ButtonsGroupWrapper = Styled.div`

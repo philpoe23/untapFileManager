@@ -1683,6 +1683,10 @@ ul {
   color: rgba(255, 255, 255, 0.65) !important;
 }
 
+.ant-menu-dark .ant-menu-item a:hover {
+  color: #ffffff;
+}
+
 .ant-menu-dark .ant-menu-submenu span {
   color: rgba(255, 255, 255, 0.65) !important;
 }
@@ -1693,6 +1697,10 @@ ul {
 
 .ant-menu-inline-collapsed-tooltip a {
   color: #000 !important;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+  background: transparent;
 }
 
 /* Chart Label */
@@ -1732,6 +1740,24 @@ ul {
 
 .rdrInputRange {
   padding-left: 10px !important;
+}
+
+/* Overlay Dark */
+.overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #10122130;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+.overlay-dark.show {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Responsive CSS */
@@ -2123,4 +2149,26 @@ ul {
   /* change div to reference your elements you put in <Masonry> */
   background: grey;
   margin-bottom: 30px;
+}
+
+html[dir='rtl'] .ant-menu.ant-menu-vertical {
+  text-align: right !important;
+}
+
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-placement-rightTop {
+  left: -170px !important;
+}
+
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-vertical-left {
+  text-align: right;
+}
+
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow {
+  right: auto;
+  left: 16px;
+  transform: rotateY(180deg);
+}
+
+html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
+  padding-right: 15px !important;
 }
