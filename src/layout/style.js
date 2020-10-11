@@ -14,6 +14,41 @@ const Div = Styled.div`
         .head-example{
             ${({ darkMode }) => (darkMode ? `color: #A8AAB3;` : '')};
         }
+        .ant-menu-sub.ant-menu-vertical{
+            .ant-menu-item{
+                a{
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+            }
+        }
+        .ant-menu.ant-menu-horizontal{
+            display: flex;
+            align-items: center;
+            margin: 0 -16px;
+            li.ant-menu-submenu{
+                margin: 0 16px;
+            }
+            .ant-menu-submenu{
+                .ant-menu-submenu-title{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: ${({ theme }) => theme['gray-color']};
+                    svg,
+                    i{
+                        color: ${({ theme }) => theme['gray-color']};
+                    }
+                    .ant-menu-submenu-arrow{
+                        font-family: "FontAwesome";
+                        font-style: normal;
+                        margin-left: 6px;
+                        &:before{
+                            color: ${({ theme }) => theme['light-color']};;
+                            content: '\f107';
+                        }
+                    }
+                }
+            }
+        }
     }
     .header-more{
         .head-example{
@@ -135,6 +170,9 @@ const Div = Styled.div`
         img{
             max-width: 120px;
             width: 100%;
+        }
+        &.top-menu{
+            margin-left: 15px;
         }
     }
     .certain-category-search-wrapper{
