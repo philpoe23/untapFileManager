@@ -360,18 +360,33 @@ const Footer = Styled.div`
       flex-flow: column;
     }
     .smile-icon{
+      position: relative; 
       position: absolute;
       ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 25px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       align-items: center;
+      z-index: 99999999;
       @media only screen and (max-width: 575px){
         top: 26px;
+      }
+      aside{
+          position: absolute;
+          z-index: 999999999;
+          bottom: 0;
+          .emoji-search{
+            padding: 8px;
+            height: auto;
+            border-radius: 5px;
+          }
       }
       .ant-dropdown-trigger{
         display: flex;
         align-items: center;
+      }
+      a{
+        display: flex;
       }
       svg,
       i{
@@ -407,6 +422,7 @@ const Footer = Styled.div`
         }
         &:focus{
           border: 0 none;
+          outline: none;
         }
         @media only screen and (max-width: 575px){
           height: 50px;
@@ -644,5 +660,14 @@ const ChatSidebar = Styled.div`
     }
   }
 `;
+const BackShadowEmoji = Styled.div`
+    width: 100%;
+    height: 100%;
+    background: #11121760;
+    position: fixed;
+    top: 0;
+    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
+    z-index: 9999;
+`;
 
-export { ChatWrapper, UL, Content, BlockSpan, MessageList, Footer, ChatSidebar, SingleChatWrapper };
+export { ChatWrapper, UL, Content, BlockSpan, MessageList, Footer, ChatSidebar, SingleChatWrapper, BackShadowEmoji };

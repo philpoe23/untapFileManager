@@ -67,6 +67,15 @@ const BackShadow = Styled.div`
     ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
     z-index: -0;
 `;
+const BackShadowEmoji = Styled.div`
+    width: 100%;
+    height: 100%;
+    background: #11121760;
+    position: fixed;
+    top: 0;
+    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
+    z-index: 9999;
+`;
 
 const AllPosts = Styled.div`     
     .ant-card-body{
@@ -184,10 +193,15 @@ const AllPosts = Styled.div`
                     bottom: 10px;
                 }
                 .smile-icon{
+                    position: relative;                    
                     margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 18px;
                     line-height: 1;
                     @media only screen and (max-width: 991px){
-                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 6px;
+                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 8px;
+                    }
+                    aside{
+                        position: absolute;
+                        z-index: 9999999;
                     }
                 }
                 a{
@@ -259,4 +273,4 @@ const Title = Styled.div`
     }
 `;
 
-export { CreatePost, BackShadow, AllPosts, Title };
+export { CreatePost, BackShadow, AllPosts, Title, BackShadowEmoji };
