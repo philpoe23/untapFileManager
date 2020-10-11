@@ -38,7 +38,7 @@ const UserBioBox = Styled.div`
                 svg,
                 i,
                 img{
-                    margin-right: 12px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                     color: ${({ theme }) => theme['light-color']};
                 }
                 span{
@@ -72,7 +72,7 @@ const UserBioBox = Styled.div`
                 border-radius: 50%;
                 box-shadow: 0 5px 15px ${({ theme }) => theme['light-color']}20;
                 &:not(:last-child){
-                    margin-right: 10px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
                 }
                 &.facebook{
                     span{
@@ -145,26 +145,42 @@ const SettingWrapper = Styled.div`
             padding: 0 25px;
             ul{
                 margin: 0;
+                @media only screen and (max-width: 375px){
+                    text-align: center;
+                    padding: 10px 0;
+                }
                 li{
                     display: inline-block;
+                    @media only screen and (max-width: 375px){
+                        display: block;
+                    }
                     &:not(:last-child){
-                        margin-right: 22px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 22px;
+                        @media only screen and (max-width: 375px){
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
+                        }
                     }
                     a{
                         position: relative;
                         display: block;
                         padding: 20px 5px;
                         color: ${({ theme }) => theme['light-color']};
+                        @media only screen and (max-width: 375px){
+                            padding: 10px 5px;
+                        }
                         &:after{
                             position: absolute;
-                            left: 0;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                             bottom: 0;
                             width: 100%;
                             height: 1.5px;
                             content: '';
                             opacity: 0;
                             visibility: hidden;
-                            background-color: ${({ theme }) => theme['primary-color']};;
+                            background-color: ${({ theme }) => theme['primary-color']};
+                            @media only screen and (max-width: 375px){
+                                display: none;
+                            }
                         }
                         &.active{
                             font-weight: 500;
@@ -204,26 +220,15 @@ const SettingWrapper = Styled.div`
 `;
 
 const RightAsideWrapper = Styled.div`
-    .ant-card-body{
-        padding: 0 !important;
-        .video{
-            display: block;
-            position: relative;
-            z-index: 4;
-            margin-bottom: 10px;
-            span{
-                width: 100%;
-                height: 100%;
-                background: #272B4120;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 5;
-            }
+    .ant-card-head{
+        .btn-seeAll{
+            font-size: 13px;
+            font-weight: 500;
+            color: ${({ theme }) => theme['primary-color']};
         }
+    }
+    .ant-card-body{
+        padding: 0 0 25px !important;
         ul{
             margin: 0;
             padding: 0;
@@ -232,7 +237,7 @@ const RightAsideWrapper = Styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 15px;
+                padding: 20px 25px;
                 cursor: pointer;
 
                 &:hover{
@@ -256,48 +261,211 @@ const RightAsideWrapper = Styled.div`
                     }
                 }
             }
+            .btn-loadMore{
+                display: inline-block;
+                margin-top: 10px;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 0 25px;
+            }
+        }
+    }
+    .ff-widget{
+        li{
+            @media only screen and (max-width: 1599px){
+                flex-flow: column;
+                padding: 20px !important;
+                align-items: flex-start !important;
+            }
+            .ff-info{
+                @media only screen and (max-width: 1199px){
+                    flex-flow: column;
+                }
+                @media only screen and (max-width: 767px){
+                    flex-flow: row;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: ${({ theme }) => theme['dark-color']};
+                    @media only screen and (max-width: 1199px){
+                        margin-top: 12px;
+                    }
+                    @media only screen and (max-width: 767px){
+                        margin-top: 0;
+                    }
+                    span{
+                        margin-top: 3px;
+                        font-weight: 400;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                }
+            }
+            .btn-ff{
+                font-size: 12px;
+                font-weight: 500;
+                padding: 0 12.88px;
+                @media only screen and (max-width: 1599px){
+                    margin-top: 15px;
+                }
+                svg,
+                i,
+                img{
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+                }
+            }
+        }
+    }
+    .widget-photo-list,
+    .widget-video-list{
+        padding: 20px 25px 0;
+        .ant-row{
+            margin: -4px 0;
+            .ant-col{
+                margin: 4px 0;
+            }
+        }
+        img{
+            max-width: 103px;
+            border-radius: 6px;
+        }
+    }
+
+    .widget-video-list{
+        .video{
+            display: inline-block;
+            position: relative;
+            z-index: 4;
+            &:after{
+                position: absolute;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+                border-radius: 6px;
+                background-color: ${({ theme }) => theme['dark-color']}20;
+            }
+            span{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                z-index: 5;
+                background-color: ${({ theme }) => theme['dark-color']}60;
+                svg,
+                img,
+                i{
+                    width: 14px;
+                    color: #fff;
+                }
+            }
         }
     }
 `;
 const ActivityContents = Styled.div`
     .ant-card-body{
-        ul{
-            margin: 0;
-            li{
+        padding: 25px 0 !important;
+    }
+    .activity-list{
+        margin: 0;
+        .activity-list__single{
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            .activity-icon{
+                width: 31px;
+                height: 31px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #00000015;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
+                &.primary{
+                    background-color: ${({ theme }) => theme['primary-color']}15;
+                    color: ${({ theme }) => theme['primary-color']};
+                }
+                &.secondary{
+                    background-color: ${({ theme }) => theme['secondary-color']}15;
+                    color: ${({ theme }) => theme['secondary-color']};
+                }
+                &.success{
+                    background-color: ${({ theme }) => theme['success-color']}15;
+                    color: ${({ theme }) => theme['success-color']};
+                }
+                &.info{
+                    background-color: ${({ theme }) => theme['info-color']}15;
+                    color: ${({ theme }) => theme['info-color']};
+                }
+                &.danger{
+                    background-color: ${({ theme }) => theme['danger-color']}15;
+                    color: ${({ theme }) => theme['danger-color']};
+                }
+                &.warning{
+                    background-color: ${({ theme }) => theme['warning-color']}15;
+                    color: ${({ theme }) => theme['warning-color']};
+                }
+            }
+            .more{
+                visibility: hidden;
+            }
+            &:hover{
+                box-shadow: 0 15px 50px #88888820;
+                .more{                        
+                    visibility: visible;
+                }
+            }
+            .activity-content{
+                flex: auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                .more{
-                    visibility: hidden;
+            }
+            .activity-info{
+                display: flex;
+                align-items: center;
+                img{
+                    max-width: 40px;
+                    border-radius: 50%;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
                 }
-                &:hover{
-                    box-shadow: 0 15px 50px #88888820;
-                    .more{                        
-                        visibility: visible;
+                p{
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    color: ${({ theme }) => theme['gray-color']};
+                    .inline-text{
+                        font-weight: 500;
+                        display: inline;
                     }
-                }
-                div{
-                    display: flex;
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                    }
-                    p{
-                        span{
-                            display: block;
-                        }
+                    .hour{
+                        display: block;
+                        margin-top: 3px;
+                        color: ${({ theme }) => theme['extra-light-color']};
                     }
                 }
             }
-        }        
+            .activity-more{
+                svg,
+                i{
+                    color: ${({ theme }) => theme['extra-light-color']};
+                }
+            }
+        }
+                
     }
 `;
 const ProductOverviewTable = Styled.div`
     .ant-card-body{
         padding: 0 !important;
         .ant-table{
-            border-radius: 0 0 10px 10px;
+            border-radius: ${({ theme }) => (theme.rtl ? '10px 10px 0 0' : '0 0 10px 10px')};
             margin-top: 1px;
         }
     }
@@ -307,11 +475,11 @@ const ProductOverviewTable = Styled.div`
             background-color: #fff;
             color: ${({ theme }) => theme['dark-color']};
             &:first-child{
-                padding-left: 25px;
+                padding-${({ theme }) => (theme.rtl ? 'right' : 'left')}: 25px;
             }
             &:last-child{
-                text-align: right;
-                padding-right: 25px;
+                text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
+                padding-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 25px;
             }
             &.p_name{
                 min-width: 420px;
@@ -333,11 +501,11 @@ const ProductOverviewTable = Styled.div`
                     color: ${({ theme }) => theme['gray-color']};
                     border-color: ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        padding-left: 25px;
+                        padding-${({ theme }) => (theme.rtl ? 'right' : 'left')}: 25px;
                     }
                     &:last-child{
-                        padding-right: 25px;
-                        text-align: right;
+                        padding-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 25px;
+                        text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
                     }
                 }
             }

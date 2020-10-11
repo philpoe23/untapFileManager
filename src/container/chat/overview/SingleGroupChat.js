@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
+import Picker from 'emoji-picker-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Scrollbars } from 'react-custom-scrollbars';
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
-import { SingleChatWrapper, MessageList, Footer } from '../style';
+import { SingleChatWrapper, MessageList, Footer, BackShadowEmoji } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import { updateGroupChat } from '../../../redux/chat/actionCreator';
@@ -35,7 +36,7 @@ const SingleGroupChat = ({ match }) => {
     fileList: [],
     fileList2: [],
   });
-
+  const [pickerShow, setPickerShow] = useState(false);
   const { singleContent, name, me, inputValue } = state;
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const SingleGroupChat = ({ match }) => {
         chatData: chat,
         singleContent: chat[0].content,
         name: chat[0].groupName,
-        inputValue: '',
+        inputValue,
         me: 'woadud@gmail.com',
         fileList: [],
         fileList2: [],
@@ -54,7 +55,7 @@ const SingleGroupChat = ({ match }) => {
     return () => {
       unmounted = true;
     };
-  }, [match, chat]);
+  }, [match, chat, inputValue]);
 
   const handleChange = e => {
     setState({
@@ -80,6 +81,14 @@ const SingleGroupChat = ({ match }) => {
       singleContent: [...singleContent, pushcontent],
       inputValue: '',
     });
+  };
+
+  const onEmojiClick = (event, emojiObject) => {
+    setState({ ...state, inputValue: inputValue + emojiObject.emoji });
+  };
+
+  const onPickerShow = () => {
+    setPickerShow(!pickerShow);
   };
 
   const props = {
@@ -186,6 +195,7 @@ const SingleGroupChat = ({ match }) => {
 
   return (
     <SingleChatWrapper className="group-chat">
+      {pickerShow && <BackShadowEmoji onClick={() => setPickerShow(false)} />}
       <Cards
         title={
           <div className="group-chat-header d-flex">
@@ -430,50 +440,10 @@ const SingleGroupChat = ({ match }) => {
                 'hasFile'}`}
             >
               <span className="smile-icon">
-                <Dropdown
-                  action={['hover']}
-                  content={
-                    <div className="atbd-chatbox__emoji">
-                      <ul>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#127773;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128116;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128127;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128151;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128400;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <MoreOutlined />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  }
-                  placement="bottomCenter"
-                >
-                  <Link to="#">
-                    <FeatherIcon icon="smile" size={24} />
-                  </Link>
-                </Dropdown>
+                {pickerShow && <Picker onEmojiClick={onEmojiClick} />}
+                <Link onClick={onPickerShow} to="#">
+                  <FeatherIcon icon="smile" size={24} />
+                </Link>
               </span>
               <div className="chatbox-reply-input">
                 <input

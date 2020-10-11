@@ -523,6 +523,65 @@ const Main = Styled.div`
         border-radius: 50%;
         ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
     }
+
+    // Ant comment action
+    .ant-comment-actions{
+        li{
+            position: relative;
+            &:not(:last-child){
+                margin-right: 8px;
+                padding-right: 8px;
+                &:after{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 12px;
+                    background-color: #C6D0DC;
+                    content: '';
+                }
+            }
+            .com-time{
+                cursor: default;
+            }
+            span{
+                margin-right: 0;
+            }
+        }
+    }
+
+    // Emoji Picker React
+    .emoji-picker-react{
+        top: 15px;
+        right: 25px;
+        box-shadow: 0 5px 10px #efefef10;
+        @media only screen and (max-width: 479px){
+            top: 25px;
+            right: -50px;
+            width: 260px;
+        }
+        .emoji-categories{
+            padding: 0 10px;
+        }
+        .emoji-search{
+            margin: 0 10px;
+        }
+        .content-wrapper:before{
+            display: none;
+        }
+        .emoji-group{
+            padding: 0 10px;
+        }
+        .emoji-group:before{
+            font-size: 12px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        .emoji-group .emoji-img{
+            margin: 5px !important;
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -720,7 +779,6 @@ const BasicFormWrapper = Styled.div`
         .ant-form-item-control-input{
             input,
             textarea{
-                /* padding: 12px 20px; */
                 color: ${({ theme }) => theme['gray-color']};
                 &:placeholder{
                     color: ${({ theme }) => theme['light-color']};

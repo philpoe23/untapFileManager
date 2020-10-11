@@ -25,17 +25,18 @@ const RightAside = () => {
     <RightAsideWrapper>
       <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
       <Cards title="Friends">
-        <ul>
+        <ul className="ff-widget">
           {friends.map(({ name, key, designation, status, img }) => {
             return (
               <li key={key}>
-                <div>
+                <div className="ff-info">
                   <img src={require(`../../../../${img}`)} alt="" />
                   <p>
                     {name} <span>{designation}</span>
                   </p>
                 </div>
                 <Button
+                  className="btn-ff"
                   onClick={() => dispatch(profileFriendsChangeStatus(key))}
                   outlined={!status}
                   type={status ? 'primary' : 'white'}
@@ -53,39 +54,59 @@ const RightAside = () => {
             );
           })}
 
-          <Link to="#">Load more friends</Link>
+          <Link to="#" className="btn-loadMore">
+            Load more friends
+          </Link>
         </ul>
       </Cards>
-      <Cards isbutton={<Link to="/admin/pages/gallery">See All</Link>} title="Photos">
-        <Row gutter={10}>
-          {gallery.map(({ img, id }) => {
-            return (
-              id <= 6 && (
-                <Col key={id} md={8} sm={12} xs={12}>
-                  <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
-                </Col>
-              )
-            );
-          })}
-        </Row>
-      </Cards>
-      <Cards isbutton={<Link to="#">See All</Link>} title="Videos">
-        <Row gutter={10}>
-          {gallery.map(({ img, id }) => {
-            return (
-              id <= 6 && (
-                <Col key={id} md={8} sm={12} xs={12}>
-                  <Link onClick={() => setOpen(true)} className="video" to="#">
+      <Cards
+        isbutton={
+          <Link className="btn-seeAll" to="/admin/pages/gallery">
+            See All
+          </Link>
+        }
+        title="Photos"
+      >
+        <div className="widget-photo-list">
+          <Row gutter={10}>
+            {gallery.map(({ img, id }) => {
+              return (
+                id <= 6 && (
+                  <Col key={id} xxl={8} md={24} sm={6} xs={8}>
                     <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
-                    <span>
-                      <FeatherIcon icon="play" />
-                    </span>
-                  </Link>
-                </Col>
-              )
-            );
-          })}
-        </Row>
+                  </Col>
+                )
+              );
+            })}
+          </Row>
+        </div>
+      </Cards>
+      <Cards
+        isbutton={
+          <Link className="btn-seeAll" to="#">
+            See All
+          </Link>
+        }
+        title="Videos"
+      >
+        <div className="widget-video-list">
+          <Row gutter={10}>
+            {gallery.map(({ img, id }) => {
+              return (
+                id <= 6 && (
+                  <Col key={id} xxl={8} md={24} sm={6} xs={8}>
+                    <Link onClick={() => setOpen(true)} className="video" to="#">
+                      <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
+                      <span>
+                        <FeatherIcon icon="play" />
+                      </span>
+                    </Link>
+                  </Col>
+                )
+              );
+            })}
+          </Row>
+        </div>
       </Cards>
     </RightAsideWrapper>
   );
