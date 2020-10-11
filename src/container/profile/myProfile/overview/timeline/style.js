@@ -197,7 +197,7 @@ const AllPosts = Styled.div`
                     margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 18px;
                     line-height: 1;
                     @media only screen and (max-width: 991px){
-                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 6px;
+                        margin-${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 8px;
                     }
                     aside{
                         position: absolute;
