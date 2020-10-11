@@ -71,18 +71,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="profile" icon={!topMenu && <FeatherIcon icon="user" />} title="Profile">
-        <Menu.Item key="settings">
-          <NavLink onClick={toggleCollapsed} to={`${path}/profile/settings`}>
-            Settings
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="myProfile">
-          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/overview`}>
-            My Profile
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
       <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
         <Menu.Item key="team">
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/team`}>
@@ -137,18 +125,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
-      <SubMenu key="email" icon={!topMenu && <FeatherIcon icon="mail" />} title="Email">
-        <Menu.Item key="inbox">
-          <NavLink onClick={toggleCollapsed} to={`${path}/email/inbox`}>
-            Inbox
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="single">
-          <NavLink onClick={toggleCollapsed} to={`${path}/email/single/1585118055048`}>
-            Read Email
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="message-square" />} key="chat">
+        <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
+          Chat
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="user-check" />} key="contact">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/contact`}>
+          Contact
+        </NavLink>
+      </Menu.Item>
       <SubMenu key="ecommerce" icon={!topMenu && <FeatherIcon icon="shopping-cart" />} title="eCommerce">
         <Menu.Item key="products">
           <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products`}>
@@ -195,26 +181,40 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="message-square" />} key="chat">
-        <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
-          Chat
-        </NavLink>
-      </Menu.Item>
-
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="to-do">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do/`}>
-          To Do
-        </NavLink>
-      </Menu.Item>
-
+      <SubMenu key="email" icon={!topMenu && <FeatherIcon icon="mail" />} title="Email">
+        <Menu.Item key="inbox">
+          <NavLink onClick={toggleCollapsed} to={`${path}/email/inbox`}>
+            Inbox
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="single">
+          <NavLink onClick={toggleCollapsed} to={`${path}/email/single/1585118055048`}>
+            Read Email
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="bookmark" />} key="note">
         <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
           Note
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="user-check" />} key="contact">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/contact`}>
-          Contact
+
+      <SubMenu key="profile" icon={!topMenu && <FeatherIcon icon="user" />} title="Social App">
+        <Menu.Item key="myProfile">
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/overview`}>
+            My Profile
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="settings">
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/settings`}>
+            Settings
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="to-do">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do/`}>
+          To Do
         </NavLink>
       </Menu.Item>
 
