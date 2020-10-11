@@ -10,7 +10,7 @@ import MenueItems from './MenueItems';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
-import { changeRtlMode, changeLayoutMode } from '../redux/themeLayout/actionCreator';
+import { changeRtlMode, changeLayoutMode, changeMenuMode } from '../redux/themeLayout/actionCreator';
 
 const { darkTheme } = require('../config/theme/themeVariables');
 
@@ -47,7 +47,7 @@ const ThemeLayout = WrappedComponent => {
 
     render() {
       const { collapsed, hide, searchHide, customizerAction } = this.state;
-      const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu } = this.props;
+      const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu, changeMenuMode } = this.props;
 
       const left = !rtl ? 'left' : 'right';
       const darkMode = ChangeLayoutMode;
@@ -164,6 +164,14 @@ const ThemeLayout = WrappedComponent => {
 
       const modeChangeLight = () => {
         changeLayout(false);
+      };
+
+      const modeChangeTopNav = () => {
+        changeMenuMode(true);
+      };
+
+      const modeChangeSideNav = () => {
+        changeMenuMode(false);
       };
 
       return (
@@ -342,6 +350,23 @@ const ThemeLayout = WrappedComponent => {
                     </li>
                   </ul>
                 </div>
+                <div className="customizer__single">
+                  <h4>Navbar Type</h4>
+                  <ul className="customizer-list d-flex">
+                    <li className="customizer-list__item">
+                      <Link onClick={modeChangeSideNav} to="#">
+                        <img src={require('../static/img/light-mode.png')} alt="" />
+                        <span>Side Nav</span>
+                      </Link>
+                    </li>
+                    <li className="customizer-list__item">
+                      <Link onClick={modeChangeTopNav} to="#">
+                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
+                        <span> Top Nav</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -362,6 +387,7 @@ const ThemeLayout = WrappedComponent => {
     return {
       changeRtl: rtl => dispatch(changeRtlMode(rtl)),
       changeLayout: show => dispatch(changeLayoutMode(show)),
+      changeMenuMode: show => dispatch(changeMenuMode(show)),
     };
   };
 
@@ -371,6 +397,7 @@ const ThemeLayout = WrappedComponent => {
     topMenu: propTypes.bool,
     changeRtl: propTypes.func,
     changeLayout: propTypes.func,
+    changeMenuMode: propTypes.func,
   };
 
   return connect(mapStateToProps, mapStateToDispatch)(LayoutComponent);
