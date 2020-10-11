@@ -171,6 +171,9 @@ const Div = Styled.div`
             max-width: 120px;
             width: 100%;
         }
+        &.top-menu{
+            margin-left: 15px;
+        }
     }
     .certain-category-search-wrapper{
         ${({ darkMode, theme }) =>

@@ -192,7 +192,7 @@ const ThemeLayout = WrappedComponent => {
                       <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
                     </Button>
                   ) : null}
-                  <Link className="striking-logo" to="/admin">
+                  <Link className={topMenu && window.innerWidth > 991 ? "striking-logo top-menu" : "striking-logo"} to="/admin">
                     <img
                       src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
                       alt=""
