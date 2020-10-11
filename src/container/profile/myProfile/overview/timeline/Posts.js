@@ -17,7 +17,7 @@ import { likeUpdate, commentUpdate, postDelete } from '../../../../../redux/prof
 
 const ExampleComment = ({ children, replay }) => (
   <Comment
-    actions={[<span key="comment-nested-reply-to">Reply |{moment(parseInt(replay.time, 10)).fromNow()}</span>]}
+    actions={[<span key="comment-nested-reply-to">Reply </span>,<span key="comment-nested-reply-to">{moment(parseInt(replay.time, 10)).fromNow()}</span>]}
     author={<span>{replay.name}</span>}
     avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="Han Solo" />}
     content={<p>{replay.text}</p>}
