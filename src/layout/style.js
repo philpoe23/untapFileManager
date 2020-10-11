@@ -80,7 +80,7 @@ const Div = Styled.div`
         top: 50%;
         transform: translateY(-50%);
         transition: all .3s ease;
-        z-index: 99999999999;
+        z-index: 999;
         box-shadow: 0 10px 15px rgba(#5F63F2,.20);
         &.show{
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 295px;
@@ -89,20 +89,25 @@ const Div = Styled.div`
         img{
             width: 20px;
             color: #fff;
+            animation: antRotate 3s infinite linear;
         }
     }
     .customizer-wrapper{
         position: fixed;
-        top: 64px;
+        top: 0;
         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
-        width: 300px;
-        transform: translateX(${({ theme }) => (theme.rtl ? '-300px' : '300px')});
+        width: 350px;
+        transform: translateX(${({ theme }) => (theme.rtl ? '-350px' : '350px')});
         height: 100vh;
         overflow-y: auto;
         background-color: #fff;
         box-shadow: 0 0 30px #9299B810;
         z-index: 99999999999;
         transition: all .3s ease;
+        @media only screen and (max-width: 479px){
+            width: 280px;
+            transform: translateX(${({ theme }) => (theme.rtl ? '-280px' : '280px')});
+        }
         &.show{
             transform: translateX(0);
         }
@@ -111,7 +116,7 @@ const Div = Styled.div`
         height: 100%;
         .customizer__head{
             position: relative
-            padding: 20px;
+            padding: 18px 24px;
             border-bottom: 1px solid #f0f0f0;
             text-align: left;
             .customizer-close{
@@ -131,16 +136,16 @@ const Div = Styled.div`
             }
         }
         .customizer__body{
-            padding: 20px;
+            padding: 25px;
         }
         .customizer__single{
             &:not(:last-child){
-                margin-bottom: 30px;
+                margin-bottom: 35px;
             }
             h4{
                 font-weight: 600;
                 font-size: 16px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 color: #272B41;
             }
         }
@@ -163,7 +168,6 @@ const Div = Styled.div`
             }
             img{
                 width: 100%;
-                box-shadow: 0 15px 20px #ADB4D240;
             }
             span{
                 display: inline-block;

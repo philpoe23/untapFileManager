@@ -192,7 +192,10 @@ const ThemeLayout = WrappedComponent => {
                       <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
                     </Button>
                   ) : null}
-                  <Link className={topMenu && window.innerWidth > 991 ? "striking-logo top-menu" : "striking-logo"} to="/admin">
+                  <Link
+                    className={topMenu && window.innerWidth > 991 ? 'striking-logo top-menu' : 'striking-logo'}
+                    to="/admin"
+                  >
                     <img
                       src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
                       alt=""
@@ -293,7 +296,7 @@ const ThemeLayout = WrappedComponent => {
           </Layout>
           <Link
             to="#"
-            className={`${customizerAction ? 'customizer-trigger show' : 'customizer-trigger'}`}
+            className="customizer-trigger"
             onClick={() => {
               showCustomizer();
             }}
@@ -303,8 +306,8 @@ const ThemeLayout = WrappedComponent => {
           <div className={`${customizerAction ? 'customizer-wrapper show' : 'customizer-wrapper'}`}>
             <div className="customizer">
               <div className="customizer__head">
-                <h4 className="customizer__title">CUSTOMIZER</h4>
-                <span className="customizer__sub-title">Customize & Preview Real Time</span>
+                <h4 className="customizer__title">Customizer</h4>
+                <span className="customizer__sub-title">Customize your overview Page layout</span>
                 <Link
                   to="#"
                   className="customizer-close"
@@ -317,35 +320,31 @@ const ThemeLayout = WrappedComponent => {
               </div>
               <div className="customizer__body">
                 <div className="customizer__single">
-                  <h4>Sidebar Type</h4>
+                  <h4>Layout Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeLight} to="#">
-                        <img src={require('../static/img/light-mode.png')} alt="" />
-                        <span>Light Sidebar</span>
+                      <Link onClick={onLtrChange} to="#">
+                        <img src={require('../static/img/ltr.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeDark} to="#">
-                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
-                        <span> Dark Sidebar</span>
+                      <Link onClick={onRtlChange} to="#">
+                        <img src={require(`../static/img/rtl.png`)} alt="" />
                       </Link>
                     </li>
                   </ul>
                 </div>
                 <div className="customizer__single">
-                  <h4>Layout Type</h4>
+                  <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={onLtrChange} to="#">
-                        <img src={require('../static/img/light-mode.png')} alt="" />
-                        <span>LTR</span>
+                      <Link onClick={modeChangeLight} to="#">
+                        <img src={require('../static/img/light.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={onRtlChange} to="#">
-                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
-                        <span> RTL</span>
+                      <Link onClick={modeChangeDark} to="#">
+                        <img src={require(`../static/img/dark.png`)} alt="" />
                       </Link>
                     </li>
                   </ul>
@@ -355,14 +354,12 @@ const ThemeLayout = WrappedComponent => {
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
                       <Link onClick={modeChangeSideNav} to="#">
-                        <img src={require('../static/img/light-mode.png')} alt="" />
-                        <span>Side Nav</span>
+                        <img src={require('../static/img/side.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
                       <Link onClick={modeChangeTopNav} to="#">
-                        <img src={require(`../static/img/dark-mode.png`)} alt="" />
-                        <span> Top Nav</span>
+                        <img src={require(`../static/img/top.png`)} alt="" />
                       </Link>
                     </li>
                   </ul>
@@ -370,6 +367,11 @@ const ThemeLayout = WrappedComponent => {
               </div>
             </div>
           </div>
+          <span 
+            className={`${customizerAction ? 'overlay-dark show' : 'overlay-dark'}`}
+            onClick={() => {
+              showCustomizer();
+            }}></span>
         </Div>
       );
     }
