@@ -10,7 +10,7 @@ import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
-import { AllPosts, Title } from './style';
+import { AllPosts, BackShadowEmoji, Title } from './style';
 import { Cards } from '../../../../../components/cards/frame/cards-frame';
 import { Button } from '../../../../../components/buttons/buttons';
 import { likeUpdate, commentUpdate, postDelete } from '../../../../../redux/profile/actionCreator';
@@ -150,7 +150,7 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
                     {img.map((src, key) => {
                       return (
                         key <= 1 && (
-                          <a href={require(`../../../../../${src}`)} data-attribute="SRL">
+                          <a key={key + 1} href={require(`../../../../../${src}`)} data-attribute="SRL">
                             <img
                               key={key + 1}
                               style={{ width: '100%' }}
@@ -171,7 +171,7 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
                       {img.map((src, key) => {
                         return (
                           key > 1 && (
-                            <a href={require(`../../../../../${src}`)} data-attribute="SRL">
+                            <a key={key + 1} href={require(`../../../../../${src}`)} data-attribute="SRL">
                               <img
                                 key={key + 1}
                                 style={{ width: '100%' }}
@@ -188,8 +188,7 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
               ) : null}
             </div>
             <div className="post-text">
-              {' '}
-              <p>{content}</p>{' '}
+              <p>{content}</p>
             </div>
             <div className="post-actions">
               <span>
@@ -218,7 +217,12 @@ const Posts = ({ postId, from, time, img, like, comment, content, author }) => {
                   <Input.TextArea onChange={onTextChange} value={textValue} placeholder="Write comment...." />
                   <div className="chatbox-reply-action d-flex">
                     <span className="smile-icon">
-                      {pickerShow && <Picker onEmojiClick={onEmojiClick} />}
+                      {pickerShow && (
+                        <>
+                          <BackShadowEmoji onClick={() => setPickerShow(false)} />
+                          <Picker onEmojiClick={onEmojiClick} />
+                        </>
+                      )}
                       <Link onClick={onPickerShow} to="#">
                         <FeatherIcon icon="smile" size={24} />
                       </Link>
