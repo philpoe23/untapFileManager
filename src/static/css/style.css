@@ -2151,12 +2151,12 @@ html[dir="rtl"] .ant-menu.ant-menu-vertical{
   text-align: right !important;
 }
 
-html[dir="rtl"] .ant-menu.ant-menu-vertical ul{
-  right: 200px;
-}
-
 html[dir="rtl"] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow{
   right: auto;
   left: 16px;
   transform: rotateY(180deg);
+}
+
+html[dir="rtl"] .ant-menu-vertical .ant-menu-submenu-title {
+  padding-right: 15px !important;  
 }
