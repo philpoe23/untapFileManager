@@ -2147,15 +2147,19 @@ ul {
   margin-bottom: 30px;
 }
 
-html[dir="rtl"] .ant-menu.ant-menu-vertical{
+html[dir='rtl'] .ant-menu.ant-menu-vertical {
   text-align: right !important;
 }
 
-html[dir="rtl"] .ant-menu.ant-menu-vertical ul{
-  right: 200px;
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-placement-rightTop {
+  left: -170px !important;
 }
 
-html[dir="rtl"] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow{
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-vertical-left {
+  text-align: right;
+}
+
+html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow {
   right: auto;
   left: 16px;
   transform: rotateY(180deg);
