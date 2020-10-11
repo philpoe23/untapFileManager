@@ -1738,6 +1738,24 @@ ul {
   padding-left: 10px !important;
 }
 
+/* Overlay Dark */
+.overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #10122130;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+.overlay-dark.show {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Responsive CSS */
 
 @media only screen and (max-width: 1500px) {
