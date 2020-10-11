@@ -359,7 +359,7 @@ const Div = Styled.div`
     }
 
     .atbd-main-layout{
-    ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 280px;
+    ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: ${({ theme }) => (theme.topMenu ? 0 : '280px')};
         margin-top: 64px;
         transition: 0.3s ease;
         @media only screen and (max-width: 1150px){

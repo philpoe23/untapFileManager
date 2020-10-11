@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
 
 const { SubMenu } = Menu;
 
-const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
+const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);
@@ -15,13 +15,20 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
 
   return (
     <Menu
-      mode="inline"
+      mode={!topMenu ? 'inline' : 'horizontal'}
       theme={darkMode && 'dark'}
-      // eslint-disable-next-line no-nested-ternary
-      defaultSelectedKeys={[
-        `${mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]}`,
-      ]}
-      defaultOpenKeys={[`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`]}
+      // // eslint-disable-next-line no-nested-ternary
+      defaultSelectedKeys={
+        !topMenu
+          ? [
+              `${
+                mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]
+              }`,
+            ]
+          : []
+      }
+      defaultOpenKeys={!topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []}
+      overflowedIndicator={<FeatherIcon icon="more-vertical" />}
     >
       <SubMenu key="dashboard" icon={<FeatherIcon icon="home" />} title="Dashboard">
         <Menu.Item key="home">
@@ -129,7 +136,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         </Menu.Item>
       </SubMenu>
 
-      <p className="sidebar-nav-title">Applications</p>
+      {!topMenu && <p className="sidebar-nav-title">Applications</p>}
       <SubMenu key="email" icon={<FeatherIcon icon="mail" />} title="Email">
         <Menu.Item key="inbox">
           <NavLink onClick={toggleCollapsed} to={`${path}/email/inbox`}>
@@ -211,7 +218,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
         </NavLink>
       </Menu.Item>
 
-      <p className="sidebar-nav-title">Components</p>
+      {!topMenu && <p className="sidebar-nav-title">Components</p>}
 
       <SubMenu key="components" icon={<FeatherIcon icon="layers" />} title="UI Elements">
         <Menu.Item key="alerts">
@@ -563,6 +570,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, rtl }) => {
 
 MenuItems.propTypes = {
   darkMode: propTypes.bool,
+  topMenu: propTypes.bool,
   toggleCollapsed: propTypes.func,
 };
 
