@@ -29,21 +29,33 @@ const Div = Styled.div`
                 margin: 0 16px;
             }
             .ant-menu-submenu{
+                &.ant-menu-submenu-active,
+                &.ant-menu-submenu-selected,
+                &.ant-menu-submenu-open{
+                    .ant-menu-submenu-title{
+                        color: ${({ darkMode }) => (darkMode ? `#fff;` : '#5A5F7D')};
+                        svg,
+                        i{
+                            color: ${({ darkMode }) => (darkMode ? `#fff;` : '#5A5F7D')};
+                        }
+                    }
+                }
                 .ant-menu-submenu-title{
                     font-size: 14px;
                     font-weight: 500;
-                    color: ${({ theme }) => theme['gray-color']};
+                    color: ${({ darkMode }) => (darkMode ? `#ffffff90;` : '#5A5F7D')};
                     svg,
                     i{
-                        color: ${({ theme }) => theme['gray-color']};
+                        color: ${({ darkMode }) => (darkMode ? `#ffffff90;` : '#5A5F7D')};
                     }
                     .ant-menu-submenu-arrow{
                         font-family: "FontAwesome";
                         font-style: normal;
-                        margin-left: 6px;
-                        &:before{
-                            color: ${({ theme }) => theme['light-color']};;
+                        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
+                        &:after{
+                            color: ${({ darkMode }) => (darkMode ? `#ffffff90;` : '#9299B8')};
                             content: '\f107';
+                            background-color: transparent;
                         }
                     }
                 }
@@ -172,7 +184,7 @@ const Div = Styled.div`
             width: 100%;
         }
         &.top-menu{
-            margin-left: 15px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
         }
     }
     .certain-category-search-wrapper{
