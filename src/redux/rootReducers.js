@@ -20,6 +20,7 @@ import Todo from './todo/reducers';
 import Note from './note/reducers';
 import Contact from './contact/reducers';
 import Profile from './profile/reducers';
+import Calender from './calendar/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -49,6 +50,7 @@ const rootReducers = combineReducers({
   Note,
   Contact,
   Profile,
+  Calender,
 });
 
 export default rootReducers;
