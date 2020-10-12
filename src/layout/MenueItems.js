@@ -125,6 +125,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="calendar" />} key="calendar">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar`}>
+          Calendar
+        </NavLink>
+      </Menu.Item>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="message-square" />} key="chat">
         <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
           Chat
