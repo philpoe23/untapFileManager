@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import FontAwesome from 'react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
@@ -326,11 +327,13 @@ const ThemeLayout = WrappedComponent => {
                     <li className="customizer-list__item">
                       <Link className={!rtl ? 'active' : 'deactivate'} onClick={onLtrChange} to="#">
                         <img src={require('../static/img/ltr.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
                       <Link className={rtl ? 'active' : 'deactivate'} onClick={onRtlChange} to="#">
                         <img src={require(`../static/img/rtl.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>
@@ -341,11 +344,13 @@ const ThemeLayout = WrappedComponent => {
                     <li className="customizer-list__item">
                       <Link className={!darkMode ? 'active' : 'deactivate'} onClick={modeChangeLight} to="#">
                         <img src={require('../static/img/light.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
                       <Link className={darkMode ? 'active' : 'deactivate'} onClick={modeChangeDark} to="#">
                         <img src={require(`../static/img/dark.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>
@@ -356,11 +361,13 @@ const ThemeLayout = WrappedComponent => {
                     <li className="customizer-list__item">
                       <Link className={!topMenu ? 'active' : 'deactivate'} onClick={modeChangeSideNav} to="#">
                         <img src={require('../static/img/side.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
-                    <li className="customizer-list__item">
+                    <li className="customizer-list__item top">
                       <Link className={topMenu ? 'active' : 'deactivate'} onClick={modeChangeTopNav} to="#">
                         <img src={require(`../static/img/top.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>

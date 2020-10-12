@@ -160,13 +160,33 @@ const Div = Styled.div`
             min-height: 60px;
             background-size: cover;
             margin: 10px;
+            &.top{
+                span.fa{
+                    top: 35px;
+                }
+            }
             &:hover{
                 span{
                     color: #5F63F2;
                 }
             }
             a{
+                position: relative;
                 display: block;
+                &.active{
+                    span.fa{
+                        display: block;
+                    }
+                }
+                span.fa{
+                    display: none;
+                    font-size: 16px;
+                    margin-top: 0;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    color: ${({ theme }) => theme['success-color']};
+                }
             }
             img{
                 width: 100%;
