@@ -323,12 +323,12 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Layout Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={onLtrChange} to="#">
+                      <Link className={!rtl ? 'active' : 'deactivate'} onClick={onLtrChange} to="#">
                         <img src={require('../static/img/ltr.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={onRtlChange} to="#">
+                      <Link className={rtl ? 'active' : 'deactivate'} onClick={onRtlChange} to="#">
                         <img src={require(`../static/img/rtl.png`)} alt="" />
                       </Link>
                     </li>
@@ -338,12 +338,12 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeLight} to="#">
+                      <Link className={!darkMode ? 'active' : 'deactivate'} onClick={modeChangeLight} to="#">
                         <img src={require('../static/img/light.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeDark} to="#">
+                      <Link className={darkMode ? 'active' : 'deactivate'} onClick={modeChangeDark} to="#">
                         <img src={require(`../static/img/dark.png`)} alt="" />
                       </Link>
                     </li>
@@ -353,12 +353,12 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Navbar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeSideNav} to="#">
+                      <Link className={!topMenu ? 'active' : 'deactivate'} onClick={modeChangeSideNav} to="#">
                         <img src={require('../static/img/side.png')} alt="" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeTopNav} to="#">
+                      <Link className={topMenu ? 'active' : 'deactivate'} onClick={modeChangeTopNav} to="#">
                         <img src={require(`../static/img/top.png`)} alt="" />
                       </Link>
                     </li>
@@ -367,11 +367,12 @@ const ThemeLayout = WrappedComponent => {
               </div>
             </div>
           </div>
-          <span 
+          <span
             className={`${customizerAction ? 'overlay-dark show' : 'overlay-dark'}`}
             onClick={() => {
               showCustomizer();
-            }}></span>
+            }}
+          />
         </Div>
       );
     }
