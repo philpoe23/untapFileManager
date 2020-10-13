@@ -54,12 +54,42 @@ const CalendarWrapper = Styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        ul{
-            li{
-                display: inline-block;
-                a{
-                    display: block;
-                    padding: 4px 4px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+        .left{
+            display: flex;
+            position: relative;
+            .react-calendar{
+                border: none;
+                .react-calendar__navigation{
+                    margin: 0;
+                    border: none;
+                }
+                .react-calendar__viewContainer{
+                    position: absolute;
+                    background: #fff;
+                    z-index: 999;
+                    border: 1px solid #ddd;
+                    display: none;
+                    &.show{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .right{
+            display: flex;
+            svg{
+                width: 14px;
+            }
+            ul{
+                li{
+                    display: inline-block;
+                    a{
+                        display: block;
+                        padding: 4px 4px;
+                    }
                 }
             }
         }

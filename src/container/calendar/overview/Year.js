@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Select } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 
@@ -64,7 +64,7 @@ const YearCalendar = () => {
       <div className="calenderHeader">
         <div className="left">
           <Button type="white" outlined>
-            <Link to="/today">Today</Link>
+            <NavLink to="./today">Today</NavLink>
           </Button>
           <Button onClick={onDecrement} type="white" outlined>
             <FeatherIcon icon="chevron-left" />
@@ -84,18 +84,22 @@ const YearCalendar = () => {
         <div className="right">
           <ul>
             <li>
-              <Link to="/day">Day</Link>
+              <NavLink to="./day">Day</NavLink>
             </li>
             <li>
-              <Link to="/week">Week</Link>
+              <NavLink to="./week">Week</NavLink>
             </li>
             <li>
-              <Link to="/month">Month</Link>
+              <NavLink to="./month">Month</NavLink>
             </li>
             <li>
-              <Link to="/year">Year</Link>
+              <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
+          <NavLink to="./schedule">
+            <FeatherIcon icon="list" />
+            Schedule
+          </NavLink>
         </div>
       </div>
       <Calendar

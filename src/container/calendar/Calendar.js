@@ -97,8 +97,10 @@ const Calendars = () => {
                   }
                 >
                   <Route path={`${path}/year`} component={YearCalendar} />
-                  <Route path={`${path}/year`} component={YearCalendar} />
-                  <Route path={`${path}/year`} component={YearCalendar} />
+                  <Route path={`${path}/month`} component={MonthCalendar} />
+                  <Route path={`${path}/week`} component={WeekCalendar} />
+                  <Route path={`${path}/day`} component={DayCalendar} />
+                  <Route path={`${path}/today`} component={TodayCalendar} />
                 </Suspense>
               </Switch>
             </Col>

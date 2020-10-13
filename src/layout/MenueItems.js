@@ -126,7 +126,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
 
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
       <Menu.Item icon={!topMenu && <FeatherIcon icon="calendar" />} key="calendar">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar/year`}>
           Calendar
         </NavLink>
       </Menu.Item>
