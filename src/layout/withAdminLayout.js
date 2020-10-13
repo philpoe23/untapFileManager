@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import FontAwesome from 'react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { ThemeProvider } from 'styled-components';
@@ -323,13 +324,15 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Layout Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={onLtrChange} to="#">
+                      <Link className={!rtl ? 'active' : 'deactivate'} onClick={onLtrChange} to="#">
                         <img src={require('../static/img/ltr.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={onRtlChange} to="#">
+                      <Link className={rtl ? 'active' : 'deactivate'} onClick={onRtlChange} to="#">
                         <img src={require(`../static/img/rtl.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>
@@ -338,13 +341,15 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeLight} to="#">
+                      <Link className={!darkMode ? 'active' : 'deactivate'} onClick={modeChangeLight} to="#">
                         <img src={require('../static/img/light.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeDark} to="#">
+                      <Link className={darkMode ? 'active' : 'deactivate'} onClick={modeChangeDark} to="#">
                         <img src={require(`../static/img/dark.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>
@@ -353,13 +358,15 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Navbar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link onClick={modeChangeSideNav} to="#">
+                      <Link className={!topMenu ? 'active' : 'deactivate'} onClick={modeChangeSideNav} to="#">
                         <img src={require('../static/img/side.png')} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
-                    <li className="customizer-list__item">
-                      <Link onClick={modeChangeTopNav} to="#">
+                    <li className="customizer-list__item top">
+                      <Link className={topMenu ? 'active' : 'deactivate'} onClick={modeChangeTopNav} to="#">
                         <img src={require(`../static/img/top.png`)} alt="" />
+                        <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                   </ul>
@@ -367,11 +374,12 @@ const ThemeLayout = WrappedComponent => {
               </div>
             </div>
           </div>
-          <span 
+          <span
             className={`${customizerAction ? 'overlay-dark show' : 'overlay-dark'}`}
             onClick={() => {
               showCustomizer();
-            }}></span>
+            }}
+          />
         </Div>
       );
     }
