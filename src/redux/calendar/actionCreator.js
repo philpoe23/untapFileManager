@@ -2,9 +2,9 @@ import actions from './actions';
 import initialState from '../../demoData/event.json';
 
 const {
-  calenderReadBegin,
-  calenderReadSuccess,
-  calenderReadErr,
+  calendarReadBegin,
+  calendarReadSuccess,
+  calendarReadErr,
   starUpdateBegin,
   starUpdateSuccess,
   starUpdateErr,
@@ -13,35 +13,35 @@ const {
   labelUpdateErr,
 } = actions;
 
-const calenderGetData = () => {
+const calendarGetData = () => {
   return async dispatch => {
     try {
-      dispatch(calenderReadBegin());
-      dispatch(calenderReadSuccess(initialState));
+      dispatch(calendarReadBegin());
+      dispatch(calendarReadSuccess(initialState));
     } catch (err) {
-      dispatch(calenderReadErr(err));
+      dispatch(calendarReadErr(err));
     }
   };
 };
 
-const calenderAddData = data => {
+const calendarAddData = data => {
   return async dispatch => {
     try {
-      dispatch(calenderReadBegin());
-      dispatch(calenderReadSuccess(data));
+      dispatch(calendarReadBegin());
+      dispatch(calendarReadSuccess(data));
     } catch (err) {
-      dispatch(calenderReadErr(err));
+      dispatch(calendarReadErr(err));
     }
   };
 };
 
-const calenderDeleteData = data => {
+const calendarDeleteData = data => {
   return async dispatch => {
     try {
-      dispatch(calenderReadBegin());
-      dispatch(calenderReadSuccess(data));
+      dispatch(calendarReadBegin());
+      dispatch(calendarReadSuccess(data));
     } catch (err) {
-      dispatch(calenderReadErr(err));
+      dispatch(calendarReadErr(err));
     }
   };
 };
@@ -99,4 +99,4 @@ const onLabelFilter = label => {
   };
 };
 
-export { calenderGetData, calenderAddData, calenderDeleteData, onStarUpdate, onLabelUpdate, onLabelFilter };
+export { calendarGetData, calendarAddData, calendarDeleteData, onStarUpdate, onLabelUpdate, onLabelFilter };

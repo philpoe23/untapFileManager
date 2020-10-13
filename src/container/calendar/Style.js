@@ -28,18 +28,23 @@ const CalendarWrapper = Styled.div`
    
     .primary{
         background: #5F63F2;
+        color: #fff;
     }
     .secondary{
         background: #FF69A5;
+        color: #fff;
     }
     .success{
         background: #20C997;
+        color: #fff;
     }
     .info{
         background: #2C99FF;
+        color: #fff;
     }
     .warning{
         background: #FA8B0C;
+        color: #fff;
     }
 
     .bullet{
@@ -75,6 +80,9 @@ const CalendarWrapper = Styled.div`
                     &.show{
                         display: block;
                     }
+                    .react-calendar__month-view__days{
+                        display: none !important;
+                    }
                 }
             }
         }
@@ -94,7 +102,83 @@ const CalendarWrapper = Styled.div`
             }
         }
     }
+
+    .events{
+        li{
+            position: relative;
+            height: 35px;
+            a{
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 2px 5px;
+                z-index: 1;
+                border-radius: 4px;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-content {
+        overflow-y: unset;
+    }  
     
 `;
 
-export { CalendarWrapper, Aside };
+const UpdatePopup = Styled.div`
+    .ant-card{
+        width: 320px !important;
+        .ant-card-body{
+            padding: 0 !important;
+            .primary{
+                background: #5F63F2;
+                color: #fff;
+            }
+            .secondary{
+                background: #FF69A5;
+                color: #fff;
+            }
+            .success{
+                background: #20C997;
+                color: #fff;
+            }
+            .info{
+                background: #2C99FF;
+                color: #fff;
+            }
+            .warning{
+                background: #FA8B0C;
+                color: #fff;
+            }
+            .headerUpdate{
+                border-radius: 8px 8px 0 0;
+                padding: 8px 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                h4{
+                    color: #fff;
+                }
+                .action{
+                    display: flex;
+                    align-items: center;
+                    width: 100px;
+                    justify-content: flex-end;
+                    color: #fff;
+                    a{
+                        padding: 0;
+                        color: #fff;
+                        svg{
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            .bodyUpdate{
+                padding: 8px;
+            }
+        }
+    }
+`;
+
+export { CalendarWrapper, Aside, UpdatePopup };

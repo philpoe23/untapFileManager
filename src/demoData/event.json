@@ -2,7 +2,7 @@
     
     {
         "title": "Family Events",
-        "date": "10/12/2020",
+        "date": ["10/12/2020", "10/14/2020"],
         "id": 1,
         "label": "success",
         "time": ["2:00 pm", "3:00 pm"],
@@ -11,7 +11,7 @@
     },
     {
         "title": "Product Launch",
-        "date": "10/12/2020",
+        "date": ["10/12/2020", "10/12/2020"],
         "id": 2,
         "label": "warning",
         "time": ["4:00 pm", "5:00 pm"],
@@ -21,7 +21,7 @@
     {
         "title": "Team Meeting",
         "id": 3,
-        "date": "11/12/2020",
+        "date": ["10/10/2020", "10/10/2020"],
         "label": "secondary",
         "time": ["2:00 pm", "3:00 pm"],
         "type": "event",
@@ -30,7 +30,7 @@
     {
         "title": "UI/UX Tasks",
         "id": 4,
-        "date": "09/12/2020",
+        "date": ["09/12/2020", "09/12/2020"],
         "label": "info",
         "time": ["9:00 am", "3:00 pm"],
         "type": "event",
@@ -39,7 +39,7 @@
     {
         "title": "Project Update",
         "id": 5,
-        "date": "14/12/2020",
+        "date": ["10/13/2020", "10/13/2020"],
         "label": "info",
         "time": ["12:00 pm", "2:30 pm"],
         "type": "event",

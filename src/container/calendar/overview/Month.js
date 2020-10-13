@@ -1,57 +1,79 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
-import { Badge, Calendar } from 'antd';
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { Calendar } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import CalenDar from 'react-calendar';
+import moment from 'moment';
+import { useSelector, useDispatch } from 'react-redux';
+import ProjectUpdate from './ProjectUpdate';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
+import { Dropdown } from '../../../components/dropdown/dropdown';
+import './style.css';
+import { calendarDeleteData } from '../../../redux/calendar/actionCreator';
+import { Modal } from '../../../components/modals/antd-modals';
 
 const MonthCalendar = () => {
+  const dispatch = useDispatch();
+  const { events } = useSelector(state => {
+    return {
+      events: state.Calender.events,
+    };
+  });
   const [state, setState] = useState({
     date: new Date(),
-    // currentYear: new Date().getFullYear(),
+    container: null,
+    currentLabel: moment().format('MMMM YYYY'),
+    width: 0,
+    visible: true,
     // maxYear: 2025,
     // minYear: 2018,
   });
-
-  const rcCalendar = useRef();
+  const { date, container, currentLabel, width, visible } = state;
+  const getInput = useRef();
 
   useLayoutEffect(() => {
     const button = document.querySelector('.left .react-calendar__navigation .react-calendar__navigation__label');
-    const container = document.querySelector('.left .react-calendar__viewContainer');
-    button.addEventListener('click', () => container.classList.add('show'));
-  }, [rcCalendar]);
+    const containers = document.querySelector('.left .react-calendar__viewContainer');
+    const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
+    calenderDom.forEach(element => {
+      element.addEventListener('click', e => {
+        if (e.target.classList[0] === 'ant-picker-calendar-date-content') {
+          alert(moment(e.currentTarget.closest('td').getAttribute('title')).format('MM/DD/yyyy'));
+        }
+      });
+    });
+    button.addEventListener('click', () => containers.classList.add('show'));
+    setState({ container: containers, date, currentLabel, width: getInput.current.clientWidth, visible });
+  }, [date, currentLabel, visible]);
 
-  const onChange = date => setState({ date });
+  const onChange = dt => setState({ ...state, date: dt });
+
+  const onEventDelete = id => {
+    const data = events.filter(item => item.id !== id);
+    dispatch(calendarDeleteData(data));
+  };
 
   function getListData(value) {
     let listData;
-    switch (value.date()) {
-      case 8:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-        ];
-        break;
-      case 10:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-          { type: 'error', content: 'This is error event.' },
-        ];
-        break;
-      case 15:
-        listData = [
-          { type: 'warning', content: 'This is warning event' },
-          { type: 'success', content: 'This is very long usual event。。....' },
-          { type: 'error', content: 'This is error event 1.' },
-          { type: 'error', content: 'This is error event 2.' },
-          { type: 'error', content: 'This is error event 3.' },
-          { type: 'error', content: 'This is error event 4.' },
-        ];
-        break;
-      default:
-    }
+    const data = [];
+    events.map(event => {
+      if (moment(event.date[0]).format('MMMM YYYY') === currentLabel) {
+        const { label, title, id, description, time, date } = event;
+        const a = moment(moment(event.date[1]).format('DD MMMM YYYY'));
+        const b = moment(moment(event.date[0]).format('DD MMMM YYYY'));
+        const totalDays = a.diff(b, 'days');
+
+        switch (value.date()) {
+          case parseInt(moment(event.date[0]).format('DD'), 10):
+            data.push({ label, title, id, totalDays, description, time, date });
+            listData = data;
+            break;
+          default:
+        }
+      }
+      return listData;
+    });
     return listData || [];
   }
 
@@ -60,22 +82,70 @@ const MonthCalendar = () => {
     return (
       <ul className="events">
         {listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
+          <Dropdown
+            key={item.id}
+            style={{ padding: 0 }}
+            placement="bottomRight"
+            content={<ProjectUpdate onEventDelete={onEventDelete} {...item} />}
+            action={['click']}
+          >
+            <li ref={getInput}>
+              <Link style={{ width: width * (item.totalDays + 1) }} className={item.label} to="#">
+                {item.title}
+              </Link>
+            </li>
+          </Dropdown>
         ))}
       </ul>
     );
   }
 
+  const showModal = type => {
+    setState({
+      visible: true,
+    });
+  };
+
+  const handleOk = () => {
+    setState({
+      visible: false,
+      colorModal: false,
+    });
+  };
+
+  const handleCancel = () => {
+    setState({
+      visible: false,
+      colorModal: false,
+    });
+  };
+
   return (
     <Cards headless>
+      <Modal type="primary" title="Create Event" visible={visible} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
       <div className="calenderHeader">
         <div className="left">
           <Button type="white" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
-          <CalenDar ref={rcCalendar} next2Label={null} prev2Label={null} onChange={onChange} value={state.date} />
+          <CalenDar
+            onClickMonth={() => {
+              container.classList.remove('show');
+            }}
+            onActiveStartDateChange={({ activeStartDate }) =>
+              setState({ ...state, currentLabel: moment(activeStartDate).format('MMMM YYYY') })
+            }
+            next2Label={null}
+            prev2Label={null}
+            nextLabel={<FeatherIcon icon="chevron-right" />}
+            prevLabel={<FeatherIcon icon="chevron-left" />}
+            onChange={onChange}
+            value={state.date}
+          />
         </div>
         <div className="right">
           <ul>
