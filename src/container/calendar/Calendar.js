@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Row, Col } from 'antd';
+import React, { useState, lazy, Suspense } from 'react';
+import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import CalenDar from 'react-calendar';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Aside, CalendarWrapper } from './Style';
-import YearCalendar from './overview/Year';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -15,12 +14,20 @@ import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import 'react-calendar/dist/Calendar.css';
 
+const YearCalendar = lazy(() => import('./overview/Year'));
+const MonthCalendar = lazy(() => import('./overview/Month'));
+const WeekCalendar = lazy(() => import('./overview/Week'));
+const DayCalendar = lazy(() => import('./overview/Day'));
+const TodayCalendar = lazy(() => import('./overview/Today'));
+
 const Calendars = () => {
   const { events } = useSelector(state => {
     return {
       events: state.Calender.events,
     };
   });
+
+  const { path } = useRouteMatch();
   const [state, setState] = useState({
     date: new Date(),
   });
@@ -81,7 +88,19 @@ const Calendars = () => {
               </Aside>
             </Col>
             <Col md={18}>
-              <YearCalendar />
+              <Switch>
+                <Suspense
+                  fallback={
+                    <Cards headless>
+                      <Skeleton paragraph={{ rows: 15 }} active />
+                    </Cards>
+                  }
+                >
+                  <Route path={`${path}/year`} component={YearCalendar} />
+                  <Route path={`${path}/year`} component={YearCalendar} />
+                  <Route path={`${path}/year`} component={YearCalendar} />
+                </Suspense>
+              </Switch>
             </Col>
           </Row>
         </CalendarWrapper>

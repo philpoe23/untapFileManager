@@ -51,7 +51,7 @@ const YearCalendar = () => {
     ) : null;
   }
   const option = [];
-  for (let i = minYear; i <= maxYear; i++) {
+  for (let i = minYear; i <= maxYear; i += 1) {
     option.push(
       <Select.Option key={i} value={i}>
         {i}
