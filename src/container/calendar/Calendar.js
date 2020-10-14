@@ -3,7 +3,7 @@ import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import CalenDar from 'react-calendar';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Aside, CalendarWrapper } from './Style';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -13,6 +13,7 @@ import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import 'react-calendar/dist/Calendar.css';
+import { eventVisible } from '../../redux/calendar/actionCreator';
 
 const YearCalendar = lazy(() => import('./overview/Year'));
 const MonthCalendar = lazy(() => import('./overview/Month'));
@@ -21,18 +22,25 @@ const DayCalendar = lazy(() => import('./overview/Day'));
 const TodayCalendar = lazy(() => import('./overview/Today'));
 
 const Calendars = () => {
-  const { events } = useSelector(state => {
+  const dispatch = useDispatch();
+  const { events, isVisible } = useSelector(state => {
     return {
       events: state.Calender.events,
+      isVisible: state.Calender.eventVisible,
     };
   });
 
   const { path } = useRouteMatch();
   const [state, setState] = useState({
     date: new Date(),
+    visible: false,
   });
 
   const onChange = date => setState({ date });
+
+  const onHandleVisible = () => {
+    dispatch(eventVisible(!isVisible));
+  };
 
   return (
     <>
@@ -57,7 +65,7 @@ const Calendars = () => {
           <Row gutter={25}>
             <Col md={5}>
               <Aside>
-                <Button type="secondary">
+                <Button onClick={onHandleVisible} type="secondary">
                   <FeatherIcon icon="plus" size={14} /> Create New Event
                 </Button>
                 <br />

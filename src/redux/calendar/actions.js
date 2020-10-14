@@ -3,6 +3,10 @@ const actions = {
   CALENDAR_READ_SUCCESS: 'CALENDAR_READ_SUCCESS',
   CALENDAR_READ_ERR: 'CALENDAR_READ_ERR',
 
+  EVENT_VISIBLE_BEGIN: 'EVENT_VISIBLE_BEGIN',
+  EVENT_VISIBLE_SUCCESS: 'EVENT_VISIBLE_SUCCESS',
+  EVENT_VISIBLE_ERR: 'EVENT_VISIBLE_ERR',
+
   CALENDAR_STAR_UPDATE_BEGIN: 'CALENDAR_STAR_UPDATE_BEGIN',
   CALENDAR_STAR_UPDATE_SUCCESS: 'CALENDAR_STAR_UPDATE_SUCCESS',
   CALENDAR_STAR_UPDATE_ERR: 'CALENDAR_STAR_UPDATE_ERR',
@@ -27,6 +31,26 @@ const actions = {
   starUpdateErr: err => {
     return {
       type: actions.CALENDAR_STAR_UPDATE_ERR,
+      err,
+    };
+  },
+
+  eventVisibleBegin: () => {
+    return {
+      type: actions.EVENT_VISIBLE_BEGIN,
+    };
+  },
+
+  eventVisibleSuccess: data => {
+    return {
+      type: actions.EVENT_VISIBLE_SUCCESS,
+      data,
+    };
+  },
+
+  eventVisibleErr: err => {
+    return {
+      type: actions.EVENT_VISIBLE_ERR,
       err,
     };
   },

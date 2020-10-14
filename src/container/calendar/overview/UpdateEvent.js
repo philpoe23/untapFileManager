@@ -1,0 +1,142 @@
+import React, { useState } from 'react';
+import { DatePicker, Form, Input, Radio, Select } from 'antd';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { BasicFormWrapper } from '../../styled';
+import { Button } from '../../../components/buttons/buttons';
+import { updateCurrentEvent } from '../../../redux/calendar/actionCreator';
+
+const dateFormat = 'YYYY/MM/DD';
+const { Option } = Select;
+
+const UpdateEvent = ({ data, onCancel }) => {
+  const dispatch = useDispatch();
+  const { events } = useSelector(state => {
+    return {
+      events: state.Calender.events,
+    };
+  });
+  const { title, id, description, label, time, date, type } = data;
+
+  const [state, setState] = useState({
+    startDate: moment(date[0]).format('YYYY-MM-DD'),
+    endDate: moment(date[1]).format('YYYY-MM-DD'),
+  });
+
+  const [form] = Form.useForm();
+  const handleSubmit = values => {
+    dispatch(
+      updateCurrentEvent(
+        events,
+        {
+          title: values.title,
+          id,
+          description: values.description,
+          date: [moment(state.startDate).format('MM/DD/YYYY'), moment(state.endDate).format('MM/DD/YYYY')],
+          time: [values.startTime.format('HH:mm a'), values.endTime.format('HH:mm a')],
+          type: values.type,
+          label: values.label,
+        },
+        id,
+      ),
+    );
+    onCancel();
+  };
+  const onChangeStart = (date, dateString) => {
+    setState({ ...state, startDate: dateString });
+  };
+  const onChangeEnd = (date, dateString) => {
+    setState({ ...state, endDate: dateString });
+  };
+
+  return (
+    <BasicFormWrapper>
+      <Form style={{ width: '100%' }} form={form} name="addNewEvent" onFinish={handleSubmit}>
+        <Form.Item initialValue={title} label="Title" name="title">
+          <Input placeholder="Write Your Event Title" />
+        </Form.Item>
+
+        <Form.Item initialValue={type} name="type" label="Event Type">
+          <Radio.Group>
+            <Radio value="event">Event</Radio>
+            <Radio value="reminder">Reminder</Radio>
+            <Radio value="task">Task</Radio>
+          </Radio.Group>
+        </Form.Item>
+
+        <DatePicker
+          onChange={onChangeStart}
+          value={moment(state.startDate, dateFormat)}
+          defaultValue={moment(state.startDate, dateFormat)}
+        />
+
+        <Form.Item initialValue={moment(time[0], 'HH:mm:ss')} name="startTime" label="">
+          <DatePicker picker="time" />
+        </Form.Item>
+
+        <DatePicker
+          onChange={onChangeEnd}
+          value={moment(state.endDate, dateFormat)}
+          defaultValue={moment(state.endDate, dateFormat)}
+        />
+
+        <Form.Item initialValue={moment(time[1], 'HH:mm:ss')} name="endTime" label="">
+          <DatePicker picker="time" />
+        </Form.Item>
+
+        <Form.Item initialValue={description} name="description" label="Description">
+          <Input.TextArea placeholder="Write Your Description" />
+        </Form.Item>
+
+        <Form.Item initialValue={label} name="label" label="Label">
+          <Select style={{ width: '100%' }}>
+            <Option value="primary">
+              <span className="bullet primary" />
+              Primary
+            </Option>
+            <Option value="secondary">
+              <span className="bullet secondary" />
+              Secondary
+            </Option>
+            <Option value="success">
+              <span className="bullet success" />
+              success
+            </Option>
+            <Option value="warning">
+              <span className="bullet warning" />
+              Warning
+            </Option>
+            <Option value="info">
+              <span className="bullet info" />
+              Info
+            </Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item>
+          <div className="add-user-bottom text-right">
+            <Button
+              className="ant-btn ant-btn-light"
+              onClick={() => {
+                return form.resetFields();
+              }}
+            >
+              Reset
+            </Button>
+            <Button htmlType="submit" type="primary">
+              Update
+            </Button>
+          </div>
+        </Form.Item>
+      </Form>
+    </BasicFormWrapper>
+  );
+};
+
+UpdateEvent.propTypes = {
+  data: PropTypes.object,
+  onCancel: PropTypes.func,
+};
+
+export default UpdateEvent;

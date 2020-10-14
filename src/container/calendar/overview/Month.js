@@ -6,18 +6,20 @@ import CalenDar from 'react-calendar';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import ProjectUpdate from './ProjectUpdate';
+import AddNewEvent from './AddNewEvent';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import './style.css';
-import { calendarDeleteData } from '../../../redux/calendar/actionCreator';
+import { calendarDeleteData, eventVisible, addNewEvents } from '../../../redux/calendar/actionCreator';
 import { Modal } from '../../../components/modals/antd-modals';
 
 const MonthCalendar = () => {
   const dispatch = useDispatch();
-  const { events } = useSelector(state => {
+  const { events, isVisible } = useSelector(state => {
     return {
       events: state.Calender.events,
+      isVisible: state.Calender.eventVisible,
     };
   });
   const [state, setState] = useState({
@@ -25,11 +27,10 @@ const MonthCalendar = () => {
     container: null,
     currentLabel: moment().format('MMMM YYYY'),
     width: 0,
-    visible: true,
-    // maxYear: 2025,
-    // minYear: 2018,
+    defaultValue: moment().format('YYYY-MM-DD'),
   });
-  const { date, container, currentLabel, width, visible } = state;
+
+  const { date, container, currentLabel, width, defaultValue } = state;
   const getInput = useRef();
 
   useLayoutEffect(() => {
@@ -39,13 +40,29 @@ const MonthCalendar = () => {
     calenderDom.forEach(element => {
       element.addEventListener('click', e => {
         if (e.target.classList[0] === 'ant-picker-calendar-date-content') {
-          alert(moment(e.currentTarget.closest('td').getAttribute('title')).format('MM/DD/yyyy'));
+          const getDate = moment(e.currentTarget.closest('td').getAttribute('title')).format('YYYY-MM-DD');
+          setState({
+            container: containers,
+            date,
+            currentLabel,
+            width: getInput.current !== null && getInput.current.clientWidth,
+            defaultValue: getDate,
+          });
+
+          dispatch(eventVisible(true));
         }
       });
     });
     button.addEventListener('click', () => containers.classList.add('show'));
-    setState({ container: containers, date, currentLabel, width: getInput.current.clientWidth, visible });
-  }, [date, currentLabel, visible]);
+
+    setState({
+      container: containers,
+      defaultValue,
+      date,
+      currentLabel,
+      width: getInput.current !== null && getInput.current.clientWidth,
+    });
+  }, [date, currentLabel, defaultValue, dispatch]);
 
   const onChange = dt => setState({ ...state, date: dt });
 
@@ -59,14 +76,14 @@ const MonthCalendar = () => {
     const data = [];
     events.map(event => {
       if (moment(event.date[0]).format('MMMM YYYY') === currentLabel) {
-        const { label, title, id, description, time, date } = event;
+        const { label, title, id, description, time, date, type } = event;
         const a = moment(moment(event.date[1]).format('DD MMMM YYYY'));
         const b = moment(moment(event.date[0]).format('DD MMMM YYYY'));
         const totalDays = a.diff(b, 'days');
 
         switch (value.date()) {
           case parseInt(moment(event.date[0]).format('DD'), 10):
-            data.push({ label, title, id, totalDays, description, time, date });
+            data.push({ label, title, id, totalDays, description, time, date, type });
             listData = data;
             break;
           default:
@@ -100,32 +117,24 @@ const MonthCalendar = () => {
     );
   }
 
-  const showModal = type => {
-    setState({
-      visible: true,
-    });
-  };
-
-  const handleOk = () => {
-    setState({
-      visible: false,
-      colorModal: false,
-    });
-  };
-
   const handleCancel = () => {
-    setState({
-      visible: false,
-      colorModal: false,
+    dispatch(eventVisible(false));
+  };
+
+  const addNew = event => {
+    const arrayData = [];
+    events.map(data => {
+      return arrayData.push(data.id);
     });
+    const max = Math.max(...arrayData);
+    dispatch(addNewEvents([...events, { ...event, id: max + 1 }]));
+    dispatch(eventVisible(false));
   };
 
   return (
     <Cards headless>
-      <Modal type="primary" title="Create Event" visible={visible} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+      <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
+        <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
       <div className="calenderHeader">
         <div className="left">
@@ -174,6 +183,8 @@ const MonthCalendar = () => {
         }}
         mode="month"
         dateCellRender={dateCellRender}
+        value={moment(defaultValue)}
+        defaultValue={moment(defaultValue)}
       />
     </Cards>
   );

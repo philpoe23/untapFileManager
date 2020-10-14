@@ -5,6 +5,9 @@ const {
   calendarReadBegin,
   calendarReadSuccess,
   calendarReadErr,
+  eventVisibleBegin,
+  eventVisibleSuccess,
+  eventVisibleErr,
   starUpdateBegin,
   starUpdateSuccess,
   starUpdateErr,
@@ -20,6 +23,52 @@ const calendarGetData = () => {
       dispatch(calendarReadSuccess(initialState));
     } catch (err) {
       dispatch(calendarReadErr(err));
+    }
+  };
+};
+
+const addNewEvents = events => {
+  return async dispatch => {
+    try {
+      dispatch(calendarReadBegin());
+      dispatch(calendarReadSuccess(events));
+    } catch (err) {
+      dispatch(calendarReadErr(err));
+    }
+  };
+};
+
+const updateCurrentEvent = (events, event, id) => {
+  return async dispatch => {
+    try {
+      dispatch(calendarReadBegin());
+      events.map(value => {
+        const item = value;
+        if (item.id === id) {
+          item.title = event.title;
+          item.description = event.description;
+          item.date = event.date;
+          item.time = event.time;
+          item.label = event.label;
+          item.type = event.type;
+        }
+        return item;
+      });
+      // console.log(events);
+      dispatch(calendarReadSuccess(events));
+    } catch (err) {
+      dispatch(calendarReadErr(err));
+    }
+  };
+};
+
+const eventVisible = data => {
+  return async dispatch => {
+    try {
+      dispatch(eventVisibleBegin());
+      dispatch(eventVisibleSuccess(data));
+    } catch (err) {
+      dispatch(eventVisibleErr(err));
     }
   };
 };
@@ -99,4 +148,14 @@ const onLabelFilter = label => {
   };
 };
 
-export { calendarGetData, calendarAddData, calendarDeleteData, onStarUpdate, onLabelUpdate, onLabelFilter };
+export {
+  eventVisible,
+  calendarGetData,
+  calendarAddData,
+  calendarDeleteData,
+  onStarUpdate,
+  onLabelUpdate,
+  onLabelFilter,
+  addNewEvents,
+  updateCurrentEvent,
+};

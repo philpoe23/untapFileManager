@@ -24,37 +24,7 @@ const Aside = Styled.aside`
     
 `;
 
-const CalendarWrapper = Styled.div`
-   
-    .primary{
-        background: #5F63F2;
-        color: #fff;
-    }
-    .secondary{
-        background: #FF69A5;
-        color: #fff;
-    }
-    .success{
-        background: #20C997;
-        color: #fff;
-    }
-    .info{
-        background: #2C99FF;
-        color: #fff;
-    }
-    .warning{
-        background: #FA8B0C;
-        color: #fff;
-    }
-
-    .bullet{
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')} : 12px;
-    }
-
+const CalendarWrapper = Styled.div`       
     .calenderHeader{
         display: flex;
         align-items: center;
@@ -130,26 +100,7 @@ const UpdatePopup = Styled.div`
         width: 320px !important;
         .ant-card-body{
             padding: 0 !important;
-            .primary{
-                background: #5F63F2;
-                color: #fff;
-            }
-            .secondary{
-                background: #FF69A5;
-                color: #fff;
-            }
-            .success{
-                background: #20C997;
-                color: #fff;
-            }
-            .info{
-                background: #2C99FF;
-                color: #fff;
-            }
-            .warning{
-                background: #FA8B0C;
-                color: #fff;
-            }
+            
             .headerUpdate{
                 border-radius: 8px 8px 0 0;
                 padding: 8px 10px;

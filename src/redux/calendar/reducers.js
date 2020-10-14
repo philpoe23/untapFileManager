@@ -5,12 +5,16 @@ const initialState = {
   events,
   loading: false,
   error: null,
+  eventVisible: false,
 };
 
 const {
   CALENDAR_READ_BEGIN,
   CALENDAR_READ_SUCCESS,
   CALENDAR_READ_ERR,
+  EVENT_VISIBLE_BEGIN,
+  EVENT_VISIBLE_SUCCESS,
+  EVENT_VISIBLE_ERR,
   CALENDAR_STAR_UPDATE_BEGIN,
   CALENDAR_STAR_UPDATE_SUCCESS,
   CALENDAR_STAR_UPDATE_ERR,
@@ -68,6 +72,23 @@ const CalenderReducer = (state = initialState, action) => {
         loading: false,
       };
     case CALENDAR_READ_ERR:
+      return {
+        ...state,
+        error: err,
+        loading: false,
+      };
+    case EVENT_VISIBLE_BEGIN:
+      return {
+        ...state,
+        loading: true,
+      };
+    case EVENT_VISIBLE_SUCCESS:
+      return {
+        ...state,
+        eventVisible: data,
+        loading: false,
+      };
+    case EVENT_VISIBLE_ERR:
       return {
         ...state,
         error: err,
