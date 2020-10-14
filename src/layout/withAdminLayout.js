@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import MenueItems from './MenueItems';
+import TopMenu from './TopMenu';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
@@ -206,12 +207,13 @@ const ThemeLayout = WrappedComponent => {
 
                 <Col lg={10} md={8} sm={0} xs={0}>
                   {topMenu && window.innerWidth > 991 ? (
-                    <MenueItems
-                      topMenu={topMenu}
-                      rtl={rtl}
-                      toggleCollapsed={toggleCollapsedMobile}
-                      darkMode={darkMode}
-                    />
+                    // <MenueItems
+                    //   topMenu={topMenu}
+                    //   rtl={rtl}
+                    //   toggleCollapsed={toggleCollapsedMobile}
+                    //   darkMode={darkMode}
+                    // />
+                    <TopMenu />
                   ) : (
                     <HeaderSearch rtl={rtl} darkMode={darkMode} />
                   )}

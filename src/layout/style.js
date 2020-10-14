@@ -538,4 +538,108 @@ const ModeSwitch = Styled.div`
         margin-top: 5px;
     }
 `;
-export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch };
+
+const TopMenuStyle = Styled.div`
+    .strikingDash-top-menu{
+        ul{
+            li{
+                display: inline-block;
+                position: relative;
+                padding-right: 14px;
+                &:not(:last-child){
+                    margin-right: 34px;
+                }
+                &.has-subMenu{
+                    &:before{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-family: "FontAwesome";
+                        content: '\f107';
+                        line-height: 1;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                }
+                &.has-subMenu-left{
+                    &:before{
+                        position: absolute;
+                        right: 30px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-family: "FontAwesome";
+                        content: '\f105';
+                        line-height: 1;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                }
+                &:hover{
+                    >.subMenu{
+                        top: 65px;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                a{
+                    display: block;
+                    font-weight: 500;
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+                >ul{
+                    li{
+                        display: block;
+                        position: relative;
+                        padding-right: 0;
+                        margin-right: 0 !important;
+                        a{
+                            font-weight: 400;
+                            padding: 0 30px;
+                            line-height: 2.57;
+                            color: #868EAE;
+                            transition: .3s;
+                            &:hover{
+                                color: ${({ theme }) => theme['primary-color']};
+                                background-color: ${({ theme }) => theme['primary-color']}06;
+                                padding-left: 40px;
+                            }
+                        }
+                        &:hover{
+                            .subMenu{
+                                top: 0;
+                                left: 250px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .subMenu{
+            width: 250px;
+            background: #fff;
+            border-radius: 6px;
+            position: absolute;
+            left: 0;
+            top: 80px;
+            padding: 12px 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 98;
+            box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+            .subMenu{
+                width: 250px;
+                background: #fff;
+                position: absolute;
+                left: 250px;
+                top: 0px;
+                padding: 12px 0;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.3s;
+                z-index: 98;
+                box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+            }
+        }
+    }
+`;
+export { Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch, TopMenuStyle };
