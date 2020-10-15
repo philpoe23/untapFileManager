@@ -1,6 +1,7 @@
 import Styled from 'styled-components';
 
 const Div = Styled.div`
+    position: relative;
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
@@ -550,32 +551,38 @@ const TopMenuStyle = Styled.div`
                     margin-right: 34px;
                 }
                 &.has-subMenu{
-                    &:before{
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        font-family: "FontAwesome";
-                        content: '\f107';
-                        line-height: 1;
-                        color: ${({ theme }) => theme['light-color']};
+                    >a{
+                        position: relative;
+                        &:before{
+                            position: absolute;
+                            right: -14px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-family: "FontAwesome";
+                            content: '\f107';
+                            line-height: 1;
+                            color: ${({ theme }) => theme['light-color']};
+                        }
                     }
                 }
                 &.has-subMenu-left{
-                    &:before{
-                        position: absolute;
-                        right: 30px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        font-family: "FontAwesome";
-                        content: '\f105';
-                        line-height: 1;
-                        color: ${({ theme }) => theme['light-color']};
+                    >a{
+                        position: relative;
+                        &:before{
+                            position: absolute;
+                            right: 30px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-family: "FontAwesome";
+                            content: '\f105';
+                            line-height: 1;
+                            color: ${({ theme }) => theme['light-color']};
+                        }
                     }
                 }
                 &:hover{
                     >.subMenu{
-                        top: 65px;
+                        top: 64px;
                         opacity: 1;
                         visibility: visible;
                     }
@@ -584,6 +591,9 @@ const TopMenuStyle = Styled.div`
                     display: block;
                     font-weight: 500;
                     color: ${({ theme }) => theme['gray-color']};
+                    &.active{
+                        color: ${({ theme }) => theme['primary-color']};
+                    }
                 }
                 >ul{
                     li{
@@ -594,10 +604,11 @@ const TopMenuStyle = Styled.div`
                         a{
                             font-weight: 400;
                             padding: 0 30px;
-                            line-height: 2.57;
+                            line-height: 3;
                             color: #868EAE;
                             transition: .3s;
-                            &:hover{
+                            &:hover,
+                            &.active{
                                 color: ${({ theme }) => theme['primary-color']};
                                 background-color: ${({ theme }) => theme['primary-color']}06;
                                 padding-left: 40px;
@@ -625,7 +636,7 @@ const TopMenuStyle = Styled.div`
             opacity: 0;
             transition: 0.3s;
             z-index: 98;
-            box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+            box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
             .subMenu{
                 width: 250px;
                 background: #fff;
@@ -637,7 +648,135 @@ const TopMenuStyle = Styled.div`
                 opacity: 0;
                 transition: 0.3s;
                 z-index: 98;
-                box-shadow: 0 5px 30px ${({ theme }) => theme['light-color']}15;
+                box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+            }
+        }
+    }
+    // Mega Menu
+    .strikingDash-top-menu{
+        >ul{
+            >li{
+                &:hover{
+                    .megaMenu-wrapper{
+                        opacity: 1;
+                        visibility: visible;
+                        z-index: 99;
+                    }
+                }
+                &.mega-item{
+                    position: static;
+                }
+                .megaMenu-wrapper{
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    overflow: hidden;
+                    z-index: -1;
+                    padding: 16px 0;
+                    text-align: left;
+                    box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+                    border-radius: 0 0 6px 6px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: .4s;
+                    background-color: #fff;
+                    &.megaMenu-small{
+                        width: 500px;
+                        >li{
+                            flex: 0 0 50%;
+                        }
+                        ul{
+                            li{
+                                >a{
+                                    padding: 0 45px;
+                                    position: relative
+                                    &:after{
+                                        width: 5px;
+                                        height: 5px;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        left: 30px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        background-color: #C6D0DC;
+                                        content: '';
+                                        transition: .3s;
+                                    }
+                                    &:hover,
+                                    &.active{
+                                        padding-left: 45px;
+                                        color: ${({ theme }) => theme['primary-color']};
+                                        &:after{
+                                            background-color: ${({ theme }) => theme['primary-color']};;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.megaMenu-wide{
+                        width: 1000px;
+                        padding: 5px 0 18px;
+                        >li{
+                            position: relative;
+                            flex: 0 0 25%;
+                            .mega-title{
+                                position: relative;
+                                font-size: 14px;
+                                font-weight: 500;
+                                padding-left: 45px;
+                                color: ${({ theme }) => theme['dark-color']};
+                                &:after{
+                                    position: absolute;
+                                    height: 5px;
+                                    width: 5px;
+                                    border-radius: 50%;
+                                    left: 30px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    background-color: #C6D0DC;
+                                    content: '';
+                                }
+                            }
+                        }
+                    }
+                    ul{
+                        li{
+                            position: relative;
+                            &:hover{
+                                >a{
+                                    padding-left: 45px;
+                                }
+                                &:after{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                            }
+                            >a{
+                                line-height: 3;
+                                color: #868EAE;
+                                font-weight: 400;
+                                transition: .3s;
+                            }
+                            
+                            &:after{
+                                width: 6px;
+                                height: 1px;
+                                border-radius: 50%;
+                                position: absolute;
+                                left: 30px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                background-color: ${({ theme }) => theme['light-color']};
+                                content: '';
+                                transition: .3s;
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
