@@ -326,13 +326,27 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Layout Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link className={!rtl ? 'active' : 'deactivate'} onClick={onLtrChange} to="#">
+                      <Link
+                        className={!rtl ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          onLtrChange();
+                        }}
+                        to="#"
+                      >
                         <img src={require('../static/img/ltr.png')} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link className={rtl ? 'active' : 'deactivate'} onClick={onRtlChange} to="#">
+                      <Link
+                        className={rtl ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          onRtlChange();
+                        }}
+                        to="#"
+                      >
                         <img src={require(`../static/img/rtl.png`)} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
@@ -343,13 +357,27 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link className={!darkMode ? 'active' : 'deactivate'} onClick={modeChangeLight} to="#">
+                      <Link
+                        className={!darkMode ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          modeChangeLight();
+                        }}
+                        to="#"
+                      >
                         <img src={require('../static/img/light.png')} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link className={darkMode ? 'active' : 'deactivate'} onClick={modeChangeDark} to="#">
+                      <Link
+                        className={darkMode ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          modeChangeDark();
+                        }}
+                        to="#"
+                      >
                         <img src={require(`../static/img/dark.png`)} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>

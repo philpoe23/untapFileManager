@@ -207,14 +207,14 @@ const TopMenu = () => {
                   <li>
                     <NavLink to={`${path}/components/checkbox`}>Checkbox</NavLink>
                   </li>
+                  <li>
+                    <NavLink to={`${path}/components/collapse`}>Collapse</NavLink>
+                  </li>
                 </ul>
               </li>
               <li>
                 <span className="mega-title">Components</span>
                 <ul>
-                  <li>
-                    <NavLink to={`${path}/components/collapse`}>Collapse</NavLink>
-                  </li>
                   <li>
                     <NavLink to={`${path}/components/comments`}>Comments</NavLink>
                   </li>
@@ -248,14 +248,14 @@ const TopMenu = () => {
                   <li>
                     <NavLink to={`${path}/components/list`}>List</NavLink>
                   </li>
+                  <li>
+                    <NavLink to={`${path}/components/menu`}>Menu</NavLink>
+                  </li>
                 </ul>
               </li>
               <li>
                 <span className="mega-title">Components</span>
                 <ul>
-                  <li>
-                    <NavLink to={`${path}/components/menu`}>Menu</NavLink>
-                  </li>
                   <li>
                     <NavLink to={`${path}/components/message`}>Message</NavLink>
                   </li>
@@ -289,14 +289,14 @@ const TopMenu = () => {
                   <li>
                     <NavLink to={`${path}/components/result`}>Result</NavLink>
                   </li>
+                  <li>
+                    <NavLink to={`${path}/components/select`}>Select</NavLink>
+                  </li>
                 </ul>
               </li>
               <li>
                 <span className="mega-title">Components</span>
                 <ul>
-                  <li>
-                    <NavLink to={`${path}/components/select`}>Select</NavLink>
-                  </li>
                   <li>
                     <NavLink to={`${path}/components/skeleton`}>Skeleton</NavLink>
                   </li>

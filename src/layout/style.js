@@ -590,9 +590,9 @@ const TopMenuStyle = Styled.div`
                 a{
                     display: block;
                     font-weight: 500;
-                    color: ${({ theme }) => theme['gray-color']};
+                    ${({ theme }) => (theme.darkMode ? `color: #ffffff60;` : 'color: #5A5F7D')};
                     &.active{
-                        color: ${({ theme }) => theme['primary-color']};
+                        ${({ theme }) => (theme.darkMode ? `color: #5F63F2;` : 'color: #fff')};
                     }
                 }
                 >ul{
