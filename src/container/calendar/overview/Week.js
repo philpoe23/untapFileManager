@@ -22,30 +22,37 @@ const WeekCalendar = () => {
   const [state, setState] = useState({
     currentWeek: moment().week(),
     maxWeek: moment('12-31-2020', 'MM-DD-YYYY').isoWeek(),
-    minWeek: 0,
+    minWeek: 1,
+    year: 2020,
     defaultValue: moment().format('YYYY-MM-DD'),
   });
 
-  const { currentWeek, maxWeek, minWeek, defaultValue } = state;
+  const { currentWeek, maxWeek, minWeek, defaultValue, year } = state;
 
   const onIncrement = () => {
-    return (
-      currentWeek < maxWeek &&
-      setState({
-        ...state,
-        currentWeek: currentWeek + 1,
-      })
-    );
+    return currentWeek < maxWeek
+      ? setState({
+          ...state,
+          currentWeek: currentWeek + 1,
+        })
+      : setState({
+          ...state,
+          year: year + 1,
+          currentWeek: 1,
+        });
   };
 
   const onDecrement = () => {
-    return (
-      currentWeek >= minWeek &&
-      setState({
-        ...state,
-        currentWeek: currentWeek - 1,
-      })
-    );
+    return currentWeek > minWeek
+      ? setState({
+          ...state,
+          currentWeek: currentWeek - 1,
+        })
+      : setState({
+          ...state,
+          year: year - 1,
+          currentWeek: maxWeek,
+        });
   };
 
   const option = [];
@@ -71,6 +78,17 @@ const WeekCalendar = () => {
     dispatch(eventVisible(false));
   };
 
+  const rawValue = parseInt(
+    moment(
+      moment()
+        .day('Sunday')
+        .year('2020')
+        .week(currentWeek)
+        .toDate(),
+    ).format('DD'),
+    10,
+  );
+
   return (
     <Cards headless>
       <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
@@ -88,7 +106,7 @@ const WeekCalendar = () => {
             {`${moment(
               moment()
                 .day('Sunday')
-                .year('2020')
+                .year(year)
                 .week(currentWeek)
                 .toDate(),
             ).format('MMM DD')} - ${
@@ -113,14 +131,14 @@ const WeekCalendar = () => {
                 ? moment(
                     moment()
                       .day('Sunday')
-                      .year('2020')
+                      .year(year)
                       .week(currentWeek)
                       .toDate(),
                   ).format('MMM')
                 : moment(
                     moment()
                       .day('Sunday')
-                      .year('2020')
+                      .year(year)
                       .week(currentWeek + 1)
                       .toDate(),
                   ).format('MMM')
@@ -129,7 +147,7 @@ const WeekCalendar = () => {
                 moment(
                   moment()
                     .day('Sunday')
-                    .year('2020')
+                    .year(year)
                     .week(currentWeek)
                     .toDate(),
                 ).format('DD'),
@@ -139,7 +157,7 @@ const WeekCalendar = () => {
               moment(
                 moment()
                   .day('Sunday')
-                  .year('2020')
+                  .year(year)
                   .week(currentWeek)
                   .toDate(),
               ).daysInMonth()
@@ -147,7 +165,7 @@ const WeekCalendar = () => {
                     moment(
                       moment()
                         .day('Sunday')
-                        .year('2020')
+                        .year(year)
                         .week(currentWeek)
                         .toDate(),
                     ).format('DD'),
@@ -157,7 +175,7 @@ const WeekCalendar = () => {
                     moment(
                       moment()
                         .day('Sunday')
-                        .year('2020')
+                        .year(year)
                         .week(currentWeek)
                         .toDate(),
                     ).format('DD'),
@@ -168,19 +186,13 @@ const WeekCalendar = () => {
                     moment(
                       moment()
                         .day('Sunday')
-                        .year('2020')
+                        .year(year)
                         .week(currentWeek)
                         .toDate(),
                     ).daysInMonth(),
                     10,
                   )
-            }, ${moment(
-              moment()
-                .day('Sunday')
-                .year('2020')
-                .week(currentWeek)
-                .toDate(),
-            ).format('YYYY')}`}
+            }, ${year}`}
           </span>
           <Button onClick={onIncrement} type="white" outlined>
             <FeatherIcon icon="chevron-right" />
@@ -207,13 +219,62 @@ const WeekCalendar = () => {
           </NavLink>
         </div>
       </div>
-      {/* <Calendar
-        headerRender={() => {
-          return <></>;
-        }}
-        mode="month"
-        dateCellRender={dateCellRender}
-      /> */}
+      <table border="1" width="100%">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12 AM</td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+          </tr>
+          <tr>
+            <td>1 AM</td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+          </tr>
+          <tr>
+            <td>2 AM</td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+          </tr>
+          <tr>
+            <td>3 AM</td>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+            <td />
+          </tr>
+        </tbody>
+      </table>
     </Cards>
   );
 };
