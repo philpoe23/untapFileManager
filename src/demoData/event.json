@@ -2,7 +2,7 @@
     
     {
         "title": "Family Events",
-        "date": ["10/12/2020", "10/14/2020"],
+        "date": ["10/12/2020", "10/12/2020"],
         "id": 1,
         "label": "success",
         "time": ["2:00 pm", "3:00 pm"],
@@ -11,9 +11,9 @@
     },
     {
         "title": "Product Launch",
-        "date": ["10/12/2020", "10/12/2020"],
+        "date": ["10/12/2020", "10/14/2020"],
         "id": 2,
-        "label": "warning",
+        "label": "primary",
         "time": ["4:00 pm", "5:00 pm"],
         "type": "reminder",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"
@@ -40,7 +40,7 @@
         "title": "Project Update",
         "id": 5,
         "date": ["10/13/2020", "10/13/2020"],
-        "label": "info",
+        "label": "warning",
         "time": ["12:00 pm", "2:30 pm"],
         "type": "event",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"

@@ -19,6 +19,7 @@ const YearCalendar = () => {
     if (value.month() === 8) {
       return 1394;
     }
+    return false;
   }
 
   const onIncrement = () => {

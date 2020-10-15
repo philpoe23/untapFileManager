@@ -64,7 +64,7 @@ const MonthCalendar = () => {
     });
   }, [date, currentLabel, defaultValue, dispatch]);
 
-  const onChange = dt => setState({ ...state, date: dt });
+  const onChange = dt => setState({ ...state, date: dt, defautlValue: moment(dt).format('YYYY-MM-DD') });
 
   const onEventDelete = id => {
     const data = events.filter(item => item.id !== id);
@@ -146,7 +146,11 @@ const MonthCalendar = () => {
               container.classList.remove('show');
             }}
             onActiveStartDateChange={({ activeStartDate }) =>
-              setState({ ...state, currentLabel: moment(activeStartDate).format('MMMM YYYY') })
+              setState({
+                ...state,
+                currentLabel: moment(activeStartDate).format('MMMM YYYY'),
+                defaultValue: moment(activeStartDate).format('YYYY-MM-DD'),
+              })
             }
             next2Label={null}
             prev2Label={null}

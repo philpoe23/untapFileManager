@@ -1,9 +1,9 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
-import CalenDar from 'react-calendar';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
+import { Select } from 'antd';
 import AddNewEvent from './AddNewEvent';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
@@ -20,40 +20,42 @@ const WeekCalendar = () => {
     };
   });
   const [state, setState] = useState({
-    date: new Date(),
-    container: null,
-    currentLabel: moment().format('MMMM YYYY'),
-    width: 0,
+    currentWeek: moment().week(),
+    maxWeek: moment('12-31-2020', 'MM-DD-YYYY').isoWeek(),
+    minWeek: 0,
     defaultValue: moment().format('YYYY-MM-DD'),
   });
 
-  const { date, container, currentLabel, defaultValue } = state;
+  const { currentWeek, maxWeek, minWeek, defaultValue } = state;
 
-  useLayoutEffect(() => {
-    const button = document.querySelector('.left .react-calendar__navigation .react-calendar__navigation__label');
-    const containers = document.querySelector('.left .react-calendar__viewContainer');
-    const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
-    calenderDom.forEach(element => {
-      element.addEventListener('click', e => {
-        if (e.target.classList[0] === 'ant-picker-calendar-date-content') {
-          const getDate = moment(e.currentTarget.closest('td').getAttribute('title')).format('YYYY-MM-DD');
-          setState({
-            container: containers,
-            date,
-            currentLabel,
-            defaultValue: getDate,
-          });
+  const onIncrement = () => {
+    return (
+      currentWeek < maxWeek &&
+      setState({
+        ...state,
+        currentWeek: currentWeek + 1,
+      })
+    );
+  };
 
-          dispatch(eventVisible(true));
-        }
-      });
-    });
-    button.addEventListener('click', () => containers.classList.add('show'));
+  const onDecrement = () => {
+    return (
+      currentWeek >= minWeek &&
+      setState({
+        ...state,
+        currentWeek: currentWeek - 1,
+      })
+    );
+  };
 
-    setState({ container: containers, defaultValue, date, currentLabel });
-  }, [date, currentLabel, defaultValue, dispatch]);
-
-  const onChange = dt => setState({ ...state, date: dt });
+  const option = [];
+  for (let i = minWeek; i <= maxWeek; i += 1) {
+    option.push(
+      <Select.Option key={i} value={i}>
+        {i}
+      </Select.Option>,
+    );
+  }
 
   const handleCancel = () => {
     dispatch(eventVisible(false));
@@ -79,21 +81,110 @@ const WeekCalendar = () => {
           <Button type="white" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
-          <CalenDar
-            onClickMonth={() => {
-              container.classList.remove('show');
-            }}
-            onActiveStartDateChange={({ activeStartDate }) =>
-              setState({ ...state, currentLabel: moment(activeStartDate).format('MMMM YYYY') })
-            }
-            next2Label={null}
-            prev2Label={null}
-            nextLabel={<FeatherIcon icon="chevron-right" />}
-            prevLabel={<FeatherIcon icon="chevron-left" />}
-            onChange={onChange}
-            value={state.date}
-            showFixedNumberOfWeeks
-          />
+          <Button onClick={onDecrement} type="white" outlined>
+            <FeatherIcon icon="chevron-left" />
+          </Button>
+          <span>
+            {`${moment(
+              moment()
+                .day('Sunday')
+                .year('2020')
+                .week(currentWeek)
+                .toDate(),
+            ).format('MMM DD')} - ${
+              parseInt(
+                moment(
+                  moment()
+                    .day('Sunday')
+                    .year('2020')
+                    .week(currentWeek)
+                    .toDate(),
+                ).format('DD'),
+                10,
+              ) +
+                6 <=
+              moment(
+                moment()
+                  .day('Sunday')
+                  .year('2020')
+                  .week(currentWeek)
+                  .toDate(),
+              ).daysInMonth()
+                ? moment(
+                    moment()
+                      .day('Sunday')
+                      .year('2020')
+                      .week(currentWeek)
+                      .toDate(),
+                  ).format('MMM')
+                : moment(
+                    moment()
+                      .day('Sunday')
+                      .year('2020')
+                      .week(currentWeek + 1)
+                      .toDate(),
+                  ).format('MMM')
+            } ${
+              parseInt(
+                moment(
+                  moment()
+                    .day('Sunday')
+                    .year('2020')
+                    .week(currentWeek)
+                    .toDate(),
+                ).format('DD'),
+                10,
+              ) +
+                6 <=
+              moment(
+                moment()
+                  .day('Sunday')
+                  .year('2020')
+                  .week(currentWeek)
+                  .toDate(),
+              ).daysInMonth()
+                ? parseInt(
+                    moment(
+                      moment()
+                        .day('Sunday')
+                        .year('2020')
+                        .week(currentWeek)
+                        .toDate(),
+                    ).format('DD'),
+                    10,
+                  ) + 6
+                : parseInt(
+                    moment(
+                      moment()
+                        .day('Sunday')
+                        .year('2020')
+                        .week(currentWeek)
+                        .toDate(),
+                    ).format('DD'),
+                    10,
+                  ) +
+                  6 -
+                  parseInt(
+                    moment(
+                      moment()
+                        .day('Sunday')
+                        .year('2020')
+                        .week(currentWeek)
+                        .toDate(),
+                    ).daysInMonth(),
+                    10,
+                  )
+            }, ${moment(
+              moment()
+                .day('Sunday')
+                .year('2020')
+                .week(currentWeek)
+                .toDate(),
+            ).format('YYYY')}`}
+          </span>
+          <Button onClick={onIncrement} type="white" outlined>
+            <FeatherIcon icon="chevron-right" />
+          </Button>
         </div>
         <div className="right">
           <ul>

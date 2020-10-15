@@ -51,7 +51,7 @@ const CalendarWrapper = Styled.div`
                         display: block;
                     }
                     .react-calendar__month-view__days{
-                        display: none !important;
+                        /* display: none !important; */
                     }
                 }
             }
