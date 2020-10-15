@@ -7,6 +7,7 @@ const TopMenu = () => {
 
   useLayoutEffect(() => {
     const active = document.querySelector('.subMenu a.active');
+
     active.closest('ul').previousSibling.classList.add('active');
   }, []);
 
