@@ -205,21 +205,11 @@ const ThemeLayout = WrappedComponent => {
                   </Link>
                 </Col>
 
-                <Col lg={10} md={8} sm={0} xs={0}>
-                  {topMenu && window.innerWidth > 991 ? (
-                    // <MenueItems
-                    //   topMenu={topMenu}
-                    //   rtl={rtl}
-                    //   toggleCollapsed={toggleCollapsedMobile}
-                    //   darkMode={darkMode}
-                    // />
-                    <TopMenu />
-                  ) : (
-                    <HeaderSearch rtl={rtl} darkMode={darkMode} />
-                  )}
+                <Col lg={14} md={8} sm={0} xs={0}>
+                  {topMenu && window.innerWidth > 991 ? <TopMenu /> : <HeaderSearch rtl={rtl} darkMode={darkMode} />}
                 </Col>
 
-                <Col md={10} sm={0} xs={0}>
+                <Col lg={6} md={10} sm={0} xs={0}>
                   <AuthInfo />
                 </Col>
 

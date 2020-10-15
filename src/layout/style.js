@@ -217,10 +217,11 @@ const Div = Styled.div`
     .certain-category-search-wrapper{
         ${({ darkMode, theme }) =>
           darkMode ? `${!theme.rtl ? 'border-right' : 'border-left'}: 1px solid #272B41;` : ''};
-        @media only screen and (max-width: 767px){
+         @media only screen and (max-width: 767px){
             padding: 0 15px;
         }
         input{
+            max-width: 350px;
             ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
             ${({ darkMode }) => (darkMode ? `color: #fff;` : '#5A5F7D')};
             @media only screen and (max-width: 875px){
@@ -546,22 +547,39 @@ const TopMenuStyle = Styled.div`
             li{
                 display: inline-block;
                 position: relative;
-                padding-right: 14px;
+                ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 14px;
+                @media only screen and (max-width: 1024px){
+                    ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 10px;
+                }
                 &:not(:last-child){
-                    margin-right: 34px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 34px;
+                    @media only screen and (max-width: 1300px){
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
+                    }
+                    @media only screen and (max-width: 1199px){
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 26px;
+                    }
+                    @media only screen and (max-width: 1024px){
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
+                    }
                 }
                 &.has-subMenu{
                     >a{
                         position: relative;
                         &:before{
                             position: absolute;
-                            right: -14px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -14px;
                             top: 50%;
                             transform: translateY(-50%);
                             font-family: "FontAwesome";
                             content: '\f107';
                             line-height: 1;
                             color: ${({ theme }) => theme['light-color']};
+                        }
+                        &.active{
+                            &:before{
+                                ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #5F63F2')};
+                            }
                         }
                     }
                 }
@@ -570,7 +588,7 @@ const TopMenuStyle = Styled.div`
                         position: relative;
                         &:before{
                             position: absolute;
-                            right: 30px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                             top: 50%;
                             transform: translateY(-50%);
                             font-family: "FontAwesome";
@@ -588,19 +606,26 @@ const TopMenuStyle = Styled.div`
                     }
                 }
                 a{
-                    display: block;
+                    display: flex;
+                    align-items: center;
                     font-weight: 500;
                     ${({ theme }) => (theme.darkMode ? `color: #ffffff60;` : 'color: #5A5F7D')};
                     &.active{
-                        ${({ theme }) => (theme.darkMode ? `color: #5F63F2;` : 'color: #fff')};
+                        ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #5F63F2')};
+                    }
+                    svg,
+                    img,
+                    i{
+                        margin-right: 14px;
+                        width: 16px;
                     }
                 }
                 >ul{
                     li{
                         display: block;
                         position: relative;
-                        padding-right: 0;
-                        margin-right: 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0 !important;
                         a{
                             font-weight: 400;
                             padding: 0 30px;
@@ -611,13 +636,16 @@ const TopMenuStyle = Styled.div`
                             &.active{
                                 color: ${({ theme }) => theme['primary-color']};
                                 background-color: ${({ theme }) => theme['primary-color']}06;
-                                padding-left: 40px;
+                                ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 40px;
                             }
                         }
                         &:hover{
                             .subMenu{
                                 top: 0;
-                                left: 250px;
+                                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
+                                @media only screen and (max-width: 1300px){
+                                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
+                                }
                             }
                         }
                     }
@@ -629,7 +657,7 @@ const TopMenuStyle = Styled.div`
             background: #fff;
             border-radius: 6px;
             position: absolute;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             top: 80px;
             padding: 12px 0;
             visibility: hidden;
@@ -637,11 +665,14 @@ const TopMenuStyle = Styled.div`
             transition: 0.3s;
             z-index: 98;
             box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+            @media only screen and (max-width: 1300px){
+                width: 180px;
+            }
             .subMenu{
                 width: 250px;
                 background: #fff;
                 position: absolute;
-                left: 250px;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
                 top: 0px;
                 padding: 12px 0;
                 visibility: hidden;
@@ -649,6 +680,10 @@ const TopMenuStyle = Styled.div`
                 transition: 0.3s;
                 z-index: 98;
                 box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+                @media only screen and (max-width: 1300px){
+                    width: 200px;
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
+                }
             }
         }
     }
@@ -669,12 +704,12 @@ const TopMenuStyle = Styled.div`
                 .megaMenu-wrapper{
                     display: flex;
                     position: absolute;
-                    left: 0;
+                    text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                     top: 100%;
                     overflow: hidden;
                     z-index: -1;
                     padding: 16px 0;
-                    text-align: left;
                     box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
                     border-radius: 0 0 6px 6px;
                     opacity: 0;
@@ -696,7 +731,7 @@ const TopMenuStyle = Styled.div`
                                         height: 5px;
                                         border-radius: 50%;
                                         position: absolute;
-                                        left: 30px;
+                                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 30px;
                                         top: 50%;
                                         transform: translateY(-50%);
                                         background-color: #C6D0DC;
@@ -705,7 +740,7 @@ const TopMenuStyle = Styled.div`
                                     }
                                     &:hover,
                                     &.active{
-                                        padding-left: 45px;
+                                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 45px;
                                         color: ${({ theme }) => theme['primary-color']};
                                         &:after{
                                             background-color: ${({ theme }) => theme['primary-color']};;
@@ -718,6 +753,9 @@ const TopMenuStyle = Styled.div`
                     &.megaMenu-wide{
                         width: 1000px;
                         padding: 5px 0 18px;
+                        @media only screen and (max-width: 1300px){
+                            width: 800px;
+                        }
                         >li{
                             position: relative;
                             flex: 0 0 25%;
@@ -726,13 +764,14 @@ const TopMenuStyle = Styled.div`
                                 font-size: 14px;
                                 font-weight: 500;
                                 padding-left: 45px;
+                                ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 45px;
                                 color: ${({ theme }) => theme['dark-color']};
                                 &:after{
                                     position: absolute;
                                     height: 5px;
                                     width: 5px;
                                     border-radius: 50%;
-                                    left: 30px;
+                                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 30px;
                                     top: 50%;
                                     transform: translateY(-50%);
                                     background-color: #C6D0DC;
@@ -765,7 +804,7 @@ const TopMenuStyle = Styled.div`
                                 height: 1px;
                                 border-radius: 50%;
                                 position: absolute;
-                                left: 30px;
+                                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 30px;
                                 top: 50%;
                                 transform: translateY(-50%);
                                 background-color: ${({ theme }) => theme['light-color']};
