@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import MenueItems from './MenueItems';
+import TopMenu from './TopMenu';
 import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
@@ -204,20 +205,11 @@ const ThemeLayout = WrappedComponent => {
                   </Link>
                 </Col>
 
-                <Col lg={10} md={8} sm={0} xs={0}>
-                  {topMenu && window.innerWidth > 991 ? (
-                    <MenueItems
-                      topMenu={topMenu}
-                      rtl={rtl}
-                      toggleCollapsed={toggleCollapsedMobile}
-                      darkMode={darkMode}
-                    />
-                  ) : (
-                    <HeaderSearch rtl={rtl} darkMode={darkMode} />
-                  )}
+                <Col lg={14} md={8} sm={0} xs={0}>
+                  {topMenu && window.innerWidth > 991 ? <TopMenu /> : <HeaderSearch rtl={rtl} darkMode={darkMode} />}
                 </Col>
 
-                <Col md={10} sm={0} xs={0}>
+                <Col lg={6} md={10} sm={0} xs={0}>
                   <AuthInfo />
                 </Col>
 
@@ -324,13 +316,27 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Layout Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link className={!rtl ? 'active' : 'deactivate'} onClick={onLtrChange} to="#">
+                      <Link
+                        className={!rtl ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          onLtrChange();
+                        }}
+                        to="#"
+                      >
                         <img src={require('../static/img/ltr.png')} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link className={rtl ? 'active' : 'deactivate'} onClick={onRtlChange} to="#">
+                      <Link
+                        className={rtl ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          onRtlChange();
+                        }}
+                        to="#"
+                      >
                         <img src={require(`../static/img/rtl.png`)} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
@@ -341,13 +347,27 @@ const ThemeLayout = WrappedComponent => {
                   <h4>Sidebar Type</h4>
                   <ul className="customizer-list d-flex">
                     <li className="customizer-list__item">
-                      <Link className={!darkMode ? 'active' : 'deactivate'} onClick={modeChangeLight} to="#">
+                      <Link
+                        className={!darkMode ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          modeChangeLight();
+                        }}
+                        to="#"
+                      >
                         <img src={require('../static/img/light.png')} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>
                     </li>
                     <li className="customizer-list__item">
-                      <Link className={darkMode ? 'active' : 'deactivate'} onClick={modeChangeDark} to="#">
+                      <Link
+                        className={darkMode ? 'active' : 'deactivate'}
+                        onClick={() => {
+                          showCustomizer();
+                          modeChangeDark();
+                        }}
+                        to="#"
+                      >
                         <img src={require(`../static/img/dark.png`)} alt="" />
                         <FontAwesome name="check-circle" />
                       </Link>

@@ -46,8 +46,8 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
             Site Performance
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="ecommerce">
-          <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce`}>
+        <Menu.Item key="eco">
+          <NavLink onClick={toggleCollapsed} to={`${path}/eco`}>
             Ecommerce
           </NavLink>
         </Menu.Item>
@@ -292,7 +292,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="base">
-          <NavLink onClick={toggleCollapsed} to={`${path}/base`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/components/base`}>
             Dashboard Base
           </NavLink>
         </Menu.Item>
@@ -370,7 +370,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="confirme">
-          <NavLink onClick={toggleCollapsed} to={`${path}/components/confirme`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/components/confirm`}>
             Popconfirme
           </NavLink>
         </Menu.Item>
