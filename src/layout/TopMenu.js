@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { NavLink, Link, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { TopMenuStyle } from './style';
@@ -6,12 +6,37 @@ import { TopMenuStyle } from './style';
 const TopMenu = () => {
   const { path } = useRouteMatch();
 
-  function addParentActive(event) {
+  useLayoutEffect(() => {
+    const active = document.querySelector('a.active');
+    const activeDefault = () => {
+      const hasSubMenuLeft = active.closest('.has-subMenu-left');
+      const megaMenu = active.closest('.megaMenu-wrapper');
+      if (!megaMenu) {
+        active.closest('ul').previousSibling.classList.add('active');
+        if (hasSubMenuLeft) hasSubMenuLeft.closest('ul').previousSibling.classList.add('active');
+      } else {
+        active.closest('.megaMenu-wrapper').previousSibling.classList.add('active');
+      }
+      // active.closest('ul').previousSibling.classList.add('active');
+    };
+    window.addEventListener('load', activeDefault);
+    return () => window.removeEventListener('load', activeDefault);
+  }, []);
+
+  const addParentActive = event => {
     document.querySelectorAll('.parent').forEach(element => {
       element.classList.remove('active');
     });
-    event.currentTarget.closest('ul').previousSibling.classList.add('active');
-  }
+
+    const hasSubMenuLeft = event.currentTarget.closest('.has-subMenu-left');
+    const megaMenu = event.currentTarget.closest('.megaMenu-wrapper');
+    if (!megaMenu) {
+      event.currentTarget.closest('ul').previousSibling.classList.add('active');
+      if (hasSubMenuLeft) hasSubMenuLeft.closest('ul').previousSibling.classList.add('active');
+    } else {
+      event.currentTarget.closest('.megaMenu-wrapper').previousSibling.classList.add('active');
+    }
+  };
   return (
     <TopMenuStyle>
       <div className="strikingDash-top-menu">
@@ -20,7 +45,7 @@ const TopMenu = () => {
             <Link className="parent">Dashboard</Link>
             <ul className="subMenu">
               <li>
-                <NavLink to={`${path}/components/alerts`} onClick={addParentActive}>
+                <NavLink to={`${path}/social`} onClick={addParentActive}>
                   Social Media
                 </NavLink>
               </li>
@@ -35,7 +60,7 @@ const TopMenu = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={`${path}/ecommerce`} onClick={addParentActive}>
+                <NavLink to={`${path}/eco`} onClick={addParentActive}>
                   Ecomerce
                 </NavLink>
               </li>
@@ -309,7 +334,9 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/collapse`}>Collapse</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/collapse`}>
+                      Collapse
+                    </NavLink>
                   </li>
                 </ul>
               </li>
@@ -317,81 +344,64 @@ const TopMenu = () => {
                 <span className="mega-title">Components</span>
                 <ul>
                   <li>
-                    <NavLink to={`${path}/components/comments`}>Comments</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/comments`}>
+                      Comments
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/base`}>Dashboard Base</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/base`}>
+                      Dashboard Base
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/date-picker`}>DataPicker</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/date-picker`}>
+                      DataPicker
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/drag`}>Drag & Drop</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/drag`}>
+                      Drag & Drop
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/drawer`}>Drawer</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/drawer`}>
+                      Drawer
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/dropdown`}>Dropdown</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/dropdown`}>
+                      Dropdown
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/empty`}>Empty</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/empty`}>
+                      Empty
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/form`}>Form</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/form`}>
+                      Form
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/grid`}>Grid</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/grid`}>
+                      Grid
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/input`}>Input</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/input`}>
+                      Input
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/list`}>List</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/list`}>
+                      List
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/menu`}>Menu</NavLink>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span className="mega-title">Components</span>
-                <ul>
-                  <li>
-                    <NavLink to={`${path}/components/message`}>Message</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/modals`}>Modals</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/notification`}>Notifications</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/page-headers`}>Page Headers</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/pagination`}>Pagination</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/confirm`}>PopConfirm</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/popover`}>PopOver</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/alerts`}>Progress</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/radio`}>Radio</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/rate`}>Rate</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/result`}>Result</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={`${path}/components/select`}>Select</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/menu`}>
+                      Menu
+                    </NavLink>
                   </li>
                 </ul>
               </li>
@@ -399,73 +409,170 @@ const TopMenu = () => {
                 <span className="mega-title">Components</span>
                 <ul>
                   <li>
-                    <NavLink to={`${path}/components/skeleton`}>Skeleton</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/message`}>
+                      Message
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/slider`}>Slider</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/modals`}>
+                      Modals
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/spiner`}>Spiner</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/notification`}>
+                      Notifications
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/statistic`}>Statistics</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/page-headers`}>
+                      Page Headers
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/steps`}>Steps</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/pagination`}>
+                      Pagination
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/switch`}>Switch</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/confirm`}>
+                      PopConfirm
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/tabs`}>Tabs</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/popover`}>
+                      PopOver
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/tags`}>Tags</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/progress`}>
+                      Progress
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/timeline`}>Timeline</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/radio`}>
+                      Radio
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/timepicker`}>TimePicker</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/rate`}>
+                      Rate
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/tree-select`}>Tree Select</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/result`}>
+                      Result
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/components/upload`}>Upload</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/components/select`}>
+                      Select
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span className="mega-title">Components</span>
+                <ul>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/skeleton`}>
+                      Skeleton
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/slider`}>
+                      Slider
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/spiner`}>
+                      Spiner
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/statistic`}>
+                      Statistics
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/steps`}>
+                      Steps
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/switch`}>
+                      Switch
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/tabs`}>
+                      Tabs
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/tags`}>
+                      Tags
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/timeline`}>
+                      Timeline
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/timepicker`}>
+                      TimePicker
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/tree-select`}>
+                      Tree Select
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/components/upload`}>
+                      Upload
+                    </NavLink>
                   </li>
                 </ul>
               </li>
             </ul>
           </li>
           <li className="has-subMenu">
-            <Link>Features</Link>
+            <Link className="parent">Features</Link>
             <ul className="subMenu">
               <li className="has-subMenu-left">
-                <Link>
+                <Link className="parent">
                   <FeatherIcon icon="grid" />
                   Icons
                 </Link>
                 <ul className="subMenu">
                   <li>
-                    <NavLink to={`${path}/icons/feathers`}>Feather Icons(svg)</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/icons/feathers`}>
+                      Feather Icons(svg)
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/icons/font-awesome`}>Font Awesome</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/icons/font-awesome`}>
+                      Font Awesome
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to={`${path}/icons/antd`}>Ant Design Icons</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/icons/antd`}>
+                      Ant Design Icons
+                    </NavLink>
                   </li>
                 </ul>
               </li>
               <li className="has-subMenu-left">
-                <Link>
+                <Link className="parent">
                   <FeatherIcon icon="bar-chart-2" />
                   Charts
                 </Link>
                 <ul className="subMenu">
                   <li>
-                    <NavLink to={`${path}/charts/chartjs`}>Chart Js</NavLink>
+                    <NavLink onClick={addParentActive} to={`${path}/charts/chartjs`}>
+                      Chart Js
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink to={`${path}/charts/google-chart`}>Google Chart</NavLink>
@@ -514,7 +621,7 @@ const TopMenu = () => {
                 </NavLink>
               </li>
               <li className="has-subMenu-left">
-                <Link>
+                <Link className="parent">
                   <FeatherIcon icon="map" />
                   Maps
                 </Link>
