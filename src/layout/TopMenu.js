@@ -67,10 +67,10 @@ const TopMenu = () => {
             </ul>
           </li>
           <li className="has-subMenu">
-            <Link className="parent">Fire Crud</Link>
+            <Link className="parent">Firestore Crud</Link>
             <ul className="subMenu">
               <li>
-                <NavLink onClick={addParentActive} to={`${path}/firesore/fbView`}>
+                <NavLink onClick={addParentActive} to={`${path}/firestore/fbView`}>
                   View all
                 </NavLink>
               </li>
