@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import { Select } from 'antd';
 import AddNewEvent from './AddNewEvent';
+import ProjectUpdate from './ProjectUpdate';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import './style.css';
-import { eventVisible, addNewEvents } from '../../../redux/calendar/actionCreator';
+import { eventVisible, addNewEvents, calendarDeleteData } from '../../../redux/calendar/actionCreator';
 import { Modal } from '../../../components/modals/antd-modals';
+import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const WeekCalendar = () => {
   const dispatch = useDispatch();
@@ -78,16 +80,167 @@ const WeekCalendar = () => {
     dispatch(eventVisible(false));
   };
 
-  const rawValue = parseInt(
-    moment(
-      moment()
-        .day('Sunday')
-        .year('2020')
-        .week(currentWeek)
-        .toDate(),
-    ).format('DD'),
-    10,
-  );
+  const maximumDate = () => {
+    return parseInt(
+      moment(
+        moment()
+          .day('Sunday')
+          .year(year)
+          .week(currentWeek)
+          .toDate(),
+      ).format('DD'),
+      10,
+    ) +
+      6 <=
+      moment(
+        moment()
+          .day('Sunday')
+          .year(year)
+          .week(currentWeek)
+          .toDate(),
+      ).daysInMonth()
+      ? parseInt(
+          moment(
+            moment()
+              .day('Sunday')
+              .year(year)
+              .week(currentWeek)
+              .toDate(),
+          ).format('DD'),
+          10,
+        ) + 6
+      : parseInt(
+          moment(
+            moment()
+              .day('Sunday')
+              .year(year)
+              .week(currentWeek)
+              .toDate(),
+          ).format('DD'),
+          10,
+        ) +
+          6 -
+          parseInt(
+            moment(
+              moment()
+                .day('Sunday')
+                .year(year)
+                .week(currentWeek)
+                .toDate(),
+            ).daysInMonth(),
+            10,
+          );
+  };
+
+  const daysOfMonth = moment(
+    moment()
+      .day('Sunday')
+      .year(year)
+      .week(currentWeek)
+      .toDate(),
+  ).daysInMonth();
+
+  const minimumDate = () => {
+    return parseInt(
+      moment(
+        moment()
+          .day('Sunday')
+          .year(year)
+          .week(currentWeek)
+          .toDate(),
+      ).format('DD'),
+      10,
+    );
+  };
+
+  const daysOfWeek = () => {
+    const days = [];
+    if (minimumDate() + 6 <= daysOfMonth) {
+      for (let i = minimumDate(); i <= maximumDate(); i += 1) {
+        days.push(
+          `${moment(
+            moment()
+              .day('Sunday')
+              .year(year)
+              .week(currentWeek)
+              .toDate(),
+          ).format('MM')}/${i}/${year}`,
+        );
+      }
+    } else {
+      for (let i = minimumDate(); i <= daysOfMonth; i += 1) {
+        days.push(
+          `${moment(
+            moment()
+              .day('Sunday')
+              .year(year)
+              .week(currentWeek)
+              .toDate(),
+          ).format('MM')}/${i}/${year}`,
+        );
+      }
+      for (let j = 1; j <= minimumDate() + 6 - daysOfMonth; j += 1) {
+        days.push(
+          `${
+            parseInt(
+              moment(
+                moment()
+                  .day('Sunday')
+                  .year(year)
+                  .week(currentWeek)
+                  .toDate(),
+              ).format('MM'),
+              10,
+            ) < 12
+              ? parseInt(
+                  moment(
+                    moment()
+                      .day('Sunday')
+                      .year(year)
+                      .week(currentWeek)
+                      .toDate(),
+                  ).format('MM'),
+                  10,
+                ) + 1
+              : 1
+          }/${j}/${year}`,
+        );
+      }
+    }
+    return days;
+  };
+
+  const eventTimes = [
+    '12 AM',
+    '1 AM',
+    '2 AM',
+    '3 AM',
+    '4 AM',
+    '5 AM',
+    '6 AM',
+    '7 AM',
+    '8 AM',
+    '9 AM',
+    '10 AM',
+    '11 AM',
+    '12 PM',
+    '1 PM',
+    '2 PM',
+    '3 PM',
+    '4 PM',
+    '5 PM',
+    '6 PM',
+    '7 PM',
+    '8 PM',
+    '9 PM',
+    '10 PM',
+    '11 PM',
+  ];
+
+  const onEventDelete = id => {
+    const data = events.filter(item => item.id !== id);
+    dispatch(calendarDeleteData(data));
+  };
 
   return (
     <Cards headless>
@@ -223,56 +376,56 @@ const WeekCalendar = () => {
         <thead>
           <tr>
             <th>&nbsp;</th>
-            <th>Sunday</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
+            {daysOfWeek().map(day => {
+              return (
+                <th key={day}>
+                  <p>{moment(day).format('dddd')}</p>
+                  <p className={moment().format('MM/DD/YYYY') === day ? 'primary' : 'deactivate'}>
+                    {moment(day).format('DD MMM')}
+                  </p>
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>12 AM</td>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-          </tr>
-          <tr>
-            <td>1 AM</td>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-          </tr>
-          <tr>
-            <td>2 AM</td>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-          </tr>
-          <tr>
-            <td>3 AM</td>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-            <td />
-          </tr>
+          {eventTimes.map(time => {
+            return (
+              <tr>
+                <td>{time}</td>
+                {daysOfWeek().map(day => {
+                  return (
+                    <td
+                      key={day}
+                      className={`currentTime ${
+                        moment().format('h A') === time && moment().format('MM/DD/YYYY') === day ? 'secondary' : null
+                      }`}
+                    >
+                      {events.map(
+                        event =>
+                          day === event.date[0] &&
+                          time === moment(event.time[0], 'h:mm a').format('h A') && (
+                            <Dropdown
+                              key={event.id}
+                              style={{ padding: 0 }}
+                              placement="bottomRight"
+                              content={<ProjectUpdate onEventDelete={onEventDelete} {...event} />}
+                              action={['click']}
+                            >
+                              <Link to="#" className={event.label}>
+                                {event.title}
+                                <br />
+                                <span>{`${event.time[0]} - ${event.time[1]}`}</span>
+                              </Link>
+                            </Dropdown>
+                          ),
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </Cards>

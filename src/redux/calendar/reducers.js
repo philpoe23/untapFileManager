@@ -1,5 +1,61 @@
+import moment from 'moment';
 import actions from './actions';
-import events from '../../demoData/event.json';
+
+const events = [
+  {
+    title: 'Family Events',
+    date: [moment().format('MM/DD/YYYY'), moment().format('MM/DD/YYYY')],
+    id: 1,
+    label: 'success',
+    time: ['2:00 pm', '3:00 pm'],
+    type: 'event',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+  },
+  {
+    title: 'Product Launch',
+    date: [moment().format('MM/DD/YYYY'), moment(moment().add(2, 'days')).format('MM/DD/YYYY')],
+    id: 2,
+    label: 'primary',
+    time: ['4:00 pm', '5:00 pm'],
+    type: 'reminder',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+  },
+  {
+    title: 'Team Meeting',
+    id: 3,
+    date: [
+      moment(moment().subtract(2, 'days')).format('MM/DD/YYYY'),
+      moment(moment().subtract(2, 'days')).format('MM/DD/YYYY'),
+    ],
+    label: 'secondary',
+    time: ['2:00 pm', '3:00 pm'],
+    type: 'event',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+  },
+  {
+    title: 'UI/UX Tasks',
+    id: 4,
+    date: ['09/12/2020', '09/12/2020'],
+    label: 'info',
+    time: ['9:00 am', '3:00 pm'],
+    type: 'event',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+  },
+  {
+    title: 'Project Update',
+    id: 5,
+    date: [moment(moment().add(5, 'days')).format('MM/DD/YYYY'), moment(moment().add(5, 'days')).format('MM/DD/YYYY')],
+    label: 'warning',
+    time: ['12:00 pm', '2:30 pm'],
+    type: 'event',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+  },
+];
 
 const initialState = {
   events,
