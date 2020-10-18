@@ -7,19 +7,19 @@ const TopMenu = () => {
   const { path } = useRouteMatch();
 
   useLayoutEffect(() => {
-    const active = document.querySelector('a.active');
+    const active = document.querySelector('.strikingDash-top-menu a.active');
     const activeDefault = () => {
-      const hasSubMenuLeft = active.closest('.has-subMenu-left');
       const megaMenu = active.closest('.megaMenu-wrapper');
+      const hasSubMenuLeft = active.closest('.has-subMenu-left');
       if (!megaMenu) {
         active.closest('ul').previousSibling.classList.add('active');
-        if (hasSubMenuLeft) hasSubMenuLeft.closest('ul').previousSibling.classList.add('active');
+        hasSubMenuLeft && hasSubMenuLeft.closest('ul').previousSibling.classList.add('active');
       } else {
         active.closest('.megaMenu-wrapper').previousSibling.classList.add('active');
       }
       // active.closest('ul').previousSibling.classList.add('active');
     };
-    window.addEventListener('load', activeDefault);
+    window.addEventListener('load', active && activeDefault);
     return () => window.removeEventListener('load', activeDefault);
   }, []);
 
