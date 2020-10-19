@@ -65,7 +65,7 @@ const YearCalendar = () => {
       <div className="calenderHeader">
         <div className="left">
           <Button type="white" outlined>
-            <NavLink to="./today">Today</NavLink>
+            <NavLink to="./day">Today</NavLink>
           </Button>
           <Button onClick={onDecrement} type="white" outlined>
             <FeatherIcon icon="chevron-left" />

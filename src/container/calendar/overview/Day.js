@@ -115,7 +115,7 @@ const DayCalendar = () => {
       <div className="calenderHeader">
         <div className="left">
           <Button type="white" outlined>
-            <NavLink to="./today">Today</NavLink>
+            <NavLink to="./day">Today</NavLink>
           </Button>
           <CalenDar
             onClickDay={() => {
