@@ -1,0 +1,38 @@
+.ant-dropdown{
+    padding: 0 !important;
+    width: 320px !important;
+}
+.ant-dropdown.ant-dropdown-placement-bottomRight {
+    width: 320px !important;
+}
+
+.bullet{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right : 12px;
+}
+html[dir="rtl"] .bullet{
+    margin-left : 12px;
+}
+.primary{
+    background: #5F63F2;
+    color: #fff;
+}
+.secondary{
+    background: #FF69A5;
+    color: #fff;
+}
+.success{
+    background: #20C997;
+    color: #fff;
+}
+.info{
+    background: #2C99FF;
+    color: #fff;
+}
+.warning{
+    background: #FA8B0C;
+    color: #fff;
+}

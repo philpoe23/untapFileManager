@@ -22,6 +22,7 @@ import Todo from './todo/reducers';
 import Note from './note/reducers';
 import Contact from './contact/reducers';
 import Profile from './profile/reducers';
+import Calender from './calendar/reducers';
 
 import { fsCrudReducer, fsSingleCrudReducer } from './firestore/reducers';
 
@@ -57,6 +58,7 @@ const rootReducers = combineReducers({
   Note,
   Contact,
   Profile,
+  Calender,
 });
 
 export default rootReducers;
