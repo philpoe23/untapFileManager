@@ -66,21 +66,7 @@ const TopMenu = () => {
               </li>
             </ul>
           </li>
-          <li className="has-subMenu">
-            <Link className="parent">Firestore Crud</Link>
-            <ul className="subMenu">
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/firestore/fbView`}>
-                  View all
-                </NavLink>
-              </li>
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/firestore/fbAdd`}>
-                  Add new
-                </NavLink>
-              </li>
-            </ul>
-          </li>
+
           <li className="has-subMenu">
             <Link className="parent">Apps</Link>
             <ul className="subMenu">

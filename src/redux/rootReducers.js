@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import { firebaseReducer } from 'react-redux-firebase';
-import { firestoreReducer } from 'redux-firestore';
 import themeUsersReducer from './themeUsers/reducers';
 import { readMessageReducer } from './message/reducers';
 import { readNotificationReducer } from './notification/reducers';
@@ -24,11 +22,7 @@ import Contact from './contact/reducers';
 import Profile from './profile/reducers';
 import Calender from './calendar/reducers';
 
-import { fsCrudReducer, fsSingleCrudReducer } from './firestore/reducers';
-
-const rootReducers = combineReducers({
-  fb: firebaseReducer,
-  fs: firestoreReducer,
+const rootReducers = combineReducers({  
   themeUsers: themeUsersReducer,
   headerSearchData: headerSearchReducer,
   message: readMessageReducer,
@@ -50,9 +44,7 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
   ChangeLayoutMode,
-  chartContent: chartContentReducer,
-  crud: fsCrudReducer,
-  singleCrud: fsSingleCrudReducer,
+  chartContent: chartContentReducer, 
   cart: cartData,
   Todo,
   Note,
