@@ -39,7 +39,7 @@ const DashboardBaseStyleWrap = Styled.div`
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
-        margin-top: 43px;
+        margin-top: 50px;
         @media only screen and (max-width: 1199px){
             margin-top: 15px;
         }
@@ -272,7 +272,8 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        ${({ theme }) => (theme.rtl ? 'padding: 24px 24px 25px 0;' : 'padding: 24px 0 25px 24px;')}
+        ${({ theme }) => (theme.rtl ? 'padding: 24px 24px 25px 0;' : 'padding: 24px 0 25px 24px;')};
+        ${({ theme }) => (theme.topMenu ? 'padding-bottom: 0px' : 'padding-bottom: 25px')};
         
         @media only screen and (max-width: 1350px){
             padding: 24px 0 25px 10px;
@@ -498,6 +499,10 @@ const OverviewCard = Styled.div`
     position: relative;
     z-index: 0;
     margin-bottom: 30px;
+    ${({ theme }) => (theme.topMenu ? 'min-height: 595px' : 'min-height: auto')};
+    @media only screen and (max-width: 991px){
+        min-height: auto;
+    }
     &:before{
         position: absolute;
         content: '';
@@ -945,12 +950,19 @@ const LineChartWrapper = Styled.div`
         .line-chart-row{
             &:not(:last-child){
                 margin-bottom: 18px;
+                ${({ theme }) => (theme.topMenu ? 'margin-bottom: 25px' : 'margin-bottom: 18px')};
             }
         }
     }
 `;
 
 const RatioCard = Styled.div`
+    >.ant-card{
+        ${({ theme }) => (theme.topMenu ? 'min-height: 225px' : 'min-height: 100%')};
+        @media only screen and (max-width: 1599px){
+            min-height: 225px;
+        }
+    }
     .ant-card-body{
         h1{
             font-size: 16px;
@@ -1171,7 +1183,7 @@ const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 500px;
+            ${({ theme }) => (theme.topMenu ? 'min-height: 555px' : 'min-height: 500px')};
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }
@@ -1244,6 +1256,10 @@ const RevenueChartWrapper = Styled.div`
 
 const TrafficTableWrapper = Styled.div`
     min-height: 450px;
+    ${({ theme }) => (theme.topMenu ? 'min-height: 515px' : 'min-height: 450px')};
+    @media only screen and (max-width: 1599px){
+        min-height: 400px;
+    }
     @media only screen and (max-width: 1199px){
         min-height: 100%;
     }

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import MenueItems from './MenueItems';
 import TopMenu from './TopMenu';
-import { Div, SmallScreenAuthInfo, SmallScreenSearch } from './style';
+import { Div, SmallScreenAuthInfo, SmallScreenSearch, TopMenuSearch } from './style';
 import HeaderSearch from '../components/header-search/header-search';
 import AuthInfo from '../components/utilities/auth-info/info';
 import { changeRtlMode, changeLayoutMode, changeMenuMode } from '../redux/themeLayout/actionCreator';
@@ -28,6 +28,7 @@ const ThemeLayout = WrappedComponent => {
         hide: true,
         searchHide: true,
         customizerAction: false,
+        activeSearch: false,
       };
       this.updateDimensions = this.updateDimensions.bind(this);
     }
@@ -48,7 +49,7 @@ const ThemeLayout = WrappedComponent => {
     }
 
     render() {
-      const { collapsed, hide, searchHide, customizerAction } = this.state;
+      const { collapsed, hide, searchHide, customizerAction, activeSearch } = this.state;
       const { ChangeLayoutMode, rtl, changeRtl, changeLayout, topMenu, changeMenuMode } = this.props;
 
       const left = !rtl ? 'left' : 'right';
@@ -77,6 +78,12 @@ const ThemeLayout = WrappedComponent => {
       const showCustomizer = () => {
         this.setState({
           customizerAction: !customizerAction,
+        });
+      };
+
+      const toggleSearch = () => {
+        this.setState({
+          activeSearch: !activeSearch,
         });
       };
 
@@ -210,7 +217,32 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col lg={6} md={10} sm={0} xs={0}>
-                  <AuthInfo />
+                  {topMenu && window.innerWidth > 991 ? (
+                    <TopMenuSearch>
+                      <div className="top-right-wrap d-flex">
+                        <Link
+                          className={`${activeSearch ? 'search-toggle active' : 'search-toggle'}`}
+                          onClick={() => {
+                            toggleSearch();
+                          }}
+                        >
+                          <FeatherIcon icon="search" />
+                          <FeatherIcon icon="x" />
+                        </Link>
+                        <div className={`${activeSearch ? 'topMenu-search-form show' : 'topMenu-search-form'}`}>
+                          <form action="">
+                            <span className="search-icon">
+                              <FeatherIcon icon="search" />
+                            </span>
+                            <input type="text" name="search" />
+                          </form>
+                        </div>
+                        <AuthInfo />
+                      </div>
+                    </TopMenuSearch>
+                  ) : (
+                    <AuthInfo />
+                  )}
                 </Col>
 
                 <Col md={0} sm={18} xs={12}>
