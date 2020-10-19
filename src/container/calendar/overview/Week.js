@@ -247,111 +247,113 @@ const WeekCalendar = () => {
       <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
-      <div className="calenderHeader">
-        <div className="left">
-          <Button type="white" outlined>
+      <div className="calendar-header">
+        <div className="calendar-header__left">
+          <Button className="btn-today" size="small" type="white" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
-          <Button onClick={onDecrement} type="white" outlined>
-            <FeatherIcon icon="chevron-left" />
-          </Button>
-          <span>
-            {`${moment(
-              moment()
-                .day('Sunday')
-                .year(year)
-                .week(currentWeek)
-                .toDate(),
-            ).format('MMM DD')} - ${
-              parseInt(
+          <div className="calender-head__navigation">
+            <Button onClick={onDecrement} className="btn-navigate" type="white" outlined>
+              <FeatherIcon icon="chevron-left" />
+            </Button>
+            <span className="date-label">
+              {`${moment(
+                moment()
+                  .day('Sunday')
+                  .year(year)
+                  .week(currentWeek)
+                  .toDate(),
+              ).format('MMM DD')} - ${
+                parseInt(
+                  moment(
+                    moment()
+                      .day('Sunday')
+                      .year('2020')
+                      .week(currentWeek)
+                      .toDate(),
+                  ).format('DD'),
+                  10,
+                ) +
+                  6 <=
                 moment(
                   moment()
                     .day('Sunday')
                     .year('2020')
                     .week(currentWeek)
                     .toDate(),
-                ).format('DD'),
-                10,
-              ) +
-                6 <=
-              moment(
-                moment()
-                  .day('Sunday')
-                  .year('2020')
-                  .week(currentWeek)
-                  .toDate(),
-              ).daysInMonth()
-                ? moment(
+                ).daysInMonth()
+                  ? moment(
+                      moment()
+                        .day('Sunday')
+                        .year(year)
+                        .week(currentWeek)
+                        .toDate(),
+                    ).format('MMM')
+                  : moment(
+                      moment()
+                        .day('Sunday')
+                        .year(year)
+                        .week(currentWeek + 1)
+                        .toDate(),
+                    ).format('MMM')
+              } ${
+                parseInt(
+                  moment(
                     moment()
                       .day('Sunday')
                       .year(year)
                       .week(currentWeek)
                       .toDate(),
-                  ).format('MMM')
-                : moment(
-                    moment()
-                      .day('Sunday')
-                      .year(year)
-                      .week(currentWeek + 1)
-                      .toDate(),
-                  ).format('MMM')
-            } ${
-              parseInt(
+                  ).format('DD'),
+                  10,
+                ) +
+                  6 <=
                 moment(
                   moment()
                     .day('Sunday')
                     .year(year)
                     .week(currentWeek)
                     .toDate(),
-                ).format('DD'),
-                10,
-              ) +
-                6 <=
-              moment(
-                moment()
-                  .day('Sunday')
-                  .year(year)
-                  .week(currentWeek)
-                  .toDate(),
-              ).daysInMonth()
-                ? parseInt(
-                    moment(
-                      moment()
-                        .day('Sunday')
-                        .year(year)
-                        .week(currentWeek)
-                        .toDate(),
-                    ).format('DD'),
-                    10,
-                  ) + 6
-                : parseInt(
-                    moment(
-                      moment()
-                        .day('Sunday')
-                        .year(year)
-                        .week(currentWeek)
-                        .toDate(),
-                    ).format('DD'),
-                    10,
-                  ) +
-                  6 -
-                  parseInt(
-                    moment(
-                      moment()
-                        .day('Sunday')
-                        .year(year)
-                        .week(currentWeek)
-                        .toDate(),
-                    ).daysInMonth(),
-                    10,
-                  )
-            }, ${year}`}
-          </span>
-          <Button onClick={onIncrement} type="white" outlined>
-            <FeatherIcon icon="chevron-right" />
-          </Button>
+                ).daysInMonth()
+                  ? parseInt(
+                      moment(
+                        moment()
+                          .day('Sunday')
+                          .year(year)
+                          .week(currentWeek)
+                          .toDate(),
+                      ).format('DD'),
+                      10,
+                    ) + 6
+                  : parseInt(
+                      moment(
+                        moment()
+                          .day('Sunday')
+                          .year(year)
+                          .week(currentWeek)
+                          .toDate(),
+                      ).format('DD'),
+                      10,
+                    ) +
+                    6 -
+                    parseInt(
+                      moment(
+                        moment()
+                          .day('Sunday')
+                          .year(year)
+                          .week(currentWeek)
+                          .toDate(),
+                      ).daysInMonth(),
+                      10,
+                    )
+              }, ${year}`}
+            </span>
+            <Button onClick={onIncrement} className="btn-navigate" type="white" outlined>
+              <FeatherIcon icon="chevron-right" />
+            </Button>
+          </div>
         </div>
-        <div className="right">
+        <div className="calendar-header__right">
           <ul>
             <li>
               <NavLink to="./day">Day</NavLink>
@@ -366,13 +368,13 @@ const WeekCalendar = () => {
               <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
-          <NavLink to="./schedule">
+          <NavLink className="schedule-list" to="./schedule">
             <FeatherIcon icon="list" />
             Schedule
           </NavLink>
         </div>
       </div>
-      <table border="1" width="100%">
+      <table className="table-event" width="100%">
         <thead>
           <tr>
             <th>&nbsp;</th>

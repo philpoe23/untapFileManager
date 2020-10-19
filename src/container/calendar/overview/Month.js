@@ -34,8 +34,10 @@ const MonthCalendar = () => {
   const getInput = useRef();
 
   useLayoutEffect(() => {
-    const button = document.querySelector('.left .react-calendar__navigation .react-calendar__navigation__label');
-    const containers = document.querySelector('.left .react-calendar__viewContainer');
+    const button = document.querySelector(
+      '.calendar-header__left .react-calendar__navigation .react-calendar__navigation__label',
+    );
+    const containers = document.querySelector('.calendar-header__left .react-calendar__viewContainer');
     const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
     calenderDom.forEach(element => {
       element.addEventListener('click', e => {
@@ -136,8 +138,8 @@ const MonthCalendar = () => {
       <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
-      <div className="calenderHeader">
-        <div className="left">
+      <div className="calendar-header">
+        <div className="calendar-header__left">
           <Button type="white" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
@@ -160,7 +162,7 @@ const MonthCalendar = () => {
             value={state.date}
           />
         </div>
-        <div className="right">
+        <div className="calendar-header__right">
           <ul>
             <li>
               <NavLink to="./day">Day</NavLink>
@@ -175,7 +177,7 @@ const MonthCalendar = () => {
               <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
-          <NavLink to="./schedule">
+          <NavLink className="schedule-list" to="./schedule">
             <FeatherIcon icon="list" />
             Schedule
           </NavLink>

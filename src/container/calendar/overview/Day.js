@@ -31,8 +31,10 @@ const DayCalendar = () => {
   const { date, container, currentLabel, defaultValue } = state;
 
   useLayoutEffect(() => {
-    const button = document.querySelector('.left .react-calendar__navigation .react-calendar__navigation__label');
-    const containers = document.querySelector('.left .react-calendar__viewContainer');
+    const button = document.querySelector(
+      '.calendar-header__left .react-calendar__navigation .react-calendar__navigation__label',
+    );
+    const containers = document.querySelector('.calendar-header__left .react-calendar__viewContainer');
     const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
     calenderDom.forEach(element => {
       element.addEventListener('click', e => {
@@ -112,9 +114,9 @@ const DayCalendar = () => {
       <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
-      <div className="calenderHeader">
-        <div className="left">
-          <Button type="white" outlined>
+      <div className="calendar-header">
+        <div className="calendar-header__left">
+          <Button className="btn-today" type="white" size="small" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
           <CalenDar
@@ -137,7 +139,7 @@ const DayCalendar = () => {
             value={state.date}
           />
         </div>
-        <div className="right">
+        <div className="calendar-header__right">
           <ul>
             <li>
               <NavLink to="./day">Day</NavLink>
@@ -152,13 +154,13 @@ const DayCalendar = () => {
               <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
-          <NavLink to="./schedule">
+          <NavLink className="schedule-list" to="./schedule">
             <FeatherIcon icon="list" />
             Schedule
           </NavLink>
         </div>
       </div>
-      <table border="1" width="100%">
+      <table className="table-event" width="100%">
         <thead>
           <tr>
             <th>&nbsp;</th>
@@ -172,7 +174,9 @@ const DayCalendar = () => {
             return (
               <tr>
                 <td style={{ width: '60px' }}>{time}</td>
-                <td className={`currentTime ${moment().format('h A') === time ? 'secondary' : null}`}>
+                <td className={`${moment().format('h A') === time ? 'current-data' : null}`}>
+                  {moment().format('h A') === time ? <span className="currentTime secondary" /> : null}
+
                   {events.map(
                     event =>
                       moment(defaultValue).format('MM/DD/YYYY') === event.date[0] &&
@@ -184,9 +188,8 @@ const DayCalendar = () => {
                           content={<ProjectUpdate onEventDelete={onEventDelete} {...event} />}
                           action={['click']}
                         >
-                          <Link to="#" className={event.label}>
-                            {event.title}
-                            <br />
+                          <Link to="#" className={`${event.label} day-event-item`}>
+                            <span className="event-title">{event.title}</span>
                             <span>{`${event.time[0]} - ${event.time[1]}`}</span>
                           </Link>
                         </Dropdown>

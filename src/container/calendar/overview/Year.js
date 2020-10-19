@@ -62,8 +62,8 @@ const YearCalendar = () => {
 
   return (
     <Cards headless>
-      <div className="calenderHeader">
-        <div className="left">
+      <div className="calendar-header">
+        <div className="calendar-header__left">
           <Button type="white" outlined>
             <NavLink to="./today">Today</NavLink>
           </Button>
@@ -82,7 +82,7 @@ const YearCalendar = () => {
             <FeatherIcon icon="chevron-right" />
           </Button>
         </div>
-        <div className="right">
+        <div className="calendar-header__right">
           <ul>
             <li>
               <NavLink to="./day">Day</NavLink>
@@ -97,7 +97,7 @@ const YearCalendar = () => {
               <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
-          <NavLink to="./schedule">
+          <NavLink className="schedule-list" to="./schedule">
             <FeatherIcon icon="list" />
             Schedule
           </NavLink>

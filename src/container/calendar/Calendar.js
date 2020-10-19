@@ -63,23 +63,23 @@ const Calendars = () => {
       <Main>
         <CalendarWrapper>
           <Row gutter={25}>
-            <Col md={5}>
+            <Col md={6}>
               <Aside>
-                <Button onClick={onHandleVisible} type="secondary">
+                <Button onClick={onHandleVisible} className="btn-create" size="large" type="secondary">
                   <FeatherIcon icon="plus" size={14} /> Create New Event
                 </Button>
-                <br />
-                <br />
-                <CalenDar next2Label={null} prev2Label={null} onChange={onChange} value={state.date} />
+                <div className="calendar-display">
+                  <CalenDar next2Label={null} prev2Label={null} onChange={onChange} value={state.date} />
+                </div>
                 <br />
                 <Cards headless>
                   <h3 className="listHeader">
                     My Calendars
-                    <Link to="#">
+                    <Link className="add-label" to="#">
                       <FeatherIcon icon="plus" size={14} />
                     </Link>
                   </h3>
-                  <ul className="eventList">
+                  <ul className="event-list">
                     {events.map(event => {
                       const { id, title, label } = event;
                       return (
