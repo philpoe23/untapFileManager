@@ -141,7 +141,7 @@ const MonthCalendar = () => {
       <div className="calendar-header">
         <div className="calendar-header__left">
           <Button type="white" outlined>
-            <NavLink to="./today">Today</NavLink>
+            <NavLink to="./day">Today</NavLink>
           </Button>
           <CalenDar
             onClickMonth={() => {

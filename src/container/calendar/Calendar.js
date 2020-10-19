@@ -20,6 +20,7 @@ const MonthCalendar = lazy(() => import('./overview/Month'));
 const WeekCalendar = lazy(() => import('./overview/Week'));
 const DayCalendar = lazy(() => import('./overview/Day'));
 const TodayCalendar = lazy(() => import('./overview/Today'));
+const ScheduleCalendar = lazy(() => import('./overview/Schedule'));
 
 const Calendars = () => {
   const dispatch = useDispatch();
@@ -75,7 +76,7 @@ const Calendars = () => {
                 <Cards headless>
                   <h3 className="listHeader">
                     My Calendars
-                    <Link className="add-label" to="#">
+                    <Link onClick={onHandleVisible} className="add-label" to="#">
                       <FeatherIcon icon="plus" size={14} />
                     </Link>
                   </h3>
@@ -109,6 +110,7 @@ const Calendars = () => {
                   <Route path={`${path}/week`} component={WeekCalendar} />
                   <Route path={`${path}/day`} component={DayCalendar} />
                   <Route path={`${path}/today`} component={TodayCalendar} />
+                  <Route path={`${path}/schedule`} component={ScheduleCalendar} />
                 </Suspense>
               </Switch>
             </Col>
