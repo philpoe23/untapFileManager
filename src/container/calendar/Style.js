@@ -271,15 +271,17 @@ const CalendarWrapper = Styled.div`
                 padding: 0 10px;
                 font-size: 12px;
                 color: ${({ theme }) => theme['light-color']};
-                &.current-data{
-                    padding-left: 0;
-                    padding-right: 0;
-                }
+                // &.current-data{
+                //     padding-left: 0;
+                //     padding-right: 0;
+                // }
                 .currentTime{
-                    width: 100%;
+                    width: calc(100% + 20px);
                     height: 1px;
                     display: block;
                     position: relative;
+                    left: -10px;
+                    z-index: 222;
                     &:after{
                         position: absolute;
                         left: 0;
@@ -345,6 +347,42 @@ const CalendarWrapper = Styled.div`
         }
     }
 
+    .event-week{
+        tr{
+            th,
+            td{
+                border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+            }
+        }
+        thead{
+            tr{
+                th{
+                    text-align: center;
+                    .week-dayName{
+                        font-size: 13px;
+                        font-weight: 400;
+                        margin-bottom: 2px;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                    .week-date{
+                        display: inline-block;
+                        line-height: 1.45;
+                        border-radius: 9px;
+                        font-size: 13px;
+                        &.primary{
+                            padding: 0 10px;
+                        }
+                    }
+                }
+            }
+        }
+        tbody{
+            .ant-dropdown-trigger{
+                display: inline-block;
+            }
+        }
+    }
+
     .events{
         li{
             position: relative;
@@ -404,4 +442,53 @@ const UpdatePopup = Styled.div`
     }
 `;
 
-export { CalendarWrapper, Aside, UpdatePopup };
+const MonthViewCalendarWrapper = Styled.div`
+    .ant-picker-calendar{
+        border: 1px solid ${({ theme }) => theme['border-color-light']};
+        .ant-picker-body{
+            padding-top: 0 !important;
+        }
+        .ant-picker-calendar-date {
+            margin: 0 !important;
+            border-top: 0 none !important;
+        }
+        .ant-picker-cell{
+            &:hover{
+                .ant-picker-calendar-date{
+                    background-color: transparent !important;
+                }
+            }
+            &.ant-picker-cell-in-view{
+                .ant-picker-calendar-date{
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+            }
+            .ant-picker-calendar-date{
+                color: ${({ theme }) => theme['extra-light-color']};
+            }
+            .ant-picker-calendar-date-value{
+                margin-bottom: 10px;
+            }
+        }
+        table{
+            thead{
+                tr{
+                    th{
+                        padding: 16px 20px !important;
+                        background-color: ${({ theme }) => theme['bg-color-light']} !important;
+                        color: ${({ theme }) => theme['gray-color']};;
+                    }
+                }
+            }
+            tr{
+                th,
+                td{
+                    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+                    border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+                }
+            }
+        }
+    }
+`;
+
+export { CalendarWrapper, Aside, UpdatePopup, MonthViewCalendarWrapper };

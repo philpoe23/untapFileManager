@@ -7,6 +7,7 @@ import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import ProjectUpdate from './ProjectUpdate';
 import AddNewEvent from './AddNewEvent';
+import { MonthViewCalendarWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Dropdown } from '../../../components/dropdown/dropdown';
@@ -183,15 +184,17 @@ const MonthCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <Calendar
-        headerRender={() => {
-          return <></>;
-        }}
-        mode="month"
-        dateCellRender={dateCellRender}
-        value={moment(defaultValue)}
-        defaultValue={moment(defaultValue)}
-      />
+      <MonthViewCalendarWrapper>
+        <Calendar
+          headerRender={() => {
+            return <></>;
+          }}
+          mode="month"
+          dateCellRender={dateCellRender}
+          value={moment(defaultValue)}
+          defaultValue={moment(defaultValue)}
+        />
+      </MonthViewCalendarWrapper>
     </Cards>
   );
 };
