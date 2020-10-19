@@ -71,26 +71,28 @@ const ScheduleCalendar = () => {
       <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
-      <div className="calenderHeader">
-        <div className="left">
-          <Button type="white" outlined>
+      <div className="calendar-header">
+        <div className="calendar-header__left">
+          <Button className="btn-today" type="white" outlined>
             <NavLink to="./day">Today</NavLink>
           </Button>
-          <Button onClick={onDecrement} type="white" outlined>
-            <FeatherIcon icon="chevron-left" />
-          </Button>
-          <span>
-            {`${moment()
-              .add(currentMonth, 'month')
-              .format('MMM YYYY')} - ${moment()
-              .add(currentMonth + 1, 'month')
-              .format('MMM YYYY')}`}
-          </span>
-          <Button onClick={onIncrement} type="white" outlined>
-            <FeatherIcon icon="chevron-right" />
-          </Button>
+          <div className="calender-head__navigation">
+            <Button onClick={onDecrement} className="btn-navigate" type="white" outlined>
+              <FeatherIcon icon="chevron-left" />
+            </Button>
+            <span className="date-label">
+              {`${moment()
+                .add(currentMonth, 'month')
+                .format('MMM YYYY')} - ${moment()
+                .add(currentMonth + 1, 'month')
+                .format('MMM YYYY')}`}
+            </span>
+            <Button onClick={onIncrement} className="btn-navigate" type="white" outlined>
+              <FeatherIcon icon="chevron-right" />
+            </Button>
+          </div>
         </div>
-        <div className="right">
+        <div className="calendar-header__right">
           <ul>
             <li>
               <NavLink to="./day">Day</NavLink>
@@ -105,13 +107,13 @@ const ScheduleCalendar = () => {
               <NavLink to="./year">Year</NavLink>
             </li>
           </ul>
-          <NavLink to="./schedule">
+          <NavLink className="schedule-list" to="./schedule">
             <FeatherIcon icon="list" />
             Schedule
           </NavLink>
         </div>
       </div>
-      <table border="1" width="100%">
+      <table className="table-event schedule-event" width="100%">
         <tbody ref={dataList}>
           <div className="emptyData">Schedule Not Available!</div>
           {events.map(event => {
@@ -129,7 +131,9 @@ const ScheduleCalendar = () => {
                   .add(currentMonth + 1, 'month')
                   .format('MM') && (
                 <tr>
-                  <td style={{ width: '120px' }}>{moment(date).format('DD MMM ddd')}</td>
+                  <td style={{ width: '120px' }}>
+                    <span className="schedule-date">{moment(date).format('DD MMM ddd')}</span>
+                  </td>
                   <td>
                     {events
                       .filter(item => item.date[0] === date)
@@ -137,12 +141,14 @@ const ScheduleCalendar = () => {
                         <Row>
                           <Col md={6}>
                             <span className={`bullet ${item.label}`} />
-                            <span>
+                            <span className="schedule-time">
                               {moment(item.time[0], 'h:mm a').format('h a')} -
                               {moment(item.time[0], 'h:mm a').format('h:mm a')}
                             </span>
                           </Col>
-                          <Col md={18}>{item.title}</Col>
+                          <Col md={18}>
+                            <span className="event-title">{item.title}</span>
+                          </Col>
                         </Row>
                       ))}
                   </td>

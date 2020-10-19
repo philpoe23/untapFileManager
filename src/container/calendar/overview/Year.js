@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import AddNewEvent from './AddNewEvent';
+import { BlockViewCalendarWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Modal } from '../../../components/modals/antd-modals';
@@ -76,23 +77,26 @@ const YearCalendar = () => {
       </Modal>
       <div className="calendar-header">
         <div className="calendar-header__left">
-          <Button type="white" outlined>
+          <Button className="btn-today" type="white" outlined>
             <NavLink to="./day">Today</NavLink>
           </Button>
-          <Button onClick={onDecrement} type="white" outlined>
-            <FeatherIcon icon="chevron-left" />
-          </Button>
-          <Select
-            onChange={value => setState({ ...state, currentYear: value })}
-            defaultValue={currentYear}
-            value={currentYear}
-            style={{ width: '100px' }}
-          >
-            {option}
-          </Select>
-          <Button onClick={onIncrement} type="white" outlined>
-            <FeatherIcon icon="chevron-right" />
-          </Button>
+          <div className="calender-head__navigation">
+            <Button onClick={onDecrement} className="btn-navigate" type="white" outlined>
+              <FeatherIcon icon="chevron-left" />
+            </Button>
+            <Select
+              className="year-select"
+              onChange={value => setState({ ...state, currentYear: value })}
+              defaultValue={currentYear}
+              value={currentYear}
+              style={{ width: '100px' }}
+            >
+              {option}
+            </Select>
+            <Button className="btn-navigate" onClick={onIncrement} type="white" outlined>
+              <FeatherIcon icon="chevron-right" />
+            </Button>
+          </div>
         </div>
         <div className="calendar-header__right">
           <ul>
@@ -115,13 +119,15 @@ const YearCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <Calendar
-        headerRender={() => {
-          return <></>;
-        }}
-        mode="year"
-        // monthCellRender={monthCellRender}
-      />
+      <BlockViewCalendarWrapper>
+        <Calendar
+          headerRender={() => {
+            return <></>;
+          }}
+          mode="year"
+          // monthCellRender={monthCellRender}
+        />
+      </BlockViewCalendarWrapper>
     </Cards>
   );
 };

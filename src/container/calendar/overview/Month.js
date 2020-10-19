@@ -7,7 +7,7 @@ import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import ProjectUpdate from './ProjectUpdate';
 import AddNewEvent from './AddNewEvent';
-import { MonthViewCalendarWrapper } from '../Style';
+import { BlockViewCalendarWrapper } from '../Style';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
 import { Dropdown } from '../../../components/dropdown/dropdown';
@@ -141,7 +141,7 @@ const MonthCalendar = () => {
       </Modal>
       <div className="calendar-header">
         <div className="calendar-header__left">
-          <Button type="white" outlined>
+          <Button className="btn-today" type="white" outlined>
             <NavLink to="./day">Today</NavLink>
           </Button>
           <CalenDar
@@ -184,7 +184,7 @@ const MonthCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <MonthViewCalendarWrapper>
+      <BlockViewCalendarWrapper>
         <Calendar
           headerRender={() => {
             return <></>;
@@ -194,7 +194,7 @@ const MonthCalendar = () => {
           value={moment(defaultValue)}
           defaultValue={moment(defaultValue)}
         />
-      </MonthViewCalendarWrapper>
+      </BlockViewCalendarWrapper>
     </Cards>
   );
 };
