@@ -1372,10 +1372,10 @@ const ChartContainer = Styled.div`
         &:before {
             position: absolute;
             content: '';
-            border-bottom: 5px solid #fff;
+            border-top: 5px solid #fff;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            top: -5px;
+            bottom: -5px;
             ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 50%;
             transform: translateX(-50%);
         }
