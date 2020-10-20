@@ -313,6 +313,7 @@ const CalendarWrapper = Styled.div`
                 .day-event-item{
                     width: 100%;
                     display: block;
+                    border-radius: 3px 6px 6px 3px;
                     padding: 6px 12px;
                     margin: 2px 0;
                     position: relative;
@@ -328,8 +329,21 @@ const CalendarWrapper = Styled.div`
                     &.primary{
                         background-color: #EFEFFE;
                         color: ${({ theme }) => theme['primary-color']};
+                        &:hover{
+                            color: ${({ theme }) => theme['primary-color']};
+                        }
                         &:after{
                             background-color: ${({ theme }) => theme['primary-color']};
+                        }
+                    }
+                    &.secondary{
+                        background-color: #FFF0F6;
+                        color: ${({ theme }) => theme['secondary-color']};
+                        &:hover{
+                            color: ${({ theme }) => theme['secondary-color']};
+                        }
+                        &:after{
+                            background-color: ${({ theme }) => theme['secondary-color']};
                         }
                     }
                     &.success{
@@ -573,4 +587,23 @@ const BlockViewCalendarWrapper = Styled.div`
     }
 `;
 
-export { CalendarWrapper, Aside, UpdatePopup, BlockViewCalendarWrapper };
+const AddEventWrap = Styled.div`
+    label{
+        margin-bottom: 0 !important;
+    }
+    .ant-row{
+        flex-flow: row !important;
+        align-items: center;
+    }
+    .date-time-picker {
+        .ant-picker{
+            min-width: auto;
+            width: 100%;
+            &:not(:last-child){
+                margin-right: 10px;
+            }
+        }
+    }
+`;
+
+export { CalendarWrapper, Aside, UpdatePopup, BlockViewCalendarWrapper, AddEventWrap };
