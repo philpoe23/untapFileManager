@@ -149,7 +149,8 @@ const CalendarWrapper = Styled.div`
             align-items: center;
             position: relative;
             .react-calendar__viewContainer{
-                min-width: 300px;
+                min-width: 320px;
+                border-radius: 8px;
                 padding: 15px !important;
                 border: 0 none !important;
                 box-shadow: rgba(82, 63, 105, 0.15) 0px 15px 40px 0px !important;

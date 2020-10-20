@@ -129,7 +129,7 @@ const UpdateEvent = ({ data, onCancel }) => {
           <Form.Item>
             <div className="add-event-footer text-right">
               <Button
-                className="ant-btn ant-btn-light"
+                className="ant-btn ant-btn-white"
                 onClick={() => {
                   return form.resetFields();
                 }}

@@ -17,7 +17,14 @@ const ProjectUpdate = ({ title, id, description, label, onEventDelete, time, dat
   const onCancel = () => setVisible(false);
   return (
     <UpdatePopup>
-      <Modal footer={null} type="primary" title="Update Event" visible={visible} onCancel={onCancel}>
+      <Modal
+        className="addEvent-modal"
+        footer={null}
+        type="primary"
+        title="Update Event"
+        visible={visible}
+        onCancel={onCancel}
+      >
         <UpdateEvent onCancel={onCancel} data={data} />
       </Modal>
 
