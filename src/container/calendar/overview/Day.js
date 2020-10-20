@@ -111,7 +111,14 @@ const DayCalendar = () => {
 
   return (
     <Cards headless>
-      <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
+      <Modal
+        className="addEvent-modal"
+        footer={null}
+        type="primary"
+        title="Create Event"
+        visible={isVisible}
+        onCancel={handleCancel}
+      >
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
       <div className="calendar-header">
@@ -182,9 +189,10 @@ const DayCalendar = () => {
                       moment(defaultValue).format('MM/DD/YYYY') === event.date[0] &&
                       time === moment(event.time[0], 'h:mm a').format('h A') && (
                         <Dropdown
+                          className="event-dropdown"
                           key={event.id}
                           style={{ padding: 0 }}
-                          placement="bottomRight"
+                          placement="bottomLeft"
                           content={<ProjectUpdate onEventDelete={onEventDelete} {...event} />}
                           action={['click']}
                         >
