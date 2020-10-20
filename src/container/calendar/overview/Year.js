@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Calendar, Select } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
@@ -26,6 +26,15 @@ const YearCalendar = () => {
     defaultValue: moment().format('YYYY-MM-DD'),
   });
   const { currentYear, maxYear, minYear, defaultValue } = state;
+
+  useLayoutEffect(() => {
+    const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
+    calenderDom.forEach(element => {
+      element.addEventListener('click', () => {
+        dispatch(eventVisible(true));
+      });
+    });
+  }, [defaultValue, dispatch]);
 
   const onIncrement = () => {
     return (

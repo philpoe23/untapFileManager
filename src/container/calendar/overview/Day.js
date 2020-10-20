@@ -39,12 +39,11 @@ const DayCalendar = () => {
     calenderDom.forEach(element => {
       element.addEventListener('click', e => {
         if (e.target.classList[0] === 'ant-picker-calendar-date-content') {
-          const getDate = moment(e.currentTarget.closest('td').getAttribute('title')).format('YYYY-MM-DD');
           setState({
             container: containers,
             date,
             currentLabel,
-            defaultValue: getDate,
+            defaultValue,
           });
 
           dispatch(eventVisible(true));
@@ -181,7 +180,11 @@ const DayCalendar = () => {
             return (
               <tr>
                 <td style={{ width: '60px' }}>{time}</td>
-                <td className={`${moment().format('h A') === time ? 'current-data' : null}`}>
+                <td
+                  className={`ant-picker-calendar-date-content ${
+                    moment().format('h A') === time ? 'current-data' : null
+                  }`}
+                >
                   {moment().format('h A') === time ? <span className="currentTime secondary" /> : null}
 
                   {events.map(

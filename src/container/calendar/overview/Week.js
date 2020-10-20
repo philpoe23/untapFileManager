@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink } from 'react-router-dom';
 import moment from 'moment';
@@ -30,6 +30,32 @@ const WeekCalendar = () => {
   });
 
   const { currentWeek, maxWeek, minWeek, defaultValue, year } = state;
+
+  useLayoutEffect(() => {
+    const calenderDom = document.querySelectorAll('.ant-picker-calendar-date-content');
+    calenderDom.forEach(element => {
+      element.addEventListener('click', e => {
+        if (e.target.classList[0] === 'ant-picker-calendar-date-content') {
+          const getDate = moment(e.currentTarget.getAttribute('title')).format('YYYY-MM-DD');
+          setState({
+            defaultValue: getDate,
+            currentWeek,
+            maxWeek,
+            minWeek,
+            year,
+          });
+          dispatch(eventVisible(true));
+        }
+      });
+    });
+    setState({
+      currentWeek,
+      maxWeek,
+      minWeek,
+      defaultValue,
+      year,
+    });
+  }, [currentWeek, maxWeek, minWeek, defaultValue, year, dispatch]);
 
   const onIncrement = () => {
     return currentWeek < maxWeek
@@ -400,15 +426,16 @@ const WeekCalendar = () => {
         <tbody>
           {eventTimes.map(time => {
             return (
-              <tr>
+              <tr key={time}>
                 <td>{time}</td>
                 {daysOfWeek().map(day => {
                   return (
                     <td
                       key={day}
-                      className={`${
+                      className={`ant-picker-calendar-date-content ${
                         moment().format('h A') === time && moment().format('MM/DD/YYYY') === day ? 'current-data' : null
                       }`}
+                      title={day}
                     >
                       {moment().format('h A') === time && moment().format('MM/DD/YYYY') === day ? (
                         <span className="currentTime secondary" />
