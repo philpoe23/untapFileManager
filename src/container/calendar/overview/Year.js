@@ -73,7 +73,7 @@ const YearCalendar = () => {
   return (
     <Cards headless>
       <Modal
-        className="myModal"
+        className="addEvent-modal"
         footer={null}
         type="primary"
         title="Create Event"
@@ -126,7 +126,7 @@ const YearCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <BlockViewCalendarWrapper>
+      <BlockViewCalendarWrapper className="table-responsive">
         <Calendar
           headerRender={() => {
             return <></>;
