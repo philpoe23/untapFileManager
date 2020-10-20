@@ -232,6 +232,9 @@ const CalendarWrapper = Styled.div`
                 display: flex;
                 align-items: center;
                 ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 30px;
+                @media only screen and (max-width: 479px){
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 0px;
+                }
                 .btn-navigate{
                     width: 34px;
                     height: 34px;
@@ -709,8 +712,7 @@ const BlockViewCalendarWrapper = Styled.div`
                 color: ${({ theme }) => theme['extra-light-color']};
             }
             .ant-picker-calendar-date-value{
-                margin-bottom: 10px;
-                margin-top: 6px;
+                margin: 6px 4px 10px 0
             }
         }
         table{
@@ -765,8 +767,17 @@ const AddEventWrap = Styled.div`
     .ant-row{
         flex-flow: row !important;
         align-items: center;
+        @media only screen and (max-width: 575px){
+            flex-flow: column !important;
+            align-items: flex-start;
+        }
         &.event-desc{
             align-items: flex-start;
+        }
+        .ant-form-item-control{
+            @media only screen and (max-width: 575px){
+                width: 100%;
+            }
         }
     }
     
@@ -782,11 +793,17 @@ const AddEventWrap = Styled.div`
         .ant-picker-input{
             padding: 0 30px;
             position: relative;
+            @media only screen and (max-width: 575px){
+                padding: 0 16px;
+            }
             .ant-picker-suffix{
                 position: absolute;
                 ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 14px;
                 top: 50%;
                 transform: translateY(-50%);
+                @media only screen and (max-width: 575px){
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 6px;
+                }
                 svg{
                     color: ${({ theme }) => theme['light-color']};
                 }

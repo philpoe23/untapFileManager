@@ -126,7 +126,7 @@ const YearCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <BlockViewCalendarWrapper>
+      <BlockViewCalendarWrapper className="table-responsive">
         <Calendar
           headerRender={() => {
             return <></>;
