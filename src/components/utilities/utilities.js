@@ -80,11 +80,16 @@ const customTooltips = function(tooltip) {
 
   const positionY = this._chart.canvas.offsetTop;
   const positionX = this._chart.canvas.offsetLeft;
+  const toolTip = document.querySelector('.chartjs-tooltip');
+  const toolTipHeight = toolTip.clientHeight;
 
   // Display, position, and set styles for font
+
   tooltipEl.style.opacity = 1;
   tooltipEl.style.left = `${positionX + tooltip.caretX}px`;
-  tooltipEl.style.top = `${positionY + tooltip.caretY}px`;
+  tooltipEl.style.top = `${positionY +
+    tooltip.caretY -
+    (tooltip.caretY > 10 ? (toolTipHeight > 100 ? toolTipHeight + 5 : toolTipHeight + 15) : 70)}px`;
   tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
   tooltipEl.style.fontSize = `${tooltip.bodyFontSize}px`;
   tooltipEl.style.fontStyle = tooltip._bodyFontStyle;

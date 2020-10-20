@@ -374,15 +374,15 @@ const WeekCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <table className="table-event" width="100%">
+      <table className="table-event event-week" width="100%">
         <thead>
           <tr>
             <th>&nbsp;</th>
             {daysOfWeek().map(day => {
               return (
                 <th key={day}>
-                  <p>{moment(day).format('dddd')}</p>
-                  <p className={moment().format('MM/DD/YYYY') === day ? 'primary' : 'deactivate'}>
+                  <p className="week-dayName">{moment(day).format('dddd')}</p>
+                  <p className={moment().format('MM/DD/YYYY') === day ? 'week-date primary' : 'week-date deactivate'}>
                     {moment(day).format('DD MMM')}
                   </p>
                 </th>
@@ -400,7 +400,9 @@ const WeekCalendar = () => {
                     <td
                       key={day}
                       className={`currentTime ${
-                        moment().format('h A') === time && moment().format('MM/DD/YYYY') === day ? 'secondary' : null
+                        moment().format('h A') === time && moment().format('MM/DD/YYYY') === day
+                          ? 'currsecondary'
+                          : null
                       }`}
                     >
                       {events.map(
@@ -414,9 +416,8 @@ const WeekCalendar = () => {
                               content={<ProjectUpdate onEventDelete={onEventDelete} {...event} />}
                               action={['click']}
                             >
-                              <Link to="#" className={event.label}>
-                                {event.title}
-                                <br />
+                              <Link to="#" className={`${event.label} day-event-item`}>
+                                <span className="event-title">{event.title}</span>
                                 <span>{`${event.time[0]} - ${event.time[1]}`}</span>
                               </Link>
                             </Dropdown>
