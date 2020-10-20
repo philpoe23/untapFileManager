@@ -192,7 +192,7 @@ const MonthCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <BlockViewCalendarWrapper>
+      <BlockViewCalendarWrapper className="table-responsive">
         <Calendar
           headerRender={() => {
             return <></>;

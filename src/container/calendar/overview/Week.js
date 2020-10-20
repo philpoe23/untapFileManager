@@ -381,7 +381,7 @@ const WeekCalendar = () => {
           </NavLink>
         </div>
       </div>
-      <table className="table-event event-week" width="100%">
+      <table className="table-event event-week table-responsive" width="100%">
         <thead>
           <tr>
             <th>&nbsp;</th>

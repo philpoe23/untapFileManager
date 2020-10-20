@@ -147,14 +147,14 @@ const ScheduleCalendar = () => {
                       .filter(item => item.date[0] === date)
                       .map(item => (
                         <Row>
-                          <Col md={6}>
+                          <Col xxl={6} xl={8} md={6} sm={10} xs={24}>
                             <span className={`bullet ${item.label}`} />
                             <span className="schedule-time">
                               {moment(item.time[0], 'h:mm a').format('h a')} -
                               {moment(item.time[0], 'h:mm a').format('h:mm a')}
                             </span>
                           </Col>
-                          <Col md={18}>
+                          <Col xxl={18} xl={16} md={18} sm={14} xs={24}>
                             <span className="event-title">{item.title}</span>
                           </Col>
                         </Row>
