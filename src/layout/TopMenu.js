@@ -71,6 +71,11 @@ const TopMenu = () => {
             <Link className="parent">Apps</Link>
             <ul className="subMenu">
               <li>
+                <NavLink onClick={addParentActive} to={`${path}/app/calendar/year`}>
+                  Calendar
+                </NavLink>
+              </li>
+              <li>
                 <NavLink onClick={addParentActive} to={`${path}/main/chat/private/rofiq@gmail.com`}>
                   <FeatherIcon icon="message-square" />
                   Chat
