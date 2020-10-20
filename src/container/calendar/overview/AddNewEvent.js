@@ -52,7 +52,7 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
       <AddEventWrap>
         <Form style={{ width: '100%' }} form={form} name="addNewEvent" onFinish={handleSubmit}>
           <Form.Item {...formItemLayout} label="Title" name="title">
-            <Input placeholder="Write Your Event Title" />
+            <Input placeholder="Weekly report meeting" />
           </Form.Item>
 
           <Form.Item {...formItemLayout} initialValue="event" name="type" label="Event Type">
@@ -85,11 +85,11 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
             </div>
           </Form.Item>
 
-          <Form.Item name="description" label="Description">
+          <Form.Item {...formItemLayout} className="event-desc" name="description" label="Description">
             <Input.TextArea placeholder="Write Your Description" />
           </Form.Item>
 
-          <Form.Item name="label" initialValue="primary" label="Label">
+          <Form.Item {...formItemLayout} name="label" initialValue="primary" label="Label">
             <Select style={{ width: '100%' }}>
               <Option value="primary">
                 <span className="bullet primary" />
@@ -115,16 +115,16 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
           </Form.Item>
 
           <Form.Item>
-            <div className="add-user-bottom text-right">
+            <div className="add-event-footer text-right">
               <Button
-                className="ant-btn ant-btn-light"
+                className="ant-btn ant-btn-white"
                 onClick={() => {
                   return form.resetFields();
                 }}
               >
                 Reset
               </Button>
-              <Button htmlType="submit" type="primary">
+              <Button htmlType="submit" className="btn-save" type="primary">
                 Save
               </Button>
             </div>

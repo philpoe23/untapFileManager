@@ -73,7 +73,7 @@ const YearCalendar = () => {
   return (
     <Cards headless>
       <Modal
-        className="myModal"
+        className="addEvent-modal"
         footer={null}
         type="primary"
         title="Create Event"

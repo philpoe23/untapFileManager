@@ -28,7 +28,7 @@ const ScheduleCalendar = () => {
 
   useLayoutEffect(() => {
     if (dataList.current.querySelector('tr') === null) {
-      dataList.current.querySelector('.emptyData').style.display = 'block';
+      dataList.current.querySelector('.emptyData').style.display = 'flex';
     } else {
       dataList.current.querySelector('.emptyData').style.display = 'none';
     }
@@ -68,7 +68,14 @@ const ScheduleCalendar = () => {
 
   return (
     <Cards headless>
-      <Modal footer={null} type="primary" title="Create Event" visible={isVisible} onCancel={handleCancel}>
+      <Modal
+        className="addEvent-modal"
+        footer={null}
+        type="primary"
+        title="Create Event"
+        visible={isVisible}
+        onCancel={handleCancel}
+      >
         <AddNewEvent onHandleAddEvent={addNew} defaultValue={defaultValue} />
       </Modal>
       <div className="calendar-header">
@@ -115,7 +122,7 @@ const ScheduleCalendar = () => {
       </div>
       <table className="table-event schedule-event" width="100%">
         <tbody ref={dataList}>
-          <div className="emptyData">Schedule Not Available!</div>
+          <div className="emptyData">There is No Event Available</div>
           {events.map(event => {
             uniqueDate.push(event.date[0]);
             return false;
@@ -131,10 +138,11 @@ const ScheduleCalendar = () => {
                   .add(currentMonth + 1, 'month')
                   .format('MM') && (
                 <tr>
-                  <td style={{ width: '120px' }}>
-                    <span className="schedule-date">{moment(date).format('DD MMM ddd')}</span>
+                  <td className="schedule-time">
+                    <span className="schedule-date">{moment(date).format('DD MMM')}</span>
+                    <span className="schedule-date-name">{moment(date).format('ddd')}</span>
                   </td>
-                  <td>
+                  <td className="schedule-time-data">
                     {events
                       .filter(item => item.date[0] === date)
                       .map(item => (

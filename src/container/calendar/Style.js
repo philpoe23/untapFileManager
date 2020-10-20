@@ -258,6 +258,9 @@ const CalendarWrapper = Styled.div`
                     margin-right: 6px;
                     color: ${({ theme }) => theme['primary-color']};
                 }
+                &.active{
+                    color: ${({ theme }) => theme['primary-color']};
+                }
             }
         }
     }
@@ -375,6 +378,13 @@ const CalendarWrapper = Styled.div`
                     }
                 }
             }
+            .emptyData{
+                min-height: 110px;
+                font-size: 18px;
+                align-items: center;
+                justify-content: center;
+                color: ${({ theme }) => theme['light-color']};
+            }
         }
     }
 
@@ -429,6 +439,10 @@ const CalendarWrapper = Styled.div`
                 &:first-child{
                     border-right: 0 none;
                 }
+                &.schedule-time{
+                    min-width: 100px;
+                    width: 130px;
+                }
                 .ant-row{
                     &:not(:last-child){
                         margin-bottom: 10px;
@@ -437,6 +451,9 @@ const CalendarWrapper = Styled.div`
                 .schedule-date{
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
+                }
+                .schedule-date-name{
+                    margin-left: 10px;
                 }
                 .event-title{
                     font-weight: 500;
@@ -483,12 +500,15 @@ const UpdatePopup = Styled.div`
             
             .headerUpdate{
                 border-radius: 8px 8px 0 0;
-                padding: 8px 10px;
+                padding: 13px 20px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 h4{
+                    font-size: 16px;
+                    font-weight: 500;
                     color: #fff;
+                    margin-bottom: 0;
                 }
                 .action{
                     display: flex;
@@ -497,8 +517,19 @@ const UpdatePopup = Styled.div`
                     justify-content: flex-end;
                     color: #fff;
                     a{
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        background-color: transparent;
                         padding: 0;
                         color: #fff;
+                        transition: .3s;
+                        &:hover{
+                            background-color: #F4F5F715;
+                        }
                         svg{
                             margin: 0;
                         }
@@ -506,7 +537,33 @@ const UpdatePopup = Styled.div`
                 }
             }
             .bodyUpdate{
-                padding: 8px;
+                padding: 20px;
+                .event-info{
+                    display: flex;
+                    align-items: flex-start;
+                    color: ${({ theme }) => theme['gray-color']};
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                    strong{
+                        margin-left: 6px;
+                        font-weight: 500;
+                        color: ${({ theme }) => theme['dark-color']};
+                    }
+                    svg,
+                    i{
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                    svg,
+                    i,
+                    img{
+                        margin: 4px 12px 0 0;
+                    }
+                    label{
+                        font-size: 13px;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                }
             }
         }
     }
@@ -545,7 +602,7 @@ const BlockViewCalendarWrapper = Styled.div`
                 }
             }
             &.ant-picker-cell-selected{
-                .ant-picker-calendar-date-today{
+                .ant-picker-calendar-date{
                     background-color: transparent;
                 }
             }
@@ -581,6 +638,9 @@ const BlockViewCalendarWrapper = Styled.div`
                 td{
                     border-right: 1px solid ${({ theme }) => theme['border-color-light']};
                     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+                    &:last-child{
+                        border-right: 0 none;
+                    }
                 }
             }
         }
@@ -589,12 +649,31 @@ const BlockViewCalendarWrapper = Styled.div`
 
 const AddEventWrap = Styled.div`
     label{
+        font-weight: 400 !important;
+        color: ${({ theme }) => theme['light-color']} !important;
         margin-bottom: 0 !important;
+    }
+    .ant-form-item-control-input{
+        min-height: 46px;
+        textarea{
+            min-height: 104px;
+            resize: none;
+        }
+        .ant-input{
+            border: 1px solid ${({ theme }) => theme['border-color-light']};
+            &::placeholder{
+                color: ${({ theme }) => theme['gray-color']};
+            }
+        }
     }
     .ant-row{
         flex-flow: row !important;
         align-items: center;
+        &.event-desc{
+            align-items: flex-start;
+        }
     }
+    
     .date-time-picker {
         .ant-picker{
             min-width: auto;
@@ -602,6 +681,28 @@ const AddEventWrap = Styled.div`
             &:not(:last-child){
                 margin-right: 10px;
             }
+        }
+        .ant-picker-input{
+            padding: 0 30px;
+            position: relative;
+            .ant-picker-suffix{
+                position: absolute;
+                left: 14px;
+                top: 50%;
+                transform: translateY(-50%);
+                svg{
+                    color: ${({ theme }) => theme['light-color']};
+                }
+            }
+        }
+    }
+    .add-event-footer{
+        .ant-btn-white{
+            color: ${({ theme }) => theme['light-color']} !important;
+        }
+        .btn-save{
+            height: 38px;
+            padding: 0 25px;
         }
     }
 `;
