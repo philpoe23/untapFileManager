@@ -748,11 +748,9 @@ const ChartjsDonutChart2 = props => {
               <div key={key + 1}>
                 {data.map(value => {
                   return (
-                    <>
-                      <p>
-                        <strong>${value}</strong>
-                      </p>
-                    </>
+                    <p key={value}>
+                      <strong>${value}</strong>
+                    </p>
                   );
                 })}
               </div>
