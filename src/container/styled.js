@@ -764,6 +764,23 @@ const MessageStyleWrapper = Styled.div`
 `;
 
 const BasicFormWrapper = Styled.div`
+    .ant-form {
+        .form-item{
+            margin-bottom: 30px;
+            label{
+                font-weight: 500;
+                display: block;
+                margin-bottom: 15px;
+            }
+            .ant-cascader-picker{
+                width: 100%;
+                min-height: 48px;
+                .ant-cascader-input{
+                    min-height: 48px;
+                }
+            }
+        }
+    }
     .ant-form-item{
         flex-flow: column;
         &:not(:last-child){

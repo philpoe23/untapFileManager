@@ -74,8 +74,10 @@ const Forms = () => {
                   <Form.Item label="Textarea" name="textarea">
                     <TextArea />
                   </Form.Item>
-                  <p>Cascader</p>
-                  <Cascader onChange={onChangeCascader} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+                  <div className="form-item">
+                    <label>Casecader</label>
+                    <Cascader onChange={onChangeCascader} defaultValue={['zhejiang', 'hangzhou', 'xihu']} />
+                  </div>
 
                   <Form.Item label="Select" name="Select">
                     <Select
