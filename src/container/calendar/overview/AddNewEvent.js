@@ -62,28 +62,32 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
               <Radio value="task">Task</Radio>
             </Radio.Group>
           </Form.Item>
-          <Form.Item {...formItemLayout} initialValue="event" name="type" label="Start">
+          <div className="ant-row ant-form-item">
+            <span>Start:</span>
             <div className="date-time-picker d-flex">
               <DatePicker
                 onChange={onChangeStart}
                 value={moment(state.startDate, dateFormat)}
                 defaultValue={moment(state.startDate, dateFormat)}
               />
-
-              <DatePicker picker="time" />
+              <Form.Item name="startTime" label="">
+                <DatePicker picker="time" />
+              </Form.Item>
             </div>
-          </Form.Item>
-          <Form.Item {...formItemLayout} initialValue="event" name="type" label="End">
+          </div>
+          <div className="ant-row ant-form-item">
+            <span>End:</span>
             <div className="date-time-picker d-flex">
               <DatePicker
                 onChange={onChangeEnd}
                 value={moment(state.endDate, dateFormat)}
                 defaultValue={moment(state.endDate, dateFormat)}
               />
-
-              <DatePicker picker="time" />
+              <Form.Item name="endTime" label="">
+                <DatePicker picker="time" />
+              </Form.Item>
             </div>
-          </Form.Item>
+          </div>
 
           <Form.Item {...formItemLayout} className="event-desc" name="description" label="Description">
             <Input.TextArea placeholder="Write Your Description" />

@@ -127,7 +127,7 @@ const ScheduleCalendar = () => {
             uniqueDate.push(event.date[0]);
             return false;
           })}
-          {[...new Set(uniqueDate)].map(date => {
+          {[...new Set(uniqueDate)].map((date, index) => {
             return (
               moment(date).format('MM') >=
                 moment()
@@ -137,7 +137,7 @@ const ScheduleCalendar = () => {
                 moment()
                   .add(currentMonth + 1, 'month')
                   .format('MM') && (
-                <tr>
+                <tr key={index + 1}>
                   <td className="schedule-time">
                     <span className="schedule-date">{moment(date).format('DD MMM')}</span>
                     <span className="schedule-date-name">{moment(date).format('ddd')}</span>
@@ -145,8 +145,8 @@ const ScheduleCalendar = () => {
                   <td className="schedule-time-data">
                     {events
                       .filter(item => item.date[0] === date)
-                      .map(item => (
-                        <Row>
+                      .map((item, ind) => (
+                        <Row key={ind + 1}>
                           <Col xxl={6} xl={8} md={6} sm={10} xs={24}>
                             <span className={`bullet ${item.label}`} />
                             <span className="schedule-time">
