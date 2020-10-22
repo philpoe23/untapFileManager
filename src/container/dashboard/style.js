@@ -1365,7 +1365,7 @@ const ChartContainer = Styled.div`
         transform: translate(-50%, 5%);
         z-index: 222;
         top: 0;
-        left: 0
+        left: 0;
         @media only screen and (max-width: 1199px){
             padding: 6px 8px !important;
         }
