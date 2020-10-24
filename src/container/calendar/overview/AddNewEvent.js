@@ -13,6 +13,8 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
   const [state, setState] = useState({
     startDate: defaultValue,
     endDate: defaultValue,
+    startTime: '',
+    endTime: '',
   });
 
   const formItemLayout = {
@@ -35,7 +37,7 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
       title: values.title,
       description: values.description,
       date: [moment(state.startDate).format('MM/DD/YYYY'), moment(state.endDate).format('MM/DD/YYYY')],
-      time: [values.startTime.format('HH:mm a'), values.endTime.format('HH:mm a')],
+      time: [state.startTime.format('HH:mm a'), state.endTime.format('HH:mm a')],
       type: values.type,
       label: values.label,
     });
@@ -47,6 +49,14 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
   const onChangeEnd = (date, dateString) => {
     setState({ ...state, endDate: dateString });
   };
+
+  const onChangeStartTime = time => {
+    setState({ ...state, startTime: time });
+  };
+  const onChangeEndTime = time => {
+    setState({ ...state, endTime: time });
+  };
+
   return (
     <BasicFormWrapper>
       <AddEventWrap>
@@ -74,7 +84,7 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
                     value={moment(state.startDate, dateFormat)}
                     defaultValue={moment(state.startDate, dateFormat)}
                   />
-                  <DatePicker picker="time" />
+                  <DatePicker onChange={onChangeStartTime} picker="time" />
                 </div>
               </Col>
             </Row>
@@ -91,7 +101,7 @@ const AddNewEvent = ({ defaultValue, onHandleAddEvent }) => {
                     value={moment(state.endDate, dateFormat)}
                     defaultValue={moment(state.endDate, dateFormat)}
                   />
-                  <DatePicker picker="time" />
+                  <DatePicker onChange={onChangeEndTime} picker="time" />
                 </div>
               </Col>
             </Row>
