@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Table } from 'antd';
-import { VectorMap } from 'react-jvectormap';
+import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
+import ReactTooltip from 'react-tooltip';
 import { LocationMapWrapper } from '../../style';
 import { locationGetData, locationFilterData } from '../../../../redux/chartContent/actionCreator';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
+
+const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
 const SalesByLocation = () => {
   const dispatch = useDispatch();
@@ -61,6 +64,45 @@ const SalesByLocation = () => {
       key: 'revenue',
     },
   ];
+
+  const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+  const [content, setContent] = useState('');
+  const rounded = num => {
+    if (num > 1000000000) {
+      return `${Math.round(num / 100000000) / 10}Bn`;
+    }
+    if (num > 1000000) {
+      return `${Math.round(num / 100000) / 10}M`;
+    }
+    return `${Math.round(num / 100) / 10}K`;
+  };
+  function handleZoomIn() {
+    if (position.zoom >= 4) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+  }
+
+  function handleZoomOut() {
+    if (position.zoom <= 1) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+  }
+
+  function handleMoveEnd(position) {
+    setPosition(position);
+  }
+
+  const markers = [
+    {
+      markerOffset: -30,
+      name: 'Buenos Aires',
+      coordinates: [-58.3816, -34.6037],
+    },
+    { markerOffset: 15, name: 'La Paz', coordinates: [-68.1193, -16.4897] },
+    { markerOffset: 15, name: 'Quito', coordinates: [-78.4678, -0.1807] },
+    { markerOffset: -30, name: 'Georgetown', coordinates: [-58.1551, 6.8013] },
+    { markerOffset: 15, name: 'Caracas', coordinates: [-66.9036, 10.4806] },
+    { markerOffset: 15, name: 'Lima', coordinates: [-77.0428, -12.0464] },
+  ];
+
   return (
     <LocationMapWrapper>
       <div className="full-width-table">
@@ -95,68 +137,98 @@ const SalesByLocation = () => {
           size="large"
         >
           <div className="location-map d-flex justify-content-center">
+            <p>
+              <ReactTooltip>{content}</ReactTooltip>
+            </p>
+
             <div>
-              <VectorMap
-                map="world_mill"
-                backgroundColor="transparent"
-                regionStyle={{
-                  initial: {
-                    fill: '#DBE1E8',
-                    'fill-opacity': 1,
-                    stroke: 'none',
-                    'stroke-width': 0,
-                    'stroke-opacity': 1,
-                  },
-                  hover: {
-                    'fill-opacity': 1,
-                    cursor: 'pointer',
-                    fill: '#5F63F2',
-                  },
-                  selected: {
-                    fill: 'yellow',
-                  },
-                  selectedHover: {},
+              <ComposableMap
+                data-tip=""
+                data-html
+                projectionConfig={{
+                  scale: 200,
                 }}
-                markerStyle={{
-                  initial: {
-                    'stroke-width': 6,
-                    fill: '#fff',
-                    stroke: '#5F63F2',
-                    r: 6,
-                  },
-                  hover: {
-                    fill: '#5F63F2',
-                    stroke: '#fff',
-                  },
-                }}
-                markers={[
-                  {
-                    latLng: [38, -97],
-                    name: 'United States',
-                  },
-                  {
-                    latLng: [20, 77],
-                    name: 'India',
-                  },
-                  {
-                    latLng: [60, -95],
-                    name: 'Canada',
-                  },
-                  {
-                    latLng: [51, 9],
-                    name: 'Germany',
-                  },
-                  {
-                    latLng: [54, -2],
-                    name: 'United Kingdom',
-                  },
-                ]}
-                containerStyle={{
-                  width: '100%',
-                  height: '100%',
-                }}
-                containerClassName="map"
-              />
+                height={280}
+              >
+                <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
+                  <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                      geographies.map(geo => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          onMouseEnter={() => {
+                            const { NAME, POP_EST } = geo.properties;
+                            setContent(`${NAME} — ${rounded(POP_EST)}`);
+                          }}
+                          onMouseLeave={() => {
+                            setContent('');
+                          }}
+                          fill="#DDD"
+                          stroke="#FFF"
+                          style={{
+                            default: {
+                              fill: '#D6D6DA',
+                              outline: 'none',
+                            },
+                            hover: {
+                              fill: '#F53',
+                              outline: 'none',
+                            },
+                            pressed: {
+                              fill: '#E42',
+                              outline: 'none',
+                            },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                  {markers.map(({ name, coordinates }) => (
+                    <Marker key={name} coordinates={coordinates}>
+                      <g
+                        fill="none"
+                        stroke="#FF5533"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        transform="translate(-12, -24)"
+                      >
+                        <circle cx="12" cy="10" r="3" />
+                        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                      </g>
+                    </Marker>
+                  ))}
+                </ZoomableGroup>
+              </ComposableMap>
+
+              <div className="controls">
+                <button type="button" onClick={handleZoomIn}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
+                <button type="button" onClick={handleZoomOut}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
