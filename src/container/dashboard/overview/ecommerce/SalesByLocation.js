@@ -12,9 +12,10 @@ const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-map
 
 const SalesByLocation = () => {
   const dispatch = useDispatch();
-  const { locationState } = useSelector(state => {
+  const { locationState, topMenu } = useSelector(state => {
     return {
       locationState: state.chartContent.locationData,
+      topMenu: state.ChangeLayoutMode.topMenu,
     };
   });
   const [state, setState] = useState({
@@ -137,13 +138,12 @@ const SalesByLocation = () => {
           size="large"
         >
           <div className="location-map d-flex justify-content-center">
-            
             <div>
               <ReactTooltip>{content}</ReactTooltip>
               <ComposableMap
                 data-tip=""
-                projectionConfig={{scale: window.innerWidth <= 479 ? 140 : 115}}
-                viewBox={`40, ${window.innerWidth <= 479 ? 130 : 140}, 800, 290`}
+                projectionConfig={!topMenu ? { scale: window.innerWidth <= 479 ? 140 : 115 } : { scale: 100 }}
+                viewBox={`40, ${!topMenu ? (window.innerWidth <= 479 ? 130 : 140) : 160}, 800, 290`}
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
@@ -182,8 +182,8 @@ const SalesByLocation = () => {
                   {markers.map(({ name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
                       <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#5f63f2" strokeWidth="6">
-                        <circle cx="8" cy="8" r="8" stroke="none"/>
-                        <circle cx="8" cy="8" r="6" fill="none"/>
+                        <circle cx="8" cy="8" r="8" stroke="none" />
+                        <circle cx="8" cy="8" r="6" fill="none" />
                       </g>
                     </Marker>
                   ))}

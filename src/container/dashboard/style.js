@@ -1157,6 +1157,9 @@ const LocationMapWrapper = Styled.div`
         padding-top: 12px;
         min-height: 180px;
         border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+        background: #ffffff;
+        z-index: 999;
+        position: relative;
         table{
             thead{
                 th{

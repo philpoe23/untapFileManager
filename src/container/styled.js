@@ -386,7 +386,7 @@ const Main = Styled.div`
         min-height: 505px;
         .world-map{
             width: 100%;
-            height: 600px;
+            height: auto;
             @media only screen and (max-width: 1599px){
                 height: 480px;
             }
