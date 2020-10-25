@@ -171,8 +171,7 @@ const SessionsbyRegion = () => {
                 projectionConfig={{
                   scale: 150,
                 }}
-                height={410}
-                center={[0,0]}
+                viewBox="120, 50, 800, 410"
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
@@ -188,19 +187,20 @@ const SessionsbyRegion = () => {
                           onMouseLeave={() => {
                             setContent('');
                           }}
-                          fill="#DDD"
+                          fill="#DBE1E8"
                           stroke="#FFF"
+                          strokeWidth={0.5}
                           style={{
                             default: {
-                              fill: '#D6D6DA',
+                              fill: '#DBE1E8',
                               outline: 'none',
                             },
                             hover: {
-                              fill: '#F53',
+                              fill: '#5F63F2',
                               outline: 'none',
                             },
                             pressed: {
-                              fill: '#E42',
+                              fill: '#5F63F2',
                               outline: 'none',
                             },
                           }}

@@ -794,7 +794,7 @@ const RegionList = Styled.div`
 const RegionMap = Styled.div`
     text-align: center;
     height: 100%;
-    margin-top: 25px;
+    /* margin-top: -10px; */
     ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 20px;
     >div{
         width: 100%;
