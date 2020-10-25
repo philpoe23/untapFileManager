@@ -137,8 +137,9 @@ const SalesByLocation = () => {
           size="large"
         >
           <div className="location-map d-flex justify-content-center">
-            <ReactTooltip>{content}</ReactTooltip>
+            
             <div>
+              <ReactTooltip>{content}</ReactTooltip>
               <ComposableMap
                 data-tip=""
                 projectionConfig={{scale: window.innerWidth <= 479 ? 140 : 115}}
@@ -180,7 +181,7 @@ const SalesByLocation = () => {
                   </Geographies>
                   {markers.map(({ name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
-                      <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#5f63f2" stroke-width="6">
+                      <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#5f63f2" strokeWidth="6">
                         <circle cx="8" cy="8" r="8" stroke="none"/>
                         <circle cx="8" cy="8" r="6" fill="none"/>
                       </g>
