@@ -450,14 +450,16 @@ const CalendarWrapper = Styled.div`
                     }
                 }
             }
-            .emptyData{
-                min-height: 110px;
-                font-size: 18px;
-                align-items: center;
-                justify-content: center;
-                color: ${({ theme }) => theme['light-color']};
-            }
+            
         }
+    }
+
+    .emptyData{
+        min-height: 110px;
+        font-size: 18px;
+        align-items: center;
+        justify-content: center;
+        color: ${({ theme }) => theme['light-color']};
     }
 
     .event-week{

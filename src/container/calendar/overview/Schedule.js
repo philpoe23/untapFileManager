@@ -28,9 +28,9 @@ const ScheduleCalendar = () => {
 
   useLayoutEffect(() => {
     if (dataList.current.querySelector('tr') === null) {
-      dataList.current.querySelector('.emptyData').style.display = 'flex';
+      document.querySelector('.emptyData').style.display = 'flex';
     } else {
-      dataList.current.querySelector('.emptyData').style.display = 'none';
+      document.querySelector('.emptyData').style.display = 'none';
     }
   });
 
@@ -120,9 +120,9 @@ const ScheduleCalendar = () => {
           </NavLink>
         </div>
       </div>
+      <div className="emptyData">There is No Event Available</div>
       <table className="table-event schedule-event" width="100%">
         <tbody ref={dataList}>
-          <div className="emptyData">There is No Event Available</div>
           {events.map(event => {
             uniqueDate.push(event.date[0]);
             return false;
