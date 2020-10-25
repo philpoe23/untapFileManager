@@ -144,11 +144,8 @@ const SalesByLocation = () => {
             <div>
               <ComposableMap
                 data-tip=""
-                data-html
-                projectionConfig={{
-                  scale: 200,
-                }}
-                height={280}
+                projectionConfig={{scale: 125}}
+                height={290}
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
@@ -168,11 +165,11 @@ const SalesByLocation = () => {
                           stroke="#FFF"
                           style={{
                             default: {
-                              fill: '#D6D6DA',
+                              fill: '#E3E6EF',
                               outline: 'none',
                             },
                             hover: {
-                              fill: '#F53',
+                              fill: 'rgb(95, 99, 242)',
                               outline: 'none',
                             },
                             pressed: {
@@ -186,16 +183,9 @@ const SalesByLocation = () => {
                   </Geographies>
                   {markers.map(({ name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
-                      <g
-                        fill="none"
-                        stroke="#FF5533"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        transform="translate(-12, -24)"
-                      >
-                        <circle cx="12" cy="10" r="3" />
-                        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                      <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#5f63f2" stroke-width="6">
+                        <circle cx="8" cy="8" r="8" stroke="none"/>
+                        <circle cx="8" cy="8" r="6" fill="none"/>
                       </g>
                     </Marker>
                   ))}

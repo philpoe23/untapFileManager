@@ -164,16 +164,15 @@ const SessionsbyRegion = () => {
         <Col xxl={14} md={13} xs={24}>
           <RegionMap>
             <div>
-              <p>
-                <ReactTooltip>{content}</ReactTooltip>
-              </p>
+              <ReactTooltip>{content}</ReactTooltip>
               <ComposableMap
                 data-tip=""
                 data-html
                 projectionConfig={{
-                  scale: 100,
+                  scale: 150,
                 }}
-                height={200}
+                height={410}
+                center={[0,0]}
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>

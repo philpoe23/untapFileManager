@@ -799,15 +799,53 @@ const RegionMap = Styled.div`
     >div{
         width: 100%;
         height: 250px;
+        overflow: hidden;
         @media only screen and (max-width: 479px){
             height: 200px;
         }
     }
     svg{
-        height: 230px;
-        margin: 0 auto;
+        width: 450px;
         @media only screen and (max-width: 479px){
             height: 180px;
+        }
+        // .rsm-zoomable-group{
+        //     transform: translate(-80px , 20px);
+        // }
+    }
+    .controls{
+        position: absolute;
+        right: 25px;
+        bottom: 20px;
+        button{
+            display: block;
+            width: 27px;
+            height: 27px;
+            background: none;
+            color: #5a5f7d;
+            border: 1px solid #f1f2f6;
+            padding: 0;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            cursor: pointer;
+            &:first-child{
+                border-radius: 6px 6px 0 0;
+            }
+            &:last-child{
+                border-radius: 0 0 6px 6px;
+            }
+            &:focus{
+                outline: none;
+            }
+            svg{
+                width: 10px;
+            }
+        }
+        button + button{
+            border-top: 0 none;
         }
     }
 `;
@@ -1072,19 +1110,49 @@ const IncomeExpenseWrapper = Styled.div`
 const LocationMapWrapper = Styled.div`
     .location-map{
         padding: 20px 0;
+        position: relative;
         >div{
             width: 100%;
             height: 160px;
         }
-        svg{
-            @media only screen and (max-width: 991px){
-               height: 100%;
-               width: auto;
+        // svg{
+        //     @media only screen and (max-width: 991px){
+        //        height: 100%;
+        //        width: auto;
+        //     }
+        // }
+        // .jvectormap-zoomin,
+        // .jvectormap-zoomout{
+        //     ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 25px;
+        // }
+        .controls{
+            position: absolute;
+            right: 25px;
+            bottom: 20px;
+            button{
+                display: block;
+                width: 27px;
+                height: 27px;
+                background: none;
+                color: #5a5f7d;
+                border: 1px solid #f1f2f6;
+                padding: 0;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
+                svg{
+                    width: 10px;
+                }
             }
-        }
-        .jvectormap-zoomin,
-        .jvectormap-zoomout{
-            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 25px;
+            button + button{
+                border-top: 0 none;
+            }
         }
     }
     .location-table{
