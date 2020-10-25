@@ -169,9 +169,9 @@ const SessionsbyRegion = () => {
                 data-tip=""
                 data-html
                 projectionConfig={{
-                  scale: 150,
+                  scale: window.innerWidth <= 440 ? 160 : 150,
                 }}
-                viewBox="120, 50, 800, 410"
+                viewBox="110, 50, 800, 410"
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>

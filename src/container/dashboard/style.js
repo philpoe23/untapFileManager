@@ -794,8 +794,12 @@ const RegionList = Styled.div`
 const RegionMap = Styled.div`
     text-align: center;
     height: 100%;
-    /* margin-top: -10px; */
     ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 20px;
+    .__react_component_tooltip {
+        background: ${({ theme }) => theme['dark-color']};
+        border-radius: 3px;
+        box-shadow: 0 10px 15px ${({ theme }) => theme['light-color']}15;
+    }
     >div{
         width: 100%;
         height: 250px;
@@ -809,14 +813,17 @@ const RegionMap = Styled.div`
         @media only screen and (max-width: 479px){
             height: 180px;
         }
-        // .rsm-zoomable-group{
-        //     transform: translate(-80px , 20px);
-        // }
+        @media only screen and (max-width: 440px){
+            width: 310px;
+        }
+        @media only screen and (max-width: 320px){
+            width: 280px;
+        }
     }
     .controls{
         position: absolute;
-        right: 25px;
-        bottom: 20px;
+        right: 0;
+        bottom: 10px;
         button{
             display: block;
             width: 27px;
@@ -1109,22 +1116,12 @@ const IncomeExpenseWrapper = Styled.div`
 
 const LocationMapWrapper = Styled.div`
     .location-map{
-        padding: 20px 0;
+        padding: 10px 0 30px;
         position: relative;
         >div{
             width: 100%;
             height: 160px;
         }
-        // svg{
-        //     @media only screen and (max-width: 991px){
-        //        height: 100%;
-        //        width: auto;
-        //     }
-        // }
-        // .jvectormap-zoomin,
-        // .jvectormap-zoomout{
-        //     ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 25px;
-        // }
         .controls{
             position: absolute;
             right: 25px;

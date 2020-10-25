@@ -137,15 +137,12 @@ const SalesByLocation = () => {
           size="large"
         >
           <div className="location-map d-flex justify-content-center">
-            <p>
-              <ReactTooltip>{content}</ReactTooltip>
-            </p>
-
+            <ReactTooltip>{content}</ReactTooltip>
             <div>
               <ComposableMap
                 data-tip=""
-                projectionConfig={{scale: 125}}
-                height={290}
+                projectionConfig={{scale: window.innerWidth <= 479 ? 140 : 115}}
+                viewBox={`40, ${window.innerWidth <= 479 ? 130 : 140}, 800, 290`}
               >
                 <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                   <Geographies geography={geoUrl}>
