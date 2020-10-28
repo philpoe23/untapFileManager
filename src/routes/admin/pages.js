@@ -13,6 +13,7 @@ const DataTable = lazy(() => import('../../container/pages/UserListDataTable'));
 const Team = lazy(() => import('../../container/pages/Team'));
 const ComingSoon = lazy(() => import('../../container/pages/ComingSoon'));
 const Starter = lazy(() => import('../../container/pages/Skeleton'));
+const Wizards = lazy(() => import('../../container/pages/wizards/Wizards'));
 
 const PagesRoute = () => {
   const { path } = useRouteMatch();
@@ -30,6 +31,7 @@ const PagesRoute = () => {
       <Route path={`${path}/team`} component={Team} />
       <Route path={`${path}/starter`} component={Starter} />
       <Route path={`${path}/comingSoon`} component={ComingSoon} />
+      <Route path={`${path}/wizards`} component={Wizards} />
     </Switch>
   );
 };

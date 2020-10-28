@@ -231,15 +231,15 @@ const TopMenu = () => {
                       User Table
                     </NavLink>
                   </li>
-                </ul>
-              </li>
-              <li>
-                <ul>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/gallery`}>
                       Gallery
                     </NavLink>
                   </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/pricing`}>
                       Pricing
@@ -273,6 +273,11 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/starter`}>
                       Skeleton
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/pages/wizards`}>
+                      Wizards
                     </NavLink>
                   </li>
                 </ul>

@@ -132,6 +132,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
             404
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="wizards">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards`}>
+            Wizards
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
