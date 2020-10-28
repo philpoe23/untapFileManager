@@ -49,7 +49,6 @@ const Menu = lazy(() => import('../../container/ui-elements/Menu'));
 const Upload = lazy(() => import('../../container/ui-elements/Upload'));
 const DragDrop = lazy(() => import('../../container/ui-elements/DragAndDrop'));
 const DashboardBase = lazy(() => import('../../container/dashboard/DashboardBase'));
-const Starter = lazy(() => import('../../container/ui-elements/Starter'));
 
 const ComponentRoute = () => {
   const { path } = useRouteMatch();
@@ -97,7 +96,6 @@ const ComponentRoute = () => {
       <Route path={`${path}/calendar`} component={Calendar} />
       <Route path={`${path}/form`} component={Form} />
       <Route path={`${path}/skeleton`} component={Skeleton} />
-      <Route path={`${path}/starter`} component={Starter} />
       <Route path={`${path}/input`} component={Input} />
       <Route path={`${path}/message`} component={Message} />
       <Route path={`${path}/confirm`} component={Confirme} />

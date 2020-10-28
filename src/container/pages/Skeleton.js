@@ -30,7 +30,7 @@ const Starter = () => {
         <Row gutter={25}>
           <Col sm={24} xs={24}>
             <Cards headless>
-              <h3>Starter Page</h3>
+              <h3>Skeleton Page</h3>
             </Cards>
           </Col>
         </Row>

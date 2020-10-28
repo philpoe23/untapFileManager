@@ -226,15 +226,15 @@ const TopMenu = () => {
                       Add User
                     </NavLink>
                   </li>
-                </ul>
-              </li>
-              <li>
-                <ul>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/dataTable`}>
                       User Table
                     </NavLink>
                   </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/gallery`}>
                       Gallery
@@ -243,6 +243,11 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/pricing`}>
                       Pricing
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/pages/comingSoon`}>
+                      Coming Soon
                     </NavLink>
                   </li>
                   <li>
@@ -263,6 +268,11 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/404`}>
                       404
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/pages/starter`}>
+                      Skeleton
                     </NavLink>
                   </li>
                 </ul>
@@ -492,11 +502,7 @@ const TopMenu = () => {
                       Statistics
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink onClick={addParentActive} to={`${path}/components/starter`}>
-                      Starter
-                    </NavLink>
-                  </li>
+
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/components/steps`}>
                       Steps

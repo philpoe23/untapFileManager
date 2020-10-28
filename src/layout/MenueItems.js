@@ -101,6 +101,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
             Pricing
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="comingSoon">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/comingSoon`}>
+            Coming Soon
+          </NavLink>
+        </Menu.Item>
+
         <Menu.Item key="faq">
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/faq`}>
             Faq`s
@@ -109,6 +115,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         <Menu.Item key="search">
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/search`}>
             Search Results
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="starter">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/starter`}>
+            Skeleton
           </NavLink>
         </Menu.Item>
         <Menu.Item key="maintenance">
@@ -421,11 +432,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         <Menu.Item key="statistic">
           <NavLink onClick={toggleCollapsed} to={`${path}/components/statistic`}>
             Statistic
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="starter">
-          <NavLink onClick={toggleCollapsed} to={`${path}/components/starter`}>
-            Starter
           </NavLink>
         </Menu.Item>
         <Menu.Item key="steps">
