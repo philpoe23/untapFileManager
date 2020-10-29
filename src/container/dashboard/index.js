@@ -14,7 +14,7 @@ const Dashboard = () => {
     <>
       <PageHeader
         ghost
-        title="Dashboard"
+        title="Sample Page"
         buttons={[
           <div key="6" className="page-header-actions">
             <CalendarButtonPageHeader key="1" />
@@ -31,7 +31,9 @@ const Dashboard = () => {
         <Row gutter={25}>
           <Col lg={24} xs={24}>
             <Cards headless>
-              <h2>Welcome to StrikingDash</h2>
+              <div style={{ minHeight: 'calc(100vh - 320px)' }}>
+                <h2>Welcome to StrikingDash</h2>
+              </div>
             </Cards>
           </Col>
         </Row>

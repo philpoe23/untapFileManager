@@ -4,8 +4,6 @@ import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
 
-const { SubMenu } = Menu;
-
 const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
@@ -30,25 +28,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       defaultOpenKeys={!topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []}
       overflowedIndicator={<FeatherIcon icon="more-vertical" />}
     >
-      <SubMenu key="dashboard" icon={!topMenu && <FeatherIcon icon="home" />} title="Dashboard">
-        <Menu.Item key="home">
-          <NavLink onClick={toggleCollapsed} to={`${path}`}>
-            Social Media
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
-      <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
-        <Menu.Item key="maintenance">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/maintenance`}>
-            Maintenance
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="404">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/404`}>
-            404
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
+      <Menu.Item key="home">
+        <NavLink onClick={toggleCollapsed} to={`${path}`}>
+          Dashboard
+        </NavLink>
+      </Menu.Item>
     </Menu>
   );
 };
