@@ -3,7 +3,7 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
-import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 import { Steps } from '../../../components/steps/steps';
 import Heading from '../../../components/heading/heading';
 import { Cards } from '../../../components/cards/frame/cards-frame';
@@ -188,7 +188,6 @@ const CheckOut = ({ onCurrentChange }) => {
         steps={[
           {
             title: 'Create Account',
-            icon: <FontAwesome name="check" />,
             content: (
               <BasicFormWrapper className="basic-form-inner">
                 <div className="atbd-form-checkout">
@@ -514,6 +513,10 @@ const CheckOut = ({ onCurrentChange }) => {
       />
     </CheckoutWrapper>
   );
+};
+
+CheckOut.propTypes = {
+  onCurrentChange: PropTypes.func,
 };
 
 export default CheckOut;

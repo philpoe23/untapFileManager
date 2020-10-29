@@ -1389,6 +1389,17 @@ const WizardWrapper = Styled.div`
    }
 `;
 
+const WizardTwo = Styled.div`
+    .ant-steps:not(.ant-steps-vertical) .ant-steps-item-custom .ant-steps-item-icon {
+        width: 50px;  
+        box-shadow: none;      
+    }    
+    .ant-steps-item-icon .ant-steps-icon span{
+        color: #000;
+        font-size: 20px;
+    }
+`;
+
 export {
   FigureWizards,
   NotFoundWrapper,
@@ -1401,4 +1412,5 @@ export {
   InvoiceLetterBox,
   InvoiceAction,
   WizardWrapper,
+  WizardTwo,
 };

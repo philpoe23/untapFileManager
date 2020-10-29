@@ -3,7 +3,6 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
-import FontAwesome from 'react-fontawesome';
 import { FigureWizards, WizardWrapper, ProductTable, OrderSummary } from '../Style';
 import { Steps } from '../../../../components/steps/steps';
 import Heading from '../../../../components/heading/heading';
@@ -179,7 +178,6 @@ const WizardsOne = () => {
         steps={[
           {
             title: 'Create Account',
-            icon: <FontAwesome name="check" />,
             content: (
               <BasicFormWrapper className="basic-form-inner">
                 <div className="atbd-form-checkout">
