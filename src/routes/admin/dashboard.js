@@ -3,9 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Dashboard = lazy(() => import('../../container/dashboard'));
-const Ecommerce = lazy(() => import('../../container/dashboard/Ecommerce'));
-const Business = lazy(() => import('../../container/dashboard/Business'));
-const Performance = lazy(() => import('../../container/dashboard/Performance'));
 
 const DashboardRoutes = () => {
   const { path } = useRouteMatch();
@@ -13,9 +10,6 @@ const DashboardRoutes = () => {
     <Switch>
       <Route exact path={path} component={Dashboard} />
       <Route path={`${path}/social`} component={Dashboard} />
-      <Route exact path={`${path}/eco`} component={Ecommerce} />
-      <Route exact path={`${path}/business`} component={Business} />
-      <Route exact path={`${path}/performance`} component={Performance} />
     </Switch>
   );
 };
