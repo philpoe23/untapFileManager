@@ -30,7 +30,7 @@ const SignIn = () => {
   return (
     <AuthWrapper>
       <p className="auth-notice">
-        Don&rsquo;t have an account? <NavLink to="/register">Sign up now</NavLink>
+        Don&rsquo;t have an account? <NavLink to="#">Sign up now</NavLink>
       </p>
       <div className="auth-contents">
         <Form name="login" form={form} onFinish={handleSubmit} layout="vertical">
@@ -50,7 +50,7 @@ const SignIn = () => {
           </Form.Item>
           <div className="auth-form-action">
             <Checkbox onChange={onChange}>Keep me logged in</Checkbox>
-            <NavLink className="forgot-pass-link" to="/forgotPassword">
+            <NavLink className="forgot-pass-link" to="#">
               Forgot password?
             </NavLink>
           </div>

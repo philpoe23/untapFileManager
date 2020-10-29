@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { NavLink, Link, useRouteMatch } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { TopMenuStyle } from './style';
 
 const TopMenu = () => {
@@ -39,18 +39,13 @@ const TopMenu = () => {
     <TopMenuStyle>
       <div className="strikingDash-top-menu">
         <ul>
-          <li className="has-subMenu">
-            <Link to="#" className="parent">
-              Dashboard
-            </Link>
-            <ul className="subMenu">
-              <li>
-                <NavLink to={`${path}/social`} onClick={addParentActive}>
-                  Social Media
-                </NavLink>
-              </li>
-            </ul>
-          </li>
+          <ul>
+            <li>
+              <NavLink to={`${path}/social`} onClick={addParentActive}>
+                Dashboard
+              </NavLink>
+            </li>
+          </ul>
         </ul>
       </div>
     </TopMenuStyle>
