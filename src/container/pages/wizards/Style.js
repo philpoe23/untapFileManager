@@ -1400,6 +1400,81 @@ const WizardTwo = Styled.div`
     }
 `;
 
+const WizardFour = Styled.div`
+    display: flex;
+    align-items: flex-end;
+    .ant-steps-item-container {
+        position: relative;
+        display: inline;
+    }
+    .ant-steps-item:last-child {
+        padding-left: 0px !important;
+    }
+    .ant-steps {
+        flex-direction: column;
+        .ant-steps-item-container:after {
+            display: none;
+            
+        }
+    }
+`;
+
+const WizardFive = Styled.div`
+    display: flex;
+    align-items: flex-end;
+    .ant-steps-item-container {
+        position: relative;
+        display: inline;
+    }
+    .ant-steps-item:last-child {
+        padding-left: 0px !important;
+    }
+    .ant-steps {
+        flex-direction: column;
+        .ant-steps-item-container:after {
+            display: none;
+            
+        }
+    }
+    .ant-steps:not(.ant-steps-dot):not(.ant-steps-navigation) .ant-steps-item .ant-steps-item-icon {        
+        display: none;
+    }
+    .ant-steps-item.ant-steps-item-process.ant-steps-item-active {
+        background: #ddd;
+    }
+`;
+const WizardSix = Styled.div`
+    position: relative;
+    .ant-steps-item{
+        padding: 0 !important;
+        overflow: visible;
+        flex: none;
+        position: static !important;
+    }
+    .ant-steps-item-title{
+        position: static;
+    }
+    .ant-steps-item-container{
+        position: static;
+        width: 100%;
+    }
+    .wizard-item {
+        display: none;
+        text-align: center;
+        position: absolute;
+        left: 0;
+    }
+    .ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item{
+        white-space: normal;
+    }
+    .ant-steps-item.ant-steps-item-process.ant-steps-item-active .wizard-item{
+        display: block;
+    }
+    .ant-steps-item-container:after{
+        display: none;
+    }
+`;
+
 export {
   FigureWizards,
   NotFoundWrapper,
@@ -1413,4 +1488,7 @@ export {
   InvoiceAction,
   WizardWrapper,
   WizardTwo,
+  WizardFour,
+  WizardFive,
+  WizardSix,
 };

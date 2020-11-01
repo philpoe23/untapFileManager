@@ -3,7 +3,7 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardTwo } from '../Style';
+import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardSix } from '../Style';
 import { Steps } from '../../../../components/steps/steps';
 import Heading from '../../../../components/heading/heading';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
@@ -12,7 +12,7 @@ import { BasicFormWrapper } from '../../../styled';
 import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../../redux/cart/actionCreator';
 
 const { Option } = Select;
-const WizardsTwo = () => {
+const WizardsSix = () => {
   const dispatch = useDispatch();
   const { cartData, rtl } = useSelector(state => {
     return {
@@ -75,6 +75,7 @@ const WizardsTwo = () => {
         status: 'finish',
         isFinished: true,
         current: 0,
+        visible: true,
       });
     }
   };
@@ -170,15 +171,20 @@ const WizardsTwo = () => {
 
   return (
     <WizardWrapper>
-      <WizardTwo>
+      <WizardSix>
         <Steps
           isswitch
           current={0}
           status={status}
           steps={[
             {
-              title: 'Create Account',
-              icon: <img src={require('../../../../static/img/icon/user.svg')} alt="" />,
+              title: (
+                <div className="wizard-item">
+                  <h2>Create Account</h2>
+                  <p>Lorem Ipsum is simply dummy text of the dummy typesetting industry.</p>
+                  <img src={require('../../../../static/img/wizards/1.svg')} alt="" />
+                </div>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -215,8 +221,13 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Shipping Address',
-              icon: <img src={require('../../../../static/img/icon/address.svg')} alt="" />,
+              title: (
+                <div className="wizard-item">
+                  <h2>Shipping Address</h2>
+                  <p>Lorem Ipsum is simply dummy text of the dummy typesetting industry.</p>
+                  <img src={require('../../../../static/img/wizards/1-1.svg')} alt="" />
+                </div>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -269,8 +280,13 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Payment Method',
-              icon: <img src={require('../../../../static/img/icon/155-credit-card.svg')} alt="" />,
+              title: (
+                <div className="wizard-item">
+                  <h2>Payment Method</h2>
+                  <p>Lorem Ipsum is simply dummy text of the dummy typesetting industry.</p>
+                  <img src={require('../../../../static/img/wizards/2.svg')} alt="" />
+                </div>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -376,8 +392,13 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Review Order',
-              icon: <img src={require('../../../../static/img/icon/024-like.svg')} alt="" />,
+              title: (
+                <div className="wizard-item">
+                  <h2>Review Order</h2>
+                  <p>Lorem Ipsum is simply dummy text of the dummy typesetting industry.</p>
+                  <img src={require(`../../../../static/img/wizards/${status !== 'finish' ? 3 : 4}.svg`)} alt="" />
+                </div>
+              ),
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
@@ -505,9 +526,9 @@ const WizardsTwo = () => {
           onDone={done}
           isfinished={isFinished}
         />
-      </WizardTwo>
+      </WizardSix>
     </WizardWrapper>
   );
 };
 
-export default WizardsTwo;
+export default WizardsSix;

@@ -3,7 +3,8 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardTwo } from '../Style';
+import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardFive } from '../Style';
+import { Modal } from '../../../../components/modals/antd-modals';
 import { Steps } from '../../../../components/steps/steps';
 import Heading from '../../../../components/heading/heading';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
@@ -12,7 +13,7 @@ import { BasicFormWrapper } from '../../../styled';
 import { cartGetData, cartUpdateQuantity, cartDelete } from '../../../../redux/cart/actionCreator';
 
 const { Option } = Select;
-const WizardsTwo = () => {
+const WizardsFive = () => {
   const dispatch = useDispatch();
   const { cartData, rtl } = useSelector(state => {
     return {
@@ -26,9 +27,24 @@ const WizardsTwo = () => {
     status: 'process',
     isFinished: false,
     current: 1,
+    visible: true,
   });
 
-  const { status, isFinished, current } = state;
+  const { status, isFinished, current, visible } = state;
+
+  const handleOk = () => {
+    setState({
+      ...state,
+      visible: false,
+    });
+  };
+
+  const handleCancel = () => {
+    setState({
+      ...state,
+      visible: false,
+    });
+  };
 
   useEffect(() => {
     if (cartGetData) {
@@ -75,6 +91,7 @@ const WizardsTwo = () => {
         status: 'finish',
         isFinished: true,
         current: 0,
+        visible: true,
       });
     }
   };
@@ -170,15 +187,20 @@ const WizardsTwo = () => {
 
   return (
     <WizardWrapper>
-      <WizardTwo>
+      <WizardFive>
         <Steps
           isswitch
           current={0}
           status={status}
+          direction="vertical"
           steps={[
             {
-              title: 'Create Account',
-              icon: <img src={require('../../../../static/img/icon/user.svg')} alt="" />,
+              title: (
+                <>
+                  <h2>Create Account</h2>
+                  <p>Setup Your Account Details</p>
+                </>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -215,8 +237,12 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Shipping Address',
-              icon: <img src={require('../../../../static/img/icon/address.svg')} alt="" />,
+              title: (
+                <>
+                  <h2>Shipping Address</h2>
+                  <p>Choose Your Location</p>
+                </>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -269,8 +295,12 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Payment Method',
-              icon: <img src={require('../../../../static/img/icon/155-credit-card.svg')} alt="" />,
+              title: (
+                <>
+                  <h2>Payment Method</h2>
+                  <p>Use Credit or Debit Cards</p>
+                </>
+              ),
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -376,8 +406,12 @@ const WizardsTwo = () => {
               ),
             },
             {
-              title: 'Review Order',
-              icon: <img src={require('../../../../static/img/icon/024-like.svg')} alt="" />,
+              title: (
+                <>
+                  <h2>Review Order</h2>
+                  <p>Review and Submit</p>
+                </>
+              ),
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
@@ -476,27 +510,27 @@ const WizardsTwo = () => {
                     </div>
                   </BasicFormWrapper>
                 ) : (
-                  <Row justify="start" style={{ width: '100%' }}>
-                    <Col xl={20} xs={24}>
-                      <div className="checkout-successful">
-                        <Cards
-                          headless
-                          bodyStyle={{
-                            backgroundColor: '#F8F9FB',
-                            borderRadius: '20px',
-                          }}
-                        >
-                          <Cards headless>
-                            <span className="icon-success">
-                              <FeatherIcon icon="check" />
-                            </span>
-                            <Heading as="h3">Payment Successful</Heading>
-                            <p>Thank you! We have received your Payment</p>
-                          </Cards>
+                  <Modal
+                    footer={null}
+                    type="primary"
+                    title="Basic Modal"
+                    visible={visible}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                  >
+                    <Row justify="start" style={{ width: '100%' }}>
+                      <Col xl={20} xs={24}>
+                        <Cards headless>
+                          <span className="icon-success">
+                            <FeatherIcon icon="check" />
+                          </span>
+                          <p>All is good! Please confirm the form submission.</p>
+                          <Button type="primary">Submit</Button>
+                          <Button type="light">Cancel</Button>
                         </Cards>
-                      </div>
-                    </Col>
-                  </Row>
+                      </Col>
+                    </Row>
+                  </Modal>
                 ),
             },
           ]}
@@ -505,9 +539,9 @@ const WizardsTwo = () => {
           onDone={done}
           isfinished={isFinished}
         />
-      </WizardTwo>
+      </WizardFive>
     </WizardWrapper>
   );
 };
 
-export default WizardsTwo;
+export default WizardsFive;

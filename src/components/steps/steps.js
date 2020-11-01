@@ -82,8 +82,6 @@ const Steps = ({
 
       {!isfinished && (
         <ActionWrapper>
-          {/* <Row justify="center">
-              <Col sm={17} xs={24}> */}
           <div className="step-action-wrap">
             <div className="step-action-inner">
               <Row>
@@ -113,8 +111,6 @@ const Steps = ({
               </Row>
             </div>
           </div>
-          {/* </Col>
-            </Row> */}
         </ActionWrapper>
       )}
     </>
