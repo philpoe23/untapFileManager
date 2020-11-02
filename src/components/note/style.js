@@ -13,6 +13,11 @@ const Card = Styled.div`
             font-size: 16px;
             margin-bottom: 16px;
             color: ${({ theme }) => theme['dark-color']};
+            justify-content: space-between;
+            svg{
+                color: #5A5F7D !important;
+                cursor: move;
+            }
             .status-bullet{
                 min-width: 7px;
                 height: 7px;

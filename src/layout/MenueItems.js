@@ -52,23 +52,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
-        <Menu.Item key="view">
-          <NavLink onClick={toggleCollapsed} to={`${path}/project/view`}>
-            Project
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="ProjectCreate">
-          <NavLink onClick={toggleCollapsed} to={`${path}/project/create`}>
-            Create Project
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="projectDetails">
-          <NavLink onClick={toggleCollapsed} to={`${path}/project/projectDetails/1`}>
-            Project Details
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
 
       <SubMenu key="users" icon={!topMenu && <FeatherIcon icon="folder" />} title="Users">
         <Menu.Item key="team">
@@ -109,6 +92,30 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           Contact
         </NavLink>
       </Menu.Item>
+
+      <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
+        <Menu.Item key="view">
+          <NavLink onClick={toggleCollapsed} to={`${path}/project/view/grid`}>
+            Project Grid
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="views">
+          <NavLink onClick={toggleCollapsed} to={`${path}/project/view/list`}>
+            Project List
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="ProjectCreate">
+          <NavLink onClick={toggleCollapsed} to={`${path}/project/create`}>
+            Create Project
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="projectDetails">
+          <NavLink onClick={toggleCollapsed} to={`${path}/project/projectDetails/1`}>
+            Project Details
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+
       <SubMenu key="ecommerce" icon={!topMenu && <FeatherIcon icon="shopping-cart" />} title="eCommerce">
         <Menu.Item key="products">
           <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products`}>

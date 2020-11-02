@@ -9,7 +9,7 @@ import { Dropdown } from '../dropdown/dropdown';
 import { Bullet } from '../../container/note/style';
 import { noteDeleteData, onStarUpdate, onLabelUpdate } from '../../redux/note/actionCreator';
 
-const NoteCard = ({ data }) => {
+const NoteCard = ({ data, Dragger }) => {
   const dispatch = useDispatch();
   const { noteData } = useSelector(state => {
     return {
@@ -56,8 +56,11 @@ const NoteCard = ({ data }) => {
     <Card className={label}>
       <Cards headless>
         <h4>
-          {title}
-          <span className={`status-bullet ${label}`} />
+          <span>
+            {title}
+            <span className={`status-bullet ${label}`} />
+          </span>
+          <Dragger />
         </h4>
         <p>{description}</p>
         <div className="actions">
@@ -75,7 +78,7 @@ const NoteCard = ({ data }) => {
           </span>
           <Dropdown content={content}>
             <Link to="#">
-              <FeatherIcon icon="more-vertical" size={16} />
+              <FeatherIcon icon="more-vertical" size={20} />
             </Link>
           </Dropdown>
         </div>

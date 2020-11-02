@@ -13,6 +13,17 @@ const {
   labelUpdateErr,
 } = actions;
 
+const noteDragData = data => {
+  return async dispatch => {
+    try {
+      dispatch(labelUpdateBegin());
+      dispatch(labelUpdateSuccess(data));
+    } catch (err) {
+      dispatch(labelUpdateErr(err));
+    }
+  };
+};
+
 const noteGetData = () => {
   return async dispatch => {
     try {
@@ -99,4 +110,4 @@ const onLabelFilter = label => {
   };
 };
 
-export { noteGetData, noteAddData, noteDeleteData, onStarUpdate, onLabelUpdate, onLabelFilter };
+export { noteGetData, noteAddData, noteDeleteData, onStarUpdate, onLabelUpdate, onLabelFilter, noteDragData };
