@@ -70,71 +70,25 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
+      <SubMenu key="users" icon={!topMenu && <FeatherIcon icon="folder" />} title="Users">
         <Menu.Item key="team">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/team`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/team`}>
             Team
           </NavLink>
         </Menu.Item>
         <Menu.Item key="users">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/users`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/users`}>
             Users
           </NavLink>
         </Menu.Item>
         <Menu.Item key="addUser">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/add-user/info`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/add-user/info`}>
             Add User
           </NavLink>
         </Menu.Item>
         <Menu.Item key="dataTable">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/dataTable`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/dataTable`}>
             Users Table
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="gallery">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/gallery`}>
-            Gallery
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="pricing">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/pricing`}>
-            Pricing
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="comingSoon">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/comingSoon`}>
-            Coming Soon
-          </NavLink>
-        </Menu.Item>
-
-        <Menu.Item key="faq">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/faq`}>
-            Faq`s
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="search">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/search`}>
-            Search Results
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="starter">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/starter`}>
-            Skeleton
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="maintenance">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/maintenance`}>
-            Maintenance
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="404">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/404`}>
-            404
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="wizards">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards`}>
-            Wizards
           </NavLink>
         </Menu.Item>
       </SubMenu>
@@ -560,6 +514,55 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           Table
         </NavLink>
       </Menu.Item>
+
+      <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
+        <Menu.Item key="gallery">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/gallery`}>
+            Gallery
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="pricing">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/pricing`}>
+            Pricing
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="comingSoon">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/comingSoon`}>
+            Coming Soon
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="faq">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/faq`}>
+            Faq`s
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="search">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/search`}>
+            Search Results
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="starter">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/starter`}>
+            Skeleton
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="maintenance">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/maintenance`}>
+            Maintenance
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="404">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/404`}>
+            404
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="wizards">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards`}>
+            Wizards
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <Menu.Item icon={!topMenu && <FeatherIcon icon="disc" />} key="forms">
         <NavLink onClick={toggleCollapsed} to={`${path}/forms`}>

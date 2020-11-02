@@ -3,6 +3,7 @@ import { Spin } from 'antd';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import Dashboard from './dashboard';
 import Pages from './pages';
+import Users from './users';
 import Ecommerce from './ecommerce';
 import withAdminLayout from '../../layout/withAdminLayout';
 
@@ -40,6 +41,7 @@ const Admin = () => {
         <Route path={`${path}/ecommerce`} component={Ecommerce} />
         <Route path={`${path}/charts`} component={Charts} />
         <Route path={`${path}/pages`} component={Pages} />
+        <Route path={`${path}/users`} component={Users} />
         <Route path={`${path}/components`} component={Components} />
         <Route path={`${path}/maps`} component={Maps} />
         <Route path={`${path}/icons`} component={Icons} />

@@ -189,6 +189,35 @@ const TopMenu = () => {
               </li>
             </ul>
           </li>
+
+          <li className="has-subMenu">
+            <Link to="#" className="parent">
+              Users
+            </Link>
+            <ul className="subMenu">
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/users/team`}>
+                  Team
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/users/users`}>
+                  Users
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/users/add-user/info`}>
+                  Add User
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/users/dataTable`}>
+                  User Table
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+
           <li className="mega-item has-subMenu">
             <Link to="#" className="parent">
               Pages
