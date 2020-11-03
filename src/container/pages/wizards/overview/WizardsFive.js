@@ -186,7 +186,7 @@ const WizardsFive = () => {
   ];
 
   return (
-    <WizardWrapper>
+    <WizardWrapper className="bordered-wizard">
       <WizardFive>
         <Steps
           isswitch
@@ -205,7 +205,7 @@ const WizardsFive = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
+                      <Col xs={24}>
                         <div className="create-account-form">
                           <Heading as="h4">1. Please Create Your Account</Heading>
                           <Form form={form} name="account">
@@ -247,7 +247,7 @@ const WizardsFive = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
+                      <Col xs={24}>
                         <div className="shipping-form">
                           <Heading as="h4">2. Please Fill in Your Shipping Address</Heading>
                           <Form form={form} name="address">
@@ -305,8 +305,8 @@ const WizardsFive = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
-                        <div className="payment-method-form">
+                      <Col xs={24}>
+                        <div className="payment-method-form theme-light">
                           <Heading as="h4">3. Please Please Select Your Payment Method</Heading>
                           <div className="shipping-selection">
                             <Radio.Group style={{ width: '100%' }}>
@@ -415,9 +415,9 @@ const WizardsFive = () => {
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
-                    <div className="atbd-review-order" style={{ width: '100%' }}>
+                    <div className="atbd-review-order theme-light" style={{ width: '100%' }}>
                       <Heading as="h4">4. Review and confirm Order</Heading>
-                      <Cards bodyStyle={{ backgroundColor: '#F8F9FB', borderRadius: 10 }} headless>
+                      <Cards bodyStyle={{ backgroundColor: '#ffffff' }} headless>
                         <div className="atbd-review-order__single">
                           <Cards headless>
                             <div className="atbd-review-order__shippingTitle">

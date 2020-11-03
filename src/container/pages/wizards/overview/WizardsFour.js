@@ -85,7 +85,7 @@ const WizardsFour = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
+                      <Col xs={24}>
                         <div className="create-account-form">
                           <Heading as="h4">1. Please Create Your Account</Heading>
                           <Form form={form} name="account">
@@ -131,8 +131,8 @@ const WizardsFour = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
-                        <div className="shipping-form">
+                      <Col xs={24}>
+                        <div className="create-account-form">
                           <Heading as="h4">2. please setup your profile</Heading>
                           <Form form={form} name="address">
                             <Form.Item label="First Name">
@@ -161,8 +161,8 @@ const WizardsFour = () => {
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
-                        <div className="payment-method-form profile-hints">
+                      <Col xs={24}>
+                        <div className="create-account-form profile-hints">
                           <Heading as="h4">3. Please see your hints</Heading>
                           <p>First Name : <span>{profile.fname}</span> </p>
                           <p>Last Name : <span>{profile.lname}</span> </p>
@@ -181,7 +181,7 @@ const WizardsFour = () => {
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
                     <Row justify="center">
-                      <Col sm={22} xs={24}>
+                      <Col xs={24}>
                         <div className="atbd-finish-order" style={{ width: '100%' }}>
                           <Heading as="h4">4. Let's Finished</Heading>
                           <Checkbox /> <span className="checkbox-label">I Agree with the Terms and Conditions.</span>
@@ -191,7 +191,7 @@ const WizardsFour = () => {
                   </BasicFormWrapper>
                 ) : (
                   <Row justify="start" style={{ width: '100%' }}>
-                    <Col xl={20} xs={24}>
+                    <Col xs={24}>
                       <div className="checkout-successful">
                         <Cards
                           headless

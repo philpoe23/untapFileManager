@@ -43,13 +43,15 @@ const Wizards = () => {
                 </Cards>
               }
             >
-              <Cards headless>
-                <Row justify="center">
-                  <Col md={18} xs={24}>
-                    <WizardsSix />
-                  </Col>
-                </Row>
-              </Cards>
+              <div className="wizard-side-border">
+                <Cards headless>
+                  <Row justify="center">
+                    <Col md={17} xs={24}>
+                      <WizardsSix />
+                    </Col>
+                  </Row>
+                </Cards>
+              </div>
             </Suspense>
           </Col>
           <Col sm={24} xs={24}>
@@ -60,13 +62,15 @@ const Wizards = () => {
                 </Cards>
               }
             >
-              <Cards headless>
-                <Row justify="center">
-                  <Col md={18} xs={24}>
-                    <WizardsFive />
-                  </Col>
-                </Row>
-              </Cards>
+              <div className="wizard-side-border">
+                <Cards headless>
+                  <Row justify="center">
+                    <Col md={20} xs={24}>
+                      <WizardsFive />
+                    </Col>
+                  </Row>
+                </Cards>
+              </div>
             </Suspense>
           </Col>
           <Col sm={24} xs={24}>

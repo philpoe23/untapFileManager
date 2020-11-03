@@ -635,6 +635,33 @@ const Main = Styled.div`
             margin: 5px !important;
         }
     }
+
+    .wizard-side-border{
+        >.ant-card{
+            .ant-card-body{
+                position: relative;
+                padding: 0 25px !important;
+                &:after{
+                    position: absolute;
+                    right: 50%;
+                    top: 0;
+                    transform: translateX(-180px);
+                    width: 1px;
+                    height: 100%;
+                    background-color: ${({ theme }) => theme['border-color-light']};
+                    content: "";
+                }
+            }
+        }
+        .ant-card .ant-card{
+            .ant-card-body{
+                padding: 25px !important;
+                &:after{
+                    display: none;
+                }
+            }
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

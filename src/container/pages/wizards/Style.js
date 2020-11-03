@@ -873,6 +873,9 @@ const InvoiceAction = Styled.div`
 
 const WizardWrapper = Styled.div`
     padding: 25px 0;
+    &.bordered-wizard{
+        padding: 0;
+    }
     .steps-action button.btn-next svg {
         ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
         transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
@@ -1527,6 +1530,7 @@ const WizardThree = Styled.div`
 
 const WizardFour = Styled.div`
     display: flex;
+    justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     .ant-steps-item-container {
@@ -1537,7 +1541,7 @@ const WizardFour = Styled.div`
         padding-left: 0px !important;
     }
     .ant-steps {
-        margin-right: 5px;
+        margin-right: 30px;
         flex-direction: column;
         &.ant-steps-vertical{
             flex: 1;
@@ -1558,7 +1562,7 @@ const WizardFour = Styled.div`
                 }
                 &.ant-steps-item-wait{
                     .ant-steps-item-icon{
-                        background-color: ${({ theme }) => theme['extra-light-color']};
+                        background-color: ${({ theme }) => theme['extra-light-color']}50;
                         box-shadow: 0 0;
                         .ant-steps-icon{
                             color: #fff;
@@ -1586,16 +1590,23 @@ const WizardFour = Styled.div`
     }
     .steps-content{
         margin-top: 0 !important;
+        max-width: 560px;
     }
     .step-action-wrap{
         width: fit-content;
+        margin-left: 390px;
+        .step-action-inner{
+            width: 560px;
+            padding: 0 !important;
+        }
     }
 `;
 
 const WizardFive = Styled.div`
     display: flex;
     align-items: flex-start;
-    flex-wrap-wrap;
+    flex-wrap:wrap;
+    padding: 60px 0px
     .ant-steps-item-container {
         position: relative;
         display: inline;
@@ -1604,20 +1615,13 @@ const WizardFive = Styled.div`
         padding-left: 0px !important;
     }
     .ant-steps {
+        flex: 1;
         position: relative;
-        min-width: 500px;
+        min-width: 450px;
+        max-width: 450px;
         flex-direction: column;
         padding-right: 50px;
-        margin-right: 30px;
-        &:after{
-            position: absolute;
-            right: 0;
-            top: -48px;
-            width: 1px;
-            height: calc(100% + 100px);
-            content: '';
-            background-color: ${({ theme }) => theme['border-color-light']};
-        }
+        margin-right: 50px;
         .ant-steps-item-container:after {
             display: none;
             
@@ -1667,14 +1671,68 @@ const WizardFive = Styled.div`
     .ant-steps-item.ant-steps-item-process.ant-steps-item-active {
         background: #F4F5F7;
     }
+    .step-action-wrap{
+        width: fit-content;
+        margin-left: 500px;
+        border-top: 1px solid ${({ theme }) => theme['bg-color-deep']}; 
+        margin-top: 30px;
+        .step-action-inner{
+            width: 580px;
+            padding: 0 !important;
+        }
+        .steps-action{
+            margin-top: 40px;
+        }
+    }
+    .atbd-review-order{
+        &.theme-light{
+
+            > .ant-card > .ant-card-body{
+                border: 0 none;
+                padding: 0 !important;
+            }
+            .atbd-review-order__single{
+                .ant-card-body{
+                    background-color: #F4F5F7;
+                    box-shadow: 0 0;
+                }
+                .ant-table{
+                    background-color: transparent;
+                }
+                .table-cart {
+                    .ant-table-tbody .ant-table-row:hover td{
+                        background-color: transparent !important;
+                    }
+                    .cart-single-quantity{
+                        button{
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
 `;
 const WizardSix = Styled.div`
     position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end !important;
+    .step-action-wrap{
+        justify-content: flex-end;
+        .step-action-inner{
+            position: relative;
+            left: -106px;
+        }
+    }
     .ant-steps-item{
         padding: 0 !important;
         overflow: visible;
         flex: none;
         position: static !important;
+        .wizard-item{
+            max-width: 290px;
+        }
     }
     .ant-steps-item-title{
         position: static;
@@ -1688,6 +1746,30 @@ const WizardSix = Styled.div`
         text-align: center;
         position: absolute;
         left: 0;
+        margin-top: 20px;
+        h2{
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 26px;
+            color: ${({ theme }) => theme['dark-color']}; 
+        }
+        p{
+            font-weight: 400;
+            margin-bottom: 45px;
+            color: ${({ theme }) => theme['gray-color']};
+        }
+        img{
+            max-width: 280px;
+        }
+    }
+    .steps-content{
+        position: relative;
+        left: -106px;
+        margin-top: 0 !important;
+    }
+    .atbd-review-order{
+        position: relative;
+        right: -196px;
     }
     .ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item{
         white-space: normal;
