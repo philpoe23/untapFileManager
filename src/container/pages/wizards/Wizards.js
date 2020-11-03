@@ -44,7 +44,11 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsSix />
+                <Row justify="center">
+                  <Col md={18} xs={24}>
+                    <WizardsSix />
+                  </Col>
+                </Row>
               </Cards>
             </Suspense>
           </Col>
@@ -57,7 +61,11 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsFive />
+                <Row justify="center">
+                  <Col md={18} xs={24}>
+                    <WizardsFive />
+                  </Col>
+                </Row>
               </Cards>
             </Suspense>
           </Col>
@@ -70,7 +78,11 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsFour />
+                <Row justify="center">
+                  <Col md={16} xs={24}>
+                    <WizardsFour />
+                  </Col>
+                </Row>
               </Cards>
             </Suspense>
           </Col>
@@ -83,7 +95,11 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsThree />
+                <Row justify="center">
+                  <Col md={18} xs={24}>
+                    <WizardsThree />
+                  </Col>
+                </Row>
               </Cards>
             </Suspense>
           </Col>
@@ -96,11 +112,15 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsTwo />
+                  <Row justify="center">
+                    <Col md={18} xs={24}>
+                      <WizardsTwo />
+                    </Col>
+                  </Row>
               </Cards>
             </Suspense>
           </Col>
-          <Col sm={24} xs={24}>
+          <Col xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -109,7 +129,11 @@ const Wizards = () => {
               }
             >
               <Cards headless>
-                <WizardsOne />
+                <Row justify="center">
+                  <Col md={18} xs={24}>
+                    <WizardsOne />
+                  </Col>
+                </Row>
               </Cards>
             </Suspense>
           </Col>

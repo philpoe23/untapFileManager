@@ -939,7 +939,7 @@ const WizardWrapper = Styled.div`
             top: 20px;
             color: #333;
             background-image: url(${require('../../../static/img/progress.svg')});
-            width: 137%;
+            width: 114%;
             height: 6px;
             background-size: cover;
             background-position: center;
@@ -952,7 +952,7 @@ const WizardWrapper = Styled.div`
         }
     }
     .ant-steps-item{
-    padding: ${({ theme }) => (theme.rtl ? '0 0 0 25px !important' : '0 25px 0 0 !important')} ;
+        padding: ${({ theme }) => (theme.rtl ? '0 0 0 25px !important' : '0 25px 0 0 !important')} ;
         @media only screen and (max-width: 767px) {
             padding: 0 !important;
             &:not(:last-child){
@@ -1052,6 +1052,23 @@ const WizardWrapper = Styled.div`
         }
         .ant-input-password.ant-input-affix-wrapper{
             ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 0;
+        }
+        .ant-form-item-label{
+            label{
+                color: ${({ theme }) => theme['dark-color']};
+            }
+        }
+        .ant-form-item-control-input{
+            .ant-input{
+                padding: 12px 20px;
+            }
+        }
+    }
+    .steps-action{
+        .btn-next{
+            &:focus{
+                background-color: ${({ theme }) => theme['primary-color']};
+            }
         }
     }
     .atbd-form-checkout{
@@ -1197,7 +1214,57 @@ const WizardWrapper = Styled.div`
            }
        }
    }
-
+   .profile-hints{
+       p{
+           font-size: 15px;
+           span{
+               color: ${({ theme }) => theme['extra-light-color']};
+           }
+       }
+   }
+   .atbd-finish-order{
+       max-width: 540px;
+       margin: 0 auto;
+       padding: 30px;
+       min-height: 248px;
+       border-radius: 6px;
+       border: 1px solid ${({ theme }) => theme['bg-color-deep']};
+       h1,
+       h2,
+       h3,
+       h4,
+       h5,
+       h6{
+            margin-bottom: 16px;
+            color: ${({ theme }) => theme['darks-color']};
+       }
+       .ant-checkbox{
+           &:hover{
+               .ant-checkbox-inner{
+                    border-color: ${({ theme }) => theme['success-color']};
+               }
+           }
+       }
+       .ant-checkbox-checked{
+           &:after{
+                border-color: ${({ theme }) => theme['success-color']};
+           }
+           .ant-checkbox-inner{
+                background-color: ${({ theme }) => theme['success-color']};
+                border-color: ${({ theme }) => theme['success-color']};
+           }
+       }
+       .ant-checkbox-input{
+           &:focus + .ant-checkbox-inner{
+            border-color: ${({ theme }) => theme['success-color']};
+           }
+       }
+       .checkbox-label{
+            margin-left: 10px;
+            font-size: 15px;
+            color: ${({ theme }) => theme['extra-light-color']};
+       }
+   }
    .atbd-review-order{
        > .ant-card{
            > .ant-card-body{
@@ -1358,6 +1425,7 @@ const WizardWrapper = Styled.div`
             }
         }
         .ant-card {
+            box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
             .ant-card{
                 padding: 25px;
                     margin-bottom: 0 !important;
@@ -1398,11 +1466,48 @@ const WizardTwo = Styled.div`
         color: #000;
         font-size: 20px;
     }
+    .ant-steps-item {
+        &.ant-steps-item-active{
+            .ant-steps-item-icon{
+                .ant-steps-icon{
+                    svg,
+                    i{
+                        fill: ${({ theme }) => theme['success-color']};
+                        color: ${({ theme }) => theme['primary-color']};
+                    }
+                }
+            }
+        }
+        &.ant-steps-item-finish {
+            .ant-steps-item-icon{
+                background-color: transparent !important;
+                .ant-steps-icon{
+                    svg path,
+                    i{
+                        fill: ${({ theme }) => theme['success-color']};
+                        color: ${({ theme }) => theme['success-color']};
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const WizardThree = Styled.div`
+    .ant-steps-item-container{
+        .ant-steps-item-icon{
+            margin-right: 0;
+        }
+        .ant-steps-item-title{
+            padding-left: 0;
+        }
+    }
 `;
 
 const WizardFour = Styled.div`
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
     .ant-steps-item-container {
         position: relative;
         display: inline;
@@ -1411,17 +1516,62 @@ const WizardFour = Styled.div`
         padding-left: 0px !important;
     }
     .ant-steps {
+        margin-right: 5px;
         flex-direction: column;
+        &.ant-steps-vertical{
+            flex: 1;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid ${({ theme }) => theme['bg-color-deep']};
+            max-width: 300px;
+            .ant-steps-item-icon{
+                margin-right: 0;
+            }
+            .ant-steps-item {
+                padding-right: 0;
+                &:not(:last-child){
+                    margin-bottom: 30px;
+                }
+                &.ant-steps-item-wait{
+
+                }
+                &.ant-steps-item-wait{
+                    .ant-steps-item-icon{
+                        background-color: ${({ theme }) => theme['extra-light-color']};
+                        box-shadow: 0 0;
+                        .ant-steps-icon{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .ant-steps-item-content{
+                margin-right: 0 !important;
+            }
+        }
         .ant-steps-item-container:after {
             display: none;
             
         }
     }
+    
+    .create-account-form{
+        padding: 30px;
+        border-radius: 6px;
+        border: 1px solid ${({ theme }) => theme['bg-color-deep']};
+    }
+    .atbd-finish-order{
+        min-width: 560px;
+    }
+    .steps-content{
+        margin-top: 0 !important;
+    }
 `;
 
 const WizardFive = Styled.div`
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    flex-wrap-wrap;
     .ant-steps-item-container {
         position: relative;
         display: inline;
@@ -1430,17 +1580,68 @@ const WizardFive = Styled.div`
         padding-left: 0px !important;
     }
     .ant-steps {
+        position: relative;
+        min-width: 500px;
         flex-direction: column;
+        padding-right: 50px;
+        margin-right: 30px;
+        &:after{
+            position: absolute;
+            right: 0;
+            top: -48px;
+            width: 1px;
+            height: calc(100% + 100px);
+            content: '';
+            background-color: ${({ theme }) => theme['border-color-light']};
+        }
         .ant-steps-item-container:after {
             display: none;
             
+        }
+        .ant-steps-item {
+            border-radius: 5px;
+            padding: 16px 30px 18px 30px !important;
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+        .ant-steps-item-content{
+            .ant-steps-item-title{
+                margin-top: 0px;
+                line-height: 1.4;
+                padding-left: 0;
+                h2{
+                    font-size: 16px;
+                    margin-bottom: .35rem;
+                    color: ${({ theme }) => theme['dark-color']};
+                }
+                p{
+                    font-size: 13px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: ${({ theme }) => theme['gray-color']};
+                }
+            }
+        }
+    }
+    .steps-content{
+        margin-top: 0 !important;
+        .create-account-form{
+            .ant-input{
+                background-color: #F4F5F7;
+            }
+            .ant-form-item-control-input-content{
+                .ant-input-password{
+                    background-color: #F4F5F7;
+                }
+            }
         }
     }
     .ant-steps:not(.ant-steps-dot):not(.ant-steps-navigation) .ant-steps-item .ant-steps-item-icon {        
         display: none;
     }
     .ant-steps-item.ant-steps-item-process.ant-steps-item-active {
-        background: #ddd;
+        background: #F4F5F7;
     }
 `;
 const WizardSix = Styled.div`
@@ -1488,6 +1689,7 @@ export {
   InvoiceAction,
   WizardWrapper,
   WizardTwo,
+  WizardThree,
   WizardFour,
   WizardFive,
   WizardSix,

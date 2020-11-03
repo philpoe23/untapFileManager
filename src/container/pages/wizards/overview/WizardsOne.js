@@ -472,8 +472,8 @@ const WizardsOne = () => {
                   </div>
                 </BasicFormWrapper>
               ) : (
-                <Row justify="start" style={{ width: '100%' }}>
-                  <Col xl={20} xs={24}>
+                <Row justify="center" style={{ width: '100%' }}>
+                  <Col xl={21} xs={24}>
                     <div className="checkout-successful">
                       <Cards
                         headless

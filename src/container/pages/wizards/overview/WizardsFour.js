@@ -162,12 +162,12 @@ const WizardsFour = () => {
                   <div className="atbd-form-checkout">
                     <Row justify="center">
                       <Col sm={22} xs={24}>
-                        <div className="payment-method-form">
+                        <div className="payment-method-form profile-hints">
                           <Heading as="h4">3. Please see your hints</Heading>
-                          <p>First Name : {profile.fname}</p>
-                          <p>Last Name : {profile.lname}</p>
-                          <p>Email Address : {profile.email}</p>
-                          <p>Address : {profile.address}</p>
+                          <p>First Name : <span>{profile.fname}</span> </p>
+                          <p>Last Name : <span>{profile.lname}</span> </p>
+                          <p>Email Address : <span>{profile.email}</span></p>
+                          <p>Address : <span>{profile.address}</span></p>
                         </div>
                       </Col>
                     </Row>
@@ -180,10 +180,14 @@ const WizardsFour = () => {
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
-                    <div className="atbd-review-order" style={{ width: '100%' }}>
-                      <Heading as="h4">4. Let's Finished</Heading>
-                      <Checkbox /> I Agree with the Terms and Conditions.
-                    </div>
+                    <Row justify="center">
+                      <Col sm={22} xs={24}>
+                        <div className="atbd-finish-order" style={{ width: '100%' }}>
+                          <Heading as="h4">4. Let's Finished</Heading>
+                          <Checkbox /> <span className="checkbox-label">I Agree with the Terms and Conditions.</span>
+                        </div>
+                      </Col>
+                    </Row>
                   </BasicFormWrapper>
                 ) : (
                   <Row justify="start" style={{ width: '100%' }}>

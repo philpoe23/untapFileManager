@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ReactSVG } from 'react-svg'
 import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardTwo } from '../Style';
 import { Steps } from '../../../../components/steps/steps';
 import Heading from '../../../../components/heading/heading';
@@ -35,6 +36,18 @@ const WizardsTwo = () => {
       dispatch(cartGetData());
     }
   }, [dispatch]);
+
+  useLayoutEffect(() => {
+    let prevElement = document.querySelectorAll('.ant-steps-item-finish');
+    prevElement.forEach(element => {
+      if(element.previousSibling){
+        console.log()
+        let bgImage = window.getComputedStyle(element.previousSibling.querySelector('.ant-steps-item-container'),':after').getPropertyValue("background-image");
+        bgImage = "url('../../../../static/img/progress.svg')";
+        // element.previousSibling.querySelector('.ant-steps-item-container',':after').style.backgroundImage="url('../../../../static/img/progress.svg')";
+      }
+    });
+  });
 
   const incrementUpdate = (id, quantity) => {
     const data = parseInt(quantity, 10) + 1;
@@ -171,6 +184,7 @@ const WizardsTwo = () => {
   return (
     <WizardWrapper>
       <WizardTwo>
+
         <Steps
           isswitch
           current={0}
@@ -178,7 +192,7 @@ const WizardsTwo = () => {
           steps={[
             {
               title: 'Create Account',
-              icon: <img src={require('../../../../static/img/icon/user.svg')} alt="" />,
+              icon: <ReactSVG src={require('../../../../static/img/icon/user.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -216,7 +230,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Shipping Address',
-              icon: <img src={require('../../../../static/img/icon/address.svg')} alt="" />,
+              icon: <ReactSVG src={require('../../../../static/img/icon/address.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -270,7 +284,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Payment Method',
-              icon: <img src={require('../../../../static/img/icon/155-credit-card.svg')} alt="" />,
+              icon: <ReactSVG src={require('../../../../static/img/icon/155-credit-card.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
                   <div className="atbd-form-checkout">
@@ -377,7 +391,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Review Order',
-              icon: <img src={require('../../../../static/img/icon/024-like.svg')} alt="" />,
+              icon: <ReactSVG src={require('../../../../static/img/icon/024-like.svg')} />,
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
@@ -476,8 +490,8 @@ const WizardsTwo = () => {
                     </div>
                   </BasicFormWrapper>
                 ) : (
-                  <Row justify="start" style={{ width: '100%' }}>
-                    <Col xl={20} xs={24}>
+                  <Row justify="center" style={{ width: '100%' }}>
+                    <Col xl={21} xs={24}>
                       <div className="checkout-successful">
                         <Cards
                           headless
