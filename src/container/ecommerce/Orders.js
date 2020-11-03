@@ -32,10 +32,6 @@ const Orders = () => {
   const { notData, item, selectedRowKeys } = state;
   const filterKey = ['Shipped', 'Awaiting Shipment', 'Canceled'];
 
-  /**
-   * @todo purpose
-   * @todo ternary issue
-   */
   useEffect(() => {
     if (orders) {
       setState({

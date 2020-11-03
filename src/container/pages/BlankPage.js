@@ -9,7 +9,7 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const Starter = () => {
+const BlankPage = () => {
   return (
     <>
       <PageHeader
@@ -39,4 +39,4 @@ const Starter = () => {
   );
 };
 
-export default Starter;
+export default BlankPage;

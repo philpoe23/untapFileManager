@@ -13,7 +13,7 @@ const Maps = lazy(() => import('./maps'));
 const Icons = lazy(() => import('./icons'));
 const Projects = lazy(() => import('./projects'));
 const Calendars = lazy(() => import('../../container/Calendar'));
-const Tables = lazy(() => import('../../container/table/Table'));
+const Tables = lazy(() => import('./table'));
 const Forms = lazy(() => import('../../container/forms/Forms'));
 
 const Inbox = lazy(() => import('../../container/email/Email'));

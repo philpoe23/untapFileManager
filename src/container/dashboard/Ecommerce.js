@@ -136,6 +136,7 @@ const Ecommerce = () => {
               </EChartCard>
             </Cards>
           </Col>
+
           <Col xxl={6} md={12} sm={12} xs={24}>
             <Cards headless>
               <EChartCard>

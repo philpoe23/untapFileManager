@@ -8,7 +8,7 @@ import { Cards } from '../../../components/cards/frame/cards-frame';
 import { ProjectPagination, ProjectListTitle, ProjectListAssignees, ProjectList } from '../style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 
-const List = () => {
+const ProjectLists = () => {
   const project = useSelector(state => state.projects.data);
   const [state, setState] = useState({
     projects: project,
@@ -172,4 +172,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ProjectLists;

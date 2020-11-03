@@ -15,7 +15,7 @@ import { onStarUpdate, contactDeleteData, contactSearchData, contactAddData } fr
 import { Dropdown } from '../../components/dropdown/dropdown';
 import { Modal } from '../../components/modals/antd-modals';
 
-const UserListDataTable = () => {
+const ContactTable = () => {
   const dispatch = useDispatch();
   const { users } = useSelector(state => {
     return {
@@ -365,4 +365,4 @@ const UserListDataTable = () => {
   );
 };
 
-export default UserListDataTable;
+export default ContactTable;

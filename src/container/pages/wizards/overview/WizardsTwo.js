@@ -3,7 +3,7 @@ import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactSVG } from 'react-svg'
+import { ReactSVG } from 'react-svg';
 import { FigureWizards, WizardWrapper, ProductTable, OrderSummary, WizardTwo } from '../Style';
 import { Steps } from '../../../../components/steps/steps';
 import Heading from '../../../../components/heading/heading';
@@ -38,20 +38,24 @@ const WizardsTwo = () => {
   }, [dispatch]);
 
   useLayoutEffect(() => {
-    let activeElement = document.querySelectorAll('.ant-steps-item-active');
-    let successElement = document.querySelectorAll('.ant-steps-item-finish');
+    const activeElement = document.querySelectorAll('.ant-steps-item-active');
+    const successElement = document.querySelectorAll('.ant-steps-item-finish');
 
-    // activeElement.forEach(element => {
-    //   if(element.previousSibling){
-    //     let bgImage = element.previousSibling;
-    //     bgImage.classList.remove('wizard-step-item');
-    //     bgImage.classList.add('wizard-steps-item-active');
-    //   }
-    // });
-    
+    activeElement.forEach(element => {
+      if (element.previousSibling) {
+        const bgImage = element.previousSibling;
+        if (bgImage.classList.contains('success-step-item')) {
+          bgImage.classList.remove('success-step-item');
+        } else {
+          bgImage.classList.remove('wizard-step-item');
+        }
+        bgImage.classList.add('wizard-steps-item-active');
+      }
+    });
+
     successElement.forEach(element => {
-      if(element.previousSibling){
-        let bgImage = element.previousSibling;
+      if (element.previousSibling) {
+        const bgImage = element.previousSibling;
         bgImage.classList.remove('wizard-steps-item-active');
         bgImage.classList.add('success-step-item');
         // if(bgImage.classList.has('.ant-steps-item-active'))
@@ -195,7 +199,6 @@ const WizardsTwo = () => {
   return (
     <WizardWrapper>
       <WizardTwo>
-
         <Steps
           isswitch
           current={0}
@@ -203,7 +206,7 @@ const WizardsTwo = () => {
           steps={[
             {
               title: 'Create Account',
-              className: "wizard-step-item",
+              className: 'wizard-step-item',
               icon: <ReactSVG src={require('../../../../static/img/icon/user.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -242,7 +245,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Shipping Address',
-              className: "wizard-step-item",
+              className: 'wizard-step-item',
               icon: <ReactSVG src={require('../../../../static/img/icon/address.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -297,7 +300,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Payment Method',
-              className: "wizard-step-item",
+              className: 'wizard-step-item',
               icon: <ReactSVG src={require('../../../../static/img/icon/155-credit-card.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -405,7 +408,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Review Order',
-              className: "wizard-step-item",
+              className: 'wizard-step-item',
               icon: <ReactSVG src={require('../../../../static/img/icon/024-like.svg')} />,
               content:
                 status !== 'finish' ? (
