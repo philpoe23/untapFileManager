@@ -8,8 +8,9 @@ const Gallery = lazy(() => import('../../container/pages/Gallery'));
 const Faq = lazy(() => import('../../container/pages/Faq'));
 const Search = lazy(() => import('../../container/pages/SearchResult'));
 const ComingSoon = lazy(() => import('../../container/pages/ComingSoon'));
-const Starter = lazy(() => import('../../container/pages/Skeleton'));
+const BlankPage = lazy(() => import('../../container/pages/BlankPage'));
 const Wizards = lazy(() => import('../../container/pages/wizards/Wizards'));
+const Widgets = lazy(() => import('../../container/pages/Widgets'));
 
 const PagesRoute = () => {
   const { path } = useRouteMatch();
@@ -21,9 +22,10 @@ const PagesRoute = () => {
       <Route path={`${path}/gallery`} component={Gallery} />
       <Route path={`${path}/faq`} component={Faq} />
       <Route path={`${path}/search`} component={Search} />
-      <Route path={`${path}/starter`} component={Starter} />
+      <Route path={`${path}/starter`} component={BlankPage} />
       <Route path={`${path}/comingSoon`} component={ComingSoon} />
       <Route path={`${path}/wizards`} component={Wizards} />
+      <Route path={`${path}/widgets`} component={Widgets} />
     </Switch>
   );
 };

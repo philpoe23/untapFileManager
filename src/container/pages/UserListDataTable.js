@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Row, Col, Table } from 'antd';
+import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
-import { UserTableStyleWrapper } from './style';
+import UserListTable from './overview/UserTable';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper, CardToolbox } from '../styled';
+import { Main, CardToolbox } from '../styled';
 import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
-import { Cards } from '../../components/cards/frame/cards-frame';
 
-const UserListDataTable = () => {
+const UserList = () => {
   const { searchData, users } = useSelector(state => {
     return {
       searchData: state.headerSearchData,
@@ -78,55 +77,6 @@ const UserListDataTable = () => {
     });
   });
 
-  const usersTableColumns = [
-    {
-      title: 'User',
-      dataIndex: 'user',
-      key: 'user',
-    },
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Company',
-      dataIndex: 'company',
-      key: 'company',
-    },
-    {
-      title: 'Position',
-      dataIndex: 'position',
-      key: 'position',
-    },
-    {
-      title: 'Join Date',
-      dataIndex: 'joinDate',
-      key: 'joinDate',
-    },
-    {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
-    },
-    {
-      title: 'Actions',
-      dataIndex: 'action',
-      key: 'action',
-      width: '90px',
-    },
-  ];
-
-  const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      setState({ selectedRowKeys, selectedRows });
-    },
-    getCheckboxProps: record => ({
-      disabled: record.name === 'Disabled User', // Column configuration not to be checked
-      name: record.name,
-    }),
-  };
-
   return (
     <>
       <CardToolbox>
@@ -147,7 +97,7 @@ const UserListDataTable = () => {
           }
           buttons={[
             <Button className="btn-add_new" size="default" type="primary" key="1">
-              <Link to="/admin/pages/add-user/info">+ Add New User</Link>
+              <Link to="/admin/users/add-user/info">+ Add New User</Link>
             </Button>,
           ]}
         />
@@ -156,22 +106,7 @@ const UserListDataTable = () => {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <Cards headless>
-              <UserTableStyleWrapper>
-                <TableWrapper className="table-responsive">
-                  <Table
-                    rowSelection={rowSelection}
-                    dataSource={usersTableData}
-                    columns={usersTableColumns}
-                    pagination={{
-                      defaultPageSize: 5,
-                      total: usersTableData.length,
-                      showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-                    }}
-                  />
-                </TableWrapper>
-              </UserTableStyleWrapper>
-            </Cards>
+            <UserListTable />
           </Col>
         </Row>
       </Main>
@@ -179,4 +114,4 @@ const UserListDataTable = () => {
   );
 };
 
-export default UserListDataTable;
+export default UserList;

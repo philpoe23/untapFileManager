@@ -516,11 +516,18 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="cpu" />} key="tables">
-        <NavLink onClick={toggleCollapsed} to={`${path}/tables`}>
-          Table
-        </NavLink>
-      </Menu.Item>
+      <SubMenu key="tables" icon={!topMenu && <FeatherIcon icon="layout" />} title="Table">
+        <Menu.Item key="basic">
+          <NavLink onClick={toggleCollapsed} to={`${path}/tables/basic`}>
+            Basic Table
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="dataTable">
+          <NavLink onClick={toggleCollapsed} to={`${path}/tables/dataTable`}>
+            Data Table
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
         <Menu.Item key="gallery">
@@ -567,6 +574,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         <Menu.Item key="wizards">
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards`}>
             Wizards
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="widgets">
+          <NavLink onClick={toggleCollapsed} to={`${path}/pages/widgets`}>
+            Widgets
           </NavLink>
         </Menu.Item>
       </SubMenu>
