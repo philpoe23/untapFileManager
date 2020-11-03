@@ -951,6 +951,27 @@ const WizardWrapper = Styled.div`
             }
         }
     }
+    .wizard-step-item{
+        .ant-steps-item-container{
+            &:after{
+                background-image: url(${require('../../../static/img/progress.svg')});
+            }
+        }
+    }
+    .wizard-steps-item-active{
+        .ant-steps-item-container{
+            &:after{
+                background-image: url(${require('../../../static/img/progress-active.svg')});
+            }
+        }
+    }
+    .success-step-item{
+        .ant-steps-item-container{
+            &:after{
+                background-image: url(${require('../../../static/img/progress-success.svg')});
+            }
+        }
+    }
     .ant-steps-item{
         padding: ${({ theme }) => (theme.rtl ? '0 0 0 25px !important' : '0 25px 0 0 !important')} ;
         @media only screen and (max-width: 767px) {
@@ -1026,17 +1047,17 @@ const WizardWrapper = Styled.div`
             }
         }
         &.ant-steps-item-finish{
-            .ant-steps-item-container{
-                &:after{
-                    background-image: url(${require('../../../static/img/progress-active.svg')});
-                }
-            }
-            .ant-steps-item-title{
-                color: ${({ theme }) => theme['dark-color']} !important;
-                &:after{
-                    background-image: url(${require('../../../static/img/progress-active.svg')});
-                }
-            }
+            // .ant-steps-item-container{
+            //     &:after{
+            //         background-image: url(${require('../../../static/img/progress-active.svg')});
+            //     }
+            // }
+            // .ant-steps-item-title{
+            //     color: ${({ theme }) => theme['dark-color']} !important;
+            //     &:after{
+            //         background-image: url(${require('../../../static/img/progress-active.svg')});
+            //     }
+            // }
             .ant-steps-item-icon{
                 background: ${({ theme }) => theme['success-color']} !important;
                 .ant-steps-icon{
@@ -1470,9 +1491,9 @@ const WizardTwo = Styled.div`
         &.ant-steps-item-active{
             .ant-steps-item-icon{
                 .ant-steps-icon{
-                    svg,
+                    svg path,
                     i{
-                        fill: ${({ theme }) => theme['success-color']};
+                        fill: ${({ theme }) => theme['primary-color']};
                         color: ${({ theme }) => theme['primary-color']};
                     }
                 }
@@ -1565,6 +1586,9 @@ const WizardFour = Styled.div`
     }
     .steps-content{
         margin-top: 0 !important;
+    }
+    .step-action-wrap{
+        width: fit-content;
     }
 `;
 

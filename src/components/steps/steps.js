@@ -70,7 +70,7 @@ const Steps = ({
     <>
       <StepsStyle current={currents} direction={direction} status={status} progressDot={progressDot} size={size}>
         {steps !== undefined &&
-          steps.map(item => <Step icon={item.icon && item.icon} key={item.title} title={item.title} />)}
+          steps.map(item => <Step className={item.className && item.className} icon={item.icon && item.icon} key={item.title} title={item.title} />)}
       </StepsStyle>
 
       <div

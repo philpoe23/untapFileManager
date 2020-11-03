@@ -38,13 +38,22 @@ const WizardsTwo = () => {
   }, [dispatch]);
 
   useLayoutEffect(() => {
-    let prevElement = document.querySelectorAll('.ant-steps-item-finish');
-    prevElement.forEach(element => {
+    let activeElement = document.querySelectorAll('.ant-steps-item-active');
+    let successElement = document.querySelectorAll('.ant-steps-item-finish');
+
+    // activeElement.forEach(element => {
+    //   if(element.previousSibling){
+    //     let bgImage = element.previousSibling;
+    //     bgImage.classList.remove('wizard-step-item');
+    //     bgImage.classList.add('wizard-steps-item-active');
+    //   }
+    // });
+    
+    successElement.forEach(element => {
       if(element.previousSibling){
-        console.log()
-        let bgImage = window.getComputedStyle(element.previousSibling.querySelector('.ant-steps-item-container'),':after').getPropertyValue("background-image");
-        bgImage = "url('../../../../static/img/progress.svg')";
-        // element.previousSibling.querySelector('.ant-steps-item-container',':after').style.backgroundImage="url('../../../../static/img/progress.svg')";
+        let bgImage = element.previousSibling;
+        bgImage.classList.remove('wizard-steps-item-active');
+        bgImage.classList.add('success-step-item');
       }
     });
   });
@@ -192,6 +201,7 @@ const WizardsTwo = () => {
           steps={[
             {
               title: 'Create Account',
+              className: "wizard-step-item",
               icon: <ReactSVG src={require('../../../../static/img/icon/user.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -230,6 +240,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Shipping Address',
+              className: "wizard-step-item",
               icon: <ReactSVG src={require('../../../../static/img/icon/address.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -284,6 +295,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Payment Method',
+              className: "wizard-step-item",
               icon: <ReactSVG src={require('../../../../static/img/icon/155-credit-card.svg')} />,
               content: (
                 <BasicFormWrapper className="basic-form-inner">
@@ -391,6 +403,7 @@ const WizardsTwo = () => {
             },
             {
               title: 'Review Order',
+              className: "wizard-step-item",
               icon: <ReactSVG src={require('../../../../static/img/icon/024-like.svg')} />,
               content:
                 status !== 'finish' ? (
