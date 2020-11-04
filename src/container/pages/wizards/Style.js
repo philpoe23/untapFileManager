@@ -949,8 +949,16 @@ const WizardWrapper = Styled.div`
             background-repeat: no-repeat;
             background-color: transparent !important;
             content: '';
+            @media only screen and (max-width: 1399px) {
+                width: 120%;
+            }
             @media only screen and (max-width: 991px) {
                 display: none;
+            }
+        }
+        .ant-steps-item-tail{
+            &:after{
+                height: 80%;
             }
         }
     }
@@ -1048,6 +1056,11 @@ const WizardWrapper = Styled.div`
             .ant-steps-item-title{
                 color: ${({ theme }) => theme['dark-color']} !important;
             }
+            &.ant-steps-item-finish{
+                .ant-steps-item-title{
+                    color: ${({ theme }) => theme['light-color']} !important;
+                }
+            }
         }
         &.ant-steps-item-finish{
             // .ant-steps-item-container{
@@ -1079,6 +1092,7 @@ const WizardWrapper = Styled.div`
         }
         .ant-form-item-label{
             label{
+                font-weight: 400;
                 color: ${({ theme }) => theme['dark-color']};
             }
         }
@@ -1514,6 +1528,22 @@ const WizardTwo = Styled.div`
                 }
             }
         }
+        .ant-steps-item-container{
+            .ant-steps-item-tail{
+                @media only screen and (max-width: 479px) {
+                    display: none !important;
+                }
+            }
+            .ant-steps-item-icon{
+                margin-bottom: 15px;
+                svg,
+                img{
+                    @media only screen and (max-width: 479px) {
+                        width: 40px;
+                    }
+                }
+            }
+        }
     }
 `;
 
@@ -1530,19 +1560,46 @@ const WizardThree = Styled.div`
 
 const WizardFour = Styled.div`
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    flex-wrap: wrap;
-    .ant-steps-item-container {
-        position: relative;
-        display: inline;
+    justify-content: center;
+    @media (max-width: 991px){
+        flex-flow: column;
+        align-items: center;
+    }
+    .ant-steps-item-container{
+        position: relative
+        display: flex;
+        flex-flow: row;
+        width: 100%;
+        padding-left: 0;
+        @media (max-width: 767px){
+            flex-flow: column;
+        }
+        &:after{
+            display: none;
+        }
+        .ant-steps-item-tail{
+            display: none !important;
+            &:after{
+                display: none;
+            }
+        }
     }
     .ant-steps-item:last-child {
         padding-left: 0px !important;
     }
     .ant-steps {
         margin-right: 30px;
+        min-width: 300px;
         flex-direction: column;
+        @media (max-width: 991px){
+            min-width: auto;
+            margin: 0 0 25px 0;
+        }
+        @media (max-width: 575px){
+            align-items: flex-start;
+        }
+        
         &.ant-steps-vertical{
             flex: 1;
             padding: 30px;
@@ -1550,15 +1607,15 @@ const WizardFour = Styled.div`
             border: 1px solid ${({ theme }) => theme['bg-color-deep']};
             max-width: 300px;
             .ant-steps-item-icon{
-                margin-right: 0;
+                margin-right: 0 !important;
             }
             .ant-steps-item {
                 padding-right: 0;
                 &:not(:last-child){
                     margin-bottom: 30px;
-                }
-                &.ant-steps-item-wait{
-
+                    @media (max-width: 767px){
+                        margin-bottom: 15px;
+                    }
                 }
                 &.ant-steps-item-wait{
                     .ant-steps-item-icon{
@@ -1574,10 +1631,6 @@ const WizardFour = Styled.div`
                 margin-right: 0 !important;
             }
         }
-        .ant-steps-item-container:after {
-            display: none;
-            
-        }
     }
     
     .create-account-form{
@@ -1586,17 +1639,18 @@ const WizardFour = Styled.div`
         border: 1px solid ${({ theme }) => theme['bg-color-deep']};
     }
     .atbd-finish-order{
-        min-width: 560px;
+        max-width: 100%;
+    }
+    .steps-wrapper{
+        width: 100%;
+        max-width: 580px;
     }
     .steps-content{
         margin-top: 0 !important;
-        max-width: 560px;
+        justify-content: flex-start !important;
     }
     .step-action-wrap{
-        width: fit-content;
-        margin-left: 390px;
         .step-action-inner{
-            width: 560px;
             padding: 0 !important;
         }
     }
@@ -1605,8 +1659,6 @@ const WizardFour = Styled.div`
 const WizardFive = Styled.div`
     display: flex;
     align-items: flex-start;
-    flex-wrap:wrap;
-    padding: 60px 0px
     .ant-steps-item-container {
         position: relative;
         display: inline;
@@ -1620,11 +1672,10 @@ const WizardFive = Styled.div`
         min-width: 450px;
         max-width: 450px;
         flex-direction: column;
-        padding-right: 50px;
+        // padding-right: 50px;
         margin-right: 50px;
         .ant-steps-item-container:after {
             display: none;
-            
         }
         .ant-steps-item {
             border-radius: 5px;
@@ -1654,12 +1705,12 @@ const WizardFive = Styled.div`
     }
     .steps-content{
         margin-top: 0 !important;
-        .create-account-form{
-            .ant-input{
-                background-color: #F4F5F7;
-            }
-            .ant-form-item-control-input-content{
+        .basic-form-inner{
+            &.theme-light{
+                .ant-input,
+                .ant-select-selector,
                 .ant-input-password{
+                    border: 0 none;
                     background-color: #F4F5F7;
                 }
             }
@@ -1672,8 +1723,6 @@ const WizardFive = Styled.div`
         background: #F4F5F7;
     }
     .step-action-wrap{
-        width: fit-content;
-        margin-left: 500px;
         border-top: 1px solid ${({ theme }) => theme['bg-color-deep']}; 
         margin-top: 30px;
         .step-action-inner{
@@ -1685,6 +1734,9 @@ const WizardFive = Styled.div`
         }
     }
     .atbd-review-order{
+        >.ant-card{
+            margin-bottom: 0 !important;
+        }
         &.theme-light{
 
             > .ant-card > .ant-card-body{
@@ -1692,6 +1744,11 @@ const WizardFive = Styled.div`
                 padding: 0 !important;
             }
             .atbd-review-order__single{
+                &:last-child{
+                    .ant-card{
+                        margin-bottom: 0 !important;
+                    }
+                }
                 .ant-card-body{
                     background-color: #F4F5F7;
                     box-shadow: 0 0;
@@ -1712,6 +1769,23 @@ const WizardFive = Styled.div`
             }
         }
     }
+    .shipping-selection__card{
+        .ant-card{
+            margin-bottom: 0 !important;
+        }
+        .ant-card-body{
+            padding: 0 !important;
+        }
+    }
+    .ex-date-year-wrap{
+        .ex-date{
+            margin-right: 20px;
+            flex: 0 0 48%
+        }
+        .ex-year{
+            flex: 0 0 48%
+        }
+    }
 `;
 const WizardSix = Styled.div`
     position: relative;
@@ -1719,7 +1793,7 @@ const WizardSix = Styled.div`
     flex-flow: column;
     align-items: flex-end !important;
     .step-action-wrap{
-        justify-content: flex-end;
+        justify-content: flex-end !important;
         .step-action-inner{
             position: relative;
             left: -106px;

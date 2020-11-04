@@ -33,8 +33,12 @@ const WizardsFive = () => {
   const { status, isFinished, current, visible } = state;
 
   const handleOk = () => {
+    console.log("got")
     setState({
       ...state,
+      status: 'process',
+      current: 1,
+      isFinished: false,
       visible: false,
     });
   };
@@ -42,6 +46,9 @@ const WizardsFive = () => {
   const handleCancel = () => {
     setState({
       ...state,
+      status: 'process',
+      current: 3,
+      isFinished: false,
       visible: false,
     });
   };
@@ -189,6 +196,7 @@ const WizardsFive = () => {
     <WizardWrapper className="bordered-wizard">
       <WizardFive>
         <Steps
+          isvertical
           isswitch
           current={0}
           status={status}
@@ -202,7 +210,7 @@ const WizardsFive = () => {
                 </>
               ),
               content: (
-                <BasicFormWrapper className="basic-form-inner">
+                <BasicFormWrapper className="basic-form-inner theme-light">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
                       <Col xs={24}>
@@ -244,7 +252,7 @@ const WizardsFive = () => {
                 </>
               ),
               content: (
-                <BasicFormWrapper className="basic-form-inner">
+                <BasicFormWrapper className="basic-form-inner theme-light">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
                       <Col xs={24}>
@@ -302,7 +310,7 @@ const WizardsFive = () => {
                 </>
               ),
               content: (
-                <BasicFormWrapper className="basic-form-inner">
+                <BasicFormWrapper className="basic-form-inner theme-light">
                   <div className="atbd-form-checkout">
                     <Row justify="center">
                       <Col xs={24}>
@@ -311,15 +319,8 @@ const WizardsFive = () => {
                           <div className="shipping-selection">
                             <Radio.Group style={{ width: '100%' }}>
                               <div className="shipping-selection__card">
-                                <Radio style={{ width: '100%' }} value="card">
-                                  <Cards
-                                    headless
-                                    bodyStyle={{
-                                      backgroundColor: '#F8F9FB',
-                                      borderRadius: '20px',
-                                      border: '1px solid #F1F2F6',
-                                    }}
-                                  >
+                                
+                                  <Cards headless>
                                     <div className="supported-card d-flex">
                                       <span>Credit/Debit Card</span>
                                       <div className="supported-card_logos">
@@ -340,61 +341,52 @@ const WizardsFive = () => {
                                         />
                                       </div>
                                     </div>
-                                    <Cards headless style={{ marginBottom: 0 }}>
-                                      <Form form={form} name="info">
-                                        <Form.Item name="number" label="Card Number">
-                                          <Input placeholder="6547-8702-6987-2527" />
-                                        </Form.Item>
-                                        <Form.Item name="name" label="Name on Card">
-                                          <Input placeholder="Full name" />
-                                        </Form.Item>
-                                        <Form.Item name="month" initialValue="" label="Expiration Date">
-                                          <Select style={{ width: '100%' }}>
-                                            <Option value="">MM</Option>
-                                            {month.map(value => (
-                                              <Option key={value} value={value}>
-                                                {value}
-                                              </Option>
-                                            ))}
-                                          </Select>
-                                        </Form.Item>
-                                        <Form.Item name="year" initialValue="">
-                                          <Select style={{ width: '100%' }}>
-                                            <Option value="">YY</Option>
-                                            <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
-                                            {month.map(value => (
-                                              <Option
-                                                key={value}
-                                                value={parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
-                                              >
-                                                {parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
-                                              </Option>
-                                            ))}
-                                          </Select>
-                                        </Form.Item>
-                                        <Form.Item name="cvv" label="CVV">
-                                          <div className="cvv-wrap">
-                                            <Input style={{ width: '60%' }} placeholder="XXX" />
-                                            <Link className="input-leftText" to="#">
-                                              What is this?
-                                            </Link>
+                                    <Form form={form} name="info">
+                                      <Form.Item name="number" label="Card Number">
+                                        <Input placeholder="6547-8702-6987-2527" />
+                                      </Form.Item>
+                                      <Form.Item name="name" label="Name on Card">
+                                        <Input placeholder="Full name" />
+                                      </Form.Item>
+                                      <Form.Item name="month" initialValue="" label="Expiration Date">
+                                        <div className="ex-date-year-wrap d-flex">
+                                          <div className="ex-date">
+                                            <Select style={{ width: '100%' }}>
+                                              <Option value="">MM</Option>
+                                              {month.map(value => (
+                                                <Option key={value} value={value}>
+                                                  {value}
+                                                </Option>
+                                              ))}
+                                            </Select>
                                           </div>
-                                        </Form.Item>
-                                      </Form>
-                                    </Cards>
+                                          <div className="ex-year">
+                                            <Select style={{ width: '100%' }}>
+                                              <Option value="">YY</Option>
+                                              <Option value={new Date().getFullYear()}>{new Date().getFullYear()}</Option>
+                                              {month.map(value => (
+                                                <Option
+                                                  key={value}
+                                                  value={parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
+                                                >
+                                                  {parseInt(new Date().getFullYear(), 10) + parseInt(value, 10)}
+                                                </Option>
+                                              ))}
+                                            </Select>
+                                          </div>
+                                        </div>
+                                      </Form.Item>
+                                      {/* <Form.Item name="year" initialValue="">
+                                        
+                                      </Form.Item> */}
+                                      <Form.Item name="cvv" label="CVV">
+                                        <div className="cvv-wrap">
+                                          <Input style={{ width: '60%' }} placeholder="XXX" />
+                                          <Link className="input-leftText" to="#"></Link>
+                                        </div>
+                                      </Form.Item>
+                                    </Form>
                                   </Cards>
-                                </Radio>
-                              </div>
-                              <div className="shipping-selection__paypal">
-                                <Radio value="payPal" style={{ width: '100%' }}>
-                                  Pay With PayPal
-                                  <img src={require('../../../../static/img/PayPalLogo.png')} alt="paypal" />
-                                </Radio>
-                              </div>
-                              <div className="shipping-selection__cash">
-                                <Radio value="cash" style={{ width: '100%' }}>
-                                  Cash on delivery
-                                </Radio>
                               </div>
                             </Radio.Group>
                           </div>
@@ -415,7 +407,7 @@ const WizardsFive = () => {
               content:
                 status !== 'finish' ? (
                   <BasicFormWrapper style={{ width: '100%' }}>
-                    <div className="atbd-review-order theme-light" style={{ width: '100%' }}>
+                    <div className="atbd-review-order theme-light" style={{ width: '100%', marginBottom: '0px !important' }}>
                       <Heading as="h4">4. Review and confirm Order</Heading>
                       <Cards bodyStyle={{ backgroundColor: '#ffffff' }} headless>
                         <div className="atbd-review-order__single">
@@ -469,7 +461,7 @@ const WizardsFive = () => {
                         </div>
 
                         <div className="atbd-review-order__single">
-                          <Cards headless>
+                          <Cards headless  style={{ marginBottom: "0" }}>
                             <>
                               <ProductTable>
                                 <div className="table-cart table-responsive">
@@ -513,20 +505,23 @@ const WizardsFive = () => {
                   <Modal
                     footer={null}
                     type="primary"
-                    title="Basic Modal"
                     visible={visible}
                     onOk={handleOk}
                     onCancel={handleCancel}
                   >
-                    <Row justify="start" style={{ width: '100%' }}>
+                    <Row justify="center" style={{ width: '100%' }}>
                       <Col xl={20} xs={24}>
                         <Cards headless>
-                          <span className="icon-success">
-                            <FeatherIcon icon="check" />
-                          </span>
-                          <p>All is good! Please confirm the form submission.</p>
-                          <Button type="primary">Submit</Button>
-                          <Button type="light">Cancel</Button>
+                          <div className="submission-successModal">
+                            <span className="icon-success">
+                              <FeatherIcon icon="check" />
+                            </span>
+                            <p>All is good! Please confirm the form submission.</p>
+                            <div className="submission-action">
+                              <Button type="primary" onClick={handleOk}>Submit</Button>
+                              <Button type="light">Cancel</Button>
+                            </div>
+                          </div>
                         </Cards>
                       </Col>
                     </Row>

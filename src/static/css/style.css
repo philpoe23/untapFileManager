@@ -601,6 +601,35 @@ ul {
   margin-top: 30px !important;
 }
 
+/* Wizard Modal */
+.submission-successModal{
+  text-align: center; 
+}
+.submission-successModal .icon-success{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid #20C997; 
+}
+.submission-successModal p{
+  margin-bottom: 0;
+}
+.submission-successModal .icon-success svg{
+  color: #20C997;
+}
+.submission-successModal .submission-action{
+  margin: 30px -5px -5px -5px;
+}
+.submission-successModal .submission-action button{
+  margin: 5px;
+  height: 38px;
+}
+
 /* Tree Select */
 
 .ant-tree-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Row, Col, Form, Input, Select, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
@@ -36,6 +36,33 @@ const WizardsOne = () => {
       dispatch(cartGetData());
     }
   }, [dispatch]);
+
+  useLayoutEffect(() => {
+    const activeElement = document.querySelectorAll('.ant-steps-item-active');
+    const successElement = document.querySelectorAll('.ant-steps-item-finish');
+
+    activeElement.forEach(element => {
+      if (element.previousSibling) {
+        const bgImage = element.previousSibling;
+        if (bgImage.classList.contains('success-step-item')) {
+          bgImage.classList.remove('success-step-item');
+        } else {
+          bgImage.classList.remove('wizard-step-item');
+        }
+        bgImage.classList.add('wizard-steps-item-active');
+      }
+    });
+
+    successElement.forEach(element => {
+      if (element.previousSibling) {
+        const bgImage = element.previousSibling;
+        bgImage.classList.remove('wizard-steps-item-active');
+        bgImage.classList.add('success-step-item');
+        // if(bgImage.classList.has('.ant-steps-item-active'))
+      }
+
+    });
+  });
 
   const incrementUpdate = (id, quantity) => {
     const data = parseInt(quantity, 10) + 1;
@@ -473,7 +500,7 @@ const WizardsOne = () => {
                 </BasicFormWrapper>
               ) : (
                 <Row justify="center" style={{ width: '100%' }}>
-                  <Col xl={21} xs={24}>
+                  <Col xl={22} xs={24}>
                     <div className="checkout-successful">
                       <Cards
                         headless

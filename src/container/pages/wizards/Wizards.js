@@ -107,7 +107,7 @@ const Wizards = () => {
               </Cards>
             </Suspense>
           </Col>
-          <Col sm={24} xs={24}>
+          <Col xxl={24} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -117,7 +117,7 @@ const Wizards = () => {
             >
               <Cards headless>
                   <Row justify="center">
-                    <Col md={18} xs={24}>
+                    <Col xxl={18} xs={24}>
                       <WizardsTwo />
                     </Col>
                   </Row>
@@ -134,7 +134,7 @@ const Wizards = () => {
             >
               <Cards headless>
                 <Row justify="center">
-                  <Col md={18} xs={24}>
+                  <Col xxl={18} xs={24}>
                     <WizardsOne />
                   </Col>
                 </Row>

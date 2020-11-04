@@ -74,6 +74,7 @@ const WizardsFour = () => {
     <WizardWrapper>
       <WizardFour>
         <Steps
+          isvertical
           isswitch
           current={0}
           status={status}
