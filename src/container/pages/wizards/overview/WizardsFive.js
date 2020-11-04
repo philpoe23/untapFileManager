@@ -25,19 +25,16 @@ const WizardsFive = () => {
 
   const [state, setState] = useState({
     status: 'process',
-    isFinished: false,
-    current: 1,
+    isFinished: false,    
     visible: true,
   });
 
-  const { status, isFinished, current, visible } = state;
+  const { status, isFinished, visible } = state;
 
-  const handleOk = () => {
-    console.log("got")
+  const handleOk = () => {    
     setState({
       ...state,
-      status: 'process',
-      current: 1,
+      status: 'process',      
       isFinished: false,
       visible: false,
     });
@@ -46,8 +43,7 @@ const WizardsFive = () => {
   const handleCancel = () => {
     setState({
       ...state,
-      status: 'process',
-      current: 3,
+      status: 'process',      
       isFinished: false,
       visible: false,
     });
@@ -77,16 +73,14 @@ const WizardsFive = () => {
   const next = () => {
     setState({
       ...state,
-      status: 'process',
-      current: current + 1,
+      status: 'process',      
     });
   };
 
   const prev = () => {
     setState({
       ...state,
-      status: 'process',
-      current: current - 1,
+      status: 'process',      
     });
   };
 
@@ -96,8 +90,7 @@ const WizardsFive = () => {
       setState({
         ...state,
         status: 'finish',
-        isFinished: true,
-        current: 0,
+        isFinished: true,       
         visible: true,
       });
     }
