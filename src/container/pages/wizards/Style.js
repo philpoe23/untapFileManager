@@ -872,7 +872,7 @@ const InvoiceAction = Styled.div`
 `;
 
 const WizardWrapper = Styled.div`
-    padding: 25px 0;
+    // padding: 25px 0;
     &.bordered-wizard{
         padding: 0;
     }
@@ -1659,9 +1659,30 @@ const WizardFour = Styled.div`
 const WizardFive = Styled.div`
     display: flex;
     align-items: flex-start;
+    @media only screen and (max-width: 991px) {
+        flex-flow: column;
+    }
+    .steps-wrapper{
+        @media only screen and (max-width: 991px) {
+            width: 100%;
+            border-left: 0 !important;
+        }
+    }
+    .basic-form-inner{
+        @media only screen and (max-width: 1599px) {
+            width: 100%;
+        }
+    }
     .ant-steps-item-container {
         position: relative;
-        display: inline;
+        width: 100% !important;
+        align-items: flex-start !important;
+        @media only screen and (max-width: 1399px) {
+            padding-left: 0 !important;
+        }
+        .ant-steps-item-tail{
+            display: none !important;
+        }
     }
     .ant-steps-item:last-child {
         padding-left: 0px !important;
@@ -1670,10 +1691,14 @@ const WizardFive = Styled.div`
         flex: 1;
         position: relative;
         min-width: 450px;
-        max-width: 450px;
         flex-direction: column;
-        // padding-right: 50px;
-        margin-right: 50px;
+        @media only screen and (max-width: 1599px) {
+            min-width: auto;
+        }
+        @media only screen and (max-width: 767px) {
+            align-items: flex-start;
+            padding: 25px 0 !important;
+        }
         .ant-steps-item-container:after {
             display: none;
         }
@@ -1728,6 +1753,9 @@ const WizardFive = Styled.div`
         .step-action-inner{
             width: 580px;
             padding: 0 !important;
+            @media only screen and (max-width: 1399px) {
+                width: 100%;
+            }
         }
         .steps-action{
             margin-top: 40px;
@@ -1757,6 +1785,9 @@ const WizardFive = Styled.div`
                     background-color: transparent;
                 }
                 .table-cart {
+                    @media only screen and (max-width: 1399px) {
+                        max-width: 410px;
+                    }
                     .ant-table-tbody .ant-table-row:hover td{
                         background-color: transparent !important;
                     }
@@ -1787,17 +1818,16 @@ const WizardFive = Styled.div`
         }
     }
 `;
+
 const WizardSix = Styled.div`
     position: relative;
     display: flex;
-    flex-flow: column;
-    align-items: flex-end !important;
+    min-height: 620px;
+    .ant-steps{
+        position: relative;
+    }
     .step-action-wrap{
         justify-content: flex-end !important;
-        .step-action-inner{
-            position: relative;
-            left: -106px;
-        }
     }
     .ant-steps-item{
         padding: 0 !important;
@@ -1819,7 +1849,8 @@ const WizardSix = Styled.div`
         display: none;
         text-align: center;
         position: absolute;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         margin-top: 20px;
         h2{
             font-size: 22px;
@@ -1838,12 +1869,17 @@ const WizardSix = Styled.div`
     }
     .steps-content{
         position: relative;
-        left: -106px;
+        // left: -106px;
         margin-top: 0 !important;
     }
     .atbd-review-order{
         position: relative;
-        right: -196px;
+        // right: -196px;
+    }
+    .step-action-wrap{
+        .step-action-inner{
+            width: 100% !important;
+        }
     }
     .ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item{
         white-space: normal;
@@ -1854,6 +1890,7 @@ const WizardSix = Styled.div`
     .ant-steps-item-container:after{
         display: none;
     }
+    
 `;
 
 export {

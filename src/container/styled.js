@@ -642,6 +642,23 @@ const Main = Styled.div`
                 padding: 0 25px !important;
             }
         }
+        .payment-method-form.theme-light{
+            .shipping-selection__card{
+                .ant-card-body{
+                    padding: 25px 0 !important;
+                }
+            }
+        }
+        .shipping-selection__card{
+            .ant-card-body{
+                padding: 25px !important;
+            }
+        }
+        .atbd-review-order{
+            .ant-card-body{
+                padding: 25px 25px 0 !important;
+            }
+        }
         // .ant-card .ant-card{
         //     .ant-card-body{
         //         padding: 25px !important;
@@ -652,9 +669,15 @@ const Main = Styled.div`
         // }
         .ant-steps {
             padding: 50px;
+            @media only screen and (max-width: 1399px) {
+                padding: 25px;
+            }
         }
         .steps-wrapper{
             padding: 50px;
+            @media only screen and (max-width: 1399px) {
+                padding: 25px;
+            }
             border-left: 1px solid ${({ theme }) => theme['border-color-light']};
         }
     }

@@ -174,6 +174,7 @@ const WizardsSix = () => {
       <WizardSix>
         <Steps
           isswitch
+          isvertical
           current={0}
           status={status}
           steps={[

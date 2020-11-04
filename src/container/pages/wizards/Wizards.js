@@ -54,7 +54,7 @@ const Wizards = () => {
               </div>
             </Suspense>
           </Col>
-          <Col sm={24} xs={24}>
+          <Col xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -65,7 +65,7 @@ const Wizards = () => {
               <div className="wizard-side-border">
                 <Cards headless>
                   <Row justify="center">
-                    <Col md={20} xs={24}>
+                    <Col xxl={20} xs={24}>
                       <WizardsFive />
                     </Col>
                   </Row>

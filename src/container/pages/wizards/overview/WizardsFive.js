@@ -470,7 +470,7 @@ const WizardsFive = () => {
                               </ProductTable>
 
                               <Row justify="end">
-                                <Col xxl={8} xl={5} md={9} sm={14} xs={24} offset={!rtl ? 10 : 0}>
+                                <Col sm={14} xs={24} offset={!rtl ? 10 : 0}>
                                   <OrderSummary>
                                     <div className="invoice-summary-inner">
                                       <ul className="summary-list">
