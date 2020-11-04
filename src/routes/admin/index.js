@@ -4,6 +4,7 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import Dashboard from './dashboard';
 import Pages from './pages';
 import Users from './users';
+import Widgets from './widgets';
 import Ecommerce from './ecommerce';
 import withAdminLayout from '../../layout/withAdminLayout';
 
@@ -24,6 +25,7 @@ const ToDo = lazy(() => import('../../container/toDo/ToDo'));
 const Note = lazy(() => import('../../container/note/Note'));
 const Contact = lazy(() => import('../../container/contact/Contact'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
+
 
 const Admin = () => {
   const { path } = useRouteMatch();
@@ -59,6 +61,7 @@ const Admin = () => {
         <Route path={`${path}/app/note`} component={Note} />
         <Route path={`${path}/app/contact`} component={Contact} />
         <Route path={`${path}/app/calendar`} component={Calendar} />
+        <Route path={`${path}/widgets`} component={Widgets} />
       </Suspense>
     </Switch>
   );

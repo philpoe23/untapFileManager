@@ -29,10 +29,7 @@ const Compose = ({ close }) => {
   };
 
   return (
-    <MailBox size={state.size}>
-      {/* <div className="mailbox-inner">
-        
-      </div> */}
+    <MailBox size={state.size}>      
       <div className="header">
         <p>New Message</p>
         <div className="icon-right">

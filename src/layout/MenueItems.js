@@ -575,10 +575,18 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards`}>
             Wizards
           </NavLink>
+        </Menu.Item>        
+      </SubMenu>
+
+      <SubMenu key="widgets" icon={!topMenu && <FeatherIcon icon="layout" />} title="Widgets">
+        <Menu.Item key="chart">
+          <NavLink onClick={toggleCollapsed} to={`${path}/widgets/chart`}>
+            Chart
+          </NavLink>
         </Menu.Item>
-        <Menu.Item key="widgets">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/widgets`}>
-            Widgets
+        <Menu.Item key="card">
+          <NavLink onClick={toggleCollapsed} to={`${path}/widgets/card`}>
+           Card
           </NavLink>
         </Menu.Item>
       </SubMenu>
