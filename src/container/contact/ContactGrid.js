@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Table, Form, Input } from 'antd';
-import FeatherIcon from 'feather-icons-react';
+import { Row, Col, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import { Action, ContactPageheaderStyle } from './style';
+import { ContactPageheaderStyle } from './style';
 import ContactCard from './overview/ContactCard';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, TableWrapper, CardToolbox, BasicFormWrapper } from '../styled';
-import Heading from '../../components/heading/heading';
+import { Main, CardToolbox, BasicFormWrapper } from '../styled';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
-import { AddUser, UserTableStyleWrapper } from '../pages/style';
-import { onStarUpdate, contactDeleteData, contactSearchData, contactAddData } from '../../redux/contact/actionCreator';
-import { Dropdown } from '../../components/dropdown/dropdown';
+import { AddUser } from '../pages/style';
+import { contactSearchData, contactAddData } from '../../redux/contact/actionCreator';
 import { Modal } from '../../components/modals/antd-modals';
 
 const ContactGrid = () => {
@@ -39,11 +36,6 @@ const ContactGrid = () => {
 
   const handleSearch = searchText => {
     dispatch(contactSearchData(searchText));
-  };
-
-  const onHandleDelete = id => {
-    const value = users.filter(item => item.id !== id);
-    dispatch(contactDeleteData(value));
   };
 
   const showModal = () => {
@@ -128,13 +120,7 @@ const ContactGrid = () => {
             title="Contacts"
             subTitle={
               <>
-                <AutoComplete
-                  onSearch={handleSearch}
-                  // dataSource={notData}
-                  placeholder="Search by Name"
-                  width="100%"
-                  patterns
-                />
+                <AutoComplete onSearch={handleSearch} placeholder="Search by Name" width="100%" patterns />
               </>
             }
             buttons={[
@@ -147,12 +133,16 @@ const ContactGrid = () => {
       </CardToolbox>
 
       <Main>
-        <Row gutter={15}>
-          <Col md={6}>
-            <Cards headless>
-              <ContactCard />
-            </Cards>
-          </Col>
+        <Row gutter={25}>
+          {users.map(user => {
+            return (
+              <Col key={user.id} md={6}>
+                <Cards headless>
+                  <ContactCard showEditModal={showEditModal} user={user} />
+                </Cards>
+              </Col>
+            );
+          })}
         </Row>
         <Modal
           type={state.modalType}
