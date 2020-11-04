@@ -6,7 +6,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { DatePicker } from 'antd';
 import { ItemWraper, ButtonGroup } from './style';
-import { Button } from '../../components/buttons/buttons';
+import { Button } from '../buttons/buttons';
 
 const DateRangePickerOne = () => {
   const [state, setState] = useState({
@@ -48,8 +48,12 @@ const DateRangePickerOne = () => {
 
       <ButtonGroup>
         <p>{`${start[1]} ${start[2]} ${start[3]} - ${end[1]} ${end[2]} ${end[3]}`}</p>
-        <Button size="small" type="primary">Apply</Button>
-        <Button size="small" type="white" outlined>Cancel</Button>
+        <Button size="small" type="primary">
+          Apply
+        </Button>
+        <Button size="small" type="white" outlined>
+          Cancel
+        </Button>
       </ButtonGroup>
     </ItemWraper>
   );

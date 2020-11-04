@@ -7,6 +7,10 @@ const {
   changeRtlBegin,
   changeRtlSuccess,
   changeRtlErr,
+
+  changeMenuBegin,
+  changeMenuSuccess,
+  changeMenuErr,
 } = actions;
 
 const changeLayoutMode = value => {
@@ -31,4 +35,15 @@ const changeRtlMode = value => {
   };
 };
 
-export { changeLayoutMode, changeRtlMode };
+const changeMenuMode = value => {
+  return async dispatch => {
+    try {
+      dispatch(changeMenuBegin());
+      dispatch(changeMenuSuccess(value));
+    } catch (err) {
+      dispatch(changeMenuErr(err));
+    }
+  };
+};
+
+export { changeLayoutMode, changeRtlMode, changeMenuMode };

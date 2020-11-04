@@ -128,50 +128,44 @@ const ReChartPie = () => {
         <Row gutter={25}>
           <Col md={12} xs={24}>
             <Cards title="TWO LEVEL PIE CHART" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+              >
                 <Pie
                   data={data01}
                   dataKey="value"
-                  cx={responsive / 2}
-                  cy={responsive / 4}
-                  outerRadius={55}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
+                  outerRadius={56}
                   fill="#8884d8"
-                  margin={{
-                    top: 5,
-                    right: window.innerWidth <= 375 ? 34 : 40,
-                    left: window.innerWidth <= 375 ? -16 : 0,
-                    bottom: 5,
-                  }}
                 />
                 <Pie
                   data={data02}
                   dataKey="value"
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
                   innerRadius={60}
                   outerRadius={80}
                   fill="#82ca9d"
                   label
-                  margin={{
-                    top: 5,
-                    right: window.innerWidth <= 375 ? 34 : 40,
-                    left: window.innerWidth <= 375 ? -16 : 0,
-                    bottom: 5,
-                  }}
                 />
               </PieChart>
             </Cards>
           </Col>
           <Col md={12} xs={24}>
             <Cards title="STRAIGHT ANGLE PIE CHART" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+              >
                 <Pie
                   dataKey="value"
                   startAngle={180}
                   endAngle={0}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 : responsive / 4}
                   outerRadius={80}
                   fill="#8884d8"
                   label
@@ -181,13 +175,16 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="CUSTOM ACTIVE SHAPE PIE CHART" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+              >
                 <Pie
                   activeIndex={state.activeIndex}
                   activeShape={renderActiveShape}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
                   innerRadius={60}
                   outerRadius={80}
                   fill="#8884d8"
@@ -199,11 +196,14 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH CUSTOMIZED LABEL" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+              >
                 <Pie
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
                   labelLine={false}
                   label={renderCustomizedLabel}
                   outerRadius={80}
@@ -219,13 +219,16 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="TWO SIMPLE PIE CHART" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+              >
                 <Pie
                   dataKey="value"
                   isAnimationActive={false}
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
                   outerRadius={80}
                   fill="#8884d8"
                   label
@@ -236,11 +239,15 @@ const ReChartPie = () => {
           </Col>
           <Col md={12} xs={24}>
             <Cards title="PIE CHART WITH PADDING ANGLE" size="large">
-              <PieChart width={responsive - (5 * responsive) / 100} height={responsive / 2} onMouseEnter={onPieEnter}>
+              <PieChart
+                width={responsive - (5 * responsive) / 100}
+                height={responsive >= 375 ? responsive / 2 : responsive / 1.2}
+                onMouseEnter={onPieEnter}
+              >
                 <Pie
                   data={data01}
-                  cx={responsive / 2}
-                  cy={responsive / 4}
+                  cx={responsive / 2 - 30}
+                  cy={responsive <= 375 ? responsive / 2 - 30 : responsive / 4}
                   innerRadius={60}
                   outerRadius={80}
                   fill="#8884d8"

@@ -15,7 +15,7 @@ const ItemWraper = Styled.div`
         font-size: 18px;
         position: absolute;
         top: -50px;
-        left: 100px;
+        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 100px;
         font-weight: 400;
     }
     .rdrDefinedRangesWrapper{
@@ -52,17 +52,32 @@ const ItemWraper = Styled.div`
             }
             .rdrDays{
                 .rdrSelected, 
-                .rdrInRange{
-                    
+                .rdrInRange{                    
                     background-color: #EFEFFE;
+                    left: 0 !important;
+                    right: 0 !important;
                 }
                 .rdrStartEdge{
-                    right: 0;
-                    left: 0;
+                    right: 0 !important;
+                    left: 0 !important;
+                    ${({ theme }) =>
+                      theme.rtl
+                        ? 'border-top-right-radius: 1.042em; border-top-left-radius: 0em;'
+                        : 'border-top-left-radius: 1.042em;'};
+                    ${({ theme }) =>
+                      theme.rtl
+                        ? 'border-bottom-right-radius: 1.042em;border-bottom-left-radius: 0em;'
+                        : 'border-bottom-left-radius: 1.042em;'};
                 }
                 .rdrEndEdge{
-                    right: 0;
-                    left: 0;
+                    ${({ theme }) =>
+                      theme.rtl
+                        ? 'border-top-left-radius: 1.042em;border-top-right-radius: 0;'
+                        : 'border-top-right-radius: 1.042em;'};
+                    ${({ theme }) =>
+                      theme.rtl
+                        ? 'border-bottom-left-radius: 1.042em;border-bottom-right-radius: 0;'
+                        : 'border-bottom-right-radius: 1.042em;'};
                 }
                 .rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{
                     border-radius: 0px;
@@ -162,7 +177,7 @@ const ButtonGroup = Styled.div`
     margin: -4px -4px -15px;
     p{
         font-size: 13px;
-        margin: 0 20px 0 0;
+    margin: ${({ theme }) => (theme.rtl ? '0 0 0 20px' : '0 20px 0 0')};
         font-weight: 500;
         color: ${({ theme }) => theme['gray-color']};
     }

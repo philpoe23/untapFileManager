@@ -2,9 +2,9 @@ import Styled from 'styled-components';
 
 const ProjectHeader = Styled.div`
     .ant-page-header-heading-sub-title{
-        margin-right: 0;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         position: relative;
-        padding-left: 15px;
+        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 15px;
         font-weight: 500;
         &:before{
             position: absolute;
@@ -12,7 +12,7 @@ const ProjectHeader = Styled.div`
             width: 1px;
             height: 24px;
             background: ${({ theme }) => theme['dash-color']};
-            left: 0;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
             top:0;
         }
     }
@@ -32,7 +32,7 @@ const ProjectSorting = Styled.div`
         }
 
         .project-sort-group{
-            margin-left: auto;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: auto;
         }
         .project-sort-search{
             .ant-select-selection-search{
@@ -63,13 +63,13 @@ const ProjectSorting = Styled.div`
             
         }
         .project-sort-group .sort-group .layout-style a{
-                width: 35px;
-                height: 35px;
-            }
+            width: 35px;
+            height: 35px;
+        }
         .project-sort-group .sort-group .ant-select {
             min-width: 170px;
-            padding-left: 5px;
-            margin-right: 5px;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
         }
     }
     @media (max-width: 1199px){
@@ -93,13 +93,13 @@ const ProjectSorting = Styled.div`
     }
     @media (max-width: 991px){
         .project-sort-group{
-            margin-left: unset;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: unset;
             flex: 0 0 100%;
             margin-top: 15px;
             .sort-group{
                 justify-content: flex-start;
                 .layout-style{
-                    margin-left: auto;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: auto;
                 }
             }
         }
@@ -111,7 +111,7 @@ const ProjectSorting = Styled.div`
                     display: none;
                 }
                 .ant-select{
-                    padding-left: 0;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
                 }
             }
         }
@@ -129,13 +129,14 @@ const ProjectSorting = Styled.div`
             align-items: center;
             justify-content: space-between;
             li{
-                padding-right: 12px;
-                margin-right: 11px;
-                border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 11px;
+                ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
                 &:last-child{
-                    padding-right: 0;
-                    margin-right: 0;
-                    border-right: 0 none;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
+                    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                 }
                 a{
                     color: ${({ theme }) => theme['gray-solid']};
@@ -157,26 +158,34 @@ const ProjectSorting = Styled.div`
             border-radius: 23px;
         }
     }
+    .ant-select-arrow{
+        right: auto;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 11px !important;
+    }
+    
     .sort-group{
         color: ${({ theme }) => theme['gray-solid']};
         display: flex;
         align-items: center;
         justify-content: flex-end;
 
+               
         .ant-select{
-            padding-left: 10px;
-            margin-right: 15px;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
             min-width: 260px;
             .ant-select-selector{
                 border: 0 none;
-                .ant-select-selection-item{
+                .ant-select-selection-item{                    
                     color: ${({ theme }) => theme['gray-solid']};
                 }
+                
             }
         }
         .layout-style{
             display: flex;
             align-items: center;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
             a{
                 display: flex;
                 width: 40px;
@@ -211,7 +220,7 @@ const ProjectSorting = Styled.div`
                 justify-content: center;
                 margin-bottom: -5px;
                 li{
-                    border-right: 0 none;
+                    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                     margin-bottom: 5px;
                 }
             }
@@ -243,7 +252,7 @@ const ProjectCard = Styled.div`
             margin: -2px;
             a{
                 color: ${({ theme }) => theme['dark-color']};
-                margin-right: 11px !important;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 11px !important;
             }
             a,
             .ant-tag{
@@ -252,7 +261,7 @@ const ProjectCard = Styled.div`
             .ant-tag{
                 text-transform: uppercase;
                 font-size: 10px;
-                margin-right: 0;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
                 line-height: 18px;
                 background: red;
                 color: #fff;
@@ -284,9 +293,9 @@ const ProjectCard = Styled.div`
         align-items: center;
         margin-bottom: 15px;
         div{
-            margin-right: 30px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
             &:last-child{
-                margin-right: 0;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
             }
             span, strong{
                 display: block;
@@ -420,12 +429,14 @@ const ProjectList = Styled.div`
         border-top: 1px solid ${({ theme }) => theme['border-color-light']};
     }
     .ant-table-container table > thead > tr th:first-child{
-        border-radius: 10px 0 0 10px !important;
-        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
+        border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
+        ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
     }
     .ant-table-container table > thead > tr th:last-child{
-        border-radius: 0 10px 10px 0 !important;
-        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
     }
     .ant-dropdown-trigger{
         svg{
@@ -448,7 +459,7 @@ const ProjectDetailsWrapper = Styled.div`
             }
         }
         h1{
-            margin-right: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
             margin-bottom: 0;
             font-size: 20px;
             @media only screen and (max-width: 800px) {
@@ -461,7 +472,7 @@ const ProjectDetailsWrapper = Styled.div`
         button{
             font-size: 12px;
             font-weight: 500;
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
             height: 35px;
             padding: 0px 13.5px;
             &.btn-markComplete{
@@ -486,7 +497,7 @@ const ProjectDetailsWrapper = Styled.div`
             box-shadow: 0 3px 5px ${({ theme }) => theme['gray-solid']}05;
             svg,
             img{
-                margin-right: 6px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
             }
         }
         .project-edit{
@@ -529,7 +540,7 @@ const ProjectDetailsWrapper = Styled.div`
             margin-bottom: 0;
         }
         > div{
-            margin-right: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         }
         a{
             display: flex;
@@ -617,6 +628,9 @@ const ProjectDetailsWrapper = Styled.div`
             font-weight: 500;
             border-color: ${({ theme }) => theme['border-color-light']};
         }
+        i +span, svg +span, img +span {
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
+        }
     }
     .project-users{
         min-height: 368px;
@@ -628,7 +642,7 @@ const ProjectDetailsWrapper = Styled.div`
                 margin-bottom: 0;
             }
             & > div{
-                margin-right: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
             }
             div{
                 img{
@@ -687,7 +701,7 @@ const ProjectDetailsWrapper = Styled.div`
             width: 50%;
             align-items: center;
             .file-single-logo{
-                margin-right: 16px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
                 img{
                     max-width: 42px;
                 }
@@ -706,7 +720,7 @@ const ProjectDetailsWrapper = Styled.div`
             svg,
             i.
             img{
-                margin-right: 8px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
             }
         }
     }
@@ -730,13 +744,13 @@ const TaskLists = Styled.div`
             position: relative;
             padding: 20px 0px;
             &:not(:last-child){
-                margin-right: 18px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 18px;
             }
             &:before{
                 position: absolute;
                 content: '';
                 width: 100%;
-                left: 0;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                 bottom: -2px;
                 height: 1px;
 
@@ -769,7 +783,7 @@ const TaskLists = Styled.div`
                 border-bottom: 0;
                 padding: 10px;
                 &:first-child{
-                    padding-left: 25px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
                 }
                 .ant-checkbox-indeterminate {
                     .ant-checkbox-inner{
@@ -798,11 +812,12 @@ const TaskLists = Styled.div`
                 > td{
                     padding: 10px;
                     border-bottom: 0;
+                    text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
                     &:first-child{
-                        padding-left: 25px;
+                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 25px;
                     }
                     &:last-child{
-                        padding-right: 25px;
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 25px;
                     }
                     .task-title{
                         color: ${({ theme }) => theme['gray-color']};
@@ -833,7 +848,7 @@ const TaskLists = Styled.div`
         margin: 18px 25px 25px;
         button{
             width: 100%;
-            text-align: left;
+            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
             justify-content: flex-start;
             font-size: 12px;
             font-weight: 500;
@@ -913,7 +928,7 @@ const ActivitiesWrapper = Styled.div`
             height: 24px;
             width: 24px;
             border-radius: 50%;
-            margin: 4px 10px 0 0;
+            margin: ${({ theme }) => (theme.rtl ? '4px 0 0 10px' : '4px 10px 0 0')};
             &.bg-primary{
                 background: ${({ theme }) => theme['primary-color']}15;
                 color: ${({ theme }) => theme['primary-color']};
@@ -928,7 +943,7 @@ const ActivitiesWrapper = Styled.div`
             }
         }
         img{
-            margin-right: 12px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
         }
         .activity-title{
             font-size: 14px;

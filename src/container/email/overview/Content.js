@@ -3,7 +3,7 @@ import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import propTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
 import { Style, EmailAuthor, EmailHeader } from './style';
 import Topbar from './Topbar';
@@ -15,6 +15,11 @@ import { onStarUpdate, onSortingAscending, onSortingDescending } from '../../../
 
 const Content = ({ searchData, email }) => {
   const dispatch = useDispatch();
+  const { rtl } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+    };
+  });
   const [state, setState] = useState({
     selectedRowKeys: [],
     notData: searchData,
@@ -181,10 +186,10 @@ const Content = ({ searchData, email }) => {
             <span className="page-number">1 - 50 of 235</span>
             <div className="pagination-slider">
               <Link className="btn-paging" to="#">
-                <FeatherIcon icon="chevron-left" size={14} />
+                <FeatherIcon icon={!rtl ? 'chevron-left' : 'chevron-right'} size={14} />
               </Link>
               <Link className="btn-paging" to="#">
-                <FeatherIcon icon="chevron-right" size={14} />
+                <FeatherIcon icon={rtl ? 'chevron-left' : 'chevron-right'} size={14} />
               </Link>
             </div>
             <div className="email-extra">

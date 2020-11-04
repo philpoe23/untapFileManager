@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Spin, Skeleton } from 'antd';
 import { Link } from 'react-router-dom';
-import { GalleryNav, GalleryCard } from './style';
-import Heading from '../../components/heading/heading';
+import { GalleryNav } from './style';
 import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { galleryFilter } from '../../redux/gallary/actionCreator';
@@ -12,6 +11,9 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { Cards } from '../../components/cards/frame/cards-frame';
+
+const GalleryCards = lazy(() => import('./overview/GalleryCard'));
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -112,22 +114,18 @@ const Gallery = () => {
             </Col>
           ) : (
             gallery.map(item => {
-              const { id, name, img, category } = item;
+              const { id } = item;
               return (
                 <Col key={id} xxl={6} lg={8} sm={12} xs={24}>
-                  <GalleryCard style={{ marginBottom: '25px' }}>
-                    <figure>
-                      <img style={{ width: '100%' }} src={require(`../../${img}`)} alt="" />
-                      <figcaption>
-                        <div className="gallery-single-content">
-                          <Heading className="gallery-single-title" as="h4">
-                            {name}
-                          </Heading>
-                          <p>{category}</p>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </GalleryCard>
+                  <Suspense
+                    fallback={
+                      <Cards headless>
+                        <Skeleton active />
+                      </Cards>
+                    }
+                  >
+                    <GalleryCards item={item} />
+                  </Suspense>
                 </Col>
               );
             })

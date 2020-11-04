@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, message, Popconfirm } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -11,6 +12,7 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const Confirme = () => {
+  const rtl = useSelector(state => state.ChangeLayoutMode.rtlData);
   const confirm = () => {
     message.success('Click on Yes');
   };
@@ -59,7 +61,10 @@ const Confirme = () => {
           <Col xl={12} lg={16} xs={24}>
             <Cards title="Placement">
               <div className="demo placement-confirm">
-                <div className="pop-confirm pop-confirm-top" style={{ marginLeft: 90, whiteSpace: 'nowrap' }}>
+                <div
+                  className="pop-confirm pop-confirm-top"
+                  style={{ [!rtl ? 'marginLeft' : 'marginRight']: 90, whiteSpace: 'nowrap' }}
+                >
                   <Popconfirm placement="topLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="white" outlined>
                       TL
@@ -76,7 +81,7 @@ const Confirme = () => {
                     </Button>
                   </Popconfirm>
                 </div>
-                <div className="pop-confirm pop-confirm-left" style={{ width: 90, float: 'left' }}>
+                <div className="pop-confirm pop-confirm-left" style={{ width: 90, float: [!rtl ? 'left' : 'right'] }}>
                   <Popconfirm placement="leftTop" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="white" outlined>
                       LT
@@ -93,7 +98,10 @@ const Confirme = () => {
                     </Button>
                   </Popconfirm>
                 </div>
-                <div className="pop-confirm pop-confirm-right" style={{ width: 90, marginLeft: 390 }}>
+                <div
+                  className="pop-confirm pop-confirm-right"
+                  style={{ width: 90, [!rtl ? 'marginLeft' : 'marginRight']: 390 }}
+                >
                   <Popconfirm placement="rightTop" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="white" outlined>
                       RT
@@ -112,7 +120,7 @@ const Confirme = () => {
                 </div>
                 <div
                   className="pop-confirm pop-confirm-bottom"
-                  style={{ marginLeft: 100, clear: 'both', whiteSpace: 'nowrap' }}
+                  style={{ [!rtl ? 'marginLeft' : 'marginRight']: 100, clear: 'both', whiteSpace: 'nowrap' }}
                 >
                   <Popconfirm placement="bottomLeft" title={text} onConfirm={onConfirm} okText="Yes" cancelText="No">
                     <Button size="default" type="white" outlined>

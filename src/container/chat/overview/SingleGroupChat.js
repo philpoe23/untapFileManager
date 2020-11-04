@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import moment from 'moment';
+import Picker from 'emoji-picker-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Scrollbars } from 'react-custom-scrollbars';
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
-import { SingleChatWrapper, MessageList, Footer } from '../style';
+import { SingleChatWrapper, MessageList, Footer, BackShadowEmoji } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import { updateGroupChat } from '../../../redux/chat/actionCreator';
@@ -18,7 +19,13 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleGroupChat = ({ match }) => {
   const dispatch = useDispatch();
-  const chat = useSelector(state => state.chatSingleGroup.data);
+  const { rtl, chat } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+      chat: state.chatSingle.data,
+    };
+  });
+  const left = !rtl ? 'left' : 'right';
 
   const [state, setState] = useState({
     chatData: chat,
@@ -29,7 +36,7 @@ const SingleGroupChat = ({ match }) => {
     fileList: [],
     fileList2: [],
   });
-
+  const [pickerShow, setPickerShow] = useState(false);
   const { singleContent, name, me, inputValue } = state;
 
   useEffect(() => {
@@ -39,7 +46,7 @@ const SingleGroupChat = ({ match }) => {
         chatData: chat,
         singleContent: chat[0].content,
         name: chat[0].groupName,
-        inputValue: '',
+        inputValue,
         me: 'woadud@gmail.com',
         fileList: [],
         fileList2: [],
@@ -48,7 +55,7 @@ const SingleGroupChat = ({ match }) => {
     return () => {
       unmounted = true;
     };
-  }, [match, chat]);
+  }, [match, chat, inputValue]);
 
   const handleChange = e => {
     setState({
@@ -74,6 +81,14 @@ const SingleGroupChat = ({ match }) => {
       singleContent: [...singleContent, pushcontent],
       inputValue: '',
     });
+  };
+
+  const onEmojiClick = (event, emojiObject) => {
+    setState({ ...state, inputValue: inputValue + emojiObject.emoji });
+  };
+
+  const onPickerShow = () => {
+    setPickerShow(!pickerShow);
   };
 
   const props = {
@@ -120,8 +135,40 @@ const SingleGroupChat = ({ match }) => {
       }
     },
   };
-  
-  const renderThumb = ({ style, ...props }) => {
+
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: 'auto',
+      [rtl ? 'left' : 'right']: '2px',
+      [rtl ? 'marginLeft' : 'marginRight']: '-19px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
+  const renderThumbVertical = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+      [left]: '2px',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
+
+  const renderTrackVertical = () => {
+    const thumbStyle = {
+      position: 'absolute',
+      width: '6px',
+      transition: 'opacity 200ms ease 0s',
+      opacity: 0,
+      [rtl ? 'left' : 'right']: '6px',
+      bottom: '2px',
+      top: '2px',
+      borderRadius: '3px',
+    };
+    return <div style={thumbStyle} />;
+  };
+
+  const renderThumbHorizontal = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
@@ -148,6 +195,7 @@ const SingleGroupChat = ({ match }) => {
 
   return (
     <SingleChatWrapper className="group-chat">
+      {pickerShow && <BackShadowEmoji onClick={() => setPickerShow(false)} />}
       <Cards
         title={
           <div className="group-chat-header d-flex">
@@ -171,10 +219,10 @@ const SingleGroupChat = ({ match }) => {
               <Link to="#">
                 <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
               </Link>
-              <Link className="show-more">
+              <Link to="#" className="show-more">
                 <span>20+</span>
               </Link>
-              <Link className="add-more">
+              <Link to="#" className="add-more">
                 <span className="add-icon">
                   <FeatherIcon icon="plus" size={14} />
                 </span>
@@ -185,13 +233,15 @@ const SingleGroupChat = ({ match }) => {
         more={content}
       >
         <ul className="atbd-chatbox">
-        <Scrollbars
+          <Scrollbars
             className="custom-scrollbar"
             autoHide
             autoHideTimeout={500}
             autoHideDuration={200}
-            renderThumbHorizontal={renderThumb}
-            renderThumbVertical={renderThumb}
+            renderThumbHorizontal={renderThumbHorizontal}
+            renderThumbVertical={renderThumbVertical}
+            renderView={renderView}
+            renderTrackVertical={renderTrackVertical}
           >
             {singleContent.length ? (
               singleContent.map((mes, index) => {
@@ -200,7 +250,9 @@ const SingleGroupChat = ({ match }) => {
                 return (
                   <li className="atbd-chatbox__single" key={id} style={{ overflow: 'hidden' }}>
                     <div className={mes.email !== me ? 'left' : 'right'}>
-                      {mes.email !== me ? <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" /> : null}
+                      {mes.email !== me ? (
+                        <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+                      ) : null}
 
                       <div className="atbd-chatbox__content">
                         <Heading as="h5" className="atbd-chatbox__name">
@@ -388,50 +440,10 @@ const SingleGroupChat = ({ match }) => {
                 'hasFile'}`}
             >
               <span className="smile-icon">
-                <Dropdown
-                  action={['hover']}
-                  content={
-                    <div className="atbd-chatbox__emoji">
-                      <ul>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#127773;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128116;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128127;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128151;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <span role="img">&#128400;</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#">
-                            <MoreOutlined />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  }
-                  placement="bottomCenter"
-                >
-                  <Link to="#">
-                    <FeatherIcon icon="smile" size={24} />
-                  </Link>
-                </Dropdown>
+                {pickerShow && <Picker onEmojiClick={onEmojiClick} />}
+                <Link onClick={onPickerShow} to="#">
+                  <FeatherIcon icon="smile" size={24} />
+                </Link>
               </span>
               <div className="chatbox-reply-input">
                 <input
@@ -467,7 +479,7 @@ const SingleGroupChat = ({ match }) => {
 };
 
 SingleGroupChat.propTypes = {
-  match: PropTypes.shape(PropTypes.object),
+  match: PropTypes.object,
 };
 
 export default SingleGroupChat;

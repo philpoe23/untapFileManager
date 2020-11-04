@@ -16,8 +16,13 @@ import { productReducer, SingleProductReducer } from './product/reducers';
 import { chatReducer, SingleChatReducer, groupChatReducer, SingleChatGroupReducer } from './chat/reducers';
 import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
+import Todo from './todo/reducers';
+import Note from './note/reducers';
+import Contact from './contact/reducers';
+import Profile from './profile/reducers';
+import Calender from './calendar/reducers';
 
-const rootReducers = combineReducers({
+const rootReducers = combineReducers({  
   themeUsers: themeUsersReducer,
   headerSearchData: headerSearchReducer,
   message: readMessageReducer,
@@ -39,8 +44,13 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
   ChangeLayoutMode,
-  chartContent: chartContentReducer,
+  chartContent: chartContentReducer, 
   cart: cartData,
+  Todo,
+  Note,
+  Contact,
+  Profile,
+  Calender,
 });
 
 export default rootReducers;

@@ -9,7 +9,8 @@ import moment from 'moment';
 import { SmileOutlined, MoreOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { SingleChatWrapper, MessageList, Footer } from '../style';
+import Picker from 'emoji-picker-react';
+import { SingleChatWrapper, MessageList, Footer, BackShadowEmoji } from '../style';
 import Heading from '../../../components/heading/heading';
 import { Button } from '../../../components/buttons/buttons';
 import { updatePrivetChat } from '../../../redux/chat/actionCreator';
@@ -18,7 +19,15 @@ import { Dropdown } from '../../../components/dropdown/dropdown';
 
 const SingleChat = ({ match }) => {
   const dispatch = useDispatch();
-  const chat = useSelector(state => state.chatSingle.data);
+
+  const { rtl, chat } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+      chat: state.chatSingle.data,
+    };
+  });
+  const left = !rtl ? 'left' : 'right';
+
   const [state, setState] = useState({
     chatData: chat,
     me: 'woadud@gmail.com',
@@ -28,6 +37,7 @@ const SingleChat = ({ match }) => {
     fileList: [],
     fileList2: [],
   });
+  const [pickerShow, setPickerShow] = useState(false);
 
   const { singleContent, name, me, inputValue, fileList, fileList2 } = state;
 
@@ -39,7 +49,7 @@ const SingleChat = ({ match }) => {
         chatData: chat,
         singleContent: chat[0].content,
         name: chat[0].userName,
-        inputValue: '',
+        inputValue,
         me: 'woadud@gmail.com',
         fileList,
         fileList2,
@@ -48,7 +58,15 @@ const SingleChat = ({ match }) => {
     return () => {
       unmounted = true;
     };
-  }, [match, chat, fileList, fileList2]);
+  }, [match, chat, fileList, fileList2, inputValue]);
+
+  const onEmojiClick = (event, emojiObject) => {
+    setState({ ...state, inputValue: inputValue + emojiObject.emoji });
+  };
+
+  const onPickerShow = () => {
+    setPickerShow(!pickerShow);
+  };
 
   const handleChange = e => {
     setState({
@@ -119,7 +137,39 @@ const SingleChat = ({ match }) => {
     },
   };
 
-  const renderThumb = ({ style, ...props }) => {
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: 'auto',
+      [rtl ? 'left' : 'right']: '2px',
+      [rtl ? 'marginLeft' : 'marginRight']: '-19px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
+  const renderThumbVertical = ({ style, ...props }) => {
+    const thumbStyle = {
+      borderRadius: 6,
+      backgroundColor: '#F1F2F6',
+      [left]: '2px',
+    };
+    return <div style={{ ...style, ...thumbStyle }} props={props} />;
+  };
+
+  const renderTrackVertical = () => {
+    const thumbStyle = {
+      position: 'absolute',
+      width: '6px',
+      transition: 'opacity 200ms ease 0s',
+      opacity: 0,
+      [rtl ? 'left' : 'right']: '6px',
+      bottom: '2px',
+      top: '2px',
+      borderRadius: '3px',
+    };
+    return <div style={thumbStyle} />;
+  };
+
+  const renderThumbHorizontal = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
@@ -146,6 +196,7 @@ const SingleChat = ({ match }) => {
 
   return (
     <SingleChatWrapper>
+      {pickerShow && <BackShadowEmoji onClick={() => setPickerShow(false)} />}
       <Cards
         title={
           <>
@@ -167,12 +218,15 @@ const SingleChat = ({ match }) => {
             autoHide
             autoHideTimeout={500}
             autoHideDuration={200}
-            renderThumbHorizontal={renderThumb}
-            renderThumbVertical={renderThumb}
+            renderThumbHorizontal={renderThumbHorizontal}
+            renderThumbVertical={renderThumbVertical}
+            renderView={renderView}
+            renderTrackVertical={renderTrackVertical}
           >
             {singleContent.length ? (
               singleContent.map((mes, index) => {
                 const id = mes.time;
+
                 const same = moment(id).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY');
 
                 return (
@@ -352,7 +406,7 @@ const SingleChat = ({ match }) => {
                           {mes.email === me && singleContent.length === index + 1 ? (
                             <div className="message-seen text-right">
                               <span className="message-seen__time">Seen 9:20 PM </span>
-                              <img src={require(`../../../static/img/chat-author/${mes.img}`)} alt="" />
+                              <img src={`../../../static/img/chat-author/${mes.img}`} alt="" />
                             </div>
                           ) : null}
                         </div>
@@ -375,50 +429,10 @@ const SingleChat = ({ match }) => {
             >
               <div className="chatbox-reply-input">
                 <span className="smile-icon">
-                  <Dropdown
-                    action={['hover']}
-                    content={
-                      <div className="atbd-chatbox__emoji">
-                        <ul>
-                          <li>
-                            <Link to="#">
-                              <span role="img">&#127773;</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">
-                              <span role="img">&#128116;</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">
-                              <span role="img">&#128127;</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">
-                              <span role="img">&#128151;</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">
-                              <span role="img">&#128400;</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="#">
-                              <MoreOutlined />
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    }
-                    placement="bottomCenter"
-                  >
-                    <Link to="#">
-                      <FeatherIcon icon="smile" size={24} />
-                    </Link>
-                  </Dropdown>
+                  {pickerShow && <Picker onEmojiClick={onEmojiClick} />}
+                  <Link onClick={onPickerShow} to="#">
+                    <FeatherIcon icon="smile" size={24} />
+                  </Link>
                 </span>
                 <input
                   onChange={handleChange}

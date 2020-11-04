@@ -276,31 +276,6 @@ ChartjsLineChart.defaultProps = {
         display: false,
       },
     },
-    scales: {
-      yAxes: [
-        {
-          gridLines: {
-            color: '#e5e9f2',
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 10,
-            max: 80,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          },
-          ticks: {
-            beginAtZero: true,
-            fontSize: 11,
-          },
-        },
-      ],
-    },
   },
 };
 
@@ -321,21 +296,8 @@ const ChartjsAreaChart = props => {
     labels,
     datasets,
   };
-  let count = 0;
   return (
     <div>
-      <div className="chart-label">
-        {datasets.map(item => {
-          const { label, backgroundColor } = item;
-          count += 1;
-          return (
-            <div key={count} className="chart-label__single d-flex">
-              <span className="label-dot" style={{ display: 'inline-block', backgroundColor }} />
-              <p>{label}</p>
-            </div>
-          );
-        })}
-      </div>
       <ChartContainer className="parentContainer">
         <Line
           id={id}
@@ -766,7 +728,7 @@ const ChartjsDonutChart2 = props => {
 
   return (
     <div>
-      <Doughnut ref={ref} data={dataInfo} height={height} options={options} width="auto" />
+      <Doughnut ref={ref} data={dataInfo} height={height} options={options} width={200} />
 
       <div className="align-center-v justify-content-between rd-labels">
         <div className="revenue-chat-label">
@@ -786,11 +748,9 @@ const ChartjsDonutChart2 = props => {
               <div key={key + 1}>
                 {data.map(value => {
                   return (
-                    <>
-                      <p>
-                        <strong>${value}</strong>
-                      </p>
-                    </>
+                    <p key={value}>
+                      <strong>${value}</strong>
+                    </p>
                   );
                 })}
               </div>

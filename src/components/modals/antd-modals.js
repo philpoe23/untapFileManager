@@ -4,7 +4,7 @@ import { ModalStyled } from './styled';
 import { Button } from '../buttons/buttons';
 
 const Modal = props => {
-  const { onCancel, onOk, visible, title, type, color, footer, width, children } = props;
+  const { onCancel, className, onOk, visible, title, type, color, footer, width, children } = props;
 
   return (
     <ModalStyled
@@ -14,15 +14,18 @@ const Modal = props => {
       onCancel={onCancel}
       type={color ? type : false}
       width={width}
+      className={className}
       footer={
-        footer || [
-          <Button type="secondary" key="back" onClick={onCancel}>
-            Cancel
-          </Button>,
-          <Button type={type} key="submit" onClick={onOk}>
-            Save Change
-          </Button>,
-        ]
+        footer || footer === null
+          ? footer
+          : [
+              <Button type="secondary" key="back" onClick={onCancel}>
+                Cancel
+              </Button>,
+              <Button type={type} key="submit" onClick={onOk}>
+                Save Change
+              </Button>,
+            ]
       }
     >
       {children}
@@ -32,6 +35,7 @@ const Modal = props => {
 
 Modal.defaultProps = {
   width: 620,
+  className: 'atbd-modal',
 };
 
 Modal.propTypes = {
@@ -39,6 +43,7 @@ Modal.propTypes = {
   onOk: PropTypes.func,
   visible: PropTypes.bool,
   title: PropTypes.string,
+  className: PropTypes.string,
   type: PropTypes.string,
   footer: PropTypes.arrayOf(object),
   width: PropTypes.number,

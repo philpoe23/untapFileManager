@@ -4,11 +4,56 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+    .ant-card-rtl .ant-card-extra{
+                margin-right: 0 !important;
+            }
+    .ant-tabs-tab span svg {        
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 5px;
+    }
+    /* Picker Under Input */
+    .ant-form-item-control-input .ant-picker {
+        padding: ${({ theme }) => (theme.rtl ? '0 0 0 12px' : '0 12px 0 0')} !important;
+    }
+
+    /* progressbars */
+
+    .ant-progress {
+        display: inline-flex !important;
+        align-items: center;
+    }
+
+    .ant-progress>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ant-progress .ant-progress-outer {
+        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 0 !important;
+        ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
+    }
+
+    .ant-progress .ant-progress-text {
+        order: 0;
+        margin-left: auto;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px !important;
+        align-self: flex-end;
+        text-align: center;
+    }
+
+    .ant-progress-status-warning .ant-progress-bg {
+        background: #fa8b0c;
+    }
+
+    /* progress bars */
+    
     @media only screen and (max-width: 1199px){
         padding: 0px 15px;
     }
     @media only screen and (max-width: 991px){
         min-height: 580px;
+    }
+    .w-100{
+        width: 100%;
     }
     .product-sidebar-col{
         @media only screen and (max-width: 767px){
@@ -19,10 +64,10 @@ const Main = Styled.div`
         margin-bottom: 0;
     }
 
-    // ant alert
+    /* // ant alert */
     .ant-alert-closable{
         .ant-alert-message{
-          margin-right: 15px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
     }
 
@@ -30,7 +75,7 @@ const Main = Styled.div`
         display: inline-block;
     }
 
-    // ant Calendar Picker
+    /* // ant Calendar Picker */
     .ant-picker-calendar{
         .ant-badge-status-text{
             color: ${({ theme }) => theme['gray-color']}
@@ -47,7 +92,7 @@ const Main = Styled.div`
         }
     }
 
-    // Card Grid
+    /* // Card Grid */
     .card-grid-wrap{
         .ant-card-grid{
             @media only screen and (max-width: 575px){
@@ -56,7 +101,7 @@ const Main = Styled.div`
         }
     }
 
-    // Drawer
+    /* // Drawer */
     .atbd-drawer{
         .ant-card-body{
             text-align: center;
@@ -81,7 +126,7 @@ const Main = Styled.div`
         }
     }
 
-    // Input
+    /* // Input */
     .input-wrap{
         @media only screen and (max-width: 991px){
             min-height: 500px;
@@ -90,15 +135,15 @@ const Main = Styled.div`
             color: ${({ theme }) => theme['light-color']};
         }
     }
-    // Modal Buttons
+    /* // Modal Buttons */
     .modal-btns-wrap{
         margin: 0 -5px;
     }
     /* spinner */
     .ant-spin{
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         &:last-child{
-            margin-right: 0;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
     }
 
@@ -169,7 +214,7 @@ const Main = Styled.div`
         border-radius: 0;
     }
 
-    // Ant Radio
+    /* // Ant Radio */
     .ant-radio-button-wrapper{
         height: 48px;
         line-height: 46px;
@@ -185,7 +230,7 @@ const Main = Styled.div`
         }
     }
 
-    // Select
+    /* // Select */
     .ant-tree-select .ant-select-selector{
         height: 42px;
     }
@@ -202,11 +247,11 @@ const Main = Styled.div`
     .ant-select{
         &.ant-select-multiple{
             .ant-select-selection-item{
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
         }
         .ant-select-selection-item{
-            padding-left: 10px !important;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px !important;
         }
         &.ant-select-lg{
             height: 50px;
@@ -217,7 +262,7 @@ const Main = Styled.div`
             }
             .ant-select-selection-item{
                 line-height: 48px !important;
-                padding-left: 8px;
+                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 8px;
             }
             &.ant-select-multiple.ant-select-lg .ant-select-selection-item{
                 height: 32px;
@@ -233,17 +278,17 @@ const Main = Styled.div`
         }
     }
 
-    // Slider
+    /* // Slider */
     .slider-with-input{
         .ant-slider{
-            margin-right: 15px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
         .slider-with-input__single{
             margin-bottom: 15px;
         }
     }
 
-    // Taglist
+    /* // Taglist */
     .taglist-wrap{
         margin: -5px;
         .ant-tag {
@@ -291,7 +336,7 @@ const Main = Styled.div`
         }
     }
 
-    // Timepicker List
+    /* // Timepicker List */
     .timepicker-list{
         margin: -5px;
         .ant-picker{
@@ -299,7 +344,7 @@ const Main = Styled.div`
         }
     }
 
-    // Ant Menu
+    /* // Ant Menu */
     .ant-menu{
         .ant-menu-submenu-title{
             svg{
@@ -336,22 +381,72 @@ const Main = Styled.div`
         border-radius: 5px;
     }
 
-    // Vector Map
-    .vertor-map{
+    /* // Vector Map */
+    .rsm_map{
         min-height: 505px;
         .world-map{
             width: 100%;
-            height: 600px;
+            height: auto;
+            @media only screen and (max-width: 1599px){
+                height: 480px;
+            }
+            @media only screen and (max-width: 1399px){
+                height: 400px;
+            }
             @media only screen and (max-width: 575px){
                 height: 400px;
             }
-            @media only screen and (max-width: 375px){
+            @media only screen and (max-width: 767px){
+                height: 300px;
+            }
+            @media only screen and (max-width: 575px){
+                height: 250px;
+            }
+            @media only screen and (max-width: 479px){
                 height: 350px;
+            }
+            @media only screen and (max-width: 375px){
+                height: 240px;
+            }
+        }
+        .controls{
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            button{
+                display: block;
+                width: 27px;
+                height: 27px;
+                background: none;
+                color: #5a5f7d;
+                border: 1px solid #f1f2f6;
+                padding: 0;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                cursor: pointer;
+                &:first-child{
+                    border-radius: 6px 6px 0 0;
+                }
+                &:last-child{
+                    border-radius: 0 0 6px 6px;
+                }
+                &:focus{
+                    outline: none;
+                }
+                svg{
+                    width: 10px;
+                }
+            }
+            button + button{
+                border-top: 0 none;
             }
         }
     }
 
-    // Checkout Wrapper
+    /* // Checkout Wrapper */
     .checkoutWraper{
         .ant-card-body{
             padding: 50px 50px 50px 30px !important;
@@ -370,7 +465,7 @@ const Main = Styled.div`
         }
     }
 
-    // Star Active
+    /* // Star Active */
     a{
         i,
         span.fa{
@@ -416,17 +511,19 @@ const Main = Styled.div`
                    padding-top: 0 !important;
                 }
             }
+            
         }
+                
     }
 
-    // Rechart
+    /* // Rechart */
     .recharts-default-legend{
         .recharts-legend-item{
             min-width: 100px !important;
         }
     }
 
-    // Radio
+    /* // Radio */
     .radio-size-wrap{
             .ant-radio-button-wrapper{
                 @media only screen and (max-width: 1450px){
@@ -436,11 +533,106 @@ const Main = Styled.div`
         }
     }
 
-    // Message 
+    /* // Message  */
     .message-button-list{
         margin: -4px;
         .ant-btn {
             margin: 4px;
+        }
+    }
+    /* Chart Label */
+
+    .chart-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+        color: #5a5f7d;
+    }
+
+    .chart-label .label-dot {
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
+
+    .chart-label .label-dot.dot-success {
+        background: #20c997;
+    }
+
+    .chart-label .label-dot.dot-info {
+        background: #5f63f2;
+    }
+
+    .chart-label .label-dot.dot-warning {
+        background: #fa8b0c;
+    }
+
+    .chart-label .label-dot {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+    }
+
+    // Ant comment action
+    .ant-comment-actions{
+        li{
+            position: relative;
+            &:not(:last-child){
+                margin-right: 8px;
+                padding-right: 8px;
+                &:after{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 12px;
+                    background-color: #C6D0DC;
+                    content: '';
+                }
+            }
+            .com-time{
+                cursor: default;
+            }
+            span{
+                margin-right: 0;
+            }
+        }
+    }
+
+    // Emoji Picker React
+    .emoji-picker-react{
+        top: 15px;
+        right: 25px;
+        box-shadow: 0 5px 10px #efefef10;
+        @media only screen and (max-width: 479px){
+            top: 25px;
+            right: -50px;
+            width: 260px;
+        }
+        .emoji-categories{
+            padding: 0 10px;
+        }
+        .emoji-search{
+            margin: 0 10px;
+        }
+        .content-wrapper:before{
+            display: none;
+        }
+        .emoji-group{
+            padding: 0 10px;
+        }
+        .emoji-group:before{
+            font-size: 12px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        .emoji-group .emoji-img{
+            margin: 5px !important;
         }
     }
 `;
@@ -460,9 +652,9 @@ const ButtonsGroupWrapper = Styled.div`
     .button-group-single .ant-btn-white{
         border: 1px solid #E3E6EF;
         background: #fff !important;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
         &:hover{
             color: ${({ theme }) => theme['gray-color']} !important;
@@ -471,17 +663,17 @@ const ButtonsGroupWrapper = Styled.div`
     }
     .button-group-single .ant-btn-light{
         border: 1px solid #E3E6EF;
-        margin-right: 20px;
-        border-right-width: 0px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
+        ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 0px;
         font-weight: 500;
         color: ${({ theme }) => theme['extra-light-color']} !important;
         background: ${({ theme }) => theme['bg-color-normal']} !important;
         &:last-child{
-            border-right-width: 1px;
+            ${({ theme }) => (theme.rtl ? 'border-left-width' : 'border-right-width')}: 1px;
         }
     }
     .ant-btn-group:not(:last-child){
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
     }
 `;
 
@@ -506,7 +698,7 @@ const BtnWithIcon = Styled.div`
         height: 10px;
     }
     .ant-btn-group button.active{
-        border-right: 0px;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0px;
     }
 `;
 
@@ -622,6 +814,23 @@ const MessageStyleWrapper = Styled.div`
 `;
 
 const BasicFormWrapper = Styled.div`
+    .ant-form {
+        .form-item{
+            margin-bottom: 30px;
+            label{
+                font-weight: 500;
+                display: block;
+                margin-bottom: 15px;
+            }
+            .ant-cascader-picker{
+                width: 100%;
+                min-height: 48px;
+                .ant-cascader-input{
+                    min-height: 48px;
+                }
+            }
+        }
+    }
     .ant-form-item{
         flex-flow: column;
         &:not(:last-child){
@@ -631,7 +840,7 @@ const BasicFormWrapper = Styled.div`
             margin-bottom: 0;
         }
         .ant-form-item-label{
-            text-align: left;
+            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
             label{
                 height: fit-content;
                 margin-bottom: 6px;
@@ -640,11 +849,17 @@ const BasicFormWrapper = Styled.div`
         .ant-form-item-control-input{
             input,
             textarea{
-                padding: 12px 20px;
                 color: ${({ theme }) => theme['gray-color']};
                 &:placeholder{
                     color: ${({ theme }) => theme['light-color']};
                 }
+            }
+            input[type="password"]{
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+            .ant-picker-input input{
+                padding: 12px;
             }
             button{
                 height: 44px;
@@ -686,13 +901,13 @@ const BasicFormWrapper = Styled.div`
     .ant-form-item-control-input{
         .input-prepend{
             position: absolute;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0 20px;
             height: 48px;
-            border-radius: 4px 0 0 4px;
+            border-radius: ${({ theme }) => (theme.rtl ? '0 4px 4px 0' : '4px 0 0 4px')};
             z-index: 10;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
             background-color: ${({ theme }) => theme['bg-color-light']};
@@ -704,13 +919,36 @@ const BasicFormWrapper = Styled.div`
         .input-prepend-wrap{
             .ant-input-number{
                 input{
-                    padding-left: 70px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 70px;
                 }
             }
         }
         .ant-input-number{
             width: 100% !important;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
+        }
+    }
+    .add-record-form{
+        margin: 25px 0 35px 0;
+        
+        .record-form-actions{
+            padding-right: 40px;
+        }
+        .ant-btn{
+            height: 44px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .ant-radio-group{
+            margin-bottom: -4px;
+            .ant-radio-wrapper{
+                margin-bottom: 4px;
+            }
+        }
+    }
+    .adTodo-form{
+        .btn-adTodo {
+            font-size: 14px;
         }
     }
 `;
@@ -763,20 +1001,20 @@ const CardToolbox = Styled.div`
 
     .ant-page-header-heading-title{
         position: relative;
-        padding-right: 24px;
-        margin-right: 24px;
+        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 24px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 24px;
         @media only screen and (max-width: 767px){
-            padding-right: 12px;
-            margin-right: 12px !important;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 12px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px !important;
         }
         &:after{
             position: absolute;
-            right: 0px;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0px;
             top: 0;
             height: 100%;
             width: 1px;
             content: '';
-            background: ${({ theme }) => theme['border-color-normal']}
+            background: ${({ theme }) => theme['border-color-normal']};
         }
     }
     .ant-page-header-heading-sub-title{
@@ -785,9 +1023,9 @@ const CardToolbox = Styled.div`
         align-items: center;
     }
     .ant-select{
-        margin-left: 25px;
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 25px;
         @media only screen and (max-width: 575px){
-            margin-left: 0;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
         .ant-select-selector{
             height: 46px !important;
@@ -819,7 +1057,7 @@ const CardToolbox = Styled.div`
             display: flex;
             align-items: center;
             svg{
-                margin-right: 6px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
             }
         }
     }
@@ -834,8 +1072,25 @@ const FormGroupWrapper = Styled.div`
 `;
 
 const TableWrapper = Styled.div`
+    .ant-pagination-prev, .ant-pagination-next {
+        line-height: 28px !important;
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    .ant-table table{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    .ant-table-thead > tr > th{
+        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+    }
+    span.anticon.anticon-right{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
+    span.anticon.anticon-left{
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
+    }
     &.table-order,
-    &.table-seller{
+    &.table-seller,
+    &.table-data-view{
         .ant-table-selection{
             .ant-checkbox-indeterminate{
                 .ant-checkbox-inner{
@@ -862,7 +1117,7 @@ const TableWrapper = Styled.div`
                 td{
                     .product-id{
                         max-width: 60px;
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -871,56 +1126,128 @@ const TableWrapper = Styled.div`
             margin-top: 25px !important;
         }
     }
+    &.table-data-view{
+        .ant-table-container{
+            padding-bottom: 0;
+        }
+        table{
+            thead{
+                th{
+                    padding: 15px 16px;
+                }
+            }
+            tbody{
+                td{
+                    padding: 11px 16px;
+                    .record-img{
+                        img{
+                            max-width: 38px;
+                            border-radius: 50%;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
+                        }
+                    }
+                    .record-location{
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: ${({ theme }) => theme['light-color']};
+                    }
+                    .status{
+                        font-weight: 500;
+                        text-transform: capitalize;
+                        &.active{
+                            color: ${({ theme }) => theme['success-color']};
+                            background: ${({ theme }) => theme['success-color']}10;
+                        }
+                        &.deactivated{
+                            color: ${({ theme }) => theme['warning-color']};
+                            background: ${({ theme }) => theme['warning-color']}10;
+                        }
+                        &.blocked{
+                            color: ${({ theme }) => theme['danger-color']};
+                            background: ${({ theme }) => theme['danger-color']}10;
+                        }
+                    }
+                    .table-actions{
+                        a{
+                            svg, i{
+                                width: 16px;
+                                color: ${({ theme }) => theme['extra-light-color']};
+                            }
+                            &.edit{
+                                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+                              &:hover{
+                                svg,
+                                i{
+                                    color: ${({ theme }) => theme['info-color']};
+                                }
+                              }  
+                            }
+                            &.delete{
+                              &:hover{
+                                svg,
+                                i{
+                                    color: ${({ theme }) => theme['danger-color']};
+                                }
+                              }  
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     table{
         thead{
             tr{
                 border-radius: 10px;
                 th{
                     &:last-child{
-                        text-align: right;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                     color: ${({ theme }) => theme['gray-color']};
                     background: ${({ theme }) => theme['bg-color-light']};
                     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                     &:first-child{
-                        border-left: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 10px 0 0 10px !important;
+                        ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-right: 1px solid ${({ theme }) => theme['border-color-light']};
-                        border-radius: 0 10px 10px 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                 }
             }
         }
-
         tbody{
-            >tr{
+            tr{
                 &:hover{
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
                 &.ant-table-row-selected{
                     &:hover{
-                        >td{
+                        td{
                             background: ${({ theme }) => theme['bg-color-light']};
                         }
                     }
-                    >td{
+                    td{
                         background: ${({ theme }) => theme['bg-color-light']};
                     }
                 }
-                >td{
+                td{
                     border: 0 none;
                     font-weight: 500;
                     color: ${({ theme }) => theme['dark-color']};
                     &:first-child{
-                        border-radius: 10px 0 0 10px !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-radius: 0 10px 10px 0 !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                     span{
                         display: block;
@@ -947,7 +1274,7 @@ const TableWrapper = Styled.div`
             }
         }
         .table-actions{
-            text-align: right;
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             min-width: 150px !important;
             button{
                 height: 40px;
@@ -973,7 +1300,7 @@ const TableWrapper = Styled.div`
         }
         .seller-info{
             img{
-                margin-right: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             }
         }
         .user-info{
@@ -992,9 +1319,60 @@ const TableWrapper = Styled.div`
                 color: ${({ theme }) => theme['light-color']};
             }
         }
-    }
+    }    
 `;
 
+const DragDropStyle = Styled.div`
+    .ant-card-body{
+        padding: 15px !important;
+    }
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            >tr{
+                &:not(:last-child){
+                    td{
+                         border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']} !important;
+                    }
+                 }
+                 &:hover{
+                     td{
+                         background-color: transparent !important;
+                     }
+                 }
+                >td{
+                    font-size: 14px;
+                    &:first-child,
+                    &:last-child{
+                        border-radius: 0 !important;
+                    }
+                }
+            }
+        }
+        tr{
+            td{
+                &.drag-visible{
+                    svg,
+                    img{
+                        width: 20px;
+                    }
+                    svg,
+                    i{
+                        color: ${({ theme }) => theme['extra-light-color']} !important;
+                    }
+                }
+            }
+        }
+        .user-info{
+            .user-name{
+                font-size: 14px;
+                margin-left: 8px;
+            }
+        }
+    }
+`;
 export {
   Main,
   ButtonsGroupWrapper,
@@ -1012,5 +1390,6 @@ export {
   BasicFormWrapper,
   CardToolbox,
   FormGroupWrapper,
+  DragDropStyle,
   TableWrapper,
 };

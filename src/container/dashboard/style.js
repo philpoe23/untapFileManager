@@ -39,14 +39,14 @@ const DashboardBaseStyleWrap = Styled.div`
 const Focard = Styled.div`
     canvas{
         width: 100% !important;
-        margin-top: 43px;
+        margin-top: 50px;
         @media only screen and (max-width: 1199px){
             margin-top: 15px;
         }
-    }}
+    }
     .focard-details{
         &.growth-downward{
-            h1{
+            h1{                
                 font-size: 30px;
                 @media only screen and (max-width: 767px){
                     font-size: 24px;
@@ -96,12 +96,12 @@ const Focard = Styled.div`
         }
         svg{
             width: 15px;
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         }
     }
 
     .focard-chart{
-        margin-left: -10px;
+        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: -10px;
     }
 
     @media (max-width: 1300px){
@@ -121,7 +121,7 @@ const Focard = Styled.div`
         .ant-card-body{
             padding: 0 !important;
             h1{
-                padding: 25px 0 0 25px;
+                padding: ${({ theme }) => (theme.rtl ? '25px 25px 0 0' : '25px 0 0 25px')};
                 font-size: 16px;
                 font-weight: 500;
                 margin-bottom: 26px;
@@ -172,7 +172,7 @@ const CardBarChart = Styled.div`
     }
     .card-bar-top{
         &.flex-grid{
-            margin-left: -20px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: -20px;
             @media only screen and (max-width: 575px) {
                 flex-flow: column;
                 align-items: center;
@@ -199,10 +199,10 @@ const CardBarChart = Styled.div`
             sub{
                 bottom: 0;
                 font-size: 14px;
-                margin-left: 8px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 8px;
                 color: ${({ theme }) => theme['success-color']};
                 svg{
-                    margin-right: 4px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
                 }
             }
         }
@@ -215,7 +215,7 @@ const CardBarChart = Styled.div`
             font-size: 13px;
             color: ${({ theme }) => theme['gray-color']};
             &:not(:last-child){
-                margin-right: 16px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
             }
         }
     }
@@ -272,7 +272,9 @@ const CardGroup = Styled.div`
     }
     .focard-wrapper{
         margin: 0 -12px;
-        padding: 24px 0 25px 24px;
+        ${({ theme }) => (theme.rtl ? 'padding: 24px 24px 25px 0;' : 'padding: 24px 0 25px 24px;')};
+        ${({ theme }) => (theme.topMenu ? 'padding-bottom: 0px' : 'padding-bottom: 25px')};
+        
         @media only screen and (max-width: 1350px){
             padding: 24px 0 25px 10px;
         }
@@ -280,9 +282,10 @@ const CardGroup = Styled.div`
             margin: 0;
         }
         .ant-col-md-12{
-            padding: 0 18px 0 12px;
+            ${({ theme }) => (theme.rtl ? 'padding: 0 12px 0 18px;' : 'padding: 0 18px 0 12px;')}
+            
             @media only screen and (max-width: 1350px){
-                padding: 0 14px 0 6px;
+                ${({ theme }) => (theme.rtl ? 'padding: 0 6px 0 14px;' : 'padding: 0 14px 0 6px;')}                
             }
             @media only screen and (max-width: 575px){
                 &:not(:last-child){
@@ -291,10 +294,10 @@ const CardGroup = Styled.div`
             }
             &:first-child{
                 @media only screen and (max-width: 1350px){
-                    padding-left: 20px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                 }
                 @media only screen and (max-width: 1199px){
-                    padding: 0 12px 0 0;
+                    padding: ${({ theme }) => (theme.rtl ? '0 0 0 12px' : '0 12px 0 0')};
                     @media only screen and (max-width: 575px){
                         padding: 0;
                     }
@@ -319,33 +322,34 @@ const CardGroup = Styled.div`
         }
 
         &.focard-divider{
-            padding-left: 0;
-            padding-right: 15px;
-            border-right: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 0;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 15px;
+            ${({ theme }) => (!theme.rtl ? 'border-right' : 'border-left')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']} !important;
             @media only screen and (max-width: 1199px){
-                border-right: 0 none !important;
-                padding: 0 0 0 10px;
+                ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0 none !important;
+                padding: ${({ theme }) => (theme.rtl ? '0 10px 0 0' : '0 0 0 10px')};
             }
             .ant-col-md-12{
                 &:first-child{
                     padding: 0 16px 0 24px;
                     @media only screen and (max-width: 1350px){
-                        padding: 0 10px 0 20px;
+                        padding: ${({ theme }) => (theme.rtl ? '0 20px 0 10px' : '0 10px 0 20px')};
                     }
                     @media only screen and (max-width: 1199px){
-                        padding: 0 12px 0 0;
+                        padding: ${({ theme }) => (theme.rtl ? '0 0 0 12px' : '0 12px 0 0')};
                     }
                     @media only screen and (max-width: 575px){
                         padding: 0;
                     }
                 }
                 &:last-child{
-                    padding: 0 10px 0 18px;
+                    padding: ${({ theme }) => (theme.rtl ? '0 18px 0 10px' : '0 10px 0 18px')};
                     @media only screen and (max-width: 1350px){
-                        padding: 0 4px 0 20px;
+                        padding: ${({ theme }) => (theme.rtl ? '0 20px 0 4px' : '0 4px 0 20px')};
                     }
                     @media only screen and (max-width: 1199px){
-                        padding: 0 0 0 12px;
+                        padding: ${({ theme }) => (theme.rtl ? '0 12px 0 0px' : '0 0 0 12px')};
                     }
                     @media only screen and (max-width: 575px){
                         padding: 0;
@@ -387,17 +391,18 @@ const CardGroup = Styled.div`
                 }
                 td{
                     padding: 14.5px 15px;
-                    text-align: right;
-                    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+                    text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};;
+                    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')};: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
                     color: ${({ theme }) => theme['gray-color']};
                     &:first-child{
-                        border-left: 0 none;
-                        text-align: left;
-                        padding-left: 25px;
+                        ${({ theme }) => (!theme.rtl ? 'border-left' : 'border-right')};: 0 none;
+                        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};;
+                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')};: 25px;
                     }
                     &:last-child{
-                        border-right: 0 none;
-                        padding-right: 25px;
+                        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')};: 0 none;
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')};: 25px;
                     }
                     .traffic-title{
                         font-weight: 500;
@@ -415,12 +420,13 @@ const CardGroup = Styled.div`
 const ExList = Styled.div`
     padding: 25px 0 0;
     height: 100%;
-    border-right: 1px solid ${({ theme }) => theme['border-color-light']};
+    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
     @media only screen and (max-width: 1599px){
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        border-right: 0 none;
+        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
         margin: 0 -15px;
         padding: 15px 0 0;
 
@@ -454,7 +460,7 @@ const ExList = Styled.div`
                 font-size: 20px;
             }
             & > span{
-                margin-right: 10px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
                 @media only screen and (max-width: 1599px){
                     display: block;
                 }
@@ -470,7 +476,7 @@ const ExList = Styled.div`
                     display: inline-flex;
                     align-items: center;
                     color: ${({ theme }) => theme['success-color']};
-                    padding: 0 10px 0 0;
+                    padding: ${({ theme }) => (theme.rtl ? '0 0 0 10px' : '0 10px 0 0')};
                 }
                 svg{
                     width:12px;
@@ -493,6 +499,10 @@ const OverviewCard = Styled.div`
     position: relative;
     z-index: 0;
     margin-bottom: 30px;
+    ${({ theme }) => (theme.topMenu ? 'min-height: 595px' : 'min-height: auto')};
+    @media only screen and (max-width: 991px){
+        min-height: auto;
+    }
     &:before{
         position: absolute;
         content: '';
@@ -500,8 +510,8 @@ const OverviewCard = Styled.div`
         height: 215px;
         background:linear-gradient(45deg, ${({ theme }) => theme['secondary-color']}, ${({ theme }) =>
   theme['warning-color']});
-        left:0;
-        top:0;
+  ${({ theme }) => (theme.rtl ? 'right' : 'left')}:0;
+        top: 0;
         z-index:-1;
     }
     .overview-box{
@@ -525,7 +535,7 @@ const OverviewCard = Styled.div`
         .growth-downward,
         .growth-upward{
             span{
-                margin-left: 6px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
             }
         }
         .overview-box-percentage{
@@ -573,7 +583,7 @@ const OverviewCard = Styled.div`
             svg,
             img,
             i{
-                margin-left: 8px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 8px;
             }
         }
     }
@@ -589,7 +599,7 @@ const PerformanceChartWrapper = Styled.div`
             margin-top: 16px;
             li{
                 &:not(:last-child){
-                    margin-right: 25px;
+                    ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
                 }
             }
         }
@@ -675,18 +685,18 @@ const SessionChartWrapper = Styled.div`
                     border-radius: 50%;
                     top: 50%;
                     transform: translateY(-50%);
-                    left: 14px;
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 14px;
                     @media only screen and (max-width: 1400px){
-                        left: 5px;
+                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 5px;
                     }
                     @media only screen and (max-width: 1300px){
-                        left: 0;
+                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                     }
                     @media only screen and (max-width: 1199px){
-                        left: 15px;
+                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 15px;
                     }
                     @media only screen and (max-width: 379px){
-                        left: 0;
+                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                     }
                 }
                 .doughnutLabe{
@@ -713,7 +723,7 @@ const SessionChartWrapper = Styled.div`
 `;
 
 const SessionState = Styled.div`
-    // margin: 0 0 15px -15px;
+    /* // margin: 0 0 15px -15px; */
     max-width: 365px;
     margin: 42px auto auto;
     >div{
@@ -735,7 +745,7 @@ const SessionState = Styled.div`
         }
         sub{
             bottom: 0;
-            left: 5px;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 5px;
             font-size: 13px;
             color: ${({ theme }) => theme['light-gray-color']};
         }
@@ -784,20 +794,65 @@ const RegionList = Styled.div`
 const RegionMap = Styled.div`
     text-align: center;
     height: 100%;
-    margin-top: 25px;
-    padding-left: 20px;
+    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 20px;
+    .__react_component_tooltip {
+        background: ${({ theme }) => theme['dark-color']};
+        border-radius: 3px;
+        box-shadow: 0 10px 15px ${({ theme }) => theme['light-color']}15;
+    }
     >div{
         width: 100%;
         height: 250px;
+        overflow: hidden;
         @media only screen and (max-width: 479px){
             height: 200px;
         }
     }
     svg{
-        height: 230px;
-        margin: 0 auto;
+        width: 450px;
         @media only screen and (max-width: 479px){
             height: 180px;
+        }
+        @media only screen and (max-width: 440px){
+            width: 310px;
+        }
+        @media only screen and (max-width: 320px){
+            width: 280px;
+        }
+    }
+    .controls{
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        button{
+            display: block;
+            width: 27px;
+            height: 27px;
+            background: none;
+            color: #5a5f7d;
+            border: 1px solid #f1f2f6;
+            padding: 0;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            cursor: pointer;
+            &:first-child{
+                border-radius: 6px 6px 0 0;
+            }
+            &:last-child{
+                border-radius: 0 0 6px 6px;
+            }
+            &:focus{
+                outline: none;
+            }
+            svg{
+                width: 10px;
+            }
+        }
+        button + button{
+            border-top: 0 none;
         }
     }
 `;
@@ -820,18 +875,18 @@ const LadingPages = Styled.div`
     table{
         th{
             white-space: nowrap !important;
-            text-align: right !important;
+            text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')} !important;
             &:first-child{
-                text-align: left !important;
+                text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')} !important;
             }
         }
         tbody{
             tr{
                 td{
-                    text-align: right;
+                    text-align: ${({ theme }) => (!theme.rtl ? 'right' : 'left')};
                     color: ${({ theme }) => theme['gray-color']};
                     &:first-child{
-                        text-align: left;
+                        text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
                     }
                     .page-title{
                         color: ${({ theme }) => theme['primary-color']};
@@ -869,7 +924,7 @@ const CardBarChart2 = Styled.div`
         .growth-upward, .growth-downward{
             display: inline-flex;
             align-items: center;
-            padding-right: 10px;
+            ${({ theme }) => (!theme.rtl ? 'padding-right' : 'padding-left')}: 10px;
             font-weight: 600;
 
             svg{
@@ -911,6 +966,11 @@ const LineChartWrapper = Styled.div`
         line-height: 2.2;
         h1{
             margin-bottom: 0;
+            svg,
+            i,
+            img{
+                margin-right: 6px;
+            }
         }
     }
     .line-chart-row{
@@ -925,7 +985,7 @@ const LineChartWrapper = Styled.div`
                 content: '';
                 width: 10px;
                 height: 2px;
-                left: 0;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                 bottom: -1px;
                 background: #fff;
             }
@@ -935,12 +995,19 @@ const LineChartWrapper = Styled.div`
         .line-chart-row{
             &:not(:last-child){
                 margin-bottom: 18px;
+                ${({ theme }) => (theme.topMenu ? 'margin-bottom: 25px' : 'margin-bottom: 18px')};
             }
         }
     }
 `;
 
 const RatioCard = Styled.div`
+    >.ant-card{
+        ${({ theme }) => (theme.topMenu ? 'min-height: 225px' : 'min-height: 100%')};
+        @media only screen and (max-width: 1599px){
+            min-height: 225px;
+        }
+    }
     .ant-card-body{
         h1{
             font-size: 16px;
@@ -967,7 +1034,7 @@ const RatioCard = Styled.div`
             }
             .ant-progress-text{
                 position: absolute;
-                right: 0;
+                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
                 bottom: 26px;
                 font-weight: 500;
             }
@@ -1029,9 +1096,9 @@ const IncomeExpenseWrapper = Styled.div`
                 display: flex !important;
             }
             &:not(:last-child){
-                margin-right: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
                 @media only screen and (max-width: 575px){
-                    margin-right: 0;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
                 }
             }
         }
@@ -1049,20 +1116,40 @@ const IncomeExpenseWrapper = Styled.div`
 
 const LocationMapWrapper = Styled.div`
     .location-map{
-        padding: 20px 0;
+        padding: 10px 0 30px;
+        position: relative;
         >div{
             width: 100%;
             height: 160px;
         }
-        svg{
-            @media only screen and (max-width: 991px){
-               height: 100%;
-               width: auto;
-            }
-        }
-        .jvectormap-zoomin,
-        .jvectormap-zoomout{
+        .controls{
+            position: absolute;
             right: 25px;
+            bottom: 20px;
+            button{
+                display: block;
+                width: 27px;
+                height: 27px;
+                background: none;
+                color: #5a5f7d;
+                border: 1px solid #f1f2f6;
+                padding: 0;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
+                svg{
+                    width: 10px;
+                }
+            }
+            button + button{
+                border-top: 0 none;
+            }
         }
     }
     .location-table{
@@ -1070,6 +1157,9 @@ const LocationMapWrapper = Styled.div`
         padding-top: 12px;
         min-height: 180px;
         border-top: 1px solid ${({ theme }) => theme['border-color-light']} !important;
+        background: #ffffff;
+        z-index: 999;
+        position: relative;
         table{
             thead{
                 th{
@@ -1098,8 +1188,8 @@ const LocationMapWrapper = Styled.div`
                         padding-left: 0;
                     }
                     &:last-child{
-                        text-align: right;
-                        padding-right: 0;
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0;
                     }
                 }
             }
@@ -1161,7 +1251,7 @@ const RevenueTableWrapper = Styled.div`
 
     .full-width-table{
         >.ant-card{
-            min-height: 500px;
+            ${({ theme }) => (theme.topMenu ? 'min-height: 555px' : 'min-height: 500px')};
             @media only screen and (max-width: 1599px){
                 min-height: 100%;
             }
@@ -1172,10 +1262,10 @@ const RevenueTableWrapper = Styled.div`
             .ant-table-cell{
                 padding: 10px 20px;
                 &:first-child{
-                    padding-left: 25px;
+                    ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 25px;
                 }
                 &:last-child{
-                    padding-right: 25px;
+                    ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 25px;
                 }
             }
             thead{
@@ -1234,6 +1324,10 @@ const RevenueChartWrapper = Styled.div`
 
 const TrafficTableWrapper = Styled.div`
     min-height: 450px;
+    ${({ theme }) => (theme.topMenu ? 'min-height: 515px' : 'min-height: 450px')};
+    @media only screen and (max-width: 1599px){
+        min-height: 400px;
+    }
     @media only screen and (max-width: 1199px){
         min-height: 100%;
     }
@@ -1253,9 +1347,9 @@ const TrafficTableWrapper = Styled.div`
                     border-top: 1px solid ${({ theme }) => theme['border-color-light']};
                     color: ${({ theme }) => theme['dark-color']}
                     padding: 16px 25px;
-                    text-align: right;
+                    text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     &:first-child, &:nth-child(5){
-                        text-align: left;
+                        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -1265,9 +1359,9 @@ const TrafficTableWrapper = Styled.div`
                 td{
                     padding: 16px 25px;
                     color: ${({ theme }) => theme['gray-color']};
-                    text-align: right;
+                    text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     &:first-child, &:nth-child(5){
-                        text-align: left;
+                        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -1339,18 +1433,18 @@ const ChartContainer = Styled.div`
         transform: translate(-50%, 5%);
         z-index: 222;
         top: 0;
-        left: 0
+        left: 0;
         @media only screen and (max-width: 1199px){
             padding: 6px 8px !important;
         }
         &:before {
             position: absolute;
             content: '';
-            border-bottom: 5px solid #fff;
+            border-top: 5px solid #fff;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            top: -5px;
-            left: 50%;
+            bottom: -5px;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 50%;
             transform: translateX(-50%);
         }
     }
@@ -1359,7 +1453,8 @@ const ChartContainer = Styled.div`
         width: 10px;
         height: 10px;
         background: "pink";
-        margin-right: 10px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}
+        : 10px;
     }
     .tooltip-title {
         color: ${({ theme }) => theme['gray-color']};
@@ -1393,7 +1488,7 @@ const ChartContainer = Styled.div`
                     font-size: 12px;
                 }
                 .data-label{
-                    margin-left: 3px;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 3px;
                     color: ${({ theme }) => theme['light-gray-color']}
                 }
             }

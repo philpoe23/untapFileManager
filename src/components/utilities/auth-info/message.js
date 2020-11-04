@@ -4,10 +4,18 @@ import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { useSelector } from 'react-redux';
+import { AtbdTopDropdwon } from './auth-info-style';
 import { Popover } from '../../popup/popup';
 import Heading from '../../heading/heading';
 
 const MessageBox = () => {
+  const { rtl } = useSelector(state => {
+    return {
+      rtl: state.ChangeLayoutMode.rtlData,
+    };
+  });
+
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
       borderRadius: 6,
@@ -16,17 +24,49 @@ const MessageBox = () => {
     return <div style={{ ...style, ...thumbStyle }} props={props} />;
   };
 
+  const renderTrackVertical = () => {
+    const thumbStyle = {
+      position: 'absolute',
+      width: '6px',
+      transition: 'opacity 200ms ease 0s',
+      opacity: 0,
+      [rtl ? 'left' : 'right']: '2px',
+      bottom: '2px',
+      top: '2px',
+      borderRadius: '3px',
+    };
+    return <div className="hello" style={thumbStyle} />;
+  };
+
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: rtl && 'auto',
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
   renderThumb.propTypes = {
     style: PropTypes.shape(PropTypes.object),
   };
 
+  renderView.propTypes = {
+    style: PropTypes.shape(PropTypes.object),
+  };
+
   const content = (
-    <div className="atbd-top-dropdwon">
+    <AtbdTopDropdwon className="atbd-top-dropdwon">
       <Heading className="atbd-top-dropdwon__title" as="h5">
         <span className="title-text">Messages</span>
         <Badge className="badge-success" count={3} />
       </Heading>
-      <Scrollbars autoHeight autoHide renderThumbVertical={renderThumb}>
+      <Scrollbars
+        autoHeight
+        autoHide
+        renderThumbVertical={renderThumb}
+        renderView={renderView}
+        renderTrackVertical={renderTrackVertical}
+      >
         <div className="atbd-top-dropdwon-menu">
           <ul className="atbd-top-dropdwon__nav">
             <li>
@@ -126,7 +166,7 @@ const MessageBox = () => {
       <Link className="btn-seeAll" to="#">
         See all messages
       </Link>
-    </div>
+    </AtbdTopDropdwon>
   );
 
   return (
@@ -140,6 +180,10 @@ const MessageBox = () => {
       </Popover>
     </div>
   );
+};
+
+MessageBox.propTypes = {
+  rtl: PropTypes.bool,
 };
 
 export default MessageBox;

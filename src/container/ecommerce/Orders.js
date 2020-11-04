@@ -40,7 +40,7 @@ const Orders = () => {
     if (orders) {
       setState({
         item: orders,
-        selectedRowKeys: selectedRowKeys,
+        selectedRowKeys,
       });
     }
   }, [orders, selectedRowKeys]);
