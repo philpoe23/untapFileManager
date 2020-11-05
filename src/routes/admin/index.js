@@ -24,6 +24,7 @@ const Myprofile = lazy(() => import('../../container/profile/myProfile/Index'));
 const ToDo = lazy(() => import('../../container/toDo/ToDo'));
 const Note = lazy(() => import('../../container/note/Note'));
 const Contact = lazy(() => import('../../container/contact/Contact'));
+const ContactGrid = lazy(() => import('../../container/contact/ContactGrid'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
 
 
@@ -59,7 +60,8 @@ const Admin = () => {
         <Route path={`${path}/profile/myProfile`} component={Myprofile} />
         <Route path={`${path}/app/to-do`} component={ToDo} />
         <Route path={`${path}/app/note`} component={Note} />
-        <Route path={`${path}/app/contact`} component={Contact} />
+        <Route path={`${path}/contact/list`} component={Contact} />
+        <Route path={`${path}/contact/grid`} component={ContactGrid} />
         <Route path={`${path}/app/calendar`} component={Calendar} />
         <Route path={`${path}/widgets`} component={Widgets} />
       </Suspense>
