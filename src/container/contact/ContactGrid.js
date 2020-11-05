@@ -148,11 +148,15 @@ const ContactGrid = () => {
 
       <Main>
         <Row gutter={15}>
-          <Col md={6}>
+          {
+            users.map((item) => {
+              return <Col key={item.id} md={6}>
             <Cards headless>
-              <ContactCard />
+              <ContactCard item={item} />
             </Cards>
           </Col>
+            })
+          }
         </Row>
         <Modal
           type={state.modalType}
