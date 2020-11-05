@@ -21,6 +21,19 @@ const ContactPageheaderStyle = Styled.div`
   }
 `;
 const ContactCardWrapper = Styled.div`
+  position: relative;
+  button{
+    position: absolute;
+    background: transparent !important;
+    top: 0;
+    right: 0;
+    padding: 0;
+    svg {      
+      color: #AEB9CD;
+      width: 18px;
+      height: 18px;
+    }
+  }
   .contact-card{
     figure{
       text-align: center;

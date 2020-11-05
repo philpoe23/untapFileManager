@@ -87,11 +87,21 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           Chat
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="user-check" />} key="contact">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/contact`}>
-          Contact
-        </NavLink>
-      </Menu.Item>
+      
+      <SubMenu key="contact" icon={!topMenu && <FeatherIcon icon="user-check" />} title="Contact">
+        <Menu.Item key="grid">
+          <NavLink onClick={toggleCollapsed} to={`${path}/contact/grid`}>
+            Contact Grid
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="list">
+          <NavLink onClick={toggleCollapsed} to={`${path}/contact/list`}>
+            Contact List
+          </NavLink>
+        </Menu.Item>
+        
+      </SubMenu>
+
 
       <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
         <Menu.Item key="view">

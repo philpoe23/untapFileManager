@@ -60,8 +60,8 @@ const Admin = () => {
         <Route path={`${path}/profile/myProfile`} component={Myprofile} />
         <Route path={`${path}/app/to-do`} component={ToDo} />
         <Route path={`${path}/app/note`} component={Note} />
-        <Route path={`${path}/app/contact`} component={Contact} />
-        <Route path={`${path}/app/contactGrid`} component={ContactGrid} />
+        <Route path={`${path}/contact/list`} component={Contact} />
+        <Route path={`${path}/contact/grid`} component={ContactGrid} />
         <Route path={`${path}/app/calendar`} component={Calendar} />
         <Route path={`${path}/widgets`} component={Widgets} />
       </Suspense>
