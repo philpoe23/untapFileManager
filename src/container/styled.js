@@ -681,6 +681,11 @@ const Main = Styled.div`
             border-left: 1px solid ${({ theme }) => theme['border-color-light']};
         }
     }
+    .editor-compose > div {
+        position: static;
+        max-width: 100%;
+        margin: 25px 0;
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

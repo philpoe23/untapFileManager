@@ -9,7 +9,7 @@ import { Upload, message } from 'antd';
 import { MailBox } from './style';
 import { Button } from '../../../components/buttons/buttons';
 
-const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
+const MailComposer = ({ onChange, onSend, defaultTag, replay, text }) => {
   const [state, setState] = useState({
     value: RichTextEditor.createEmptyValue(),
     tags: defaultTag ? [defaultTag] : [],
@@ -27,7 +27,7 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
   };
 
   const onSubmit = () => {
-    onSend(state.value.toString('html'));
+    onSend && onSend(state.value.toString('html'));
   };
 
   const props = {
@@ -51,6 +51,8 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
   return (
     <MailBox>
       <div className="body">
+        {
+          !text && 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
           <div className="reply-inner" style={{ display: 'flex', alignItems: 'center' }}>
             {!replay ? null : <span className="reply-title">Replay To</span>}
@@ -64,11 +66,14 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
           </div>
           <span className="mail-cc">Cc</span>
         </div>
+        
+        }
         <div className="group">
           <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />
         </div>
       </div>
-
+        {
+          !text && 
       <div className="footer">
         <div className="left d-flex align-items-center">
           <Button size="default" type="primary" onClick={onSubmit} raised>
@@ -89,14 +94,18 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay }) => {
           </Link>
         </div>
       </div>
+    
+        }
     </MailBox>
   );
 };
+
 MailComposer.propTypes = {
   onChange: propTypes.func,
-  onSend: propTypes.func.isRequired,
+  onSend: propTypes.func,
   defaultTag: propTypes.string,
   replay: propTypes.bool,
+  text: propTypes.bool
 };
 
 export default MailComposer;

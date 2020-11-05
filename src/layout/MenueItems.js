@@ -601,6 +601,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="edit-3" />} key="editor">
+        <NavLink onClick={toggleCollapsed} to={`${path}/editor`}>
+          Editor
+        </NavLink>
+      </Menu.Item>
+
       <Menu.Item icon={!topMenu && <FeatherIcon icon="disc" />} key="forms">
         <NavLink onClick={toggleCollapsed} to={`${path}/forms`}>
           Forms

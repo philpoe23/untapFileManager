@@ -49,11 +49,12 @@ const Compose = ({ close }) => {
 };
 
 Compose.propTypes = {
-  close: propTypes.func.isRequired,
+  close: propTypes.func,
 };
 
 Compose.default = {
   onChange: false,
+  close: () => {}
 };
 
 export default Compose;
