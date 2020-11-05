@@ -659,14 +659,7 @@ const Main = Styled.div`
                 padding: 25px 25px 0 !important;
             }
         }
-        // .ant-card .ant-card{
-        //     .ant-card-body{
-        //         padding: 25px !important;
-        //         &:after{
-        //             display: none;
-        //         }
-        //     }
-        // }
+        
         .ant-steps {
             padding: 50px;
             @media only screen and (max-width: 1399px) {

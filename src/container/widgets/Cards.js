@@ -16,6 +16,7 @@ import ProductCardsList from '../ecommerce/product/overview/ProductCardList';
 import GalleryCards from '../pages/overview/GalleryCard';
 import ContactCard from '../contact/overview/ContactCard';
 import { Cards } from '../../components/cards/frame/cards-frame';
+import SampleCardOne from '../../components/cards/sampleCard/SampleCardOne';
 
 const actions = (
   <>
@@ -381,7 +382,18 @@ const WidgetsCard = () => {
             /> 
             </Cards>           
           </Col>
-
+          
+          <Col md={6}>
+            <SampleCardOne              
+              item={{
+                "id": 1,
+                "title": "Technology Change the World",
+                "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
+                "img": "static/img/sampleCards/1.png"
+              }}
+            />
+          </Col>           
+        
 
           <Col md={18}>
             <ProductCardsList

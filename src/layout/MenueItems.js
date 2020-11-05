@@ -53,29 +53,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </Menu.Item>
       </SubMenu>
 
-      <SubMenu key="users" icon={!topMenu && <FeatherIcon icon="folder" />} title="Users">
-        <Menu.Item key="team">
-          <NavLink onClick={toggleCollapsed} to={`${path}/users/team`}>
-            Team
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="users">
-          <NavLink onClick={toggleCollapsed} to={`${path}/users/users`}>
-            Users
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="addUser">
-          <NavLink onClick={toggleCollapsed} to={`${path}/users/add-user/info`}>
-            Add User
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="dataTable">
-          <NavLink onClick={toggleCollapsed} to={`${path}/users/dataTable`}>
-            Users Table
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
-
+      
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
       <Menu.Item icon={!topMenu && <FeatherIcon icon="calendar" />} key="calendar">
         <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar/month`}>
@@ -99,10 +77,9 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
             Contact List
           </NavLink>
         </Menu.Item>
-        
+
       </SubMenu>
-
-
+      
       <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
         <Menu.Item key="view">
           <NavLink onClick={toggleCollapsed} to={`${path}/project/view/grid`}>
@@ -209,6 +186,29 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </NavLink>
       </Menu.Item>
 
+      <SubMenu key="users" icon={!topMenu && <FeatherIcon icon="folder" />} title="Users">
+        <Menu.Item key="team">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/team`}>
+            Team
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="users">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/users`}>
+            Users
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="addUser">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/add-user/info`}>
+            Add User
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="dataTable">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/dataTable`}>
+            Users Table
+          </NavLink>
+        </Menu.Item>
+      </SubMenu> 
+      
       {!topMenu && <p className="sidebar-nav-title">Components</p>}
 
       <SubMenu key="components" icon={!topMenu && <FeatherIcon icon="layers" />} title="UI Elements">
@@ -597,6 +597,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         <Menu.Item key="card">
           <NavLink onClick={toggleCollapsed} to={`${path}/widgets/card`}>
            Card
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="mixed">
+          <NavLink onClick={toggleCollapsed} to={`${path}/widgets/mixed`}>
+           Mixed
           </NavLink>
         </Menu.Item>
       </SubMenu>
