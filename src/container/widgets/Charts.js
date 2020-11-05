@@ -59,7 +59,7 @@ const Widgets = () => {
   return (
     <>
       <PageHeader
-        title="Widgets"
+        title="Widgets Charts"
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />

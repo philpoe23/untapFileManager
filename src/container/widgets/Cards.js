@@ -14,6 +14,8 @@ import GridCard from '../project/overview/GridCard';
 import ProductCards from '../ecommerce/product/overview/ProductCards';
 import ProductCardsList from '../ecommerce/product/overview/ProductCardList';
 import GalleryCards from '../pages/overview/GalleryCard';
+import ContactCard from '../contact/overview/ContactCard';
+import { Cards } from '../../components/cards/frame/cards-frame';
 
 const actions = (
   <>
@@ -36,7 +38,7 @@ const WidgetsCard = () => {
   return (
     <>
       <PageHeader
-        title="Widgets"
+        title="Widgets Cards"
         buttons={[
           <div key="1" className="page-header-actions">
             <CalendarButtonPageHeader />
@@ -311,6 +313,76 @@ const WidgetsCard = () => {
             />
           </Col>           
         
+          <Col md={6}>
+            <Cards headless>
+            <ContactCard
+              user={{
+                "id": 1,
+                "time": 1587041636455,
+                "name": "Duran Clayton",
+                "designation": "UI/UX Designer",
+                "stared": false,
+                "phone": "+90014525",
+                "company": "Business Development",
+                "email": "john@gmail.com",
+                "img": "static/img/users/1.png"
+              }}
+            /> 
+            </Cards>           
+          </Col>
+          <Col md={6}>
+            <Cards headless>
+            <ContactCard
+              user={{
+                "id": 1,
+                "time": 1587041636455,
+                "name": "Duran Clayton",
+                "designation": "UI/UX Designer",
+                "stared": false,
+                "phone": "+90014525",
+                "company": "Business Development",
+                "email": "john@gmail.com",
+                "img": "static/img/users/1.png"
+              }}
+            /> 
+            </Cards>           
+          </Col>
+          <Col md={6}>
+            <Cards headless>
+            <ContactCard
+              user={{
+                "id": 1,
+                "time": 1587041636455,
+                "name": "Duran Clayton",
+                "designation": "UI/UX Designer",
+                "stared": false,
+                "phone": "+90014525",
+                "company": "Business Development",
+                "email": "john@gmail.com",
+                "img": "static/img/users/1.png"
+              }}
+            /> 
+            </Cards>           
+          </Col>
+          <Col md={6}>
+            <Cards headless>
+            <ContactCard
+              user={{
+                "id": 1,
+                "time": 1587041636455,
+                "name": "Duran Clayton",
+                "designation": "UI/UX Designer",
+                "stared": false,
+                "phone": "+90014525",
+                "company": "Business Development",
+                "email": "john@gmail.com",
+                "img": "static/img/users/1.png"
+              }}
+            /> 
+            </Cards>           
+          </Col>
+
+
           <Col md={18}>
             <ProductCardsList
               product={{
