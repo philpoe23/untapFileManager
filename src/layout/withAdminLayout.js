@@ -184,6 +184,15 @@ const ThemeLayout = WrappedComponent => {
         changeMenuMode(false);
       };
 
+      const onEventChange = {
+        onRtlChange,
+        onLtrChange,
+        modeChangeDark,
+        modeChangeLight,
+        modeChangeTopNav,
+        modeChangeSideNav,
+      };
+
       return (
         <Div darkMode={darkMode}>
           <Layout className="layout">
@@ -295,6 +304,7 @@ const ThemeLayout = WrappedComponent => {
                         rtl={rtl}
                         toggleCollapsed={toggleCollapsedMobile}
                         darkMode={darkMode}
+                        events={onEventChange}
                       />
                     </Scrollbars>
                   </Sider>
