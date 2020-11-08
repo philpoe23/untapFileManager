@@ -106,7 +106,7 @@ const WidgetsCard = () => {
             />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <UserCards
               user={{
                 id: 1,
@@ -117,7 +117,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <UserCards
               user={{
                 id: 1,
@@ -128,7 +128,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <UserCards
               user={{
                 id: 1,
@@ -139,7 +139,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <UserCards
               user={{
                 id: 1,
@@ -151,7 +151,7 @@ const WidgetsCard = () => {
             />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <ProductCards
               product={{
                 id: 1,
@@ -169,7 +169,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <ProductCards
               product={{
                 id: 1,
@@ -187,7 +187,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <ProductCards
               product={{
                 id: 1,
@@ -205,7 +205,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <ProductCards
               product={{
                 id: 1,
@@ -224,7 +224,7 @@ const WidgetsCard = () => {
             />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <TeamCard
               actions={actions}
               user={{
@@ -236,7 +236,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <TeamCard
               actions={actions}
               user={{
@@ -248,7 +248,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <TeamCard
               actions={actions}
               user={{
@@ -260,7 +260,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <TeamCard
               actions={actions}
               user={{
@@ -273,7 +273,7 @@ const WidgetsCard = () => {
             />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <GalleryCards
               actions={actions}
               item={{
@@ -284,7 +284,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <GalleryCards
               actions={actions}
               item={{
@@ -295,7 +295,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <GalleryCards
               actions={actions}
               item={{
@@ -306,7 +306,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <GalleryCards
               actions={actions}
               item={{
@@ -318,7 +318,7 @@ const WidgetsCard = () => {
             />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <Cards headless>
               <ContactCard
                 user={{
@@ -335,7 +335,7 @@ const WidgetsCard = () => {
               />
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <Cards headless>
               <ContactCard
                 user={{
@@ -352,7 +352,7 @@ const WidgetsCard = () => {
               />
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <Cards headless>
               <ContactCard
                 user={{
@@ -369,7 +369,7 @@ const WidgetsCard = () => {
               />
             </Cards>
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <Cards headless>
               <ContactCard
                 user={{
@@ -387,85 +387,85 @@ const WidgetsCard = () => {
             </Cards>
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardOne />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardOne />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardOne />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardOne />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardTwo />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardTwo />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardTwo />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardTwo />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardThree />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardThree />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardThree />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardThree />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardFour />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardFour />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardFour />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardFour />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={24}>
             <SampleCardFive />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={24}>
             <SampleCardFive />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={24}>
             <SampleCardFive />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={24}>
             <SampleCardFive />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardSix />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardSix />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardSix />
           </Col>
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardSix />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6} md={8} sm={12}>
             <SampleCardSeven />
           </Col>
 

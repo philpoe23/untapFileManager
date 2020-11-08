@@ -8,7 +8,8 @@ const CardWrapper = styled.figure`
   overflow: hidden;
   position: relative;
   img {
-    width: 100%;
+    max-width: 50px;
+    margin: 25px 25px 0 25px;
   }
   figcaption {
     padding: 25px;
@@ -17,20 +18,6 @@ const CardWrapper = styled.figure`
     }
     p {
       line-height: 25px;
-    }
-    .feedbackSection {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: ${({ theme }) => theme['extra-light-color']};
-      .author {
-        color: ${({ theme }) => theme[' gray-color']};
-        img {
-          width: 50px;
-          border-radius: 50%;
-          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')} : 10px;
-        }
-      }
     }
   }
 `;

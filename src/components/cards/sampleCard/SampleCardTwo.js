@@ -9,14 +9,18 @@ const CardWrapper = styled.figure`
   border-radius: 10px;
   figcaption {
     h2 {
-      margin: 18px 0 17px 0;
+      margin: 18px 0 10px 0;
+      font-size: 18px;
+      font-weight: 600;
     }
     p {
-      line-height: 25px;
+      line-height: 1.79;
+      color: ${({ theme }) => theme['gray-color']};
     }
     a {
       color: ${({ theme }) => theme['primary-color']};
       font-size: 15px;
+      font-weight: 600;
     }
   }
 `;

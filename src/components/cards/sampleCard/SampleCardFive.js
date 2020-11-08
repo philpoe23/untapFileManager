@@ -12,19 +12,17 @@ const CardWrapper = styled.figure`
   }
   figcaption {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     padding: 25px;
     background: ${({ theme }) => theme['dark-color']}50;
-    color: ${({ theme }) => theme['extra-light-color']};
+    color: #fff;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     h2 {
-      color: ${({ theme }) => theme['extra-light-color']};
-      margin: 0px 0 17px 0;
+      color: #fff;
+      margin: 0px 0 10px 0;
+      font-size: 18px;
+      font-weight: 600;
     }
     p {
       line-height: 25px;
@@ -33,13 +31,17 @@ const CardWrapper = styled.figure`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: ${({ theme }) => theme['extra-light-color']};
+      color: #fff;
       .author {
-        color: ${({ theme }) => theme[' gray-color']};
+        color: #fff;
         img {
           width: 50px;
           border-radius: 50%;
           ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')} : 10px;
+        }
+        span {
+          font-weight: 500;
+          font-size: 13px;
         }
       }
     }

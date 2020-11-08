@@ -12,14 +12,20 @@ const CardWrapper = styled.figure`
   figcaption {
     padding: 25px;
     h2 {
-      margin: 0px 0 17px 0;
+      margin: 0px 0 10px 0;
+      font-size: 18px;
+      font-weight: 600;
     }
     p {
-      line-height: 25px;
+      line-height: 1.79;
+      margin-bottom: 15px;
+      color: ${({ theme }) => theme['gray-color']};
     }
     button {
       background: ${({ theme }) => theme['primary-color']}15;
       color: ${({ theme }) => theme['primary-color']};
+      font-size: 15px;
+      font-weight: 600;
     }
   }
 `;

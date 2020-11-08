@@ -16,12 +16,20 @@ const CardWrapper = styled.figure`
     h4 {
       display: flex;
       justify-content: space-between;
+      span {
+        font-size: 12px;
+        font-weight: 500;
+        color: ${({ theme }) => theme['light-gray-color']};
+      }
     }
     h2 {
-      margin: 0px 0 17px 0;
+      margin: 6px 0 10px 0;
+      font-size: 18px;
+      font-weight: 600;
     }
     p {
-      line-height: 25px;
+      line-height: 1.79;
+      color: ${({ theme }) => theme['gray-color']};
     }
     button {
       background: ${({ theme }) => theme['primary-color']}15;
@@ -33,20 +41,28 @@ const CardWrapper = styled.figure`
       align-items: center;
       color: ${({ theme }) => theme['extra-light-color']};
       .author {
-        color: ${({ theme }) => theme[' gray-color']};
+        color: ${({ theme }) => theme['gray-color']};
         img {
           width: 50px;
           border-radius: 50%;
           ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')} : 10px;
+        }
+        span {
+          font-size: 14px;
+          font-weight: 500;
         }
       }
       .feedback {
         span {
           font-size: 13px;
           ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')} : 10px;
+          color: ${({ theme }) => theme['extra-light-color']};
+          display: inline-flex;
+          align-items: center;
           svg {
             margin: 0 5px;
             cursor: pointer;
+            color: ${({ theme }) => theme['light-gray-color']};
           }
         }
       }

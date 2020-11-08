@@ -19,6 +19,17 @@ const CardWrapper = styled.figure`
       position: absolute;
       top: 0px;
       right: 0;
+      a {
+        color: ${({ theme }) => theme['extra-light-color']};
+      }
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 14px;
+      color: ${({ theme }) => theme['light-color']};
     }
   }
 `;

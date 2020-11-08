@@ -10,10 +10,11 @@ const CardWrapper = styled.figure`
   margin: 15px 0;
   figcaption {
     h2 {
-      margin: 18px 0 17px 0;
+      margin: 24px 0 10px 0;
     }
     p {
-      line-height: 25px;
+      line-height: 1.79;
+      color: ${({ theme }) => theme['gray-color']};
     }
   }
 `;
