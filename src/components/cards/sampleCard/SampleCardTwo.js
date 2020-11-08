@@ -1,30 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
-import { Button } from '../../buttons/buttons';
+import { Link } from 'react-router-dom';
 
 const CardWrapper = styled.figure`
   background: #fff;
+  padding: 25px;
   border-radius: 10px;
-  img {
-    width: 100%;
-  }
   figcaption {
-    padding: 25px;
     h2 {
-      margin: 0px 0 17px 0;
+      margin: 18px 0 17px 0;
     }
     p {
       line-height: 25px;
     }
-    button {
-      background: ${({ theme }) => theme['primary-color']}15;
+    a {
       color: ${({ theme }) => theme['primary-color']};
+      font-size: 15px;
     }
   }
 `;
 
-const SampleCardOne = ({ item }) => {
+const SampleCardTwo = ({ item }) => {
   const { content, title, img } = item;
   return (
     <CardWrapper>
@@ -32,25 +29,24 @@ const SampleCardOne = ({ item }) => {
       <figcaption>
         <h2>{title}</h2>
         <p>{content}</p>
-        <Button type="primary" size="large">
-          View More
-        </Button>
+        <Link to="#">Learn More</Link>
       </figcaption>
     </CardWrapper>
   );
 };
 
-SampleCardOne.propTypes = {
+SampleCardTwo.propTypes = {
   item: propTypes.object,
 };
 
-SampleCardOne.defaultProps = {
+SampleCardTwo.defaultProps = {
   item: {
     id: 1,
-    title: 'Technology Change the World',
-    content: 'Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled',
-    img: 'static/img/sampleCards/1.png',
+    title: 'Creative Planning',
+    content:
+      'Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled and typesetting industry.',
+    img: 'static/img/icon/strategy.svg',
   },
 };
 
-export default SampleCardOne;
+export default SampleCardTwo;

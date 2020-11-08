@@ -17,6 +17,11 @@ import GalleryCards from '../pages/overview/GalleryCard';
 import ContactCard from '../contact/overview/ContactCard';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import SampleCardOne from '../../components/cards/sampleCard/SampleCardOne';
+import SampleCardTwo from '../../components/cards/sampleCard/SampleCardTwo';
+import SampleCardThree from '../../components/cards/sampleCard/SampleCardThree';
+import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
+import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
+import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
 
 const actions = (
   <>
@@ -392,6 +397,71 @@ const WidgetsCard = () => {
           </Col>
           <Col md={6}>
             <SampleCardOne />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardTwo />
+          </Col>
+          <Col md={6}>
+            <SampleCardTwo />
+          </Col>
+          <Col md={6}>
+            <SampleCardTwo />
+          </Col>
+          <Col md={6}>
+            <SampleCardTwo />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardThree />
+          </Col>
+          <Col md={6}>
+            <SampleCardThree />
+          </Col>
+          <Col md={6}>
+            <SampleCardThree />
+          </Col>
+          <Col md={6}>
+            <SampleCardThree />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardFour />
+          </Col>
+          <Col md={6}>
+            <SampleCardFour />
+          </Col>
+          <Col md={6}>
+            <SampleCardFour />
+          </Col>
+          <Col md={6}>
+            <SampleCardFour />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardFive />
+          </Col>
+          <Col md={6}>
+            <SampleCardFive />
+          </Col>
+          <Col md={6}>
+            <SampleCardFive />
+          </Col>
+          <Col md={6}>
+            <SampleCardFive />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardSix />
+          </Col>
+          <Col md={6}>
+            <SampleCardSix />
+          </Col>
+          <Col md={6}>
+            <SampleCardSix />
+          </Col>
+          <Col md={6}>
+            <SampleCardSix />
           </Col>
 
           <Col md={18}>
