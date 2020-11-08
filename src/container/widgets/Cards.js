@@ -22,6 +22,7 @@ import SampleCardThree from '../../components/cards/sampleCard/SampleCardThree';
 import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
 import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
 import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
+import SampleCardSeven from '../../components/cards/sampleCard/SampleCardSaven';
 
 const actions = (
   <>
@@ -462,6 +463,10 @@ const WidgetsCard = () => {
           </Col>
           <Col md={6}>
             <SampleCardSix />
+          </Col>
+
+          <Col md={6}>
+            <SampleCardSeven />
           </Col>
 
           <Col md={18}>

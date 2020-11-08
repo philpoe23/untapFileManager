@@ -1,14 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
+import FeatherIcon from 'feather-icons-react';
+import { Link } from 'react-router-dom';
 import { Cards } from '../frame/cards-frame';
+import { Dropdown } from '../../dropdown/dropdown';
 
 const CardWrapper = styled.figure`
   display: flex;
   margin: 0;
+  position: relative;
   h2,
   p {
     margin: 0;
+  }
+  figcaption {
+    .more {
+      position: absolute;
+      top: 0px;
+      right: 0;
+    }
   }
 `;
 
@@ -32,6 +43,21 @@ const SampleCardSix = ({ item }) => {
           <img src={require(`../../../${img}`)} alt="" />
         </Icon>
         <figcaption>
+          <div className="more">
+            <Dropdown
+              content={
+                <>
+                  <Link to="#">Edit</Link>
+                  <Link to="#">Delete</Link>
+                  <Link to="#">View</Link>
+                </>
+              }
+            >
+              <Link to="#">
+                <FeatherIcon icon="more-horizontal" />
+              </Link>
+            </Dropdown>
+          </div>
           <h2>{title}</h2>
           <p>{content}</p>
         </figcaption>
