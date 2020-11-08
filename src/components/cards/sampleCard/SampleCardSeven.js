@@ -11,19 +11,8 @@ const CardWrapper = styled.figure`
     width: 100%;
   }
   figcaption {
-    position: absolute;
-    top: 0;
-    left: 0;
     padding: 25px;
-    background: ${({ theme }) => theme['dark-color']}50;
-    color: ${({ theme }) => theme['extra-light-color']};
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     h2 {
-      color: ${({ theme }) => theme['extra-light-color']};
       margin: 0px 0 17px 0;
     }
     p {
@@ -54,12 +43,6 @@ const SampleCardSeven = ({ item }) => {
       <figcaption>
         <h2>{title}</h2>
         <p>{content}</p>
-        <div className="feedbackSection">
-          <div className="author">
-            <img src={require('../../../static/img/chat-author/t1.jpg')} alt="" />
-            <span>Burns Marks</span>
-          </div>
-        </div>
       </figcaption>
     </CardWrapper>
   );
@@ -72,9 +55,9 @@ SampleCardSeven.propTypes = {
 SampleCardSeven.defaultProps = {
   item: {
     id: 1,
-    title: 'How to Use Apples Products',
-    content: 'Lorem Ipsum is simply dummy text of the printing ',
-    img: 'static/img/sampleCards/6.png',
+    title: 'Adobe CC',
+    content: 'Lorem Ipsum is simply dummy text of the and the ',
+    img: 'static/img/icon/adobe.svg',
   },
 };
 
