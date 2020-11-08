@@ -53,8 +53,7 @@ const WidgetsCard = () => {
         ]}
       />
       <Main>
-        <Row gutter={25}>         
-                              
+        <Row gutter={25}>
           <Col md={8}>
             <GridCard
               value={{
@@ -67,62 +66,40 @@ const WidgetsCard = () => {
                 rate: 5,
                 popular: 1,
                 percentage: 85,
-              }}
-            />
-          </Col>         
-          <Col md={8}>
-            <GridCard
-              value={{
-                id: 1,
-                title: 'Dashboard UI Project',
-                status: 'early',
-                content:
-                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
-                category: 'Web Design',
-                rate: 5,
-                popular: 1,
-                percentage: 85,
-              }}
-            />
-          </Col>         
-          <Col md={8}>
-            <GridCard
-              value={{
-                id: 1,
-                title: 'Dashboard UI Project',
-                status: 'early',
-                content:
-                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
-                category: 'Web Design',
-                rate: 5,
-                popular: 1,
-                percentage: 85,
-              }}
-            />
-          </Col>         
-          
-          <Col md={6}>
-            <UserCards
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
               }}
             />
           </Col>
-          <Col md={6}>
-            <UserCards
-              user={{
+          <Col md={8}>
+            <GridCard
+              value={{
                 id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
+                title: 'Dashboard UI Project',
+                status: 'early',
+                content:
+                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
+                category: 'Web Design',
+                rate: 5,
+                popular: 1,
+                percentage: 85,
               }}
             />
-          </Col>         
+          </Col>
+          <Col md={8}>
+            <GridCard
+              value={{
+                id: 1,
+                title: 'Dashboard UI Project',
+                status: 'early',
+                content:
+                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
+                category: 'Web Design',
+                rate: 5,
+                popular: 1,
+                percentage: 85,
+              }}
+            />
+          </Col>
+
           <Col md={6}>
             <UserCards
               user={{
@@ -145,7 +122,28 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          
+          <Col md={6}>
+            <UserCards
+              user={{
+                id: 1,
+                time: 1587041636455,
+                name: 'Duran Clayton',
+                designation: 'UI/UX Designer',
+                img: 'static/img/users/1.png',
+              }}
+            />
+          </Col>
+          <Col md={6}>
+            <UserCards
+              user={{
+                id: 1,
+                time: 1587041636455,
+                name: 'Duran Clayton',
+                designation: 'UI/UX Designer',
+                img: 'static/img/users/1.png',
+              }}
+            />
+          </Col>
 
           <Col md={6}>
             <ProductCards
@@ -219,7 +217,7 @@ const WidgetsCard = () => {
               }}
             />
           </Col>
-          
+
           <Col md={6}>
             <TeamCard
               actions={actions}
@@ -273,10 +271,10 @@ const WidgetsCard = () => {
             <GalleryCards
               actions={actions}
               item={{
-                "id": 1,
-                "name": "Snow Covered Mountain",
-                "category": "Presentation",
-                "img": "static/img/gallery/1.png"
+                id: 1,
+                name: 'Snow Covered Mountain',
+                category: 'Presentation',
+                img: 'static/img/gallery/1.png',
               }}
             />
           </Col>
@@ -284,116 +282,117 @@ const WidgetsCard = () => {
             <GalleryCards
               actions={actions}
               item={{
-                "id": 1,
-                "name": "Snow Covered Mountain",
-                "category": "Presentation",
-                "img": "static/img/gallery/1.png"
+                id: 1,
+                name: 'Snow Covered Mountain',
+                category: 'Presentation',
+                img: 'static/img/gallery/1.png',
               }}
             />
-          </Col> 
+          </Col>
           <Col md={6}>
             <GalleryCards
               actions={actions}
               item={{
-                "id": 1,
-                "name": "Snow Covered Mountain",
-                "category": "Presentation",
-                "img": "static/img/gallery/1.png"
+                id: 1,
+                name: 'Snow Covered Mountain',
+                category: 'Presentation',
+                img: 'static/img/gallery/1.png',
               }}
             />
-          </Col> 
+          </Col>
           <Col md={6}>
             <GalleryCards
               actions={actions}
               item={{
-                "id": 1,
-                "name": "Snow Covered Mountain",
-                "category": "Presentation",
-                "img": "static/img/gallery/1.png"
+                id: 1,
+                name: 'Snow Covered Mountain',
+                category: 'Presentation',
+                img: 'static/img/gallery/1.png',
               }}
             />
-          </Col>           
-        
+          </Col>
+
           <Col md={6}>
             <Cards headless>
-            <ContactCard
-              user={{
-                "id": 1,
-                "time": 1587041636455,
-                "name": "Duran Clayton",
-                "designation": "UI/UX Designer",
-                "stared": false,
-                "phone": "+90014525",
-                "company": "Business Development",
-                "email": "john@gmail.com",
-                "img": "static/img/users/1.png"
-              }}
-            /> 
-            </Cards>           
+              <ContactCard
+                user={{
+                  id: 1,
+                  time: 1587041636455,
+                  name: 'Duran Clayton',
+                  designation: 'UI/UX Designer',
+                  stared: false,
+                  phone: '+90014525',
+                  company: 'Business Development',
+                  email: 'john@gmail.com',
+                  img: 'static/img/users/1.png',
+                }}
+              />
+            </Cards>
           </Col>
           <Col md={6}>
             <Cards headless>
-            <ContactCard
-              user={{
-                "id": 1,
-                "time": 1587041636455,
-                "name": "Duran Clayton",
-                "designation": "UI/UX Designer",
-                "stared": false,
-                "phone": "+90014525",
-                "company": "Business Development",
-                "email": "john@gmail.com",
-                "img": "static/img/users/1.png"
-              }}
-            /> 
-            </Cards>           
+              <ContactCard
+                user={{
+                  id: 1,
+                  time: 1587041636455,
+                  name: 'Duran Clayton',
+                  designation: 'UI/UX Designer',
+                  stared: false,
+                  phone: '+90014525',
+                  company: 'Business Development',
+                  email: 'john@gmail.com',
+                  img: 'static/img/users/1.png',
+                }}
+              />
+            </Cards>
           </Col>
           <Col md={6}>
             <Cards headless>
-            <ContactCard
-              user={{
-                "id": 1,
-                "time": 1587041636455,
-                "name": "Duran Clayton",
-                "designation": "UI/UX Designer",
-                "stared": false,
-                "phone": "+90014525",
-                "company": "Business Development",
-                "email": "john@gmail.com",
-                "img": "static/img/users/1.png"
-              }}
-            /> 
-            </Cards>           
+              <ContactCard
+                user={{
+                  id: 1,
+                  time: 1587041636455,
+                  name: 'Duran Clayton',
+                  designation: 'UI/UX Designer',
+                  stared: false,
+                  phone: '+90014525',
+                  company: 'Business Development',
+                  email: 'john@gmail.com',
+                  img: 'static/img/users/1.png',
+                }}
+              />
+            </Cards>
           </Col>
           <Col md={6}>
             <Cards headless>
-            <ContactCard
-              user={{
-                "id": 1,
-                "time": 1587041636455,
-                "name": "Duran Clayton",
-                "designation": "UI/UX Designer",
-                "stared": false,
-                "phone": "+90014525",
-                "company": "Business Development",
-                "email": "john@gmail.com",
-                "img": "static/img/users/1.png"
-              }}
-            /> 
-            </Cards>           
+              <ContactCard
+                user={{
+                  id: 1,
+                  time: 1587041636455,
+                  name: 'Duran Clayton',
+                  designation: 'UI/UX Designer',
+                  stared: false,
+                  phone: '+90014525',
+                  company: 'Business Development',
+                  email: 'john@gmail.com',
+                  img: 'static/img/users/1.png',
+                }}
+              />
+            </Cards>
           </Col>
-          
+
           <Col md={6}>
-            <SampleCardOne              
-              item={{
-                "id": 1,
-                "title": "Technology Change the World",
-                "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
-                "img": "static/img/sampleCards/1.png"
-              }}
-            />
-          </Col>           
-        
+            <SampleCardOne />
+          </Col>
+          <Col md={6}>
+            <SampleCardOne />
+          </Col>
+          <Col md={6}>
+            <SampleCardOne />
+          </Col>
+          <Col md={6}>
+            <SampleCardOne />
+          </Col>
 
           <Col md={18}>
             <ProductCardsList
@@ -411,9 +410,8 @@ const WidgetsCard = () => {
                 description:
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
               }}
-            />            
+            />
           </Col>
-
         </Row>
       </Main>
     </>
