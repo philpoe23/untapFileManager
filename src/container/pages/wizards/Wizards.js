@@ -46,7 +46,7 @@ const Wizards = () => {
               <div className="wizard-side-border">
                 <Cards headless>
                   <Row justify="center">
-                    <Col md={17} xs={24}>
+                    <Col xxl={20} xs={24}>
                       <WizardsSix />
                     </Col>
                   </Row>
