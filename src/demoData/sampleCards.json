@@ -1,0 +1,80 @@
+{
+    "cardOne": [
+        {
+            "id": 1,
+            "title": "Technology Change the World",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
+            "img": "static/img/sampleCards/1.png"
+        },
+        {
+            "id": 2,
+            "title": "Power of Unity And Strength",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
+            "img": "static/img/sampleCards/9.png"
+        },
+        {
+            "id": 3,
+            "title": "A Success Story Entrepreneur",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
+            "img": "static/img/sampleCards/10.png"
+        },
+        {
+            "id": 4,
+            "title": "Important of Team Works",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled",
+            "img": "static/img/sampleCards/11.png"
+        }
+    ],
+    "cardTwo": [
+        {
+            "id": 1,
+            "title": "Creative Planning",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled and typesetting industry.",
+            "img": "static/img/icon/strategy.svg"
+        },
+        {
+            "id": 2,
+            "title": "Perfect Design",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled and typesetting industry.",
+            "img": "static/img/icon/paint.svg"
+        },
+        {
+            "id": 3,
+            "title": "Code Standard",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled and typesetting industry.",
+            "img": "static/img/icon/theme.svg"
+        },
+        {
+            "id": 4,
+            "title": "User Friendly",
+            "content": "Lorem Ipsum is simply dummy text of the printer took a galley of type and scrambled and typesetting industry.",
+            "img": "static/img/icon/protection.svg"
+        }
+    ],
+    "cardThree": [
+        {
+            "id": 1,
+            "title": "Perfect Design",
+            "content": "Lorem Ipsum is simply dummy text of the",
+            "img": "static/img/sampleCards/2.svg"
+        },
+        {
+            "id": 2,
+            "title": "Code Standard",
+            "content": "Lorem Ipsum is simply dummy text of the",
+            "img": "static/img/sampleCards/3.svg"
+        },
+        {
+            "id": 3,
+            "title": "Nice Environment ",
+            "content": "Lorem Ipsum is simply dummy text of the",
+            "img": "static/img/sampleCards/4.svg"
+        },
+        {
+            "id": 4,
+            "title": "User Friendly",
+            "content": "Lorem Ipsum is simply dummy text of the",
+            "img": "static/img/sampleCards/1.svg"
+        }
+    ]
+}

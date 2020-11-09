@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import TeamCard from '../pages/overview/TeamCard';
 import UserCards from '../pages/overview/UserCard';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -23,6 +24,7 @@ import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
 import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
 import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
 import SampleCardSeven from '../../components/cards/sampleCard/SampleCardSeven';
+import { cardOne, cardTwo, cardThree } from '../../demoData/sampleCards.json';
 
 const actions = (
   <>
@@ -42,6 +44,16 @@ const actions = (
 );
 
 const WidgetsCard = () => {
+  const { products, projects, users, team, gallery, contactUsers } = useSelector(state => {
+    return {
+      products: state.products.data,
+      projects: state.projects.data,
+      users: state.users,
+      team: state.team.data,
+      gallery: state.gallery.data,
+      contactUsers: state.Contact.data,
+    };
+  });
   return (
     <>
       <PageHeader
@@ -60,384 +72,99 @@ const WidgetsCard = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col md={8}>
-            <GridCard
-              value={{
-                id: 1,
-                title: 'Dashboard UI Project',
-                status: 'early',
-                content:
-                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
-                category: 'Web Design',
-                rate: 5,
-                popular: 1,
-                percentage: 85,
-              }}
-            />
-          </Col>
-          <Col md={8}>
-            <GridCard
-              value={{
-                id: 1,
-                title: 'Dashboard UI Project',
-                status: 'early',
-                content:
-                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
-                category: 'Web Design',
-                rate: 5,
-                popular: 1,
-                percentage: 85,
-              }}
-            />
-          </Col>
-          <Col md={8}>
-            <GridCard
-              value={{
-                id: 1,
-                title: 'Dashboard UI Project',
-                status: 'early',
-                content:
-                  'Adipisicing eu magna velit est exercitation et consequat Lorem laboris nulla. Laborum exercitation minim id ea ea. Minim cillum magna excepteur laboris duis labore pariatur Lorem aute cupidatat velit sunt non. Est laborum anim aliqua in elit consequat elit elit cupidatat. Nulla excepteur laborum voluptate nisi eiusmod nostrud sit. Aute aliquip sit non consectetur laborum velit in exercitation laboris officia adipisicing deserunt. Sint laboris aute minim aliqua aute culpa laboris ad amet dolor ea Lorem sit.',
-                category: 'Web Design',
-                rate: 5,
-                popular: 1,
-                percentage: 85,
-              }}
-            />
-          </Col>
+          {projects.map(project => {
+            return (
+              project.id <= 3 && (
+                <Col key={project.id} md={8}>
+                  <GridCard value={project} />
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <UserCards
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <UserCards
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <UserCards
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <UserCards
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
+          {users.map(user => {
+            return (
+              user.id <= 4 && (
+                <Col key={user.id} lg={6} md={8} sm={12}>
+                  <UserCards user={user} />
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <ProductCards
-              product={{
-                id: 1,
-                name: 'Montes Scelerisque',
-                rate: 5,
-                time: 1586372610052,
-                price: 250,
-                oldPrice: 650,
-                popular: 105,
-                brand: 'chair',
-                category: 'furniture',
-                img: 'static/img/products/1.png',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <ProductCards
-              product={{
-                id: 1,
-                name: 'Montes Scelerisque',
-                rate: 5,
-                time: 1586372610052,
-                price: 250,
-                oldPrice: 650,
-                popular: 105,
-                brand: 'chair',
-                category: 'furniture',
-                img: 'static/img/products/1.png',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <ProductCards
-              product={{
-                id: 1,
-                name: 'Montes Scelerisque',
-                rate: 5,
-                time: 1586372610052,
-                price: 250,
-                oldPrice: 650,
-                popular: 105,
-                brand: 'chair',
-                category: 'furniture',
-                img: 'static/img/products/1.png',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <ProductCards
-              product={{
-                id: 1,
-                name: 'Montes Scelerisque',
-                rate: 5,
-                time: 1586372610052,
-                price: 250,
-                oldPrice: 650,
-                popular: 105,
-                brand: 'chair',
-                category: 'furniture',
-                img: 'static/img/products/1.png',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
-              }}
-            />
-          </Col>
+          {products.map((product, index) => {
+            return (
+              index <= 3 && (
+                <Col key={product.id} lg={6} md={8} sm={12}>
+                  <ProductCards product={product} />
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <TeamCard
-              actions={actions}
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <TeamCard
-              actions={actions}
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <TeamCard
-              actions={actions}
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <TeamCard
-              actions={actions}
-              user={{
-                id: 1,
-                time: 1587041636455,
-                name: 'Duran Clayton',
-                designation: 'UI/UX Designer',
-                img: 'static/img/users/1.png',
-              }}
-            />
-          </Col>
+          {team.map(member => {
+            return (
+              member.id <= 4 && (
+                <Col key={member.id} lg={6} md={8} sm={12}>
+                  <TeamCard actions={actions} user={member} />
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <GalleryCards
-              actions={actions}
-              item={{
-                id: 1,
-                name: 'Snow Covered Mountain',
-                category: 'Presentation',
-                img: 'static/img/gallery/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <GalleryCards
-              actions={actions}
-              item={{
-                id: 1,
-                name: 'Snow Covered Mountain',
-                category: 'Presentation',
-                img: 'static/img/gallery/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <GalleryCards
-              actions={actions}
-              item={{
-                id: 1,
-                name: 'Snow Covered Mountain',
-                category: 'Presentation',
-                img: 'static/img/gallery/1.png',
-              }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <GalleryCards
-              actions={actions}
-              item={{
-                id: 1,
-                name: 'Snow Covered Mountain',
-                category: 'Presentation',
-                img: 'static/img/gallery/1.png',
-              }}
-            />
-          </Col>
+          {gallery.map(item => {
+            return (
+              item.id <= 4 && (
+                <Col key={item.id} lg={6} md={8} sm={12}>
+                  <GalleryCards actions={actions} item={item} />
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <Cards headless>
-              <ContactCard
-                user={{
-                  id: 1,
-                  time: 1587041636455,
-                  name: 'Duran Clayton',
-                  designation: 'UI/UX Designer',
-                  stared: false,
-                  phone: '+90014525',
-                  company: 'Business Development',
-                  email: 'john@gmail.com',
-                  img: 'static/img/users/1.png',
-                }}
-              />
-            </Cards>
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <Cards headless>
-              <ContactCard
-                user={{
-                  id: 1,
-                  time: 1587041636455,
-                  name: 'Duran Clayton',
-                  designation: 'UI/UX Designer',
-                  stared: false,
-                  phone: '+90014525',
-                  company: 'Business Development',
-                  email: 'john@gmail.com',
-                  img: 'static/img/users/1.png',
-                }}
-              />
-            </Cards>
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <Cards headless>
-              <ContactCard
-                user={{
-                  id: 1,
-                  time: 1587041636455,
-                  name: 'Duran Clayton',
-                  designation: 'UI/UX Designer',
-                  stared: false,
-                  phone: '+90014525',
-                  company: 'Business Development',
-                  email: 'john@gmail.com',
-                  img: 'static/img/users/1.png',
-                }}
-              />
-            </Cards>
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <Cards headless>
-              <ContactCard
-                user={{
-                  id: 1,
-                  time: 1587041636455,
-                  name: 'Duran Clayton',
-                  designation: 'UI/UX Designer',
-                  stared: false,
-                  phone: '+90014525',
-                  company: 'Business Development',
-                  email: 'john@gmail.com',
-                  img: 'static/img/users/1.png',
-                }}
-              />
-            </Cards>
-          </Col>
+          {contactUsers.map(user => {
+            return (
+              user.id <= 4 && (
+                <Col key={user.id} lg={6} md={8} sm={12}>
+                  <Cards headless>
+                    <ContactCard user={user} />
+                  </Cards>
+                </Col>
+              )
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardOne />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardOne />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardOne />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardOne />
-          </Col>
+          {cardOne.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardOne item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardTwo />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardTwo />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardTwo />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardTwo />
-          </Col>
+          {cardTwo.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardTwo item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardThree />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardThree />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardThree />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardThree />
-          </Col>
+          {cardThree.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardThree item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardFour />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardFour />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardFour />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardFour />
-          </Col>
+          {cardOne.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardFour item={item} />
+              </Col>
+            );
+          })}
 
           <Col lg={6} md={8} sm={24}>
             <SampleCardFive />
