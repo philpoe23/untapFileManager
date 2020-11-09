@@ -470,24 +470,14 @@ const WidgetsCard = () => {
           <Col lg={6} md={8} sm={12}>
             <SampleCardSeven />
           </Col>
-
-          <Col md={18}>
-            <ProductCardsList
-              product={{
-                id: 1,
-                name: 'Montes Scelerisque',
-                rate: 5,
-                time: 1586372610052,
-                price: 250,
-                oldPrice: 650,
-                popular: 105,
-                brand: 'chair',
-                category: 'furniture',
-                img: 'static/img/products/1.png',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
-              }}
-            />
+          <Col lg={6} md={8} sm={12}>
+            <SampleCardSeven />
+          </Col>
+          <Col lg={6} md={8} sm={12}>
+            <SampleCardSeven />
+          </Col>
+          <Col lg={6} md={8} sm={12}>
+            <SampleCardSeven />
           </Col>
           <Col xs={24}>
             <Cards headless>
@@ -1198,6 +1188,24 @@ const WidgetsCard = () => {
                   </FileCardWrapper>
                 </Col>
               </Row>
+          </Col>
+          <Col md={18}>
+            <ProductCardsList
+              product={{
+                id: 1,
+                name: 'Montes Scelerisque',
+                rate: 5,
+                time: 1586372610052,
+                price: 250,
+                oldPrice: 650,
+                popular: 105,
+                brand: 'chair',
+                category: 'furniture',
+                img: 'static/img/products/1.png',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
+              }}
+            />
           </Col>
         </Row>
       </Main>

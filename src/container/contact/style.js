@@ -16,9 +16,6 @@ const ContactPageheaderStyle = Styled.div`
   .ant-select .ant-select-selection-search-input{
     border-radius: 6px;
   }
-  .ant-page-header-heading-extra{
-    padding-right: 90px;
-  }
 `;
 const ContactCardWrapper = Styled.div`
   position: relative;

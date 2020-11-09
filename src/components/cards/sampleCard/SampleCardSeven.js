@@ -10,10 +10,19 @@ import { Checkbox } from '../../checkbox/checkbox';
 const CardWrapper = styled.figure`
   background: #fff;
   border-radius: 10px;
-  padding: 25px;
   overflow: hidden;
   position: relative;
   .card-short{
+    .card-short__title{
+      padding: 25px 25px 0;
+    }
+    .card-short__content{
+      padding: 0 25px;
+    }
+    .card-short__bottom{
+      border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+      padding: 20px 25px 25px;
+    }
     .card-short__title{
       font-size: 18px;
       font-weight: 500;
@@ -27,17 +36,63 @@ const CardWrapper = styled.figure`
       .card-short-actions{
         .ant-btn-circle{
           border-radius: 42px;
+          margin-right: 16px;
+          svg,
+          img,
+          i{
+            color: ${({ theme }) => theme['extra-light-color']};
+          }
         }
         .content-action{
           display: flex;
           align-items: center;
+          .ant-dropdown-trigger{
+            svg,
+            img,
+            i{
+              color: ${({ theme }) => theme['extra-light-color']};
+            }
+          }
         }
+      }
+      .card-short-checkbox{
+        display: none;
+      }
+      .content-installed {
+        display: none !important;
+      }
+      .content-not-installed.content-action{
+        justify-content: flex-end;
       }
       &.installed{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         .content-not-installed{
           display: none;
+        }
+        .content-installed{
+          display: flex !important;
+        }
+        .card-short-checkbox{
+          display: block !important
+          .ant-checkbox-checked{
+            &:after{
+              border-color: ${({ theme }) => theme['success-color']};
+            }
+            .ant-checkbox-inner{
+              border-color: ${({ theme }) => theme['success-color']};
+              background: ${({ theme }) => theme['success-color']};
+              &:hover{
+                border-color: ${({ theme }) => theme['success-color']};
+                background: ${({ theme }) => theme['success-color']};
+                color: #fff;
+              }
+            }
+          }
+          span{
+            color: ${({ theme }) => theme['success-color']};
+          }
         }
       }
     }
@@ -58,7 +113,7 @@ const SampleCardSeven = ({ item }) => {
         </div>
         <div className={installed ? "card-short__bottom installed" : "card-short__bottom"}>
           <div className="card-short-checkbox">
-            <Checkbox>Installed</Checkbox>
+            <Checkbox defaultChecked={true}>Installed</Checkbox>
           </div>
           <div className="card-short-actions">
             <div className="content-installed content-action">
@@ -83,7 +138,7 @@ const SampleCardSeven = ({ item }) => {
             </div>
             <div className="content-not-installed content-action">
               <Button type="primary" size="small" shape="circle" raised rounded>
-                Open
+                Install
               </Button>
               <div className="more">
                   <Dropdown
