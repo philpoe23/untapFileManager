@@ -2,11 +2,14 @@ import React from 'react';
 import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
+import { logOut } from '../redux/authentication/actionCreator';
 
 const { SubMenu } = Menu;
 
 const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
+  const dispatch = useDispatch();
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);
@@ -14,6 +17,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
   const mainPathSplit = mainPath.split('/');
 
   const { onRtlChange, onLtrChange, modeChangeDark, modeChangeLight, modeChangeTopNav, modeChangeSideNav } = events;
+
   return (
     <Menu
       mode={!topMenu || window.innerWidth <= 991 ? 'inline' : 'horizontal'}
@@ -646,17 +650,32 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
       <SubMenu key="authentication" icon={!topMenu && <FeatherIcon icon="users" />} title="Authentication">
         <Menu.Item key="signIn">
-          <NavLink onClick={toggleCollapsed} to="/">
+          <NavLink
+            onClick={() => {
+              dispatch(logOut());
+            }}
+            to="#"
+          >
             Sign In
           </NavLink>
         </Menu.Item>
         <Menu.Item key="signUp">
-          <NavLink onClick={toggleCollapsed} to="/signup">
+          <NavLink
+            onClick={() => {
+              dispatch(logOut());
+            }}
+            to="#"
+          >
             Sign Up
           </NavLink>
         </Menu.Item>
         <Menu.Item key="forgotPass">
-          <NavLink onClick={toggleCollapsed} to="#">
+          <NavLink
+            onClick={() => {
+              dispatch(logOut());
+            }}
+            to="#"
+          >
             Forgot Password
           </NavLink>
         </Menu.Item>
