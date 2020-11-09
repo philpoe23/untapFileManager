@@ -12,16 +12,16 @@ const CardWrapper = styled.figure`
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0;
   .card-short{
     .card-short__title{
       padding: 25px 25px 0;
     }
     .card-short__content{
       padding: 0 25px;
-    }
-    .card-short__bottom{
-      border-top: 1px solid ${({ theme }) => theme['border-color-light']};
-      padding: 20px 25px 25px;
+      p{
+        color: ${({ theme }) => theme['gray-color']};
+      }
     }
     .card-short__title{
       font-size: 18px;
@@ -33,6 +33,8 @@ const CardWrapper = styled.figure`
       }
     }
     .card-short__bottom {
+      border-top: 1px solid ${({ theme }) => theme['border-color-light']};
+      padding: 20px 25px 25px;
       .card-short-actions{
         .ant-btn-circle{
           border-radius: 42px;
@@ -172,7 +174,7 @@ SampleCardSeven.defaultProps = {
     id: 1,
     title: 'Adobe CC',
     installed: true,
-    content: 'Lorem Ipsum is simply dummy text of the and the ',
+    content: 'Lorem Ipsum is simply dummy text of the and the typesetting industry.',
     img: 'static/img/icon/adobe.svg',
   },
 };

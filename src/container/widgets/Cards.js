@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import TeamCard from '../pages/overview/TeamCard';
 import UserCards from '../pages/overview/UserCard';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main, FileCardWrapper } from '../styled';
+import { Main, FileCardWrapper, BannerCardStyleWrap } from '../styled';
 import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -138,7 +138,7 @@ const WidgetsCard = () => {
 
           {cardOne.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12}>
+              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
                 <SampleCardOne item={item} />
               </Col>
             );
@@ -146,7 +146,7 @@ const WidgetsCard = () => {
 
           {cardTwo.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12}>
+              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
                 <SampleCardTwo item={item} />
               </Col>
             );
@@ -154,7 +154,7 @@ const WidgetsCard = () => {
 
           {cardThree.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12}>
+              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
                 <SampleCardThree item={item} />
               </Col>
             );
@@ -162,22 +162,22 @@ const WidgetsCard = () => {
 
           {cardOne.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12}>
+              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
                 <SampleCardFour item={item} />
               </Col>
             );
           })}
 
-          <Col lg={6} md={8} sm={24}>
+          <Col lg={6} md={8} sm={24} className="mb-25">
             <SampleCardFive />
           </Col>
-          <Col lg={6} md={8} sm={24}>
+          <Col lg={6} md={8} sm={24} className="mb-25">
             <SampleCardFive />
           </Col>
-          <Col lg={6} md={8} sm={24}>
+          <Col lg={6} md={8} sm={24} className="mb-25">
             <SampleCardFive />
           </Col>
-          <Col lg={6} md={8} sm={24}>
+          <Col lg={6} md={8} sm={24} className="mb-25">
             <SampleCardFive />
           </Col>
 
@@ -194,105 +194,125 @@ const WidgetsCard = () => {
             <SampleCardSix />
           </Col>
 
-          <Col lg={6} md={8} sm={12}>
+          <Col lg={6} md={8} sm={12} className="mb-25">
             <SampleCardSeven />
           </Col>
-          <Col lg={6} md={8} sm={12}>
+          <Col lg={6} md={8} sm={12} className="mb-25">
+            <SampleCardSeven
+            item={{
+              id: 2,
+              title: 'Slack',
+              installed: false,
+              content: 'Lorem Ipsum is simply dummy text of the and the typesetting industry.',
+              img: 'static/img/icon/Slack.svg',
+            }}
+            />
+          </Col>
+          <Col lg={6} md={8} sm={12} className="mb-25">
             <SampleCardSeven />
           </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
+          <Col lg={6} md={8} sm={12} className="mb-25">
+            <SampleCardSeven
+              item={{
+                id: 3,
+                title: 'Whatspp',
+                installed: false,
+                content: 'Lorem Ipsum is simply dummy text of the and the typesetting industry.',
+                img: 'static/img/icon/flat.svg',
+              }}
+            />
           </Col>
           <Col xs={24}>
-            <Cards headless>
-              <Row gutter="25">
-                <Col xl={8}>
-                  <BannerCard
-                    item={{
-                      id: 2,
-                      type: 'border',
-                      icon: 'layers.svg',
-                      title: 'Dark Color',
-                      content:
-                        'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
-                      authorName: 'Barbara Marion',
-                      authorImg: '10.png',
-                    }}
-                  />
-                </Col>
-                <Col xl={8}>
-                  <BannerCard
-                    item={{
-                      id: 2,
-                      type: 'border',
-                      icon: 'cloud.svg',
-                      title: 'Dark Color',
-                      content:
-                        'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
-                      authorName: 'Barbara Marion',
-                      authorImg: '10.png',
-                    }}
-                  />
-                </Col>
-                <Col xl={8}>
-                  <BannerCard
-                    item={{
-                      id: 3,
-                      type: 'border',
-                      bgImage: '',
-                      icon: 'camera.svg',
-                      title: 'Image',
-                      content:
-                        'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
-                      authorName: 'Garry Sobars',
-                      authorImg: '10.png',
-                    }}
-                  />
-                </Col>
-              </Row>
-            </Cards>
+            <BannerCardStyleWrap>
+              <Cards headless>
+                <Row gutter="25">
+                  <Col xl={8} className="mb-25">
+                    <BannerCard
+                      item={{
+                        id: 2,
+                        type: 'border',
+                        icon: 'layers.svg',
+                        title: 'Dark Color',
+                        content:
+                          'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                        authorName: 'Barbara Marion',
+                        authorImg: '10.png',
+                      }}
+                    />
+                  </Col>
+                  <Col xl={8} className="mb-25">
+                    <BannerCard
+                      item={{
+                        id: 2,
+                        type: 'border',
+                        icon: 'cloud.svg',
+                        title: 'Dark Color',
+                        content:
+                          'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                        authorName: 'Barbara Marion',
+                        authorImg: '10.png',
+                      }}
+                    />
+                  </Col>
+                  <Col xl={8} className="mb-25">
+                    <BannerCard
+                      item={{
+                        id: 3,
+                        type: 'border',
+                        bgImage: '',
+                        icon: 'camera.svg',
+                        title: 'Image',
+                        content:
+                          'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                        authorName: 'Garry Sobars',
+                        authorImg: '10.png',
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Cards>
+            </BannerCardStyleWrap>
           </Col>
 
           <Col xs={24}>
-            <Cards headless>
-              <Row gutter="25">
-                <Col xl={8}>
-                  <BannerCard />
-                </Col>
-                <Col xl={8}>
-                  <BannerCard
-                    item={{
-                      id: 2,
-                      type: 'dark',
-                      icon: 'water-fall.svg',
-                      title: 'Dark Color',
-                      content:
-                        'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
-                      authorName: 'Barbara Marion',
-                      authorImg: '10.png',
-                    }}
-                  />
-                </Col>
-                <Col xl={8}>
-                  <BannerCard
-                    item={{
-                      id: 3,
-                      type: 'Image',
-                      bgImage: 'card-bg.png',
-                      icon: 'water-fall.svg',
-                      title: 'Image',
-                      content:
-                        'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
-                      authorName: 'Garry Sobars',
-                      authorImg: '10.png',
-                    }}
-                  />
-                </Col>
-              </Row>
-            </Cards>
+            <BannerCardStyleWrap>
+              <Cards headless>
+                <Row gutter="25">
+                  <Col xl={8} className="mb-25">
+                    <BannerCard />
+                  </Col>
+                  <Col xl={8} className="mb-25">
+                    <BannerCard
+                      item={{
+                        id: 2,
+                        type: 'dark',
+                        icon: 'water-fall.svg',
+                        title: 'Dark Color',
+                        content:
+                          'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                        authorName: 'Barbara Marion',
+                        authorImg: '10.png',
+                      }}
+                    />
+                  </Col>
+                  <Col xl={8} className="mb-25">
+                    <BannerCard
+                      item={{
+                        id: 3,
+                        type: 'Image',
+                        bgImage: 'card-bg.png',
+                        icon: 'image.svg',
+                        title: 'Image',
+                        content:
+                          'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                        authorName: 'Garry Sobars',
+                        authorImg: '10.png',
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Cards>
+            </BannerCardStyleWrap>
 
             <Row gutter="25">
               <Col xl={8}>

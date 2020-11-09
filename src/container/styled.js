@@ -1124,6 +1124,11 @@ const FormGroupWrapper = Styled.div`
         }
     }
 `;
+const BannerCardStyleWrap = Styled.div`
+    .ant-card-body{
+        padding: 25px 25px 0 25px !important;
+    }
+`;
 
 const FileCardWrapper = Styled.div`
     .file-list{
@@ -1496,6 +1501,7 @@ export {
   CardToolbox,
   FormGroupWrapper,
   DragDropStyle,
+  BannerCardStyleWrap,
   FileCardWrapper,
   TableWrapper,
 };

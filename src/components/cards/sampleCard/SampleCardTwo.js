@@ -7,6 +7,7 @@ const CardWrapper = styled.figure`
   background: #fff;
   padding: 25px;
   border-radius: 10px;
+  margin-bottom: 0;
   figcaption {
     h2 {
       margin: 18px 0 10px 0;

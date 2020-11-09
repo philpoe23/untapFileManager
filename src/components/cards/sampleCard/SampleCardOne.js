@@ -6,6 +6,7 @@ import { Button } from '../../buttons/buttons';
 const CardWrapper = styled.figure`
   background: #fff;
   border-radius: 10px;
+  margin-bottom: 0;
   img {
     width: 100%;
   }
