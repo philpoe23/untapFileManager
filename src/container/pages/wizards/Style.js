@@ -1664,11 +1664,13 @@ const WizardFive = Styled.div`
     }
     .steps-wrapper{
         @media only screen and (max-width: 991px) {
+            padding: 25px 0 !important;
             width: 100%;
             border-left: 0 !important;
         }
     }
     .basic-form-inner{
+        width: 100%;
         @media only screen and (max-width: 1599px) {
             width: 100%;
         }
@@ -1692,6 +1694,7 @@ const WizardFive = Styled.div`
         position: relative;
         min-width: 450px;
         flex-direction: column;
+        padding-left: 0px !important;
         @media only screen and (max-width: 1599px) {
             min-width: auto;
         }
@@ -1705,6 +1708,9 @@ const WizardFive = Styled.div`
         .ant-steps-item {
             border-radius: 5px;
             padding: 16px 30px 18px 30px !important;
+            @media only screen and (max-width: 1599px) {
+                min-width: 200px;
+            }
             &:not(:last-child){
                 margin-bottom: 10px;
             }
@@ -1739,6 +1745,16 @@ const WizardFive = Styled.div`
                     background-color: #F4F5F7;
                 }
             }
+            .ant-form-item-label{
+                white-space: break-spaces;
+            }
+            .shipping-form,
+            .payment-method-form {
+                min-width: 530px;
+                @media only screen and (max-width: 767px) {
+                    min-width: 100%;
+                }
+            }
         }
     }
     .ant-steps:not(.ant-steps-dot):not(.ant-steps-navigation) .ant-steps-item .ant-steps-item-icon {        
@@ -1751,7 +1767,7 @@ const WizardFive = Styled.div`
         border-top: 1px solid ${({ theme }) => theme['bg-color-deep']}; 
         margin-top: 30px;
         .step-action-inner{
-            width: 580px;
+            width: 100% !important;
             padding: 0 !important;
             @media only screen and (max-width: 1399px) {
                 width: 100%;
@@ -1785,6 +1801,15 @@ const WizardFive = Styled.div`
                     background-color: transparent;
                 }
                 .table-cart {
+                    @media only screen and (max-width: 1799px) {
+                        max-width: 560px;
+                    }
+                    @media only screen and (max-width: 1699px) {
+                        max-width: 500px;
+                    }
+                    @media only screen and (max-width: 1599px) {
+                        max-width: 100%;
+                    }
                     @media only screen and (max-width: 1399px) {
                         max-width: 410px;
                     }
@@ -1823,19 +1848,62 @@ const WizardSix = Styled.div`
     position: relative;
     display: flex;
     min-height: 620px;
+    @media only screen and (max-width: 991px) {
+        flex-flow: column;
+    }
     .ant-steps{
+        justify-content: center;
         position: relative;
+        padding-left: 0px !important;
+        max-width: 450px;
+        @media only screen and (max-width: 991px) {
+            justify-content: flex-start !important;
+        }
+        @media only screen and (max-width: 767px) {
+            flex-flow: row;
+        }
+        &.ant-steps-horizontal.ant-steps-label-horizontal{
+            @media only screen and (max-width: 480px) {
+                flex-direction: row !important;
+            }
+        }
+        .ant-steps-item-tail{
+            @media only screen and (max-width: 480px) {
+                display: none !important;
+            }
+        }
     }
     .step-action-wrap{
         justify-content: flex-end !important;
+        .step-action-inner{
+            padding: 0 !important;
+        }
+    }
+    .ant-steps-item-icon{
+        margin-right: 0;
     }
     .ant-steps-item{
         padding: 0 !important;
         overflow: visible;
         flex: none;
         position: static !important;
+        &:last-child{
+            padding-left: 0 !important;
+            @media only screen and (max-width: 991px) {
+                flex: none;
+            }
+        }
+        &:not(:last-child){
+            margin-right: 30px;
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 0;
+            }
+        }
         .wizard-item{
             max-width: 290px;
+            @media only screen and (max-width: 480px) {
+                margin-top: 30px;
+            }
         }
     }
     .ant-steps-item-title{
@@ -1844,6 +1912,20 @@ const WizardSix = Styled.div`
     .ant-steps-item-container{
         position: static;
         width: 100%;
+        padding-left: 0;
+    }
+    .table-cart{
+        .ant-table-content{
+            @media only screen and (max-width: 1850px) {
+                max-width: 550px;
+            }
+            @media only screen and (max-width: 1599px) {
+                max-width: 450px;
+            }
+            @media only screen and (max-width: 1299px) {
+                max-width: 350px;
+            }
+        }
     }
     .wizard-item {
         display: none;
@@ -1855,19 +1937,30 @@ const WizardSix = Styled.div`
         }
         text-align: center;
         position: absolute;
-        left: 50%;
+        left: 44%;
         transform: translateX(-50%);
         margin-top: 20px;
+        @media only screen and (max-width: 991px) {
+            text-align: left;
+            left: 0;
+            transform: translateX(0%);
+        }
         h2{
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 26px;
             color: ${({ theme }) => theme['dark-color']}; 
+            @media only screen and (max-width: 991px) {
+                margin-bottom: 15px;
+            }
         }
         p{
             font-weight: 400;
             margin-bottom: 45px;
             color: ${({ theme }) => theme['gray-color']};
+            @media only screen and (max-width: 991px) {
+                margin-bottom: 25px;
+            }
         }
         img{
             max-width: 280px;
@@ -1875,12 +1968,15 @@ const WizardSix = Styled.div`
     }
     .steps-content{
         position: relative;
-        // left: -106px;
         margin-top: 0 !important;
     }
     .atbd-review-order{
         position: relative;
-        // right: -196px;
+        .atbd-review-order__single .ant-card .ant-card-body{
+            @media only screen and (max-width: 767px) {
+                padding: 15px  !important;
+            }
+        }
     }
     .step-action-wrap{
         .step-action-inner{
@@ -1895,6 +1991,22 @@ const WizardSix = Styled.div`
     }
     .ant-steps-item-container:after{
         display: none;
+    }
+    .steps-wrapper{
+        width: 100%;
+        @media only screen and (max-width: 991px) {
+            padding-top: 450px !important;
+            border-left: 0 none !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    .basic-form-inner{
+        width: 100%;
+        min-width: 380px;
+        @media only screen and (max-width: 479px) {
+            min-width: 100%;
+        }
     }
     
 `;
