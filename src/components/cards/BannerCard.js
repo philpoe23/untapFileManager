@@ -29,6 +29,13 @@ const CardWrapper = styled.figure`
             .author-name{
                 color: ${({ theme }) => theme['gray-color']};
             }
+            .card-meta{
+                li{
+                    span{
+                        color: ${({ theme }) => theme['extra-light-color']};
+                    }
+                }
+            }
           }
       }
       .banner-card__top {
@@ -91,6 +98,7 @@ const CardWrapper = styled.figure`
                         width: 16px;
                     }
                     span{
+                        font-size: 13px;
                         color: #fff;
                     }
                 }
@@ -102,6 +110,9 @@ const CardWrapper = styled.figure`
 
 let ImageUrl = styled.div`
   ${({bgUrl})=> bgUrl && `background-image: url(${require(`../../static/img/sampleCards/${bgUrl}`)})`};
+  background-size: cover;
+  background-reapet: no-reapet;
+  background-position: center center;
 `
 
 const BannerCard = ({ item }) => {
