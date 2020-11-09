@@ -394,9 +394,11 @@ const WizardsSix = () => {
             },
             {
               title: (
-                <div className="wizard-item">
-                  <h2>Review Order</h2>
-                  <p>Lorem Ipsum is simply dummy text of the dummy typesetting industry.</p>
+                <div className={`wizard-item ${status === 'finish' && 'block'}`}>
+                  <h2 className={`${status === 'finish' ? 'none' : 'block'}`}>Review Order</h2>
+                  <p className={`${status === 'finish' ? 'none' : 'block'}`}>
+                    Lorem Ipsum is simply dummy text of the dummy typesetting industry.
+                  </p>
                   <img src={require(`../../../../static/img/wizards/${status !== 'finish' ? 3 : 4}.svg`)} alt="" />
                 </div>
               ),

@@ -1847,6 +1847,12 @@ const WizardSix = Styled.div`
     }
     .wizard-item {
         display: none;
+        .none{
+            display: none;
+        }
+        &.block{
+            display: block;
+        }
         text-align: center;
         position: absolute;
         left: 50%;

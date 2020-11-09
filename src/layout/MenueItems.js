@@ -219,6 +219,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
+
       <Menu.Item icon={!topMenu && <FeatherIcon icon="calendar" />} key="calendar">
         <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar/month`}>
           Calendar
