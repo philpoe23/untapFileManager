@@ -23,6 +23,7 @@ import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
 import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
 import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
 import SampleCardSeven from '../../components/cards/sampleCard/SampleCardSeven';
+import BannerCard from '../../components/cards/BannerCard';
 
 const actions = (
   <>
@@ -486,6 +487,89 @@ const WidgetsCard = () => {
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
               }}
             />
+          </Col>
+          <Col xs={24}>
+            <Cards headless>
+              <Row gutter="25">
+                <Col xl={8}>
+                  <BannerCard 
+                    item={{
+                      id:2,
+                      type:"border",
+                      icon: "layers.svg",
+                      title:"Dark Color",
+                      content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                      authorName:"Barbara Marion",
+                      authorImg: '10.png',
+                    }}
+                  />
+                </Col>
+                <Col xl={8}>
+                  <BannerCard
+                    item={{
+                      id:2,
+                      type:"border",
+                      icon: "cloud.svg",
+                      title:"Dark Color",
+                      content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                      authorName:"Barbara Marion",
+                      authorImg: '10.png',
+                    }}
+                  />
+                </Col>
+                <Col xl={8}>
+                  <BannerCard
+                    item={{
+                      id:3,
+                      type:"border",
+                      bgImage: "",
+                      icon: "camera.svg",
+                      title:"Image",
+                      content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                      authorName:"Garry Sobars",
+                      authorImg: '10.png',
+                    }}
+                  />
+                </Col>
+              </Row>
+            </Cards>
+          </Col>
+          
+          <Col xs={24}>
+            <Cards headless>
+              <Row gutter="25">
+                <Col xl={8}>
+                  <BannerCard />
+                </Col>
+                <Col xl={8}>
+                  <BannerCard
+                    item={{
+                      id:2,
+                      type:"dark",
+                      icon: "water-fall.svg",
+                      title:"Dark Color",
+                      content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                      authorName:"Barbara Marion",
+                      authorImg: '10.png',
+                    }}
+                  />
+                </Col>
+                <Col xl={8}>
+                  <BannerCard
+                    item={{
+                      id:3,
+                      type:"Image",
+                      bgImage: "card-bg.png",
+                      icon: "water-fall.svg",
+                      title:"Image",
+                      content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+                      authorName:"Garry Sobars",
+                      authorImg: '10.png',
+                    }}
+                  />
+                </Col>
+              </Row>
+            </Cards>
           </Col>
         </Row>
       </Main>
