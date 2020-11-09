@@ -19,7 +19,6 @@ const Forms = lazy(() => import('../../container/forms/Forms'));
 
 const Inbox = lazy(() => import('../../container/email/Email'));
 const Chat = lazy(() => import('../../container/chat/ChatApp'));
-const Settings = lazy(() => import('../../container/profile/settings/Settings'));
 const Myprofile = lazy(() => import('../../container/profile/myProfile/Index'));
 const ToDo = lazy(() => import('../../container/toDo/ToDo'));
 const Note = lazy(() => import('../../container/note/Note'));
@@ -27,7 +26,6 @@ const Contact = lazy(() => import('../../container/contact/Contact'));
 const ContactGrid = lazy(() => import('../../container/contact/ContactGrid'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
 const Editors = lazy(() => import('../../container/pages/Editor'));
-
 
 const Admin = () => {
   const { path } = useRouteMatch();
@@ -44,7 +42,7 @@ const Admin = () => {
         <Route path={path} component={Dashboard} />
         <Route path={`${path}/ecommerce`} component={Ecommerce} />
         <Route path={`${path}/charts`} component={Charts} />
-        <Route path={`${path}/pages`} component={Pages} />
+        <Route path={`${path}`} component={Pages} />
         <Route path={`${path}/users`} component={Users} />
         <Route path={`${path}/components`} component={Components} />
         <Route path={`${path}/maps`} component={Maps} />
@@ -57,7 +55,6 @@ const Admin = () => {
 
         <Route path={`${path}/email/:page`} component={Inbox} />
         <Route path={`${path}/main/chat`} component={Chat} />
-        <Route path={`${path}/profile/settings`} component={Settings} />
         <Route path={`${path}/profile/myProfile`} component={Myprofile} />
         <Route path={`${path}/app/to-do`} component={ToDo} />
         <Route path={`${path}/app/note`} component={Note} />

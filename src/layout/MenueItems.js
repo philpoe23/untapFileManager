@@ -192,11 +192,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             My Profile
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="settings">
-          <NavLink onClick={toggleCollapsed} to={`${path}/profile/settings`}>
-            Settings
-          </NavLink>
-        </Menu.Item>
       </SubMenu>
       <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
         <Menu.Item key="view">
@@ -648,50 +643,75 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-
-      <SubMenu key="pages" icon={!topMenu && <FeatherIcon icon="folder" />} title="Pages">
-        <Menu.Item key="gallery">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/gallery`}>
-            Gallery
+      {!topMenu && <p className="sidebar-nav-title">Pages</p>}
+      <SubMenu key="authentication" icon={!topMenu && <FeatherIcon icon="users" />} title="Authentication">
+        <Menu.Item key="signIn">
+          <NavLink onClick={toggleCollapsed} to="/">
+            Sign In
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="pricing">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/pricing`}>
-            Pricing
+        <Menu.Item key="signUp">
+          <NavLink onClick={toggleCollapsed} to="/signup">
+            Sign Up
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="comingSoon">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/comingSoon`}>
-            Coming Soon
-          </NavLink>
-        </Menu.Item>
-
-        <Menu.Item key="faq">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/faq`}>
-            Faq`s
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="search">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/search`}>
-            Search Results
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="starter">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/starter`}>
-            Skeleton
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="maintenance">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/maintenance`}>
-            Maintenance
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="404">
-          <NavLink onClick={toggleCollapsed} to={`${path}/pages/404`}>
-            404
+        <Menu.Item key="forgotPass">
+          <NavLink onClick={toggleCollapsed} to="#">
+            Forgot Password
           </NavLink>
         </Menu.Item>
       </SubMenu>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="settings" />} key="settings">
+        <NavLink onClick={toggleCollapsed} to={`${path}/settings`}>
+          Settings
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="image" />} key="gallery">
+        <NavLink onClick={toggleCollapsed} to={`${path}/gallery`}>
+          Gallery
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="dollar-sign" />} key="pricing">
+        <NavLink onClick={toggleCollapsed} to={`${path}/pricing`}>
+          Pricing
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="help-circle" />} key="faq">
+        <NavLink onClick={toggleCollapsed} to={`${path}/faq`}>
+          Faq`s
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="search" />} key="search">
+        <NavLink onClick={toggleCollapsed} to={`${path}/search`}>
+          Search Results
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="circle" />} key="starter">
+        <NavLink onClick={toggleCollapsed} to={`${path}/starter`}>
+          Blank Page
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="aperture" />} key="maintenance">
+        <NavLink onClick={toggleCollapsed} to={`${path}/maintenance`}>
+          Maintenance
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="info" />} key="404">
+        <NavLink onClick={toggleCollapsed} to={`${path}/404`}>
+          404
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="compass" />} key="comingSoon">
+        <NavLink onClick={toggleCollapsed} to={`${path}/comingSoon`}>
+          Coming Soon
+        </NavLink>
+      </Menu.Item>
+      {!topMenu && <p className="sidebar-nav-title">Miscellaneous</p>}
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="pocket" />} key="changelog">
+        <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
+          Changelog
+        </NavLink>
+      </Menu.Item>
     </Menu>
   );
 };
