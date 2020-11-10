@@ -226,11 +226,28 @@ const TopMenu = () => {
                   </li>
                 </ul>
               </li>
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/app/contact`}>
+              <li className="has-subMenu-left">
+                <Link to="#" className="parent">
                   <FeatherIcon icon="user-check" />
                   Contact
-                </NavLink>
+                </Link>
+                <ul className="subMenu">
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/contact/addNew`}>
+                      Contact Create
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/contact/grid`}>
+                      Contact Grid
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/contact/list`}>
+                      Contact List
+                    </NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/app/note/all`}>
