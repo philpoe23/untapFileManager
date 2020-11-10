@@ -50,7 +50,7 @@ const CardWrapper = styled.figure`
               img,
               svg,
               i{
-                margin-right: 10px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
               }
             }
             .banner-card__action{
@@ -77,7 +77,7 @@ const CardWrapper = styled.figure`
                 border-radius: 50%;
             }
             .author-name{
-                margin-left: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
                 font-weight: 500;
                 color: #ffffff90;
             }
@@ -91,11 +91,13 @@ const CardWrapper = styled.figure`
                     align-items: center;
                     &:not(:last-child){
                         margin-right: 10px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
                     }
                     svg,
                     img{
                         color: ${({ theme }) => theme['extra-light-color']};
                         margin-right: 6px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
                         width: 16px;
                     }
                     span{
