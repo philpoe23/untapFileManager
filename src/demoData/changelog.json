@@ -1,117 +1,111 @@
-[
+[   
     {
-      "id": 4,
-      "date": "Jun 23, 2020",
-      "version":"2.0.1",
+        "id": 10,
+        "date": "Oct 29, 2020",
+        "version":"1.8.0",
+        "new":["StrikingDash Boilerplate"],
+        "fixed": false,
+        "updated": false
+    },
+    {
+        "id": 9,
+        "date": "Oct 28, 2020",
+        "version":"1.7.0",
+        "new":["Firebase Authentication", "Auth0 Authentication"],
+        "fixed": false,
+        "updated": false
+    },
+    {
+        "id": 8,
+        "date": "Oct 26, 2020",
+        "version":"1.6.0",
+        "new":["Blank Page"],
+        "fixed": ["Console Error"],
+        "updated": false
+    },
+    {
+        "id": 7,
+        "date": "Oct 20, 2020",
+        "version":"1.5.0",
+        "new":["Calendar App"],
+        "fixed": false,
+        "updated": false
+    },
+    {
+        "id": 6,
+        "date": "Oct 19, 2020",
+        "version":"1.4.1",
+        "new":false,
+        "fixed": false,
+        "updated": [
+            "Update Top Navbar"
+        ]
+    },
+    {
+        "id": 5,
+        "date": "Oct 11, 2020",
+        "version":"1.4.0",
+        "new":[
+            "Social App",
+            "Top Navbar Settings"
+        ],
+        "fixed": 
+        [
+            "image error from chat app"
+        ],
+        "updated": [
+            "Chat app emoji"
+        ]
+      },
+    {
+    "id": 4,
+    "date": "Oct 06, 2020",
+    "version":"1.3.0",
+    "new":false,
+    "fixed": 
+    [
+        "Fixed Css Issues"
+    ],
+    "updated": ["Optimized Loading time"]
+  },
+    {
+      "id": 3,
+      "date": "Oct 02, 2020",
+      "version":"1.2.0",
       "new": 
       [
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login"
+          "To-do App",
+          "Note App",
+          "Contact App",
+          "Table Dragging Support"          
       ],
       "fixed": 
       [
-          "Fix – Redius serarch issue in mobile view",
-          "Fix – Style issues",
-          "Fix – Errors in PHP v7.4.1"
+          "Fixed Issues"
       ],
-      "updated": 
-      [
-          "Update – Advanced filter reset in search result page",
-          "Update – Card style in User Dashboard page",
-          "Update – Data type sanitization"
-      ]
-    },
+      "updated": false
+    },    
     {
-        "id": 3,
-        "date": "Jun 12, 2020",
-        "version":"2.0.0",
-        "changes": [
-            {
-                "content": 
-                [
-                    "Add – Option to set custom redirection after login",
-                    "Add – Option to set custom redirection after login",
-                    "Add – Option to set custom redirection after login",
-                    "Add – Option to set custom redirection after login",
-                    "Add – Option to set custom redirection after login"
-                ],
-                "title": "New",
-                "type": "success"
-            },
-            {
-                "content": 
-                [
-                    "Fix – Redius serarch issue in mobile view",
-                    "Fix – Style issues",
-                    "Fix – Errors in PHP v7.4.1"
-                ],
-                "title": "Fixed",
-                "type": "info"
-            },
-            {
-                "content": 
-                [
-                    "Update – Advanced filter reset in search result page",
-                    "Update – Card style in User Dashboard page",
-                    "Update – Data type sanitization"
-                ],
-                "title": "Updated",
-                "type": "primary" 
-            }
-        ]
-      },
-      {
         "id": 2,
-        "date": "May 16, 2020",
-        "version":"1.9.0",
+        "date": "Sep 30, 2020",
+        "version":"1.1.0",
         "new": 
         [
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login"
+            "Added RTL Support"
         ],
-        "fixed": 
-        [
-            "Fix – Redius serarch issue in mobile view",
-            "Fix – Style issues",
-            "Fix – Errors in PHP v7.4.1"
-        ],
-        "updated": 
-        [
-            "Update – Advanced filter reset in search result page",
-            "Update – Card style in User Dashboard page",
-            "Update – Data type sanitization"
-        ]
+        "fixed":false,
+        "updated":false
       },
       {
         "id": 1,
-        "date": "May 23, 2020",
+        "date": "Sep 27, 2020",
         "version":"1.0.0",
         "new": 
         [
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login"
+            "Initial Release"
         ],
-        "fixed": 
-        [
-            "Fix – Redius serarch issue in mobile view",
-            "Fix – Style issues",
-            "Fix – Errors in PHP v7.4.1"
-        ],
-        "updated": 
-        [
-            "Update – Advanced filter reset in search result page",
-            "Update – Card style in User Dashboard page",
-            "Update – Data type sanitization"
-        ]
+        "fixed": false,
+        "updated": false
       }
   ]
   
