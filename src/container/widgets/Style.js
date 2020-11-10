@@ -18,5 +18,12 @@ const CardChartStyle = Styled.div`
       }
   }
 `;
+const MixedCardWrap = Styled.div`
+  .location-map >div{
+    @media only screen and (max-width: 767px){
+      height: 100%;
+    }
+  }
+`;
 
-export { CardChartStyle };
+export { CardChartStyle, MixedCardWrap };

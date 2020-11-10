@@ -126,6 +126,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="changelog">
         <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
           Changelog
+          <span className="badge badge-primary">V1.0.0</span>
         </NavLink>
       </Menu.Item>
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
@@ -592,7 +593,8 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu key="widgets" icon={!topMenu && <FeatherIcon icon="server" />} title="Widgets">
+      <SubMenu key="widgets" icon={!topMenu && <FeatherIcon icon="server" />} title={<><span className="title">Widget</span><span className="badge badge-primary">New</span></>}>
+        
         <Menu.Item key="chart">
           <NavLink onClick={toggleCollapsed} to={`${path}/widgets/chart`}>
             Chart
@@ -612,6 +614,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="square" />} key="wizards">
         <NavLink onClick={toggleCollapsed} to={`${path}/wizards`}>
           Wizards
+          <span className="badge badge-primary badge-text">New</span>
         </NavLink>
       </Menu.Item>
 

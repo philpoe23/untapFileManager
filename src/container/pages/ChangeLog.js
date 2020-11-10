@@ -31,7 +31,7 @@ const ChangeLog = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col xs={19}>
+          <Col xxl={19} md={16} xs={24}>
             <ChangelogWrapper>
               <Cards
                 title={
@@ -145,7 +145,7 @@ const ChangeLog = () => {
               </Cards>
             </ChangelogWrapper>
           </Col>
-          <Col xs={5}>
+          <Col xxl={5} md={8} xs={24}>
             <VersionHistoryList>
               <Cards title="CHANGELOG">
                 <h4 className="history-title">VERSION HISTORY</h4>
@@ -154,7 +154,7 @@ const ChangeLog = () => {
                     return (
                       <li key={version.id}>
                         <span className="version-name">Version {version.version}</span>
-                        <span className="version-date">{versions.date}</span>
+                        <span className="version-date">{version.date}</span>
                       </li>
                     );
                   })}
