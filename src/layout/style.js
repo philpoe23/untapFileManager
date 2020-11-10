@@ -299,7 +299,10 @@ const Div = Styled.div`
                     }
                     .badge{
                         position: absolute;
-                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
+                        &.menuItem {
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
+                        }
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -90px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;
