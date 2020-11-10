@@ -176,7 +176,6 @@ const CardBarChart = Styled.div`
             @media only screen and (max-width: 575px) {
                 flex-flow: column;
                 align-items: center;
-                text-align: center;
             }
             h1{
                 font-size: 24px;
