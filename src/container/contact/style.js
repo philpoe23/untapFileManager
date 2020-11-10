@@ -60,7 +60,7 @@ const ContactCardWrapper = Styled.div`
             margin-bottom: 14px;
           }
           svg{
-            margin-right: 12px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             color: #8288A4;
           }
         }
