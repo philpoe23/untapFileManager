@@ -13,21 +13,21 @@ const CardWrapper = styled.figure`
   overflow: hidden;
   position: relative;
   margin-bottom: 0;
-  .card-short{
-    .card-short__title{
+  .card-short {
+    .card-short__title {
       padding: 25px 25px 0;
     }
-    .card-short__content{
+    .card-short__content {
       padding: 0 25px;
-      p{
+      p {
         color: ${({ theme }) => theme['gray-color']};
       }
     }
-    .card-short__title{
+    .card-short__title {
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 18px;
-      img{
+      img {
         max-width: 50px;
         margin-right: 20px;
       }
@@ -35,64 +35,64 @@ const CardWrapper = styled.figure`
     .card-short__bottom {
       border-top: 1px solid ${({ theme }) => theme['border-color-light']};
       padding: 20px 25px 25px;
-      .card-short-actions{
-        .ant-btn-circle{
+      .card-short-actions {
+        .ant-btn-circle {
           border-radius: 42px;
           margin-right: 16px;
           svg,
           img,
-          i{
+          i {
             color: ${({ theme }) => theme['extra-light-color']};
           }
         }
-        .content-action{
+        .content-action {
           display: flex;
           align-items: center;
-          .ant-dropdown-trigger{
+          .ant-dropdown-trigger {
             svg,
             img,
-            i{
+            i {
               color: ${({ theme }) => theme['extra-light-color']};
             }
           }
         }
       }
-      .card-short-checkbox{
+      .card-short-checkbox {
         display: none;
       }
       .content-installed {
         display: none !important;
       }
-      .content-not-installed.content-action{
+      .content-not-installed.content-action {
         justify-content: flex-end;
       }
-      &.installed{
+      &.installed {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .content-not-installed{
+        .content-not-installed {
           display: none;
         }
-        .content-installed{
+        .content-installed {
           display: flex !important;
         }
-        .card-short-checkbox{
-          display: block !important
-          .ant-checkbox-checked{
-            &:after{
+        .card-short-checkbox {
+          display: block !important;
+          .ant-checkbox-checked {
+            &:after {
               border-color: ${({ theme }) => theme['success-color']};
             }
-            .ant-checkbox-inner{
+            .ant-checkbox-inner {
               border-color: ${({ theme }) => theme['success-color']};
               background: ${({ theme }) => theme['success-color']};
-              &:hover{
+              &:hover {
                 border-color: ${({ theme }) => theme['success-color']};
                 background: ${({ theme }) => theme['success-color']};
                 color: #fff;
               }
             }
           }
-          span{
+          span {
             color: ${({ theme }) => theme['success-color']};
           }
         }
@@ -113,9 +113,9 @@ const SampleCardSeven = ({ item }) => {
         <div className="card-short__content">
           <p>{content}</p>
         </div>
-        <div className={installed ? "card-short__bottom installed" : "card-short__bottom"}>
+        <div className={installed ? 'card-short__bottom installed' : 'card-short__bottom'}>
           <div className="card-short-checkbox">
-            <Checkbox defaultChecked={true}>Installed</Checkbox>
+            <Checkbox defaultChecked>Installed</Checkbox>
           </div>
           <div className="card-short-actions">
             <div className="content-installed content-action">
@@ -123,19 +123,19 @@ const SampleCardSeven = ({ item }) => {
                 Open
               </Button>
               <div className="more">
-                  <Dropdown
+                <Dropdown
                   content={
-                      <>
+                    <>
                       <Link to="#">Edit</Link>
                       <Link to="#">Delete</Link>
                       <Link to="#">View</Link>
-                      </>
+                    </>
                   }
-                  >
+                >
                   <Link to="#">
-                      <FeatherIcon icon="more-horizontal" />
+                    <FeatherIcon icon="more-horizontal" />
                   </Link>
-                  </Dropdown>
+                </Dropdown>
               </div>
             </div>
             <div className="content-not-installed content-action">
@@ -143,19 +143,19 @@ const SampleCardSeven = ({ item }) => {
                 Install
               </Button>
               <div className="more">
-                  <Dropdown
+                <Dropdown
                   content={
-                      <>
+                    <>
                       <Link to="#">Edit</Link>
                       <Link to="#">Delete</Link>
                       <Link to="#">View</Link>
-                      </>
+                    </>
                   }
-                  >
+                >
                   <Link to="#">
-                      <FeatherIcon icon="more-horizontal" />
+                    <FeatherIcon icon="more-horizontal" />
                   </Link>
-                  </Dropdown>
+                </Dropdown>
               </div>
             </div>
           </div>

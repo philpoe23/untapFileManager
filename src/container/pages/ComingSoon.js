@@ -21,18 +21,16 @@ const ComingSoon = () => {
       return <Completionist />;
     }
     return (
-      <div
-        className="countdwon-data"
-      >
+      <div className="countdwon-data">
         <span>
-          <span className="countdown-time">{days}</span>  <span className="countdown-title">Days</span>
+          <span className="countdown-time">{days}</span> <span className="countdown-title">Days</span>
         </span>
         <span>
-          <div className="countdown-time">{hours}</div> 
+          <div className="countdown-time">{hours}</div>
           <span className="countdown-title">Hours</span>
         </span>
         <span>
-          <div className="countdown-time">{minutes}</div> 
+          <div className="countdown-time">{minutes}</div>
           <span className="countdown-title">Minutes</span>
         </span>
         <span>
@@ -86,15 +84,14 @@ const ComingSoon = () => {
                 </div>
                 <div className="subscription-form">
                   <Form name="basic">
-                      <div className="subscription-form-inner">
-                        <Form.Item name="email" rules={[{ type: 'email', message: 'Please input your username!' }]}>
-                          <Input placeholder="name@example.com" />
-                        </Form.Item>
-                        <Button size="large" type="primary" htmlType="submit">
-                          Subscribe
-                        </Button>
-                      </div>
-                        
+                    <div className="subscription-form-inner">
+                      <Form.Item name="email" rules={[{ type: 'email', message: 'Please input your username!' }]}>
+                        <Input placeholder="name@example.com" />
+                      </Form.Item>
+                      <Button size="large" type="primary" htmlType="submit">
+                        Subscribe
+                      </Button>
+                    </div>
                   </Form>
                 </div>
                 <div className="coming-soon-social">

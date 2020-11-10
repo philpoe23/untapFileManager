@@ -24,7 +24,7 @@ import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
 import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
 import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
 import SampleCardSeven from '../../components/cards/sampleCard/SampleCardSeven';
-import { cardOne, cardTwo, cardThree } from '../../demoData/sampleCards.json';
+import { cardOne, cardTwo, cardThree, cardFive, cardSix, cardSeven } from '../../demoData/sampleCards.json';
 import BannerCard from '../../components/cards/BannerCard';
 import FileListCard from '../project/overview/FileListCard';
 
@@ -168,60 +168,30 @@ const WidgetsCard = () => {
             );
           })}
 
-          <Col lg={6} md={8} sm={24} className="mb-25">
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24} className="mb-25">
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24} className="mb-25">
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24} className="mb-25">
-            <SampleCardFive />
-          </Col>
+          {cardFive.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={24} className="mb-25">
+                <SampleCardFive item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
+          {cardSix.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardSix item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12} className="mb-25">
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12} className="mb-25">
-            <SampleCardSeven
-            item={{
-              id: 2,
-              title: 'Slack',
-              installed: false,
-              content: 'Lorem Ipsum is simply dummy text of the and the typesetting industry.',
-              img: 'static/img/icon/Slack.svg',
-            }}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={12} className="mb-25">
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12} className="mb-25">
-            <SampleCardSeven
-              item={{
-                id: 3,
-                title: 'Whatspp',
-                installed: false,
-                content: 'Lorem Ipsum is simply dummy text of the and the typesetting industry.',
-                img: 'static/img/icon/flat.svg',
-              }}
-            />
-          </Col>
+          {cardSeven.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+                <SampleCardSeven item={item} />
+              </Col>
+            );
+          })}
+
           <Col xs={24}>
             <BannerCardStyleWrap>
               <Cards headless>
