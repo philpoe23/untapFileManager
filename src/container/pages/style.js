@@ -963,7 +963,7 @@ const AddUser = Styled.div`
     margin-bottom: 36px;
   }
   .add-user-wrap{
-    margin-left: 
+   $: 
   }
   .add-user-bottom{
     margin-top: 20px;
@@ -1176,7 +1176,7 @@ const ChangelogWrapper = Styled.div`
    .ant-card-head{
      .ant-card-head-title{
        .v-num{
-         margin-left: 0;
+        $: 0;
          font-size: 18px;
          color: ${({ theme }) => theme['dark-color']};
        }
@@ -1187,7 +1187,7 @@ const ChangelogWrapper = Styled.div`
          margin: 0 8px;
        }
        .rl-date{
-         margin-left: 0;
+        $: 0;
          font-weight: 400;
          font-size: 16px;
        }
@@ -1201,7 +1201,7 @@ const ChangelogWrapper = Styled.div`
       ul{
         li{
           position: relative;
-          padding-left: 20px;
+          ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 20px;
           font-size: 16px;
           color: ${({ theme }) => theme['gray-color']};
           &:not(:last-child){
@@ -1209,7 +1209,7 @@ const ChangelogWrapper = Styled.div`
           }
           &:after{
             position: absolute;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             top: 50%;
             transform: translateY(-50%);
             width: 6px;

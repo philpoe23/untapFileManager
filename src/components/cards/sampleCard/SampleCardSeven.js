@@ -29,7 +29,7 @@ const CardWrapper = styled.figure`
       margin-bottom: 18px;
       img {
         max-width: 50px;
-        margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
       }
     }
     .card-short__bottom {
@@ -38,7 +38,7 @@ const CardWrapper = styled.figure`
       .card-short-actions {
         .ant-btn-circle {
           border-radius: 42px;
-          margin-right: 16px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
           svg,
           img,
           i {
