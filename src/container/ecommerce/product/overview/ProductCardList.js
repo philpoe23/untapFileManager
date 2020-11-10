@@ -17,12 +17,12 @@ const ProductCardsList = ({ product }) => {
     <ProductCard className="list-view" style={{ marginBottom: 20 }}>
       <div className="product-list">
         <Row gutter={15}>
-          <Col xxl={6} xs={6}>
+          <Col md={6} xs={24}>
             <figure>
               <img style={{ width: '100%' }} src={require(`../../../../${img}`)} alt="" />
             </figure>
           </Col>
-          <Col xxl={12} xs={10}>
+          <Col md={12} xs={24}>
             <div className="product-single-description">
               <Heading className="product-single-title" as="h5">
                 <NavLink to={`/admin/ecommerce/productDetails/${id}`}>{name}</NavLink>
@@ -30,7 +30,7 @@ const ProductCardsList = ({ product }) => {
               <p>{description}</p>
             </div>
           </Col>
-          <Col xxl={6} xs={8}>
+          <Col md={6} xs={24}>
             <div className="product-single-info">
               <Link onClick={() => dispatch(updateWishList(id))} className="btn-heart" to="#">
                 <FeatherIcon

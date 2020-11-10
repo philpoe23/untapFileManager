@@ -1288,6 +1288,9 @@ const ChangelogWrapper = Styled.div`
     .ant-collapse-header{
       border-radius: 6px;
       padding: 20px 30px 18px 30px !important;
+      @media only screen and (max-width: 575px){
+        padding: 16px 20px 14px 20px !important;
+      }
       .ant-collapse-arrow{
         left: auto !important;
         right: 30px;
@@ -1300,10 +1303,22 @@ const ChangelogWrapper = Styled.div`
         font-size: 18px;
         font-weight: 500;
         color: ${({ theme }) => theme['dark-color']};
+        @media only screen and (max-width: 575px){
+          font-size: 16px;
+        }
       }
       .rl-date{
         font-size: 16px;
         font-weight: 400;
+        @media only screen and (max-width: 575px){
+          font-size: 14px;
+        }
+      }
+    }
+    .ant-collapse-content{
+      border-radius: 0 0 6px 6px;
+      > .ant-collapse-content-box{
+        padding: 30px 30px 25px;
       }
     }
   }

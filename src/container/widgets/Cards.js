@@ -77,7 +77,7 @@ const WidgetsCard = () => {
           {projects.map(project => {
             return (
               project.id <= 3 && (
-                <Col key={project.id} md={8}>
+                <Col key={project.id} lg={8} xs={24}>
                   <GridCard value={project} />
                 </Col>
               )
@@ -87,7 +87,7 @@ const WidgetsCard = () => {
           {users.map(user => {
             return (
               user.id <= 4 && (
-                <Col key={user.id} lg={6} md={8} sm={12}>
+                <Col key={user.id} xxl={6} md={12} sm={12} xs={24}>
                   <UserCards user={user} />
                 </Col>
               )
@@ -97,7 +97,7 @@ const WidgetsCard = () => {
           {products.map((product, index) => {
             return (
               index <= 3 && (
-                <Col key={product.id} lg={6} md={8} sm={12}>
+                <Col key={product.id} xxl={6} sm={12} xs={24}>
                   <ProductCards product={product} />
                 </Col>
               )
@@ -107,7 +107,7 @@ const WidgetsCard = () => {
           {team.map(member => {
             return (
               member.id <= 4 && (
-                <Col key={member.id} lg={6} md={8} sm={12}>
+                <Col key={member.id} xxl={6} md={12} sm={12} xs={24}>
                   <TeamCard actions={actions} user={member} />
                 </Col>
               )
@@ -117,7 +117,7 @@ const WidgetsCard = () => {
           {gallery.map(item => {
             return (
               item.id <= 4 && (
-                <Col key={item.id} lg={6} md={8} sm={12}>
+                <Col key={item.id} xxl={6} md={12} sm={12} xs={24}>
                   <GalleryCards actions={actions} item={item} />
                 </Col>
               )
@@ -127,7 +127,7 @@ const WidgetsCard = () => {
           {contactUsers.map(user => {
             return (
               user.id <= 4 && (
-                <Col key={user.id} lg={6} md={8} sm={12}>
+                <Col key={user.id} xxl={6} md={12} sm={12} xs={24}>
                   <Cards headless>
                     <ContactCard user={user} />
                   </Cards>
@@ -138,7 +138,7 @@ const WidgetsCard = () => {
 
           {cardOne.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} sm={12} xs={24} className="mb-25">
                 <SampleCardOne item={item} />
               </Col>
             );
@@ -146,7 +146,7 @@ const WidgetsCard = () => {
 
           {cardTwo.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} sm={12} xs={24} className="mb-25">
                 <SampleCardTwo item={item} />
               </Col>
             );
@@ -154,7 +154,7 @@ const WidgetsCard = () => {
 
           {cardThree.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} sm={12} xs={24} className="mb-25">
                 <SampleCardThree item={item} />
               </Col>
             );
@@ -162,7 +162,7 @@ const WidgetsCard = () => {
 
           {cardOne.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} xs={24} className="mb-25">
                 <SampleCardFour item={item} />
               </Col>
             );
@@ -170,7 +170,7 @@ const WidgetsCard = () => {
 
           {cardFive.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={24} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} xs={24} className="mb-25">
                 <SampleCardFive item={item} />
               </Col>
             );
@@ -178,7 +178,7 @@ const WidgetsCard = () => {
 
           {cardSix.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12}>
+              <Col key={item.id} xxl={6} md={12} sm={12} xs={24}>
                 <SampleCardSix item={item} />
               </Col>
             );
@@ -186,7 +186,7 @@ const WidgetsCard = () => {
 
           {cardSeven.map(item => {
             return (
-              <Col key={item.id} lg={6} md={8} sm={12} className="mb-25">
+              <Col key={item.id} xxl={6} md={12} sm={12} xs={24} className="mb-25">
                 <SampleCardSeven item={item} />
               </Col>
             );
@@ -196,7 +196,7 @@ const WidgetsCard = () => {
             <BannerCardStyleWrap>
               <Cards headless>
                 <Row gutter="25">
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard
                       item={{
                         id: 2,
@@ -210,7 +210,7 @@ const WidgetsCard = () => {
                       }}
                     />
                   </Col>
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard
                       item={{
                         id: 2,
@@ -224,7 +224,7 @@ const WidgetsCard = () => {
                       }}
                     />
                   </Col>
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard
                       item={{
                         id: 3,
@@ -248,10 +248,10 @@ const WidgetsCard = () => {
             <BannerCardStyleWrap>
               <Cards headless>
                 <Row gutter="25">
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard />
                   </Col>
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard
                       item={{
                         id: 2,
@@ -265,7 +265,7 @@ const WidgetsCard = () => {
                       }}
                     />
                   </Col>
-                  <Col xl={8} className="mb-25">
+                  <Col xxl={8} md={12} className="mb-25">
                     <BannerCard
                       item={{
                         id: 3,
@@ -285,24 +285,24 @@ const WidgetsCard = () => {
             </BannerCardStyleWrap>
 
             <Row gutter="25">
-              <Col xl={8}>
+              <Col lg={8} xs={24}>
                 <FileCardWrapper>
                   <FileListCard />
                 </FileCardWrapper>
               </Col>
-              <Col xl={8}>
+              <Col lg={8} xs={24}>
                 <FileCardWrapper>
                   <FileListCard />
                 </FileCardWrapper>
               </Col>
-              <Col xl={8}>
+              <Col lg={8} xs={24}>
                 <FileCardWrapper>
                   <FileListCard />
                 </FileCardWrapper>
               </Col>
             </Row>
           </Col>
-          <Col md={18}>
+          <Col xxl={18} xs={24}>
             <ProductCardsList
               product={{
                 id: 1,
