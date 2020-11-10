@@ -846,8 +846,10 @@ const ComingsoonStyleWrapper = Styled.div`
     >span{
       &:not(:last-child){
         margin-right: 50px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 50px;
         @media only screen and (max-width: 575px){
           margin-right: 20px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         }
       }
     }
@@ -886,8 +888,10 @@ const ComingsoonStyleWrapper = Styled.div`
       }
       .ant-form-item-control-input{
         margin-right: 20px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
         @media only screen and (max-width: 375px){
           margin-right: 0;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
         }
         .ant-input{
           min-width: 320px;
@@ -921,6 +925,7 @@ const ComingsoonStyleWrapper = Styled.div`
         display: inline-block;
         &:not(:last-child){
           margin-right: 15px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         }
         a{
           display: flex;
