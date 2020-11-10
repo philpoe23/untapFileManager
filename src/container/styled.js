@@ -681,7 +681,7 @@ const Main = Styled.div`
             @media only screen and (max-width: 1399px) {
                 padding: 25px;
             }
-            border-left: 1px solid ${({ theme }) => theme['border-color-light']};
+            ${({ theme }) => (theme.rtl ? 'border-right' : 'border-left')}: 1px solid ${({ theme }) => theme['border-color-light']};
         }
     }
     .editor-compose > div {
