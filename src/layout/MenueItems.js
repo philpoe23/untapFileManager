@@ -731,7 +731,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="clock" />} key="comingSoon">
         <NavLink onClick={toggleCollapsed} to={`${path}/comingSoon`}>
           Coming Soon
-          <span className="badge badge-primary">New</span>
+          <span className="badge badge-primary badge-text menuItem">New</span>
         </NavLink>
       </Menu.Item>
     </Menu>
