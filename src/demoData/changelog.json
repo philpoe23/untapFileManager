@@ -1,0 +1,61 @@
+[
+    {
+      "id": 2,
+      "date": "12/12/2020",
+      "version":"1.0.1",
+      "new": 
+      [
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login"
+      ],
+      "fixed": 
+      [
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login"
+      ],
+      "updated": 
+      [
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login",
+          "Add – Option to set custom redirection after login"
+      ]
+    },
+    {
+        "id": 1,
+        "date": "12/11/2020",
+        "version":"1.0.0",
+        "new": 
+        [
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login"
+        ],
+        "fixed": 
+        [
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login"
+        ],
+        "updated": 
+        [
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login",
+            "Add – Option to set custom redirection after login"
+        ]
+      }
+  ]
+  
