@@ -24,7 +24,7 @@ import SampleCardFour from '../../components/cards/sampleCard/SampleCardFour';
 import SampleCardFive from '../../components/cards/sampleCard/SampleCardFive';
 import SampleCardSix from '../../components/cards/sampleCard/SampleCardSix';
 import SampleCardSeven from '../../components/cards/sampleCard/SampleCardSeven';
-import { cardOne, cardTwo, cardThree } from '../../demoData/sampleCards.json';
+import { cardOne, cardTwo, cardThree, cardFive, cardSix, cardSeven } from '../../demoData/sampleCards.json';
 import BannerCard from '../../components/cards/BannerCard';
 import FileListCard from '../project/overview/FileListCard';
 
@@ -168,44 +168,30 @@ const WidgetsCard = () => {
             );
           })}
 
-          <Col lg={6} md={8} sm={24}>
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24}>
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24}>
-            <SampleCardFive />
-          </Col>
-          <Col lg={6} md={8} sm={24}>
-            <SampleCardFive />
-          </Col>
+          {cardFive.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardFive item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSix />
-          </Col>
+          {cardSix.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardSix item={item} />
+              </Col>
+            );
+          })}
 
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
-          </Col>
-          <Col lg={6} md={8} sm={12}>
-            <SampleCardSeven />
-          </Col>
+          {cardSeven.map(item => {
+            return (
+              <Col key={item.id} lg={6} md={8} sm={12}>
+                <SampleCardSeven item={item} />
+              </Col>
+            );
+          })}
+
           <Col xs={24}>
             <Cards headless>
               <Row gutter="25">

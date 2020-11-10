@@ -11,6 +11,7 @@ const ComingSoon = lazy(() => import('../../container/pages/ComingSoon'));
 const BlankPage = lazy(() => import('../../container/pages/BlankPage'));
 const Wizards = lazy(() => import('../../container/pages/wizards/Wizards'));
 const Settings = lazy(() => import('../../container/profile/settings/Settings'));
+const ChangeLog = lazy(() => import('../../container/pages/ChangeLog'));
 
 const PagesRoute = () => {
   const { path } = useRouteMatch();
@@ -26,6 +27,7 @@ const PagesRoute = () => {
       <Route path={`${path}/comingSoon`} component={ComingSoon} />
       <Route path={`${path}/wizards`} component={Wizards} />
       <Route path={`${path}/settings`} component={Settings} />
+      <Route path={`${path}/changelog`} component={ChangeLog} />
     </Switch>
   );
 };

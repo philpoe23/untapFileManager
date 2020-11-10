@@ -2,14 +2,11 @@ import React from 'react';
 import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
-import { logOut } from '../redux/authentication/actionCreator';
 
 const { SubMenu } = Menu;
 
 const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
-  const dispatch = useDispatch();
   const { path } = useRouteMatch();
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);
@@ -126,7 +123,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="pocket" />} key="changelog">
+        <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
+          Changelog
+        </NavLink>
+      </Menu.Item>
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
       <SubMenu key="email" icon={!topMenu && <FeatherIcon icon="mail" />} title="Email">
         <Menu.Item key="inbox">
@@ -649,38 +650,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </Menu.Item>
       </SubMenu>
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
-      <SubMenu key="authentication" icon={!topMenu && <FeatherIcon icon="users" />} title="Authentication">
-        <Menu.Item key="signIn">
-          <NavLink
-            onClick={() => {
-              dispatch(logOut());
-            }}
-            to="#"
-          >
-            Sign In
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="signUp">
-          <NavLink
-            onClick={() => {
-              dispatch(logOut());
-            }}
-            to="#"
-          >
-            Sign Up
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="forgotPass">
-          <NavLink
-            onClick={() => {
-              dispatch(logOut());
-            }}
-            to="#"
-          >
-            Forgot Password
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
+
       <Menu.Item icon={!topMenu && <FeatherIcon icon="settings" />} key="settings">
         <NavLink onClick={toggleCollapsed} to={`${path}/settings`}>
           Settings
@@ -724,12 +694,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="compass" />} key="comingSoon">
         <NavLink onClick={toggleCollapsed} to={`${path}/comingSoon`}>
           Coming Soon
-        </NavLink>
-      </Menu.Item>
-      {!topMenu && <p className="sidebar-nav-title">Miscellaneous</p>}
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="pocket" />} key="changelog">
-        <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
-          Changelog
         </NavLink>
       </Menu.Item>
     </Menu>

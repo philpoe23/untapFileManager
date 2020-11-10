@@ -18,6 +18,10 @@ const CardWrapper = styled.figure`
     background: ${({ theme }) => theme['dark-color']}50;
     color: #fff;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     h2 {
       color: #fff;
       margin: 0px 0 10px 0;
@@ -26,6 +30,7 @@ const CardWrapper = styled.figure`
     }
     p {
       line-height: 25px;
+      font-size: 13px;
     }
     .feedbackSection {
       display: flex;
@@ -49,7 +54,7 @@ const CardWrapper = styled.figure`
 `;
 
 const SampleCardFive = ({ item }) => {
-  const { content, title, img } = item;
+  const { content, title, img, auth } = item;
   return (
     <CardWrapper>
       <img src={require(`../../../${img}`)} alt="" />
@@ -58,7 +63,7 @@ const SampleCardFive = ({ item }) => {
         <p>{content}</p>
         <div className="feedbackSection">
           <div className="author">
-            <img src={require('../../../static/img/chat-author/t1.jpg')} alt="" />
+            <img src={require(`../../../${auth}`)} alt="" />
             <span>Burns Marks</span>
           </div>
         </div>
