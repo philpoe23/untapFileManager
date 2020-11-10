@@ -1172,6 +1172,167 @@ const AddUser = Styled.div`
     }
   }
 `;
+const ChangelogWrapper = Styled.div`
+   .ant-card-head{
+     .ant-card-head-title{
+       .v-num{
+         margin-left: 0;
+         font-size: 18px;
+         color: ${({ theme }) => theme['dark-color']};
+       }
+       .sign{
+         font-size: 18px;
+         color: ${({ theme }) => theme['dark-color']};
+         display: inline-block;
+         margin: 0 8px;
+       }
+       .rl-date{
+         margin-left: 0;
+         font-weight: 400;
+         font-size: 16px;
+       }
+     }
+   }
+  .version-list{
+    .version-list__single{
+      &:not(:last-child){
+        margin-bottom: 30px;
+      }
+      ul{
+        li{
+          position: relative;
+          padding-left: 20px;
+          font-size: 16px;
+          color: ${({ theme }) => theme['gray-color']};
+          &:not(:last-child){
+            margin-bottom: 12px;
+          }
+          &:after{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            content: "";
+          }
+        }
+        &.version-primary{
+          li{
+            &:after{
+              background-color: ${({ theme }) => theme['primary-color']};
+            }
+          }
+        }
+        &.version-success{
+          li{
+            &:after{
+              background-color: ${({ theme }) => theme['success-color']};
+            }
+          }
+        }
+        &.version-info{
+          li{
+            &:after{
+              background-color: ${({ theme }) => theme['info-color']};
+            }
+          }
+        }
+      }
+    }
+    .version-list__top{
+      .badge{
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 1.4px;
+        font-weight: 500;
+        display: inline-block;
+        padding: 5px 8px;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 14px;
+        color: #fff;
+        &.badge-primary{
+          background-color: ${({ theme }) => theme['primary-color']};
+        }
+        &.badge-info{
+          background-color: ${({ theme }) => theme['info-color']};
+        }
+        &.badge-success{
+          background-color: ${({ theme }) => theme['success-color']};
+        }
+      }
+    }
+  }
+
+  .changelog-accordion{
+    margin-top: 30px;
+    .ant-collapse{
+      background-color: transparent;
+      border: 0 none;
+    }
+    .ant-collapse-item{
+      border-radius: 6px;
+      border: 1px solid ${({ theme }) => theme['border-color-normal']};
+      &:not(:last-child){
+        margin-bottom: 20px;
+      }
+      &:last-child{
+        border-radius: 6px;
+        .ant-collapse-header{
+          border-radius: 6px;
+        }
+      }
+    }
+    .ant-collapse-header{
+      border-radius: 6px;
+      padding: 20px 30px 18px 30px !important;
+      .ant-collapse-arrow{
+        left: auto !important;
+        right: 30px;
+        svg,
+        img{
+          width: 14px;
+        }
+      }
+      .v-num{
+        font-size: 18px;
+        font-weight: 500;
+        color: ${({ theme }) => theme['dark-color']};
+      }
+      .rl-date{
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+`;
+const VersionHistoryList = Styled.div`
+  .history-title{
+    font-size: 11px;
+    margin-bottom: 24px;
+    color: ${({ theme }) => theme['light-gray-color']};
+  }
+  .v-history-list{
+    li{
+      display: flex;
+      justify-content: space-between;
+      &:not(:last-child){
+        margin-bottom: 24px;
+      }
+      .version-name{
+        font-size: 14px;
+        font-weight: 500;
+        color: ${({ theme }) => theme['dark-color']};
+      }
+      .version-date{
+        font-size: 14px;
+        color: ${({ theme }) => theme['light-gray-color']};
+      }
+    }
+  }
+`;
 
 export {
   PricingCard,
@@ -1191,4 +1352,6 @@ export {
   ErrorWrapper,
   ComingsoonStyleWrapper,
   AddUser,
+  ChangelogWrapper,
+  VersionHistoryList,
 };

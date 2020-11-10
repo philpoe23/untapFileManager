@@ -1,7 +1,7 @@
 [
     {
-      "id": 2,
-      "date": "12/12/2020",
+      "id": 4,
+      "date": "Jun 23, 2020",
       "version":"1.0.1",
       "new": 
       [
@@ -13,24 +13,59 @@
       ],
       "fixed": 
       [
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login"
+          "Fix – Redius serarch issue in mobile view",
+          "Fix – Style issues",
+          "Fix – Errors in PHP v7.4.1"
       ],
       "updated": 
       [
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login",
-          "Add – Option to set custom redirection after login"
+          "Update – Advanced filter reset in search result page",
+          "Update – Card style in User Dashboard page",
+          "Update – Data type sanitization"
       ]
     },
     {
-        "id": 1,
-        "date": "12/11/2020",
+        "id": 3,
+        "date": "Jun 12, 2020",
+        "version":"1.0.0",
+        "changes": [
+            {
+                "content": 
+                [
+                    "Add – Option to set custom redirection after login",
+                    "Add – Option to set custom redirection after login",
+                    "Add – Option to set custom redirection after login",
+                    "Add – Option to set custom redirection after login",
+                    "Add – Option to set custom redirection after login"
+                ],
+                "title": "New",
+                "type": "success"
+            },
+            {
+                "content": 
+                [
+                    "Fix – Redius serarch issue in mobile view",
+                    "Fix – Style issues",
+                    "Fix – Errors in PHP v7.4.1"
+                ],
+                "title": "Fixed",
+                "type": "info"
+            },
+            {
+                "content": 
+                [
+                    "Update – Advanced filter reset in search result page",
+                    "Update – Card style in User Dashboard page",
+                    "Update – Data type sanitization"
+                ],
+                "title": "Updated",
+                "type": "primary" 
+            }
+        ]
+      },
+      {
+        "id": 2,
+        "date": "May 16, 2020",
         "version":"1.0.0",
         "new": 
         [
@@ -42,19 +77,40 @@
         ],
         "fixed": 
         [
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login",
-            "Add – Option to set custom redirection after login"
+            "Fix – Redius serarch issue in mobile view",
+            "Fix – Style issues",
+            "Fix – Errors in PHP v7.4.1"
         ],
         "updated": 
+        [
+            "Update – Advanced filter reset in search result page",
+            "Update – Card style in User Dashboard page",
+            "Update – Data type sanitization"
+        ]
+      },
+      {
+        "id": 1,
+        "date": "May 23, 2020",
+        "version":"1.0.0",
+        "new": 
         [
             "Add – Option to set custom redirection after login",
             "Add – Option to set custom redirection after login",
             "Add – Option to set custom redirection after login",
             "Add – Option to set custom redirection after login",
             "Add – Option to set custom redirection after login"
+        ],
+        "fixed": 
+        [
+            "Fix – Redius serarch issue in mobile view",
+            "Fix – Style issues",
+            "Fix – Errors in PHP v7.4.1"
+        ],
+        "updated": 
+        [
+            "Update – Advanced filter reset in search result page",
+            "Update – Card style in User Dashboard page",
+            "Update – Data type sanitization"
         ]
       }
   ]
