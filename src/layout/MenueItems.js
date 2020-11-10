@@ -123,7 +123,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="pocket" />} key="changelog">
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="changelog">
         <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
           Changelog
         </NavLink>
@@ -686,7 +686,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Blank Page
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="aperture" />} key="maintenance">
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="airplay" />} key="maintenance">
         <NavLink onClick={toggleCollapsed} to={`${path}/maintenance`}>
           Maintenance
         </NavLink>
@@ -696,7 +696,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           404
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="compass" />} key="comingSoon">
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="clock" />} key="comingSoon">
         <NavLink onClick={toggleCollapsed} to={`${path}/comingSoon`}>
           Coming Soon
         </NavLink>

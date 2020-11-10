@@ -85,57 +85,59 @@ const ChangeLog = () => {
 
                 <div className="changelog-accordion">
                   <Collapse accordion>
-                    {versions.map(version => {
+                    {versions.map((version, index) => {
                       return (
-                        <Panel
-                          key={version.id}
-                          header={
-                            <>
-                              <span className="v-num">{version.version} - </span>
-                              <span className="rl-date">{version.date}</span>
-                            </>
-                          }
-                        >
-                          <div className="version-list">
-                            {version.new && (
-                              <div className="version-list__single">
-                                <div className="version-list__top">
-                                  <span className="badge badge-lg badge-success">New</span>
+                        index >= 1 && (
+                          <Panel
+                            key={version.id}
+                            header={
+                              <>
+                                <span className="v-num">{version.version} - </span>
+                                <span className="rl-date">{version.date}</span>
+                              </>
+                            }
+                          >
+                            <div className="version-list">
+                              {version.new && (
+                                <div className="version-list__single">
+                                  <div className="version-list__top">
+                                    <span className="badge badge-lg badge-success">New</span>
+                                  </div>
+                                  <ul className="version-success">
+                                    {version.new.map((item, key) => {
+                                      return <li key={key + 1}>{item}</li>;
+                                    })}
+                                  </ul>
                                 </div>
-                                <ul className="version-success">
-                                  {version.new.map((item, key) => {
-                                    return <li key={key + 1}>{item}</li>;
-                                  })}
-                                </ul>
-                              </div>
-                            )}
-                            {version.fixed && (
-                              <div className="version-list__single">
-                                <div className="version-list__top">
-                                  <span className="badge badge-lg badge-info">Fixed</span>
+                              )}
+                              {version.fixed && (
+                                <div className="version-list__single">
+                                  <div className="version-list__top">
+                                    <span className="badge badge-lg badge-info">Fixed</span>
+                                  </div>
+                                  <ul className="version-info">
+                                    {version.fixed.map((item, key) => {
+                                      return <li key={key + 1}>{item}</li>;
+                                    })}
+                                  </ul>
                                 </div>
-                                <ul className="version-info">
-                                  {version.fixed.map((item, key) => {
-                                    return <li key={key + 1}>{item}</li>;
-                                  })}
-                                </ul>
-                              </div>
-                            )}
+                              )}
 
-                            {version.updated && (
-                              <div className="version-list__single">
-                                <div className="version-list__top">
-                                  <span className="badge badge-lg badge-primary">Updated</span>
+                              {version.updated && (
+                                <div className="version-list__single">
+                                  <div className="version-list__top">
+                                    <span className="badge badge-lg badge-primary">Updated</span>
+                                  </div>
+                                  <ul className="version-primary">
+                                    {version.updated.map((item, key) => {
+                                      return <li key={key + 1}>{item}</li>;
+                                    })}
+                                  </ul>
                                 </div>
-                                <ul className="version-primary">
-                                  {version.updated.map((item, key) => {
-                                    return <li key={key + 1}>{item}</li>;
-                                  })}
-                                </ul>
-                              </div>
-                            )}
-                          </div>
-                        </Panel>
+                              )}
+                            </div>
+                          </Panel>
+                        )
                       );
                     })}
                   </Collapse>
