@@ -24,6 +24,7 @@ const ToDo = lazy(() => import('../../container/toDo/ToDo'));
 const Note = lazy(() => import('../../container/note/Note'));
 const Contact = lazy(() => import('../../container/contact/Contact'));
 const ContactGrid = lazy(() => import('../../container/contact/ContactGrid'));
+const ContactAddNew = lazy(() => import('../../container/contact/AddNew'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
 const Editors = lazy(() => import('../../container/pages/Editor'));
 
@@ -60,6 +61,7 @@ const Admin = () => {
         <Route path={`${path}/app/note`} component={Note} />
         <Route path={`${path}/contact/list`} component={Contact} />
         <Route path={`${path}/contact/grid`} component={ContactGrid} />
+        <Route path={`${path}/contact/addNew`} component={ContactAddNew} />
         <Route path={`${path}/app/calendar`} component={Calendar} />
         <Route path={`${path}/widgets`} component={Widgets} />
         <Route path={`${path}/editor`} component={Editors} />

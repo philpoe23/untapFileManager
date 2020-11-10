@@ -249,6 +249,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </Menu.Item>
       </SubMenu>
       <SubMenu key="contact" icon={!topMenu && <FeatherIcon icon="user-check" />} title="Contact">
+        <Menu.Item key="addNew">
+          <NavLink onClick={toggleCollapsed} to={`${path}/contact/addNew`}>
+            Contact Create
+          </NavLink>
+        </Menu.Item>
         <Menu.Item key="grid">
           <NavLink onClick={toggleCollapsed} to={`${path}/contact/grid`}>
             Contact Grid
