@@ -3,6 +3,7 @@ import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
+import versions from '../demoData/changelog.json';
 
 const { SubMenu } = Menu;
 
@@ -126,7 +127,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="changelog">
         <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
           Changelog
-          <span className="badge badge-primary">V1.0.0</span>
+          <span className="badge badge-primary">{versions[0].version}</span>
         </NavLink>
       </Menu.Item>
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
@@ -593,8 +594,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu key="widgets" icon={!topMenu && <FeatherIcon icon="server" />} title={<><span className="title">Widget</span><span className="badge badge-primary">New</span></>}>
-        
+      <SubMenu
+        key="widgets"
+        icon={!topMenu && <FeatherIcon icon="server" />}
+        title={
+          <>
+            <span className="title">Widget</span>
+            <span className="badge badge-primary">New</span>
+          </>
+        }
+      >
         <Menu.Item key="chart">
           <NavLink onClick={toggleCollapsed} to={`${path}/widgets/chart`}>
             Chart

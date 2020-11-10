@@ -299,7 +299,7 @@ const Div = Styled.div`
                     }
                     .badge{
                         position: absolute;
-                        right: 10px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;
@@ -330,7 +330,7 @@ const Div = Styled.div`
                         }
                         .badge{
                             font-size: 11px;
-                            right: 50px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 50px;
                         }
                     }
                 }
