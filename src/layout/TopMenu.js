@@ -147,18 +147,13 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
-                  <FeatherIcon icon="user" />
+                  <FeatherIcon icon="aperture" />
                   Social App
                 </Link>
                 <ul className="subMenu">
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/profile/myProfile/overview`}>
                       My Profile
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink onClick={addParentActive} to={`${path}/profile/settings`}>
-                      Settings
                     </NavLink>
                   </li>
                 </ul>
@@ -200,7 +195,7 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
-                  <FeatherIcon icon="user" />
+                  <FeatherIcon icon="users" />
                   Users
                 </Link>
                 <ul className="subMenu">
@@ -228,7 +223,7 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
-                  <FeatherIcon icon="user-check" />
+                  <FeatherIcon icon="user-plus" />
                   Contact
                 </Link>
                 <ul className="subMenu">
@@ -251,13 +246,13 @@ const TopMenu = () => {
               </li>
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/app/note/all`}>
-                  <FeatherIcon icon="bookmark" />
+                  <FeatherIcon icon="file-text" />
                   Note
                 </NavLink>
               </li>
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/app/to-do/`}>
-                  <FeatherIcon icon="activity" />
+                  <FeatherIcon icon="check-square" />
                   To Do
                 </NavLink>
               </li>
@@ -667,7 +662,7 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
-                  <FeatherIcon icon="layout" />
+                  <FeatherIcon icon="cpu" />
                   Tables
                 </Link>
                 <ul className="subMenu">
@@ -685,7 +680,7 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
-                  <FeatherIcon icon="layout" />
+                  <FeatherIcon icon="server" />
                   Widgets
                 </Link>
                 <ul className="subMenu">
@@ -708,7 +703,7 @@ const TopMenu = () => {
               </li>
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/wizards`}>
-                  <FeatherIcon icon="circle" />
+                  <FeatherIcon icon="square" />
                   Wizards
                 </NavLink>
               </li>
@@ -737,7 +732,7 @@ const TopMenu = () => {
               </li>
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/editor`}>
-                  <FeatherIcon icon="edit-3" />
+                  <FeatherIcon icon="edit" />
                   Editor
                 </NavLink>
               </li>
