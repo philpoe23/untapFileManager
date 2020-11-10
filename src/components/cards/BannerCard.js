@@ -6,7 +6,8 @@ import { Dropdown } from '../dropdown/dropdown';
 import propTypes from 'prop-types';
 
 const CardWrapper = styled.figure`
-  .banner-card{
+    margin-bottom: 0;
+    .banner-card{
       padding: 20px 25px 25px 25px;
       border-radius: 10px;
       &.banner-card-primary{

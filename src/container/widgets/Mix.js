@@ -33,27 +33,27 @@ const WidgetsCard = () => {
       />
       <Main>
         <Row gutter={25}>          
-          <Col xs={8}>
+          <Col xxl={8} xl={12}>
             <SocialMediaOverview />
           </Col> 
-          <Col xs={8}>
+          <Col xxl={8} xl={12}>
             <SocialMediaOverview />
           </Col> 
-          <Col xs={8}>
+          <Col xxl={8} xl={12}>
             <SocialMediaOverview />
           </Col> 
           
-          <Col md={8}>
+          <Col xxl={8} xl={12}>
             <SalesByLocation />
           </Col>
-          <Col md={8}>
+          <Col xxl={8} xl={12}>
             <SalesByLocation />
           </Col> 
-          <Col md={8}>
+          <Col xxl={8} xl={12}>
             <SalesByLocation />
           </Col> 
 
-          <Col md={8}>
+          <Col xxl={8}>
             <DailyOverview />
           </Col>  
           <Col md={8}>
@@ -75,9 +75,7 @@ const WidgetsCard = () => {
           </Col>       
           <Col xs={12}>
             <CardGroup />
-          </Col>          
-                 
-                              
+          </Col>              
         </Row>
       </Main>
     </>

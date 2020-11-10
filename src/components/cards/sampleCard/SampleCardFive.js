@@ -7,6 +7,7 @@ const CardWrapper = styled.figure`
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0;
   img {
     width: 100%;
   }
