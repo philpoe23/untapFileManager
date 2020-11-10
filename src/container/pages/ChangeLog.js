@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row, Col, Collapse } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { ChangelogWrapper, VersionHistoryList } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
-import { ChangelogWrapper, VersionHistoryList  } from './style';
 import versions from '../../demoData/changelog.json';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
@@ -13,10 +13,6 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 const { Panel } = Collapse;
 const ChangeLog = () => {
-  // versions.map(item => {
-  //     return console.log(item)
-  // })
-  console.log(versions[0]);
   return (
     <>
       <PageHeader
@@ -37,137 +33,111 @@ const ChangeLog = () => {
         <Row gutter={25}>
           <Col xs={19}>
             <ChangelogWrapper>
-              <Cards title={<><span className="v-num">Version {versions[0].version} </span> <span className="sign">-</span> <span className="rl-date">{versions[0].date}</span></>}>
+              <Cards
+                title={
+                  <>
+                    <span className="v-num">Version {versions[0].version} </span> <span className="sign">-</span>{' '}
+                    <span className="rl-date">{versions[0].date}</span>
+                  </>
+                }
+              >
                 <div className="changelog-featured">
                   <div className="version-list">
-                    {/* {versions[0].changes.map(vData => {
-                      return (
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className={`badge badge-lg badge-${vData.type}`}>{vData.title}</span>
-                          </div>
-                          <ul className="version-success">
-                            {vData.content.map(list =>{
-                              return (
-                                <li>{list.content}</li>
-                              )
-                            })}
-                          </ul>
+                    {versions[0].new && (
+                      <div className="version-list__single">
+                        <div className="version-list__top">
+                          <span className="badge badge-lg badge-success">New</span>
                         </div>
-                      );
-                    })} */}
-                    <div className="version-list__single">
-                      <div className="version-list__top">
-                        <span className="badge badge-lg badge-success">New</span>
+                        <ul className="version-success">
+                          {versions[0].new.map((item, key) => {
+                            return <li key={key + 1}>{item}</li>;
+                          })}
+                        </ul>
                       </div>
-                      <ul className="version-success">
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                      </ul>
-                    </div>
-                    <div className="version-list__single">
-                      <div className="version-list__top">
-                        <span className="badge badge-lg badge-info">Fixed</span>
+                    )}
+                    {versions[0].fixed && (
+                      <div className="version-list__single">
+                        <div className="version-list__top">
+                          <span className="badge badge-lg badge-info">Fixed</span>
+                        </div>
+                        <ul className="version-info">
+                          {versions[0].fixed.map((item, key) => {
+                            return <li key={key + 1}>{item}</li>;
+                          })}
+                        </ul>
                       </div>
-                      <ul className="version-info">
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                      </ul>
-                    </div>
-                    <div className="version-list__single">
-                      <div className="version-list__top">
-                        <span className="badge badge-lg badge-primary">Updated</span>
+                    )}
+
+                    {versions[0].updated && (
+                      <div className="version-list__single">
+                        <div className="version-list__top">
+                          <span className="badge badge-lg badge-primary">Updated</span>
+                        </div>
+                        <ul className="version-primary">
+                          {versions[0].updated.map((item, key) => {
+                            return <li key={key + 1}>{item}</li>;
+                          })}
+                        </ul>
                       </div>
-                      <ul className="version-primary">
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                        <li>Add – Option to set custom redirection after login</li>
-                      </ul>
-                    </div>
+                    )}
                   </div>
                 </div>
 
                 <div className="changelog-accordion">
                   <Collapse accordion>
-                    <Panel header={<><span className="v-num">6.4.2 -</span> <span className="rl-date">Jun 12, 2020</span></>} key="1">
-                      <div className="version-list">
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-success">New</span>
+                    {versions.map(version => {
+                      return (
+                        <Panel
+                          key={version.id}
+                          header={
+                            <>
+                              <span className="v-num">{version.version} - </span>
+                              <span className="rl-date">{version.date}</span>
+                            </>
+                          }
+                        >
+                          <div className="version-list">
+                            {version.new && (
+                              <div className="version-list__single">
+                                <div className="version-list__top">
+                                  <span className="badge badge-lg badge-success">New</span>
+                                </div>
+                                <ul className="version-success">
+                                  {version.new.map((item, key) => {
+                                    return <li key={key + 1}>{item}</li>;
+                                  })}
+                                </ul>
+                              </div>
+                            )}
+                            {version.fixed && (
+                              <div className="version-list__single">
+                                <div className="version-list__top">
+                                  <span className="badge badge-lg badge-info">Fixed</span>
+                                </div>
+                                <ul className="version-info">
+                                  {version.fixed.map((item, key) => {
+                                    return <li key={key + 1}>{item}</li>;
+                                  })}
+                                </ul>
+                              </div>
+                            )}
+
+                            {version.updated && (
+                              <div className="version-list__single">
+                                <div className="version-list__top">
+                                  <span className="badge badge-lg badge-primary">Updated</span>
+                                </div>
+                                <ul className="version-primary">
+                                  {version.updated.map((item, key) => {
+                                    return <li key={key + 1}>{item}</li>;
+                                  })}
+                                </ul>
+                              </div>
+                            )}
                           </div>
-                          <ul className="version-success">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-info">Fixed</span>
-                          </div>
-                          <ul className="version-info">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-primary">Updated</span>
-                          </div>
-                          <ul className="version-primary">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </Panel>
-                    <Panel header={<><span className="v-num">6.4.2 -</span> <span className="rl-date">Jun 12, 2020</span></>} key="2">
-                      <div className="version-list">
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-success">New</span>
-                          </div>
-                          <ul className="version-success">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-info">Fixed</span>
-                          </div>
-                          <ul className="version-info">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                        <div className="version-list__single">
-                          <div className="version-list__top">
-                            <span className="badge badge-lg badge-primary">Updated</span>
-                          </div>
-                          <ul className="version-primary">
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                            <li>Add – Option to set custom redirection after login</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </Panel>
+                        </Panel>
+                      );
+                    })}
                   </Collapse>
                 </div>
               </Cards>
@@ -178,22 +148,14 @@ const ChangeLog = () => {
               <Cards title="CHANGELOG">
                 <h4 className="history-title">VERSION HISTORY</h4>
                 <ul className="v-history-list">
-                  <li>
-                    <span className="version-name">Version 1.4.0</span>
-                    <span className="version-date">15.10.2020</span>
-                  </li>
-                  <li>
-                    <span className="version-name">Version 1.4.0</span>
-                    <span className="version-date">15.10.2020</span>
-                  </li>
-                  <li>
-                    <span className="version-name">Version 1.4.0</span>
-                    <span className="version-date">15.10.2020</span>
-                  </li>
-                  <li>
-                    <span className="version-name">Version 1.4.0</span>
-                    <span className="version-date">15.10.2020</span>
-                  </li>
+                  {versions.map(version => {
+                    return (
+                      <li key={version.id}>
+                        <span className="version-name">Version {version.version}</span>
+                        <span className="version-date">{versions.date}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </Cards>
             </VersionHistoryList>
