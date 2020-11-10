@@ -18,7 +18,7 @@ const CardWrapper = styled.figure`
     .more {
       position: absolute;
       top: 0px;
-      right: 0;
+      ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
       a {
         color: ${({ theme }) => theme['extra-light-color']};
       }

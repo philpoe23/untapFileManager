@@ -3,12 +3,12 @@
         "date": "Nov 10, 2020",
         "version":"2.0.0",
         "new":[
+            "New 8 card styles",
+            "Contact App 'add new contact' page",
+            "Contact App grid style",
             "Editor Page",
-            "New 8 Card",
-            "Contact Add new Page",
-            "Contact Grid Card Page",
             "Wizard Page",
-            "Widget Page",
+            "Widgets Page",
             "Coming Soon Page",
             "Changelog Page"
         ],
@@ -19,7 +19,7 @@
             "Cards",
             "Contact App",
             "Menu Item Rearrange",
-            "update note app with drag & drop"
+            "Update note app with drag & drop"
         ]
     },
     {
