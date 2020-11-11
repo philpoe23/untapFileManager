@@ -260,9 +260,16 @@ const UserCard = Styled.div`
     }
     .card__more_actions{
       position: absolute;
-      ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 28px;
+      ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 24px;
       top: 20px;
+      line-height: .5;
+      padding: 5px 3px;
       color: ${({ theme }) => theme['extra-light-color']};
+      box-shadow: 0 10px 20px #9299B815;
+      svg,
+      img{
+        width: 20px;
+      }
     }
     .card__name{
       font-size: 16px;
@@ -292,7 +299,7 @@ const UserCard = Styled.div`
         box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}15;
         background: #fff;
         &:not(:last-child){
-          ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         }
         &.facebook span.fa{
           color: #3B5998;
@@ -1113,6 +1120,9 @@ const AddUser = Styled.div`
     }
     img{
       border-radius: 50%;
+    }
+    .info{
+      background-color: transparent;
     }
     figcaption{
       ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;

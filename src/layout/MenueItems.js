@@ -271,11 +271,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </>
         }
       >
-        <Menu.Item key="addNew">
-          <NavLink onClick={toggleCollapsed} to={`${path}/contact/addNew`}>
-            Contact Create
-          </NavLink>
-        </Menu.Item>
         <Menu.Item key="grid">
           <NavLink onClick={toggleCollapsed} to={`${path}/contact/grid`}>
             Contact Grid
@@ -284,6 +279,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="list">
           <NavLink onClick={toggleCollapsed} to={`${path}/contact/list`}>
             Contact List
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="addNew">
+          <NavLink onClick={toggleCollapsed} to={`${path}/contact/addNew`}>
+            Contact Create
           </NavLink>
         </Menu.Item>
       </SubMenu>
@@ -656,7 +656,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         title={
           <>
             <span className="title">Wizards</span>
-            <span className="badge badge-primary">New</span>
+            <span className="badge badge-success">New</span>
           </>
         }
       >
@@ -751,7 +751,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       </Menu.Item>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="help-circle" />} key="faq">
         <NavLink onClick={toggleCollapsed} to={`${path}/faq`}>
-          Faq`s
+          FAQs
         </NavLink>
       </Menu.Item>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="search" />} key="search">

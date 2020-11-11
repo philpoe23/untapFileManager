@@ -6,6 +6,7 @@ import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Button } from '../../../components/buttons/buttons';
+import { WizardBlock } from './Style';
 import { ShareButtonPageHeader } from '../../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
@@ -46,18 +47,20 @@ const Wizards = () => {
               }
             >
               <Switch>
-                <Cards headless>
-                  <Row justify="center">
-                    <Col xxl={20} xs={24}>
-                      <Route exact path={`${path}/one`} component={WizardsOne} />
-                      <Route path={`${path}/two`} component={WizardsTwo} />
-                      <Route path={`${path}/three`} component={WizardsThree} />
-                      <Route path={`${path}/four`} component={WizardsFour} />
-                      <Route path={`${path}/five`} component={WizardsFive} />
-                      <Route path={`${path}/six`} component={WizardsSix} />
-                    </Col>
-                  </Row>
-                </Cards>
+                <WizardBlock>
+                  <Cards headless>
+                    <Row justify="center">
+                      <Col xxl={20} xs={24}>
+                        <Route exact path={`${path}/one`} component={WizardsOne} />
+                        <Route path={`${path}/two`} component={WizardsTwo} />
+                        <Route path={`${path}/three`} component={WizardsThree} />
+                        <Route path={`${path}/four`} component={WizardsFour} />
+                        <Route path={`${path}/five`} component={WizardsFive} />
+                        <Route path={`${path}/six`} component={WizardsSix} />
+                      </Col>
+                    </Row>
+                  </Cards>
+                </WizardBlock>
               </Switch>
             </Suspense>
           </Col>

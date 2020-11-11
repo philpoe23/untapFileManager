@@ -610,10 +610,10 @@ html[dir='rtl'] .ant-card-head-title span {
 }
 
 /* Wizard Modal */
-.submission-successModal{
-  text-align: center; 
+.submission-successModal {
+  text-align: center;
 }
-.submission-successModal .icon-success{
+.submission-successModal .icon-success {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -622,18 +622,18 @@ html[dir='rtl'] .ant-card-head-title span {
   align-items: center;
   justify-content: center;
   color: #fff;
-  border: 1px solid #20C997; 
+  border: 1px solid #20c997;
 }
-.submission-successModal p{
+.submission-successModal p {
   margin-bottom: 0;
 }
-.submission-successModal .icon-success svg{
-  color: #20C997;
+.submission-successModal .icon-success svg {
+  color: #20c997;
 }
-.submission-successModal .submission-action{
+.submission-successModal .submission-action {
   margin: 30px -5px -5px -5px;
 }
-.submission-successModal .submission-action button{
+.submission-successModal .submission-action button {
   margin: 5px;
   height: 38px;
 }
@@ -966,6 +966,10 @@ html[dir='rtl'] .ant-card-head-title span {
   box-shadow: 0 5px 30px #9299b820 !important;
 }
 
+.ant-dropdown.wide-dropdwon {
+  min-width: 140px !important;
+}
+
 .ant-dropdown-menu {
   min-width: 200px;
   border-radius: 0 0 5px 5px;
@@ -1239,7 +1243,6 @@ html[dir='rtl'] .ant-card-head-title span {
   background: #5f63f210;
   color: #5f63f2;
 }
-
 
 /* Cascade Styles */
 
@@ -2246,4 +2249,3 @@ html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow {
 html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
   padding-right: 15px !important;
 }
-

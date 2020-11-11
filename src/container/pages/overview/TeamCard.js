@@ -19,7 +19,7 @@ const TeamCard = ({ user, actions }) => {
             <img src={require(`../../../${img}`)} alt="" />
             <figcaption>
               <div className="edit">
-                <Dropdown content={actions}>
+                <Dropdown content={actions} action={['click']} className="wide-dropdwon">
                   <Link className="card__more_actions" to="#">
                     <FeatherIcon icon="more-horizontal" size={16} />
                   </Link>

@@ -50,6 +50,7 @@ const ContactCard = ({ user, showEditModal }) => {
         </div>
       </div>
       <Dropdown
+        className="wide-dropdwon"
         content={
           <>
             <Link onClick={() => showEditModal(user, id)} to="#">

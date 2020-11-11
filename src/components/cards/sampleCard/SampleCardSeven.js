@@ -124,6 +124,8 @@ const SampleCardSeven = ({ item }) => {
               </Button>
               <div className="more">
                 <Dropdown
+                  action={['click']}
+                  className="wide-dropdwon"
                   content={
                     <>
                       <Link to="#">Edit</Link>
@@ -144,6 +146,8 @@ const SampleCardSeven = ({ item }) => {
               </Button>
               <div className="more">
                 <Dropdown
+                  action={['click']}
+                  className="wide-dropdwon"
                   content={
                     <>
                       <Link to="#">Edit</Link>

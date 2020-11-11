@@ -299,7 +299,7 @@ const Div = Styled.div`
                     }
                     .badge{
                         position: absolute;                        
-                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;
@@ -374,9 +374,12 @@ const Div = Styled.div`
                         }
                     }
                     .ant-menu-item{
-                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 50px !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0px !important;
                         ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0 !important;
                         transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+                        a{
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 50px !important;
+                        }
                     }
                 }
                 .ant-menu-item{
@@ -388,6 +391,7 @@ const Div = Styled.div`
                         ${({ darkMode }) => (darkMode ? `background-color: rgba(255, 255, 255, .05);` : '')};
                     }
                     a{
+                        width: 100%;
                         display: flex !important;
                         align-items: center;
                         .feather{

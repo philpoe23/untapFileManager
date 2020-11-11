@@ -56,6 +56,8 @@ const SampleCardSix = ({ item }) => {
         <figcaption>
           <div className="more">
             <Dropdown
+              action={['click']}
+              className="wide-dropdwon"
               content={
                 <>
                   <Link to="#">Edit</Link>

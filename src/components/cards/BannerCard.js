@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
-import { Dropdown } from '../dropdown/dropdown';
 import propTypes from 'prop-types';
+import { Dropdown } from '../dropdown/dropdown';
 
 const CardWrapper = styled.figure`
     margin-bottom: 0;
@@ -111,63 +111,63 @@ const CardWrapper = styled.figure`
   }
 `;
 
-let ImageUrl = styled.div`
-  ${({bgUrl})=> bgUrl && `background-image: url(${require(`../../static/img/sampleCards/${bgUrl}`)})`};
+const ImageUrl = styled.div`
+  ${({ bgUrl }) => bgUrl && `background-image: url(${require(`../../static/img/sampleCards/${bgUrl}`)})`};
   background-size: cover;
   background-reapet: no-reapet;
   background-position: center center;
-`
+`;
 
 const BannerCard = ({ item }) => {
-  const { content, icon, title, authorName,authorImg, type, bgImage } = item;
+  const { content, icon, title, authorName, authorImg, type, bgImage } = item;
   return (
     <CardWrapper>
-      <ImageUrl className={'banner-card banner-card-'+type} bgUrl={bgImage}>
+      <ImageUrl className={`banner-card banner-card-${type}`} bgUrl={bgImage}>
         <div className="banner-card__top align-center-v justify-content-between">
-            <h4 className="banner-card__title">
-                <img src={require(`../../static/img/icon/${icon}`)} alt="StrikingDash Banner"/>
-                <span>{title}</span>
-            </h4>
-            <div className="banner-card__action">
-                <div className="more">
-                    <Dropdown
-                    content={
-                        <>
-                        <Link to="#">Edit</Link>
-                        <Link to="#">Delete</Link>
-                        <Link to="#">View</Link>
-                        </>
-                    }
-                    >
-                    <Link to="#">
-                        <FeatherIcon icon="more-horizontal" />
-                    </Link>
-                    </Dropdown>
-                </div>
+          <h4 className="banner-card__title">
+            <img src={require(`../../static/img/icon/${icon}`)} alt="StrikingDash Banner" />
+            <span>{title}</span>
+          </h4>
+          <div className="banner-card__action">
+            <div className="more">
+              <Dropdown
+                action={['click']}
+                className="wide-dropdwon"
+                content={
+                  <>
+                    <Link to="#">Edit</Link>
+                    <Link to="#">Delete</Link>
+                    <Link to="#">View</Link>
+                  </>
+                }
+              >
+                <Link to="#">
+                  <FeatherIcon icon="more-horizontal" />
+                </Link>
+              </Dropdown>
             </div>
+          </div>
         </div>
         <div className="banner-card__body">
-            <p>
-                {content}
-            </p>
+          <p>{content}</p>
         </div>
         <div className="banner-card__bottom  align-center-v justify-content-between">
-            <div className="card-author">
-                <img src={require(`../../static/img/users/${authorImg}`)} alt=""/>
-                <span className="author-name">{authorName}</span>
-            </div>
-            <div className="card-meta">
-                <ul>
-                    <li>
-                        <FeatherIcon icon="eye" />
-                        <span className="view-count">70</span>
-                    </li>
-                    <li>
-                        <FeatherIcon icon="heart" />
-                        <span className="view-count">70</span>
-                    </li>
-                </ul>
-            </div>
+          <div className="card-author">
+            <img src={require(`../../static/img/users/${authorImg}`)} alt="" />
+            <span className="author-name">{authorName}</span>
+          </div>
+          <div className="card-meta">
+            <ul>
+              <li>
+                <FeatherIcon icon="eye" />
+                <span className="view-count">70</span>
+              </li>
+              <li>
+                <FeatherIcon icon="heart" />
+                <span className="view-count">70</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </ImageUrl>
     </CardWrapper>
@@ -181,11 +181,12 @@ BannerCard.propTypes = {
 BannerCard.defaultProps = {
   item: {
     id: 1,
-    type: "primary",
-    icon: "water-fall.svg",
-    bgImage: "",
+    type: 'primary',
+    icon: 'water-fall.svg',
+    bgImage: '',
     title: 'Primary Color',
-    content: 'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
+    content:
+      'Lorem Ipsum is simply dummy text of the printing printer took a galley of type and scrambled and typesetting industry.',
     authorName: 'Chris Doe',
     authorImg: '10.png',
   },

@@ -88,6 +88,7 @@ const ProjectLists = () => {
         ),
         action: (
           <Dropdown
+            className="wide-dropdwon"
             content={
               <>
                 <Link to="#">View</Link>
