@@ -22,9 +22,13 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
   const onOpenChange = keys => {
     setOpenKeys([keys.length && keys[keys.length - 1]]);
   };
+  const onClick = item => {
+    if (item.keyPath.length === 1) setOpenKeys([]);
+  };
   return (
     <Menu
       onOpenChange={onOpenChange}
+      onClick={onClick}
       mode={!topMenu || window.innerWidth <= 991 ? 'inline' : 'horizontal'}
       theme={darkMode && 'dark'}
       // // eslint-disable-next-line no-nested-ternary
