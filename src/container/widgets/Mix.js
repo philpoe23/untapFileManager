@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { MixedCardWrap } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -10,7 +11,6 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import SocialMediaOverview from '../dashboard/overview/index/SocialMediaOverview';
 import CardGroup from '../dashboard/overview/business/CardGroup';
-import { MixedCardWrap } from './Style';
 import DailyOverview from '../dashboard/overview/performance/DailyOverview';
 import SalesByLocation from '../dashboard/overview/ecommerce/SalesByLocation';
 import Ordersummary from '../ecommerce/overview/Ordersummary';
@@ -34,50 +34,26 @@ const WidgetsCard = () => {
       />
       <Main>
         <MixedCardWrap>
-          <Row gutter={25}>          
+          <Row gutter={25}>
+            <Col md={8} xs={24}>
+              <Cards headless>
+                <Ordersummary subtotal={1200} />
+              </Cards>
+            </Col>
+            <Col xxl={16} xl={24}>
+              <CardGroup />
+            </Col>
             <Col xxl={8} xs={24}>
               <SocialMediaOverview />
-            </Col> 
-            <Col xxl={8} xs={24}>
-              <SocialMediaOverview />
-            </Col> 
-            <Col xxl={8} xs={24}>
-              <SocialMediaOverview />
-            </Col> 
-            
+            </Col>
+
             <Col xxl={8} md={12} xs={24}>
               <SalesByLocation />
             </Col>
-            <Col xxl={8} md={12} xs={24}>
-              <SalesByLocation />
-            </Col> 
-            <Col xxl={8} md={12} xs={24}>
-              <SalesByLocation />
-            </Col> 
 
             <Col xxl={8} md={12} xs={24}>
               <DailyOverview />
-            </Col>  
-            <Col xxl={8} md={12} xs={24}>
-              <DailyOverview />
-            </Col>  
-            <Col xxl={8} md={12} xs={24}>
-              <DailyOverview />
-            </Col>  
-
-            <Col md={12} xs={24}>
-              <Cards headless>
-                <Ordersummary subtotal={1200} />
-              </Cards>
-            </Col> 
-            <Col md={12} xs={24}>
-              <Cards headless>
-                <Ordersummary subtotal={1200} />
-              </Cards>
-            </Col>       
-            <Col xxl={18} xl={24}>
-              <CardGroup />
-            </Col>              
+            </Col>
           </Row>
         </MixedCardWrap>
       </Main>

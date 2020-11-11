@@ -298,11 +298,8 @@ const Div = Styled.div`
                         width: 100%;
                     }
                     .badge{
-                        position: absolute;
-                        &.menuItem {
-                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
-                        }
-                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -90px;
+                        position: absolute;                        
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;

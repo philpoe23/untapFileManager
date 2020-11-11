@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Main } from '../../styled';
 import { Cards } from '../../../components/cards/frame/cards-frame';
@@ -17,6 +18,7 @@ const WizardsFive = lazy(() => import('./overview/WizardsFive'));
 const WizardsSix = lazy(() => import('./overview/WizardsSix'));
 
 const Wizards = () => {
+  const { path } = useRouteMatch();
   return (
     <>
       <PageHeader
@@ -39,106 +41,24 @@ const Wizards = () => {
             <Suspense
               fallback={
                 <Cards headless>
-                  <Skeleton active />
+                  <Skeleton paragraph={{ rows: 20 }} active />
                 </Cards>
               }
             >
-              <div className="wizard-side-border">
+              <Switch>
                 <Cards headless>
                   <Row justify="center">
                     <Col xxl={20} xs={24}>
-                      <WizardsSix />
+                      <Route exact path={`${path}/one`} component={WizardsOne} />
+                      <Route path={`${path}/two`} component={WizardsTwo} />
+                      <Route path={`${path}/three`} component={WizardsThree} />
+                      <Route path={`${path}/four`} component={WizardsFour} />
+                      <Route path={`${path}/five`} component={WizardsFive} />
+                      <Route path={`${path}/six`} component={WizardsSix} />
                     </Col>
                   </Row>
                 </Cards>
-              </div>
-            </Suspense>
-          </Col>
-          <Col xs={24}>
-            <Suspense
-              fallback={
-                <Cards headless>
-                  <Skeleton active />
-                </Cards>
-              }
-            >
-              <div className="wizard-side-border">
-                <Cards headless>
-                  <Row justify="center">
-                    <Col xxl={20} xs={24}>
-                      <WizardsFive />
-                    </Col>
-                  </Row>
-                </Cards>
-              </div>
-            </Suspense>
-          </Col>
-          <Col sm={24} xs={24}>
-            <Suspense
-              fallback={
-                <Cards headless>
-                  <Skeleton active />
-                </Cards>
-              }
-            >
-              <Cards headless>
-                <Row justify="center">
-                  <Col md={16} xs={24}>
-                    <WizardsFour />
-                  </Col>
-                </Row>
-              </Cards>
-            </Suspense>
-          </Col>
-          <Col sm={24} xs={24}>
-            <Suspense
-              fallback={
-                <Cards headless>
-                  <Skeleton active />
-                </Cards>
-              }
-            >
-              <Cards headless>
-                <Row justify="center">
-                  <Col md={18} xs={24}>
-                    <WizardsThree />
-                  </Col>
-                </Row>
-              </Cards>
-            </Suspense>
-          </Col>
-          <Col xxl={24} xs={24}>
-            <Suspense
-              fallback={
-                <Cards headless>
-                  <Skeleton active />
-                </Cards>
-              }
-            >
-              <Cards headless>
-                  <Row justify="center">
-                    <Col xxl={18} xs={24}>
-                      <WizardsTwo />
-                    </Col>
-                  </Row>
-              </Cards>
-            </Suspense>
-          </Col>
-          <Col xs={24}>
-            <Suspense
-              fallback={
-                <Cards headless>
-                  <Skeleton active />
-                </Cards>
-              }
-            >
-              <Cards headless>
-                <Row justify="center">
-                  <Col xxl={18} xs={24}>
-                    <WizardsOne />
-                  </Col>
-                </Row>
-              </Cards>
+              </Switch>
             </Suspense>
           </Col>
         </Row>
