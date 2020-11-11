@@ -300,7 +300,7 @@ const Div = Styled.div`
                     .badge{
                         position: absolute;
                         &.menuItem {
-                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                         }
                         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -90px;
                         top: 50%;
@@ -309,8 +309,8 @@ const Div = Styled.div`
                         height: auto;
                         font-size: 10px;
                         border-radius: 3px;
-                        padding: 4px 8px;
-                        line-height: 1.4;
+                        padding: 3px 4px 4px;
+                        line-height: 1;
                         letter-spacing: 1px;
                         color: #fff;
                         &.badge-primary{
@@ -318,9 +318,6 @@ const Div = Styled.div`
                         }
                         &.badge-success{
                             background-color: ${({ theme }) => theme['success-color']};
-                        }
-                        &.badge-text{
-                            font-size: 11px;
                         }
                     }
                 }
@@ -332,8 +329,7 @@ const Div = Styled.div`
                             padding-left: 0;
                         }
                         .badge{
-                            font-size: 11px;
-                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 50px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 45px;
                         }
                     }
                 }

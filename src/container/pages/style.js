@@ -797,18 +797,18 @@ const ErrorWrapper = Styled.div`
 const ComingsoonStyleWrapper = Styled.div`
   text-align: center;
   background: #fff;
-  padding: 95px 0;
+  padding: 75px 0 30px;
   margin-bottom: 30px;
   @media only screen and (max-width: 1150px){
-    padding: 50px 0;
+    padding: 50px 0 6px;
   }
   @media only screen and (max-width: 991px){
-    padding: 30px 0;
+    padding: 20px 0 0px;
   }
   .strikingDash-logo{
-    margin-bottom: 155px;
+    margin-bottom: 55px;
     @media only screen and (max-width: 1150px){
-      margin-bottom: 85px;
+      margin-bottom: 30px;
     }
     @media only screen and (max-width: 767px){
       margin-bottom: 25px;
@@ -821,9 +821,12 @@ const ComingsoonStyleWrapper = Styled.div`
     h1{
       font-size: 58px;
       font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 25px;
       color: ${({ theme }) => theme['dark-color']};
       @media only screen and (max-width: 991px){
         font-size: 48px;
+        margin-bottom: 15px;
       }
       @media only screen and (max-width: 767px){
         font-size: 40px;
@@ -832,12 +835,24 @@ const ComingsoonStyleWrapper = Styled.div`
       @media only screen and (max-width: 479px){
         font-size: 30px;
       }
+      @media only screen and (max-width: 375px){
+        font-size: 20px;
+      }
     }
     p{
       font-size: 17px;
       max-width: 580px;
-      margin: 0 auto 35px;
+      margin: 0 auto 25px;
       color: ${({ theme }) => theme['gray-color']};
+      @media only screen and (max-width: 991px){
+        margin-bottom: 15px;
+      }
+      @media only screen and (max-width: 767px){
+        font-size: 16px;
+      }
+      @media only screen and (max-width: 375px){
+        font-size: 15px;
+      }
     }
   }
   .countdwon-data{
@@ -866,16 +881,25 @@ const ComingsoonStyleWrapper = Styled.div`
       @media only screen and (max-width: 575px){
         font-size: 26px;
       }
+      @media only screen and (max-width: 375px){
+        font-size: 20px;
+      }
     }
     .countdown-title{
       font-size: 16px;
       font-weight: 400;
       display: block;
       color: ${({ theme }) => theme['gray-color']};
+      @media only screen and (max-width: 375px){
+        font-size: 15px;
+      }
     }
   }
   .subscription-form{
-    margin-top: 68px;
+    margin-top: 40px;
+    @media only screen and (max-width: 991px){
+      margin-top: 25px;
+    }
     @media only screen and (max-width: 1150px){
       margin-top: 35px;
     }
@@ -912,9 +936,9 @@ const ComingsoonStyleWrapper = Styled.div`
     }
   }
   .coming-soon-social{
-    margin-top: 150px;
+    margin-top: 50px;
     @media only screen and (max-width: 1150px){
-      margin-top: 85px;
+      margin-top: 25px;
     }
     @media only screen and (max-width: 767px){
       margin-top: 30px;
