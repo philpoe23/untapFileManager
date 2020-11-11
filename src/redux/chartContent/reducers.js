@@ -5,6 +5,8 @@ const initialState = {
   foLoading: false,
   youtubeSubscribeData: null,
   yuLoading: false,
+  closeDealData: null,
+  cdLoading: false,
   socialTrafficData: null,
   soLoading: false,
   twitterOverviewData: null,
@@ -44,6 +46,10 @@ const {
   YOUTUBE_SUBSCRIBE_BEGIN,
   YOUTUBE_SUBSCRIBE_SUCCESS,
   YOUTUBE_SUBSCRIBE_ERR,
+
+  CLOSE_DEAL_BEGIN,
+  CLOSE_DEAL_SUCCESS,
+  CLOSE_DEAL_ERR,
 
   SOCIAL_TRAFFIC_BEGIN,
   SOCIAL_TRAFFIC_SUCCESS,
@@ -412,6 +418,24 @@ const chartContentReducer = (state = initialState, action) => {
         ...state,
         error: err,
         yuLoading: false,
+      };
+
+    case CLOSE_DEAL_BEGIN:
+      return {
+        ...state,
+        cdLoading: true,
+      };
+    case CLOSE_DEAL_SUCCESS:
+      return {
+        ...state,
+        closeDealData: data,
+        cdLoading: false,
+      };
+    case CLOSE_DEAL_ERR:
+      return {
+        ...state,
+        error: err,
+        cdLoading: false,
       };
 
     default:

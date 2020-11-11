@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import { Spin } from 'antd';
+import PropTypes from 'prop-types';
 import { RevenueWrapper } from '../../style';
 import { ChartjsAreaChart } from '../../../../components/charts/chartjs';
 import { customTooltips, chartLinearGradient } from '../../../../components/utilities/utilities';
@@ -33,7 +34,7 @@ const moreContent = (
     </NavLink>
   </>
 );
-const TotalRevenue = () => {
+const TotalRevenue = ({ title }) => {
   const dispatch = useDispatch();
   const { performanceState, preIsLoading } = useSelector(state => {
     return {
@@ -41,14 +42,17 @@ const TotalRevenue = () => {
       preIsLoading: state.chartContent.perLoading,
     };
   });
+
   const [state, setState] = useState({
     revenue: 'year',
   });
+
   useEffect(() => {
     if (performanceGetData) {
       dispatch(performanceGetData());
     }
   }, [dispatch]);
+
   const handleActiveChangeRevenue = value => {
     setState({
       ...state,
@@ -119,7 +123,7 @@ const TotalRevenue = () => {
             </div>
           }
           more={moreContent}
-          title="Total Revenue"
+          title={title}
           size="large"
         >
           {preIsLoading ? (
@@ -235,6 +239,14 @@ const TotalRevenue = () => {
       )}
     </RevenueWrapper>
   );
+};
+
+TotalRevenue.defaultProps = {
+  title: 'Total Revenue',
+};
+
+TotalRevenue.propTypes = {
+  title: PropTypes.string,
 };
 
 export default TotalRevenue;

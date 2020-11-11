@@ -15,6 +15,7 @@ import {
   generated,
   topSale,
   location,
+  closedDeals,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -37,6 +38,10 @@ const {
   youtubeSubscribeBegin,
   youtubeSubscribeSuccess,
   youtubeSubscribeErr,
+
+  closeDealBegin,
+  closeDealSuccess,
+  closeDealErr,
 
   socialTrafficBegin,
   socialTrafficSuccess,
@@ -133,6 +138,31 @@ const youtubeSubscribeFilterData = value => {
       }, 100);
     } catch (err) {
       dispatch(youtubeSubscribeErr(err));
+    }
+  };
+};
+
+const closeDealGetData = () => {
+  return async dispatch => {
+    const { year } = closedDeals;
+    try {
+      dispatch(closeDealBegin());
+      dispatch(closeDealSuccess(year));
+    } catch (err) {
+      dispatch(closeDealErr(err));
+    }
+  };
+};
+
+const closeDealFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(closeDealBegin());
+      setTimeout(() => {
+        dispatch(closeDealSuccess(closedDeals[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(closeDealErr(err));
     }
   };
 };
@@ -534,4 +564,6 @@ export {
   linkdinOverviewFilterData,
   cashFlowGetData,
   cashFlowFilterData,
+  closeDealGetData,
+  closeDealFilterData,
 };

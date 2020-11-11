@@ -66,6 +66,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Ecommerce
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="crm">
+          <NavLink onClick={toggleCollapsed} to={`${path}/crm`}>
+            CRM
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
 
       <SubMenu key="layout" icon={!topMenu && <FeatherIcon icon="layout" />} title="Layouts">
