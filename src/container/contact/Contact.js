@@ -158,6 +158,7 @@ const ContactTable = () => {
               <FeatherIcon className={stared ? 'active' : 'deactivate'} icon="star" size={16} />
             </Button>
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <>
                   <Link onClick={() => showEditModal(user, id)} to="#">

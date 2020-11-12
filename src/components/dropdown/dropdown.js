@@ -36,7 +36,7 @@ const content = (
 
 Dropdown.defaultProps = {
   action: ['hover'],
-  placement: 'bottomCenter',
+  placement: 'bottomRight',
   content,
   style: {},
   className: 'strikingDash-dropdown',

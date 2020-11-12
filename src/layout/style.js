@@ -299,15 +299,15 @@ const Div = Styled.div`
                     }
                     .badge{
                         position: absolute;                        
-                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 10px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;
                         height: auto;
                         font-size: 10px;
                         border-radius: 3px;
-                        padding: 4px 8px;
-                        line-height: 1.4;
+                        padding: 3px 4px 4px;
+                        line-height: 1;
                         letter-spacing: 1px;
                         color: #fff;
                         &.badge-primary{
@@ -315,9 +315,6 @@ const Div = Styled.div`
                         }
                         &.badge-success{
                             background-color: ${({ theme }) => theme['success-color']};
-                        }
-                        &.badge-text{
-                            font-size: 11px;
                         }
                     }
                 }
@@ -329,8 +326,7 @@ const Div = Styled.div`
                             padding-left: 0;
                         }
                         .badge{
-                            font-size: 11px;
-                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 50px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 45px;
                         }
                     }
                 }
@@ -378,9 +374,12 @@ const Div = Styled.div`
                         }
                     }
                     .ant-menu-item{
-                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 50px !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0px !important;
                         ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0 !important;
                         transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+                        a{
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 50px !important;
+                        }
                     }
                 }
                 .ant-menu-item{
@@ -392,6 +391,7 @@ const Div = Styled.div`
                         ${({ darkMode }) => (darkMode ? `background-color: rgba(255, 255, 255, .05);` : '')};
                     }
                     a{
+                        width: 100%;
                         display: flex !important;
                         align-items: center;
                         .feather{

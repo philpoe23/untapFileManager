@@ -873,6 +873,7 @@ const InvoiceAction = Styled.div`
 
 const WizardWrapper = Styled.div`
     // padding: 25px 0;
+    color:#eee;
     &.bordered-wizard{
         padding: 0;
     }
@@ -2013,6 +2014,15 @@ const WizardSix = Styled.div`
     }
     
 `;
+const WizardBlock = Styled.div`
+    
+    >.ant-card{
+        .ant-card-body{
+            padding: 50px 0 !important;
+        }
+    }
+    
+`;
 
 export {
   FigureWizards,
@@ -2031,4 +2041,5 @@ export {
   WizardFour,
   WizardFive,
   WizardSix,
+  WizardBlock,
 };

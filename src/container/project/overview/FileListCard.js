@@ -23,6 +23,7 @@ const FileListCard = () => {
           </div>
           <div className="file-single-action">
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <>
                   <Link to="#">
@@ -63,6 +64,7 @@ const FileListCard = () => {
           </div>
           <div className="file-single-action">
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <>
                   <Link to="#">
@@ -102,6 +104,7 @@ const FileListCard = () => {
           </div>
           <div className="file-single-action">
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <>
                   <Link to="#">
@@ -142,6 +145,7 @@ const FileListCard = () => {
           </div>
           <div className="file-single-action">
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <>
                   <Link to="#">
@@ -182,6 +186,7 @@ const FileListCard = () => {
           </div>
           <div className="file-single-action">
             <Dropdown
+              className="wide-dropdwon"
               content={
                 <div className="dropdown-more">
                   <>
