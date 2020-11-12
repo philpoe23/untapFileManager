@@ -1301,7 +1301,7 @@ const WizardWrapper = Styled.div`
            }
        }
        .checkbox-label{
-            ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
             font-size: 15px;
             color: ${({ theme }) => theme['extra-light-color']};
        }
