@@ -1256,6 +1256,7 @@ const WizardWrapper = Styled.div`
    }
    .profile-hints{
        p{
+        color: ${({ theme }) => theme['dark-color']};
            font-size: 15px;
            span{
                color: ${({ theme }) => theme['extra-light-color']};
@@ -2019,6 +2020,11 @@ const WizardBlock = Styled.div`
     >.ant-card{
         .ant-card-body{
             padding: 50px 0 !important;
+        }
+        .steps-content{
+            .ant-card-body{
+                padding: 25px !important;
+            }
         }
     }
     
