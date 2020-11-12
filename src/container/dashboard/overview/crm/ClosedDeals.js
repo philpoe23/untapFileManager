@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { CardBarChart } from '../../style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
-import Heading from '../../../../components/heading/heading';
 import { ChartjsBarChartTransparent } from '../../../../components/charts/chartjs';
 import { closeDealFilterData, closeDealGetData } from '../../../../redux/chartContent/actionCreator';
 
@@ -101,13 +100,13 @@ const ClosedDeals = () => {
                 {closeDealDatasets.map((item, key) => {
                   return (
                     <div key={key + 1} className="card-bar-top">
-                      <Heading as="h3">
+                      <h4>
                         {item.label}
-                        <sub>
+                        <span className={item.percent >= 50 ? 'growth-up' : 'growth-down'}>
                           <FeatherIcon icon={item.percent >= 50 ? 'arrow-up' : 'arrow-down'} size={14} />
                           {item.percent}%
-                        </sub>
-                      </Heading>
+                        </span>
+                      </h4>
                     </div>
                   );
                 })}
