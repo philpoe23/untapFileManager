@@ -11,6 +11,10 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const AverageSalesRevenue = lazy(() => import('./overview/sales/AverageSalesRevenue'));
+const SalesGrowth = lazy(() => import('./overview/sales/SalesGrowth'));
+const SalesTarget = lazy(() => import('./overview/sales/SalesTarget'));
+const TopSellingProduct = lazy(() => import('./overview/sales/TopSellingProduct'));
+const TopCountriesRevenue = lazy(() => import('./overview/sales/TopCountriesRevenue'));
 
 const Sales = () => {
   return (
@@ -102,6 +106,50 @@ const Sales = () => {
               }
             >
               <AverageSalesRevenue />
+            </Suspense>
+          </Col>
+          <Col md={8}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <SalesTarget />
+            </Suspense>
+          </Col>
+          <Col md={8}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <SalesGrowth />
+            </Suspense>
+          </Col>
+          <Col md={8}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <TopCountriesRevenue />
+            </Suspense>
+          </Col>
+          <Col md={12}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <TopSellingProduct />
             </Suspense>
           </Col>
         </Row>
