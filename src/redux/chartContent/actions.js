@@ -11,6 +11,10 @@ const actions = {
   CLOSE_DEAL_SUCCESS: 'CLOSE_DEAL_SUCCESS',
   CLOSE_DEAL_ERR: 'CLOSE_DEAL_ERR',
 
+  RECENT_DEAL_BEGIN: 'RECENT_DEAL_BEGIN',
+  RECENT_DEAL_SUCCESS: 'RECENT_DEAL_SUCCESS',
+  RECENT_DEAL_ERR: 'RECENT_DEAL_ERR',
+
   SOCIAL_TRAFFIC_BEGIN: 'SOCIAL_TRAFFIC_BEGIN',
   SOCIAL_TRAFFIC_SUCCESS: 'SOCIAL_TRAFFIC_SUCCESS',
   SOCIAL_TRAFFIC_ERR: 'SOCIAL_TRAFFIC_ERR',
@@ -427,6 +431,26 @@ const actions = {
   closeDealErr: err => {
     return {
       type: actions.CLOSE_DEAL_ERR,
+      err,
+    };
+  },
+
+  recentDealBegin: () => {
+    return {
+      type: actions.RECENT_DEAL_BEGIN,
+    };
+  },
+
+  recentDealSuccess: data => {
+    return {
+      type: actions.RECENT_DEAL_SUCCESS,
+      data,
+    };
+  },
+
+  recentDealErr: err => {
+    return {
+      type: actions.RECENT_DEAL_ERR,
       err,
     };
   },

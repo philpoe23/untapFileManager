@@ -14,6 +14,9 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 
 const TotalRevenue = lazy(() => import('./overview/ecommerce/TotalRevenue'));
 const ClosedDeals = lazy(() => import('./overview/crm/ClosedDeals'));
+const SalesLeaderBoard = lazy(() => import('./overview/crm/SalesLeaderboard'));
+const EmailSent = lazy(() => import('./overview/crm/EmailSent'));
+const RecentDeals = lazy(() => import('./overview/crm/RecentDeals'));
 
 const chartOptions = {
   legend: {
@@ -221,6 +224,39 @@ const CRM = () => {
               }
             >
               <ClosedDeals />
+            </Suspense>
+          </Col>
+          <Col xxl={8} xs={24}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <EmailSent />
+            </Suspense>
+          </Col>
+          <Col xxl={8} xs={24}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <SalesLeaderBoard />
+            </Suspense>
+          </Col>
+          <Col xxl={8} xs={24}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <RecentDeals />
             </Suspense>
           </Col>
         </Row>

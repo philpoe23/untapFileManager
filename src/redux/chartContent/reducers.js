@@ -7,6 +7,8 @@ const initialState = {
   yuLoading: false,
   closeDealData: null,
   cdLoading: false,
+  recentDealData: null,
+  recLoading: false,
   socialTrafficData: null,
   soLoading: false,
   twitterOverviewData: null,
@@ -50,6 +52,10 @@ const {
   CLOSE_DEAL_BEGIN,
   CLOSE_DEAL_SUCCESS,
   CLOSE_DEAL_ERR,
+
+  RECENT_DEAL_BEGIN,
+  RECENT_DEAL_SUCCESS,
+  RECENT_DEAL_ERR,
 
   SOCIAL_TRAFFIC_BEGIN,
   SOCIAL_TRAFFIC_SUCCESS,
@@ -436,6 +442,24 @@ const chartContentReducer = (state = initialState, action) => {
         ...state,
         error: err,
         cdLoading: false,
+      };
+
+    case RECENT_DEAL_BEGIN:
+      return {
+        ...state,
+        recLoading: true,
+      };
+    case RECENT_DEAL_SUCCESS:
+      return {
+        ...state,
+        recentDealData: data,
+        recLoading: false,
+      };
+    case RECENT_DEAL_ERR:
+      return {
+        ...state,
+        error: err,
+        recLoading: false,
       };
 
     default:

@@ -800,6 +800,50 @@ ChartjsDonutChart2.propTypes = {
   options: PropTypes.object,
 };
 
+const ChartjsDonut = props => {
+  const { labels, datasets, options, height } = props;
+  const { ref } = useChartData();
+  const dataInfo = {
+    labels,
+    datasets,
+  };
+
+  return <Doughnut ref={ref} data={dataInfo} height={height} options={options} width={200} />;
+};
+
+ChartjsDonut.defaultProps = {
+  height: 220,
+  // width: 220,
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+  datasets: [
+    {
+      data: [20, 20, 30, 5, 25],
+      backgroundColor: ['#560bd0', '#007bff', '#00cccc', '#cbe0e3', '#74de00'],
+    },
+  ],
+
+  options: {
+    cutoutPercentage: 60,
+    maintainAspectRatio: false,
+    responsive: false,
+    legend: {
+      display: false,
+      position: 'bottom',
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+    },
+  },
+};
+
+ChartjsDonut.propTypes = {
+  height: PropTypes.number,
+  labels: PropTypes.array,
+  datasets: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.object,
+};
+
 export {
   ChartjsDonutChart,
   ChartjsDonutChart2,
@@ -811,4 +855,5 @@ export {
   ChartjsStackedChart,
   ChartjsHorizontalChart,
   ChartjsBarChart,
+  ChartjsDonut,
 };

@@ -1104,6 +1104,156 @@
       }
     ]
   },
+  "recentDeal": {
+    "today": [
+      {
+        "key": "1",
+        "name": "John Mark",
+        "date": "20 June 2020",
+        "price": "$536.00",
+        "img": "static/img/users/1.png"
+      },
+      {
+        "key": "2",
+        "name": "David Miller",
+        "date": "20 June 2020",
+        "price": "$336.00",
+        "img": "static/img/users/2.png"
+      },
+      {
+        "key": "3",
+        "name": "Chris Lein",
+        "date": "20 June 2020",
+        "price": "$356.00",
+        "img": "static/img/users/3.png"
+      },
+      {
+        "key": "4",
+        "name": "Ahmad Musa",
+        "date": "20 June 2020",
+        "price": "$383.00",
+        "img": "static/img/users/4.png"
+      },
+      {
+        "key": "5",
+        "name": "Robert Philips",
+        "date": "20 June 2020",
+        "price": "$536.00",
+        "img": "static/img/users/5.png"
+      }
+    ],
+    "week": [
+      {
+        "key": "1",
+        "name": "John Mark",
+        "date": "20 June 2020",
+        "price": "$1536.00",
+        "img": "static/img/users/1.png"
+      },
+      {
+        "key": "2",
+        "name": "David Miller",
+        "date": "20 June 2020",
+        "price": "$1336.00",
+        "img": "static/img/users/2.png"
+      },
+      {
+        "key": "3",
+        "name": "Chris Lein",
+        "date": "20 June 2020",
+        "price": "$1356.00",
+        "img": "static/img/users/3.png"
+      },
+      {
+        "key": "4",
+        "name": "Ahmad Musa",
+        "date": "20 June 2020",
+        "price": "$1383.00",
+        "img": "static/img/users/4.png"
+      },
+      {
+        "key": "5",
+        "name": "Robert Philips",
+        "date": "20 June 2020",
+        "price": "$1536.00",
+        "img": "static/img/users/5.png"
+      }
+    ],
+    "month": [
+      {
+        "key": "1",
+        "name": "John Mark",
+        "date": "20 June 2020",
+        "price": "$5536.00",
+        "img": "static/img/users/1.png"
+      },
+      {
+        "key": "2",
+        "name": "David Miller",
+        "date": "20 June 2020",
+        "price": "$5336.00",
+        "img": "static/img/users/2.png"
+      },
+      {
+        "key": "3",
+        "name": "Chris Lein",
+        "date": "20 June 2020",
+        "price": "$5356.00",
+        "img": "static/img/users/3.png"
+      },
+      {
+        "key": "4",
+        "name": "Ahmad Musa",
+        "date": "20 June 2020",
+        "price": "$5383.00",
+        "img": "static/img/users/4.png"
+      },
+      {
+        "key": "5",
+        "name": "Robert Philips",
+        "date": "20 June 2020",
+        "price": "$5536.00",
+        "img": "static/img/users/5.png"
+      }
+    ],
+    "year": [
+      {
+        "key": "1",
+        "name": "John Mark",
+        "date": "20 June 2020",
+        "price": "$12536.00",
+        "img": "static/img/users/1.png"
+      },
+      {
+        "key": "2",
+        "name": "David Miller",
+        "date": "20 June 2020",
+        "price": "$11336.00",
+        "img": "static/img/users/2.png"
+      },
+      {
+        "key": "3",
+        "name": "Chris Lein",
+        "date": "20 June 2020",
+        "price": "$10356.00",
+        "img": "static/img/users/3.png"
+      },
+      {
+        "key": "4",
+        "name": "Ahmad Musa",
+        "date": "20 June 2020",
+        "price": "$9383.00",
+        "img": "static/img/users/4.png"
+      },
+      {
+        "key": "5",
+        "name": "Robert Philips",
+        "date": "20 June 2020",
+        "price": "$13536.00",
+        "img": "static/img/users/5.png"
+      }
+    ]
+  },
   "location": {
     "today": [
       {

@@ -16,6 +16,7 @@ import {
   topSale,
   location,
   closedDeals,
+  recentDeal,
 } from '../../demoData/dashboardChartContent.json';
 
 const {
@@ -42,6 +43,10 @@ const {
   closeDealBegin,
   closeDealSuccess,
   closeDealErr,
+
+  recentDealBegin,
+  recentDealSuccess,
+  recentDealErr,
 
   socialTrafficBegin,
   socialTrafficSuccess,
@@ -163,6 +168,31 @@ const closeDealFilterData = value => {
       }, 100);
     } catch (err) {
       dispatch(closeDealErr(err));
+    }
+  };
+};
+
+const recentDealGetData = () => {
+  return async dispatch => {
+    const { year } = recentDeal;
+    try {
+      dispatch(recentDealBegin());
+      dispatch(recentDealSuccess(year));
+    } catch (err) {
+      dispatch(recentDealErr(err));
+    }
+  };
+};
+
+const recentDealFilterData = value => {
+  return async dispatch => {
+    try {
+      dispatch(recentDealBegin());
+      setTimeout(() => {
+        dispatch(recentDealSuccess(recentDeal[value]));
+      }, 100);
+    } catch (err) {
+      dispatch(recentDealErr(err));
     }
   };
 };
@@ -566,4 +596,6 @@ export {
   cashFlowFilterData,
   closeDealGetData,
   closeDealFilterData,
+  recentDealGetData,
+  recentDealFilterData,
 };

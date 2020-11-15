@@ -19,12 +19,15 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
   const [openKeys, setOpenKeys] = React.useState(
     !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : [],
   );
+
   const onOpenChange = keys => {
-    setOpenKeys([keys.length && keys[keys.length - 1]]);
+    setOpenKeys(keys[keys.length - 1] !== 'recharts' ? [keys.length && keys[keys.length - 1]] : keys);
   };
+
   const onClick = item => {
     if (item.keyPath.length === 1) setOpenKeys([]);
   };
+
   return (
     <Menu
       onOpenChange={onOpenChange}
@@ -69,6 +72,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="crm">
           <NavLink onClick={toggleCollapsed} to={`${path}/crm`}>
             CRM
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="sales">
+          <NavLink onClick={toggleCollapsed} to={`${path}/sales`}>
+            Sales Performance
           </NavLink>
         </Menu.Item>
       </SubMenu>

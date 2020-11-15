@@ -7,6 +7,7 @@ const Ecommerce = lazy(() => import('../../container/dashboard/Ecommerce'));
 const Business = lazy(() => import('../../container/dashboard/Business'));
 const Performance = lazy(() => import('../../container/dashboard/Performance'));
 const CRM = lazy(() => import('../../container/dashboard/CRM'));
+const Sales = lazy(() => import('../../container/dashboard/Sales'));
 
 const DashboardRoutes = () => {
   const { path } = useRouteMatch();
@@ -18,6 +19,7 @@ const DashboardRoutes = () => {
       <Route exact path={`${path}/business`} component={Business} />
       <Route exact path={`${path}/performance`} component={Performance} />
       <Route exact path={`${path}/crm`} component={CRM} />
+      <Route exact path={`${path}/sales`} component={Sales} />
     </Switch>
   );
 };
