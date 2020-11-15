@@ -1388,7 +1388,21 @@ const VersionHistoryList = Styled.div`
   }
 `;
 
+const TestimonialWrapper = Styled.div`
+  position: relative;
+  padding: 0 150px;
+  .button-group {
+      width: 100%;   
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      left: 0;
+  }
+`;
+
 export {
+  TestimonialWrapper,
   PricingCard,
   ListGroup,
   Badge,
