@@ -424,7 +424,7 @@ const ChartjsBarChartTransparent = props => {
     labels,
     datasets,
   };
-
+  console.log(height);
   return (
     <ChartContainer className="parentContainer">
       <Bar

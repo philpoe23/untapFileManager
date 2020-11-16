@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Table } from 'antd';
 import { topSaleGetData, topSaleFilterData } from '../../../../redux/chartContent/actionCreator';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 
-const SalesLeaderBoard = () => {
+const RecentOrder = () => {
   const dispatch = useDispatch();
   const { topSaleState } = useSelector(state => {
     return {
@@ -32,15 +32,30 @@ const SalesLeaderBoard = () => {
   const sellingData = [];
   if (topSaleState !== null) {
     topSaleState.map(value => {
-      const { key, name, sold, revenue } = value;
+      const { key, name, price, sold, revenue } = value;
       return sellingData.push({
         key,
         name,
-        deals: sold,
-        amount: revenue,
+        price,
+        sold,
+        revenue,
       });
     });
   }
+
+  const moreContent = (
+    <>
+      <NavLink to="#">
+        <span>2 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>3 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>4 years</span>
+      </NavLink>
+    </>
+  );
 
   const sellingColumns = [
     {
@@ -49,14 +64,19 @@ const SalesLeaderBoard = () => {
       key: 'name',
     },
     {
-      title: 'Deals',
-      dataIndex: 'deals',
-      key: 'deals',
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
     },
     {
-      title: 'Amount',
-      dataIndex: 'amount',
-      key: 'amount',
+      title: 'Sold',
+      dataIndex: 'sold',
+      key: 'sold',
+    },
+    {
+      title: 'Revenue',
+      dataIndex: 'revenue',
+      key: 'revenue',
     },
   ];
 
@@ -89,11 +109,12 @@ const SalesLeaderBoard = () => {
             </ul>
           </div>
         }
-        title="Sales Leaderboard"
+        title="Top Selling Products"
         size="large"
         bodypadding="0px"
+        more={moreContent}
       >
-        <div className="table-bordered leaderboard-table table-responsive">
+        <div className="table-bordered top-seller-table table-responsive">
           <Table columns={sellingColumns} dataSource={sellingData} pagination={false} />
         </div>
       </Cards>
@@ -101,4 +122,4 @@ const SalesLeaderBoard = () => {
   );
 };
 
-export default SalesLeaderBoard;
+export default RecentOrder;

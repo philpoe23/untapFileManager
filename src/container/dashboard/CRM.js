@@ -12,7 +12,7 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const TotalRevenue = lazy(() => import('./overview/ecommerce/TotalRevenue'));
+const TotalRevenue = lazy(() => import('./overview/crm/TotalRevenue'));
 const ClosedDeals = lazy(() => import('./overview/crm/ClosedDeals'));
 const SalesLeaderBoard = lazy(() => import('./overview/crm/SalesLeaderboard'));
 const EmailSent = lazy(() => import('./overview/crm/EmailSent'));

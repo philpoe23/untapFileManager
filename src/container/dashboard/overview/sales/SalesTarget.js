@@ -1,7 +1,7 @@
-import { Col, Row } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { SalesTargetWrap } from '../../style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import HalfProgressBar from '../../../../components/utilities/progressBar';
 
@@ -32,19 +32,23 @@ const moreContent = (
 
 const SalesTarget = () => {
   return (
-    <Cards more={moreContent} title="Monthly Sales Target">
-      <HalfProgressBar percent={80} />
-      <Row>
-        <Col md={12}>
-          <h2>$5,870</h2>
-          <p>Revenue</p>
-        </Col>
-        <Col md={12}>
-          <h2>$7,870</h2>
-          <p>Target</p>
-        </Col>
-      </Row>
-    </Cards>
+    <SalesTargetWrap>
+      <Cards more={moreContent} title="Monthly Sales Target">
+        <div className="target-progressbar-wrap">
+          <HalfProgressBar percent={80} />
+        </div>
+        <div className="s-target-list d-flex justify-content-between">
+          <div className="s-target-list__item target-revinue">
+            <h2>$5,870</h2>
+            <p>Revenue</p>
+          </div>
+          <div className="s-target-list__item">
+            <h2>$7,870</h2>
+            <p>Target</p>
+          </div>
+        </div>
+      </Cards>
+    </SalesTargetWrap>
   );
 };
 

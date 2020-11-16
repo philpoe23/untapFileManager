@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Table } from 'antd';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import ReactTooltip from 'react-tooltip';
@@ -33,6 +33,20 @@ const TopCountriesRevenue = () => {
     });
     dispatch(locationFilterData(value));
   };
+
+  const moreContent = (
+    <>
+      <NavLink to="#">
+        <span>2 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>3 years</span>
+      </NavLink>
+      <NavLink to="#">
+        <span>4 years</span>
+      </NavLink>
+    </>
+  );
 
   const locationData = [];
 
@@ -101,36 +115,7 @@ const TopCountriesRevenue = () => {
   return (
     <LocationMapWrapper>
       <div className="full-width-table">
-        <Cards
-          isbutton={
-            <div className="card-nav">
-              <ul>
-                <li className={state.location === 'today' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangeLocation('today')} to="#">
-                    Today
-                  </Link>
-                </li>
-                <li className={state.location === 'week' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangeLocation('week')} to="#">
-                    Week
-                  </Link>
-                </li>
-                <li className={state.location === 'month' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangeLocation('month')} to="#">
-                    Month
-                  </Link>
-                </li>
-                <li className={state.location === 'year' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangeLocation('year')} to="#">
-                    Year
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          }
-          title="Top Countries by Revenue"
-          size="large"
-        >
+        <Cards title="Top Countries by Revenue" size="large" more={moreContent}>
           <div className="location-map d-flex justify-content-center">
             <div>
               <ReactTooltip>{content}</ReactTooltip>
@@ -214,8 +199,8 @@ const TopCountriesRevenue = () => {
             </div>
           </div>
 
-          <div className="location-table">
-            <Table columns={locationColumns} dataSource={locationData} pagination={false} />
+          <div className="location-table theme-2">
+            <Table columns={locationColumns} dataSource={locationData} pagination={false} showHeader={false} />
           </div>
         </Cards>
       </div>

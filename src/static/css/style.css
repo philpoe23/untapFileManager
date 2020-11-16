@@ -1615,6 +1615,10 @@ html[dir='rtl'] .ant-card-head-title span {
   padding: 26px 30px 26px 30px !important;
 }
 
+.ant-page-header.header-boxed {
+  padding: 26px 180px 26px 180px !important;
+}
+
 .ant-page-header-heading {
   align-items: center;
 }

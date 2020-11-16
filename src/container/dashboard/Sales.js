@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Row, Col, Skeleton } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { CardBarChart2, EChartCard } from './style';
+import { CardBarChart2, OverviewSalesCard } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
@@ -15,11 +15,13 @@ const SalesGrowth = lazy(() => import('./overview/sales/SalesGrowth'));
 const SalesTarget = lazy(() => import('./overview/sales/SalesTarget'));
 const TopSellingProduct = lazy(() => import('./overview/sales/TopSellingProduct'));
 const TopCountriesRevenue = lazy(() => import('./overview/sales/TopCountriesRevenue'));
+const RecentOrder = lazy(() => import('./overview/sales/RecentOrder'));
 
 const Sales = () => {
   return (
     <>
       <PageHeader
+        className="header-boxed"
         ghost
         title="Sales Dashboard"
         buttons={[
@@ -34,12 +36,12 @@ const Sales = () => {
           </div>,
         ]}
       />
-      <Main>
+      <Main className="grid-boxed">
         <Row gutter={25}>
           <Col xxl={8} md={12} sm={12} xs={24}>
             <Cards headless>
-              <EChartCard>
-                <div>
+              <OverviewSalesCard>
+                <div className="icon-box box-warning">
                   <img src={require('../../static/img/icon/New Customer.svg')} alt="" />
                 </div>
                 <div className="card-chunk">
@@ -54,12 +56,12 @@ const Sales = () => {
                     </p>
                   </CardBarChart2>
                 </div>
-              </EChartCard>
+              </OverviewSalesCard>
             </Cards>
 
             <Cards headless>
-              <EChartCard>
-                <div>
+              <OverviewSalesCard>
+                <div className="icon-box box-primary">
                   <img src={require('../../static/img/icon/SalesRevenue.svg')} alt="" />
                 </div>
                 <div className="card-chunk">
@@ -74,12 +76,12 @@ const Sales = () => {
                     </p>
                   </CardBarChart2>
                 </div>
-              </EChartCard>
+              </OverviewSalesCard>
             </Cards>
 
             <Cards headless>
-              <EChartCard>
-                <div>
+              <OverviewSalesCard>
+                <div className="icon-box box-success">
                   <img src={require('../../static/img/icon/Profit.svg')} alt="" />
                 </div>
                 <div className="card-chunk">
@@ -94,7 +96,7 @@ const Sales = () => {
                     </p>
                   </CardBarChart2>
                 </div>
-              </EChartCard>
+              </OverviewSalesCard>
             </Cards>
           </Col>
           <Col md={16}>
@@ -150,6 +152,17 @@ const Sales = () => {
               }
             >
               <TopSellingProduct />
+            </Suspense>
+          </Col>
+          <Col md={12}>
+            <Suspense
+              fallback={
+                <Cards headless>
+                  <Skeleton active />
+                </Cards>
+              }
+            >
+              <RecentOrder />
             </Suspense>
           </Col>
         </Row>

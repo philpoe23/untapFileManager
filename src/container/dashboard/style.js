@@ -24,6 +24,44 @@ const EChartCard = Styled.div`
         min-width: 132px !important;
     }
 `;
+
+const OverviewSalesCard = Styled.div`
+    display: flex;
+    align-items: flex-start;
+    padding: 5px 0 2px 0;
+    .icon-box{
+        display: flex;
+        aling-items: center;
+        justify-content: center;
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        margin-right: 10px;
+        &.box-primary{
+            background-color: ${({ theme }) => theme['primary-color']}10;
+        }
+        &.box-success{
+            background-color: ${({ theme }) => theme['success-color']}10;
+        }
+        &.box-warning{
+            background-color: ${({ theme }) => theme['warning-color']}10;
+        }
+    }
+    .card-chunk{
+        h2{
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        span{
+            color: ${({ theme }) => theme['light-gray-color']};
+        }
+        p{
+            margin-top: 16px;
+        }
+    }
+`;
 const DashboardBaseStyleWrap = Styled.div`
     h1{
         margin-bottom: 30px;
@@ -222,6 +260,51 @@ const CardBarChart = Styled.div`
         min-width: 140px !important;
         @media only screen and (max-width: 1199px){
             min-width: 115px !important;
+        }
+    }
+    .deals-barChart{
+        display: flex;
+        .card-bar-top{
+            &:not(:last-child){
+                margin-right: 30px;
+            }
+        }
+        h4{
+            font-weight: 400;
+            color: ${({ theme }) => theme['light-gray-color']};
+            p{
+                &.growth-down{
+                    .deal-percentage{
+                        color: ${({ theme }) => theme['danger-color']};
+                    }
+                }
+                &.growth-up{
+                    .deal-percentage{
+                        color: ${({ theme }) => theme['success-color']};
+                    }
+                }
+                .deal-percentage{
+                    svg,
+                    img,
+                    i{
+                        margin-right: 3px;
+                    }
+                }
+                .deal-value{
+                    font-size: 22px;
+                    font-weight: 600;
+                    margin-right: 8px;
+                    color: ${({ theme }) => theme['dark-color']};
+                }
+            }
+        }
+    }
+    .deals-list{
+        .custom-label{
+            font-size: 14px;
+            &:not(:last-child){
+                margin-right: 30px;
+            }
         }
     }
 `;
@@ -1159,6 +1242,9 @@ const LocationMapWrapper = Styled.div`
         background: #ffffff;
         z-index: 999;
         position: relative;
+        &.theme-2{
+            min-height: 155px;
+        }
         table{
             thead{
                 th{
@@ -1213,6 +1299,14 @@ const RevenueWrapper = Styled.div`
     .performance-lineChart{
         ul{
             margin: -25px -25px 20px;
+        }
+        
+        &.theme-2{
+            .custom-label{
+                .current-amount{
+                    color: ${({ theme }) => theme.pink};
+                }
+            }
         }
     }
     .custom-label{
@@ -1488,7 +1582,164 @@ const ChartContainer = Styled.div`
                 }
                 .data-label{
                     ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 3px;
-                    color: ${({ theme }) => theme['light-gray-color']}
+                    color: ${({ theme }) => theme['light-gray-color']};
+                }
+            }
+        }
+    }
+`;
+
+const SentEmailWrapper = Styled.div`
+    .ant-card-body{
+        padding: 30px 25px !important;
+    }
+    .sent-emial-chart{
+        color: #333;
+        canvas{
+            margin: 0 auto;
+        }
+    }
+    .sent-emial-data{
+        margin-top: 30px;
+    }
+    .sent-emial-box{
+        justify-content: space-between;
+    }
+    .sent-emial-item{
+        display: flex;
+        .sent-emial-icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            margin-right: 10px;
+            background-color: ${({ theme }) => theme['primary-color']}10;
+            &.icon-success{
+                background-color: ${({ theme }) => theme['success-color']}10;
+            }
+            &.icon-primary{
+                background-color: ${({ theme }) => theme['primary-color']}10;
+            }
+            &.icon-warning{
+                background-color: ${({ theme }) => theme['warning-color']}10;
+            }
+        }
+        .sent-emial-content{
+            flex: auto;
+            h4{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 2px;
+                strong{
+                    font-weight: 500;
+                }
+            }
+            p{
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 0;
+                color: ${({ theme }) => theme['gray-color']};
+            }
+        }
+    }
+`;
+
+const RecentDealsWrapper = Styled.div`
+    margin-top: 18px;
+    min-height: 314px;
+    .recent-deals-table{
+        .dealing-author{
+            display: flex;
+            align-items: center;
+            img{
+                max-width: 36px;
+                border-radius: 50%;
+            }
+            .dealing-author-info{
+                margin-left: 12px;
+                h4{
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                }
+                p{
+                    font-size: 13px;
+                    color: #9297AF;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .deal-amount{
+            font-size: 14px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['dark-color']};
+        }
+        .ant-table-tbody > tr > td{
+            padding: 7px 25px;
+            border-bottom: 0 none;
+        }
+    }
+`;
+
+const SalesTargetWrap = Styled.div`
+    .ant-card{
+        min-height: 435px;
+    }
+    .target-progressbar-wrap{
+        text-align: center;
+        margin-bottom: 70px;
+    }
+    .s-target-list__item{
+        h2{
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        &.target-revinue{
+            h2{
+                color: ${({ theme }) => theme['success-color']};
+            }
+        }
+        p{
+            margin-bottom: 0;
+            color: ${({ theme }) => theme['gray-color']};
+        }
+    }
+`;
+
+const SalesGrowthWrap = Styled.div`
+    .growth-chart-wrap{
+        margin-top: 58px;
+    }
+    .growth-list__item{
+        h2{
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 2px;
+        }
+        p{
+            margin-bottom: 0;
+            color: ${({ theme }) => theme['gray-color']};
+        }
+    }
+`;
+
+const TopSellerWrap = Styled.div`
+    .top-seller-table{
+        min-height: auto;
+        .product-info{
+            .product-img{
+                margin-right: 15px;
+            }
+        }
+        .ant-table-row {
+            .ant-table-cell{
+                padding: 15px 15px;
+                &:not(first-child){ 
+                    text-align: right;
                 }
             }
         }
@@ -1522,4 +1773,10 @@ export {
   RevenueChartWrapper,
   TrafficTableWrapper,
   Map,
+  SentEmailWrapper,
+  RecentDealsWrapper,
+  OverviewSalesCard,
+  SalesTargetWrap,
+  SalesGrowthWrap,
+  TopSellerWrap,
 };

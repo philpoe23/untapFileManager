@@ -2,6 +2,7 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { SalesGrowthWrap } from '../../style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import { ChartjsBarChartTransparent } from '../../../../components/charts/chartjs';
 
@@ -68,35 +69,41 @@ const chartOptions = {
 
 const SalesGrowth = () => {
   return (
-    <Cards more={moreContent} title="Monthly Sales Growth">
-      <Row>
-        <Col md={12}>
-          <h2>70%</h2>
-          <p>Progress</p>
-        </Col>
-        <Col md={12}>
-          <h2>20%</h2>
-          <p>Target</p>
-        </Col>
-        <div>
-          <ChartjsBarChartTransparent
-            labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
-            datasets={[
-              {
-                data: [20, 60, 50, 45, 50, 60, 70, 60, 65, 75, 70, 80],
-                backgroundColor: '#EFEFFE',
-                hoverBackgroundColor: '#5F63F2',
-                maxBarThickness: 10,
-                barThickness: 12,
-                label: 'Orders',
-              },
-            ]}
-            options={chartOptions}
-            height={106}
-          />
-        </div>
-      </Row>
-    </Cards>
+    <SalesGrowthWrap>
+      <Cards more={moreContent} title="Monthly Sales Growth">
+        <Row>
+          <Col xs={24}>
+            <div className="growth-list d-flex justify-content-between">
+              <div className="growth-list__item">
+                <h2>70%</h2>
+                <p>Progress</p>
+              </div>
+              <div className="growth-list__item">
+                <h2>20%</h2>
+                <p>Target</p>
+              </div>
+            </div>
+            <div className="growth-chart-wrap">
+              <ChartjsBarChartTransparent
+                labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+                datasets={[
+                  {
+                    data: [20, 60, 50, 45, 50, 60, 70, 60, 65, 75, 70, 80],
+                    backgroundColor: '#5F63F250',
+                    hoverBackgroundColor: '#5F63F2',
+                    maxBarThickness: 10,
+                    barThickness: 12,
+                    label: 'Orders',
+                  },
+                ]}
+                options={chartOptions}
+                height={180}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Cards>
+    </SalesGrowthWrap>
   );
 };
 

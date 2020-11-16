@@ -958,6 +958,7 @@
     "today": [
       {
         "key": "1",
+        "img": "1.png",
         "name": "Samsung Galaxy S8 256GB",
         "price": "$280",
         "sold": "26",
@@ -965,6 +966,7 @@
       },
       {
         "key": "2",
+        "img": "2.png",
         "name": "Half Sleeve Shirt",
         "price": "$39",
         "sold": "80",
@@ -972,6 +974,7 @@
       },
       {
         "key": "3",
+        "img": "3.png",
         "name": "Marco Shoes",
         "price": "$89",
         "sold": "81",
@@ -979,6 +982,7 @@
       },
       {
         "key": "4",
+        "img": "4.png",
         "name": "Marco Shoes",
         "price": "$32",
         "sold": "51",
@@ -986,6 +990,7 @@
       },
       {
         "key": "5",
+        "img": "5.png",
         "name": "15\" MackBook Pro",
         "price": "$950",
         "sold": "45",
@@ -995,6 +1000,7 @@
     "week": [
       {
         "key": "1",
+        "img": "1.png",
         "name": "Samsung Galaxy S8 256GB",
         "price": "$280",
         "sold": "126",
@@ -1002,6 +1008,7 @@
       },
       {
         "key": "2",
+        "img": "2.png",
         "name": "Half Sleeve Shirt",
         "price": "$39",
         "sold": "180",
@@ -1009,6 +1016,7 @@
       },
       {
         "key": "3",
+        "img": "3.png",
         "name": "Marco Shoes",
         "price": "$89",
         "sold": "581",
@@ -1016,6 +1024,7 @@
       },
       {
         "key": "4",
+        "img": "4.png",
         "name": "Marco Shoes",
         "price": "$32",
         "sold": "451",
@@ -1023,6 +1032,7 @@
       },
       {
         "key": "5",
+        "img": "5.png",
         "name": "15\" MackBook Pro",
         "price": "$950",
         "sold": "745",
@@ -1032,6 +1042,7 @@
     "month": [
       {
         "key": "1",
+        "img": "1.png",
         "name": "Samsung Galaxy S8 256GB",
         "price": "$280",
         "sold": "526",
@@ -1039,6 +1050,7 @@
       },
       {
         "key": "2",
+        "img": "2.png",
         "name": "Half Sleeve Shirt",
         "price": "$39",
         "sold": "680",
@@ -1046,6 +1058,7 @@
       },
       {
         "key": "3",
+        "img": "3.png",
         "name": "Marco Shoes",
         "price": "$89",
         "sold": "981",
@@ -1053,6 +1066,7 @@
       },
       {
         "key": "4",
+        "img": "4.png",
         "name": "Marco Shoes",
         "price": "$32",
         "sold": "951",
@@ -1060,6 +1074,7 @@
       },
       {
         "key": "5",
+        "img": "5.png",
         "name": "15\" MackBook Pro",
         "price": "$950",
         "sold": "1045",
@@ -1069,6 +1084,7 @@
     "year": [
       {
         "key": "1",
+        "img": "1.png",
         "name": "Samsung Galaxy S8 256GB",
         "price": "$280",
         "sold": "2026",
@@ -1076,6 +1092,7 @@
       },
       {
         "key": "2",
+        "img": "2.png",
         "name": "Half Sleeve Shirt",
         "price": "$39",
         "sold": "1180",
@@ -1083,6 +1100,7 @@
       },
       {
         "key": "3",
+        "img": "3.png",
         "name": "Marco Shoes",
         "price": "$89",
         "sold": "2581",
@@ -1090,6 +1108,7 @@
       },
       {
         "key": "4",
+        "img": "4.png",
         "name": "Marco Shoes",
         "price": "$32",
         "sold": "3451",
@@ -1097,6 +1116,7 @@
       },
       {
         "key": "5",
+        "img": "5.png",
         "name": "15\" MackBook Pro",
         "price": "$950",
         "sold": "3745",

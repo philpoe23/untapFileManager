@@ -34,6 +34,7 @@ const bgGrayColorNormal = '#F4F5F7';
 const lightGrayColor = '#868EAE';
 const sliderRailColor = 'rgba(95,99,242,0.2)';
 const graySolid = '#9299b8';
+const pinkColor = '#F63178';
 const btnlg = '48px';
 const btnsm = '36px';
 const btnxs = '29px';
@@ -63,6 +64,7 @@ const theme = {
   'white-hover': whiteHover, // info state color
   white: whiteColor,
   black: '#000',
+  pink: pinkColor,
   'dash-color': dashColor, // info state color
   'extra-light-color': extraLightColor, // info state color
   'danger-color': dangerColor,
