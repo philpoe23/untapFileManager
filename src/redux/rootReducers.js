@@ -5,7 +5,7 @@ import { readNotificationReducer } from './notification/reducers';
 import authReducer from './authentication/reducers';
 import ChangeLayoutMode from './themeLayout/reducers';
 import { teamReducer } from './team/reducers';
-import { userReducer } from './users/reducers';
+import { userReducer, userGroupReducer } from './users/reducers';
 import { sellersReducer } from './sellers/reducers';
 import { headerSearchReducer } from './headerSearch/reducers';
 import orderReducer from './orders/reducers';
@@ -22,7 +22,7 @@ import Contact from './contact/reducers';
 import Profile from './profile/reducers';
 import Calender from './calendar/reducers';
 
-const rootReducers = combineReducers({  
+const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
   headerSearchData: headerSearchReducer,
   message: readMessageReducer,
@@ -30,6 +30,7 @@ const rootReducers = combineReducers({
   orders: orderReducer,
   sellers: sellersReducer,
   users: userReducer,
+  userGroup: userGroupReducer,
   team: teamReducer,
   auth: authReducer,
   gallery: galleryReducer,
@@ -44,7 +45,7 @@ const rootReducers = combineReducers({
   projects: projectReducer,
   project: SingleProjectReducer,
   ChangeLayoutMode,
-  chartContent: chartContentReducer, 
+  chartContent: chartContentReducer,
   cart: cartData,
   Todo,
   Note,

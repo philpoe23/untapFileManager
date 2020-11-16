@@ -256,7 +256,7 @@ const UserCard = Styled.div`
         width: 100%;
         border-radius: 50%;
         max-width: 150px;
-      }
+      }      
     }
     .card__more_actions{
       position: absolute;
@@ -331,7 +331,7 @@ const UserCard = Styled.div`
       img{
         margin-bottom: 18px;
         max-width: 120px;
-      }
+      }      
     }
     .card__actions{
       margin: -5px;

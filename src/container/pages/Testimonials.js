@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from 'pure-react-carousel';
 import { useSelector } from 'react-redux';
 import { TestimonialWrapper } from './style';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -70,6 +70,7 @@ const Testimonials = () => {
                       <FeatherIcon icon="arrow-right" />
                     </ButtonNext>
                   </div>
+                  <DotGroup />
                 </TestimonialWrapper>
               </CarouselProvider>
             </Cards>
