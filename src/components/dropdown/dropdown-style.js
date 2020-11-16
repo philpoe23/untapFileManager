@@ -16,6 +16,12 @@ const Content = Styled.div`
         background: ${({ theme }) => theme['primary-color']}10;
         color: ${({ theme }) => theme['primary-color']}
     }
+    .dropdown-theme-2{
+        a:hover{
+            background: ${({ theme }) => theme.pink}10;
+            color: ${({ theme }) => theme.pink}
+        }
+    }
 `;
 
 const DropdownStyle = Styled(Dropdown)`

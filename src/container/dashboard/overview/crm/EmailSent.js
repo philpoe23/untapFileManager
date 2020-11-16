@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Spin } from 'antd';
-import { RevenueChartWrapper } from '../../style';
+import { SentEmailWrapper } from '../../style';
 import { ChartjsDonut } from '../../../../components/charts/chartjs';
 import { deviceGetData, deviceFilterData } from '../../../../redux/chartContent/actionCreator';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
@@ -35,6 +35,7 @@ const EmailSent = () => {
 
   const labels = ['Total Sent', 'Opened', 'Not Opened'];
   const icons = ['Sent', 'Opened', 'NotOpen'];
+  const types = ['success', 'primary', 'warning'];
   const datasets = [
     {
       data: deviceState,
@@ -43,7 +44,7 @@ const EmailSent = () => {
   ];
 
   return (
-    <RevenueChartWrapper>
+    <SentEmailWrapper>
       {deviceState !== null && (
         <Cards
           isbutton={
@@ -80,24 +81,26 @@ const EmailSent = () => {
               <Spin />
             </div>
           ) : (
-            <div>
-              <ChartjsDonut labels={datasets} datasets={datasets} />
+            <div className="sent-emial-chart">
+              <ChartjsDonut labels={datasets} datasets={datasets} height={180} />
 
-              <div className="revenue-chart-data">
+              <div className="sent-emial-data">
                 {datasets.map((item, key) => {
                   const { data } = item;
                   return (
-                    <div key={key + 1}>
+                    <div className="sent-emial-box align-center-v" key={key + 1}>
                       {data.map((value, index) => {
                         return (
-                          <div key={value}>
-                            <div className="icon">
+                          <div className="sent-emial-item" key={value}>
+                            <div className={`sent-emial-icon icon-${types[index]}`}>
                               <img src={require(`../../../../static/img/icon/${icons[index]}.svg`)} alt="" />
                             </div>
-                            <p>
-                              <strong>{value}</strong>
-                            </p>
-                            <p>{labels[index]}</p>
+                            <div className="sent-emial-content">
+                              <h4>
+                                <strong>{value}</strong>
+                              </h4>
+                              <p>{labels[index]}</p>
+                            </div>
                           </div>
                         );
                       })}
@@ -109,7 +112,7 @@ const EmailSent = () => {
           )}
         </Cards>
       )}
-    </RevenueChartWrapper>
+    </SentEmailWrapper>
   );
 };
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Spin } from 'antd';
-import { NavLink, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { useDispatch, useSelector } from 'react-redux';
-import { PerformanceChartWrapper, Pstates } from '../../style';
-import { Cards } from '../../../../components/cards/frame/cards-frame';
-import Heading from '../../../../components/heading/heading';
+import { Spin } from 'antd';
+import PropTypes from 'prop-types';
+import { RevenueWrapper } from '../../style';
 import { ChartjsAreaChart } from '../../../../components/charts/chartjs';
-import { chartLinearGradient, customTooltips } from '../../../../components/utilities/utilities';
-import { performanceFilterData, performanceGetData, setIsLoading } from '../../../../redux/chartContent/actionCreator';
+import { customTooltips, chartLinearGradient } from '../../../../components/utilities/utilities';
+import { performanceFilterData, performanceGetData } from '../../../../redux/chartContent/actionCreator';
+import { Cards } from '../../../../components/cards/frame/cards-frame';
 
 const moreContent = (
   <>
@@ -34,8 +34,7 @@ const moreContent = (
     </NavLink>
   </>
 );
-
-const AverageSalesRevenue = () => {
+const TotalRevenue = ({ title }) => {
   const dispatch = useDispatch();
   const { performanceState, preIsLoading } = useSelector(state => {
     return {
@@ -45,11 +44,8 @@ const AverageSalesRevenue = () => {
   });
 
   const [state, setState] = useState({
-    performance: 'year',
-    performanceTab: 'users',
+    revenue: 'year',
   });
-
-  const { performance, performanceTab } = state;
 
   useEffect(() => {
     if (performanceGetData) {
@@ -57,25 +53,17 @@ const AverageSalesRevenue = () => {
     }
   }, [dispatch]);
 
-  const handleActiveChangePerformance = value => {
+  const handleActiveChangeRevenue = value => {
     setState({
       ...state,
-      performance: value,
+      revenue: value,
     });
-    dispatch(performanceFilterData(value));
-  };
-
-  const onPerformanceTab = value => {
-    setState({
-      ...state,
-      performanceTab: value,
-    });
-    return dispatch(setIsLoading());
+    return dispatch(performanceFilterData(value));
   };
 
   const performanceDatasets = performanceState !== null && [
     {
-      data: performanceState[performanceTab][1],
+      data: performanceState.users[1],
       borderColor: '#5F63F2',
       borderWidth: 4,
       fill: true,
@@ -91,9 +79,11 @@ const AverageSalesRevenue = () => {
       pointBorderColor: '#fff',
       pointBackgroundColor: '#5F63F2',
       hoverBorderWidth: 5,
+      amount: '$7,596',
+      amountClass: 'current-amount',
     },
     {
-      data: performanceState[performanceTab][2],
+      data: performanceState.users[2],
       borderColor: '#C6D0DC',
       borderWidth: 2,
       fill: false,
@@ -102,28 +92,30 @@ const AverageSalesRevenue = () => {
       borderDash: [3, 3],
       pointRadius: '0',
       hoverRadius: '0',
+      amount: '$3,258',
+      amountClass: 'prev-amount',
     },
   ];
 
   return (
-    <PerformanceChartWrapper>
+    <RevenueWrapper>
       {performanceState !== null && (
         <Cards
           isbutton={
             <div className="card-nav">
               <ul>
-                <li className={performance === 'week' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangePerformance('week')} to="#">
+                <li className={state.revenue === 'week' ? 'active' : 'deactivate'}>
+                  <Link onClick={() => handleActiveChangeRevenue('week')} to="#">
                     Week
                   </Link>
                 </li>
-                <li className={performance === 'month' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangePerformance('month')} to="#">
+                <li className={state.revenue === 'month' ? 'active' : 'deactivate'}>
+                  <Link onClick={() => handleActiveChangeRevenue('month')} to="#">
                     Month
                   </Link>
                 </li>
-                <li className={performance === 'year' ? 'active' : 'deactivate'}>
-                  <Link onClick={() => handleActiveChangePerformance('year')} to="#">
+                <li className={state.revenue === 'year' ? 'active' : 'deactivate'}>
+                  <Link onClick={() => handleActiveChangeRevenue('year')} to="#">
                     Year
                   </Link>
                 </li>
@@ -131,51 +123,34 @@ const AverageSalesRevenue = () => {
             </div>
           }
           more={moreContent}
-          title="Average Sales Revenue"
+          title={title}
           size="large"
         >
-          <Pstates>
-            <div
-              onClick={() => onPerformanceTab('users')}
-              className={`growth-upward ${performanceTab === 'users' && 'active'}`}
-              role="button"
-              onKeyPress={() => {}}
-              tabIndex="0"
-            >
-              <p>This Month Revenue</p>
-              <Heading as="h1">
-                {performanceState.users[0]}
-                <sub>
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} /> 25%
-                  </span>
-                </sub>
-              </Heading>
-            </div>
-            <div
-              onClick={() => onPerformanceTab('sessions')}
-              className={`growth-upward ${performanceTab === 'sessions' && 'active'}`}
-              role="button"
-              onKeyPress={() => {}}
-              tabIndex="0"
-            >
-              <p>Last Month Revenue</p>
-              <Heading as="h1">
-                {performanceState.sessions[0]}
-                <sub>
-                  <span>
-                    <FeatherIcon icon="arrow-up" size={14} /> 47%
-                  </span>
-                </sub>
-              </Heading>
-            </div>
-          </Pstates>
           {preIsLoading ? (
             <div className="sd-spin">
               <Spin />
             </div>
           ) : (
             <div className="performance-lineChart">
+              <ul>
+                {performanceDatasets &&
+                  performanceDatasets.map((item, key) => {
+                    return (
+                      <li key={key + 1} className="custom-label">
+                        <strong className={item.amountClass}>{item.amount}</strong>
+                        <div>
+                          <span
+                            style={{
+                              backgroundColor: item.borderColor,
+                            }}
+                          />
+                          {item.label}
+                        </div>
+                      </li>
+                    );
+                  })}
+              </ul>
+
               <ChartjsAreaChart
                 id="performance"
                 labels={performanceState.labels}
@@ -187,6 +162,13 @@ const AverageSalesRevenue = () => {
                   },
                   legend: {
                     display: false,
+                    position: 'bottom',
+                    align: 'start',
+                    labels: {
+                      boxWidth: 6,
+                      display: false,
+                      usePointStyle: true,
+                    },
                   },
                   hover: {
                     mode: 'index',
@@ -201,7 +183,7 @@ const AverageSalesRevenue = () => {
                     custom: customTooltips,
                     callbacks: {
                       title() {
-                        return performanceTab;
+                        return `Total Revenue`;
                       },
                       label(t, d) {
                         const { yLabel, datasetIndex } = t;
@@ -223,7 +205,8 @@ const AverageSalesRevenue = () => {
                           beginAtZero: true,
                           fontSize: 13,
                           fontColor: '#182b49',
-                          max: 80,
+                          suggestedMin: 50,
+                          suggestedMax: 80,
                           stepSize: 20,
                           callback(label) {
                             return `${label}k`;
@@ -248,29 +231,22 @@ const AverageSalesRevenue = () => {
                     ],
                   },
                 }}
-                height={window.innerWidth <= 575 ? 200 : 100}
+                height={window.innerWidth <= 575 ? 200 : 82}
               />
-              <ul>
-                {performanceDatasets &&
-                  performanceDatasets.map((item, index) => {
-                    return (
-                      <li key={index + 1} className="custom-label">
-                        <span
-                          style={{
-                            backgroundColor: item.borderColor,
-                          }}
-                        />
-                        {item.label}
-                      </li>
-                    );
-                  })}
-              </ul>
             </div>
           )}
         </Cards>
       )}
-    </PerformanceChartWrapper>
+    </RevenueWrapper>
   );
 };
 
-export default AverageSalesRevenue;
+TotalRevenue.defaultProps = {
+  title: 'Total Revenue',
+};
+
+TotalRevenue.propTypes = {
+  title: PropTypes.string,
+};
+
+export default TotalRevenue;

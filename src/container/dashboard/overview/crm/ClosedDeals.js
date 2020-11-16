@@ -33,6 +33,7 @@ const ClosedDeals = () => {
       backgroundColor: '#20C99780',
       hoverBackgroundColor: '#20C997',
       label: 'Won',
+      average: '50.8',
       maxBarThickness: 10,
       barThickness: 12,
       percent: 49,
@@ -42,6 +43,7 @@ const ClosedDeals = () => {
       backgroundColor: '#5F63F280',
       hoverBackgroundColor: '#5F63F2',
       label: 'Amount',
+      average: '$28k',
       maxBarThickness: 10,
       barThickness: 12,
       percent: 60,
@@ -90,22 +92,19 @@ const ClosedDeals = () => {
             </div>
           ) : (
             <CardBarChart>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
+              <div className="deals-barChart">
                 {closeDealDatasets.map((item, key) => {
                   return (
                     <div key={key + 1} className="card-bar-top">
                       <h4>
                         {item.label}
-                        <span className={item.percent >= 50 ? 'growth-up' : 'growth-down'}>
-                          <FeatherIcon icon={item.percent >= 50 ? 'arrow-up' : 'arrow-down'} size={14} />
-                          {item.percent}%
-                        </span>
+                        <p className={item.percent >= 50 ? 'growth-up' : 'growth-down'}>
+                          <span className="deal-value">{item.average}</span>
+                          <span className="deal-percentage">
+                            <FeatherIcon icon={item.percent >= 50 ? 'arrow-up' : 'arrow-down'} size={14} />
+                            {item.percent}%
+                          </span>
+                        </p>
                       </h4>
                     </div>
                   );
@@ -175,8 +174,9 @@ const ClosedDeals = () => {
                     ],
                   },
                 }}
+                height={window.innerWidth <= 575 ? 200 : 178}
               />
-              <ul>
+              <ul className="deals-list">
                 {closeDealDatasets &&
                   closeDealDatasets.map((item, key) => {
                     return (
