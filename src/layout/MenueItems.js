@@ -48,16 +48,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       overflowedIndicator={<FeatherIcon icon="more-vertical" />}
       openKeys={openKeys}
     >
-      <SubMenu
-        key="dashboard"
-        icon={!topMenu && <FeatherIcon icon="home" />}
-        title={
-          <>
-            <span className="title">Dashboard</span>
-            <span className="badge badge-success">New</span>
-          </>
-        }
-      >
+      <SubMenu key="dashboard" icon={!topMenu && <FeatherIcon icon="home" />} title="Dashboard">
         <Menu.Item key="home">
           <NavLink onClick={toggleCollapsed} to={`${path}`}>
             Social Media
@@ -81,11 +72,13 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="crm">
           <NavLink onClick={toggleCollapsed} to={`${path}/crm`}>
             CRM
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="sales">
           <NavLink onClick={toggleCollapsed} to={`${path}/sales`}>
             Sales Performance
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
       </SubMenu>
@@ -270,21 +263,25 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="grid">
           <NavLink onClick={toggleCollapsed} to={`${path}/users/grid`}>
             Users Grid
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="list">
           <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
             Users List
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="grid-style">
           <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-style`}>
             Users Grid Style
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="grid-group">
           <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-group`}>
             Users Group
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="addUser">
@@ -751,11 +748,19 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Settings
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="image" />} key="gallery">
-        <NavLink onClick={toggleCollapsed} to={`${path}/gallery`}>
-          Gallery
-        </NavLink>
-      </Menu.Item>
+
+      <SubMenu key="gallery" icon={!topMenu && <FeatherIcon icon="image" />} title="Gallery">
+        <Menu.Item key="one">
+          <NavLink onClick={toggleCollapsed} to={`${path}/gallery/one`}>
+            Gallery 1
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="two">
+          <NavLink onClick={toggleCollapsed} to={`${path}/gallery/two`}>
+            Gallery 2
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="dollar-sign" />} key="pricing">
         <NavLink onClick={toggleCollapsed} to={`${path}/pricing`}>
           Pricing

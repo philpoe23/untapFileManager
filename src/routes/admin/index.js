@@ -7,6 +7,7 @@ import Users from './users';
 import Widgets from './widgets';
 import Ecommerce from './ecommerce';
 import Features from './features';
+import Gallery from './gallery';
 import withAdminLayout from '../../layout/withAdminLayout';
 
 const Projects = lazy(() => import('./projects'));
@@ -39,6 +40,7 @@ const Admin = () => {
         <Route path={`${path}`} component={Pages} />
         <Route path={`${path}`} component={Features} />
         <Route path={`${path}/users`} component={Users} />
+        <Route exact path={`${path}/gallery`} component={Gallery} />
         <Route path={`${path}/project`} component={Projects} />
         <Route path={`${path}/calendar`} component={Calendars} />
         <Route path={`${path}/email/:page`} component={Inbox} />

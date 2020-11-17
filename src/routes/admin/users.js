@@ -10,10 +10,10 @@ const PagesRoute = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path={`${path}`} component={Users} />
       <Route path={`${path}/add-user`} component={AddUser} />
       <Route path={`${path}/dataTable`} component={DataTable} />
       <Route path={`${path}/team`} component={Team} />
+      <Route path={`${path}`} component={Users} />
     </Switch>
   );
 };
