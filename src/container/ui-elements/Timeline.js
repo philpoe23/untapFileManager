@@ -9,6 +9,17 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import {
+  SwRocket,
+  SwShieldCheck,
+  SwPenTool,
+  SwNotification,
+  SwUsers,
+  SwLayers,
+  SwPicture,
+  SwClock,
+  SwEllipse,
+} from '../../components/utilities/icons';
 
 const Timelines = () => {
   return (
@@ -30,6 +41,50 @@ const Timelines = () => {
       <Main>
         <Row gutter={25}>
           <Col md={12} sm={24} xs={24}>
+            <Cards title="Basic" caption="The simplest use of Timelines">
+              <Timeline>
+                <Timeline.Item dot={<SwRocket size={20} color="#5F63F2" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwShieldCheck size={20} color="#2C99FF" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwPenTool size={24} color="#fa8b0c" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwNotification size={17} color="#FF69A5" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwUsers size={21} color="#20c997" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwLayers size={21} color="#ff4d4f" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwPicture size={21} color="#5f63f2" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwClock size={21} color="#ff69a5" />}>
+                  <h3>02:30 PM</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>HTML,CSS,VueJS</p>
+                </Timeline.Item>
+              </Timeline>
+            </Cards>
             <Cards title="Basic" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
@@ -66,6 +121,89 @@ const Timelines = () => {
             </Cards>
           </Col>
           <Col md={12} sm={24} xs={24}>
+            <Cards title="Timeline 1" caption="The simplest use of Timelines">
+              <Timeline>
+                <Timeline.Item dot={<SwEllipse size={10} color="#ADB4D2" />}>
+                  <Row gutter={10}>
+                    <Col md={20}>
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+                    </Col>
+                    <Col md={4}>6:00 am</Col>
+                  </Row>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#5F63F2" />}>
+                  <Row gutter={10}>
+                    <Col md={20}>
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+                    </Col>
+                    <Col md={4}>1 hrs</Col>
+                  </Row>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#2C99FF" />}>
+                  <Row gutter={10}>
+                    <Col md={20}>
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+                    </Col>
+                    <Col md={4}>2 days</Col>
+                  </Row>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#20C997" />}>
+                  <Row gutter={10}>
+                    <Col md={20}>
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+                    </Col>
+                    <Col md={4}>3 week</Col>
+                  </Row>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#FA8B0C" />}>
+                  <Row gutter={10}>
+                    <Col md={20}>
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+                    </Col>
+                    <Col md={4}>2 month</Col>
+                  </Row>
+                </Timeline.Item>
+              </Timeline>
+            </Cards>
+            <Cards title="Timeline 2" caption="The simplest use of Timelines">
+              <Timeline mode="alternate">
+                <Timeline.Item dot={<SwEllipse size={10} color="#ADB4D2" />}>
+                  <h2>10:00 AM</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of theprintng and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the,
+                  </p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#5F63F2" />}>
+                  <h2>10:00 AM</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of theprintng and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the,
+                  </p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#2C99FF" />}>
+                  <h2>10:00 AM</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of theprintng and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the,
+                  </p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#20C997" />}>
+                  <h2>10:00 AM</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of theprintng and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the,
+                  </p>
+                </Timeline.Item>
+                <Timeline.Item dot={<SwEllipse size={10} color="#FA8B0C" />}>
+                  <h2>10:00 AM</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of theprintng and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the,
+                  </p>
+                </Timeline.Item>
+              </Timeline>
+            </Cards>
             <Cards title="Color" caption="The simplest use of Timelines">
               <Timeline>
                 <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>

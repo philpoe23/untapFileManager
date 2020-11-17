@@ -5,7 +5,7 @@ import { Table } from 'antd';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import ReactTooltip from 'react-tooltip';
 import { LocationMapWrapper } from '../../style';
-import { locationGetData, locationFilterData } from '../../../../redux/chartContent/actionCreator';
+import { locationGetData } from '../../../../redux/chartContent/actionCreator';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 
 const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
@@ -19,23 +19,11 @@ const TopCountriesRevenue = () => {
     };
   });
 
-  const [state, setState] = useState({
-    location: 'today',
-  });
-
   useEffect(() => {
     if (locationGetData) {
       dispatch(locationGetData());
     }
   }, [dispatch]);
-
-  const handleActiveChangeLocation = value => {
-    setState({
-      ...state,
-      location: value,
-    });
-    dispatch(locationFilterData(value));
-  };
 
   const moreContent = (
     <>
