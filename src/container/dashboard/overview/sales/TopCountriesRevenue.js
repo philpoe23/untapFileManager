@@ -18,14 +18,17 @@ const TopCountriesRevenue = () => {
       topMenu: state.ChangeLayoutMode.topMenu,
     };
   });
+
   const [state, setState] = useState({
     location: 'today',
   });
+
   useEffect(() => {
     if (locationGetData) {
       dispatch(locationGetData());
     }
   }, [dispatch]);
+
   const handleActiveChangeLocation = value => {
     setState({
       ...state,
@@ -76,6 +79,7 @@ const TopCountriesRevenue = () => {
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [content, setContent] = useState('');
+
   const rounded = num => {
     if (num > 1000000000) {
       return `${Math.round(num / 100000000) / 10}Bn`;
@@ -85,6 +89,7 @@ const TopCountriesRevenue = () => {
     }
     return `${Math.round(num / 100) / 10}K`;
   };
+
   function handleZoomIn() {
     if (position.zoom >= 4) return;
     setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));

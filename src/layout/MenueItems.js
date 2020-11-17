@@ -267,9 +267,24 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Team
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="users">
-          <NavLink onClick={toggleCollapsed} to={`${path}/users/users`}>
-            Users
+        <Menu.Item key="grid">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/grid`}>
+            Users Grid
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="list">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
+            Users List
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="grid-style">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-style`}>
+            Users Grid Style
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="grid-group">
+          <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-group`}>
+            Users Group
           </NavLink>
         </Menu.Item>
         <Menu.Item key="addUser">
