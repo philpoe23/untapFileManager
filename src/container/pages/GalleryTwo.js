@@ -1,9 +1,8 @@
-import React, { useState, Suspense, lazy } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
-import { Row, Col, Spin, Skeleton } from 'antd';
+import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
-import Masonry from 'react-masonry-css';
 import { GalleryNav } from './style';
 import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
@@ -12,18 +11,10 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { Cards } from '../../components/cards/frame/cards-frame';
-
-const GalleryCards = lazy(() => import('./overview/GalleryCard'));
+import Masonry from 'react-masonry-css';
 
 const GalleryTwo = () => {
   const dispatch = useDispatch();
-  const { gallery, isLoading } = useSelector(state => {
-    return {
-      gallery: state.gallery.data,
-      isLoading: state.gallery.loading,
-    };
-  });
 
   const [state, setState] = useState({
     activeClass: '',
@@ -108,8 +99,14 @@ const GalleryTwo = () => {
             </GalleryNav>
           </Col>
 
-          {/* <Masonry breakpointCols={2} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
-            {gallery.map(item => {
+          <Masonry breakpointCols={4} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+            <img style={{ width: '100%' }} src={require(`../../static/img/profile/cover-img.png`)} alt="" />
+            <img style={{ width: '100%' }} src={require(`../../static/img/gallery/2.png`)} alt="" />
+            <img style={{ width: '100%' }} src={require(`../../static/img/gallery/3.png`)} alt="" />
+            <img style={{ width: '100%' }} src={require(`../../static/img/gallery/4.png`)} alt="" />
+            <img style={{ width: '100%' }} src={require(`../../static/img/gallery/5.png`)} alt="" />
+            <img style={{ width: '100%' }} src={require(`../../static/img/gallery/6.png`)} alt="" />
+            {/* {gallery.map(item => {
               const { id, name, img, category } = item;
               return (
                 <figure key={id}>
@@ -124,8 +121,8 @@ const GalleryTwo = () => {
                   </figcaption>
                 </figure>
               );
-            })}
-          </Masonry> */}
+            })} */}
+          </Masonry>
         </Row>
       </Main>
     </>

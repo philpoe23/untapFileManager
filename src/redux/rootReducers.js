@@ -21,6 +21,7 @@ import Note from './note/reducers';
 import Contact from './contact/reducers';
 import Profile from './profile/reducers';
 import Calender from './calendar/reducers';
+import FileManager from './fileManager/reducers';
 
 const rootReducers = combineReducers({
   themeUsers: themeUsersReducer,
@@ -52,6 +53,7 @@ const rootReducers = combineReducers({
   Contact,
   Profile,
   Calender,
+  FileManager,
 });
 
 export default rootReducers;

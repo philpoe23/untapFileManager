@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col, Progress } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-
 import { Focard, RatioCard } from '../../style';
 import { Cards } from '../../../../components/cards/frame/cards-frame';
 import Heading from '../../../../components/heading/heading';

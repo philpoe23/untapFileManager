@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "name": "Design",
+        "file": [
+            {
+                "id": 1,
+                "name": "one",
+                "type": "png",
+                "size": "1000"
+            }
+        ],
+        "folder": [
+            {
+                "id": 1,
+                "name": "Newfolder",
+                "folder": [],
+                "file": [
+                    {
+                        "id": 1,
+                        "name": "one",
+                        "type": "png",
+                        "size": "1000"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Newfolder2",
+                "folder": [],
+                "file": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Prototypes",
+        "file": [
+            {
+                "id": 1,
+                "name": "hello",
+                "type": "svg",
+                "size": "10000"
+            }
+        ],
+        "folder": [
+            {
+                "id": 1,
+                "name": "Newfolder",
+                "folder": [
+                    {
+                        "id": 1,
+                        "name": "Newfolder",
+                        "folder": [],
+                        "file": [
+                            {
+                                "id": 1,
+                                "name": "one",
+                                "type": "png",
+                                "size": "1000"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Newfolder2",
+                        "folder": [],
+                        "file": []
+                    }
+                ],
+                "file": [
+                    {
+                        "id": 1,
+                        "name": "one",
+                        "type": "png",
+                        "size": "1000"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Newfolder2",
+                "folder": [
+                    {
+                        "id": 1,
+                        "name": "Newfolder",
+                        "folder": [
+                            {
+                                "id": 1,
+                                "name": "Newfolder",
+                                "folder": [],
+                                "file": [
+                                    {
+                                        "id": 1,
+                                        "name": "one",
+                                        "type": "png",
+                                        "size": "1000"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "name": "Newfolder2",
+                                "folder": [],
+                                "file": []
+                            }
+                        ],
+                        "file": [
+                            {
+                                "id": 1,
+                                "name": "one",
+                                "type": "png",
+                                "size": "1000"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Newfolder2",
+                        "folder": [],
+                        "file": []
+                    }
+                ],
+                "file": []
+            }
+        ]
+    }
+]
