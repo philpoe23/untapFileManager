@@ -2253,3 +2253,7 @@ html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow {
 html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
   padding-right: 15px !important;
 }
+
+.common-ul{
+  padding-left: 10px;
+}
