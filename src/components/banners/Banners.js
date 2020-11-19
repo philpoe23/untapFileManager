@@ -1,17 +1,19 @@
 import React from 'react';
-import { Figure2, Figure3, Figure6, Figure7 } from './Style';
+import { Figure2, Figure3, Figure6, Figure7, BannerNormal } from './Style';
 import { Button } from '../buttons/buttons';
 import { Cards } from '../cards/frame/cards-frame';
 
 const Banner1 = () => {
   return (
-    <Cards headless>
-      <h2>15 Days Free Trail</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-      <Button className="btn-outlined" size="small" outlined type="light">
-        Start
-      </Button>
-    </Cards>
+    <BannerNormal>
+      <Cards headless>
+        <h2>15 Days Free Trail</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+        <Button className="btn-outlined" size="small" outlined type="primary">
+          Start
+        </Button>
+      </Cards>
+    </BannerNormal>
   );
 };
 
