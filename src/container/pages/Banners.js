@@ -7,7 +7,19 @@ import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { Banner1, Banner2, Banner3, Banner4, Banner5, Banner6, Banner7 } from '../../components/banners/Banners';
+import {
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+  Banner5,
+  Banner6,
+  Banner7,
+  BannerCarousel,
+  BannerLong,
+  BannerCard,
+  BannerCard2,
+} from '../../components/banners/Banners';
 
 const Banners = () => {
   return (
@@ -48,6 +60,18 @@ const Banners = () => {
           </Col>
           <Col md={8} sm={24} xs={24}>
             <Banner7 />
+          </Col>
+          <Col md={4} sm={24} xs={24}>
+            <BannerCarousel />
+          </Col>
+          <Col md={4} sm={24} xs={24}>
+            <BannerLong />
+          </Col>
+          <Col md={8} sm={24} xs={24}>
+            <BannerCard />
+          </Col>
+          <Col md={8} sm={24} xs={24}>
+            <BannerCard2 />
           </Col>
         </Row>
       </Main>

@@ -1,5 +1,15 @@
 import React from 'react';
-import { Figure2, Figure3, Figure6, Figure7, BannerNormal } from './Style';
+import { Carousel } from 'antd';
+import {
+  Figure2,
+  Figure3,
+  Figure6,
+  Figure7,
+  BannerNormal,
+  BannerCarouselWrap,
+  BannerLongWrap,
+  BannerCardWrap,
+} from './Style';
 import { Button } from '../buttons/buttons';
 import { Cards } from '../cards/frame/cards-frame';
 
@@ -19,7 +29,7 @@ const Banner1 = () => {
 
 const Banner2 = () => {
   return (
-    <Cards bodyStyle={{ background: '#5F63F2', borderRadius: '10px' }} headless>
+    <Cards bodyStyle={{ background: '#5F63F2', borderRadius: '10px', minHeight: '270px' }} headless>
       <Figure2>
         <img src={require('../../static/img/banner/1.png')} alt="" />
         <figcaption>
@@ -36,7 +46,7 @@ const Banner2 = () => {
 
 const Banner3 = () => {
   return (
-    <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px' }} headless>
+    <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px', minHeight: '270px' }} headless>
       <Figure3>
         <img src={require('../../static/img/banner/2.png')} alt="" />
         <figcaption>
@@ -52,11 +62,11 @@ const Banner3 = () => {
 
 const Banner4 = () => {
   return (
-    <Cards bodyStyle={{ background: '#272B41', borderRadius: '10px' }} headless>
-      <Figure3>
+    <Cards bodyStyle={{ background: '#272B41', borderRadius: '10px', minHeight: '270px' }} headless>
+      <Figure3 className="theme-3">
         <img src={require('../../static/img/banner/3.png')} alt="" />
         <figcaption>
-          <h2>Earn More Money</h2>
+          <h2>Win Your Bonus</h2>
           <p>Weekly performance bonus</p>
           <Button size="large" type="white">
             Learn More
@@ -69,8 +79,17 @@ const Banner4 = () => {
 
 const Banner5 = () => {
   return (
-    <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px' }} headless>
-      <Figure3>
+    <Cards
+      bodyStyle={{
+        background: '#5F63F2',
+        borderRadius: '10px',
+        minHeight: '265px',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      headless
+    >
+      <Figure3 className="theme-wide">
         <img src={require('../../static/img/banner/4.png')} alt="" />
         <figcaption>
           <h2>Congratulations Jhon!</h2>
@@ -87,14 +106,20 @@ const Banner5 = () => {
 const Banner6 = () => {
   return (
     <Cards
-      bodyStyle={{ background: `url(${require('../../static/img/banner/5.png')})`, borderRadius: '10px' }}
+      bodyStyle={{
+        background: `url(${require('../../static/img/banner/5.png')})`,
+        borderRadius: '10px',
+        minHeight: '265px',
+        display: 'flex',
+        alignItems: 'center',
+      }}
       headless
     >
       <Figure6>
         <img src={require('../../static/img/banner/badge.svg')} alt="" />
         <figcaption>
           <h2>Up to 50 OFF</h2>
-          <Button className="btn-outlined" size="small" outlined type="light">
+          <Button className="btn-outlined" size="small" outlined type="danger">
             Buy Now
           </Button>
         </figcaption>
@@ -105,19 +130,112 @@ const Banner6 = () => {
 
 const Banner7 = () => {
   return (
-    <Cards headless>
-      <Figure7>
-        <img src={require('../../static/img/banner/6.png')} alt="" />
-        <figcaption>
-          <h2>Subscribe to our newsletter</h2>
-          <p>Lorem ipsum dolor sit amet, consetetur </p>
-          <Button className="btn-outlined" size="small" outlined type="light">
-            Subscribe Now
-          </Button>
-        </figcaption>
-      </Figure7>
-    </Cards>
+    <BannerNormal className="theme-wide">
+      <Cards headless>
+        <Figure7>
+          <img src={require('../../static/img/banner/6.png')} alt="" />
+          <figcaption>
+            <h2>Subscribe to our newsletter</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur </p>
+            <Button className="btn-outlined" size="large" outlined type="primary">
+              Subscribe Now
+            </Button>
+          </figcaption>
+        </Figure7>
+      </Cards>
+    </BannerNormal>
   );
 };
 
-export { Banner1, Banner2, Banner3, Banner4, Banner5, Banner6, Banner7 };
+const BannerCarousel = () => {
+  return (
+    <BannerCarouselWrap>
+      <Carousel>
+        <div className="banner-signle">
+          <div className="banner-single__img">
+            <img src={require('../../static/img/banner/8.png')} alt="" />
+          </div>
+          <div className="banner-single__content">
+            <h3>Achievements</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+          </div>
+        </div>
+        {/* End of /.banner-signle */}
+        <div className="banner-signle">
+          <div className="banner-single__img">
+            <img src={require('../../static/img/banner/8.png')} alt="" />
+          </div>
+          <div className="banner-single__content">
+            <h3>Achievements</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+          </div>
+        </div>
+        {/* End of /.banner-signle */}
+        <div className="banner-signle">
+          <div className="banner-single__img">
+            <img src={require('../../static/img/banner/8.png')} alt="" />
+          </div>
+          <div className="banner-single__content">
+            <h3>Achievements</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+          </div>
+        </div>
+        {/* End of /.banner-signle */}
+      </Carousel>
+    </BannerCarouselWrap>
+  );
+};
+
+const BannerLong = () => {
+  return (
+    <BannerLongWrap>
+      <div className="banner-long-inner">
+        <h2>Up To Date </h2>
+        <img src={require('../../static/img/banner/9.png')} alt="" />
+      </div>
+    </BannerLongWrap>
+  );
+};
+
+const BannerCard = () => {
+  return (
+    <BannerCardWrap style={{ backgroundColor: '#FA8B0C' }}>
+      <div className="banner-card-inner">
+        <h2>Need More Space?</h2>
+        <Button size="small" type="white">
+          Buy Storage
+        </Button>
+        <img src={require('../../static/img/banner/10.png')} alt="" />
+      </div>
+    </BannerCardWrap>
+  );
+};
+
+const BannerCard2 = () => {
+  return (
+    <BannerCardWrap style={{ backgroundColor: '#FF4D4F' }}>
+      <div className="banner-card-inner theme-2">
+        <h2>Create Sale Report</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</p>
+        <Button size="small" type="white">
+          Learn More
+        </Button>
+        <img src={require('../../static/img/banner/11.png')} alt="" />
+      </div>
+    </BannerCardWrap>
+  );
+};
+
+export {
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+  Banner5,
+  Banner6,
+  Banner7,
+  BannerCarousel,
+  BannerLong,
+  BannerCard,
+  BannerCard2,
+};
