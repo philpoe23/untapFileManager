@@ -19,6 +19,8 @@ import {
   BannerLong,
   BannerCard,
   BannerCard2,
+  BannerCta,
+  BannerCta2,
 } from '../../components/banners/Banners';
 
 const Banners = () => {
@@ -72,6 +74,12 @@ const Banners = () => {
           </Col>
           <Col md={8} sm={24} xs={24}>
             <BannerCard2 />
+          </Col>
+          <Col md={12} sm={24} xs={24}>
+            <BannerCta />
+          </Col>
+          <Col md={12} sm={24} xs={24}>
+            <BannerCta2 />
           </Col>
         </Row>
       </Main>

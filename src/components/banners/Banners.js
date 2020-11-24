@@ -5,10 +5,12 @@ import {
   Figure3,
   Figure6,
   Figure7,
+  BannerWrapper,
   BannerNormal,
   BannerCarouselWrap,
   BannerLongWrap,
   BannerCardWrap,
+  BannerCtaWrap,
 } from './Style';
 import { Button } from '../buttons/buttons';
 import { Cards } from '../cards/frame/cards-frame';
@@ -29,102 +31,112 @@ const Banner1 = () => {
 
 const Banner2 = () => {
   return (
-    <Cards bodyStyle={{ background: '#5F63F2', borderRadius: '10px', minHeight: '270px' }} headless>
-      <Figure2>
-        <img src={require('../../static/img/banner/1.png')} alt="" />
-        <figcaption>
-          <h2>Upgrade your plan</h2>
-          <p>Lorem ipsum dolor sit amet</p>
-          <Button size="large" type="white">
-            Upgrade
-          </Button>
-        </figcaption>
-      </Figure2>
-    </Cards>
+    <BannerWrapper>
+      <Cards className="mb-70" bodyStyle={{ background: '#5F63F2', borderRadius: '10px', minHeight: '270px' }} headless>
+        <Figure2>
+          <img src={require('../../static/img/banner/1.png')} alt="" />
+          <figcaption>
+            <h2>Upgrade your plan</h2>
+            <p>Lorem ipsum dolor sit amet</p>
+            <Button size="large" type="white">
+              Upgrade
+            </Button>
+          </figcaption>
+        </Figure2>
+      </Cards>
+    </BannerWrapper>
   );
 };
 
 const Banner3 = () => {
   return (
-    <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px', minHeight: '270px' }} headless>
-      <Figure3>
-        <img src={require('../../static/img/banner/2.png')} alt="" />
-        <figcaption>
-          <h2>Earn More Money</h2>
-          <Button size="large" type="white">
-            Learn More
-          </Button>
-        </figcaption>
-      </Figure3>
-    </Cards>
+    <BannerWrapper>
+      <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px', minHeight: '270px' }} headless>
+        <Figure3>
+          <img src={require('../../static/img/banner/2.png')} alt="" />
+          <figcaption>
+            <h2>Earn More Money</h2>
+            <Button size="large" type="white">
+              Learn More
+            </Button>
+          </figcaption>
+        </Figure3>
+      </Cards>
+    </BannerWrapper>
   );
 };
 
 const Banner4 = () => {
   return (
-    <Cards bodyStyle={{ background: '#272B41', borderRadius: '10px', minHeight: '270px' }} headless>
-      <Figure3 className="theme-3">
-        <img src={require('../../static/img/banner/3.png')} alt="" />
-        <figcaption>
-          <h2>Win Your Bonus</h2>
-          <p>Weekly performance bonus</p>
-          <Button size="large" type="white">
-            Learn More
-          </Button>
-        </figcaption>
-      </Figure3>
-    </Cards>
+    <BannerWrapper>
+      <Cards bodyStyle={{ background: '#272B41', borderRadius: '10px', minHeight: '270px' }} headless>
+        <Figure3 className="theme-3">
+          <img src={require('../../static/img/banner/3.png')} alt="" />
+          <figcaption>
+            <h2>Win Your Bonus</h2>
+            <p>Weekly performance bonus</p>
+            <Button size="large" type="white">
+              Learn More
+            </Button>
+          </figcaption>
+        </Figure3>
+      </Cards>
+    </BannerWrapper>
   );
 };
 
 const Banner5 = () => {
   return (
-    <Cards
-      bodyStyle={{
-        background: '#5F63F2',
-        borderRadius: '10px',
-        minHeight: '265px',
-        display: 'flex',
-        alignItems: 'center',
-      }}
-      headless
-    >
-      <Figure3 className="theme-wide">
-        <img src={require('../../static/img/banner/4.png')} alt="" />
-        <figcaption>
-          <h2>Congratulations Jhon!</h2>
-          <p>Best Seller on the last month.</p>
-          <Button size="large" type="white">
-            Learn More
-          </Button>
-        </figcaption>
-      </Figure3>
-    </Cards>
+    <BannerWrapper>
+      <Cards
+        bodyStyle={{
+          background: '#5F63F2',
+          borderRadius: '10px',
+          minHeight: '265px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+        headless
+      >
+        <Figure3 className="theme-wide">
+          <img src={require('../../static/img/banner/4.png')} alt="" />
+          <figcaption>
+            <h2>Congratulations Jhon!</h2>
+            <p>Best Seller on the last month.</p>
+            <Button size="large" type="white">
+              Learn More
+            </Button>
+          </figcaption>
+        </Figure3>
+      </Cards>
+    </BannerWrapper>
   );
 };
 
 const Banner6 = () => {
   return (
-    <Cards
-      bodyStyle={{
-        background: `url(${require('../../static/img/banner/5.png')})`,
-        borderRadius: '10px',
-        minHeight: '265px',
-        display: 'flex',
-        alignItems: 'center',
-      }}
-      headless
-    >
-      <Figure6>
-        <img src={require('../../static/img/banner/badge.svg')} alt="" />
-        <figcaption>
-          <h2>Up to 50 OFF</h2>
-          <Button className="btn-outlined" size="small" outlined type="danger">
-            Buy Now
-          </Button>
-        </figcaption>
-      </Figure6>
-    </Cards>
+    <BannerWrapper>
+      <Cards
+        bodyStyle={{
+          background: `url(${require('../../static/img/banner/5.png')})`,
+          borderRadius: '10px',
+          minHeight: '265px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+        headless
+      >
+        <Figure6>
+          <img src={require('../../static/img/banner/badge.svg')} alt="" />
+          <figcaption>
+            <h2>Up to 50 OFF</h2>
+            <Button className="btn-outlined" size="small" outlined type="danger">
+              Buy Now
+            </Button>
+          </figcaption>
+        </Figure6>
+      </Cards>
+    </BannerWrapper>
   );
 };
 
@@ -150,7 +162,7 @@ const Banner7 = () => {
 const BannerCarousel = () => {
   return (
     <BannerCarouselWrap>
-      <Carousel>
+      <Carousel autoplay>
         <div className="banner-signle">
           <div className="banner-single__img">
             <img src={require('../../static/img/banner/8.png')} alt="" />
@@ -226,6 +238,43 @@ const BannerCard2 = () => {
   );
 };
 
+const BannerCta = () => {
+  return (
+    <BannerCtaWrap style={{ backgroundColor: '#FA8B0C30' }}>
+      <div className="banner-cta align-center-v">
+        <div className="banner-cta__img">
+          <img src={require('../../static/img/banner/12.png')} alt="" />
+        </div>
+        <div className="banner-cta__content">
+          <h2>Dedicated Support</h2>
+          <Button size="small" type="primary">
+            Learn More
+          </Button>
+        </div>
+      </div>
+    </BannerCtaWrap>
+  );
+};
+
+const BannerCta2 = () => {
+  return (
+    <BannerCtaWrap style={{ backgroundColor: '#2C99FF' }}>
+      <div className="banner-cta align-center-v theme-2">
+        <div className="banner-cta__content">
+          <h2>Welcome Back Garry Sobars!</h2>
+          <p>Lorem ipsum dolor amet, consetetur sadipscing elitr sed diam </p>
+          <Button size="small" type="white">
+            Learn More
+          </Button>
+        </div>
+        <div className="banner-cta__img">
+          <img src={require('../../static/img/banner/13.png')} alt="" />
+        </div>
+      </div>
+    </BannerCtaWrap>
+  );
+};
+
 export {
   Banner1,
   Banner2,
@@ -238,4 +287,6 @@ export {
   BannerLong,
   BannerCard,
   BannerCard2,
+  BannerCta,
+  BannerCta2,
 };

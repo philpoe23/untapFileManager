@@ -1604,9 +1604,18 @@ const SentEmailWrapper = Styled.div`
     }
     .sent-emial-box{
         justify-content: space-between;
+        @media only screen and (max-width: 575px){
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
     .sent-emial-item{
         display: flex;
+        @media only screen and (max-width: 575px){
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+        }
         .sent-emial-icon{
             display: flex;
             align-items: center;

@@ -23,14 +23,14 @@ const Figure2 = Styled.figure`
         }
         button{
             margin-top: 26px;
+            color: ${({ theme }) => theme['primary-color']} !important;
             &:focus{
                 background-color: #fff !important;
             }
             &.ant-btn-lg{
                 height: 44px;
                 font-size: 15px;
-                font-weight: 600;
-                color: ${({ theme }) => theme['primary-color']};
+                font-weight: 500;
             }
         }
     }
@@ -86,14 +86,14 @@ const Figure3 = Styled.figure`
         right: -25px;
     }
     button{
+        color: ${({ theme }) => theme['primary-color']} !important;
         &:focus{
             background-color: #fff !important;
         }
         &.ant-btn-lg{
             height: 44px;
             font-size: 15px;
-            font-weight: 600;
-            color: ${({ theme }) => theme['primary-color']};
+            font-weight: 500;
         }
     }
 `;
@@ -118,8 +118,15 @@ const Figure7 = Styled.figure`
     aling-items: center;
 `;
 
+const BannerWrapper = Styled.figure`
+    .ant-card{
+        margin-bottom: 70px !important;
+    }
+`;
+
 const BannerNormal = Styled.div`
     .ant-card{
+        margin-bottom: 70px !important;
         box-shadow: 0 5px 20px ${({ theme }) => theme['dark-color']}15;
     }
     .ant-card-body{
@@ -162,6 +169,7 @@ const BannerNormal = Styled.div`
 `;
 
 const BannerCarouselWrap = Styled.div`
+    margin-bottom: 70px;
     border-radius: 10px;
     padding: 60px 0 105px;
     background-color: ${({ theme }) => theme['primary-color']};
@@ -209,6 +217,7 @@ const BannerCarouselWrap = Styled.div`
 `;
 
 const BannerLongWrap = Styled.div`
+    margin-bottom: 70px;
     .banner-long-inner{
         padding: 30px 0;
         text-align: center;
@@ -227,6 +236,7 @@ const BannerCardWrap = Styled.div`
     border-radius: 10px;
     padding: 38px 40px 40px 40px;
     min-height: 450px;
+    margin-bottom: 70px
     h2{
         font-size: 30px;
         font-weight: 600;
@@ -249,7 +259,7 @@ const BannerCardWrap = Styled.div`
         button{
             height: 44px;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
             color: ${({ theme }) => theme['primary-color']} !important;
         }
         img{
@@ -260,4 +270,49 @@ const BannerCardWrap = Styled.div`
     }
 `;
 
-export { Figure2, Figure3, Figure6, Figure7, BannerNormal, BannerCarouselWrap, BannerLongWrap, BannerCardWrap };
+const BannerCtaWrap = Styled.div`
+    border-radius: 10px;
+    margin-bottom: 30px;
+    .banner-cta{
+        justify-content: space-between;
+        .banner-cta__content{
+            text-align: center;
+            padding-right: 30px;
+            h2{
+                font-size: 30px;
+                font-weight: 600;
+            }
+            button{
+                margin-top: 10px;
+                height: 44px;
+            }
+        }
+        &.theme-2{
+            .banner-cta__content{
+                padding-right: 0;
+                padding-left: 30px;
+                text-align: left;
+                h2{
+                    margin-bottom: 10px;
+                }
+                p{
+                    font-size: 15px;
+                    opacity: .70;
+                }
+            } 
+        }
+    }
+`;
+
+export {
+  Figure2,
+  Figure3,
+  Figure6,
+  Figure7,
+  BannerWrapper,
+  BannerNormal,
+  BannerCarouselWrap,
+  BannerLongWrap,
+  BannerCardWrap,
+  BannerCtaWrap,
+};

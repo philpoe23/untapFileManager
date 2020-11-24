@@ -226,7 +226,7 @@ const CRM = () => {
               <ClosedDeals />
             </Suspense>
           </Col>
-          <Col xxl={8} xs={24}>
+          <Col xxl={8} xl={12} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
