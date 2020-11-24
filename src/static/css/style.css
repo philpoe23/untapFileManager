@@ -2255,5 +2255,14 @@ html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
 }
 
 .common-ul{
+  padding: 5px 0;
   padding-left: 10px;
+}
+
+.display {
+  display: none;
+}
+
+li.active > .display {
+  display: block;
 }

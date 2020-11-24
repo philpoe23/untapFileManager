@@ -2,6 +2,8 @@
     {
         "id": 1,
         "name": "Design",
+        "path": "Design",        
+        "className": "active",
         "file": [
             {
                 "id": 1,
@@ -14,6 +16,8 @@
             {
                 "id": 1,
                 "name": "Newfolder",
+                "path": "Design/Newfolder",
+                "className": "",
                 "folder": [],
                 "file": [
                     {
@@ -27,6 +31,8 @@
             {
                 "id": 2,
                 "name": "Newfolder2",
+                "path": "Design/Newfolder2",
+                "className": "",
                 "folder": [],
                 "file": []
             }
@@ -35,6 +41,8 @@
     {
         "id": 2,
         "name": "Prototypes",
+        "path": "Prototypes",
+        "className": "",
         "file": [
             {
                 "id": 1,
@@ -47,27 +55,9 @@
             {
                 "id": 1,
                 "name": "Newfolder",
-                "folder": [
-                    {
-                        "id": 1,
-                        "name": "Newfolder",
-                        "folder": [],
-                        "file": [
-                            {
-                                "id": 1,
-                                "name": "one",
-                                "type": "png",
-                                "size": "1000"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "Newfolder2",
-                        "folder": [],
-                        "file": []
-                    }
-                ],
+                "path": "Prototypes/Newfolder",
+                "className": "",
+                "folder": [],
                 "file": [
                     {
                         "id": 1,
@@ -80,31 +70,15 @@
             {
                 "id": 2,
                 "name": "Newfolder2",
+                "path": "Prototypes/Newfolder2",
+                "className": "",
                 "folder": [
                     {
                         "id": 1,
                         "name": "Newfolder",
-                        "folder": [
-                            {
-                                "id": 1,
-                                "name": "Newfolder",
-                                "folder": [],
-                                "file": [
-                                    {
-                                        "id": 1,
-                                        "name": "one",
-                                        "type": "png",
-                                        "size": "1000"
-                                    }
-                                ]
-                            },
-                            {
-                                "id": 2,
-                                "name": "Newfolder2",
-                                "folder": [],
-                                "file": []
-                            }
-                        ],
+                        "path": "Prototypes/Newfolder/Newfolder",
+                        "className": "",
+                        "folder": [],
                         "file": [
                             {
                                 "id": 1,
@@ -117,6 +91,8 @@
                     {
                         "id": 2,
                         "name": "Newfolder2",
+                        "path": "Prototypes/Newfolder2/Newfolder2",
+                        "className": "",
                         "folder": [],
                         "file": []
                     }

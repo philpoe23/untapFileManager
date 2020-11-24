@@ -5,4 +5,6 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-export { Header };
+const Body = styled.main``;
+
+export { Header, Body };
