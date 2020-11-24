@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 const Figure2 = Styled.figure`
     position: relative;
-    padding: 10px 0px;
+    padding: 20px 0px 30px;
     margin-bottom: 0;
     img {
         position: absolute;
@@ -14,41 +14,114 @@ const Figure2 = Styled.figure`
             font-size: 30px;
             font-weight: 600;
             color: #fff;
+            margin-bottom: 14px;
+        }
+        p{
+            font-size: 15px;
+            opacity: .7;
+            color: #fff;
+        }
+        button{
+            margin-top: 26px;
+            &:focus{
+                background-color: #fff !important;
+            }
+            &.ant-btn-lg{
+                height: 44px;
+                font-size: 15px;
+                font-weight: 600;
+                color: ${({ theme }) => theme['primary-color']};
+            }
         }
     }
 `;
 
 const Figure3 = Styled.figure`
     position: relative;    
-    min-height: 150px;
+    min-height: 180px;
+    margin-bottom: 0;
+    padding: 18px 0 0;
+    &.theme-wide{
+        padding: 0;
+        min-height: 100%;
+        width: 100%;
+        figcaption{
+            h2{
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+            p{
+                margin-bottom: 18px;
+            }
+        }
+    }
+    &.theme-3{
+        padding: 0px 0 30px;
+        img{
+            bottom: -55px;
+        }
+        figcaption{  
+            h2{
+                margin-bottom: 10px;
+            }
+            p{
+                margin-bottom: 18px;
+            }
+        }
+    }
+    h2{
+        font-size: 30px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 25px;
+    }
+    p{
+        color: #fff;
+        opacity: .7;
+    }
     img {
         position: absolute;
-        bottom: -38px;
+        bottom: -65px;
         right: -25px;
+    }
+    button{
+        &:focus{
+            background-color: #fff !important;
+        }
+        &.ant-btn-lg{
+            height: 44px;
+            font-size: 15px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['primary-color']};
+        }
     }
 `;
 
 const Figure6 = Styled.figure`
-    position: relative;    
-    min-height: 150px;
-    /* img {
-        position: absolute;
-        bottom: -38px;
-        right: -25px;
-    } */
+    position: relative;  
+    margin-bottom: 0;
+    figcaption{
+        h2{
+            font-size: 22px;
+            font-weight: 600;
+            color: #FF4D4F;
+            margin: 15px 0 18px;
+        }
+    }
+    
 `;
 
 const Figure7 = Styled.figure`
     display: flex;  
-    min-height: 150px;
-    /* img {
-        position: absolute;
-        bottom: -38px;
-        right: -25px;
-    } */
+    margin-bottom: 0;
+    aling-items: center;
 `;
 
 const BannerNormal = Styled.div`
+    .ant-card{
+        box-shadow: 0 5px 20px ${({ theme }) => theme['dark-color']}15;
+    }
     .ant-card-body{
         padding: 35px 30px 46px !important;
     }
@@ -68,6 +141,123 @@ const BannerNormal = Styled.div`
     .ant-btn{
         height: 38px;
     }
+    &.theme-wide{
+        .ant-card-body{
+            padding: 50px 25px 50px 0 !important;
+        }
+        figcaption{
+            margin-left: 18px;
+            h2{
+                font-size: 23px;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+            .ant-btn-lg{
+                padding: 0 16.24px;
+                font-size: 15px;
+                height: 44px;
+            }
+        }
+    }
 `;
 
-export { Figure2, Figure3, Figure6, Figure7, BannerNormal };
+const BannerCarouselWrap = Styled.div`
+    border-radius: 10px;
+    padding: 60px 0 105px;
+    background-color: ${({ theme }) => theme['primary-color']};
+    .ant-carousel{
+        .slick-dots{
+            &.slick-dots-bottom{
+                bottom: -35px;
+            }
+            li{
+                width: auto;
+                &.slick-active{
+                    width: auto;
+                }
+                button{
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    .banner-signle{
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .banner-single__content{
+            margin-top: 28px;
+            text-align: center;
+            h3{
+                font-size: 24px;
+                font-weight: 600; 
+                color: #fff;
+                margin-bottom: 8px;
+            }
+            p{
+                font-size: 15px;
+                color: #fff;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+`;
+
+const BannerLongWrap = Styled.div`
+    .banner-long-inner{
+        padding: 30px 0;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #fff;
+        h2{
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+    }
+`;
+
+const BannerCardWrap = Styled.div`
+    position: relative
+    border-radius: 10px;
+    padding: 38px 40px 40px 40px;
+    min-height: 450px;
+    h2{
+        font-size: 30px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    .banner-card-inner{
+        &.theme-2{
+            h2{
+                margin-bottom: 18px;
+            }
+            p{
+                font-size: 15px;
+                color: #fff;
+                opacity: .70;
+                max-width: 290px;
+                margin-bottom: 20px;
+            }
+        }
+        button{
+            height: 44px;
+            font-size: 15px;
+            font-weight: 600;
+            color: ${({ theme }) => theme['primary-color']} !important;
+        }
+        img{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+`;
+
+export { Figure2, Figure3, Figure6, Figure7, BannerNormal, BannerCarouselWrap, BannerLongWrap, BannerCardWrap };
