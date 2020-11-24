@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Row, Col, Input } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SideNav from './overview/SideNav';
 import { Header } from './Style';
+import MainContent from './overview/MainContent';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -13,7 +15,13 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
-const FileManager = props => {
+const FileManager = () => {
+  const { FileManagerData } = useSelector(state => {
+    return {
+      FileManagerData: state.FileManager.reData,
+    };
+  });
+
   return (
     <>
       <PageHeader
@@ -36,7 +44,7 @@ const FileManager = props => {
             <SideNav />
           </Col>
           <Col md={18}>
-            <Cards headless>
+            <Cards bodyStyle={{ height: '600px' }} headless>
               <Header>
                 <Input
                   style={{ width: '350px' }}
@@ -53,6 +61,23 @@ const FileManager = props => {
                   </NavLink>
                 </div>
               </Header>
+              <h2>Quick Access</h2>
+              <Row gutter={15}>
+                {FileManagerData[0].folder.map(folder => {
+                  return (
+                    <Col key={folder.id} md={6}>
+                      <MainContent folder={folder} />
+                    </Col>
+                  );
+                })}
+                {/* {FileManagerData.map(folder => {
+                  return (
+                    <Col key={folder.id} md={6}>
+                      <MainContent folder={folder} />
+                    </Col>
+                  );
+                })} */}
+              </Row>
             </Cards>
           </Col>
         </Row>

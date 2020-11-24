@@ -1,50 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FeatherIcon from 'feather-icons-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch } from 'react-router-dom';
 import { Progress } from 'antd';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { Button } from '../../../components/buttons/buttons';
+import { fmAddActiveClass, fmReadAllFileFolder } from '../../../redux/fileManager/actionCreator';
 
-const SideNav = props => {
+const SideNav = () => {
+  const dispatch = useDispatch();
   const { FileManager } = useSelector(state => {
     return {
       FileManager: state.FileManager.data,
     };
   });
 
-  const testing = [
-    {
-      arr: [
-        {
-          arr: [
-            {
-              arr: [],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      arr: [],
-    },
-  ];
+  const { path } = useRouteMatch();
 
-  const test2 = abc => {
-    abc.map(a => console.log(a));
-  };
-  const test1 = abc => {
-    abc.map(a => {
-      console.log(a);
-      return a.arr && test2(a.arr);
-    });
+  const toggleActive = paths => {
+    dispatch(fmAddActiveClass(paths));
+    dispatch(fmReadAllFileFolder(paths));
   };
 
-  testing.map(item => {
-    return item.arr.length && test1(item.arr);
-  });
+  const SubFolder = ({ folders }) => {
+    return (
+      <ul className="common-ul display">
+        {folders.map(item => {
+          return (
+            <li className={item.className} key={item.id}>
+              <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
+                {item.folder.length ? (
+                  <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
+                ) : (
+                  <FeatherIcon icon="folder" size={14} />
+                )}
+                {/* <FeatherIcon icon="folder" size={14} /> */}
+                {item.name}
+              </NavLink>
+              {item.folder.length ? <Folder folders={item.folder} /> : null}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  SubFolder.propTypes = {
+    folders: PropTypes.array,
+  };
+
+  const Folder = ({ folders }) => {
+    return (
+      <ul className="common-ul display">
+        {folders.map(item => {
+          return (
+            <li className={item.className} key={item.id}>
+              <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
+                {item.folder.length ? (
+                  <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
+                ) : (
+                  <FeatherIcon icon="folder" size={14} />
+                )}
+                {/* <FeatherIcon icon="folder" size={14} /> */}
+                {item.name}
+              </NavLink>
+              {item.folder.length ? <SubFolder folders={item.folder} /> : null}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  Folder.propTypes = {
+    folders: PropTypes.array,
+  };
 
   return (
     <Cards headless>
@@ -73,44 +105,27 @@ const SideNav = props => {
         </Button>
       </Dropdown>
       <h3>Files</h3>
-      <ul>
-        <li>
-          <FeatherIcon icon="chevron-down" size={14} />
-          <FeatherIcon icon="file" size={14} />
-          My files
-          <ul>
+      <ul className="common-ul">
+        <li className="active">
+          <NavLink to="#">
+            <FeatherIcon icon="chevron-down" size={14} />
+            <FeatherIcon icon="file" size={14} />
+            My files
+          </NavLink>
+          <ul className="common-ul display">
             {FileManager.map(item => {
               return (
-                <li key={item.id}>
-                  <FeatherIcon icon="chevron-right" size={14} />
-                  <FeatherIcon icon="folder" size={14} />
-                  {item.name}
-                  {item.folder.length ? (
-                    <ul className="common-ul">
-                      {item.folder.map(item => {
-                        return (
-                          <li key={item.id}>
-                            <FeatherIcon icon="chevron-right" size={14} />
-                            <FeatherIcon icon="folder" size={14} />
-                            {item.name}
-                            {item.folder.length ? (
-                              <ul className="common-ul">
-                                {item.folder.map(item => {
-                                  return (
-                                    <li key={item.id}>
-                                      <FeatherIcon icon="chevron-right" size={14} />
-                                      <FeatherIcon icon="folder" size={14} />
-                                      {item.name}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            ) : null}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : null}
+                <li className={item.className} key={item.id}>
+                  <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
+                    {item.folder.length ? (
+                      <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
+                    ) : (
+                      <FeatherIcon icon="folder" size={14} />
+                    )}
+                    {/* <FeatherIcon icon="folder" size={14} /> */}
+                    {item.name}
+                  </NavLink>
+                  {item.folder.length ? <Folder folders={item.folder} /> : null}
                 </li>
               );
             })}
