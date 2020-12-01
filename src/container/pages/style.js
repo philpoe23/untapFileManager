@@ -240,6 +240,99 @@ const UserTableStyleWrapper = Styled.nav`
 
 const UserCard = Styled.div`
   text-align: center;
+  .user-card{
+    &.theme-list{
+      .ant-card-body{
+        padding: 30px 25px 30px 30px !important;
+      }
+      figure{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        img{
+          max-width: 80px;
+          margin-right: 20px;
+        }
+      }
+      figcaption{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .card__content{
+        p{
+          max-width: 400px;
+          font-size: 15px;
+          color: ${({ theme }) => theme['gray-color']};
+        }
+        .card__designation{
+            font-size: 13px;
+            margin-bottom: 15px;
+            color: ${({ theme }) => theme['light-color']};
+        }
+        .card-text{
+          margin-bottom: 12px;
+        }
+        .card-info{
+          margin-bottom: 0;
+          .user-meta{
+            font-size: 14px;
+            strong{
+              font-weight: 600;
+              color: ${({ theme }) => theme['dark-color']};
+            }
+          }
+          .user-meta + .user-meta{
+            margin-left: 20px;
+          }
+        }
+      }
+      .card__actions{
+        text-align: right;
+        button{
+          padding: 0px 19.05px;
+          min-width: 114px;
+        }
+      }
+    }
+    &.theme-grid-2{
+      .ant-card-body{
+        padding: 0 !important;
+      }
+      figure{
+        position: relative;
+      }
+      .user-card__img{
+        margin-bottom: 0;
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background-color: #fff;
+        z-index: 22;
+        img{
+          position: relative;
+          top: 6px;
+        }
+      }
+      .user-card__bg{
+        background-size: cover !important;
+        background-position: center !important;
+        border-radius: 10px 10px 0 0;
+      }
+      .card__bottom{
+        position: relative;
+        background-color: #fff;
+        top: -26px;
+        padding-top: 102px;
+        border-radius: 30px 30px 10px 10px;
+      }
+    }
+  }
   .card{
     position: relative;
     box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}03;
@@ -1401,6 +1494,57 @@ const TestimonialWrapper = Styled.div`
   }
 `;
 
+const TestimonialStyleWrapper = Styled.div`
+  .testimonial-block{
+    &.theme-1{
+      padding: 60px 45px 75px 45px;
+      .swiper-container{
+        margin-left: -25px;
+        margin-right: -25px;
+      }
+      .swiper-wrapper{
+        padding: 50px 25px;
+      }
+      .swiper-slide.swiper-slide-active{
+        .testimonial-box{{
+          box-shadow: 0 20px 50px ${({ theme }) => theme['light-color']}20;
+        }
+      }
+    }
+  }
+  .testimonial-title{
+    text-align: center;
+  }
+  .testimonial-box{
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}10;
+  }
+`;
+
+const UserCarrdTop = Styled.div`
+  .ant-page-header-heading-extra{
+    .btn-add_new{
+      margin-right: 15px;
+    }
+    .action-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      color: ${({ theme }) => theme['light-color']};
+      &.active{
+        background-color: #fff;
+        color: ${({ theme }) => theme['primary-color']};
+      }
+    }
+  }
+`;
+
 export {
   TestimonialWrapper,
   PricingCard,
@@ -1422,4 +1566,6 @@ export {
   AddUser,
   ChangelogWrapper,
   VersionHistoryList,
+  TestimonialStyleWrapper,
+  UserCarrdTop,
 };

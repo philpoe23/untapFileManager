@@ -10,36 +10,25 @@ const UserCardList = ({ user }) => {
   const { name, designation, img, content } = user;
   return (
     <UserCard>
-      <div className="card user-card">
+      <div className="card user-card theme-list">
         <Cards headless>
-          <figure
-            style={{
-              marginBottom: 0,
-              display: 'flex',
-              alignItems: 'center',
-              textAlign: 'left',
-              justifyContent: 'space-between',
-            }}
-          >
+          <figure>
             <img src={require(`../../../${img}`)} alt="" />
 
-            <figcaption
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                textAlign: 'left',
-                justifyContent: 'space-between',
-              }}
-            >
+            <figcaption>
               <div className="card__content">
                 <Heading className="card__name" as="h6">
                   <Link to="#">{name}</Link>
                 </Heading>
                 <p className="card__designation">{designation}</p>
-                <p>{content}</p>
-                <p>
-                  <span>$25/hr</span>
-                  <span>$88K earned</span>
+                <p className="card-text">{content}</p>
+                <p className="card-info">
+                  <span className="user-meta">
+                    <strong>$25/</strong>hr
+                  </span>
+                  <span className="user-meta">
+                    <strong>$88K</strong> earned
+                  </span>
                 </p>
               </div>
 

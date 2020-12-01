@@ -327,6 +327,203 @@ const SelectRadioStyle = Styled.div`
   }
 `;
 
+const TimeLinePointerIconWrap = Styled.div`
+  padding: 20px;
+  .ant-timeline-item-last > .ant-timeline-item-tail{
+    display: block;
+  }
+  .ant-timeline-item-tail{
+    border-width: 3px;
+  }
+  .ant-timeline-item{
+    padding-bottom: 28px;
+    &:last-child{
+      padding-bottom: 0;
+    }
+    &.primary{
+      .ant-timeline-item-head{
+        background-color: #E7E8FD;
+      }
+    }
+    &.info{
+      .ant-timeline-item-head{
+        background-color: #DFF0FF;
+      }
+    }
+    &.warning{
+      .ant-timeline-item-head{
+        background-color: #FFEEDA;
+      }
+    }
+    &.pink{
+      .ant-timeline-item-head{
+        background-color: #FFE8F2;
+      }
+    }
+    &.success{
+      .ant-timeline-item-head{
+        background-color: #DDF7F0;
+      }
+    }
+    &.danger{
+      .ant-timeline-item-head{
+        background-color: #FFE4E5;
+      }
+    }
+    .ant-timeline-item-head{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      &:after,
+      &:before{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -8px;
+        width: 8px;
+        height: 8px;
+        content: "";
+        background-color: #fff;
+      }
+      &:before{
+        top: auto;
+        bottom: -8px;
+      }
+    }
+    .ant-timeline-item-content{
+      margin: -38px 0 0 42px;
+      h3{
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 30px;
+        color: ${({ theme }) => theme['dark-color']};
+      }
+      p{
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 330px;
+        margin-bottom: 12px;
+      }
+      .tags{
+        font-size: 14px;
+        color: ${({ theme }) => theme['light-gray-color']};
+      }
+    }
+  }
+`;
+
+const TimelineNormalWrap = Styled.div`
+  .ant-timeline-item-last > .ant-timeline-item-content{
+    min-height: auto;
+  }
+  
+  .ant-timeline-right{
+    .ant-timeline-item-right{
+      .ant-timeline-item-content{
+        width: calc(100% - 32px) !important;
+      }
+    }
+  }
+  .ant-timeline-item{
+    padding-bottom: 25px;
+    &:last-child{
+      padding-bottom: 0;
+    }
+    &.active{
+      .timeline-content-text{
+        p{
+          color: ${({ theme }) => theme['primary-color']};
+        }
+      }
+    }
+    .ant-timeline-item-content{
+      margin: 0 0 0 32px;
+      font-size: 14px !important;
+      .timeline-content-inner{
+        .timeline-content-time{
+          min-width: 65px;
+          font-weight: 600;
+          color: ${({ theme }) => theme['light-gray-color']};
+        }
+      }
+      p{
+        margin-bottom: 0;
+      }
+    }
+  }
+`;
+
+const TimelineBoxWrap = Styled.div`
+  .ant-timeline-item-last > .ant-timeline-item-tail{
+    display: block;
+  }
+  .ant-timeline-item{
+    .ant-timeline-item-head{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: ${({ theme }) => theme['bg-color-light']};
+    }
+    &.ant-timeline-item-left{
+      .ant-timeline-item-content{
+        &:after{
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-right: 16px solid #EFF0F3;
+          border-bottom: 8px solid transparent;
+          top: 40%;
+          transform: translateY(-50%);
+          left: -16px;
+        }
+      }
+    }
+    &.ant-timeline-item-right{
+      .ant-timeline-item-content{
+        right: 6px;
+        &:after{
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-left: 16px solid #EFF0F3;
+          border-bottom: 8px solid transparent;
+          top: 40%;
+          transform: translateY(-50%);
+          right: -16px;
+        }
+        .content-box{
+          text-align: left !important;
+        }
+      }
+    }
+    .ant-timeline-item-content{
+      h2{
+        font-size: 14px;
+        color: ${({ theme }) => theme['extra-light-color']};
+      }
+      .content-box{
+        padding: 18px 20px;
+        border-radius: 10px;
+        background-color: #EFF0F3;
+        p{
+          line-height: 1.75;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+`;
+
 export {
   DropdownStyle,
   DropdownIconStyleWrapper,
@@ -343,4 +540,7 @@ export {
   CasCaderStyleWrapper,
   SelectWrapperStyle,
   SelectRadioStyle,
+  TimeLinePointerIconWrap,
+  TimelineNormalWrap,
+  TimelineBoxWrap,
 };
