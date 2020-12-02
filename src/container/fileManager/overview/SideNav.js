@@ -33,10 +33,7 @@ const SideNav = () => {
               <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
                 {item.folder.length ? (
                   <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
-                ) : (
-                  <FeatherIcon icon="folder" size={14} />
-                )}
-                {/* <FeatherIcon icon="folder" size={14} /> */}
+                ) : null}
                 {item.name}
               </NavLink>
               {item.folder.length ? <Folder folders={item.folder} /> : null}
@@ -60,10 +57,7 @@ const SideNav = () => {
               <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
                 {item.folder.length ? (
                   <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
-                ) : (
-                  <FeatherIcon icon="folder" size={14} />
-                )}
-                {/* <FeatherIcon icon="folder" size={14} /> */}
+                ) : null}
                 {item.name}
               </NavLink>
               {item.folder.length ? <SubFolder folders={item.folder} /> : null}
@@ -119,10 +113,7 @@ const SideNav = () => {
                   <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
                     {item.folder.length ? (
                       <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
-                    ) : (
-                      <FeatherIcon icon="folder" size={14} />
-                    )}
-                    {/* <FeatherIcon icon="folder" size={14} /> */}
+                    ) : null}
                     {item.name}
                   </NavLink>
                   {item.folder.length ? <Folder folders={item.folder} /> : null}

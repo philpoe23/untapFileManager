@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Row, Col, Input } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { NavLink } from 'react-router-dom';
@@ -61,22 +60,26 @@ const FileManager = () => {
                   </NavLink>
                 </div>
               </Header>
-              <h2>Quick Access</h2>
+              {/* <h2>Quick Access</h2> */}
               <Row gutter={15}>
-                {FileManagerData[0].folder.map(folder => {
-                  return (
-                    <Col key={folder.id} md={6}>
-                      <MainContent folder={folder} />
-                    </Col>
-                  );
-                })}
-                {/* {FileManagerData.map(folder => {
-                  return (
-                    <Col key={folder.id} md={6}>
-                      <MainContent folder={folder} />
-                    </Col>
-                  );
-                })} */}
+                {FileManagerData.length
+                  ? FileManagerData[0].folder.map(folder => {
+                      return (
+                        <Col key={folder.id} md={6}>
+                          <MainContent folder={folder} />
+                        </Col>
+                      );
+                    })
+                  : null}
+                {FileManagerData.length
+                  ? FileManagerData[0].file.map(file => {
+                      return (
+                        <Col key={file.id} md={6}>
+                          <MainContent folder={file} />
+                        </Col>
+                      );
+                    })
+                  : null}
               </Row>
             </Cards>
           </Col>
