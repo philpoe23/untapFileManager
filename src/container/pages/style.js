@@ -251,7 +251,7 @@ const UserCard = Styled.div`
         justify-content: space-between;
         img{
           max-width: 80px;
-          margin-right: 20px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}:20px;
         }
       }
       figcaption{
@@ -284,12 +284,12 @@ const UserCard = Styled.div`
             }
           }
           .user-meta + .user-meta{
-            margin-left: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
           }
         }
       }
       .card__actions{
-        text-align: right;
+        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')}
         button{
           padding: 0px 19.05px;
           min-width: 114px;
@@ -352,6 +352,7 @@ const UserCard = Styled.div`
         margin-bottom: 10px;
         .user-card__img{
           margin-right: 12px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
           img{
             max-width: 70px;
           }
@@ -362,6 +363,7 @@ const UserCard = Styled.div`
           .action-more{
             position: absolute;
             right: 0;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
             top: 0;
             color: #ADB4D2;
           }
@@ -402,9 +404,19 @@ const UserCard = Styled.div`
         .info-line{
           display: flex;
           justify-content: space-between;
+          .success{
+            color: ${({ theme }) => theme['success-color']};
+          }
         }
         .completed-count{
-          margin-top: 6px;
+          margin-top: 4px;
+        }
+        .project-progress{
+          display: flex;
+          justify-content: space-between;
+          .progress-percentage{
+            margin-left: 20px;
+          }
         }
       }
     }

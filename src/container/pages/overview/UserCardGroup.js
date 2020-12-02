@@ -56,20 +56,20 @@ const UserCardGroup = ({ user }) => {
             </p>
             <h2 className="info-line">
               <span>Plugin Development</span>
-              <span>45</span>
+              <span className="success">45</span>
             </h2>
-            <Row gutter={5}>
-              <Col xs={20}>
-                <Progress
-                  percent={70}
-                  strokeWidth={5}
-                  status="active"
-                  showInfo={false}
-                  className="progress-dt progress-primary"
-                />
-              </Col>
-              <Col xs={4}>70%</Col>
-            </Row>
+            <div className="project-progress">
+              <Progress
+                percent={70}
+                strokeWidth={5}
+                status="active"
+                showInfo={false}
+                className="progress-dt progress-primary"
+              />
+              <div className="progress-percentage">
+                <span>70%</span>
+              </div>
+            </div>
             <p className="completed-count">12 / 15 tasks completed</p>
           </div>
         </Cards>

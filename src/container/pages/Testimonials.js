@@ -112,7 +112,7 @@ const Testimonials = () => {
                   </Swiper>
                 </div>
                 <div className="testimonial-block theme-2">
-                  <h2 className="testimonial-title">Testimonial 1</h2>
+                  <h2 className="testimonial-title">Testimonial 2</h2>
                   <Swiper {...paramsTwo}>
                     {users.map((user, index) => {
                       return (
@@ -140,7 +140,7 @@ const Testimonials = () => {
                   </Swiper>
                 </div>
                 <div className="testimonial-block theme-3">
-                  <h2 className="testimonial-title">Testimonial 1</h2>
+                  <h2 className="testimonial-title">Testimonial 3</h2>
                   <div className="testimonial-wrapper">
                     <Swiper {...galleryParams}>
                       {users.map((user, index) => {
@@ -168,7 +168,7 @@ const Testimonials = () => {
                   </div>
                 </div>
                 <div className="testimonial-block theme-4">
-                  <h2 className="testimonial-title">Testimonial 1</h2>
+                  <h2 className="testimonial-title">Testimonial 4</h2>
                   <Swiper {...paramsThree}>
                     {users.map((user, index) => {
                       return (
