@@ -4,6 +4,9 @@ const Main = Styled.div`
     padding: 0px 30px 20px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
+    &.grid-boxed{
+        padding: 0px 180px 20px;
+    }
     .ant-card-rtl .ant-card-extra{
                 margin-right: 0 !important;
             }
@@ -635,6 +638,61 @@ const Main = Styled.div`
             margin: 5px !important;
         }
     }
+
+    .wizard-side-border{
+        >.ant-card{
+            .ant-card-body{
+                padding: 0 25px !important;
+            }
+        }
+        .checkout-successful{
+            >.ant-card{
+                .ant-card-body{
+                    padding: 25px !important;
+                }
+            }
+        }
+        .payment-method-form.theme-light{
+            .shipping-selection__card{
+                .ant-card-body{
+                    padding: 25px 0 !important;
+                }
+            }
+        }
+        .shipping-selection__card{
+            .ant-card-body{
+                padding: 25px !important;
+            }
+        }
+        .atbd-review-order{
+            .ant-card-body{
+                padding: 25px 25px 0 !important;
+                @media only screen and (max-width: 767px) {
+                    padding: 15px 15px 0 !important;
+                }
+            }
+        }
+        
+        .ant-steps {
+            padding: 50px;
+            @media only screen and (max-width: 1399px) {
+                padding: 25px;
+            }
+        }
+        .steps-wrapper{
+            padding: 50px;
+            @media only screen and (max-width: 1399px) {
+                padding: 25px;
+            }
+            ${({ theme }) => (theme.rtl ? 'border-right' : 'border-left')}: 1px solid ${({ theme }) =>
+  theme['border-color-light']};
+        }
+    }
+    .editor-compose > div {
+        position: static;
+        max-width: 100%;
+        margin: 25px 0;
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -1070,6 +1128,62 @@ const FormGroupWrapper = Styled.div`
         }
     }
 `;
+const BannerCardStyleWrap = Styled.div`
+    .ant-card-body{
+        padding: 25px 25px 0 25px !important;
+    }
+`;
+
+const FileCardWrapper = Styled.div`
+    .file-list{
+        min-height: 385px;
+        .file-list__single{
+            justify-content: space-between;
+            align-items: center;
+            &:not(:last-child){
+                margin-bottom: 18px;
+            }
+            span{
+                display: block;
+                font-size: 12px;
+                line-height: 1.42;
+                &.file-name{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: ${({ theme }) => theme['dark-color']};
+                }
+                &.file-size{
+                    margin: 2px 0;;
+                    color: ${({ theme }) => theme['gray-solid']};
+                }
+                &.file-content-action{
+                    a{
+                        font-weight: 500;
+                        color: ${({ theme }) => theme['primary-color']};
+                    }
+                    a + a{
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+        .file-single-info{
+            width: 50%;
+            align-items: center;
+            .file-single-logo{
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
+                img{
+                    max-width: 42px;
+                }
+            }
+        }
+        .file-single-action{
+            .ant-dropdown-trigger {
+                color: ${({ theme }) => theme['extra-light-color']};
+            }
+        }
+    }
+`;
 
 const TableWrapper = Styled.div`
     .ant-pagination-prev, .ant-pagination-next {
@@ -1391,5 +1505,7 @@ export {
   CardToolbox,
   FormGroupWrapper,
   DragDropStyle,
+  BannerCardStyleWrap,
+  FileCardWrapper,
   TableWrapper,
 };

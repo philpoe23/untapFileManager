@@ -1,6 +1,6 @@
 {
   "name": "strikingDash",
-  "version": "1.8.0",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "@south-paw/react-vector-maps": "^3.0.0",
@@ -28,7 +28,7 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1"
   },
-  "homepage": "/strikingdash",
+  "homepage": "/",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-app-rewired build",

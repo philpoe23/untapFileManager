@@ -97,6 +97,10 @@ ul {
   margin-top: 25px;
 }
 
+.mb-25 {
+  margin-bottom: 25px;
+}
+
 .pr-0 {
   padding-right: 0 !important;
 }
@@ -122,6 +126,10 @@ ul {
   font-size: 11px;
   font-weight: 500;
   color: #868eae;
+}
+
+html[dir='rtl'] .ant-card-head-title span {
+  margin-right: 15px;
 }
 
 .ant-card-head .ant-card-extra {
@@ -601,6 +609,35 @@ ul {
   margin-top: 30px !important;
 }
 
+/* Wizard Modal */
+.submission-successModal {
+  text-align: center;
+}
+.submission-successModal .icon-success {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid #20c997;
+}
+.submission-successModal p {
+  margin-bottom: 0;
+}
+.submission-successModal .icon-success svg {
+  color: #20c997;
+}
+.submission-successModal .submission-action {
+  margin: 30px -5px -5px -5px;
+}
+.submission-successModal .submission-action button {
+  margin: 5px;
+  height: 38px;
+}
+
 /* Tree Select */
 
 .ant-tree-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
@@ -927,6 +964,10 @@ ul {
 
 .ant-dropdown {
   box-shadow: 0 5px 30px #9299b820 !important;
+}
+
+.ant-dropdown.wide-dropdwon {
+  min-width: 140px !important;
 }
 
 .ant-dropdown-menu {
@@ -1574,6 +1615,10 @@ ul {
   padding: 26px 30px 26px 30px !important;
 }
 
+.ant-page-header.header-boxed {
+  padding: 26px 180px 26px 180px !important;
+}
+
 .ant-page-header-heading {
   align-items: center;
 }
@@ -2209,3 +2254,15 @@ html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
   padding-right: 15px !important;
 }
 
+.common-ul{
+  padding: 5px 0;
+  padding-left: 10px;
+}
+
+.display {
+  display: none;
+}
+
+li.active > .display {
+  display: block;
+}

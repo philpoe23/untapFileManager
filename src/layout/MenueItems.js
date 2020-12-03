@@ -6,13 +6,28 @@ import propTypes from 'prop-types';
 
 const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
   const { path } = useRouteMatch();
+
   const pathName = window.location.pathname;
   const pathArray = pathName.split(path);
   const mainPath = pathArray[1];
   const mainPathSplit = mainPath.split('/');
 
+  const [openKeys, setOpenKeys] = React.useState(
+    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : [],
+  );
+
+  const onOpenChange = keys => {
+    setOpenKeys(keys[keys.length - 1] !== 'recharts' ? [keys.length && keys[keys.length - 1]] : keys);
+  };
+
+  const onClick = item => {
+    if (item.keyPath.length === 1) setOpenKeys([]);
+  };
+
   return (
     <Menu
+      onOpenChange={onOpenChange}
+      onClick={onClick}
       mode={!topMenu || window.innerWidth <= 991 ? 'inline' : 'horizontal'}
       theme={darkMode && 'dark'}
       // // eslint-disable-next-line no-nested-ternary
@@ -27,6 +42,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       }
       defaultOpenKeys={!topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []}
       overflowedIndicator={<FeatherIcon icon="more-vertical" />}
+      openKeys={openKeys}
     >
       <Menu.Item key="home">
         <NavLink onClick={toggleCollapsed} to={`${path}`}>
