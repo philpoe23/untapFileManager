@@ -147,7 +147,7 @@ const Users = () => {
                     const { id } = user;
 
                     return (
-                      <Col key={id} xxl={8} xl={12} sm={24} xs={24}>
+                      <Col key={id} xxl={8} md={12} sm={24} xs={24}>
                         <Suspense
                           fallback={
                             <Cards headless>

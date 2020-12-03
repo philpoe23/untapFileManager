@@ -244,14 +244,23 @@ const UserCard = Styled.div`
     &.theme-list{
       .ant-card-body{
         padding: 30px 25px 30px 30px !important;
+        @media only screen and (max-width: 479px){
+          padding: 25px 20px 25px 20px !important;
+        }
       }
       figure{
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+        @media only screen and (max-width: 479px){
+          flex-flow: column;
+        }
         img{
           max-width: 80px;
           ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}:20px;
+          @media only screen and (max-width: 479px){
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}:0px;
+          }
         }
       }
       figcaption{
@@ -259,6 +268,9 @@ const UserCard = Styled.div`
         justify-content: space-between;
         align-items: flex-start;
         text-align: left;
+        @media only screen and (max-width: 379px){
+          flex-flow: column;
+        }
       }
       .card__content{
         p{
@@ -290,6 +302,9 @@ const UserCard = Styled.div`
       }
       .card__actions{
         text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')}
+        @media only screen and (max-width: 379px){
+          margin-top: 15px;
+        }
         button{
           padding: 0px 19.05px;
           min-width: 114px;
@@ -1600,6 +1615,10 @@ const TestimonialStyleWrapper = Styled.div`
       height: 44px;
       border-radius: 50%;
       box-shadow: 0 3px 10px ${({ theme }) => theme['dark-color']}16;
+      @media only screen and (max-width: 991px){
+        width: 35px;
+        height: 35px;
+      }
       &:after{
         line-height: 0;
       }
@@ -1609,9 +1628,18 @@ const TestimonialStyleWrapper = Styled.div`
       font-weight: 600;
       margin-bottom: 50px;
       color: ${({ theme }) => theme['dark-color']};
+      @media only screen and (max-width: 991px){
+        font-size: 24px;
+      }
     }
     &.theme-1{
       padding: 60px 100px 75px 100px;
+      @media only screen and (max-width: 1599px){
+        padding: 60px 50px 75px 50px;
+      }
+      @media only screen and (max-width: 1399px){
+        padding: 50px 25px 45px 25px;
+      }
       .testimonial-title{
         margin-bottom: 0;
       }
@@ -1661,6 +1689,12 @@ const TestimonialStyleWrapper = Styled.div`
         border-radius: 8px;
         padding: 40px;
         box-shadow: 0 10px 20px ${({ theme }) => theme['light-color']}10;
+        @media only screen and (max-width: 1399px){
+          padding: 25px;
+        }
+        @media only screen and (max-width: 479px){
+          padding: 25px 15px;
+        }
         &.swiper-slide-active{
           box-shadow: 0 20px 50px ${({ theme }) => theme['light-color']}20;
         }
@@ -1695,6 +1729,20 @@ const TestimonialStyleWrapper = Styled.div`
     &.theme-2{
       padding: 60px 100px 75px 100px;
       background-color: ${({ theme }) => theme['bg-color-light']};
+      @media only screen and (max-width: 1399px){
+        padding: 60px 40px 75px 40px;
+      }
+      @media only screen and (max-width: 991px){
+        padding: 50px 70px 55px 70px;
+      }
+      @media only screen and (max-width: 575px){
+        padding: 30px 30px 45px 30px;
+      }
+      .testimonial-title{
+        @media only screen and (max-width: 991px){
+          margin-bottom: 20px;
+        }
+      }
       .swiper-button-prev,
       .swiper-button-next{
         cursor: pointer;
@@ -1706,9 +1754,19 @@ const TestimonialStyleWrapper = Styled.div`
         transform: translateY(-50%);
         z-index: 22;
         background-color: #fff;
+        @media only screen and (max-width: 991px){
+          top: auto;
+          bottom: -6px;
+        }
       }
       .swiper-button-prev{
         left: 5px;
+        @media only screen and (max-width: 991px){
+          left: 42%;
+        }
+        @media only screen and (max-width: 575px){
+          left: 36%;
+        }
         &:before{
           font-family: 'Inter';
           content: url('${require('../../static/img/icon/arrow-left.svg')}');
@@ -1716,6 +1774,12 @@ const TestimonialStyleWrapper = Styled.div`
       }
       .swiper-button-next{
         right: 5px;
+        @media only screen and (max-width: 991px){
+          right: 42%;
+        }
+        @media only screen and (max-width: 575px){
+          right: 36%;
+        }
         &:before{
           font-family: 'Inter';
           content: url('${require('../../static/img/icon/arrow-right.svg')}');
@@ -1723,12 +1787,18 @@ const TestimonialStyleWrapper = Styled.div`
       }
       .swiper-container{
         padding: 0 20px;
+        @media only screen and (max-width: 991px){
+          padding: 30px 0 70px 0;
+        }
       }
       .swiper-slide {
         background-color: #fff;
         border-radius: 8px;
         padding: 40px;
         box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
+        @media only screen and (max-width: 479px){
+          padding: 24px;
+        }
       }
       .testimonial-block__single{
         position: relative;
@@ -1736,6 +1806,14 @@ const TestimonialStyleWrapper = Styled.div`
           position: absolute;
           ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 40px;
           top: 40px;
+          @media only screen and (max-width: 479px){
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 25px;
+          }
+          img{
+            @media only screen and (max-width: 479px){
+              max-width: 40px;
+            }
+          }
         }
       }
       .testimonial-block__author{
@@ -1747,6 +1825,10 @@ const TestimonialStyleWrapper = Styled.div`
           max-width: 70px;
           margin-right: 18px;
           ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 18px;
+          @media only screen and (max-width: 479px){
+            max-width: 60px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+          }
         }
         .author-info{
           .client-name{
@@ -1773,6 +1855,9 @@ const TestimonialStyleWrapper = Styled.div`
     }
     &.theme-3{
       padding-top: 95px;
+      @media only screen and (max-width: 991px){
+        padding-top: 42px;
+      }
       .testimonial-title{
         margin-bottom: 0;
       }
@@ -1782,13 +1867,23 @@ const TestimonialStyleWrapper = Styled.div`
         top: 45px;
         left: 50%;
         transform: translateX(-50%);
+        @media only screen and (max-width: 575px){
+          top: 20px;
+        }
         .pagination-thumb{
           display: inline-block;
           width: auto;
           height: auto;
           opacity: .4;
+          margin: 4px 0;
           img{
             max-width: 70px;
+            @media only screen and (max-width: 991px){
+              max-width: 40px;
+            }
+            @media only screen and (max-width: 479px){
+              max-width: 25px;
+            }
           }
           &.swiper-pagination-bullet-active{
             position: relative;
@@ -1802,6 +1897,12 @@ const TestimonialStyleWrapper = Styled.div`
       }
       .testimonial-block__single{
         padding: 175px 0 86px;
+        @media only screen and (max-width: 991px){
+          padding: 135px 30px 36px;
+        }
+        @media only screen and (max-width: 575px){
+          padding: 80px 30px 40px;
+        }
       }
       .testimonial-block__inner{
         max-width: 800px;
@@ -1832,6 +1933,12 @@ const TestimonialStyleWrapper = Styled.div`
     &.theme-4{
       padding: 60px 100px 75px 100px;
       background-color: ${({ theme }) => theme['bg-color-light']};
+      @media only screen and (max-width: 1599px){
+        padding: 60px 60px 75px 60px;
+      }
+      @media only screen and (max-width: 991px){
+        padding: 50px 30px 48px 30px;
+      }
       .swiper-button-prev,
       .swiper-button-next{
         cursor: pointer;
@@ -1843,9 +1950,19 @@ const TestimonialStyleWrapper = Styled.div`
         transform: translateY(-50%);
         z-index: 22;
         background-color: #fff;
+        @media only screen and (max-width: 575px){
+          top: auto;
+          bottom: -6px;
+        }
       }
       .swiper-button-prev{
         left: 100px;
+        @media only screen and (max-width: 1599px){
+          left: 50px;
+        }
+        @media only screen and (max-width: 575px){
+          left: 36%;
+        }
         &:before{
           font-family: 'Inter';
           content: url('${require('../../static/img/icon/arrow-left.svg')}');
@@ -1853,9 +1970,20 @@ const TestimonialStyleWrapper = Styled.div`
       }
       .swiper-button-next{
         right: 100px;
+        @media only screen and (max-width: 1599px){
+          right: 50px;
+        }
+        @media only screen and (max-width: 575px){
+          right: 36%;
+        }
         &:before{
           font-family: 'Inter';
           content: url('${require('../../static/img/icon/arrow-right.svg')}');
+        }
+      }
+      .swiper-container{
+        @media only screen and (max-width: 575px){
+          padding: 0 0 70px;
         }
       }
       .testimonial-block__inner{
@@ -1865,6 +1993,13 @@ const TestimonialStyleWrapper = Styled.div`
         background-color: #fff;
         box-shadow: 0 10px 30px ${({ theme }) => theme['light-color']}10;
         text-align: center;
+        @media only screen and (max-width: 1599px){
+          max-width: 570px;
+          padding: 30px;
+        }
+        @media only screen and (max-width: 991px){
+          max-width: 450px;
+        }
       }
       .testimonial-block__author{
         img{
@@ -1904,6 +2039,9 @@ const UserCarrdTop = Styled.div`
   .ant-page-header-heading-extra{
     .btn-add_new{
       margin-right: 15px;
+      @media only screen and (max-width: 575px){
+        margin-right: 6px;
+      }
     }
     .action-btn{
       display: inline-flex;
@@ -1913,6 +2051,10 @@ const UserCarrdTop = Styled.div`
       width: 40px;
       border-radius: 50%;
       color: ${({ theme }) => theme['light-color']};
+      @media only screen and (max-width: 575px){
+        height: 30px;
+        width: 30px;
+      }
       &.active{
         background-color: #fff;
         color: ${({ theme }) => theme['primary-color']};

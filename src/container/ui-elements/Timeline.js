@@ -41,7 +41,7 @@ const Timelines = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col md={12} sm={24} xs={24}>
+          <Col lg={12} xs={24}>
             <Cards title="Basic" caption="The simplest use of Timelines">
               <TimeLinePointerIconWrap>
                 <Timeline>
@@ -129,7 +129,7 @@ const Timelines = () => {
               </Cards>
             </TimelineNormalWrap>
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col lg={12} xs={24}>
             <TimelineNormalWrap>
               <Cards title="Timeline 1" caption="The simplest use of Timelines">
                 <Timeline>

@@ -38,6 +38,14 @@ const OverviewSalesCard = Styled.div`
         border-radius: 10px;
         margin-right: 10px;
         ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+        @media only screen and (max-width: 1399px){
+            height: 40px;
+            width: 40px;
+        }
+        @media only screen and (max-width: 991px){
+            height: 60px;
+            width: 60px;
+        }
         &.box-primary{
             background-color: ${({ theme }) => theme['primary-color']}10;
         }
@@ -674,6 +682,11 @@ const OverviewCard = Styled.div`
 `;
 
 const PerformanceChartWrapper = Styled.div`
+    @media only screen and (max-width: 1599px){
+        min-height: 524px;
+        background: #fff;
+        border-radius: 10px;
+    }
     .performance-lineChart{
         margin-top: 20px;
         .chart-label{
@@ -1722,6 +1735,11 @@ const SalesTargetWrap = Styled.div`
 `;
 
 const SalesGrowthWrap = Styled.div`
+    @media only screen and (max-width: 1599px){
+        min-height: 435px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
     .growth-chart-wrap{
         margin-top: 58px;
     }

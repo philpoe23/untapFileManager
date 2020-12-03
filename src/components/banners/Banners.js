@@ -18,7 +18,7 @@ import { Cards } from '../cards/frame/cards-frame';
 const Banner1 = () => {
   return (
     <BannerNormal>
-      <Cards headless>
+      <Cards headless bodyStyle={{ minHeight: '270px' }}>
         <h2>15 Days Free Trail</h2>
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
         <Button className="btn-outlined" size="small" outlined type="primary">
@@ -51,7 +51,7 @@ const Banner2 = () => {
 const Banner3 = () => {
   return (
     <BannerWrapper>
-      <Cards bodyStyle={{ background: '#2C99FF', borderRadius: '10px', minHeight: '270px' }} headless>
+      <Cards  bodyStyle={{ borderRadius: '10px', minHeight: '270px', background: '#5F63F2' }} headless>
         <Figure3>
           <img src={require('../../static/img/banner/2.png')} alt="" />
           <figcaption>
@@ -89,14 +89,13 @@ const Banner5 = () => {
   return (
     <BannerWrapper>
       <Cards
-        bodyStyle={{
+        bodyStyle={{ 
           background: '#5F63F2',
           borderRadius: '10px',
           minHeight: '265px',
           display: 'flex',
-          alignItems: 'center',
-        }}
-        headless
+          alignItems: 'center', }}
+          headless
       >
         <Figure3 className="theme-wide">
           <img src={require('../../static/img/banner/4.png')} alt="" />
@@ -119,6 +118,7 @@ const Banner6 = () => {
       <Cards
         bodyStyle={{
           background: `url(${require('../../static/img/banner/5.png')})`,
+          backgroundSize: 'cover',
           borderRadius: '10px',
           minHeight: '265px',
           display: 'flex',
@@ -212,13 +212,12 @@ const BannerLong = () => {
 
 const BannerCard = () => {
   return (
-    <BannerCardWrap style={{ backgroundColor: '#FA8B0C' }}>
-      <div className="banner-card-inner">
+    <BannerCardWrap>
+      <div className="banner-card-inner" style={{backgroundImage: `url("${require('../../static/img/banner/card-banner-1.png')}")`}}>
         <h2>Need More Space?</h2>
         <Button size="small" type="white">
           Buy Storage
         </Button>
-        <img src={require('../../static/img/banner/10.png')} alt="" />
       </div>
     </BannerCardWrap>
   );
@@ -226,14 +225,13 @@ const BannerCard = () => {
 
 const BannerCard2 = () => {
   return (
-    <BannerCardWrap style={{ backgroundColor: '#FF4D4F' }}>
-      <div className="banner-card-inner theme-2">
+    <BannerCardWrap>
+      <div className="banner-card-inner theme-2" style={{backgroundImage: `url("${require('../../static/img/banner/card-banner-2.png')}")`}}>
         <h2>Create Sale Report</h2>
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</p>
         <Button size="small" type="white">
           Learn More
         </Button>
-        <img src={require('../../static/img/banner/11.png')} alt="" />
       </div>
     </BannerCardWrap>
   );
@@ -241,11 +239,8 @@ const BannerCard2 = () => {
 
 const BannerCta = () => {
   return (
-    <BannerCtaWrap style={{ backgroundColor: '#FA8B0C30' }}>
-      <div className="banner-cta align-center-v">
-        <div className="banner-cta__img">
-          <img src={require('../../static/img/banner/12.png')} alt="" />
-        </div>
+    <BannerCtaWrap>
+      <div className="banner-cta align-center-v" style={{backgroundImage: `url("${require('../../static/img/banner/cta-banner-1.png')}")`}}>
         <div className="banner-cta__content">
           <h2>Dedicated Support</h2>
           <Button size="small" type="primary">
@@ -259,17 +254,14 @@ const BannerCta = () => {
 
 const BannerCta2 = () => {
   return (
-    <BannerCtaWrap style={{ backgroundColor: '#2C99FF' }}>
-      <div className="banner-cta align-center-v theme-2">
+    <BannerCtaWrap>
+      <div className="banner-cta align-center-v theme-2" style={{backgroundImage: `url("${require('../../static/img/banner/cta-banner-2.png')}")`}}>
         <div className="banner-cta__content">
           <h2>Welcome Back Garry Sobars!</h2>
           <p>Lorem ipsum dolor amet, consetetur sadipscing elitr sed diam </p>
           <Button size="small" type="white">
             Learn More
           </Button>
-        </div>
-        <div className="banner-cta__img">
-          <img src={require('../../static/img/banner/13.png')} alt="" />
         </div>
       </div>
     </BannerCtaWrap>
