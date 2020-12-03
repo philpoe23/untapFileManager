@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Col, Row, Progress } from 'antd';
+import { Progress } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { UserCard } from '../style';
 import Heading from '../../../components/heading/heading';

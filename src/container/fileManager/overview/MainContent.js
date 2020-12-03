@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { deleteAddActiveClass } from '../../../redux/fileManager/actionCreator';
