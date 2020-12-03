@@ -718,13 +718,13 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Editor
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="edit" />} key="banners">
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="cast" />} key="banners">
         <NavLink onClick={toggleCollapsed} to={`${path}/banners`}>
           Banners
           <span className="badge badge-success">New</span>
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="edit" />} key="testimonials">
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="book-open" />} key="testimonials">
         <NavLink onClick={toggleCollapsed} to={`${path}/testimonials`}>
           Testimonials
           <span className="badge badge-success">New</span>

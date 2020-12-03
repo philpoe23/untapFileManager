@@ -1,4 +1,22 @@
 [   {
+        "id": 12,
+        "date": "Dec 03, 2020",
+        "version":"2.1.0",
+        "new":[
+            "CRM Home Page",
+            "Sales Home Page",
+            "4 New User Card Style",
+            "Testimonial",
+            "Banners"            
+        ],
+        "fixed": [
+            "Style issue"
+        ],
+        "updated": [
+            "Update Timeline In components"            
+        ]
+    },
+    {
         "id": 11,
         "date": "Nov 12, 2020",
         "version":"2.0.0",

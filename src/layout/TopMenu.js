@@ -65,6 +65,16 @@ const TopMenu = () => {
                   Ecomerce
                 </NavLink>
               </li>
+              <li>
+                <NavLink to={`${path}/crm`} onClick={addParentActive}>
+                  CRM
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={`${path}/sales`} onClick={addParentActive}>
+                  Sales Performance
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -205,8 +215,23 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink onClick={addParentActive} to={`${path}/users/users`}>
-                      Users
+                    <NavLink onClick={addParentActive} to={`${path}/users/grid`}>
+                      Users Grid
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/users/list`}>
+                      Users List
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/users/grid-style`}>
+                      Users Grid Style
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/users/grid-group`}>
+                      Users Group
                     </NavLink>
                   </li>
                   <li>
@@ -734,6 +759,18 @@ const TopMenu = () => {
                 <NavLink onClick={addParentActive} to={`${path}/editor`}>
                   <FeatherIcon icon="edit" />
                   Editor
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/banners`}>
+                  <FeatherIcon icon="cast" />
+                  Banners
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/testimonials`}>
+                  <FeatherIcon icon="book-open" />
+                  Testimonials
                 </NavLink>
               </li>
               <li className="has-subMenu-left">
