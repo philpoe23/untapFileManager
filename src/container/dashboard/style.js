@@ -37,6 +37,7 @@ const OverviewSalesCard = Styled.div`
         width: 60px;
         border-radius: 10px;
         margin-right: 10px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
         &.box-primary{
             background-color: ${({ theme }) => theme['primary-color']}10;
         }
@@ -267,6 +268,7 @@ const CardBarChart = Styled.div`
         .card-bar-top{
             &:not(:last-child){
                 margin-right: 30px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
             }
         }
         h4{
@@ -303,7 +305,7 @@ const CardBarChart = Styled.div`
         .custom-label{
             font-size: 14px;
             &:not(:last-child){
-                margin-right: 30px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
             }
         }
     }
@@ -1623,7 +1625,7 @@ const SentEmailWrapper = Styled.div`
             width: 60px;
             height: 60px;
             border-radius: 10px;
-            margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
             background-color: ${({ theme }) => theme['primary-color']}10;
             &.icon-success{
                 background-color: ${({ theme }) => theme['success-color']}10;
@@ -1667,7 +1669,7 @@ const RecentDealsWrapper = Styled.div`
                 border-radius: 50%;
             }
             .dealing-author-info{
-                margin-left: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 12px;
                 h4{
                     font-size: 14px;
                     font-weight: 600;
@@ -1697,6 +1699,7 @@ const SalesTargetWrap = Styled.div`
         min-height: 435px;
     }
     .target-progressbar-wrap{
+        direction: ltr;
         text-align: center;
         margin-bottom: 70px;
     }
@@ -1741,7 +1744,7 @@ const TopSellerWrap = Styled.div`
         min-height: auto;
         .product-info{
             .product-img{
-                margin-right: 15px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
             }
         }
         .ant-table-row {

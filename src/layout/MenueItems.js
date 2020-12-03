@@ -555,6 +555,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="timeline">
           <NavLink onClick={toggleCollapsed} to={`${path}/components/timeline`}>
             Timeline
+            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="timepicker">

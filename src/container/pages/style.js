@@ -399,7 +399,7 @@ const UserCard = Styled.div`
           font-size: 14px;
           font-weight: 500;
           margin-top: 4px;
-          margin-bottom: 26px;
+          margin-bottom: 16px;
         }
         .info-line{
           display: flex;
@@ -415,7 +415,11 @@ const UserCard = Styled.div`
           display: flex;
           justify-content: space-between;
           .progress-percentage{
-            margin-left: 20px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
+            span{
+              font-size: 12px;
+              color: ${({ theme }) => theme['gray-color']};
+            }
           }
         }
       }
@@ -1583,6 +1587,9 @@ const TestimonialWrapper = Styled.div`
 `;
 
 const TestimonialStyleWrapper = Styled.div`
+  .ant-card{
+    direction: ltr;
+  }
   .ant-card-body{
     padding: 0 !important;
   }
@@ -1727,17 +1734,19 @@ const TestimonialStyleWrapper = Styled.div`
         position: relative;
         .quotation{
           position: absolute;
-          right: 40px;
+          ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 40px;
           top: 40px;
         }
       }
       .testimonial-block__author{
+        direction: ${({ theme }) => (theme.rtl ? 'rtl' : 'ltr')};
         display: flex;
         align-items: center;
         margin-bottom: 22px;
         img{
           max-width: 70px;
           margin-right: 18px;
+          ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 18px;
         }
         .author-info{
           .client-name{
@@ -1753,6 +1762,7 @@ const TestimonialStyleWrapper = Styled.div`
         }
       }
       .testimonial-block__review{
+        direction: ${({ theme }) => (theme.rtl ? 'rtl' : 'ltr')};
         p{
           margin-bottom: 0;
           line-height: 1.75;
