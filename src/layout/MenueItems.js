@@ -325,11 +325,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </NavLink>
       </Menu.Item>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="fileManager">
+      {/* <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="fileManager">
         <NavLink onClick={toggleCollapsed} to={`${path}/app/fileManager`}>
           File Manager
         </NavLink>
-      </Menu.Item>
+      </Menu.Item> */}
 
       {!topMenu && <p className="sidebar-nav-title">Features</p>}
 
