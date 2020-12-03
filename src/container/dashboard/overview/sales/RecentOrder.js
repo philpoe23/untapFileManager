@@ -109,7 +109,7 @@ const RecentOrder = () => {
             </ul>
           </div>
         }
-        title="Top Selling Products"
+        title="Recent Orders"
         size="large"
         bodypadding="0px"
         more={moreContent}

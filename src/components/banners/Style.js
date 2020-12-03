@@ -8,6 +8,7 @@ const Figure2 = Styled.figure`
         position: absolute;
         bottom : -15px;
         right : 0;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
     }
     figcaption{
         h2{
@@ -83,7 +84,7 @@ const Figure3 = Styled.figure`
     img {
         position: absolute;
         bottom: -65px;
-        right: -25px;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -25px;
     }
     button{
         color: ${({ theme }) => theme['primary-color']} !important;
@@ -101,6 +102,7 @@ const Figure3 = Styled.figure`
 const Figure6 = Styled.figure`
     position: relative;  
     margin-bottom: 0;
+    direction: ${({ theme }) => (theme.rtl ? 'rtl' : 'ltr')};
     figcaption{
         h2{
             font-size: 22px;
@@ -151,9 +153,10 @@ const BannerNormal = Styled.div`
     &.theme-wide{
         .ant-card-body{
             padding: 50px 25px 50px 0 !important;
+            padding: ${({ theme }) => (theme.rtl ? '50px 25px 50px 25px' : '50px 25px 50px 0')}!important;
         }
         figcaption{
-            margin-left: 18px;
+            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 18px;
             h2{
                 font-size: 23px;
                 font-weight: 600;
@@ -265,7 +268,7 @@ const BannerCardWrap = Styled.div`
         img{
             position: absolute;
             bottom: 0;
-            right: 0;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         }
     }
 `;
@@ -278,6 +281,7 @@ const BannerCtaWrap = Styled.div`
         .banner-cta__content{
             text-align: center;
             padding-right: 30px;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 30px;
             h2{
                 font-size: 30px;
                 font-weight: 600;
@@ -289,9 +293,9 @@ const BannerCtaWrap = Styled.div`
         }
         &.theme-2{
             .banner-cta__content{
-                padding-right: 0;
-                padding-left: 30px;
-                text-align: left;
+                ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0px;
+                ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 30px;
+                text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
                 h2{
                     margin-bottom: 10px;
                 }

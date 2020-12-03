@@ -122,6 +122,7 @@ const Banner6 = () => {
           borderRadius: '10px',
           minHeight: '265px',
           display: 'flex',
+          direction: 'ltr',
           alignItems: 'center',
         }}
         headless
