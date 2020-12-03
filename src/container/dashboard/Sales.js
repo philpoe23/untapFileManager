@@ -38,7 +38,7 @@ const Sales = () => {
       />
       <Main className="grid-boxed">
         <Row gutter={25}>
-          <Col xxl={8} md={12} sm={12} xs={24}>
+          <Col lg={8} xs={24}>
             <Cards headless>
               <OverviewSalesCard>
                 <div className="icon-box box-warning">
@@ -99,7 +99,7 @@ const Sales = () => {
               </OverviewSalesCard>
             </Cards>
           </Col>
-          <Col md={16}>
+          <Col lg={16} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -110,7 +110,7 @@ const Sales = () => {
               <AverageSalesRevenue />
             </Suspense>
           </Col>
-          <Col md={8}>
+          <Col lg={8} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -121,7 +121,7 @@ const Sales = () => {
               <SalesTarget />
             </Suspense>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -132,7 +132,7 @@ const Sales = () => {
               <SalesGrowth />
             </Suspense>
           </Col>
-          <Col md={8}>
+          <Col lg={8} md={12} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -143,7 +143,7 @@ const Sales = () => {
               <TopCountriesRevenue />
             </Suspense>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>
@@ -154,7 +154,7 @@ const Sales = () => {
               <TopSellingProduct />
             </Suspense>
           </Col>
-          <Col md={12}>
+          <Col md={12} xs={24}>
             <Suspense
               fallback={
                 <Cards headless>

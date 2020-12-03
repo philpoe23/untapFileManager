@@ -1807,6 +1807,11 @@ html[dir='rtl'] .ant-card-head-title span {
 
 /* Responsive CSS */
 
+@media only screen and (max-width: 1599px) {
+  .ant-page-header.header-boxed {
+    padding: 26px 130px 26px 130px !important;
+  }
+}
 @media only screen and (max-width: 1500px) {
   .full-width-table .revenue-table {
     min-height: 100%;
@@ -1824,6 +1829,12 @@ html[dir='rtl'] .ant-card-head-title span {
   }
 }
 
+@media only screen and (max-width: 1399px) {
+  .ant-page-header.header-boxed {
+    padding: 26px 50px 26px 50px !important;
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   .ant-page-header {
     padding: 0 15px;
@@ -1831,6 +1842,9 @@ html[dir='rtl'] .ant-card-head-title span {
 }
 
 @media only screen and (max-width: 991px) {
+  .ant-page-header.header-boxed {
+    padding: 26px 30px 26px 30px !important;
+  }
   .rdrMonths .rdrMonth {
     width: 100%;
     margin-bottom: 30px;

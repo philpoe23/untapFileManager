@@ -42,43 +42,43 @@ const Banners = () => {
       />
       <Main>
         <Row gutter={25}>
-          <Col md={6} sm={24} xs={24}>
+          <Col xxl={6} xl={12} lg={12} sm={24} xs={24}>
             <Banner1 />
           </Col>
-          <Col md={6} sm={24} xs={24}>
+          <Col xxl={6} xl={12} lg={12} sm={24} xs={24}>
             <Banner2 />
           </Col>
-          <Col md={6} sm={24} xs={24}>
+          <Col xxl={6} xl={12} lg={12} sm={24} xs={24}>
             <Banner3 />
           </Col>
-          <Col md={6} sm={24} xs={24}>
+          <Col xxl={6} xl={12} lg={12} sm={24} xs={24}>
             <Banner4 />
           </Col>
-          <Col md={8} sm={24} xs={24}>
+          <Col xxl={8} xl={12} lg={12} xs={24}>
             <Banner5 />
           </Col>
-          <Col md={8} sm={24} xs={24}>
+          <Col xxl={8} xl={12} lg={12} xs={24}>
             <Banner6 />
           </Col>
-          <Col md={8} sm={24} xs={24}>
+          <Col xxl={8} xs={24}>
             <Banner7 />
           </Col>
-          <Col md={4} sm={24} xs={24}>
+          <Col xxl={4} lg={12} sm={24} xs={24}>
             <BannerCarousel />
           </Col>
-          <Col md={4} sm={24} xs={24}>
+          <Col xxl={4} lg={12} xs={24}>
             <BannerLong />
           </Col>
-          <Col md={8} sm={24} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <BannerCard />
           </Col>
-          <Col md={8} sm={24} xs={24}>
+          <Col xxl={8} md={12} xs={24}>
             <BannerCard2 />
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col xxl={12} xs={24}>
             <BannerCta />
           </Col>
-          <Col md={12} sm={24} xs={24}>
+          <Col xxl={12} xs={24}>
             <BannerCta2 />
           </Col>
         </Row>

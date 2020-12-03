@@ -37,6 +37,16 @@ const Testimonials = () => {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    },
   };
   const paramsTwo = {
     slidesPerView: 2,
@@ -45,6 +55,16 @@ const Testimonials = () => {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
     },
   };
   const galleryParams = {

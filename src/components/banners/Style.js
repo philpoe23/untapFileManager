@@ -85,6 +85,9 @@ const Figure3 = Styled.figure`
         position: absolute;
         bottom: -65px;
         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -25px;
+        @media only screen and (max-width: 1599px){
+            max-width: 150px;
+        }
     }
     button{
         color: ${({ theme }) => theme['primary-color']} !important;
@@ -117,12 +120,32 @@ const Figure6 = Styled.figure`
 const Figure7 = Styled.figure`
     display: flex;  
     margin-bottom: 0;
-    aling-items: center;
+    align-items: center;
+    @media only screen and (max-width: 575px){
+        flex-direction: column;
+    }
+    img{
+        @media only screen and (max-width: 575px){
+            margin-bottom: 15px;
+        }
+    }
+    figcaption{
+        @media only screen and (max-width: 575px){
+            text-align: center;
+            margin-left: 0px;
+        }
+    }
 `;
 
 const BannerWrapper = Styled.figure`
     .ant-card{
         margin-bottom: 70px !important;
+        @media only screen and (max-width: 1199px){
+            margin-bottom: 50px !important;
+        }
+        @media only screen and (max-width: 991px){
+            margin-bottom: 30px !important;
+        }
     }
 `;
 
@@ -130,6 +153,12 @@ const BannerNormal = Styled.div`
     .ant-card{
         margin-bottom: 70px !important;
         box-shadow: 0 5px 20px ${({ theme }) => theme['dark-color']}15;
+        @media only screen and (max-width: 1199px){
+            margin-bottom: 50px !important;
+        }
+        @media only screen and (max-width: 991px){
+            margin-bottom: 30px !important;
+        }
     }
     .ant-card-body{
         padding: 35px 30px 46px !important;
@@ -176,6 +205,12 @@ const BannerCarouselWrap = Styled.div`
     border-radius: 10px;
     padding: 60px 0 105px;
     background-color: ${({ theme }) => theme['primary-color']};
+    @media only screen and (max-width: 1199px){
+        margin-bottom: 50px !important;
+    }
+    @media only screen and (max-width: 991px){
+        margin-bottom: 30px !important;
+    }
     .ant-carousel{
         .slick-dots{
             &.slick-dots-bottom{
@@ -221,6 +256,12 @@ const BannerCarouselWrap = Styled.div`
 
 const BannerLongWrap = Styled.div`
     margin-bottom: 70px;
+    @media only screen and (max-width: 1199px){
+        margin-bottom: 50px !important;
+    }
+    @media only screen and (max-width: 991px){
+        margin-bottom: 30px !important;
+    }
     .banner-long-inner{
         padding: 30px 0;
         text-align: center;
@@ -236,10 +277,13 @@ const BannerLongWrap = Styled.div`
 
 const BannerCardWrap = Styled.div`
     position: relative
-    border-radius: 10px;
-    padding: 38px 40px 40px 40px;
-    min-height: 450px;
-    margin-bottom: 70px
+    margin-bottom: 
+    @media only screen and (max-width: 1199px){
+        margin-bottom: 50px !important;
+    }
+    @media only screen and (max-width: 991px){
+        margin-bottom: 30px !important;
+    }
     h2{
         font-size: 30px;
         font-weight: 600;
@@ -247,6 +291,15 @@ const BannerCardWrap = Styled.div`
         margin-bottom: 20px;
     }
     .banner-card-inner{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        min-height: 450px;
+        padding: 38px 40px 40px 40px;
+        border-radius: 10px;
+        @media only screen and (max-width: 575px){
+            padding: 28px 30px 30px 30px;
+        }
         &.theme-2{
             h2{
                 margin-bottom: 18px;
@@ -258,6 +311,9 @@ const BannerCardWrap = Styled.div`
                 max-width: 290px;
                 margin-bottom: 20px;
             }
+            img{
+                max-width: 285px;
+            }
         }
         button{
             height: 44px;
@@ -268,6 +324,7 @@ const BannerCardWrap = Styled.div`
         img{
             position: absolute;
             bottom: 0;
+            max-width: 460px;
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         }
     }
@@ -277,11 +334,19 @@ const BannerCtaWrap = Styled.div`
     border-radius: 10px;
     margin-bottom: 30px;
     .banner-cta{
-        justify-content: space-between;
+        min-height: 224px;
+        justify-content: flex-end;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        border-radius: 10px;
+        @media only screen and (max-width: 575px){
+            background-position: center;
+        }
         .banner-cta__content{
             text-align: center;
-            padding-right: 30px;
-            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 30px;
+            margin-top: -8px;
+            padding: ${({ theme }) => (theme.rtl ? '30px 0px 30px 30px' : '30px 30px 30px 0px')};
             h2{
                 font-size: 30px;
                 font-weight: 600;
@@ -292,9 +357,13 @@ const BannerCtaWrap = Styled.div`
             }
         }
         &.theme-2{
+            justify-content: flex-start;
+            background-position: right;
+            @media only screen and (max-width: 575px){
+                background-position: center;
+            }
             .banner-cta__content{
-                ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0px;
-                ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 30px;
+                padding: ${({ theme }) => (theme.rtl ? '30px 30px 30px 0px' : '30px 0px 30px 30px')};
                 text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
                 h2{
                     margin-bottom: 10px;
