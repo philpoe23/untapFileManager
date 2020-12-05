@@ -307,19 +307,31 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink onClick={addParentActive} to={`${path}/faq`}>
-                      Faq`s
+                    <NavLink onClick={addParentActive} to={`${path}/banners`}>
+                      {/* <FeatherIcon icon="cast" /> */}
+                      Banners
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink onClick={addParentActive} to={`${path}/search`}>
-                      Search Results
+                    <NavLink onClick={addParentActive} to={`${path}/testimonials`}>
+                      {/* <FeatherIcon icon="book-open" /> */}
+                      Testimonials
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/faq`}>
+                      Faq`s
                     </NavLink>
                   </li>
                 </ul>
               </li>
               <li>
                 <ul>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/search`}>
+                      Search Results
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/starter`}>
                       Blank Page
@@ -761,18 +773,7 @@ const TopMenu = () => {
                   Editor
                 </NavLink>
               </li>
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/banners`}>
-                  <FeatherIcon icon="cast" />
-                  Banners
-                </NavLink>
-              </li>
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/testimonials`}>
-                  <FeatherIcon icon="book-open" />
-                  Testimonials
-                </NavLink>
-              </li>
+
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
                   <FeatherIcon icon="map" />

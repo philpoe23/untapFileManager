@@ -1,13 +1,13 @@
 [   {
         "id": 12,
-        "date": "Dec 03, 2020",
+        "date": "Dec 06, 2020",
         "version":"2.1.0",
         "new":[
-            "CRM Home Page",
-            "Sales Home Page",
-            "4 New User Card Style",
-            "Testimonial",
-            "Banners"            
+            "CRM Dashboard Demo",
+            "Sales Dashboard Demo",
+            "4 New Users Card Styles",
+            "Testimonials Page",
+            "13+ Banners Styles"            
         ],
         "fixed": [
             "Style issue"
