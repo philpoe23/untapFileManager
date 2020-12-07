@@ -719,6 +719,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Editor
         </NavLink>
       </Menu.Item>
+
       <SubMenu key="maps" icon={!topMenu && <FeatherIcon icon="map" />} title="Maps">
         <Menu.Item key="google">
           <NavLink onClick={toggleCollapsed} to={`${path}/maps/google`}>
@@ -736,6 +737,14 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
+      <SubMenu key="importExport" icon={!topMenu && <FeatherIcon icon="maximize-2" />} title="Import Export">
+        <Menu.Item key="import">
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
+            Import
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
+
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
 
       <Menu.Item icon={!topMenu && <FeatherIcon icon="settings" />} key="settings">
