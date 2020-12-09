@@ -18,15 +18,6 @@ const Import = () => {
     submitValues: {},
   });
 
-  const fileList = [
-    {
-      uid: '1',
-      name: '1.png',
-      status: 'done',
-      url: require('../../static/img/products/1.png'),
-      thumbUrl: require('../../static/img/products/1.png'),
-    },
-  ];
   const fileUploadProps = {
     name: 'file',
     multiple: true,

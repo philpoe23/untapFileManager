@@ -743,6 +743,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Import
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="export">
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/export`}>
+            Export
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
