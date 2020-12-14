@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Table } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { useSelector, useDispatch } from 'react-redux';
+import { CSVLink } from 'react-csv';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -11,6 +12,7 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { contactSearchData } from '../../redux/contact/actionCreator';
+import { alertModal } from '../../components/modals/antd-modals';
 
 const Import = () => {
   const dispatch = useDispatch();
@@ -21,13 +23,15 @@ const Import = () => {
   });
   const [state, setState] = useState({
     selectedRowKeys: 0,
-    selectedRows: 0,
+    selectedRows: [],
   });
+
   const handleSearch = searchText => {
     dispatch(contactSearchData(searchText));
   };
 
   const usersTableData = [];
+  const csvData = [['id', 'name', 'email', 'company', 'position']];
 
   users
     .sort((a, b) => {
@@ -35,7 +39,6 @@ const Import = () => {
     })
     .map(user => {
       const { id, name, designation, email, company } = user;
-
       return usersTableData.push({
         key: id,
         user: name,
@@ -78,6 +81,17 @@ const Import = () => {
     }),
   };
 
+  state.selectedRows.map(member => {
+    const { key, user, position, email, company } = member;
+    return csvData.push([key, user, email, company, position]);
+  });
+
+  const warning = () => {
+    alertModal.warning({
+      title: 'Please Select your Required Rows!',
+    });
+  };
+
   return (
     <>
       <PageHeader
@@ -99,7 +113,16 @@ const Import = () => {
           <Col sm={24} xs={24}>
             <Cards headless>
               <div>
-                <Button type="primary">Export</Button>
+                {state.selectedRows.length ? (
+                  <CSVLink filename="react.csv" data={csvData}>
+                    <Button type="primary">Export</Button>
+                  </CSVLink>
+                ) : (
+                  <Button onClick={warning} type="primary">
+                    Export
+                  </Button>
+                )}
+
                 <AutoComplete
                   onSearch={handleSearch}
                   // dataSource={notData}
