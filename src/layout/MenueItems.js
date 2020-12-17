@@ -749,6 +749,23 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
+      <SubMenu key="knowledgebase" icon={!topMenu && <FeatherIcon icon="maximize-2" />} title="Knowledgebase">
+        <Menu.Item key="knowledgebase">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase`}>
+            Knowledgebase
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="allArticle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledge/all`}>
+            All Article
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="allArticle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/knowledgeSingle/1`}>
+            KnowledgeSingle
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
 
