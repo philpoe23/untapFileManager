@@ -29,8 +29,8 @@ const PagesRoute = () => {
       <Route path={`${path}/wizards`} component={Wizards} />
       <Route path={`${path}/settings`} component={Settings} />
       <Route path={`${path}/knowledgeBase`} component={KnowledgeBase} />
-      <Route path={`${path}/all`} component={AllArticle} />
-      <Route path={`${path}/knowledgeBase/knowledgeSingle/:id`} component={KnowledgeSingle} />
+      <Route path={`${path}/all-articles`} component={AllArticle} />
+      <Route path={`${path}/knowledgeSingle/:id`} component={KnowledgeSingle} />
       <Route path={`${path}/changelog`} component={ChangeLog} />
     </Switch>
   );

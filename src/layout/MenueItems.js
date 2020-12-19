@@ -756,12 +756,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="allArticle">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledge/all`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
             All Article
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="allArticle">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/knowledgeSingle/1`}>
+        <Menu.Item key="knowledgeSingle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
             KnowledgeSingle
           </NavLink>
         </Menu.Item>

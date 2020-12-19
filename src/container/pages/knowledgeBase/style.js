@@ -106,6 +106,37 @@ const KnowledgebaseArticleWrap = Styled.div`
     .knowledgebase-article-container{
         max-width: 1110px;
         margin: 0 auto;
+        &.theme-2{
+            max-width: 930px;
+        }
+    }
+    .sDash_paginaion{
+        margin: 18px 0 40px;
+        ul{
+            li{
+                display: inline-block;
+                &:not(:last-child){
+                    margin-right: 8px;
+                }
+                span{
+                    color: ${({ theme }) => theme['light-gray-color']};
+                }
+                a{
+                    font-size: 14px;
+                    color: ${({ theme }) => theme['light-gray-color']};
+                    &.active{
+                        color: ${({ theme }) => theme['dark-color']};
+                    }
+                }
+            }
+            li + li{
+                &:before{
+                    font-family: FontAwesome;
+                    margin-right: 8px;
+                    content: '\f105';
+                }
+            }
+        }
     }
 `;
 
@@ -288,6 +319,125 @@ const CtaWrap = Styled.div`
     }
 `;
 
+const ArticleListWrap = Styled.div`
+    .sDash_articlelist{
+        border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
+        padding-bottom: 65px;
+        margin-bottom: 45px;
+    }
+    .sDash_articlelist__single{
+        display: flex;
+        &:not(:last-child){
+            margin-bottom: 55px;
+        }
+        .sDash_articlelist__single--left{
+            margin-right: 100px;
+            min-width: 260px;
+        }
+    }
+    .sDash_article-category-links{
+        ul{
+            display:  flex;
+            justify-content: between;
+            flex-wrap: wrap;
+            li{
+                flex: 0 0 44%;
+                max-width: 285px;
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+
+                &:nth-child(2n){
+                    margin-left: 68px;
+                }
+                a{
+                    font-size: 15px;
+                    font-weight: 400;
+                    color: ${({ theme }) => theme['gray-color']};
+                    &:hover{
+                        color: ${({ theme }) => theme['primary-color']};
+                    }
+                }
+                .ant-collapse {
+                    border: 0 none;
+                    .ant-collapse-item{
+                        border: 0 none
+                    }
+                    .ant-collapse-header{
+                        padding: 0 0 0 18px !important;
+                        background-color: #fff !important;
+                        .ant-collapse-arrow{
+                            left: 0;
+                        }
+                    }
+                    .ant-collapse-content {
+                        border: 0 none;
+                        .ant-collapse-content-box{
+                            padding: 14px 0 0 30px;
+                            ul{
+                                display: block;
+                                li{
+                                    &:nth-child(2n){
+                                        margin-left: 0px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const SingleKnowledgeContent = Styled.div`
+    display: flex;
+`;
+
+const SidebarNavWrap = Styled.div`
+    min-width: 330px;
+    border: 1px solid ${({ theme }) => theme['border-color-normal']};
+    border-radius: 4px;
+    margin-right: 50px;
+    .knowledge-sidebar{
+        .knowledge-sidebar__title{
+            font-size: 16px;
+            font-weight: 500;
+            padding: 18px 20px;
+            color: ${({ theme }) => theme['dark-color']};
+            border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
+        }
+        ul{
+            padding: 18px 20px;
+            li{
+                a{
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: ${({ theme }) => theme['dark-color']};
+                }
+            }
+        }
+        .submenu{
+            li{
+                a{
+                    display: block;
+                    font-size: 15px;
+                    font-weight: 400;
+                    padding: 6px 0;
+                    color: ${({ theme }) => theme['gray-color']};
+                    &:hover{
+                        color: ${({ theme }) => theme['primary-color']};
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const KnowledgeDetailsWrap = Styled.div`
+    
+`;
+
 export {
   KnowledgebaseTopWrap,
   KnowledgebaseArticleWrap,
@@ -295,4 +445,8 @@ export {
   ArticleTabWrap,
   ArticleTabContentWrap,
   CtaWrap,
+  ArticleListWrap,
+  SingleKnowledgeContent,
+  SidebarNavWrap,
+  KnowledgeDetailsWrap,
 };

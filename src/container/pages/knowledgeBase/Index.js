@@ -6,7 +6,6 @@ import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import KnowledgeBaseTop from './overview/Knowledgebase/knowledgeTop';
-import KnowledgebaseArticle from './overview/Knowledgebase/KnowledgebaseArticle';
 import { KnowledgebaseArticleWrap, ArticleTabWrap, PopularArticleWrap, CtaWrap } from './style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Button } from '../../../components/buttons/buttons';
@@ -15,7 +14,7 @@ import { ShareButtonPageHeader } from '../../../components/buttons/share-button/
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
-// import {articles} from '../../../demoData/article.json';
+import {articles} from '../../../demoData/article.json';
 
 const Plugins = lazy(() => import('./overview/ArticlePlugin'));
 const Themes = lazy(() => import('./overview/ArticleTheme'));
