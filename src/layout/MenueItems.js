@@ -751,7 +751,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       </SubMenu>
       <SubMenu key="knowledgebase" icon={!topMenu && <FeatherIcon icon="maximize-2" />} title="Knowledgebase">
         <Menu.Item key="knowledgebase">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase`}>
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
             Knowledgebase
           </NavLink>
         </Menu.Item>

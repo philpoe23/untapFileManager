@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Input, Select, Button } from 'antd';
-import { Link } from 'react-router-dom';
 import { KnowledgebaseTopWrap } from '../style';
 
 const GeneralKnowledgeTop = () => {

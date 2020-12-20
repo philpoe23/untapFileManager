@@ -1,6 +1,6 @@
-import React, { lazy, useState, Suspense } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Spin, Select } from 'antd';
+import React, { lazy, Suspense } from 'react';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import { Spin } from 'antd';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
@@ -14,7 +14,7 @@ import { ShareButtonPageHeader } from '../../../components/buttons/share-button/
 import { ExportButtonPageHeader } from '../../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
-import {articles} from '../../../demoData/article.json';
+import articles from '../../../demoData/article.json';
 
 const Plugins = lazy(() => import('./overview/ArticlePlugin'));
 const Themes = lazy(() => import('./overview/ArticleTheme'));
@@ -79,38 +79,20 @@ const KnowledgeBase = ({ match }) => {
             <PopularArticleWrap>
               <div className="sDash_popular-article sDash_popular-article-container">
                 <h2 className="sDash_popular-article__title">Popular articles</h2>
-                <Row gutter="30">
-                  <Col lg={8}>
-                    <div className="sDash_popular-article__single theme-primary">
-                      <h4 className="single-article-title">Article</h4>
-                      <p>Learn everything you need to know getting help with Lorem Ipsum</p>
-                      <Link className="btn-link">
-                        Read more
-                        <ArrowRightOutlined />
-                      </Link>
-                    </div>
-                  </Col>
-                  <Col lg={8}>
-                    <div className="sDash_popular-article__single theme-primary">
-                      <h4 className="single-article-title">Article</h4>
-                      <p>Learn everything you need to know getting help with Lorem Ipsum</p>
-                      <Link className="btn-link">
-                        Read more
-                        <ArrowRightOutlined />
-                      </Link>
-                    </div>
-                  </Col>
-                  <Col lg={8}>
-                    <div className="sDash_popular-article__single theme-primary">
-                      <h4 className="single-article-title">Article</h4>
-                      <p>Learn everything you need to know getting help with Lorem Ipsum</p>
-                      <Link className="btn-link">
-                        Read more
-                        <ArrowRightOutlined />
-                      </Link>
-                    </div>
-                  </Col>
-                </Row>
+                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+                  <Masonry className="sDash_popular-article__box">
+                    {articles.map((article, i) => (
+                      <div className={`sDash_popular-article__single theme-${article.type}`} key={i}>
+                        <h4 className="single-article-title">{article.title}</h4>
+                        <p>{article.text}</p>
+                        <Link className="btn-link">
+                          Read more
+                          <ArrowRightOutlined />
+                        </Link>
+                      </div>
+                    ))}
+                  </Masonry>
+                </ResponsiveMasonry>
               </div>
             </PopularArticleWrap>
             <CtaWrap>

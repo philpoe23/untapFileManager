@@ -13,25 +13,25 @@
     },
     {
         "id": 3,
-        "type": "success",
+        "type": "secondary",
         "title": "Article",
         "text": "Does Lorem comply with the General Data Protection Regulation for EU customers?"
     },
     {
         "id": 4,
-        "type": "success",
+        "type": "warning",
         "title": "Article",
         "text": "Learn everything you need to know getting help with Lorem Ipsum"
     },
     {
         "id": 5,
-        "type": "success",
+        "type": "info",
         "title": "Article",
         "text": "Does Lorem comply with the General Data Protection Regulation for EU customers?"
     },
     {
         "id": 6,
-        "type": "success",
+        "type": "danger",
         "title": "Article",
         "text": "Learn the basics via this module-based course."
     }

@@ -1,13 +1,9 @@
-import React, { lazy, useState, Suspense } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { Collapse } from 'antd';
-import { Switch, NavLink, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
-import propTypes from 'prop-types';
-import { ArrowRightOutlined } from '@ant-design/icons';
 import GeneralKnowledgeTop from './overview/GeneralKnowledgeTop';
-import KnowledgebaseArticle from './overview/Knowledgebase/KnowledgebaseArticle';
-import { KnowledgebaseArticleWrap, ArticleTabWrap, ArticleListWrap, CtaWrap } from './style';
+import { KnowledgebaseArticleWrap, ArticleListWrap, CtaWrap } from './style';
 import { PageHeader } from '../../../components/page-headers/page-headers';
 import { Button } from '../../../components/buttons/buttons';
 import { Main } from '../../styled';
