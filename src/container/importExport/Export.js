@@ -4,7 +4,7 @@ import FeatherIcon from 'feather-icons-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CSVLink } from 'react-csv';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
+import { Main, ExportStyleWrap } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
@@ -111,38 +111,43 @@ const Import = () => {
       <Main>
         <Row gutter={25}>
           <Col sm={24} xs={24}>
-            <Cards headless>
-              <div>
-                {state.selectedRows.length ? (
-                  <CSVLink filename="react.csv" data={csvData}>
-                    <Button type="primary">Export</Button>
-                  </CSVLink>
-                ) : (
-                  <Button onClick={warning} type="primary">
-                    Export
-                  </Button>
-                )}
+            <ExportStyleWrap>
+              <Cards headless>
+                <div className="sDash_export-box">
+                  {state.selectedRows.length ? (
+                    <CSVLink filename="react.csv" data={csvData}>
+                      <Button className="btn-export" type="primary">
+                        Export
+                      </Button>
+                    </CSVLink>
+                  ) : (
+                    <Button className="btn-export" onClick={warning} type="primary">
+                      Export
+                    </Button>
+                  )}
 
-                <AutoComplete
-                  onSearch={handleSearch}
-                  // dataSource={notData}
-                  placeholder="Search by Name"
-                  width="100%"
-                  patterns
-                />
-              </div>
-
-              <Table
-                rowSelection={rowSelection}
-                dataSource={usersTableData}
-                columns={usersTableColumns}
-                pagination={{
-                  defaultPageSize: 7,
-                  total: usersTableData.length,
-                  showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-                }}
-              />
-            </Cards>
+                  <AutoComplete
+                    onSearch={handleSearch}
+                    // dataSource={notData}
+                    placeholder="Search by Name"
+                    width="100%"
+                    patterns
+                  />
+                </div>
+                <div className="sDash_export-file-table table-bordered table-responsive">
+                  <Table
+                    rowSelection={rowSelection}
+                    dataSource={usersTableData}
+                    columns={usersTableColumns}
+                    pagination={{
+                      defaultPageSize: 7,
+                      total: usersTableData.length,
+                      showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
+                    }}
+                  />
+                </div>
+              </Cards>
+            </ExportStyleWrap>
           </Col>
         </Row>
       </Main>

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Upload, message } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { PageHeader } from '../../components/page-headers/page-headers';
-import { Main } from '../styled';
-import { Cards } from '../../components/cards/frame/cards-frame';
+import { Main, ImportStyleWrap } from '../styled';
 import { Button } from '../../components/buttons/buttons';
 import Heading from '../../components/heading/heading';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
@@ -59,29 +58,27 @@ const Import = () => {
       <Main>
         <Row gutter={25}>
           <Col sm={24} xs={24}>
-            <Cards headless>
-              <div className="add-product-block">
+            <ImportStyleWrap>
+              <div className="sDash_import-box">
                 <Row gutter={15}>
                   <Col xs={24}>
-                    <div className="add-product-content">
-                      <Cards headless>
-                        <Dragger {...fileUploadProps}>
-                          <p className="ant-upload-drag-icon">
-                            <FeatherIcon icon="upload" size={50} />
-                          </p>
-                          <Heading as="h4" className="ant-upload-text">
-                            Drag and drop an image
-                          </Heading>
-                          <p className="ant-upload-hint">
-                            or <span>Browse</span> to choose a file
-                          </p>
-                        </Dragger>
-                      </Cards>
+                    <div className="sDash_import-inner">
+                      <Dragger {...fileUploadProps}>
+                        <p className="ant-upload-drag-icon">
+                          <FeatherIcon icon="upload" size={50} />
+                        </p>
+                        <Heading as="h4" className="ant-upload-text">
+                          <span> Drop File</span>
+                          <span className="ant-upload-hint">
+                            or <span>Browse</span>
+                          </span>
+                        </Heading>
+                      </Dragger>
                     </div>
                   </Col>
                 </Row>
               </div>
-            </Cards>
+            </ImportStyleWrap>
           </Col>
         </Row>
       </Main>

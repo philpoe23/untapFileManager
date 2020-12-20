@@ -1496,6 +1496,59 @@ const DragDropStyle = Styled.div`
         }
     }
 `;
+
+const ImportStyleWrap = Styled.div`
+    .ant-upload.ant-upload-drag{
+        background-color: #fff;
+        min-height: 280px;
+        display: flex;
+        align-items: center;
+        border-color: #C6D0DC;
+        border-radius: 10px;
+        .ant-upload-drag-icon{
+            svg,
+            i{
+                color: #ADB4D2;
+            }
+        }
+    }
+    .sDash_import-inner{
+        .ant-upload-text{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .ant-upload-hint{
+            margin-left: 4px;
+            span{
+                color: ${({ theme }) => theme['primary-color']};
+            }
+        }
+        .ant-upload-list{
+            .ant-upload-list-item{
+                background-color: #fff;
+                border-color: ${({ theme }) => theme['border-color-normal']}
+            }
+            .ant-upload-list-item-card-actions.picture{
+                top: 18px;
+                right: 15px;
+            }
+        }
+    }
+`;
+
+const ExportStyleWrap = Styled.div`
+    .sDash_export-box{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        .btn-export{
+            height: 44px; 
+        }
+        .ant-select{
+            width: auto !important;
+        }
+    }
+`;
 export {
   Main,
   ButtonsGroupWrapper,
@@ -1517,4 +1570,6 @@ export {
   BannerCardStyleWrap,
   FileCardWrapper,
   TableWrapper,
+  ImportStyleWrap,
+  ExportStyleWrap,
 };
