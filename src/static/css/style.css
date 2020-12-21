@@ -1677,6 +1677,59 @@ html[dir='rtl'] .ant-card-head-title span {
   visibility: visible;
 }
 
+/* File Export Import Modal */
+.sDash_export-wrap .ant-modal{
+  width: 390px !important;
+}
+.sDash_export-wrap .ant-modal .ant-modal-header{
+  border-bottom: 0 none;
+  padding: 18px 30px 0 30px
+}
+.sDash_export-wrap .ant-modal .ant-modal-body{
+  padding: 25px 30px 30px 30px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp{
+  text-align: right;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp{
+  margin: 20px -8px -8px -8px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp button{
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  height: 40px;
+  padding: 0 16px;
+  margin: 8px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp button.ant-btn-white{
+  color: #9299B8 !important;
+}
+.sDash_export-wrap .ant-form-item-control-input{
+  min-height: 36px;
+}
+
+.sDash_export-wrap .ant-form-item-control-input input{
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 20px;
+  border-radius: 5px;
+  color: #9299B8;
+}
+
+.sDash_export-wrap .ant-select-single{
+  width: 100% !important;
+}
+
+.sDash_export-wrap .ant-form .ant-form-item{
+  margin-bottom: 15px;
+}
+
+.sDash_export-wrap .ant-select-single .ant-select-selector{
+  padding: 0 20px;
+  border-color: #E3E6EF !important;
+}
+
 @media (max-width: 767px) {
   .ant-page-header {
     padding: 26px 15px 26px 15px !important;
