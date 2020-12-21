@@ -1526,7 +1526,7 @@ const ImportStyleWrap = Styled.div`
         .ant-upload-list{
             .ant-upload-list-item{
                 background-color: #fff;
-                border-color: ${({ theme }) => theme['border-color-normal']}
+                border-color: ${({ theme }) => theme['border-color-normal']};
             }
             .ant-upload-list-item-card-actions.picture{
                 top: 18px;
@@ -1546,6 +1546,47 @@ const ExportStyleWrap = Styled.div`
         }
         .ant-select{
             width: auto !important;
+            .ant-select-selector{
+                .ant-select-selection-search-input{
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+    .sDash_export-file-table{
+        .ant-table-content{
+            .ant-table-thead{
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
+                border-radius: 10px;
+                tr{
+                    th{
+                        background-color: ${({ theme }) => theme['bg-color-light']};
+                        border: 0 none;
+                        color: ${({ theme }) => theme['gray-color']};
+                        &:first-child{
+                            border-radius: 10px 0 0 10px;
+                        }
+                        &:last-child{
+                            border-radius: 0 10px 10px 0;
+                        }
+                    }
+                }
+            }
+            .ant-table-tbody{
+                tr{
+                    &:hover{
+                        box-shadow: 0 15px 50px #9299B820;
+                        td{
+                            background-color: #fff !important;
+                        }
+                    }
+                    td{
+                        border: 0 none;
+                        padding: 22px 25px;
+                        background-color: #fff;
+                    }
+                }
+            }
         }
     }
 `;

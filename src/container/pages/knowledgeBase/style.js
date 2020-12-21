@@ -30,7 +30,7 @@ const KnowledgebaseTopWrap = Styled.div`
             .ant-select{
                 min-width: 160px;
                 .ant-select-arrow{
-                    right: 30px;
+                    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                 }
             }
             .ant-select-selector{
@@ -42,9 +42,10 @@ const KnowledgebaseTopWrap = Styled.div`
                 .ant-select-selection-item{
                     font-size: 15px;
                     color: ${({ theme }) => theme['gray-color']};
-                    text-align: left;
+                    text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
                     line-height: 54px !important;
-                    border-right: 1px solid ${({ theme }) => theme['border-color-normal']};
+                    ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
+  theme['border-color-normal']};
                 }
             }
             .sDash_search-input{
@@ -63,6 +64,7 @@ const KnowledgebaseTopWrap = Styled.div`
                 font-size: 15px;
                 height: 54px;
                 border-radius: 0 4px 4px 0;
+                border-radius: ${({ theme }) => (theme.rtl ? '4px 0 0 4px' : '0 4px 4px 0')}
                 padding: 6.4px 27.7px;
             }
         }
@@ -76,10 +78,11 @@ const KnowledgebaseTopWrap = Styled.div`
         }
         li{
             &:first-child{
-                margin-right: 25px !important;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 25px !important;
+                
             }
             &:not(:last-child){
-                margin-right: 20px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
             }
             a,
             span{
@@ -117,6 +120,7 @@ const KnowledgebaseArticleWrap = Styled.div`
                 display: inline-block;
                 &:not(:last-child){
                     margin-right: 8px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
                 }
                 span{
                     color: ${({ theme }) => theme['light-gray-color']};
@@ -151,7 +155,7 @@ const ArticleTabWrap = Styled.div`
                 border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
                 li{
                     &:not(:last-child){
-                        margin-right: 36px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 36px;
                     }
                     a{
                         position: relative
@@ -170,7 +174,7 @@ const ArticleTabWrap = Styled.div`
                         }
                         &:after{
                             position: absolute;
-                            left: 0;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
                             bottom: -.5px;
                             width: 100%;
                             height: 1px;
@@ -221,7 +225,7 @@ const ArticleTabContentWrap = Styled.div`
             }
             &:after{
                 position: absolute;
-                left: 0
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
                 bottom: -6.5px;
                 width: 0%;
                 height: 1px;
@@ -235,6 +239,7 @@ const ArticleTabContentWrap = Styled.div`
             i,
             span{
                 margin-left: 10px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
             }
         }
     }
@@ -310,7 +315,8 @@ const PopularArticleWrap = Styled.div`
                 }
                 i,
                 span{
-                    margin-left: 10px;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+                    
                 }
             }
         }
@@ -357,7 +363,7 @@ const ArticleListWrap = Styled.div`
             margin-bottom: 55px;
         }
         .sDash_articlelist__single--left{
-            margin-right: 100px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 100px;
             min-width: 260px;
         }
     }
@@ -374,7 +380,7 @@ const ArticleListWrap = Styled.div`
                 }
 
                 &:nth-child(2n){
-                    margin-left: 68px;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 68px;
                 }
                 a{
                     font-size: 15px;
@@ -393,7 +399,7 @@ const ArticleListWrap = Styled.div`
                         padding: 0 0 0 18px !important;
                         background-color: #fff !important;
                         .ant-collapse-arrow{
-                            left: 0;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
                         }
                     }
                     .ant-collapse-content {
@@ -404,7 +410,7 @@ const ArticleListWrap = Styled.div`
                                 display: block;
                                 li{
                                     &:nth-child(2n){
-                                        margin-left: 0px;
+                                        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 0px;
                                     }
                                 }
                             }
@@ -425,7 +431,7 @@ const SidebarNavWrap = Styled.div`
     height: fit-content;
     border: 1px solid ${({ theme }) => theme['border-color-normal']};
     border-radius: 4px;
-    margin-right: 20px;
+    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
     .knowledge-sidebar{
         .knowledge-sidebar__title{
             font-size: 16px;
@@ -450,14 +456,14 @@ const SidebarNavWrap = Styled.div`
                     img{
                         min-width: 14px;
                         margin-top: 4px;
-                        margin-right: 8px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
                     }
                 }
             }
         }
         .submenu{
             display: none;
-            padding: 0px 0 0 24px;
+            padding: ${({ theme }) => (theme.rtl ? '0px 24px 0 0' : '0px 0 0 24px')};
             margin-top: 10px;
             position: relative;
             &.show{
@@ -465,7 +471,7 @@ const SidebarNavWrap = Styled.div`
             }
             &:after{
                 position: absolute;
-                left: 24px;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 24px;
                 top: 0;
                 width: 2px;
                 height: 100%;
@@ -478,7 +484,7 @@ const SidebarNavWrap = Styled.div`
                     display: flex;
                     font-size: 15px;
                     font-weight: 400;
-                    padding: 6px 0 6px 22px;
+                    padding: ${({ theme }) => (theme.rtl ? '6px 22px 6px 0' : '6px 0 6px 22px')};
                     position: relative;
                     color: ${({ theme }) => theme['gray-color']};
                     &.active{
@@ -489,7 +495,7 @@ const SidebarNavWrap = Styled.div`
                     }
                     &:after{
                         position: absolute;
-                        left: 0;
+                        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
                         top: 0;
                         width: 2px;
                         height: 100%;
@@ -570,8 +576,8 @@ const KnowledgeDetailsWrap = Styled.div`
                         background-color: #fff;
                         box-shadow: 0 2px 2px #92949F30;
                         &.anticon-right{
-                            left: auto;
-                            right: 0;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: auto;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
                         }
                         svg,
                         img,
@@ -599,7 +605,7 @@ const KnowledgeDetailsWrap = Styled.div`
             font-size: 14px;
             color: ${({ theme }) => theme['light-gray-color']};
             .date{
-                margin-left: 3px;
+                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 3px;
                 color: ${({ theme }) => theme['dark-color']};
             }
         }
@@ -613,7 +619,7 @@ const KnowledgeDetailsWrap = Styled.div`
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
             box-shadow: 0 5px 10px ${({ theme }) => theme['dark-color']}10;
             .knowledge-details-cta__text{
-                margin-right: 40px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 40px;
                 margin-bottom: 0;
             }
             .knowledge-details-cta__actions{
@@ -635,7 +641,7 @@ const KnowledgeDetailsWrap = Styled.div`
                 font-size: 16px;
                 font-weight: 500;
                 a{
-                    margin-left: 14px;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 14px;
                 }
             }
             .knowledge-details__bottom--right{
@@ -645,10 +651,10 @@ const KnowledgeDetailsWrap = Styled.div`
                         font-size: 14px;
                         font-weight: 400;
                         &:first-child{
-                            margin-right: 20px;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
                         }
                         &:not(:last-child){
-                            margin-right: 10px;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
                         }
                         a{
                             &:hover{
@@ -672,15 +678,16 @@ const KnowledgeDetailsWrap = Styled.div`
                     &.page-next{
                         a{
                             span.fa{
-                                margin-right: 8px;
+                                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
                             }
                         }
                     }
                     &.page-previous{
                         a{
-                            text-align: right;
+                            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
                             span.fa{
                                 margin-left: 8px;
+                                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 8px;
                             }
                         }
                         .pagintaion-label{
@@ -730,6 +737,7 @@ const KnowledgeDetailsWrap = Styled.div`
                     display: flex;
                     .article-icon{
                         margin-right: 12px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                         i,
                         span,
                         svg{
