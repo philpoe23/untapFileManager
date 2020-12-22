@@ -26,7 +26,7 @@ const Import = () => {
   const [state, setState] = useState({
     isModalVisible: false,
     fileName: 'strikingDash',
-    convertedTo: 'csx',
+    convertedTo: 'csv',
     selectedRowKeys: 0,
     selectedRows: [],
   });
@@ -113,15 +113,20 @@ const Import = () => {
   };
 
   const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-  const fileExtension = '.xlsx';
+  const xlsxExtension = '.xlsx';
 
-  const exportToCSV = (csvData, fileName) => {
-    const ws = XLSX.utils.json_to_sheet(csvData);
+  const exportToXLSX = (inputData, fileName) => {
+    const ws = XLSX.utils.json_to_sheet(inputData);
     const wb = { Sheets: { data: ws }, SheetNames: ['data'] };
     const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     const data = new Blob([excelBuffer], { type: fileType });
-    FileSaver.saveAs(data, fileName + fileExtension);
+    FileSaver.saveAs(data, fileName + xlsxExtension);
+    setState({
+      ...state,
+      isModalVisible: false,
+    });
   };
+
   const updateFileName = e => {
     setState({
       ...state,
@@ -136,7 +141,6 @@ const Import = () => {
   };
   const { Option } = Select;
   const { fileName, convertedTo } = state;
-  console.log(convertedTo);
   return (
     <>
       <PageHeader
@@ -160,14 +164,6 @@ const Import = () => {
               <Cards headless>
                 <div className="sDash_export-box">
                   {state.selectedRows.length ? (
-                    // <CSVLink filename="react.csv" data={csvData}>
-                    //   <Button className="btn-export" type="primary">
-                    //     Export
-                    //   </Button>
-                    // </CSVLink>
-                    // <Button className="btn-export" onClick={() => exportToCSV(csvData, 'react')} type="primary">
-                    //   Export
-                    // </Button>
                     <>
                       <Button className="btn-export" onClick={showModal} type="primary">
                         Export
@@ -190,13 +186,24 @@ const Import = () => {
                             </Select>
                           </Form.Item>
                           <div className="sDash-button-grp">
-                            <Button htmlType="submit" size="default" type="white" outlined>
+                            {convertedTo === 'csv' ? (
+                              <CSVLink filename={`${fileName}.csv`} data={csvData}>
+                                <Button onClick={handleCancel} className="btn-export" type="primary">
+                                  Export
+                                </Button>
+                              </CSVLink>
+                            ) : (
+                              <Button
+                                className="btn-export"
+                                onClick={() => exportToXLSX(csvData, fileName)}
+                                type="primary"
+                              >
+                                Eport
+                              </Button>
+                            )}
+                            <Button htmlType="submit" onClick={handleCancel} size="default" type="white" outlined>
                               Cancel
                             </Button>
-                            <Button htmlType="submit" size="default" type="primary" key="submit">
-                              Eport
-                            </Button>
-                            {convertedTo === 'csv' ? 'CSV' : convertedTo === 'xlsx' ? 'XLSX' : 'txt'}
                           </div>
                         </Form>
                       </Modal>

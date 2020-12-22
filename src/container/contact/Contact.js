@@ -253,7 +253,7 @@ const ContactTable = () => {
 
       <Main>
         <Row gutter={15}>
-          <Col md={24}>
+          <Col xs={24}>
             <Cards headless>
               <UserTableStyleWrapper>
                 <div className="contact-table">

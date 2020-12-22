@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 const NotFound = lazy(() => import('../../container/pages/404'));
+const Support = lazy(() => import('../../container/pages/support'));
 const Maintenance = lazy(() => import('../../container/pages/Maintenance'));
 const Pricing = lazy(() => import('../../container/pages/PricingTable'));
 const Faq = lazy(() => import('../../container/pages/Faq'));
@@ -20,6 +21,7 @@ const PagesRoute = () => {
   return (
     <Switch>
       <Route path={`${path}/404`} component={NotFound} />
+      <Route path={`${path}/support`} component={Support} />
       <Route path={`${path}/maintenance`} component={Maintenance} />
       <Route path={`${path}/Pricing`} component={Pricing} />
       <Route path={`${path}/faq`} component={Faq} />

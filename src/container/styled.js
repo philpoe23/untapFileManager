@@ -1547,6 +1547,7 @@ const ExportStyleWrap = Styled.div`
         .ant-select{
             width: auto !important;
             .ant-select-selector{
+                padding: 0 20px;
                 .ant-select-selection-search-input{
                     border-radius: 20px;
                 }

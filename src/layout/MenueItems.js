@@ -331,6 +331,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </NavLink>
       </Menu.Item>
 
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="kanban">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/kanban`}>
+          Kanban Board
+        </NavLink>
+      </Menu.Item>
+
       {!topMenu && <p className="sidebar-nav-title">Features</p>}
 
       <SubMenu key="components" icon={!topMenu && <FeatherIcon icon="layers" />} title="UI Elements">
@@ -817,6 +823,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item icon={!topMenu && <FeatherIcon icon="circle" />} key="starter">
         <NavLink onClick={toggleCollapsed} to={`${path}/starter`}>
           Blank Page
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="circle" />} key="support">
+        <NavLink onClick={toggleCollapsed} to={`${path}/support`}>
+          Support Center
         </NavLink>
       </Menu.Item>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="airplay" />} key="maintenance">
