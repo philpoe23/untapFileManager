@@ -26,20 +26,8 @@ const Kanban = () => {
     };
   });
 
-  // const DragHandle = sortableHandle(() => {
-  //   return <div className="list-header-target" />;
-  // });
-  // const SortableItem = SortableElement(({ value }) => <KanbanBoardItem Dragger={DragHandle} data={value} />);
+  const [tasks, setTaskStatus] = useState(taskData);
 
-  // const SortableList = SortableContainer(({ items }) => {
-  //   return (
-  //     <div className="sDash_kanban-board-list">
-  //       {items.map((value, index) => (
-  //         <SortableItem key={`item-${value.key}`} index={index} value={value} />
-  //       ))}
-  //     </div>
-  //   );
-  // });
   const KanbanColumn = ({ status, changeTaskStatus, children }) => {
     const ref = useRef(null);
     const [, drop] = useDrop({
@@ -75,16 +63,16 @@ const Kanban = () => {
 
   const changeTaskStatus = useCallback(
     (id, status) => {
-      let task = taskData.find(task => task._id === id);
-      const taskIndex = taskData.indexOf(task);
-      task = { ...task, status };
-      const newTasks = update(taskData, {
+      let task = tasks.find(item => item.id === id);
+      const taskIndex = tasks.indexOf(task);
+      task = { ...task, boardId: status };
+      const newTasks = update(tasks, {
         [taskIndex]: { $set: task },
       });
+      setTaskStatus(newTasks);
     },
-    [taskData],
+    [tasks],
   );
-  console.log(taskData);
   return (
     <>
       <PageHeader
@@ -106,104 +94,40 @@ const Kanban = () => {
           <Col xs={24}>
             <KanvanBoardWrap>
               <Cards headless title="Product Design">
-                {/* {knbanData.map((item, i) => {
-                  return <KanbanBoardItem data={item} key={i} />;
-                })} */}
-                {/* changeTaskStatus={changeTaskStatus} */}
                 <DndProvider backend={HTML5Backend}>
                   <div className="sDash_kanban-board-list">
-                    {boardData.map(board => (
-                      <KanbanColumn key={board.id} status={board.id} changeTaskStatus={changeTaskStatus}>
-                        <div className="sDash_kanban-board-item__header">
-                          <div className="list-header-target" />
-                          <h4 className="list-header-title">
-                            <span>{board.title}</span>
-                            <Link>
-                              <FeatherIcon icon="more-horizontal" size={12} />
-                            </Link>
-                          </h4>
-                          <textarea name="title-edit" id="title-edit" className="title-edit" />
-                        </div>
-                        <div className="sDash_kanvan-task">
-                          {taskData
-                            .filter(item => item.boardId === board.boardId)
-                            .map(item => (
-                              <KanbanItem key={item.id} id={item.id}>
-                                <KanbanBoardItem data={item} />
-                              </KanbanItem>
-                            ))}
-                        </div>
+                    {boardData.map(board => {
+                      return (
+                        <KanbanColumn key={board.boardId} status={board.boardId} changeTaskStatus={changeTaskStatus}>
+                          <div className="sDash_kanban-board-item__header">
+                            <div className="list-header-target" />
+                            <h4 className="list-header-title">
+                              <span>{board.title}</span>
+                              <Link>
+                                <FeatherIcon icon="more-horizontal" size={12} />
+                              </Link>
+                            </h4>
+                            <textarea name="title-edit" id="title-edit" className="title-edit" />
+                          </div>
+                          <div className="sDash_kanvan-task">
+                            {tasks
+                              .filter(item => item.boardId === board.boardId)
+                              .map(item => (
+                                <KanbanItem key={item.id} id={item.id}>
+                                  <KanbanBoardItem data={item} />
+                                </KanbanItem>
+                              ))}
+                          </div>
 
-                        <Link className="btn-addTask">
-                          <FeatherIcon icon="plus" size={12} />
-                          <span>Add Task</span>
-                        </Link>
-                      </KanbanColumn>
-                    ))}
+                          <Link className="btn-addTask">
+                            <FeatherIcon icon="plus" size={12} />
+                            <span>Add Task</span>
+                          </Link>
+                        </KanbanColumn>
+                      );
+                    })}
                   </div>
                 </DndProvider>
-                {/* <div className="sDash_kanban-board-item">
-                  <div className="sDash_kanban-board-item__header">
-                    <div className="list-header-target" />
-                    <h4 className="list-header-title">
-                      <span>To do</span>
-                      <Link>
-                        <FeatherIcon icon="more-horizontal" size={12} />
-                      </Link>
-                    </h4>
-                    <textarea name="title-edit" id="title-edit" className="title-edit" />
-                  </div>
-                  <div className="sDash_kanvan-task">
-                    <div className="sDash_kanvan-task__single">
-                      <div className="sDash_kanvan-task__title">
-                        <h4>File Manager Design</h4>
-                        <Link className="btn-edit">
-                          <FeatherIcon icon="edit-2" size={12} />
-                        </Link>
-                      </div>
-                      <div className="sDash_kanvan-task__edit">
-                        <textarea name="" id="" />
-                      </div>
-                    </div>
-                    <div className="sDash_kanvan-task__single">
-                      <div className="sDash_kanvan-task__title">
-                        <h4>File Manager Design</h4>
-                        <Link className="btn-edit">
-                          <FeatherIcon icon="edit-2" size={12} />
-                        </Link>
-                      </div>
-                      <div className="sDash_kanvan-task__edit">
-                        <textarea name="" id="" />
-                      </div>
-                    </div>
-                    <div className="sDash_kanvan-task__single">
-                      <div className="sDash_kanvan-task__title">
-                        <h4>File Manager Design</h4>
-                        <Link className="btn-edit">
-                          <FeatherIcon icon="edit-2" size={12} />
-                        </Link>
-                      </div>
-                      <div className="sDash_kanvan-task__edit">
-                        <textarea name="" id="" />
-                      </div>
-                    </div>
-                    <div className="sDash_kanvan-task__single">
-                      <div className="sDash_kanvan-task__title">
-                        <h4>File Manager Design</h4>
-                        <Link className="btn-edit">
-                          <FeatherIcon icon="edit-2" size={12} />
-                        </Link>
-                      </div>
-                      <div className="sDash_kanvan-task__edit">
-                        <textarea name="" id="" />
-                      </div>
-                    </div>
-                    <Link className="btn-addTask">
-                      <FeatherIcon icon="plus" size={12} />
-                      <span>Add Task</span>
-                    </Link>
-                  </div>
-                </div> */}
               </Cards>
             </KanvanBoardWrap>
           </Col>
