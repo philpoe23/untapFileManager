@@ -14,6 +14,7 @@ import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { Button } from '../../components/buttons/buttons';
+import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
@@ -73,6 +74,17 @@ const Kanban = () => {
     },
     [tasks],
   );
+
+  const actions = (
+    <>
+      <Link to="#">
+        <span>Edit Card Title</span>
+      </Link>
+      <Link to="#">
+        <span>Delete Card</span>
+      </Link>
+    </>
+  );
   return (
     <>
       <PageHeader
@@ -103,9 +115,11 @@ const Kanban = () => {
                             <div className="list-header-target" />
                             <h4 className="list-header-title">
                               <span>{board.title}</span>
-                              <Link>
-                                <FeatherIcon icon="more-horizontal" size={12} />
-                              </Link>
+                              <Dropdown content={actions} action={['click']} className="wide-dropdwon kanbanCard-more">
+                                <Link to="#" className="btn-more">
+                                  <FeatherIcon icon="more-horizontal" size={14} />
+                                </Link>
+                              </Dropdown>
                             </h4>
                             <textarea name="title-edit" id="title-edit" className="title-edit" />
                           </div>
@@ -119,13 +133,17 @@ const Kanban = () => {
                               ))}
                           </div>
 
-                          <Link className="btn-addTask">
+                          <Link to="#" className="btn-addTask">
                             <FeatherIcon icon="plus" size={12} />
                             <span>Add Task</span>
                           </Link>
                         </KanbanColumn>
                       );
                     })}
+                    <Link to="#" className="btn-addColumn">
+                      <FeatherIcon icon="plus" size={12} />
+                      <span>Add Column</span>
+                    </Link>
                   </div>
                 </DndProvider>
               </Cards>

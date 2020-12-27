@@ -970,6 +970,14 @@ html[dir='rtl'] .ant-card-head-title span {
   min-width: 140px !important;
 }
 
+.ant-dropdown.wide-dropdwon.kanbanCard-more {
+  min-width: 220px !important;
+  box-shadow: 0 17px 20px #9299B820;
+}
+.ant-dropdown.wide-dropdwon.kanbanCard-more a {
+  padding: 10px 24px;
+}
+
 .ant-dropdown-menu {
   min-width: 200px;
   border-radius: 0 0 5px 5px;
