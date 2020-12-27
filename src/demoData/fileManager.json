@@ -2,12 +2,13 @@
     {
         "id": 1,
         "name": "Design",
-        "path": "Design",        
+        "path": "Design",     
         "className": "active",
         "file": [
             {
                 "id": 1,
                 "name": "one",
+                "img": "pdf.png",
                 "type": "png",
                 "size": "1000"
             }
@@ -15,8 +16,8 @@
         "folder": [
             {
                 "id": 1,
-                "name": "Newfolder",
-                "path": "Design/Newfolder",
+                "name": "StrikingDash XD File",
+                "path": "Design/sDashXd",
                 "className": "",
                 "folder": [],
                 "file": [
@@ -30,8 +31,8 @@
             },
             {
                 "id": 2,
-                "name": "Newfolder2",
-                "path": "Design/Newfolder2",
+                "name": "DRestaurant XD File",
+                "path": "Design/dRestaurantXd",
                 "className": "",
                 "folder": [],
                 "file": []
@@ -54,8 +55,8 @@
         "folder": [
             {
                 "id": 1,
-                "name": "Newfolder",
-                "path": "Prototypes/Newfolder",
+                "name": "Prototype Blog",
+                "path": "Prototypes/prototypeBlog",
                 "className": "",
                 "folder": [],
                 "file": [
@@ -69,14 +70,15 @@
             },
             {
                 "id": 2,
-                "name": "Newfolder2",
-                "path": "Prototypes/Newfolder2",
+                "name": "Calendar",
+                "path": "Prototypes/Calendar",
                 "className": "",
                 "folder": [
                     {
                         "id": 1,
-                        "name": "Newfolder",
-                        "path": "Prototypes/Newfolder/Newfolder",
+                        "name": "Month View",
+                        "path": "Prototypes/Calendar/monthView",
+                        "img": "zip.png",
                         "className": "",
                         "folder": [],
                         "file": [
@@ -90,8 +92,9 @@
                     },
                     {
                         "id": 2,
-                        "name": "Newfolder2",
-                        "path": "Prototypes/Newfolder2/Newfolder2",
+                        "name": "Detail View",
+                        "path": "Prototypes/Calendar/detailsView",
+                        "img": "pdf.png",
                         "className": "",
                         "folder": [],
                         "file": []

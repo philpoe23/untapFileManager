@@ -39,7 +39,9 @@ const MainContent = ({ folder }) => {
             <FeatherIcon icon="more-vertical" />
           </Link>
         </Dropdown>
-        {folder.type ? <FeatherIcon icon="file" /> : <FeatherIcon icon="folder" />}
+        <div className="file-logo">
+          <img src={require(`../../../static/img/files/pdf.png`)} alt="" />
+        </div>
         <span className="file-name">
           {folder.name}
           {folder.type ? `.${folder.type}` : ''}
