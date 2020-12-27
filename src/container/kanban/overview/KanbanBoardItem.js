@@ -20,14 +20,14 @@ const KanbanBoardItem = ({ data }) => {
   // const [editable, setEditable] = useState(false);
 
   const { editable, modalVisible } = state;
-  const showModal = () => {
-    console.log('clicked');
+  const showModal = e => {
+    e.preventDefault();
     setState({
       ...state,
-      modalVisible: true,
+      modalVisible: !modalVisible,
     });
-    console.log(modalVisible);
   };
+  console.log(modalVisible);
   const handleTaskEdit = () => {
     setState({
       ...state,
@@ -37,11 +37,10 @@ const KanbanBoardItem = ({ data }) => {
 
   return (
     <div className="">
-      <h4
-        className={editable ? 'sDash_kanvan-task__title edit-on' : 'sDash_kanvan-task__title'}
-        onClick={() => showModal()}
-      >
-        <Link to="#">{title}</Link>
+      <h4 className={editable ? 'sDash_kanvan-task__title edit-on' : 'sDash_kanvan-task__title'}>
+        <Link onClick={showModal} to="#">
+          {title}
+        </Link>
         {/* <h4></h4> */}
         {/* <Link to="#" className="btn-edit">
           <FeatherIcon icon="edit-2" size={12} />
