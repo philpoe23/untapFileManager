@@ -929,6 +929,7 @@ html[dir='rtl'] .ant-card-head-title span {
   color: #5a5f7d;
 }
 
+
 /* mail props dropdown */
 
 .mail-props {
@@ -1183,6 +1184,18 @@ html[dir='rtl'] .ant-card-head-title span {
   display: flex;
   align-items: center;
   margin-bottom: 0;
+}
+
+.add-file-dropdown a{
+  font-size: 14px;
+  font-weight: 400;
+} 
+.add-file-dropdown a svg{
+  width: 14px;
+}
+
+.folder-dropdown{
+  min-width: 200px !important;
 }
 
 /* Tooltip Styles */
@@ -1736,6 +1749,34 @@ html[dir='rtl'] .ant-card-head-title span {
 .sDash_export-wrap .ant-select-single .ant-select-selector{
   padding: 0 20px;
   border-color: #E3E6EF !important;
+}
+
+.sDash_create-file .sDash-button-grp{
+  text-align: right;
+}
+
+.sDash_create-file .ant-modal{
+  width: 390px !important;
+}
+.sDash_create-file .ant-modal .ant-form-item{
+  margin-bottom: 20px;
+}
+.sDash_create-file .ant-modal-header{
+  border-bottom: 0 none;
+  padding-bottom: 6px;
+}
+.sDash_create-file .sDash-button-grp button{
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.sDash_create-file .ant-form-item-control-input{
+  border-radius: 5px;
+}
+
+.sDash_create-file .ant-form-item-control-input input{
+  border: 1px solid #E3E6EF;
 }
 
 @media (max-width: 767px) {
