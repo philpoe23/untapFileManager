@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd';
+import { Modal, Progress } from 'antd';
 import { useSelector } from 'react-redux';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { Dropdown } from '../../../components/dropdown/dropdown';
 import { Checkbox } from '../../../components/checkbox/checkbox';
 import { Button } from '../../../components/buttons/buttons';
 
 const KanbanBoardItem = ({ data }) => {
-  const { title } = data;
+  const { title, checklist } = data;
   // const { knbanData } = useSelector(state => {
   //   return {
   //     knbanData: state.Kanban.data,
@@ -27,6 +28,7 @@ const KanbanBoardItem = ({ data }) => {
     setState({
       ...state,
       modalVisible: !modalVisible,
+      test: false,
     });
   };
 
@@ -43,20 +45,30 @@ const KanbanBoardItem = ({ data }) => {
     });
   };
 
+  function onChange(e) {
+    // console.log(`checked = ${e.target.checked}`);
+  }
+  const actions = (
+    <>
+      <Link to="#">
+        <span>Delete List</span>
+      </Link>
+    </>
+  );
+
   return (
     <div className="">
       <h4 className={editable ? 'sDash_kanvan-task__title edit-on' : 'sDash_kanvan-task__title'}>
         <Link onClick={showModal} to="#">
           {title}
         </Link>
-        {/* <h4></h4> */}
-        {/* <Link to="#" className="btn-edit">
+        <Link to="#" className="btn-edit">
           <FeatherIcon icon="edit-2" size={12} />
-        </Link> */}
+        </Link>
         <Modal
           title={
             <>
-              <h4>Title</h4> <span className="sub-text">in list Active Project</span>
+              <h4>File Manager Design</h4> <span className="sub-text">in list Active Project</span>
             </>
           }
           wrapClassName="sDash_task-details"
@@ -66,28 +78,63 @@ const KanbanBoardItem = ({ data }) => {
         >
           <div className="sDash_task-details-modal">
             <div className="sDash_task-details-modal__description">
-              <textarea name="" id="" placeholder="Description" />
+              <span className="sDash_task-details__label">Description</span>
+              <textarea name="task-details-label" placeholder="Add a more detailed description…" />
             </div>
           </div>
           <div className="sDash_checklist-block">
-            <Button className="btn-create" type="primary">
-              <FeatherIcon icon="edit" size={14} />
-              Add Checklist
-            </Button>
-          </div>
-          <div className="sDash_checklist-row">
-            <div className="sDash_checklist-item">
-              <div className="sDash_checklist-item__top">
-                <h4 className="sDash_checklist-item__title">Research </h4>
-                <Button className="btn-delete" type="light">
-                  Delete
-                </Button>
+            <div className="addChecklist-wrap">
+              <Button className="btn-checklist" type="primary">
+                <FeatherIcon icon="edit" size={14} />
+                Add Checklist
+              </Button>
+              <div className="addChecklist-form">
+                <input type="text" className="add-checklist" placeholder="Checklist Title" />
+                <div className="addChecklist-form-action">
+                  <Button className="btn-add" size="small" type="primary">
+                    Add
+                  </Button>
+                  <Link>
+                    <FeatherIcon icon="x" size={18} />
+                  </Link>
+                </div>
               </div>
-              <ul className="sDash_checklist-tasks">
-                <li className="sDash_checklist-tasks__single">
-                  <Checkbox>Design Idea</Checkbox>
-                </li>
-              </ul>
+            </div>
+            <div className="sDash_checklist-row">
+              {checklist.map((item, i) => {
+                return (
+                  <div className="sDash_checklist-item" key={i}>
+                    <div className="sDash_checklist-item__top">
+                      <h4 className="sDash_checklist-item__title">Research </h4>
+                      <Button className="btn-delete" type="light">
+                        Delete
+                      </Button>
+                    </div>
+                    <div className="sDash_checklist__progress">
+                      <Progress percent={80} />
+                    </div>
+                    <div className="sDash_checklist-tasks-wrap">
+                      <ul className="sDash_checklist-tasks">
+                        {item.checkListTask.map((task, i) => {
+                          return (
+                            <li className="sDash_checklist-tasks__single" key={i}>
+                              <Checkbox onChange={onChange}>{task.label} </Checkbox>
+                              <Dropdown content={actions} action={['click']} className="wide-dropdwon kanbanCard-more">
+                                <Link to="#" className="btn-more">
+                                  <FeatherIcon icon="more-horizontal" size={14} />
+                                </Link>
+                              </Dropdown>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <Button className="add-item" type="light">
+                        Add an Item
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Modal>

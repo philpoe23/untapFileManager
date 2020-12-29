@@ -1779,6 +1779,194 @@ html[dir='rtl'] .ant-card-head-title span {
   border: 1px solid #E3E6EF;
 }
 
+/* Task Modal */
+.sDash_task-details .ant-modal-content .ant-modal-close{
+  top: 10px;
+}
+.sDash_task-details .ant-modal-header{
+  border-bottom: 0 none;
+  padding: 30px 30px 0;
+}
+.sDash_task-details .ant-modal{
+  width: 600px !important;
+}
+.sDash_task-details .ant-modal-header .ant-modal-title h4{
+  font-size: 20px;
+  font-weight: 500;
+  color: #272B41;
+  margin-bottom: 4px;
+}
+.sDash_task-details .ant-modal-header .ant-modal-title .sub-text{
+  font-size: 14px;
+  font-weight: 400;
+  color: #868EAE;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details__label{
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea{
+  padding: 10px 20px;
+  min-height: 88px;
+  width: 100%;
+  border: 0 none;
+  border-radius: 4px;
+  background-color: #F4F5F7;
+  resize: none;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea:focus{
+  outline: none;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea::placeholder{
+  color: #5A5F7D;
+  font-size: 15px;
+}
+.sDash_task-details .ant-modal-body{
+  padding: 14px 30px 30px 30px;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block{
+  margin-top: 26px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-wrap{
+  position: relative;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form{
+  position: absolute;
+  width: 240px;
+  padding: 18px;
+  left: 0;
+  top: 50px;
+  box-shadow: 0 15px 30px #9299BB30;
+  background-color: #fff;
+  border: 1px solid #E3E6EF;
+  border-radius: 6px;
+  z-index: 222;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .add-checklist{
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #E3E6EF;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action{
+  margin-top: 15px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action a{
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action a svg{
+  color: #9299BB;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action .btn-add{
+  margin-right: 15px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block button{
+  height: 38px;
+  padding: 0px 18.37px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row{
+  margin-top: 26px;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item:not(:last-child){
+  margin-bottom: 30px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__top button{
+  padding: 0px 16.32px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #272B41;
+  margin-bottom: 0;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress-inner .ant-progress-bg{
+  height: 5px !important;
+  background-color: #20C997;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress .ant-progress-text{
+  font-size: 12px;
+  font-weight: 500;
+  order: -1;
+  margin: 0 10px 0 0;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks{
+  margin: 5px 0 20px 0;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-inner{
+  width: 18px;
+  height: 18px;
+  border-color: #C6D0DC;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner{
+  background-color: #20C997;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-checked:after{
+  border-color: #20C997;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single{
+  position: relative;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: .35s;
+  z-index: 2;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:before{
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: calc(100% + 24px);
+  height: 100%;
+  content: '';
+  background-color: #F4F5F7;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 2px;
+  z-index: -1;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:hover:before{
+  opacity: 1;
+  visibility: visible;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:hover .btn-more{
+  opacity: 1;
+  visibility: visible;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single .btn-more{
+  opacity: 0;
+  visibility: hidden;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single .btn-more svg{
+  color: #868EAE;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-item .sDash_checklist-tasks-wrap button{
+  padding: 0px 35px;
+} 
+
 @media (max-width: 767px) {
   .ant-page-header {
     padding: 26px 15px 26px 15px !important;

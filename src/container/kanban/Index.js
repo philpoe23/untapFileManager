@@ -4,7 +4,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { Switch, NavLink, Route, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Spin, Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
@@ -18,6 +18,7 @@ import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
+import { ToAddBoard } from '../../redux/kanban/actionCreator';
 
 const Kanban = () => {
   const { boardData, taskData } = useSelector(state => {
@@ -27,7 +28,16 @@ const Kanban = () => {
     };
   });
 
+  const dispatch = useDispatch();
+
   const [tasks, setTaskStatus] = useState(taskData);
+  const [addColumn, setAddColumn] = useState(false);
+
+  const [state, setState] = useState({
+    columnTitle: '',
+  });
+
+  const [form] = Form.useForm();
 
   const KanbanColumn = ({ status, changeTaskStatus, children }) => {
     const ref = useRef(null);
@@ -85,6 +95,50 @@ const Kanban = () => {
       </Link>
     </>
   );
+
+  const activeAddOption = e => {
+    e.preventDefault();
+    setAddColumn(true);
+  };
+  const diActiveAddOption = e => {
+    e.preventDefault();
+    setAddColumn(false);
+  };
+  const onColumnTitleChange = e => {
+    setState({
+      ...state,
+      columnTitle: e.target.value,
+    });
+  };
+
+  const { columnTitle } = state;
+
+  const addColumnHandler = () => {
+    const arrayData = [];
+    boardData.map(data => {
+      return arrayData.push(data.boardId);
+    });
+    const max = Math.max(...arrayData);
+    if (columnTitle !== '') {
+      dispatch(
+        ToAddBoard([
+          ...boardData,
+          {
+            boardId: max + 1,
+            title: columnTitle,
+          },
+        ]),
+      );
+      setState({
+        ...state,
+        columnTitle: '',
+      });
+      setAddColumn(false);
+    } else {
+      alert('Please Enter a Column Ttile');
+    }
+  };
+
   return (
     <>
       <PageHeader
@@ -132,18 +186,53 @@ const Kanban = () => {
                                 </KanbanItem>
                               ))}
                           </div>
-
-                          <Link to="#" className="btn-addTask">
-                            <FeatherIcon icon="plus" size={12} />
-                            <span>Add Task</span>
-                          </Link>
+                          <div className="sDash_addTask-control">
+                            <Link to="#" className="btn-addTask">
+                              <FeatherIcon icon="plus" size={12} />
+                              <span>Add Task</span>
+                            </Link>
+                            <div className="sDash_addTask-from">
+                              <input type="text" className="sDash_addTask-input" placeholder="Enter a Title" />
+                              <div className="sDash_addTask-action">
+                                <Button className="add-column" size="small" type="primary">
+                                  Add
+                                </Button>
+                                <Link onClick={diActiveAddOption}>
+                                  <FeatherIcon icon="x" size={18} />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
                         </KanbanColumn>
                       );
                     })}
-                    <Link to="#" className="btn-addColumn">
-                      <FeatherIcon icon="plus" size={12} />
-                      <span>Add Column</span>
-                    </Link>
+                    <div className={addColumn ? 'btn-addColumn add-column-on' : 'btn-addColumn'}>
+                      <div className="btn-addColumn-inner">
+                        <Link to="#" className="btn-add" onClick={activeAddOption}>
+                          <FeatherIcon icon="plus" size={12} />
+                          <span>Add Column</span>
+                        </Link>
+                        <Form className="addColumn-form" name="columnAdd" form={form} onFinish={addColumnHandler}>
+                          <div className="btn-addColumn-form">
+                            {/* <input type="text" className="sDash-add-column-input" placeholder="Enter Column Title" /> */}
+                            <Input
+                              value={columnTitle}
+                              className="sDash-add-column-input"
+                              onChange={onColumnTitleChange}
+                              placeholder="Enter Column Title"
+                            />
+                            <div className="sDash_add-column-action">
+                              <Button className="add-column" htmlType="submit" size="small" type="primary">
+                                Add
+                              </Button>
+                              <Link onClick={diActiveAddOption}>
+                                <FeatherIcon icon="x" size={18} />
+                              </Link>
+                            </div>
+                          </div>
+                        </Form>
+                      </div>
+                    </div>
                   </div>
                 </DndProvider>
               </Cards>
