@@ -35,6 +35,8 @@ const Kanban = () => {
 
   const [state, setState] = useState({
     columnTitle: '',
+    taskTitle: '',
+    boardID: '',
   });
 
   const [form] = Form.useForm();
@@ -111,7 +113,14 @@ const Kanban = () => {
     });
   };
 
-  const { columnTitle } = state;
+  const onTaskTitleChange = e => {
+    setState({
+      ...state,
+      taskTitle: e.target.value,
+    });
+  };
+
+  const { taskTitle, columnTitle, boardId } = state;
 
   const addColumnHandler = () => {
     const arrayData = [];
@@ -137,6 +146,48 @@ const Kanban = () => {
     } else {
       alert('Please Enter a Column Ttile');
     }
+  };
+
+  const addTaskHandler = () => {
+    const arrayData = [];
+    boardData.map(data => {
+      return arrayData.push(data.boardId);
+    });
+    const max = Math.max(...arrayData);
+    if (columnTitle !== '') {
+      dispatch(
+        ToAddBoard([
+          ...boardData,
+          {
+            boardId: max + 1,
+            title: columnTitle,
+          },
+        ]),
+      );
+      setState({
+        ...state,
+        columnTitle: '',
+      });
+      setAddColumn(false);
+    } else {
+      alert('Please Enter a Task Ttile');
+    }
+  };
+
+  const handleOnAddTask = (e, id) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      boardId: id,
+    });
+  };
+
+  const handleOffAddTask = e => {
+    e.preventDefault();
+    setState({
+      ...state,
+      boardId: '',
+    });
   };
 
   return (
@@ -186,22 +237,35 @@ const Kanban = () => {
                                 </KanbanItem>
                               ))}
                           </div>
-                          <div className="sDash_addTask-control">
-                            <Link to="#" className="btn-addTask">
+                          {/* sDash_addTask-control */}
+                          <div
+                            className={
+                              board.boardId === boardId ? 'sDash_addTask-control add-task-on' : 'sDash_addTask-control'
+                            }
+                          >
+                            <Link to="#" className="btn-addTask" onClick={e => handleOnAddTask(e, board.boardId)}>
                               <FeatherIcon icon="plus" size={12} />
                               <span>Add Task</span>
                             </Link>
-                            <div className="sDash_addTask-from">
-                              <input type="text" className="sDash_addTask-input" placeholder="Enter a Title" />
-                              <div className="sDash_addTask-action">
-                                <Button className="add-column" size="small" type="primary">
-                                  Add
-                                </Button>
-                                <Link onClick={diActiveAddOption}>
-                                  <FeatherIcon icon="x" size={18} />
-                                </Link>
+                            <Form className="addTask-form" name="taskAdd" form={form} onFinish={addTaskHandler}>
+                              <div className="sDash_addTask-from">
+                                <Input
+                                  value={taskTitle}
+                                  className="sDash_addTask-input"
+                                  onChange={onTaskTitleChange}
+                                  placeholder="Enter a Title"
+                                />
+                                <Input type="hidden" value={board.boardId} />
+                                <div className="sDash_addTask-action">
+                                  <Button className="add-column" size="small" type="primary">
+                                    Add
+                                  </Button>
+                                  <Link onClick={handleOffAddTask}>
+                                    <FeatherIcon icon="x" size={18} />
+                                  </Link>
+                                </div>
                               </div>
-                            </div>
+                            </Form>
                           </div>
                         </KanbanColumn>
                       );
@@ -214,7 +278,6 @@ const Kanban = () => {
                         </Link>
                         <Form className="addColumn-form" name="columnAdd" form={form} onFinish={addColumnHandler}>
                           <div className="btn-addColumn-form">
-                            {/* <input type="text" className="sDash-add-column-input" placeholder="Enter Column Title" /> */}
                             <Input
                               value={columnTitle}
                               className="sDash-add-column-input"

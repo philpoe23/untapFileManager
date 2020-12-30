@@ -15,8 +15,17 @@ const KanvanBoardWrap = Styled.div`
       margin: 10px;
       background-color: ${({ theme }) => theme['bg-color-normal']};
       .sDash_addTask-control{
+        &.add-task-on{
+          .sDash_addTask-from{
+            display: block;
+          }
+          .btn-addTask{
+            display: none;
+          }
+        }
         .sDash_addTask-from{
           padding: 0 20px;
+          display: none;
         }
         .sDash_addTask-input{
           padding: 10px;

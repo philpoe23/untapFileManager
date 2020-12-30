@@ -1860,6 +1860,8 @@ html[dir='rtl'] .ant-card-head-title span {
 }
 
 .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action a{
+  position: relative;
+  top: 3px;
   display: inline-flex;
   align-items: center;
   line-height: 1;
@@ -1956,6 +1958,8 @@ html[dir='rtl'] .ant-card-head-title span {
   visibility: visible;
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-tasks__single .btn-more{
+  display: flex;
+  align-items: center;
   opacity: 0;
   visibility: hidden;
 }
