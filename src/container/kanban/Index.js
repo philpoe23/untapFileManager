@@ -112,17 +112,18 @@ const Kanban = () => {
       columnTitle: e.target.value,
     });
   };
+  const { taskTitle, columnTitle, boardId } = state;
 
   const onTaskTitleChange = e => {
     e.preventDefault();
     setState({
       ...state,
-      taskTitle: e.target.value,
+      [`taskTitle${boardId}`]: e.target.value,
     });
+    console.log(e.target);
+    e.target.focus();
   };
 
-  const { taskTitle, columnTitle, boardId } = state;
-  console.log(state);
   const addColumnHandler = () => {
     const arrayData = [];
     boardData.map(data => {
@@ -250,29 +251,18 @@ const Kanban = () => {
                               <FeatherIcon icon="plus" size={12} />
                               <span>Add Task</span>
                             </Link>
-                            <Form
-                              className="addTask-form"
-                              name={`addTask-${board.boardId}`}
-                              form={form}
-                              onFinish={addTaskHandler}
-                            >
-                              <div className="sDash_addTask-from">
-                                <Input
-                                  value={taskTitle}
-                                  className="sDash_addTask-input"
-                                  onChange={onTaskTitleChange}
-                                  placeholder="Enter a Title"
-                                />
-                                <div className="sDash_addTask-action">
-                                  <Button className="add-column" htmlType="submit" size="small" type="primary">
-                                    Add
-                                  </Button>
-                                  <Link onClick={handleOffAddTask}>
-                                    <FeatherIcon icon="x" size={18} />
-                                  </Link>
-                                </div>
+
+                            <div className="sDash_addTask-from">
+                              <Input className="sDash_addTask-input" placeholder="Enter a Title" />
+                              <div className="sDash_addTask-action">
+                                <Button className="add-column" htmlType="submit" size="small" type="primary">
+                                  Add
+                                </Button>
+                                <Link onClick={handleOffAddTask}>
+                                  <FeatherIcon icon="x" size={18} />
+                                </Link>
                               </div>
-                            </Form>
+                            </div>
                           </div>
                         </KanbanColumn>
                       );

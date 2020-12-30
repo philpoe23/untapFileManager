@@ -1,6 +1,6 @@
 {
   "name": "strikingDash",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "dependencies": {
     "@south-paw/react-vector-maps": "^3.0.0",
