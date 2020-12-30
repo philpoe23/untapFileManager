@@ -9,7 +9,7 @@ const ArticleTheme = () => {
     <ArticleTabContentWrap>
       <div className="sDash_article-tab-content">
         <Row>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">
@@ -31,7 +31,7 @@ const ArticleTheme = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">
@@ -53,7 +53,7 @@ const ArticleTheme = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">
@@ -75,7 +75,7 @@ const ArticleTheme = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">
@@ -97,7 +97,7 @@ const ArticleTheme = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">
@@ -119,7 +119,7 @@ const ArticleTheme = () => {
               </Link>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col md={8} sm={12} xs={24}>
             <div className="sDash_article-tab-signle">
               <h2 className="sDash_article-tab-signle__title">Introduction to Theme</h2>
               <ul className="sDash_article-tab-signle__list">

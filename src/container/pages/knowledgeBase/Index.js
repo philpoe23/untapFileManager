@@ -79,8 +79,8 @@ const KnowledgeBase = ({ match }) => {
             <PopularArticleWrap>
               <div className="sDash_popular-article sDash_popular-article-container">
                 <h2 className="sDash_popular-article__title">Popular articles</h2>
-                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-                  <Masonry className="sDash_popular-article__box">
+                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 767: 2, 900: 3 }}>
+                  <Masonry className="sDash_popular-article__box" gutter={15}>
                     {articles.map((article, i) => (
                       <div className={`sDash_popular-article__single theme-${article.type}`} key={i}>
                         <h4 className="single-article-title">{article.title}</h4>

@@ -5,7 +5,7 @@
         "title": "File Manager Design",
         "checklist": [
             {
-                "id": "1",
+                "id": "cl-1",
                 "label": "Research",
                 "checkListTask": [
                     {
@@ -31,7 +31,7 @@
                 ]
             },
             {
-                "id": "2",
+                "id": "cl-2",
                 "label": "Design",
                 "checkListTask": [
                     {

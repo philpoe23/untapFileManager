@@ -6,11 +6,17 @@ const KnowledgebaseTopWrap = Styled.div`
         padding: 65px;
         background-color: ${({ theme }) => theme['bg-color-light']};
         box-shadow: 0 5px 20px ${({ theme }) => theme['light-color']}10;
+        @media only screen and (max-width: 575px){
+            padding: 30px;
+        }
         .sDash_knowledgetop__title{
             font-size: 30px;
             font-weight: 600;
             margin-bottom: 25px;
             color: ${({ theme }) => theme['dark-color']};
+            @media only screen and (max-width: 575px){
+                font-size: 24px;
+            }
         }
         .sDash_knowledgetop__formInner{
             display: flex;
@@ -20,8 +26,15 @@ const KnowledgebaseTopWrap = Styled.div`
             margin: 0 auto;
             background-color: #fff;
             box-shadow: 0 10px 10px ${({ theme }) => theme['light-color']}10;
+            @media only screen and (max-width: 575px){
+                flex-wrap: wrap;
+                padding: 25px 15px;
+            }
             .ant-form-item{
                 margin-bottom: 0;
+                @media only screen and (max-width: 575px){
+                    width: 100%;
+                }
             }
             .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
                 height: 54px !important;
@@ -34,7 +47,16 @@ const KnowledgebaseTopWrap = Styled.div`
                 }
             }
             .ant-select-selector{
+                @media only screen and (max-width: 575px){
+                    width: calc(100% - 22px);
+                    position: relative;
+                    left: 11px;
+                    border-radius: 4px;
+                    border: 1px solid ${({ theme }) => theme['border-color-normal']} !important;
+                    margin-bottom: 15px;
+                }
                 .ant-select-selection-search{
+                    
                     .ant-select-selection-search-input{
                         height: 54px;
                     }
@@ -46,14 +68,28 @@ const KnowledgebaseTopWrap = Styled.div`
                     line-height: 54px !important;
                     ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 1px solid ${({ theme }) =>
   theme['border-color-normal']};
+                    @media only screen and (max-width: 575px){
+                        ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0px solid ${({ theme }) =>
+  theme['border-color-normal']};
+                    }
                 }
             }
             .sDash_search-input{
                 width: 100%;
+                .ant-form-item-control{
+                    @media only screen and (max-width: 575px){
+                        padding: 0 11px;
+                    }
+                }
                 .ant-form-item-control-input{
                     font-size: 15px;
                     color: #868EAE;
                     height: 54px;
+                    @media only screen and (max-width: 575px){
+                        border-radius: 4px;
+                        border: 1px solid ${({ theme }) => theme['border-color-normal']};
+                        margin-bottom: 15px;
+                    }
                 }
                 .ant-input{
                     line-height: 2;
@@ -66,6 +102,9 @@ const KnowledgebaseTopWrap = Styled.div`
                 border-radius: 0 4px 4px 0;
                 border-radius: ${({ theme }) => (theme.rtl ? '4px 0 0 4px' : '0 4px 4px 0')}
                 padding: 6.4px 27.7px;
+                @media only screen and (max-width: 575px){
+                    border-radius: 4px;
+                }
             }
         }
     }
@@ -73,16 +112,29 @@ const KnowledgebaseTopWrap = Styled.div`
         margin-top: 22px;
         ul{
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            margin: -6px 0;
         }
         li{
+            margin: 6px 0;
+            @media only screen and (max-width: 379px){
+                flex: 100%;
+                width: 100%;
+            }
             &:first-child{
                 ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 25px !important;
+                @media only screen and (max-width: 379px){
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0px !important;
+                }
                 
             }
             &:not(:last-child){
                 ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
+                @media only screen and (max-width: 379px){
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0px;
+                }
             }
             a,
             span{
@@ -106,6 +158,10 @@ const KnowledgebaseArticleWrap = Styled.div`
     padding: 6px 50px 50px 50px;
     border-radius: 10px;
     margin-top: 50px;
+    margin-bottom: 30px;
+    @media only screen and (max-width: 575px){
+        padding: 6px 20px 50px 20px;
+    }
     .knowledgebase-article-container{
         max-width: 1110px;
         margin: 0 auto;
@@ -165,6 +221,9 @@ const ArticleTabWrap = Styled.div`
                         padding: 18px 0;
                         transition: .35s;
                         color: ${({ theme }) => theme['gray-color']};
+                        @media only screen and (max-width: 575px){
+                            font-size: 14px;
+                        }
                         &.active{
                             color: ${({ theme }) => theme['dark-color']};
                             &:after{
@@ -321,9 +380,15 @@ const PopularArticleWrap = Styled.div`
             }
         }
         .sDash_popular-article__box{
-            margin: 0 -15px 0px -15px;
+            margin: 0 0 0px 0;
+            @media only screen and (max-width: 899px){
+                margin: 0;
+            }
             .sDash_popular-article__single {
-                margin: 0 15px 30px 15px;
+                margin: 0 0 15px 0;
+                @media only screen and (max-width: 899px){
+                    margin: 0 0 30px 0;
+                }
             }
         }
     }

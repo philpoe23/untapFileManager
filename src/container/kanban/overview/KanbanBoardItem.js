@@ -29,6 +29,7 @@ const KanbanBoardItem = ({ data }) => {
       ...state,
       modalVisible: !modalVisible,
       test: false,
+      checkValue: {},
     });
   };
 
@@ -45,8 +46,14 @@ const KanbanBoardItem = ({ data }) => {
     });
   };
 
-  function onChange(e) {
-    // console.log(`checked = ${e.target.checked}`);
+  function onChange(value, listId, taskId) {
+    setState({
+      ...state,
+      checkValue: {
+        ...state.checkValue,
+        [`${listId}-${taskId}`]: value,
+      },
+    });
   }
   const actions = (
     <>
@@ -55,7 +62,6 @@ const KanbanBoardItem = ({ data }) => {
       </Link>
     </>
   );
-
   return (
     <div className="">
       <h4 className={editable ? 'sDash_kanvan-task__title edit-on' : 'sDash_kanvan-task__title'}>
@@ -118,7 +124,7 @@ const KanbanBoardItem = ({ data }) => {
                         {item.checkListTask.map((task, i) => {
                           return (
                             <li className="sDash_checklist-tasks__single" key={i}>
-                              <Checkbox onChange={onChange}>{task.label} </Checkbox>
+                              <Checkbox onChange={value => onChange(value, item.id, task.id)}>{task.label} </Checkbox>
                               <Dropdown content={actions} action={['click']} className="wide-dropdwon kanbanCard-more">
                                 <Link to="#" className="btn-more">
                                   <FeatherIcon icon="more-horizontal" size={14} />
