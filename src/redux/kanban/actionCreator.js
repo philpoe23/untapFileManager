@@ -15,4 +15,16 @@ const ToAddBoard = data => {
   };
 };
 
-export { ToAddBoard };
+const ToAddTask = data => {
+  return async dispatch => {
+    try {
+      console.log(data);
+      dispatch(toAddBoardReadBegin());
+      dispatch(toAddBoardSuccess(data));
+    } catch (err) {
+      dispatch(toAddBoardReadErr(err));
+    }
+  };
+};
+
+export { ToAddBoard, ToAddTask };

@@ -2,6 +2,9 @@ const actions = {
   BOARD_READ_BEGIN: 'BOARD_READ_BEGIN',
   BOARD_READ_SUCCESS: 'BOARD_READ_SUCCESS',
   BOARD_READ_ERR: 'BOARD_READ_ERR',
+  TASK_READ_BEGIN: 'TASK_READ_BEGIN',
+  TASK_READ_SUCCESS: 'TASK_READ_SUCCESS',
+  TASK_READ_ERR: 'TASK_READ_ERR',
 
   toAddBoardReadBegin: () => {
     return {
@@ -19,6 +22,26 @@ const actions = {
   toAddBoardReadErr: err => {
     return {
       type: actions.BOARD_READ_ERR,
+      err,
+    };
+  },
+
+  toAddTaskReadBegin: () => {
+    return {
+      type: actions.TASK_READ_BEGIN,
+    };
+  },
+
+  toAddTaskSuccess: data => {
+    return {
+      type: actions.TASK_READ_SUCCESS,
+      data,
+    };
+  },
+
+  toAddTaskReadErr: err => {
+    return {
+      type: actions.TASK_READ_ERR,
       err,
     };
   },

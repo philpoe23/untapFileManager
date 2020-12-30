@@ -9,7 +9,14 @@ const initialState = {
   error: null,
 };
 
-const { BOARD_READ_BEGIN, BOARD_READ_SUCCESS, BOARD_READ_ERR, NOTE_STAR_UPDATE_BEGIN } = actions;
+const {
+  BOARD_READ_BEGIN,
+  BOARD_READ_SUCCESS,
+  BOARD_READ_ERR,
+  TASK_READ_BEGIN,
+  TASK_READ_SUCCESS,
+  TASK_READ_ERR,
+} = actions;
 
 const kanbanBoardReducer = (state = initialState, action) => {
   const { type, data, err } = action;
@@ -20,7 +27,6 @@ const kanbanBoardReducer = (state = initialState, action) => {
         sLoading: true,
       };
     case BOARD_READ_SUCCESS:
-      console.log(data);
       return {
         ...state,
         boardData: data,
@@ -40,10 +46,22 @@ const kanbanBoardReducer = (state = initialState, action) => {
 const kanbanTaskReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
-    case NOTE_STAR_UPDATE_BEGIN:
+    case TASK_READ_BEGIN:
       return {
         ...state,
         sLoading: true,
+      };
+    case TASK_READ_SUCCESS:
+      return {
+        ...state,
+        taskData: data,
+        loading: false,
+      };
+    case TASK_READ_ERR:
+      return {
+        ...state,
+        error: err,
+        loading: false,
       };
     default:
       return state;

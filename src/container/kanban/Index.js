@@ -18,7 +18,7 @@ import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { ToAddBoard } from '../../redux/kanban/actionCreator';
+import { ToAddBoard, ToAddTask } from '../../redux/kanban/actionCreator';
 
 const Kanban = () => {
   const { boardData, taskData } = useSelector(state => {
@@ -36,7 +36,7 @@ const Kanban = () => {
   const [state, setState] = useState({
     columnTitle: '',
     taskTitle: '',
-    boardID: '',
+    boardId: '',
   });
 
   const [form] = Form.useForm();
@@ -114,6 +114,7 @@ const Kanban = () => {
   };
 
   const onTaskTitleChange = e => {
+    e.preventDefault();
     setState({
       ...state,
       taskTitle: e.target.value,
@@ -121,7 +122,7 @@ const Kanban = () => {
   };
 
   const { taskTitle, columnTitle, boardId } = state;
-
+  console.log(state);
   const addColumnHandler = () => {
     const arrayData = [];
     boardData.map(data => {
@@ -150,17 +151,19 @@ const Kanban = () => {
 
   const addTaskHandler = () => {
     const arrayData = [];
-    boardData.map(data => {
-      return arrayData.push(data.boardId);
+    taskData.map(data => {
+      return arrayData.push(data.id);
     });
     const max = Math.max(...arrayData);
-    if (columnTitle !== '') {
+    if (taskTitle !== '') {
       dispatch(
-        ToAddBoard([
-          ...boardData,
+        ToAddTask([
+          ...taskData,
           {
-            boardId: max + 1,
-            title: columnTitle,
+            id: max + 1,
+            boardId,
+            title: taskTitle,
+            checklist: [],
           },
         ]),
       );
@@ -247,7 +250,12 @@ const Kanban = () => {
                               <FeatherIcon icon="plus" size={12} />
                               <span>Add Task</span>
                             </Link>
-                            <Form className="addTask-form" name="taskAdd" form={form} onFinish={addTaskHandler}>
+                            <Form
+                              className="addTask-form"
+                              name={`addTask-${board.boardId}`}
+                              form={form}
+                              onFinish={addTaskHandler}
+                            >
                               <div className="sDash_addTask-from">
                                 <Input
                                   value={taskTitle}
@@ -255,9 +263,8 @@ const Kanban = () => {
                                   onChange={onTaskTitleChange}
                                   placeholder="Enter a Title"
                                 />
-                                <Input type="hidden" value={board.boardId} />
                                 <div className="sDash_addTask-action">
-                                  <Button className="add-column" size="small" type="primary">
+                                  <Button className="add-column" htmlType="submit" size="small" type="primary">
                                     Add
                                   </Button>
                                   <Link onClick={handleOffAddTask}>
