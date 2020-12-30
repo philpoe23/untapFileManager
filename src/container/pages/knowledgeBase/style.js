@@ -94,6 +94,10 @@ const KnowledgebaseTopWrap = Styled.div`
                 .ant-input{
                     line-height: 2;
                     border: 0 none;
+                    &:focus{
+                        outline: none;
+                        box-shadow: 0 0;
+                    }
                 }
             }
             .btn-search{
@@ -424,12 +428,30 @@ const ArticleListWrap = Styled.div`
     }
     .sDash_articlelist__single{
         display: flex;
+        @media only screen and (max-width: 991px){
+            flex-flow: column;
+        }
         &:not(:last-child){
             margin-bottom: 55px;
+            @media only screen and (max-width: 991px){
+                margin-bottom: 30px
+            }
         }
         .sDash_articlelist__single--left{
             ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 100px;
             min-width: 260px;
+            @media only screen and (max-width: 1199px){
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
+            }
+            @media only screen and (max-width: 991px){
+                margin-bottom: 12px;
+                margin-right: 0;
+            }
+            .sDash_article-category-title{
+                @media only screen and (max-width: 1199px){
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
     .sDash_article-category-links{
@@ -440,12 +462,19 @@ const ArticleListWrap = Styled.div`
             li{
                 flex: 0 0 44%;
                 max-width: 285px;
+                @media only screen and (max-width: 767px){
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
                 &:not(:last-child){
                     margin-bottom: 15px;
                 }
 
                 &:nth-child(2n){
                     ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 68px;
+                    @media only screen and (max-width: 767px){
+                        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 0;
+                    }
                 }
                 a{
                     font-size: 15px;
