@@ -199,12 +199,12 @@ const SingleKnowledgeDetails = () => {
         <h4 className="sDash_comment-form__title">Leave comment</h4>
         <Form name="comment" layout="vertical">
           <Row gutter="20">
-            <Col lg={12}>
+            <Col sm={12} xs={24}>
               <Form.Item label="Name" name="name">
                 <Input />
               </Form.Item>
             </Col>
-            <Col lg={12}>
+            <Col sm={12} xs={24}>
               <Form.Item
                 label="Email Address"
                 name="email"
@@ -215,14 +215,14 @@ const SingleKnowledgeDetails = () => {
             </Col>
           </Row>
           <Row>
-            <Col lg={24}>
+            <Col xs={24}>
               <Form.Item label="Comment" name="comment">
                 <TextArea rows={4} />
               </Form.Item>
             </Col>
           </Row>
           <Row>
-            <Col lg={24}>
+            <Col xs={24}>
               <Button htmlType="submit" className="btn-submit" size="large" type="primary" raised key="submit">
                 Submit Comment
               </Button>

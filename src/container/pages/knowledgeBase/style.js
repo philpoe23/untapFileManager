@@ -163,7 +163,7 @@ const KnowledgebaseArticleWrap = Styled.div`
     border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 30px;
-    @media only screen and (max-width: 575px){
+    @media only screen and (max-width: 991px){
         padding: 6px 20px 50px 20px;
     }
     .knowledgebase-article-container{
@@ -175,7 +175,20 @@ const KnowledgebaseArticleWrap = Styled.div`
     }
     .sDash_paginaion{
         margin: 18px 0 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media only screen and (max-width: 991px){
+            margin: 18px 0 25px;
+        }
+        @media only screen and (max-width: 767px){
+            flex-flow: column;
+            margin: 18px 0 40px;
+        }
         ul{
+            @media only screen and (max-width: 767px){
+                margin-bottom: 20px;
+            }
             li{
                 display: inline-block;
                 &:not(:last-child){
@@ -518,6 +531,38 @@ const ArticleListWrap = Styled.div`
 
 const SingleKnowledgeContent = Styled.div`
     display: flex;
+    @media only screen and (max-width: 991px){
+        display: block
+    }
+    .knowledge-sidebar-wrap {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,.12549019607843137);
+        transition: all .35s;
+        z-index: 222;
+        &.hide{
+            transform: translateX(-300px);
+        }
+        &.show{
+            transform: translateX(0px);
+        }
+        .knowledge-sidebar{
+            width: 300px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+        .trigger-close{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+    }
 `;
 
 const SidebarNavWrap = Styled.div`
@@ -526,6 +571,9 @@ const SidebarNavWrap = Styled.div`
     border: 1px solid ${({ theme }) => theme['border-color-normal']};
     border-radius: 4px;
     ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
+    @media only screen and (max-width: 991px){
+        border: 0 none;
+    }
     .knowledge-sidebar{
         .knowledge-sidebar__title{
             font-size: 16px;
@@ -616,11 +664,20 @@ const SidebarNavWrap = Styled.div`
 const KnowledgeDetailsWrap = Styled.div`
     .knowledge-details{
         padding: 0 30px;
+        @media only screen and (max-width: 1399px){
+            padding: 0;
+        }
+        img{
+            width: 100%;
+        }
         .knowledge-details__title{
             font-size: 30px;
             font-weight: 600;
             margin-bottom: 20px;
             color: ${({ theme }) => theme['dark-color']};
+            @media only screen and (max-width: 1199px){
+                font-size: 24px;
+            }
         }
         .knowledge-details__single--block{
             &:first-child{
@@ -712,8 +769,15 @@ const KnowledgeDetailsWrap = Styled.div`
             min-height: 106px;
             border: 1px solid ${({ theme }) => theme['border-color-normal']};
             box-shadow: 0 5px 10px ${({ theme }) => theme['dark-color']}10;
+            @media only screen and (max-width: 575px){
+                flex-flow: column;
+            }
             .knowledge-details-cta__text{
                 ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 40px;
+                @media only screen and (max-width: 575px){
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0px;
+                    margin-bottom: 15px;
+                }
                 margin-bottom: 0;
             }
             .knowledge-details-cta__actions{
@@ -731,9 +795,15 @@ const KnowledgeDetailsWrap = Styled.div`
             padding-bottom: 50px;
             margin-bottom: 25px;
             border-bottom: 1px solid ${({ theme }) => theme['border-color-normal']};
+            @media only screen and (max-width: 575px){
+                flex-flow: column;
+            }
             .knowledge-details__bottom--left{
                 font-size: 16px;
                 font-weight: 500;
+                @media only screen and (max-width: 575px){
+                    margin-bottom: 15px;
+                }
                 a{
                     ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 14px;
                 }
@@ -768,6 +838,9 @@ const KnowledgeDetailsWrap = Styled.div`
             ul{
                 display: flex;
                 justify-content: space-between;
+                @media only screen and (max-width: 575px){
+                    flex-direction: column;
+                }
                 li{
                     &.page-next{
                         a{
@@ -777,8 +850,14 @@ const KnowledgeDetailsWrap = Styled.div`
                         }
                     }
                     &.page-previous{
+                        @media only screen and (max-width: 575px){
+                            margin-top: 10px;
+                        }
                         a{
-                            text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
+                            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+                            @media only screen and (max-width: 575px){
+                                text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
+                            }
                             span.fa{
                                 margin-left: 8px;
                                 ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 8px;
@@ -786,6 +865,9 @@ const KnowledgeDetailsWrap = Styled.div`
                         }
                         .pagintaion-label{
                             justify-content: flex-end;
+                            @media only screen and (max-width: 575px){
+                                justify-content: flex-start;
+                            }
                         }
                     }
                     a{
@@ -808,6 +890,9 @@ const KnowledgeDetailsWrap = Styled.div`
                         }
                     }
                 }
+            }
+            .knowledge-sidebar-trigger{
+                background-color: ${({ theme }) => theme['primary-color']};
             }
         }
     }

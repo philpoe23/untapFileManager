@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import SideNav from './overview/SingleKnowledge/SideNav';
@@ -13,6 +13,29 @@ import { ExportButtonPageHeader } from '../../../components/buttons/export-butto
 import { CalendarButtonPageHeader } from '../../../components/buttons/calendar-button/calendar-button';
 
 const SingleKnowledge = () => {
+  const [state, setState] = useState({
+    responsive: 0,
+    collapsed: false,
+  });
+  const { responsive, collapsed } = state;
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      const width = window.innerWidth;
+      setState({ responsive: width });
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  const toggleCollapsed = () => {
+    setState({
+      ...state,
+      collapsed: !collapsed,
+    });
+  };
+
   return (
     <>
       <PageHeader
@@ -54,9 +77,29 @@ const SingleKnowledge = () => {
                   <span>Plugins</span>
                 </li>
               </ul>
+              {responsive <= 991 && (
+                <Button type="primary" className="knowledge-sidebar-trigger" onClick={toggleCollapsed}>
+                  <FeatherIcon icon={collapsed ? 'align-left' : 'align-right'} />
+                </Button>
+              )}
             </div>
             <SingleKnowledgeContent>
-              <SideNav />
+              {responsive > 991 ? (
+                <SideNav />
+              ) : (
+                <div className={collapsed ? 'knowledge-sidebar-wrap show' : 'knowledge-sidebar-wrap hide'}>
+                  <Button
+                    type="link"
+                    className="mail-sidebar-trigger trigger-close"
+                    style={{ marginTop: 0 }}
+                    onClick={toggleCollapsed}
+                  >
+                    <FeatherIcon icon="x" />
+                  </Button>
+                  <SideNav />
+                </div>
+              )}
+
               <SingleKnowledgeDetails />
             </SingleKnowledgeContent>
           </div>
