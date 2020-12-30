@@ -738,7 +738,17 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu key="importExport" icon={!topMenu && <FeatherIcon icon="maximize-2" />} title="Import Export">
+      <SubMenu
+        key="importExport"
+        icon={!topMenu && <FeatherIcon icon="maximize-2" />}
+        title={
+          <>
+            <span className="pl-0">
+              Import Export<span className="badge badge-success">New</span>
+            </span>
+          </>
+        }
+      >
         <Menu.Item key="import">
           <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
             Import
@@ -750,7 +760,17 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu key="knowledgebase" icon={!topMenu && <FeatherIcon icon="maximize-2" />} title="Knowledgebase">
+      <SubMenu
+        key="knowledgebase"
+        icon={!topMenu && <FeatherIcon icon="maximize-2" />}
+        title={
+          <>
+            <span className="pl-0">
+              Knowledgebase<span className="badge badge-success">New</span>
+            </span>
+          </>
+        }
+      >
         <Menu.Item key="knowledgebase">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
             Knowledgebase

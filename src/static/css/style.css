@@ -93,6 +93,10 @@ ul {
   padding-bottom: 30px;
 }
 
+.pl-0{
+  padding-left: 0 !important;
+}
+
 .mt-25 {
   margin-top: 25px;
 }
