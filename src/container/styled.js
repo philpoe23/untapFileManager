@@ -1541,8 +1541,14 @@ const ExportStyleWrap = Styled.div`
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
+        @media only screen and (max-width: 575px){
+            flex-flow: column;
+        }
         .btn-export{
             height: 44px; 
+            @media only screen and (max-width: 575px){
+                margin-bottom: 20px;
+            }
         }
         .ant-select{
             width: auto !important;
