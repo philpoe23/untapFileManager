@@ -277,7 +277,8 @@ const Div = Styled.div`
                 overflow-x: hidden;
                 ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                 .ant-menu-submenu, .ant-menu-item{
-                    .feather{
+                    .feather,
+                    img{
                         width: 16px;
                         font-size: 16px;
                         color: ${({ theme }) => theme['extra-light-color']};
@@ -288,6 +289,9 @@ const Div = Styled.div`
                         color: ${({ theme }) => theme['dark-color']};
                         transition: 0.3s ease;
                     }
+                    .sDash_menu-item-icon{
+                        line-height: .6;
+                    }
                 }
                 .ant-menu-item,
                 .ant-menu-submenu-title{
@@ -296,6 +300,9 @@ const Div = Styled.div`
                     }
                     >span{
                         width: 100%;
+                        .pl-0{
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0px;
+                        }
                     }
                     .badge{
                         position: absolute;                        

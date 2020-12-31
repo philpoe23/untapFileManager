@@ -95,7 +95,7 @@ const KanbanBoardItem = ({ data }) => {
                 Add Checklist
               </Button>
               <div className="addChecklist-form">
-                <input type="text" className="add-checklist" placeholder="Checklist Title" />
+                <input type="text" name="add-checklist" className="add-checklist" placeholder="Checklist Title" />
                 <div className="addChecklist-form-action">
                   <Button className="btn-add" size="small" type="primary">
                     Add

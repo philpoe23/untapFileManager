@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
+import { ReactSVG } from 'react-svg';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
 import versions from '../demoData/changelog.json';
@@ -326,7 +327,10 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </NavLink>
       </Menu.Item> */}
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="kanban">
+      <Menu.Item
+        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/columns.svg')} />}
+        key="kanban"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/app/kanban`}>
           Kanban Board
           <span className="badge badge-success">New</span>
@@ -740,7 +744,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       </SubMenu>
       <SubMenu
         key="importExport"
-        icon={!topMenu && <FeatherIcon icon="maximize-2" />}
+        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />}
         title={
           <>
             <span className="pl-0">
@@ -762,7 +766,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       </SubMenu>
       <SubMenu
         key="knowledgebase"
-        icon={!topMenu && <FeatherIcon icon="maximize-2" />}
+        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/book.svg')} />}
         title={
           <>
             <span className="pl-0">
@@ -774,19 +778,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="knowledgebase">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
             Knowledgebase
-            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="allArticle">
           <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
             All Article
-            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="knowledgeSingle">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
             KnowledgeSingle
-            <span className="badge badge-success">New</span>
           </NavLink>
         </Menu.Item>
       </SubMenu>
@@ -841,7 +842,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Blank Page
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="circle" />} key="support">
+      <Menu.Item
+        icon={
+          !topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/headphone.svg')} />
+        }
+        key="support"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/support`}>
           Support Center
           <span className="badge badge-success">New</span>

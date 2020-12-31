@@ -151,6 +151,7 @@ const Kanban = () => {
   };
 
   const addTaskHandler = () => {
+    // console.log(Input[(name 'sDash_addTask-title')].value);
     const arrayData = [];
     taskData.map(data => {
       return arrayData.push(data.id);
@@ -253,9 +254,13 @@ const Kanban = () => {
                             </Link>
 
                             <div className="sDash_addTask-from">
-                              <Input className="sDash_addTask-input" placeholder="Enter a Title" />
+                              <Input
+                                name="sDash_addTask-title"
+                                className="sDash_addTask-input"
+                                placeholder="Enter a Title"
+                              />
                               <div className="sDash_addTask-action">
-                                <Button className="add-column" htmlType="submit" size="small" type="primary">
+                                <Button className="add-column" onClick={addTaskHandler} size="small" type="primary">
                                   Add
                                 </Button>
                                 <Link onClick={handleOffAddTask}>
