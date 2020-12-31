@@ -1530,7 +1530,7 @@ const ImportStyleWrap = Styled.div`
             }
             .ant-upload-list-item-card-actions.picture{
                 top: 18px;
-                right: 15px;
+                ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 15px;
             }
         }
     }
