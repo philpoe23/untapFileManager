@@ -1,8 +1,13 @@
 import actions from './actions';
-import kanbanBoardData from '../../demoData/kanbanBoard.json';
-import kanbanTaskData from '../../demoData/kanbanTasks.json';
 
-const { toAddBoardReadBegin, toAddBoardSuccess, toAddBoardReadErr } = actions;
+const {
+  toAddBoardReadBegin,
+  toAddBoardSuccess,
+  toAddBoardReadErr,
+  toAddTaskBegin,
+  toAddTaskSuccess,
+  toAddTaskErr,
+} = actions;
 
 const ToAddBoard = data => {
   return async dispatch => {
@@ -18,11 +23,10 @@ const ToAddBoard = data => {
 const ToAddTask = data => {
   return async dispatch => {
     try {
-      console.log(data);
-      dispatch(toAddBoardReadBegin());
-      dispatch(toAddBoardSuccess(data));
+      dispatch(toAddTaskBegin());
+      dispatch(toAddTaskSuccess(data));
     } catch (err) {
-      dispatch(toAddBoardReadErr(err));
+      dispatch(toAddTaskErr(err));
     }
   };
 };

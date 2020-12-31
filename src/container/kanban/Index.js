@@ -1,10 +1,10 @@
-import React, { useState, lazy, Suspense, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
-import { Switch, NavLink, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Spin, Input, Form } from 'antd';
+import { Row, Col, Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
@@ -20,17 +20,20 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import { ToAddBoard, ToAddTask } from '../../redux/kanban/actionCreator';
 
+/* 
+  @Todo Remove unnecessary Code and variable
+*/
+
 const Kanban = () => {
-  const { boardData, taskData } = useSelector(state => {
+  const dispatch = useDispatch();
+  const { boardData, tasks } = useSelector(state => {
     return {
       boardData: state.KanbanBoard.boardData,
-      taskData: state.KanbanTask.taskData,
+      tasks: state.KanbanBoard.taskData,
     };
   });
 
-  const dispatch = useDispatch();
-
-  const [tasks, setTaskStatus] = useState(taskData);
+  // const [tasks, setTaskStatus] = useState(taskData);
   const [addColumn, setAddColumn] = useState(false);
 
   const [state, setState] = useState({
@@ -82,9 +85,9 @@ const Kanban = () => {
       const newTasks = update(tasks, {
         [taskIndex]: { $set: task },
       });
-      setTaskStatus(newTasks);
+      dispatch(ToAddTask(newTasks));
     },
-    [tasks],
+    [tasks, dispatch],
   );
 
   const actions = (
@@ -102,27 +105,20 @@ const Kanban = () => {
     e.preventDefault();
     setAddColumn(true);
   };
+
   const diActiveAddOption = e => {
     e.preventDefault();
     setAddColumn(false);
   };
+
   const onColumnTitleChange = e => {
     setState({
       ...state,
       columnTitle: e.target.value,
     });
   };
-  const { taskTitle, columnTitle, boardId } = state;
 
-  const onTaskTitleChange = e => {
-    e.preventDefault();
-    setState({
-      ...state,
-      [`taskTitle${boardId}`]: e.target.value,
-    });
-    console.log(e.target);
-    e.target.focus();
-  };
+  const { columnTitle, boardId } = state;
 
   const addColumnHandler = () => {
     const arrayData = [];
@@ -150,29 +146,30 @@ const Kanban = () => {
     }
   };
 
-  const addTaskHandler = () => {
+  const addTaskHandler = id => {
     const arrayData = [];
-    taskData.map(data => {
+    const taskItem = document.querySelector(`input[name="taskInput-${id}"]`).value;
+    tasks.map(data => {
       return arrayData.push(data.id);
     });
     const max = Math.max(...arrayData);
-    if (taskTitle !== '') {
+
+    if (taskItem !== '') {
       dispatch(
         ToAddTask([
-          ...taskData,
+          ...tasks,
           {
-            id: max + 1,
+            id: `${max + 1}`,
             boardId,
-            title: taskTitle,
+            title: taskItem,
             checklist: [],
           },
         ]),
       );
       setState({
         ...state,
-        columnTitle: '',
+        boardId: '',
       });
-      setAddColumn(false);
     } else {
       alert('Please Enter a Task Ttile');
     }
@@ -253,12 +250,23 @@ const Kanban = () => {
                             </Link>
 
                             <div className="sDash_addTask-from">
-                              <Input className="sDash_addTask-input" placeholder="Enter a Title" />
+                              <Input
+                                name={`taskInput-${board.boardId}`}
+                                className="sDash_addTask-input"
+                                placeholder="Enter a Title"
+                                onPressEnter={() => addTaskHandler(board.boardId)}
+                              />
                               <div className="sDash_addTask-action">
-                                <Button className="add-column" htmlType="submit" size="small" type="primary">
+                                <Button
+                                  onClick={() => addTaskHandler(board.boardId)}
+                                  className="add-column"
+                                  htmlType="submit"
+                                  size="small"
+                                  type="primary"
+                                >
                                   Add
                                 </Button>
-                                <Link onClick={handleOffAddTask}>
+                                <Link to="#" onClick={handleOffAddTask}>
                                   <FeatherIcon icon="x" size={18} />
                                 </Link>
                               </div>
@@ -285,7 +293,7 @@ const Kanban = () => {
                               <Button className="add-column" htmlType="submit" size="small" type="primary">
                                 Add
                               </Button>
-                              <Link onClick={diActiveAddOption}>
+                              <Link to="#" onClick={diActiveAddOption}>
                                 <FeatherIcon icon="x" size={18} />
                               </Link>
                             </div>

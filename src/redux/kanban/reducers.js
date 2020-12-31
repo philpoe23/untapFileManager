@@ -6,6 +6,7 @@ const initialState = {
   boardData: kanbanBoardData,
   taskData: kanbanTaskData,
   loading: false,
+  tsLoading: false,
   error: null,
 };
 
@@ -24,7 +25,7 @@ const kanbanBoardReducer = (state = initialState, action) => {
     case BOARD_READ_BEGIN:
       return {
         ...state,
-        sLoading: true,
+        loading: true,
       };
     case BOARD_READ_SUCCESS:
       return {
@@ -38,34 +39,26 @@ const kanbanBoardReducer = (state = initialState, action) => {
         error: err,
         loading: false,
       };
-    default:
-      return state;
-  }
-};
-
-const kanbanTaskReducer = (state = initialState, action) => {
-  const { type, data, err } = action;
-  switch (type) {
     case TASK_READ_BEGIN:
       return {
         ...state,
-        sLoading: true,
+        tsLoading: true,
       };
     case TASK_READ_SUCCESS:
       return {
         ...state,
         taskData: data,
-        loading: false,
+        tsLoading: false,
       };
     case TASK_READ_ERR:
       return {
         ...state,
         error: err,
-        loading: false,
+        tsLoading: false,
       };
     default:
       return state;
   }
 };
 
-export { kanbanBoardReducer, kanbanTaskReducer };
+export default kanbanBoardReducer;

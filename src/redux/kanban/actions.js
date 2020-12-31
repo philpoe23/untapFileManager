@@ -2,6 +2,7 @@ const actions = {
   BOARD_READ_BEGIN: 'BOARD_READ_BEGIN',
   BOARD_READ_SUCCESS: 'BOARD_READ_SUCCESS',
   BOARD_READ_ERR: 'BOARD_READ_ERR',
+
   TASK_READ_BEGIN: 'TASK_READ_BEGIN',
   TASK_READ_SUCCESS: 'TASK_READ_SUCCESS',
   TASK_READ_ERR: 'TASK_READ_ERR',
@@ -26,7 +27,7 @@ const actions = {
     };
   },
 
-  toAddTaskReadBegin: () => {
+  toAddTaskBegin: () => {
     return {
       type: actions.TASK_READ_BEGIN,
     };
@@ -39,7 +40,7 @@ const actions = {
     };
   },
 
-  toAddTaskReadErr: err => {
+  toAddTaskErr: err => {
     return {
       type: actions.TASK_READ_ERR,
       err,
