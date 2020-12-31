@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
+import { Button } from '../../../../../components/buttons/buttons';
 import { SidebarNavWrap } from '../../style';
 
 const SideNav = () => {
@@ -9,6 +10,7 @@ const SideNav = () => {
     <SidebarNavWrap>
       <div className="knowledge-sidebar">
         <h4 className="knowledge-sidebar__title">Plugins</h4>
+        <FeatherIcon icon="x" />
         <ul>
           <li>
             <Link onClick={() => setOpen('menu1')} className={open === 'menu1' ? 'active' : ''}>

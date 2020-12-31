@@ -97,6 +97,10 @@ const KanbanBoardItem = ({ data }) => {
       }
       return item;
     });
+    setState({
+      ...state,
+      editable: false,
+    });
   };
 
   const onCheckListDelete = (id, boardId, checkList, delId, event) => {

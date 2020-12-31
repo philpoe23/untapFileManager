@@ -44,13 +44,16 @@ const KnowledgebaseTopWrap = Styled.div`
                 min-width: 160px;
                 .ant-select-arrow{
                     ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
+                    @media only screen and (max-width: 575px){
+                        top: 40%;
+                    }
                 }
             }
             .ant-select-selector{
                 @media only screen and (max-width: 575px){
                     width: calc(100% - 22px);
                     position: relative;
-                    left: 11px;
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 11px;
                     border-radius: 4px;
                     border: 1px solid ${({ theme }) => theme['border-color-normal']} !important;
                     margin-bottom: 15px;
@@ -213,6 +216,22 @@ const KnowledgebaseArticleWrap = Styled.div`
                     content: '\f105';
                 }
             }
+        }
+    }
+    .sidebar-shade{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #10122130;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        &.show{
+            z-index: 22;
+            opacity: 1;
+            visibility: visible;
         }
     }
 `;
@@ -397,12 +416,14 @@ const PopularArticleWrap = Styled.div`
             }
         }
         .sDash_popular-article__box{
+            direction: ltr;
             margin: 0 0 0px 0;
             @media only screen and (max-width: 899px){
                 margin: 0;
             }
             .sDash_popular-article__single {
                 margin: 0 0 15px 0;
+                direction: ${({ theme }) => (theme.rtl ? 'rtl' : 'ltr')};
                 @media only screen and (max-width: 899px){
                     margin: 0 0 30px 0;
                 }
@@ -504,6 +525,7 @@ const ArticleListWrap = Styled.div`
                     }
                     .ant-collapse-header{
                         padding: 0 0 0 18px !important;
+                        padding: ${({ theme }) => (theme.rtl ? '0 18px 0 0' : '0 0 0 18px')} !important;
                         background-color: #fff !important;
                         .ant-collapse-arrow{
                             ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
@@ -559,7 +581,7 @@ const SingleKnowledgeContent = Styled.div`
         }
         .trigger-close{
             position: absolute;
-            right: 15px;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px;
             top: 15px;
         }
     }
@@ -805,7 +827,7 @@ const KnowledgeDetailsWrap = Styled.div`
                     margin-bottom: 15px;
                 }
                 a{
-                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 14px;
+                    margin-left: 14px;
                 }
             }
             .knowledge-details__bottom--right{
