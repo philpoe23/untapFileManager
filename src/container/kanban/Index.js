@@ -97,17 +97,6 @@ const Kanban = () => {
     [tasks, dispatch],
   );
 
-  const actions = (
-    <>
-      <Link to="#">
-        <span>Edit Card Title</span>
-      </Link>
-      <Link to="#">
-        <span>Delete Card</span>
-      </Link>
-    </>
-  );
-
   const activeAddOption = e => {
     e.preventDefault();
     setAddColumn(true);
@@ -153,6 +142,15 @@ const Kanban = () => {
     } else {
       alert('Please Enter a Column Ttile');
     }
+  };
+
+  const deleteColumnHandler = id => {
+    const afterDeleteData = boardData.filter(board => board.boardId !== id);
+    const confirm = window.confirm('Are You sure to delete this?');
+    if (confirm) {
+      dispatch(ToAddBoard(afterDeleteData));
+    }
+    return false;
   };
 
   const addTaskHandler = id => {
@@ -245,7 +243,20 @@ const Kanban = () => {
                             <div className="list-header-target" />
                             <h4 className="list-header-title">
                               <span>{board.title}</span>
-                              <Dropdown content={actions} action={['click']} className="wide-dropdwon kanbanCard-more">
+                              <Dropdown
+                                content={
+                                  <>
+                                    <Link to="#">
+                                      <span>Edit Card Title</span>
+                                    </Link>
+                                    <Link onClick={() => deleteColumnHandler(board.boardId)} to="#">
+                                      <span>Delete Card</span>
+                                    </Link>
+                                  </>
+                                }
+                                action={['click']}
+                                className="wide-dropdwon kanbanCard-more"
+                              >
                                 <Link to="#" className="btn-more">
                                   <FeatherIcon icon="more-horizontal" size={14} />
                                 </Link>

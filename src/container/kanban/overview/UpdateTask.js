@@ -217,7 +217,7 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
                 </div>
                 <div className="sDash_checklist__progress">
                   {item.checkListTask.length ? (
-                    <Progress percent={(100 * checkedLength.length) / item.checkListTask.length} />
+                    <Progress percent={Math.round((100 * checkedLength.length) / item.checkListTask.length)} />
                   ) : null}
                 </div>
                 <div className="sDash_checklist-tasks-wrap">
