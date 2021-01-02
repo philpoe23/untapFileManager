@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
-import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
-import arrayMove from 'array-move';
+// import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
+// import arrayMove from 'array-move';
 import { KanvanBoardWrap } from './style';
 import KanbanBoardItem from './overview/KanbanBoardItem';
+import UpdateTask from './overview/UpdateTask';
 import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -40,6 +41,12 @@ const Kanban = () => {
     columnTitle: '',
     taskTitle: '',
     boardId: '',
+    checklistData: {
+      id: 1,
+      boardId: 1,
+      checklist: [],
+    },
+    modalVisible: false,
   });
 
   const [form] = Form.useForm();
@@ -118,14 +125,16 @@ const Kanban = () => {
     });
   };
 
-  const { columnTitle, boardId } = state;
+  const { columnTitle, boardId, checklistData, modalVisible } = state;
 
   const addColumnHandler = () => {
     const arrayData = [];
     boardData.map(data => {
       return arrayData.push(data.boardId);
     });
+
     const max = Math.max(...arrayData);
+
     if (columnTitle !== '') {
       dispatch(
         ToAddBoard([
@@ -191,6 +200,21 @@ const Kanban = () => {
     });
   };
 
+  const showModal = dataList => {
+    setState({
+      ...state,
+      modalVisible: !modalVisible,
+      checklistData: dataList,
+    });
+  };
+
+  const handleCancel = () => {
+    setState({
+      ...state,
+      modalVisible: false,
+    });
+  };
+
   return (
     <>
       <PageHeader
@@ -232,11 +256,13 @@ const Kanban = () => {
                           <div className="sDash_kanvan-task">
                             {tasks
                               .filter(item => item.boardId === board.boardId)
-                              .map(item => (
-                                <KanbanItem key={item.id} id={item.id}>
-                                  <KanbanBoardItem data={item} />
-                                </KanbanItem>
-                              ))}
+                              .map(item => {
+                                return (
+                                  <KanbanItem key={item.id} id={item.id}>
+                                    <KanbanBoardItem showModal={showModal} data={item} />
+                                  </KanbanItem>
+                                );
+                              })}
                           </div>
                           {/* sDash_addTask-control */}
                           <div
@@ -308,6 +334,7 @@ const Kanban = () => {
           </Col>
         </Row>
       </Main>
+      <UpdateTask handleCancel={handleCancel} modalVisible={modalVisible} data={checklistData} />
     </>
   );
 };
