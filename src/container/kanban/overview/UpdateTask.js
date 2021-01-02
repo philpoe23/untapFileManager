@@ -225,12 +225,7 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
                     {item.checkListTask.map((task, i) => {
                       return (
                         <li className="sDash_checklist-tasks__single" key={i}>
-                          <Checkbox
-                            checked={task.checked}
-                            value={task.checked}
-                            defaultChecked={task.checked}
-                            onChange={value => onChange(value, item.id, task.id)}
-                          >
+                          <Checkbox checked={task.checked} onChange={value => onChange(value, item.id, task.id)}>
                             {task.label}
                           </Checkbox>
                           <Dropdown
