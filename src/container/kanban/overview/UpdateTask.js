@@ -60,19 +60,23 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
   };
 
   const onCheckListItemDelete = (listId, taskId) => {
-    tasks.map(task => {
-      if (data.id === task.id) {
-        task.checklist.map(list => {
-          if (list.id === listId) {
-            const afterDeleteData = list.checkListTask.filter(item => item.id !== taskId);
-            list.checkListTask = afterDeleteData;
-          }
-          return list;
-        });
-      }
-      return task;
-    });
-    dispatch(ToAddTask(tasks));
+    const confirm = window.confirm('Are you sure to delete this?');
+    if (confirm) {
+      tasks.map(task => {
+        if (data.id === task.id) {
+          task.checklist.map(list => {
+            if (list.id === listId) {
+              const afterDeleteData = list.checkListTask.filter(item => item.id !== taskId);
+              list.checkListTask = afterDeleteData;
+            }
+            return list;
+          });
+        }
+        return task;
+      });
+      dispatch(ToAddTask(tasks));
+    }
+    return false;
   };
 
   const onCheckListItemAdd = (listId, checkListTask) => {
@@ -129,13 +133,17 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
 
   const onCheckListDelete = (id, boardId, checkList, delId, event) => {
     event.preventDefault();
-    tasks.map(item => {
-      if (item.id === id && item.boardId === boardId) {
-        return (item.checklist = checkList.filter(listItem => listItem.id !== delId));
-      }
-      return item;
-    });
-    dispatch(ToAddTask(tasks));
+    const confirm = window.confirm('Are you sure to delete this?');
+    if (confirm) {
+      tasks.map(item => {
+        if (item.id === id && item.boardId === boardId) {
+          return (item.checklist = checkList.filter(listItem => listItem.id !== delId));
+        }
+        return item;
+      });
+      dispatch(ToAddTask(tasks));
+    }
+    return false;
   };
 
   const onShowChecklistAddPopup = id => {
