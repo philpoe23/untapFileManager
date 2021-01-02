@@ -66,16 +66,17 @@ const KanbanBoardItem = ({ data }) => {
     });
   };
 
-  function onChange(value, listId, taskId) {
+  function onChange(value, listId, taskId, boardId) {
     setState({
       ...state,
       checkValue: {
         ...state.checkValue,
-        [`${listId}-${taskId}`]: value,
+        [`b-${boardId}-${listId}-${taskId}`]: value,
       },
     });
   }
 
+  // console.log(checklist);
   const actions = (
     <>
       <Link to="#">
@@ -97,6 +98,7 @@ const KanbanBoardItem = ({ data }) => {
       }
       return item;
     });
+    console.log(tasks);
     setState({
       ...state,
       editable: false,
@@ -110,6 +112,10 @@ const KanbanBoardItem = ({ data }) => {
         return (item.checklist = checkList.filter(listItem => listItem.id !== delId));
       }
       return item;
+    });
+    setState({
+      ...state,
+      editable: false,
     });
   };
 
@@ -188,10 +194,13 @@ const KanbanBoardItem = ({ data }) => {
                     </div>
                     <div className="sDash_checklist-tasks-wrap">
                       <ul className="sDash_checklist-tasks">
+                        {/* sDash_checklist-tasks__single */}
                         {item.checkListTask.map((task, i) => {
                           return (
                             <li className="sDash_checklist-tasks__single" key={i}>
-                              <Checkbox onChange={value => onChange(value, item.id, task.id)}>{task.label} </Checkbox>
+                              <Checkbox onChange={value => onChange(value, item.id, task.id, data.boardId)}>
+                                {task.label}
+                              </Checkbox>
                               <Dropdown content={actions} action={['click']} className="wide-dropdwon kanbanCard-more">
                                 <Link to="#" className="btn-more">
                                   <FeatherIcon icon="more-horizontal" size={14} />
