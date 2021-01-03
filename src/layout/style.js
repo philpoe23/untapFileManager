@@ -834,6 +834,9 @@ const TopMenuStyle = Styled.div`
                 &.mega-item{
                     position: static;
                 }
+                .sDash_menu-item-icon{
+                    line-height: .6;
+                }
                 .megaMenu-wrapper{
                     display: flex;
                     position: absolute;

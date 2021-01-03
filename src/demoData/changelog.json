@@ -9,10 +9,8 @@
             "Support Center"          
         ],
         "fixed": [
-            "Style issue"
-        ],
-        "updated": [
-            "Update Timeline In components"            
+            "Contact app Edit state issue",
+            "Firebase CRUD Edit state issue"
         ]
     },
     {
