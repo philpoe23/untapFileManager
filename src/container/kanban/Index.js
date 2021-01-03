@@ -8,9 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Scrollbars } from 'react-custom-scrollbars';
-// import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
-// import arrayMove from 'array-move';
-import { BackShadow, KanvanBoardWrap } from './style';
+import propTypes from 'prop-types';
+import { KanvanBoardWrap, BackShadow } from './style';
 import KanbanBoardItem from './overview/KanbanBoardItem';
 import UpdateTask from './overview/UpdateTask';
 import { Main } from '../styled';
@@ -76,7 +75,6 @@ const Kanban = () => {
   });
 
   const [form] = Form.useForm();
-
   const KanbanColumn = ({ status, changeTaskStatus, children }) => {
     const ref = useRef(null);
     const [, drop] = useDrop({
@@ -91,6 +89,12 @@ const Kanban = () => {
         <Scrollbars className="sDash_kanban-board-item-scrolable">{children}</Scrollbars>
       </div>
     );
+  };
+
+  KanbanColumn.propTypes = {
+    status: propTypes.string,
+    children: propTypes.array,
+    changeTaskStatus: propTypes.func,
   };
 
   const KanbanItem = ({ id, children }) => {
@@ -108,6 +112,11 @@ const Kanban = () => {
         {children}
       </div>
     );
+  };
+
+  KanbanItem.propTypes = {
+    id: propTypes.string,
+    children: propTypes.object,
   };
 
   const changeTaskStatus = useCallback(
@@ -320,7 +329,6 @@ const Kanban = () => {
           </div>,
         ]}
       />
-      {/* sDash_kanban-board-item__header */}
       <Main>
         <Row gutter={15}>
           <Col xs={24}>
@@ -383,7 +391,7 @@ const Kanban = () => {
                                 );
                               })}
                           </div>
-                          {/* sDash_addTask-control */}
+
                           <div
                             className={
                               board.boardId === boardId ? 'sDash_addTask-control add-task-on' : 'sDash_addTask-control'
