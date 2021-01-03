@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { NavLink, Link, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
+import { ReactSVG } from 'react-svg';
 import { TopMenuStyle } from './style';
 
 const TopMenu = () => {
@@ -281,6 +282,12 @@ const TopMenu = () => {
                   To Do
                 </NavLink>
               </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/app/kanban`}>
+                  <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/columns.svg')} />
+                  Kanban Board
+                </NavLink>
+              </li>
             </ul>
           </li>
 
@@ -351,6 +358,11 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/comingSoon`}>
                       Coming Soon
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/support`}>
+                      Support Center
                     </NavLink>
                   </li>
                 </ul>
@@ -793,6 +805,24 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/maps/Vector`}>
                       Vector Maps
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
+              <li className="has-subMenu-left">
+                <Link to="#" className="parent">
+                  <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />
+                  Import Export
+                </Link>
+                <ul className="subMenu">
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/importExport/import`}>
+                      Import
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/importExport/export`}>
+                      Export
                     </NavLink>
                   </li>
                 </ul>
