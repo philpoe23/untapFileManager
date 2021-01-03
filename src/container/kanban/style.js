@@ -9,14 +9,26 @@ const KanvanBoardWrap = Styled.div`
     margin: -10px;
     flex-wrap: wrap;
     .sDash_kanban-board-item{
-      flex: 0 0 18.6%;
-      border-radius: 5px;
-      margin: 10px;
+      flex: 0 0 20%;
+      padding: 10px;
       height: 400px;
       overflow-y: auto;
-      background-color: ${({ theme }) => theme['bg-color-normal']};
+      @media only screen and (max-width: 1599px){
+        flex: 0 0 25%;
+      }
+      @media only screen and (max-width: 1399px){
+        flex: 0 0 33.333%;
+      }
+      @media only screen and (max-width: 767px){
+        flex: 0 0 50%;
+      }
+      @media only screen and (max-width: 575px){
+        flex: 0 0 100%;
+      }
       .sDash_kanban-board-item-scrolable{
         padding-bottom: 80px;
+        border-radius: 5px;
+        background-color: ${({ theme }) => theme['bg-color-normal']};
       }
       .sDash_addTask-control{
         padding-bottom: 20px;
@@ -61,7 +73,19 @@ const KanvanBoardWrap = Styled.div`
       }
     }
     .btn-addColumn{
-      flex: 0 0 18.6%;
+      flex: 0 0 20%;
+      @media only screen and (max-width: 1599px){
+        flex: 0 0 25%;
+      }
+      @media only screen and (max-width: 1399px){
+        flex: 0 0 33.333%;
+      }
+      @media only screen and (max-width: 767px){
+        flex: 0 0 50%;
+      }
+      @media only screen and (max-width: 575px){
+        flex: 0 0 100%;
+      }
     }
     .sDash_kanban-board-item__header{
       padding: 18px 20px 10px 20px;
@@ -181,7 +205,7 @@ const KanvanBoardWrap = Styled.div`
       }
     }
     .btn-addColumn{
-      margin: 10px;
+      padding: 10px;
       &.add-column-on{
         .btn-addColumn-inner{
           .btn-add{

@@ -179,11 +179,12 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
           <textarea name="task-details-label" placeholder="Add a more detailed description…" />
         </div>
       </div>
+
       <ChecklistWrap>
         <div className="sDash_checklist-block">
           <div className="addChecklist-wrap">
             <Button onClick={handleTaskEdit} className="btn-checklist" type="primary">
-              <FeatherIcon icon="edit" size={14} />
+              <FeatherIcon icon="check-square" size={14} />
               Add Checklist
             </Button>
             {!editable ? null : (
