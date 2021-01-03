@@ -842,7 +842,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-
       <Menu.Item
         icon={
           !topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/headphone.svg')} />

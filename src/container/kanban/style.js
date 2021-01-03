@@ -139,6 +139,7 @@ const KanvanBoardWrap = Styled.div`
       padding: 0 20px 0 20px;
     }
     .sDash_kanvan-task__single{
+      position: relative;
       min-height: 48px;
       padding: 12px 15px;
       background-color: #fff;
@@ -182,8 +183,21 @@ const KanvanBoardWrap = Styled.div`
         .sDash_kanvan-task__edit{
           display: block;
           position: absolute;
-          left: 0;
-          top: 40px;
+          left: -10px;
+          top: -10px;
+          z-index: 9999;
+          width: calc(100% + 20px);
+          border-radius: 4px;
+          input{
+            min-height: 68px;
+          }
+          button{
+            padding: 0px 21.71px;
+            height: 38px;
+          }
+        }
+        .edit-kanban-task{
+          margin-top: 10px;
         }
       }
     }
@@ -361,9 +375,11 @@ const ChecklistWrap = Styled.div`
 
 const BackShadow = Styled.div`
   width: 100%;
-  height: 100vh;
-  /* position: fixed; */
-  z-index: 99999;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
   background: #00000080;
 `;
 
