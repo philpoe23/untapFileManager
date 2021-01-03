@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom';
-import { Button } from '../../../../../components/buttons/buttons';
 import { SidebarNavWrap } from '../../style';
 
 const SideNav = () => {
@@ -14,7 +13,7 @@ const SideNav = () => {
         <ul>
           <li>
             <Link onClick={() => setOpen('menu1')} className={open === 'menu1' ? 'active' : ''}>
-              <FeatherIcon icon={open === 'menu1' ? 'chevron-down' : 'chevron-up'} size={14} />{' '}
+              <FeatherIcon icon={open === 'menu1' ? 'chevron-down' : 'chevron-up'} size={14} />
               <span className="menu-text">Introduction to Plugin</span>
             </Link>
             <ul className={open === 'menu1' ? 'submenu show' : 'submenu'}>

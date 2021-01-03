@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState, useCallback, useRef } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -9,7 +10,7 @@ import FeatherIcon from 'feather-icons-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 // import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
 // import arrayMove from 'array-move';
-import { KanvanBoardWrap } from './style';
+import { BackShadow, KanvanBoardWrap } from './style';
 import KanbanBoardItem from './overview/KanbanBoardItem';
 import UpdateTask from './overview/UpdateTask';
 import { Main } from '../styled';
@@ -22,15 +23,22 @@ import { ExportButtonPageHeader } from '../../components/buttons/export-button/e
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import { ToAddBoard, ToAddTask } from '../../redux/kanban/actionCreator';
 
-const BoardTitleUpdate = ({ boardTitle, onBoardTitleChange }) => {
+const BoardTitleUpdate = ({ boardTitle, boardId, onBlur }) => {
+  const [value, setValue] = useState(boardTitle);
+
+  const onChangeHandler = e => {
+    setValue(e.target.value);
+  };
+
   return (
     <Input
-      name="title-edit"
-      // id={`titile-edit${board.boardId}`}
+      name={`titile-edit${boardId}`}
       className="title-edit"
       placeholder="Enter Title"
-      onChange={onBoardTitleChange}
-      value={boardTitle}
+      onChange={onChangeHandler}
+      onBlur={() => onBlur(boardId)}
+      onPressEnter={() => onBlur(boardId)}
+      value={value}
     />
   );
 };
@@ -63,6 +71,8 @@ const Kanban = () => {
     },
     modalVisible: false,
     boardEditable: false,
+    backShadow: false,
+    taskId: '',
   });
 
   const [form] = Form.useForm();
@@ -130,7 +140,7 @@ const Kanban = () => {
     });
   };
 
-  const { columnTitle, boardId, checklistData, modalVisible, boardEditable, titleBoardId, boardTitle } = state;
+  const { columnTitle, taskId, boardId, backShadow, checklistData, modalVisible, titleBoardId } = state;
 
   const addColumnHandler = () => {
     const arrayData = [];
@@ -228,6 +238,7 @@ const Kanban = () => {
       modalVisible: false,
     });
   };
+
   const onBoardEditable = (e, id, title) => {
     e.preventDefault();
     setState({
@@ -237,12 +248,59 @@ const Kanban = () => {
       titleBoardId: id,
     });
   };
+
+  const onBoardEditableHide = id => {
+    boardData.map(board => {
+      if (board.boardId === id) {
+        board.title = document.querySelector(`input[name="titile-edit${id}"]`).value;
+      }
+      return board;
+    });
+    dispatch(ToAddBoard(boardData));
+    setState({
+      ...state,
+      boardEditable: false,
+      titleBoardId: '',
+    });
+  };
+
   const onBoardTitleChange = event => {
     event.preventDefault();
     setState({
       ...state,
       boardTitle: event.target.value,
     });
+  };
+
+  const onBackShadow = id => {
+    setState({
+      ...state,
+      backShadow: true,
+      taskId: id,
+    });
+  };
+
+  const onBackShadowHide = () => {
+    setState({
+      ...state,
+      backShadow: false,
+      taskId: '',
+    });
+  };
+
+  const onTaskTitleUpdate = (value, id) => {
+    tasks.map(task => {
+      if (task.id === id) {
+        task.title = value;
+        setState({
+          ...state,
+          backShadow: false,
+          taskId: '',
+        });
+      }
+      return task;
+    });
+    dispatch(ToAddTask(tasks));
   };
 
   // console.log(state);
@@ -301,7 +359,12 @@ const Kanban = () => {
                                 </Link>
                               </Dropdown>
                             </h4>
-                            <BoardTitleUpdate boardTitle={boardTitle} onBoardTitleChange={onBoardTitleChange} />
+                            <BoardTitleUpdate
+                              boardId={titleBoardId}
+                              boardTitle={state.boardTitle}
+                              onBoardTitleChange={onBoardTitleChange}
+                              onBlur={onBoardEditableHide}
+                            />
                           </div>
                           <div className="sDash_kanvan-task">
                             {tasks
@@ -309,7 +372,13 @@ const Kanban = () => {
                               .map(item => {
                                 return (
                                   <KanbanItem key={item.id} id={item.id}>
-                                    <KanbanBoardItem showModal={showModal} data={item} />
+                                    <KanbanBoardItem
+                                      taskId={taskId}
+                                      onBackShadow={onBackShadow}
+                                      onTaskTitleUpdate={onTaskTitleUpdate}
+                                      showModal={showModal}
+                                      data={item}
+                                    />
                                   </KanbanItem>
                                 );
                               })}
@@ -385,6 +454,7 @@ const Kanban = () => {
         </Row>
       </Main>
       <UpdateTask handleCancel={handleCancel} modalVisible={modalVisible} data={checklistData} />
+      {backShadow ? <BackShadow onClick={onBackShadowHide} /> : null}
     </>
   );
 };

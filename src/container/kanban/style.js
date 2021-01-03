@@ -335,4 +335,12 @@ const ChecklistWrap = Styled.div`
   }
 `;
 
-export { KanvanBoardWrap, ChecklistWrap };
+const BackShadow = Styled.div`
+  width: 100%;
+  height: 100vh;
+  /* position: fixed; */
+  z-index: 99999;
+  background: #00000080;
+`;
+
+export { KanvanBoardWrap, ChecklistWrap, BackShadow };
