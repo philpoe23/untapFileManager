@@ -311,8 +311,6 @@ const Kanban = () => {
     });
     dispatch(ToAddTask(tasks));
   };
-
-  // console.log(state);
   return (
     <>
       <PageHeader

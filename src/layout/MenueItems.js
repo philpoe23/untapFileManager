@@ -764,33 +764,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <SubMenu
-        key="knowledgebase"
-        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/book.svg')} />}
-        title={
-          <>
-            <span className="pl-0">
-              Knowledgebase<span className="badge badge-success">New</span>
-            </span>
-          </>
-        }
-      >
-        <Menu.Item key="knowledgebase">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
-            Knowledgebase
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="allArticle">
-          <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
-            All Article
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="knowledgeSingle">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
-            KnowledgeSingle
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
 
@@ -842,6 +815,34 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Blank Page
         </NavLink>
       </Menu.Item>
+
+      <SubMenu
+        key="knowledgebase"
+        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/book.svg')} />}
+        title={
+          <>
+            <span className="pl-0">
+              Knowledgebase<span className="badge badge-success">New</span>
+            </span>
+          </>
+        }
+      >
+        <Menu.Item key="knowledgebase">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
+            Knowledgebase
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="allArticle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
+            All Article
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="knowledgeSingle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
+            KnowledgeSingle
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
       <Menu.Item
         icon={
           !topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/headphone.svg')} />

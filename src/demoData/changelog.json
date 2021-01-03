@@ -1,4 +1,21 @@
 [   {
+        "id": 13,
+        "date": "Jan 03, 2020",
+        "version":"2.2.0",
+        "new":[
+            "Kanban Board",
+            "Import & Export",
+            "Knowledgebase",
+            "Support Center"          
+        ],
+        "fixed": [
+            "Style issue"
+        ],
+        "updated": [
+            "Update Timeline In components"            
+        ]
+    },
+    {
         "id": 12,
         "date": "Dec 06, 2020",
         "version":"2.1.0",

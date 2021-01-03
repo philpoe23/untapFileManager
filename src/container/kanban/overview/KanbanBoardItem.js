@@ -23,7 +23,7 @@ const KanbanBoardItem = ({ data, showModal, onBackShadow, taskId, onTaskTitleUpd
           <FeatherIcon icon="edit-2" size={12} />
         </Link>
       </h4>
-      <div className="sDash_kanvan-task__edit">
+      <div className="sDash_kanvan-task__edit" draggable="false">
         <Input onPressEnter={() => onTaskTitleUpdate(value, id)} onChange={onTaskTitleChange} value={value} />
         <Button
           onClick={() => onTaskTitleUpdate(value, id)}
