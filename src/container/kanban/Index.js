@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Input, Form } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { Scrollbars } from 'react-custom-scrollbars';
 // import { SortableContainer, SortableElement, sortableHandle } from 'react-sortable-hoc';
 // import arrayMove from 'array-move';
 import { KanvanBoardWrap } from './style';
@@ -20,6 +21,19 @@ import { ShareButtonPageHeader } from '../../components/buttons/share-button/sha
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 import { ToAddBoard, ToAddTask } from '../../redux/kanban/actionCreator';
+
+const BoardTitleUpdate = ({ boardTitle, onBoardTitleChange }) => {
+  return (
+    <Input
+      name="title-edit"
+      // id={`titile-edit${board.boardId}`}
+      className="title-edit"
+      placeholder="Enter Title"
+      onChange={onBoardTitleChange}
+      value={boardTitle}
+    />
+  );
+};
 
 /* 
   @Todo Remove unnecessary Code and variable
@@ -39,14 +53,16 @@ const Kanban = () => {
 
   const [state, setState] = useState({
     columnTitle: '',
-    taskTitle: '',
+    boardTitle: '',
     boardId: '',
+    titleBoardId: '',
     checklistData: {
       id: 1,
       boardId: 1,
       checklist: [],
     },
     modalVisible: false,
+    boardEditable: false,
   });
 
   const [form] = Form.useForm();
@@ -62,7 +78,7 @@ const Kanban = () => {
     drop(ref);
     return (
       <div className="sDash_kanban-board-item" ref={ref}>
-        {children}
+        <Scrollbars className="sDash_kanban-board-item-scrolable">{children}</Scrollbars>
       </div>
     );
   };
@@ -114,7 +130,7 @@ const Kanban = () => {
     });
   };
 
-  const { columnTitle, boardId, checklistData, modalVisible } = state;
+  const { columnTitle, boardId, checklistData, modalVisible, boardEditable, titleBoardId, boardTitle } = state;
 
   const addColumnHandler = () => {
     const arrayData = [];
@@ -212,7 +228,24 @@ const Kanban = () => {
       modalVisible: false,
     });
   };
+  const onBoardEditable = (e, id, title) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      boardEditable: true,
+      boardTitle: title,
+      titleBoardId: id,
+    });
+  };
+  const onBoardTitleChange = event => {
+    event.preventDefault();
+    setState({
+      ...state,
+      boardTitle: event.target.value,
+    });
+  };
 
+  // console.log(state);
   return (
     <>
       <PageHeader
@@ -229,6 +262,7 @@ const Kanban = () => {
           </div>,
         ]}
       />
+      {/* sDash_kanban-board-item__header */}
       <Main>
         <Row gutter={15}>
           <Col xs={24}>
@@ -239,14 +273,19 @@ const Kanban = () => {
                     {boardData.map(board => {
                       return (
                         <KanbanColumn key={board.boardId} status={board.boardId} changeTaskStatus={changeTaskStatus}>
-                          <div className="sDash_kanban-board-item__header">
-                            <div className="list-header-target" />
+                          <div
+                            className={
+                              board.boardId === titleBoardId
+                                ? 'sDash_kanban-board-item__header editable'
+                                : 'sDash_kanban-board-item__header'
+                            }
+                          >
                             <h4 className="list-header-title">
                               <span>{board.title}</span>
                               <Dropdown
                                 content={
                                   <>
-                                    <Link to="#">
+                                    <Link onClick={e => onBoardEditable(e, board.boardId, board.title)} to="#">
                                       <span>Edit Card Title</span>
                                     </Link>
                                     <Link onClick={() => deleteColumnHandler(board.boardId)} to="#">
@@ -262,7 +301,7 @@ const Kanban = () => {
                                 </Link>
                               </Dropdown>
                             </h4>
-                            <textarea name="title-edit" id="title-edit" className="title-edit" />
+                            <BoardTitleUpdate boardTitle={boardTitle} onBoardTitleChange={onBoardTitleChange} />
                           </div>
                           <div className="sDash_kanvan-task">
                             {tasks

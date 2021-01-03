@@ -1915,7 +1915,7 @@ ul {
   margin: 0 10px 0 0;
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-tasks{
-  margin: 5px 0 20px 0;
+  margin: 5px 0 5px 0;
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-inner{
   width: 18px;
@@ -1927,45 +1927,6 @@ ul {
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-checked:after{
   border-color: #20C997;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single{
-  position: relative;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: .35s;
-  z-index: 2;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:before{
-  position: absolute;
-  left: -12px;
-  top: 0;
-  width: calc(100% + 24px);
-  height: 100%;
-  content: '';
-  background-color: #F4F5F7;
-  opacity: 0;
-  visibility: hidden;
-  border-radius: 2px;
-  z-index: -1;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:hover:before{
-  opacity: 1;
-  visibility: visible;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single:hover .btn-more{
-  opacity: 1;
-  visibility: visible;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single .btn-more{
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-}
-.sDash_task-details .ant-modal-body .sDash_checklist-tasks__single .btn-more svg{
-  color: #868EAE;
 }
 
 .sDash_task-details .ant-modal-body .sDash_checklist-item .sDash_checklist-tasks-wrap button{

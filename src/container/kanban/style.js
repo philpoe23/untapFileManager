@@ -10,11 +10,16 @@ const KanvanBoardWrap = Styled.div`
     flex-wrap: wrap;
     .sDash_kanban-board-item{
       flex: 0 0 18.6%;
-      padding-bottom: 80px;
       border-radius: 5px;
       margin: 10px;
+      height: 400px;
+      overflow-y: auto;
       background-color: ${({ theme }) => theme['bg-color-normal']};
+      .sDash_kanban-board-item-scrolable{
+        padding-bottom: 80px;
+      }
       .sDash_addTask-control{
+        padding-bottom: 20px;
         &.add-task-on{
           .sDash_addTask-from{
             display: block;
@@ -24,7 +29,7 @@ const KanvanBoardWrap = Styled.div`
           }
         }
         .sDash_addTask-from{
-          padding: 0 20px;
+          padding: 0 20px 20px;
           display: none;
         }
         .sDash_addTask-input{
@@ -61,6 +66,27 @@ const KanvanBoardWrap = Styled.div`
     .sDash_kanban-board-item__header{
       padding: 18px 20px 10px 20px;
       position: relative;
+      &.editable{
+        .list-header-title{
+          display: none;
+        }
+        .title-edit{
+          display: block;
+        }
+      }
+      .title-edit{
+        width: 100%;
+        padding: 0 15px;
+        border: 1px solid #E3E6EF;
+        height: 40px;
+        line-height: 38px;
+        border-radius: 4px;
+        resize: none;
+        display: none;
+        &:focus{
+          outline: none;
+        }
+      }
       .list-header-target{
         cursor: pointer;
         position: absolute;
@@ -126,6 +152,15 @@ const KanvanBoardWrap = Styled.div`
       }
       .sDash_kanvan-task__edit{
         display: none;
+      }
+      .sDash_kanvan-task__editable{
+        position: relative;
+        .sDash_kanvan-task__edit{
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 40px;
+        }
       }
     }
     
@@ -207,5 +242,97 @@ const KanvanBoardWrap = Styled.div`
     }
   }
 `;
+const ChecklistWrap = Styled.div`
+  .sDash_checklist-tasks__single{
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .35s;
+    z-index: 2;
+    &:before{
+      position: absolute;
+      left: -12px;
+      top: 0;
+      width: calc(100% + 24px);
+      height: 100%;
+      content: '';
+      background-color: #F4F5F7;
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 2px;
+      z-index: -1;
+    }
+    &:hover{
+      .btn-more{
+        opacity: 1;
+        visibility: visible;
+      }
+      &:before{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .btn-more{
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      i,
+      svg{
+        color: #868EAE;
+      }
+    }
+    .ant-checkbox-wrapper{
+      .sDash_task-label{
 
-export { KanvanBoardWrap };
+      }
+      &.ant-checkbox-wrapper-checked{
+        .sDash_task-label{
+          position: relative;
+          color: ${({ theme }) => theme['gray-color']};
+          &:after{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+            top: 60%;
+            transform: translateY(-50%);
+            background-color: #9299B8;
+            content: '';
+          }
+        }
+      }
+    }
+  }
+  .sDash_checklist-tasks-wrap{
+    .addChecklistTask-wrap{
+      .addChecklistTask-form{
+        .add-checklistTask{
+          padding: 8px 10px;
+          margin-bottom: 12px;
+        }
+        .addChecklistTask-form-action{
+          display: flex;
+          align-items: center;
+          a{
+            line-height: 1;
+            svg,
+            i{
+              color: ${({ theme }) => theme['gray-color']};
+            }
+          }
+          .btn-add{
+            margin-right: 10px;
+          }
+        }
+      }
+      .add-item{
+        margin-top: 15px;
+      }
+    }
+  }
+`;
+
+export { KanvanBoardWrap, ChecklistWrap };

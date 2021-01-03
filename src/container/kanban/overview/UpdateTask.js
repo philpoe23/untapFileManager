@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import FeatherIcon from 'feather-icons-react';
+import { ChecklistWrap } from '../style';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { Checkbox } from '../../../components/checkbox/checkbox';
 import { Button } from '../../../components/buttons/buttons';
@@ -178,122 +179,124 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
           <textarea name="task-details-label" placeholder="Add a more detailed description…" />
         </div>
       </div>
-      <div className="sDash_checklist-block">
-        <div className="addChecklist-wrap">
-          <Button onClick={handleTaskEdit} className="btn-checklist" type="primary">
-            <FeatherIcon icon="edit" size={14} />
-            Add Checklist
-          </Button>
-          {!editable ? null : (
-            <div className="addChecklist-form">
-              <Input
-                name="checkListInputValue"
-                className="add-checklist"
-                placeholder="Checklist Title"
-                onPressEnter={() => onCheckListSubmit(data.id, data.boardId, checklist)}
-              />
-              <div className="addChecklist-form-action">
-                <Button
-                  onClick={() => onCheckListSubmit(data.id, data.boardId, checklist)}
-                  className="btn-add"
-                  size="small"
-                  type="primary"
-                >
-                  Add
-                </Button>
-                <Link onClick={onCancelEdit} to="#">
-                  <FeatherIcon icon="x" size={18} />
-                </Link>
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="sDash_checklist-row">
-          {checklist.map((item, i) => {
-            const checkedLength = item.checkListTask.filter(checked => checked.checked === true);
-            return (
-              <div className="sDash_checklist-item" key={i}>
-                <div className="sDash_checklist-item__top">
-                  <h4 className="sDash_checklist-item__title">{item.label} </h4>
+      <ChecklistWrap>
+        <div className="sDash_checklist-block">
+          <div className="addChecklist-wrap">
+            <Button onClick={handleTaskEdit} className="btn-checklist" type="primary">
+              <FeatherIcon icon="edit" size={14} />
+              Add Checklist
+            </Button>
+            {!editable ? null : (
+              <div className="addChecklist-form">
+                <Input
+                  name="checkListInputValue"
+                  className="add-checklist"
+                  placeholder="Checklist Title"
+                  onPressEnter={() => onCheckListSubmit(data.id, data.boardId, checklist)}
+                />
+                <div className="addChecklist-form-action">
                   <Button
-                    onClick={event => onCheckListDelete(data.id, data.boardId, checklist, item.id, event)}
-                    className="btn-delete"
-                    type="light"
+                    onClick={() => onCheckListSubmit(data.id, data.boardId, checklist)}
+                    className="btn-add"
+                    size="small"
+                    type="primary"
                   >
-                    Delete
+                    Add
                   </Button>
+                  <Link onClick={onCancelEdit} to="#">
+                    <FeatherIcon icon="x" size={18} />
+                  </Link>
                 </div>
-                <div className="sDash_checklist__progress">
-                  {item.checkListTask.length ? (
-                    <Progress percent={Math.round((100 * checkedLength.length) / item.checkListTask.length)} />
-                  ) : null}
-                </div>
-                <div className="sDash_checklist-tasks-wrap">
-                  <ul className="sDash_checklist-tasks">
-                    {item.checkListTask.map((task, i) => {
-                      return (
-                        <li className="sDash_checklist-tasks__single" key={i}>
-                          <Checkbox checked={task.checked} onChange={value => onChange(value, item.id, task.id)}>
-                            {task.label}
-                          </Checkbox>
-                          <Dropdown
-                            content={
-                              <>
-                                <Link onClick={() => onCheckListItemDelete(item.id, task.id)} to="#">
-                                  <span>Delete List</span>
-                                </Link>
-                              </>
-                            }
-                            action={['click']}
-                            className="wide-dropdwon kanbanCard-more"
-                          >
-                            <Link to="#" className="btn-more">
-                              <FeatherIcon icon="more-horizontal" size={14} />
+              </div>
+            )}
+          </div>
+          <div className="sDash_checklist-row">
+            {checklist.map((item, i) => {
+              const checkedLength = item.checkListTask.filter(checked => checked.checked === true);
+              return (
+                <div className="sDash_checklist-item" key={i}>
+                  <div className="sDash_checklist-item__top">
+                    <h4 className="sDash_checklist-item__title">{item.label} </h4>
+                    <Button
+                      onClick={event => onCheckListDelete(data.id, data.boardId, checklist, item.id, event)}
+                      className="btn-delete"
+                      type="light"
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                  <div className="sDash_checklist__progress">
+                    {item.checkListTask.length ? (
+                      <Progress percent={Math.round((100 * checkedLength.length) / item.checkListTask.length)} />
+                    ) : null}
+                  </div>
+                  <div className="sDash_checklist-tasks-wrap">
+                    <ul className="sDash_checklist-tasks">
+                      {item.checkListTask.map((task, i) => {
+                        return (
+                          <li className="sDash_checklist-tasks__single" key={i}>
+                            <Checkbox checked={task.checked} onChange={value => onChange(value, item.id, task.id)}>
+                              <span className="sDash_task-label">{task.label}</span>
+                            </Checkbox>
+                            <Dropdown
+                              content={
+                                <>
+                                  <Link onClick={() => onCheckListItemDelete(item.id, task.id)} to="#">
+                                    <span>Delete List</span>
+                                  </Link>
+                                </>
+                              }
+                              action={['click']}
+                              className="wide-dropdwon kanbanCard-more"
+                            >
+                              <Link to="#" className="btn-more">
+                                <FeatherIcon icon="more-horizontal" size={14} />
+                              </Link>
+                            </Dropdown>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <div className="addChecklistTask-wrap">
+                      {checkListPopup !== `cp-${item.id}` ? (
+                        <Button
+                          onClick={() => onShowChecklistAddPopup(`cp-${item.id}`)}
+                          className="add-item"
+                          type="light"
+                        >
+                          Add an Item
+                        </Button>
+                      ) : (
+                        <div className="addChecklistTask-form">
+                          <Input
+                            name="checkListTaskAddInputValue"
+                            className="add-checklistTask"
+                            placeholder="Checklist Title"
+                            onPressEnter={() => onCheckListItemAdd(item.id, item.checkListTask)}
+                          />
+                          <div className="addChecklistTask-form-action">
+                            <Button
+                              onClick={() => onCheckListItemAdd(item.id, item.checkListTask)}
+                              className="btn-add"
+                              size="small"
+                              type="primary"
+                            >
+                              Add
+                            </Button>
+                            <Link onClick={onHideChecklistAddPopup} to="#">
+                              <FeatherIcon icon="x" size={18} />
                             </Link>
-                          </Dropdown>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <div className="addChecklist-wrap">
-                    {checkListPopup !== `cp-${item.id}` ? (
-                      <Button
-                        onClick={() => onShowChecklistAddPopup(`cp-${item.id}`)}
-                        className="add-item"
-                        type="light"
-                      >
-                        Add an Item
-                      </Button>
-                    ) : (
-                      <div className="addChecklist-form">
-                        <Input
-                          name="checkListAddInputValue"
-                          className="add-checklist"
-                          placeholder="Checklist Title"
-                          onPressEnter={() => onCheckListItemAdd(item.id, item.checkListTask)}
-                        />
-                        <div className="addChecklist-form-action">
-                          <Button
-                            onClick={() => onCheckListItemAdd(item.id, item.checkListTask)}
-                            className="btn-add"
-                            size="small"
-                            type="primary"
-                          >
-                            Add
-                          </Button>
-                          <Link onClick={onHideChecklistAddPopup} to="#">
-                            <FeatherIcon icon="x" size={18} />
-                          </Link>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </ChecklistWrap>
     </Modal>
   );
 };
