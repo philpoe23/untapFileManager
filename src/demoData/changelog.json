@@ -3,10 +3,10 @@
         "date": "Jan 03, 2020",
         "version":"2.2.0",
         "new":[
-            "Kanban Board",
-            "Import & Export",
-            "Knowledgebase",
-            "Support Center"          
+            "Kanban Board App",
+            "Import & Export App",
+            "Knowledge Page",
+            "Support Center Page"          
         ],
         "fixed": [
             "Contact app Edit state issue",
