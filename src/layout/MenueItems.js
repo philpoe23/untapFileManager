@@ -336,6 +336,28 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           <span className="badge badge-success">New</span>
         </NavLink>
       </Menu.Item>
+      <SubMenu
+        key="importExport"
+        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />}
+        title={
+          <>
+            <span className="pl-0">
+              Import Export<span className="badge badge-success">New</span>
+            </span>
+          </>
+        }
+      >
+        <Menu.Item key="import">
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
+            Import
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="export">
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/export`}>
+            Export
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
 
       {!topMenu && <p className="sidebar-nav-title">Features</p>}
 
@@ -739,28 +761,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         <Menu.Item key="Vector">
           <NavLink onClick={toggleCollapsed} to={`${path}/maps/Vector`}>
             Simple Map
-          </NavLink>
-        </Menu.Item>
-      </SubMenu>
-      <SubMenu
-        key="importExport"
-        icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />}
-        title={
-          <>
-            <span className="pl-0">
-              Import Export<span className="badge badge-success">New</span>
-            </span>
-          </>
-        }
-      >
-        <Menu.Item key="import">
-          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
-            Import
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="export">
-          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/export`}>
-            Export
           </NavLink>
         </Menu.Item>
       </SubMenu>
