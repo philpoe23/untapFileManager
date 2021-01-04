@@ -1847,6 +1847,11 @@ ul {
   z-index: 222;
 }
 
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form{
+  left: auto;
+  right: 0;
+}
+
 .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .add-checklist{
   padding: 10px;
   border-radius: 4px;
@@ -1872,6 +1877,10 @@ ul {
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action .btn-add{
   margin-right: 15px;
+}
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action .btn-add{
+  margin-left: 15px;
+  margin-right: 0;
 }
 
 .sDash_task-details .ant-modal-body .sDash_checklist-block button{
@@ -1913,6 +1922,9 @@ ul {
   font-weight: 500;
   order: -1;
   margin: 0 10px 0 0;
+}
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress .ant-progress-text{
+  margin: 0 0 0 10px;
 }
 .sDash_task-details .ant-modal-body .sDash_checklist-tasks{
   margin: 5px 0 5px 0;

@@ -42,20 +42,38 @@ const BoardTitleUpdate = ({ boardTitle, boardId, onBlur }) => {
   );
 };
 
+BoardTitleUpdate.propTypes = {
+  boardTitle: propTypes.string,
+  boardId: propTypes.string,
+  onBlur: propTypes.func,
+};
+
 /* 
   @Todo Remove unnecessary Code and variable
 */
 
 const Kanban = () => {
   const dispatch = useDispatch();
-  const { boardData, tasks } = useSelector(state => {
+  const { rtl, boardData, tasks } = useSelector(state => {
     return {
+      rtl: state.ChangeLayoutMode.rtlData,
       boardData: state.KanbanBoard.boardData,
       tasks: state.KanbanBoard.taskData,
     };
   });
 
-  // const [tasks, setTaskStatus] = useState(taskData);
+  const renderView = ({ style, ...props }) => {
+    const customStyle = {
+      marginRight: 'auto',
+      [rtl ? 'marginLeft' : 'marginRight']: '-17px',
+    };
+    return <div {...props} style={{ ...style, ...customStyle }} />;
+  };
+
+  renderView.propTypes = {
+    style: propTypes.object,
+  };
+
   const [addColumn, setAddColumn] = useState(false);
 
   const [state, setState] = useState({
@@ -86,7 +104,15 @@ const Kanban = () => {
     drop(ref);
     return (
       <div className="sDash_kanban-board-item" ref={ref}>
-        <Scrollbars className="sDash_kanban-board-item-scrolable">{children}</Scrollbars>
+        <Scrollbars
+          autoHide
+          autoHideTimeout={500}
+          autoHideDuration={200}
+          renderView={renderView}
+          className="sDash_kanban-board-item-scrolable"
+        >
+          {children}
+        </Scrollbars>
       </div>
     );
   };

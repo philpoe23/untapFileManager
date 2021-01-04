@@ -1,6 +1,9 @@
 import Styled from 'styled-components';
 
 const KanvanBoardWrap = Styled.div`
+.ant-card-body{
+  min-height: 600px;
+}
   h1{
     margin-bottom: 20px;
   }
@@ -12,7 +15,6 @@ const KanvanBoardWrap = Styled.div`
       flex: 0 0 20%;
       padding: 10px;
       height: 400px;
-      overflow-y: auto;
       @media only screen and (max-width: 1599px){
         flex: 0 0 25%;
       }
@@ -209,13 +211,13 @@ const KanvanBoardWrap = Styled.div`
       text-align: center;
       border-radius: 4px;
       position: relative;
-      left: 20px;
+      ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 20px;
       color: ${({ theme }) => theme['gray-color']};
       background-color: ${({ theme }) => theme['border-color-normal']};
       svg,
       i,
       img{
-        margin-right: 3px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 3px;
       }
     }
     .btn-addColumn{
@@ -291,7 +293,7 @@ const ChecklistWrap = Styled.div`
     z-index: 2;
     &:before{
       position: absolute;
-      left: -12px;
+      ${({ theme }) => (theme.rtl ? 'right' : 'left')}: -12px;
       top: 0;
       width: calc(100% + 24px);
       height: 100%;
@@ -323,18 +325,16 @@ const ChecklistWrap = Styled.div`
       }
     }
     .ant-checkbox-wrapper{
-      .sDash_task-label{
-
-      }
       &.ant-checkbox-wrapper-checked{
         .sDash_task-label{
           position: relative;
+          display: inline-block;
           color: ${({ theme }) => theme['gray-color']};
           &:after{
             position: absolute;
             width: 100%;
             height: 1px;
-            left: 0;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
             top: 60%;
             transform: translateY(-50%);
             background-color: #9299B8;
@@ -363,6 +363,7 @@ const ChecklistWrap = Styled.div`
           }
           .btn-add{
             margin-right: 10px;
+            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
           }
         }
       }
@@ -379,6 +380,7 @@ const BackShadow = Styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  ${({ theme }) => (theme.rtl ? 'right' : 'left')}
   z-index: 999;
   background: #00000080;
 `;

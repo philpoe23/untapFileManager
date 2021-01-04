@@ -853,9 +853,9 @@ const TopMenuStyle = Styled.div`
                     transition: .4s;
                     background-color: #fff;
                     &.megaMenu-small{
-                        width: 500px;
+                        width: 590px;
                         >li{
-                            flex: 0 0 50%;
+                            flex: 0 0 33.3333%;
                         }
                         ul{
                             li{

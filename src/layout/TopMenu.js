@@ -367,6 +367,25 @@ const TopMenu = () => {
                   </li>
                 </ul>
               </li>
+              <li>
+                <ul>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/knowledgebase/plugins`}>
+                      Knowledgebase
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/all-articles`}>
+                      All Article
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/knowledgeSingle/1`}>
+                      KnowledgeSingle
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li className="mega-item has-subMenu">
