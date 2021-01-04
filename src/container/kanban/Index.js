@@ -20,7 +20,7 @@ import { Dropdown } from '../../components/dropdown/dropdown';
 import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
 import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
 import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
-import { ToAddBoard, ToAddTask } from '../../redux/kanban/actionCreator';
+import { ToAddBoard, ToAddTask, ToDeleteTask } from '../../redux/kanban/actionCreator';
 
 const BoardTitleUpdate = ({ boardTitle, boardId, onBlur }) => {
   const [value, setValue] = useState(boardTitle);
@@ -337,6 +337,17 @@ const Kanban = () => {
     });
     dispatch(ToAddTask(tasks));
   };
+
+  const onTaskTitleDelete = (e, id) => {
+    e.preventDefault();
+    const afterDeleteTask = tasks.filter(task => task.id !== id);
+    setState({
+      ...state,
+      backShadow: false,
+      taskId: '',
+    });
+    dispatch(ToDeleteTask(afterDeleteTask));
+  };
   return (
     <>
       <PageHeader
@@ -408,6 +419,7 @@ const Kanban = () => {
                                       taskId={taskId}
                                       onBackShadow={onBackShadow}
                                       onTaskTitleUpdate={onTaskTitleUpdate}
+                                      onTaskTitleDelete={onTaskTitleDelete}
                                       showModal={showModal}
                                       data={item}
                                     />

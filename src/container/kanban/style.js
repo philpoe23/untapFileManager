@@ -183,19 +183,38 @@ const KanvanBoardWrap = Styled.div`
       .sDash_kanvan-task__editable{
         position: relative;
         .sDash_kanvan-task__edit{
-          display: block;
+          display: flex;
           position: absolute;
-          left: -10px;
+          left: -30px;
           top: -10px;
           z-index: 9999;
-          width: calc(100% + 20px);
+          width: calc(100% + 60px);
           border-radius: 4px;
           input{
-            min-height: 68px;
+            min-height: 58px;
           }
           button{
             padding: 0px 21.71px;
             height: 38px;
+          }
+          .sDash_kanvan-task__edit--right{
+            .btn-delete{
+              font-size: 12px;
+              margin-left: 6px;
+              white-space: nowrap;
+              background-color: ${({ theme }) => theme['dark-color']};
+              line-height: 2.6;
+              display: flex;
+              align-items: center;
+              border-radius: 5px;
+              padding: 0 8px;
+              color: #fff;
+              i,
+              svg{
+                color: #fff;
+                margin-right: 4px;
+              }
+            }
           }
         }
         .edit-kanban-task{
@@ -380,7 +399,7 @@ const BackShadow = Styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  ${({ theme }) => (theme.rtl ? 'right' : 'left')}
+  ${({ theme }) => (theme.rtl ? 'right' : 'left')};
   z-index: 999;
   background: #00000080;
 `;

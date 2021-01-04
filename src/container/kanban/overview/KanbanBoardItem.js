@@ -7,7 +7,7 @@ import FeatherIcon from 'feather-icons-react';
 import { Input } from 'antd';
 import { Button } from '../../../components/buttons/buttons';
 
-const KanbanBoardItem = ({ data, showModal, onBackShadow, taskId, onTaskTitleUpdate }) => {
+const KanbanBoardItem = ({ data, showModal, onBackShadow, taskId, onTaskTitleUpdate, onTaskTitleDelete }) => {
   const { title, id } = data;
   const [value, setValue] = useState(title);
   const onTaskTitleChange = e => {
@@ -24,16 +24,24 @@ const KanbanBoardItem = ({ data, showModal, onBackShadow, taskId, onTaskTitleUpd
         </Link>
       </h4>
       <div className="sDash_kanvan-task__edit" draggable="false">
-        <Input onPressEnter={() => onTaskTitleUpdate(value, id)} onChange={onTaskTitleChange} value={value} />
-        <Button
-          onClick={() => onTaskTitleUpdate(value, id)}
-          className="edit-kanban-task"
-          htmlType="submit"
-          size="small"
-          type="primary"
-        >
-          Save
-        </Button>
+        <div className="sDash_kanvan-task__edit--left">
+          <Input onPressEnter={() => onTaskTitleUpdate(value, id)} onChange={onTaskTitleChange} value={value} />
+          <Button
+            onClick={() => onTaskTitleUpdate(value, id)}
+            className="edit-kanban-task"
+            htmlType="submit"
+            size="small"
+            type="primary"
+          >
+            Save
+          </Button>
+        </div>
+        <div className="sDash_kanvan-task__edit--right">
+          <Link to="#" className="btn-delete" onClick={e => onTaskTitleDelete(e, id)}>
+            <FeatherIcon icon="trash-2" size={12} />
+            <span>Delete Task</span>
+          </Link>
+        </div>
       </div>
       <span className="task-edit-shade" />
     </div>
@@ -46,6 +54,7 @@ KanbanBoardItem.propTypes = {
   onBackShadow: propTypes.func,
   taskId: propTypes.string,
   onTaskTitleUpdate: propTypes.func,
+  onTaskTitleDelete: propTypes.func,
 };
 
 export default KanbanBoardItem;

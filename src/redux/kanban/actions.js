@@ -46,6 +46,25 @@ const actions = {
       err,
     };
   },
+  toDeleteTaskBegin: () => {
+    return {
+      type: actions.TASK_READ_BEGIN,
+    };
+  },
+
+  toDeleteTaskSuccess: data => {
+    return {
+      type: actions.TASK_READ_SUCCESS,
+      data,
+    };
+  },
+
+  toDeletedTaskErr: err => {
+    return {
+      type: actions.TASK_READ_ERR,
+      err,
+    };
+  },
 };
 
 export default actions;

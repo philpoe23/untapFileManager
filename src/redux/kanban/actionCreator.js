@@ -7,6 +7,9 @@ const {
   toAddTaskBegin,
   toAddTaskSuccess,
   toAddTaskErr,
+  toDeleteTaskBegin,
+  toDeleteTaskSuccess,
+  toDeleteTaskErr,
 } = actions;
 
 const ToAddBoard = data => {
@@ -31,4 +34,15 @@ const ToAddTask = data => {
   };
 };
 
-export { ToAddBoard, ToAddTask };
+const ToDeleteTask = data => {
+  return async dispatch => {
+    try {
+      dispatch(toDeleteTaskBegin());
+      dispatch(toDeleteTaskSuccess(data));
+    } catch (err) {
+      dispatch(toDeleteTaskErr(err));
+    }
+  };
+};
+
+export { ToAddBoard, ToAddTask, ToDeleteTask };
