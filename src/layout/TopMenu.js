@@ -288,6 +288,24 @@ const TopMenu = () => {
                   Kanban Board
                 </NavLink>
               </li>
+              <li className="has-subMenu-left">
+                <Link to="#" className="parent">
+                  <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />
+                  Import Export
+                </Link>
+                <ul className="subMenu">
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/importExport/import`}>
+                      Import
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/importExport/export`}>
+                      Export
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
 
@@ -824,24 +842,6 @@ const TopMenu = () => {
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/maps/Vector`}>
                       Vector Maps
-                    </NavLink>
-                  </li>
-                </ul>
-              </li>
-              <li className="has-subMenu-left">
-                <Link to="#" className="parent">
-                  <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />
-                  Import Export
-                </Link>
-                <ul className="subMenu">
-                  <li>
-                    <NavLink onClick={addParentActive} to={`${path}/importExport/import`}>
-                      Import
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink onClick={addParentActive} to={`${path}/importExport/export`}>
-                      Export
                     </NavLink>
                   </li>
                 </ul>
