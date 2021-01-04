@@ -399,7 +399,7 @@ const TopMenu = () => {
                   </li>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/knowledgeSingle/1`}>
-                      KnowledgeSingle
+                      Single Article
                     </NavLink>
                   </li>
                 </ul>

@@ -838,7 +838,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </Menu.Item>
         <Menu.Item key="knowledgeSingle">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
-            KnowledgeSingle
+            Single Article
           </NavLink>
         </Menu.Item>
       </SubMenu>

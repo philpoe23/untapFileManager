@@ -270,7 +270,7 @@ const UpdateTask = ({ data, modalVisible, handleCancel }) => {
                       ) : (
                         <div className="addChecklistTask-form">
                           <Input
-                            name="checkListTaskAddInputValue"
+                            name="checkListAddInputValue"
                             className="add-checklistTask"
                             placeholder="Checklist Title"
                             onPressEnter={() => onCheckListItemAdd(item.id, item.checkListTask)}
