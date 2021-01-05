@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import propTypes from 'prop-types';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Link, NavLink } from 'react-router-dom';
 import { ArticleTabContentWrap } from '../style';
@@ -146,10 +145,6 @@ const ArticleExtension = () => {
       </div>
     </ArticleTabContentWrap>
   );
-};
-
-ArticleExtension.propTypes = {
-  match: propTypes.object,
 };
 
 export default ArticleExtension;
