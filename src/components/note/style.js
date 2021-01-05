@@ -1,6 +1,9 @@
 import Styled from 'styled-components';
 
 const Card = Styled.div`
+    .ant-card{
+        border-radius: 15px !important;
+    }
     .ant-card .ant-card-body{        
         border-radius: 15px !important;
         color: ${({ theme }) => theme['gray-color']};    
@@ -19,6 +22,8 @@ const Card = Styled.div`
                 cursor: move;
             }
             .status-bullet{
+                position: relative;
+                bottom: 2px;
                 min-width: 7px;
                 height: 7px;
                 display: inline-block;

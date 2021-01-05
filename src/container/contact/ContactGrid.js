@@ -58,6 +58,7 @@ const ContactGrid = () => {
       ...state,
       visible: false,
       editVisible: false,
+      update: {},
     });
   };
 
@@ -85,9 +86,7 @@ const ContactGrid = () => {
   };
 
   const handleEditOk = values => {
-    onCancel();
     const updateUsers = users;
-
     updateUsers.map(user => {
       if (user.id === update.id) {
         const updateUser = user;
@@ -104,6 +103,7 @@ const ContactGrid = () => {
       return true;
     });
     dispatch(contactAddData(updateUsers));
+    onCancel();
     form.resetFields();
   };
 
@@ -187,9 +187,10 @@ const ContactGrid = () => {
             </AddUser>
           </div>
         </Modal>
+
         <Modal
           type={state.modalType}
-          title="Contact Information"
+          title="Contact Edit"
           visible={state.editVisible}
           footer={null}
           onCancel={handleCancel}
@@ -197,36 +198,38 @@ const ContactGrid = () => {
           <div className="project-modal">
             <AddUser>
               <BasicFormWrapper>
-                <Form form={form} name="contactEdit" onFinish={handleEditOk}>
-                  <Form.Item initialValue={update.name} label="Name" name="name">
-                    <Input placeholder="Input Name" />
-                  </Form.Item>
+                {update.name !== undefined ? (
+                  <Form form={form} name="contactEdit" onFinish={handleEditOk}>
+                    <Form.Item initialValue={update.name} label="Name" name="name">
+                      <Input placeholder="Input Name" />
+                    </Form.Item>
 
-                  <Form.Item
-                    label="Email Address"
-                    name="email"
-                    rules={[{ message: 'Please input your email!', type: 'email' }]}
-                    initialValue={update.email}
-                  >
-                    <Input placeholder="name@example.com" />
-                  </Form.Item>
+                    <Form.Item
+                      label="Email Address"
+                      name="email"
+                      rules={[{ message: 'Please input your email!', type: 'email' }]}
+                      initialValue={update.email}
+                    >
+                      <Input placeholder="name@example.com" />
+                    </Form.Item>
 
-                  <Form.Item initialValue={update.phone} name="phone" label="Phone Number">
-                    <Input placeholder="+440 2546 5236" />
-                  </Form.Item>
+                    <Form.Item initialValue={update.phone} name="phone" label="Phone Number">
+                      <Input placeholder="+440 2546 5236" />
+                    </Form.Item>
 
-                  <Form.Item initialValue={update.designation} name="designation" label="Position">
-                    <Input placeholder="Input Position" />
-                  </Form.Item>
+                    <Form.Item initialValue={update.designation} name="designation" label="Position">
+                      <Input placeholder="Input Position" />
+                    </Form.Item>
 
-                  <Form.Item initialValue={update.company} name="company" label="Company Name">
-                    <Input placeholder="Company Name" />
-                  </Form.Item>
+                    <Form.Item initialValue={update.company} name="company" label="Company Name">
+                      <Input placeholder="Company Name" />
+                    </Form.Item>
 
-                  <Button htmlType="submit" size="default" type="primary" key="submit">
-                    Add New Contact
-                  </Button>
-                </Form>
+                    <Button htmlType="submit" size="default" type="primary" key="submit">
+                      Update Edit
+                    </Button>
+                  </Form>
+                ) : null}
               </BasicFormWrapper>
             </AddUser>
           </div>

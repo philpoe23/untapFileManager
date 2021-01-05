@@ -27,7 +27,6 @@ module.exports = override(
     libraryDirectory: 'es',
     style: true,
     modules: true,
-
     options: {
       modules: true, // must add this
     },

@@ -56,7 +56,9 @@ const UserCardGroup = ({ user }) => {
             </p>
             <h2 className="info-line">
               <span>Plugin Development</span>
-              <span className="success">45</span>
+              <span className="success" style={{ background: 'none !important' }}>
+                45
+              </span>
             </h2>
             <div className="project-progress">
               <Progress

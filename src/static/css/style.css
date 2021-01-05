@@ -93,6 +93,10 @@ ul {
   padding-bottom: 30px;
 }
 
+.pl-0{
+  padding-left: 0 !important;
+}
+
 .mt-25 {
   margin-top: 25px;
 }
@@ -128,9 +132,6 @@ ul {
   color: #868eae;
 }
 
-html[dir='rtl'] .ant-card-head-title span {
-  margin-right: 15px;
-}
 
 .ant-card-head .ant-card-extra {
   display: flex;
@@ -929,6 +930,7 @@ html[dir='rtl'] .ant-card-head-title span {
   color: #5a5f7d;
 }
 
+
 /* mail props dropdown */
 
 .mail-props {
@@ -968,6 +970,14 @@ html[dir='rtl'] .ant-card-head-title span {
 
 .ant-dropdown.wide-dropdwon {
   min-width: 140px !important;
+}
+
+.ant-dropdown.wide-dropdwon.kanbanCard-more {
+  min-width: 220px !important;
+  box-shadow: 0 17px 20px #9299B820;
+}
+.ant-dropdown.wide-dropdwon.kanbanCard-more a {
+  padding: 10px 24px;
 }
 
 .ant-dropdown-menu {
@@ -1175,6 +1185,18 @@ html[dir='rtl'] .ant-card-head-title span {
   display: flex;
   align-items: center;
   margin-bottom: 0;
+}
+
+.add-file-dropdown a{
+  font-size: 14px;
+  font-weight: 400;
+} 
+.add-file-dropdown a svg{
+  width: 14px;
+}
+
+.folder-dropdown{
+  min-width: 200px !important;
 }
 
 /* Tooltip Styles */
@@ -1675,6 +1697,257 @@ html[dir='rtl'] .ant-card-head-title span {
 
 .row-dragging .drag-visible {
   visibility: visible;
+}
+
+/* File Export Import Modal */
+.sDash_export-wrap .ant-modal{
+  width: 390px !important;
+}
+.sDash_export-wrap .ant-modal .ant-modal-header{
+  border-bottom: 0 none;
+  padding: 18px 30px 0 30px
+}
+.sDash_export-wrap .ant-modal .ant-modal-body{
+  padding: 25px 30px 30px 30px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp{
+  text-align: right;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp{
+  margin: 20px -8px -8px -8px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp button{
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  height: 40px;
+  padding: 0 16px;
+  margin: 8px;
+}
+.sDash_export-wrap .ant-modal .sDash-button-grp button.ant-btn-white{
+  color: #9299B8 !important;
+}
+.sDash_export-wrap .ant-form-item-control-input{
+  min-height: 36px;
+}
+
+.sDash_export-wrap .ant-form-item-control-input input{
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 20px;
+  border-radius: 5px;
+  color: #9299B8;
+}
+
+.sDash_export-wrap .ant-select-single{
+  width: 100% !important;
+}
+
+.sDash_export-wrap .ant-form .ant-form-item{
+  margin-bottom: 15px;
+}
+
+.sDash_export-wrap .ant-select-single .ant-select-selector{
+  padding: 0 20px;
+  border-color: #E3E6EF !important;
+}
+
+.sDash_create-file .sDash-button-grp{
+  text-align: right;
+}
+
+.sDash_create-file .ant-modal{
+  width: 390px !important;
+}
+.sDash_create-file .ant-modal .ant-form-item{
+  margin-bottom: 20px;
+}
+.sDash_create-file .ant-modal-header{
+  border-bottom: 0 none;
+  padding-bottom: 6px;
+}
+.sDash_create-file .sDash-button-grp button{
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.sDash_create-file .ant-form-item-control-input{
+  border-radius: 5px;
+}
+
+.sDash_create-file .ant-form-item-control-input input{
+  border: 1px solid #E3E6EF;
+}
+
+/* Task Modal */
+.sDash_task-details .ant-modal-content .ant-modal-close{
+  top: 10px;
+}
+.sDash_task-details .ant-modal-header{
+  border-bottom: 0 none;
+  padding: 30px 30px 0;
+}
+.sDash_task-details .ant-modal{
+  width: 600px !important;
+}
+.sDash_task-details .ant-modal-header .ant-modal-title h4{
+  font-size: 20px;
+  font-weight: 500;
+  color: #272B41;
+  margin-bottom: 4px;
+}
+.sDash_task-details .ant-modal-header .ant-modal-title .sub-text{
+  font-size: 14px;
+  font-weight: 400;
+  color: #868EAE;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details__label{
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea{
+  padding: 10px 20px;
+  min-height: 88px;
+  width: 100%;
+  border: 0 none;
+  border-radius: 4px;
+  background-color: #F4F5F7;
+  resize: none;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea:focus{
+  outline: none;
+}
+.sDash_task-details .sDash_task-details-modal .sDash_task-details-modal__description textarea::placeholder{
+  color: #5A5F7D;
+  font-size: 15px;
+}
+.sDash_task-details .ant-modal-body{
+  padding: 14px 30px 30px 30px;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block{
+  margin-top: 26px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-wrap{
+  position: relative;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form{
+  position: absolute;
+  width: 240px;
+  padding: 18px;
+  left: 0;
+  top: 50px;
+  box-shadow: 0 15px 30px #9299BB30;
+  background-color: #fff;
+  border: 1px solid #E3E6EF;
+  border-radius: 6px;
+  z-index: 222;
+}
+
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form{
+  left: auto;
+  right: 0;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .add-checklist{
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #E3E6EF;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action{
+  margin-top: 15px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action a{
+  position: relative;
+  top: 3px;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action a svg{
+  color: #9299BB;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action .btn-add{
+  margin-right: 15px;
+}
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-block .addChecklist-form .addChecklist-form-action .btn-add{
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-block button{
+  height: 38px;
+  padding: 0px 18.37px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row{
+  margin-top: 26px;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item:not(:last-child){
+  margin-bottom: 30px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__top button{
+  padding: 0px 16.32px;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist-item__title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #272B41;
+  margin-bottom: 0;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress-inner .ant-progress-bg{
+  height: 5px !important;
+  background-color: #20C997;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress .ant-progress-text{
+  font-size: 12px;
+  font-weight: 500;
+  order: -1;
+  margin: 0 10px 0 0;
+}
+html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_checklist__progress .ant-progress .ant-progress-text{
+  margin: 0 0 0 10px;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks{
+  margin: 5px 0 5px 0;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-inner{
+  width: 18px;
+  height: 18px;
+  border-color: #C6D0DC;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner{
+  background-color: #20C997;
+}
+.sDash_task-details .ant-modal-body .sDash_checklist-tasks .ant-checkbox-wrapper .ant-checkbox-checked:after{
+  border-color: #20C997;
+}
+
+.sDash_task-details .ant-modal-body .sDash_checklist-item .sDash_checklist-tasks-wrap button{
+  padding: 0px 35px;
+} 
+
+.sDash_task-details .ant-modal-body{
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 @media (max-width: 767px) {
@@ -2246,6 +2519,28 @@ html[dir='rtl'] .ant-card-head-title span {
   margin-bottom: 30px;
 }
 
+.common-ul{
+  padding: 5px 0;
+  padding-left: 10px;
+}
+
+.display {
+  display: none;
+}
+
+li.active > .display {
+  display: block;
+}
+
+
+/* rtl section from here */
+html[dir='rtl'] .ant-card-head-title span {
+  margin-right: 15px;
+}
+html[dir='rtl'] span[aria-label="arrow-right"] svg, html[dir='rtl'] span[aria-label="arrow-left"] svg {
+  transform: rotateY(180deg);
+}
+
 html[dir='rtl'] .ant-menu.ant-menu-vertical {
   text-align: right !important;
 }
@@ -2266,17 +2561,4 @@ html[dir='rtl'] .ant-menu.ant-menu-vertical .ant-menu-submenu-arrow {
 
 html[dir='rtl'] .ant-menu-vertical .ant-menu-submenu-title {
   padding-right: 15px !important;
-}
-
-.common-ul{
-  padding: 5px 0;
-  padding-left: 10px;
-}
-
-.display {
-  display: none;
-}
-
-li.active > .display {
-  display: block;
 }

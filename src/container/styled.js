@@ -1496,6 +1496,107 @@ const DragDropStyle = Styled.div`
         }
     }
 `;
+
+const ImportStyleWrap = Styled.div`
+    .ant-upload.ant-upload-drag{
+        background-color: #fff;
+        min-height: 280px;
+        display: flex;
+        align-items: center;
+        border-color: #C6D0DC;
+        border-radius: 10px;
+        .ant-upload-drag-icon{
+            svg,
+            i{
+                color: #ADB4D2;
+            }
+        }
+    }
+    .sDash_import-inner{
+        .ant-upload-text{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .ant-upload-hint{
+            margin-left: 4px;
+            span{
+                color: ${({ theme }) => theme['primary-color']};
+            }
+        }
+        .ant-upload-list{
+            .ant-upload-list-item{
+                background-color: #fff;
+                border-color: ${({ theme }) => theme['border-color-normal']};
+            }
+            .ant-upload-list-item-card-actions.picture{
+                top: 18px;
+                ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 15px;
+            }
+        }
+    }
+`;
+
+const ExportStyleWrap = Styled.div`
+    .sDash_export-box{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        @media only screen and (max-width: 575px){
+            flex-flow: column;
+        }
+        .btn-export{
+            height: 44px; 
+            @media only screen and (max-width: 575px){
+                margin-bottom: 20px;
+            }
+        }
+        .ant-select{
+            width: auto !important;
+            .ant-select-selector{
+                padding: 0 20px;
+                .ant-select-selection-search-input{
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+    .sDash_export-file-table{
+        .ant-table-content{
+            .ant-table-thead{
+                border: 1px solid ${({ theme }) => theme['border-color-light']};
+                border-radius: 10px;
+                tr{
+                    th{
+                        background-color: ${({ theme }) => theme['bg-color-light']};
+                        border: 0 none;
+                        color: ${({ theme }) => theme['gray-color']};
+                        &:first-child{
+                            border-radius: 10px 0 0 10px;
+                        }
+                        &:last-child{
+                            border-radius: 0 10px 10px 0;
+                        }
+                    }
+                }
+            }
+            .ant-table-tbody{
+                tr{
+                    &:hover{
+                        box-shadow: 0 15px 50px #9299B820;
+                        td{
+                            background-color: #fff !important;
+                        }
+                    }
+                    td{
+                        border: 0 none;
+                        padding: 22px 25px;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+`;
 export {
   Main,
   ButtonsGroupWrapper,
@@ -1517,4 +1618,6 @@ export {
   BannerCardStyleWrap,
   FileCardWrapper,
   TableWrapper,
+  ImportStyleWrap,
+  ExportStyleWrap,
 };

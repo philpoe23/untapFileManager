@@ -10,6 +10,8 @@ const Maps = lazy(() => import('./maps'));
 const Icons = lazy(() => import('./icons'));
 const Charts = lazy(() => import('./charts'));
 const Testimonials = lazy(() => import('../../container/pages/Testimonials'));
+const Import = lazy(() => import('../../container/importExport/Import'));
+const Export = lazy(() => import('../../container/importExport/Export'));
 
 const FeaturesRoute = () => {
   const { path } = useRouteMatch();
@@ -24,6 +26,8 @@ const FeaturesRoute = () => {
       <Route path={`${path}/tables`} component={Tables} />
       <Route path={`${path}/forms`} component={Forms} />
       <Route path={`${path}/testimonials`} component={Testimonials} />
+      <Route path={`${path}/importExport/import`} component={Import} />
+      <Route path={`${path}/importExport/export`} component={Export} />
     </Switch>
   );
 };
