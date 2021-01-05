@@ -2,8 +2,6 @@ import React from 'react';
 import { KnowledgebaseArticleWrap, ArticleTabWrap } from '../../style';
 
 const KnowledgebaseArticle = () => {
-  // const { path } = match;
-  //   console.log(path);
   return (
     <KnowledgebaseArticleWrap>
       <ArticleTabWrap className="sDash_article-tab">

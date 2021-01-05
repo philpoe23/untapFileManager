@@ -280,6 +280,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Calendar
         </NavLink>
       </Menu.Item>
+
       <SubMenu key="users" icon={!topMenu && <FeatherIcon icon="users" />} title="Users">
         <Menu.Item key="team">
           <NavLink onClick={toggleCollapsed} to={`${path}/users/team`}>
@@ -952,12 +953,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </>
         }
       >
-        <Menu.Item key="knowledgebase">
+        <Menu.Item key="plugins">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
             Knowledgebase
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="allArticle">
+        <Menu.Item key="all-articles">
           <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
             All Article
           </NavLink>
