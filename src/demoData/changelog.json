@@ -10,7 +10,8 @@
         ],
         "fixed": [
             "Contact app Edit state issue",
-            "Firebase CRUD Edit state issue"
+            "Firebase CRUD Edit state issue",
+            "Menu Item icon style issue"
         ]
     },
     {
