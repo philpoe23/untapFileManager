@@ -98,6 +98,8 @@ const KanvanBoardWrap = Styled.div`
         }
         .title-edit{
           display: block;
+          height: 60px;
+          border-color: ${({ theme }) => theme['primary-color']};
         }
       }
       .title-edit{
@@ -109,6 +111,7 @@ const KanvanBoardWrap = Styled.div`
         border-radius: 4px;
         resize: none;
         display: none;
+        transition: height .3s ease;
         &:focus{
           outline: none;
         }
@@ -129,12 +132,15 @@ const KanvanBoardWrap = Styled.div`
         .btn-more{
           padding: 0 4px;
           color: #868EAE;
+          line-height: 1;
           position: relative;
           z-index: 22;
+          svg,
+          img{
+            width: 20px;
+            height: 20px;
+          }
         }
-      }
-      .title-edit{
-        display: none;
       }
     }
     .sDash_kanvan-task{
@@ -152,10 +158,10 @@ const KanvanBoardWrap = Styled.div`
       &:hover{
         .sDash_kanvan-task__title{
           .btn-edit{
+            line-height: 1;
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
-  
           }
         }
       }
@@ -169,11 +175,16 @@ const KanvanBoardWrap = Styled.div`
           color: ${({ theme }) => theme['gray-color']};
         }
         .btn-edit{
+          display: flex;
+          align-items: center;
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          svg{
-            color: ${({ theme }) => theme['gray-color']}
+          svg,
+          img{
+            width: 14px;
+            height: 14px;
+            color: ${({ theme }) => theme['gray-color']};
           }
         }
       }
@@ -187,7 +198,7 @@ const KanvanBoardWrap = Styled.div`
           position: absolute;
           left: -30px;
           top: -10px;
-          z-index: 9999;
+          z-index: 99999;
           width: calc(100% + 60px);
           border-radius: 4px;
           input{
@@ -400,7 +411,7 @@ const BackShadow = Styled.div`
   top: 0;
   left: 0;
   ${({ theme }) => (theme.rtl ? 'right' : 'left')};
-  z-index: 999;
+  z-index: 9999;
   background: #00000080;
 `;
 

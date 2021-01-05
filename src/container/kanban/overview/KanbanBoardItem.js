@@ -43,7 +43,6 @@ const KanbanBoardItem = ({ data, showModal, onBackShadow, taskId, onTaskTitleUpd
           </Link>
         </div>
       </div>
-      <span className="task-edit-shade" />
     </div>
   );
 };

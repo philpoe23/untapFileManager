@@ -284,13 +284,25 @@ const Div = Styled.div`
                         color: ${({ theme }) => theme['extra-light-color']};
                     }
                     span{
-                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                         display: inline-block;
                         color: ${({ theme }) => theme['dark-color']};
                         transition: 0.3s ease;
+                        a{
+                            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
+                        }
                     }
                     .sDash_menu-item-icon{
                         line-height: .6;
+                    }
+                }
+                .ant-menu-submenu{
+                    span{
+                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
+                    }
+                }
+                .ant-menu-item{
+                    .menuItem-iocn{
+                        width: auto;
                     }
                 }
                 .ant-menu-item,

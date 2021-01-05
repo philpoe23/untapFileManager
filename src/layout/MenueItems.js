@@ -150,7 +150,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="activity" />} key="changelog">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/changelog`}>
+              <FeatherIcon icon="activity" />
+            </NavLink>
+          )
+        }
+        key="changelog"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/changelog`}>
           Changelog
           <span className="badge badge-primary menuItem">{versions[0].version}</span>
@@ -169,7 +178,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="message-square" />} key="chat">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/main/chat/private/rofiq@gmail.com`}>
+              <FeatherIcon icon="message-square" />
+            </NavLink>
+          )
+        }
+        key="chat"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
           Chat
         </NavLink>
@@ -248,7 +266,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="calendar" />} key="calendar">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/app/calendar/month`}>
+              <FeatherIcon icon="calendar" />
+            </NavLink>
+          )
+        }
+        key="calendar"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/app/calendar/month`}>
           Calendar
         </NavLink>
@@ -308,14 +335,32 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </Menu.Item>
       </SubMenu>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="file-text" />} key="note">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/app/note/all`}>
+              <FeatherIcon icon="file-text" />
+            </NavLink>
+          )
+        }
+        key="note"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
           Note
         </NavLink>
       </Menu.Item>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="check-square" />} key="to-do">
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do/`}>
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/app/note/all`}>
+              <FeatherIcon icon="check-square" />
+            </NavLink>
+          )
+        }
+        key="to-do"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
           To Do
         </NavLink>
       </Menu.Item>
@@ -656,7 +701,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="disc" />} key="forms">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/forms`}>
+              <FeatherIcon icon="disc" />
+            </NavLink>
+          )
+        }
+        key="forms"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/forms`}>
           Forms
         </NavLink>
@@ -741,7 +795,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="edit" />} key="editor">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/editor`}>
+              <FeatherIcon icon="edit" />
+            </NavLink>
+          )
+        }
+        key="editor"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/editor`}>
           Editor
         </NavLink>
@@ -767,7 +830,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
 
       {!topMenu && <p className="sidebar-nav-title">Pages</p>}
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="settings" />} key="settings">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/settings`}>
+              <FeatherIcon icon="settings" />
+            </NavLink>
+          )
+        }
+        key="settings"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/settings`}>
           Settings
         </NavLink>
@@ -785,32 +857,86 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="dollar-sign" />} key="pricing">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/pricing`}>
+              <FeatherIcon icon="dollar-sign" />
+            </NavLink>
+          )
+        }
+        key="pricing"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/pricing`}>
           Pricing
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="cast" />} key="banners">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/banners`}>
+              <FeatherIcon icon="cast" />
+            </NavLink>
+          )
+        }
+        key="banners"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/banners`}>
           Banners
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="book-open" />} key="testimonials">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/testimonials`}>
+              <FeatherIcon icon="book-open" />
+            </NavLink>
+          )
+        }
+        key="testimonials"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/testimonials`}>
           Testimonials
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="help-circle" />} key="faq">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/faq`}>
+              <FeatherIcon icon="help-circle" />
+            </NavLink>
+          )
+        }
+        key="faq"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/faq`}>
           FAQs
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="search" />} key="search">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/search`}>
+              <FeatherIcon icon="search" />
+            </NavLink>
+          )
+        }
+        key="search"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/search`}>
           Search Results
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="circle" />} key="starter">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/starter`}>
+              <FeatherIcon icon="circle" />
+            </NavLink>
+          )
+        }
+        key="starter"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/starter`}>
           Blank Page
         </NavLink>
@@ -858,12 +984,30 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           Maintenance
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="info" />} key="404">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/404`}>
+              <FeatherIcon icon="info" />
+            </NavLink>
+          )
+        }
+        key="404"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/404`}>
           404
         </NavLink>
       </Menu.Item>
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="clock" />} key="comingSoon">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/comingSoon`}>
+              <FeatherIcon icon="clock" />
+            </NavLink>
+          )
+        }
+        key="comingSoon"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}/comingSoon`}>
           Coming Soon
         </NavLink>
