@@ -32,7 +32,7 @@ const PagesRoute = () => {
       <Route path={`${path}/settings`} component={Settings} />
       <Route path={`${path}/knowledgeBase`} component={KnowledgeBase} />
       <Route path={`${path}/all-articles`} component={AllArticle} />
-      <Route path={`${path}/knowledgeSingle/:id`} component={KnowledgeSingle} />
+      <Route path={`${path}/knowledgebaseSingle/:id`} component={KnowledgeSingle} />
       <Route path={`${path}/changelog`} component={ChangeLog} />
     </Switch>
   );

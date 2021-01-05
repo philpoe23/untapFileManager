@@ -1,11 +1,11 @@
 [   {
         "id": 13,
-        "date": "Jan 03, 2020",
+        "date": "Jan 05, 2020",
         "version":"2.2.0",
         "new":[
             "Kanban Board App",
             "Import & Export App",
-            "Knowledge Page",
+            "Knowledge Base Page",
             "Support Center Page"          
         ],
         "fixed": [

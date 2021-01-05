@@ -948,14 +948,14 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         title={
           <>
             <span className="pl-0">
-              Knowledgebase<span className="badge badge-success">New</span>
+              Knowledge Base<span className="badge badge-success">New</span>
             </span>
           </>
         }
       >
         <Menu.Item key="plugins">
           <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebase/plugins`}>
-            Knowledgebase
+            Knowledge Base
           </NavLink>
         </Menu.Item>
         <Menu.Item key="all-articles">
@@ -963,8 +963,8 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             All Article
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="knowledgeSingle">
-          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgeSingle/1`}>
+        <Menu.Item key="knowledgebaseSingle">
+          <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebaseSingle/1`}>
             Single Article
           </NavLink>
         </Menu.Item>

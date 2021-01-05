@@ -85,7 +85,7 @@ const KnowledgeBase = ({ match }) => {
                       <div className={`sDash_popular-article__single theme-${article.type}`} key={i}>
                         <h4 className="single-article-title">{article.title}</h4>
                         <p>{article.text}</p>
-                        <Link className="btn-link">
+                        <Link className="btn-link" to="/admin/knowledgebaseSingle/1">
                           Read more
                           <ArrowRightOutlined />
                         </Link>

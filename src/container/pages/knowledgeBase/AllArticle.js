@@ -42,7 +42,7 @@ const AllArticle = () => {
             <div className="sDash_paginaion">
               <ul>
                 <li>
-                  <Link className="active" to="#">
+                  <Link className="active" to="/admin/knowledgebase/plugins">
                     Doc Home
                   </Link>
                 </li>
@@ -61,13 +61,15 @@ const AllArticle = () => {
                     <div className="sDash_article-category-links">
                       <ul>
                         <li>
-                          <Link to="#">Log in and out of plugins view your success and other stats</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">
+                            Log in and out of plugins view your success and other stats
+                          </Link>
                         </li>
                         <li>
-                          <Link to="#">Log in and out of Plugins</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Log in and out of Plugins</Link>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                         <li>
                           <Collapse onChange={callback}>
@@ -97,7 +99,7 @@ const AllArticle = () => {
                           </Collapse>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                       </ul>
                     </div>
@@ -111,13 +113,15 @@ const AllArticle = () => {
                     <div className="sDash_article-category-links">
                       <ul>
                         <li>
-                          <Link to="#">Log in and out of plugins view your success and other stats</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">
+                            Log in and out of plugins view your success and other stats
+                          </Link>
                         </li>
                         <li>
-                          <Link to="#">Log in and out of Plugins</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Log in and out of Plugins</Link>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                         <li>
                           <Collapse onChange={callback}>
@@ -147,7 +151,7 @@ const AllArticle = () => {
                           </Collapse>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                       </ul>
                     </div>
@@ -161,13 +165,15 @@ const AllArticle = () => {
                     <div className="sDash_article-category-links">
                       <ul>
                         <li>
-                          <Link to="#">Log in and out of plugins view your success and other stats</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">
+                            Log in and out of plugins view your success and other stats
+                          </Link>
                         </li>
                         <li>
-                          <Link to="#">Log in and out of Plugins</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Log in and out of Plugins</Link>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                         <li>
                           <Collapse onChange={callback}>
@@ -197,7 +203,7 @@ const AllArticle = () => {
                           </Collapse>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                       </ul>
                     </div>
@@ -211,13 +217,15 @@ const AllArticle = () => {
                     <div className="sDash_article-category-links">
                       <ul>
                         <li>
-                          <Link to="#">Log in and out of plugins view your success and other stats</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">
+                            Log in and out of plugins view your success and other stats
+                          </Link>
                         </li>
                         <li>
-                          <Link to="#">Log in and out of Plugins</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Log in and out of Plugins</Link>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                         <li>
                           <Collapse onChange={callback}>
@@ -247,7 +255,7 @@ const AllArticle = () => {
                           </Collapse>
                         </li>
                         <li>
-                          <Link to="#">Switch between accounts</Link>
+                          <Link to="/admin/knowledgebaseSingle/1">Switch between accounts</Link>
                         </li>
                       </ul>
                     </div>

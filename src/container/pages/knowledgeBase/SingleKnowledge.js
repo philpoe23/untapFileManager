@@ -59,7 +59,7 @@ const SingleKnowledge = () => {
             <div className="sDash_paginaion">
               <ul>
                 <li>
-                  <Link className="active" to="#">
+                  <Link className="active" to="/admin/knowledgebase/plugins">
                     Doc Home
                   </Link>
                 </li>
