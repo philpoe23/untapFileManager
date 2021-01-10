@@ -24,6 +24,7 @@ const ContactAddNew = lazy(() => import('../../container/contact/AddNew'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
 const FileManager = lazy(() => import('../../container/fileManager/FileManager'));
 const Kanban = lazy(() => import('../../container/kanban/Index'));
+const Task = lazy(() => import('../../container/task/Index'));
 
 const Admin = () => {
   const { path } = useRouteMatch();
@@ -52,6 +53,7 @@ const Admin = () => {
         <Route path={`${path}/profile/myProfile`} component={Myprofile} />
         <Route path={`${path}/app/to-do`} component={ToDo} />
         <Route path={`${path}/app/note`} component={Note} />
+        <Route path={`${path}/app/task`} component={Task} />
         <Route path={`${path}/contact/list`} component={Contact} />
         <Route path={`${path}/contact/grid`} component={ContactGrid} />
         <Route path={`${path}/contact/addNew`} component={ContactAddNew} />

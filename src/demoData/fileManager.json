@@ -16,14 +16,14 @@
         "folder": [
             {
                 "id": 1,
-                "name": "StrikingDash XD File",
+                "name": "StrikingDash",
                 "path": "Design/sDashXd",
                 "className": "",
                 "folder": [],
                 "file": [
                     {
                         "id": 1,
-                        "name": "one",
+                        "name": "StrikingDash XD File",
                         "type": "png",
                         "size": "1000"
                     }
@@ -31,7 +31,7 @@
             },
             {
                 "id": 2,
-                "name": "DRestaurant XD File",
+                "name": "DRestaurant",
                 "path": "Design/dRestaurantXd",
                 "className": "",
                 "folder": [],
@@ -62,7 +62,7 @@
                 "file": [
                     {
                         "id": 1,
-                        "name": "one",
+                        "name": "Prototype-blog.png",
                         "type": "png",
                         "size": "1000"
                     }
@@ -84,7 +84,7 @@
                         "file": [
                             {
                                 "id": 1,
-                                "name": "one",
+                                "name": "january.png",
                                 "type": "png",
                                 "size": "1000"
                             }
@@ -92,7 +92,7 @@
                     },
                     {
                         "id": 2,
-                        "name": "Detail View",
+                        "name": "calendar-details.pdf",
                         "path": "Prototypes/Calendar/detailsView",
                         "img": "pdf.png",
                         "className": "",

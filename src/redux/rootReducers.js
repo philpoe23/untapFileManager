@@ -18,6 +18,7 @@ import { projectReducer, SingleProjectReducer } from './project/reducers';
 import cartData from './cart/reducers';
 import Todo from './todo/reducers';
 import Note from './note/reducers';
+import Task from './task/reducers';
 import kanbanBoardReducer from './kanban/reducers';
 import Contact from './contact/reducers';
 import Profile from './profile/reducers';
@@ -51,6 +52,7 @@ const rootReducers = combineReducers({
   cart: cartData,
   Todo,
   Note,
+  Task,
   KanbanBoard: kanbanBoardReducer,
   Contact,
   Profile,

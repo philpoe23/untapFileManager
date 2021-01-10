@@ -90,7 +90,7 @@ const Main = Styled.div`
     /* // ant Calendar Picker */
     .ant-picker-calendar{
         .ant-badge-status-text{
-            color: ${({ theme }) => theme['gray-color']}
+            color: ${({ theme }) => theme['gray-color']};
         }
     }
     .ant-picker-calendar-header .ant-picker-calendar-year-select{

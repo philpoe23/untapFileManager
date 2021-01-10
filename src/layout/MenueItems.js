@@ -354,14 +354,14 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       <Menu.Item
         icon={
           !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}/app/note/all`}>
+            <NavLink className="menuItem-iocn" to={`${path}/app/to-do`}>
               <FeatherIcon icon="check-square" />
             </NavLink>
           )
         }
         key="to-do"
       >
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/note/all`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do`}>
           To Do
         </NavLink>
       </Menu.Item>
@@ -379,7 +379,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       >
         <NavLink onClick={toggleCollapsed} to={`${path}/app/kanban`}>
           Kanban Board
-          <span className="badge badge-success">New</span>
         </NavLink>
       </Menu.Item>
       <SubMenu
@@ -387,9 +386,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />}
         title={
           <>
-            <span className="pl-0">
-              Import Export<span className="badge badge-success">New</span>
-            </span>
+            <span className="pl-0">Import Export</span>
           </>
         }
       >
@@ -404,6 +401,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
+      <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="task">
+        <NavLink onClick={toggleCollapsed} to={`${path}/app/task/all`}>
+          Task
+          <span className="badge badge-success">New</span>
+        </NavLink>
+      </Menu.Item>
 
       {!topMenu && <p className="sidebar-nav-title">Features</p>}
 

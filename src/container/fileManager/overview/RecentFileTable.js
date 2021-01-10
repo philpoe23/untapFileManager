@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
+import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { RecentFIleTableWrap } from '../Style';
 
-const RecentFileTable = () => {
+const RecentFileTable = ({ folder }) => {
   const FileManagerData = useSelector(state => state.FileManager.reData);
 
   const columns = [
@@ -37,6 +38,7 @@ const RecentFileTable = () => {
   ];
   const dataSource = [];
 
+  console.log(FileManagerData);
   if (FileManagerData !== null) {
     // {
     //   FileManagerData.length
@@ -155,4 +157,9 @@ const RecentFileTable = () => {
     </RecentFIleTableWrap>
   );
 };
+
+RecentFileTable.propTypes = {
+  folder: PropTypes.object,
+};
+
 export default RecentFileTable;

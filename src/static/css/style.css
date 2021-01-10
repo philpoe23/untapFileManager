@@ -828,6 +828,50 @@ ul {
   text-align: left !important;
 }
 
+.sDash_addTask-modal{
+  max-width: 390px;
+}
+.sDash_addTask-modal .ant-modal-header{
+  border-bottom: 0 none;
+  padding-bottom: 0 !important;
+}
+.sDash_addTask-modal .ant-modal-header .ant-modal-title{
+  font-size: 16px;
+  font-weight: 500;
+  color: #272B41;
+}
+.sDash_addTask-modal .sDash_addTask-modal-inner .ant-form-item{
+  margin-bottom: 15px;
+}
+.sDash_addTask-modal .ant-modal-header .ant-modal-close-x svg{
+  color: #9299B8;
+}
+.sDash_addTask-modal .ant-form-item-control-input{
+  min-height: 36px;
+}
+.sDash_addTask-modal input::placeholder,
+.sDash_addTask-modal textarea::placeholder{
+  color: #9299B8;
+}
+.sDash_addTask-modal input,
+.sDash_addTask-modal textarea{
+  padding: 6px 20px;
+  border-radius: 5px;
+}
+.sDash_addTask-modal textarea{
+  resize: none;
+}
+.sDash_addTask-modal .sDash-modal-actions{
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px;
+}
+.sDash_addTask-modal .sDash-modal-actions button{
+  font-size: 14px;
+  margin: 6px;
+  height: 38px;
+  border-radius: 5px;
+}
 /* slider */
 
 .ant-slider-handle {

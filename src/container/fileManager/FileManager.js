@@ -22,6 +22,7 @@ const FileManager = () => {
     };
   });
 
+  console.log(FileManagerData);
   return (
     <>
       <PageHeader
@@ -85,9 +86,15 @@ const FileManager = () => {
                       : null}
                   </Row>
                   <Row>
-                    <Col xs={24}>
-                      <RecentFileTable />
-                    </Col>
+                    {FileManagerData.length
+                      ? FileManagerData[0].file.map(file => {
+                          return (
+                            <Col xs={24}>
+                              <RecentFileTable folder={file} />
+                            </Col>
+                          );
+                        })
+                      : null}
                   </Row>
                 </div>
               </Cards>
