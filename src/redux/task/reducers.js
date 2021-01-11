@@ -7,15 +7,27 @@ const initialState = {
   error: null,
 };
 
-const { NOTE_READ_BEGIN, NOTE_READ_SUCCESS, NOTE_READ_ERR } = actions;
+const { TASK_READ_BEGIN, TASK_READ_SUCCESS, TASK_READ_ERR } = actions;
 
 const TaskReducer = (state = initialState, action) => {
   const { type, data, err } = action;
   switch (type) {
-    case NOTE_READ_BEGIN:
+    case TASK_READ_BEGIN:
       return {
         ...state,
-        sLoading: true,
+        loading: true,
+      };
+    case TASK_READ_SUCCESS:
+      return {
+        ...state,
+        data,
+        loading: false,
+      };
+    case TASK_READ_ERR:
+      return {
+        ...state,
+        error: err,
+        loading: false,
       };
     default:
       return state;

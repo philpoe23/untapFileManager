@@ -97,6 +97,16 @@ const TaskListWrap = Styled.div`
                     padding-left: 10px;
                 }
                 .ant-checkbox-wrapper{
+                    &:hover{
+                        .ant-checkbox-inner{
+                            border-color: ${({ theme }) => theme['success-color']};
+                        }
+                    }
+                    .ant-checkbox-input{
+                        &:focus + .ant-checkbox-inner{
+                            border-color: ${({ theme }) => theme['success-color']};
+                        }
+                    }
                     .ant-checkbox-inner{
                         width: 18px;
                         height: 18px;
@@ -104,6 +114,15 @@ const TaskListWrap = Styled.div`
                             width: 5.51428571px;
                             height: 10px;
                             top: 45%;
+                        }
+                    }
+                    .ant-checkbox-checked{
+                        &:after{
+                            border-color: ${({ theme }) => theme['success-color']};
+                        }
+                        .ant-checkbox-inner{
+                            background-color: ${({ theme }) => theme['success-color']};
+                            border-color: ${({ theme }) => theme['success-color']};
                         }
                     }
                 }

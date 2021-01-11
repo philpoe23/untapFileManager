@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Input, Form, Modal } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Button } from '../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../styled';
 import { SidebarWrap } from '../style';
+import { taskAddData } from '../../../redux/task/actionCreator';
 
 const Sidenav = () => {
+  const { taskData } = useSelector(state => {
+    return {
+      taskData: state.Task.data,
+    };
+  });
   const [form] = Form.useForm();
   const { path } = useRouteMatch();
+  const dispatch = useDispatch();
 
   const [state, setState] = useState({
     visible: false,
@@ -27,6 +35,27 @@ const Sidenav = () => {
       ...state,
       visible: false,
     });
+  };
+
+  const handleAddTask = values => {
+    handleCancel();
+    const arrayData = [];
+    taskData.map(data => {
+      return arrayData.push(data.key);
+    });
+    const max = Math.max(...arrayData);
+    dispatch(
+      taskAddData([
+        ...taskData,
+        {
+          ...values,
+          id: max + 1,
+          favourite: false,
+          completed: false,
+        },
+      ]),
+    );
+    form.resetFields();
   };
 
   return (
@@ -75,13 +104,13 @@ const Sidenav = () => {
       >
         <div className="sDash_addTask-modal-inner">
           <BasicFormWrapper>
-            <Form form={form} name="add-task">
+            <Form form={form} name="add-task" onFinish={handleAddTask}>
               <Form.Item rules={[{ required: true, message: 'Please add a Title' }]} name="title">
                 <Input placeholder="Title" />
               </Form.Item>
 
               <Form.Item name="description">
-                <Input.TextArea rows={4} placeholder="Note Description" />
+                <Input.TextArea rows={4} placeholder="Add Description" />
               </Form.Item>
               <div className="sDash-modal-actions">
                 <Button size="small" type="white" key="submit" outlined>

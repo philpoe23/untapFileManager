@@ -860,6 +860,7 @@ ul {
 }
 .sDash_addTask-modal textarea{
   resize: none;
+  min-height: 125px;
 }
 .sDash_addTask-modal .sDash-modal-actions{
   display: flex;
