@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Input, Form, Modal } from 'antd';
+import { Input, Form, Modal } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { Button } from '../../../components/buttons/buttons';
 import { BasicFormWrapper } from '../../styled';
@@ -60,7 +60,7 @@ const Sidenav = () => {
 
   return (
     <>
-      <SidebarWrap>
+      <SidebarWrap className="mb-30">
         <div className="sDash_taskApp-sidebar">
           <Button className="sDash_btn-add" size="large" type="primary" raised onClick={showModal}>
             <FeatherIcon icon="plus" size={16} />
@@ -113,7 +113,7 @@ const Sidenav = () => {
                 <Input.TextArea rows={4} placeholder="Add Description" />
               </Form.Item>
               <div className="sDash-modal-actions">
-                <Button size="small" type="white" key="submit" outlined>
+                <Button size="small" type="white" key="submit" outlined onClick={handleCancel}>
                   Cancel
                 </Button>
                 <Button htmlType="submit" size="small" type="primary" key="submit">

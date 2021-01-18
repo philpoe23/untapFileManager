@@ -10,7 +10,7 @@
         "id": 2,
         "title": "Dashboard Layout prototype",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry text of the simply dummy",
-        "favourite": true,
+        "favourite": false,
         "completed": true
     },
     {
@@ -38,7 +38,7 @@
         "id": 6,
         "title": "Managing Other Task",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry text of the simply dummy",
-        "favourite": true,
+        "favourite": false,
         "completed": false
     },
     {

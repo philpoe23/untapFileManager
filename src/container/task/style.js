@@ -88,6 +88,11 @@ const TaskListWrap = Styled.div`
                 &:not(:last-child){
                     border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                 }
+                @media only screen and (max-width: 575px){
+                    padding: 15px 20px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
             }
             .sDash_tasks-item__title{
                 font-size: 16px;
@@ -140,13 +145,22 @@ const TaskListWrap = Styled.div`
             .sDash_tasks-item__action{
                 display: flex;
                 align-items: center;
+                @media only screen and (max-width: 575px){
+                    margin-top: 20px;
+                }
                 svg,
                 i{
                     color: ${({ theme }) => theme['extra-light-color']};
                 }
                 .task-favourite{
                     line-height: 1;
-                    margin-right: 10px;
+                    margin-right: 20px;
+                    &.active{
+                        svg,
+                        i{
+                            color: ${({ theme }) => theme['warning-color']}; 
+                        }
+                    }
                 }
                 .ant-dropdown-trigger {
                     line-height: 1;
@@ -156,7 +170,47 @@ const TaskListWrap = Styled.div`
                 }
             }
         }
+        .sDash_empty-task{
+            min-height: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span{
+                font-size: 18px;
+                font-weight: 500;
+                color: ${({ theme }) => theme['light-color']}; 
+            }
+        }
+    }
+`;
+const FixedSidebar = Styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: all .3s ease;
+    &.show{
+        transform: translateX(0px);
+    }
+    &.hide{
+        transform: translateX(-280px);
+    }
+    .trigger-close{
+        float: right;
+        margin-top: 15px;
+        margin-right: 15px;
+        svg,
+        i{
+            color: ${({ theme }) => theme['danger-color']}; 
+        }
+    }
+    .sDash_taskApp-sidebar{
+        padding-top: 60px;
     }
 `;
 
-export { SidebarWrap, TaskListWrap };
+export { SidebarWrap, TaskListWrap, FixedSidebar };
