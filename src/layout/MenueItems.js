@@ -705,20 +705,33 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu>
-      <Menu.Item
-        icon={
-          !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}/forms`}>
-              <FeatherIcon icon="disc" />
-            </NavLink>
-          )
-        }
+      <SubMenu
         key="forms"
+        icon={!topMenu && <FeatherIcon icon="disc" />}
+        title={
+          <>
+            <span className="pl-0">
+              Forms<span className="badge badge-success">New</span>
+            </span>
+          </>
+        }
       >
-        <NavLink onClick={toggleCollapsed} to={`${path}/forms`}>
-          Forms
-        </NavLink>
-      </Menu.Item>
+        <Menu.Item key="form-layout">
+          <NavLink onClick={toggleCollapsed} to={`${path}/form-layout`}>
+            Form Layouts
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="form-elements">
+          <NavLink onClick={toggleCollapsed} to={`${path}/form-elements`}>
+            Form Elements
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="form-components">
+          <NavLink onClick={toggleCollapsed} to={`${path}/form-components`}>
+            Form Components
+          </NavLink>
+        </Menu.Item>
+      </SubMenu>
       <SubMenu key="tables" icon={!topMenu && <FeatherIcon icon="cpu" />} title="Table">
         <Menu.Item key="basic">
           <NavLink onClick={toggleCollapsed} to={`${path}/tables/basic`}>
@@ -950,9 +963,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/book.svg')} />}
         title={
           <>
-            <span className="pl-0">
-              Knowledge Base<span className="badge badge-success">New</span>
-            </span>
+            <span className="pl-0">Knowledge Base</span>
           </>
         }
       >
@@ -980,7 +991,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
       >
         <NavLink onClick={toggleCollapsed} to={`${path}/support`}>
           Support Center
-          <span className="badge badge-success">New</span>
         </NavLink>
       </Menu.Item>
       <Menu.Item icon={!topMenu && <FeatherIcon icon="airplay" />} key="maintenance">
