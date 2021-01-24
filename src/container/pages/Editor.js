@@ -33,13 +33,13 @@ const Editors = () => {
             <div className="editor-compose">
               <MailComposer text />
             </div>
-          </Col>          
+          </Col>
           <Col sm={24} xs={24}>
             <MailComposer />
           </Col>
           <Col sm={24} xs={24}>
             <div className="editor-compose">
-               <Compose />
+              <Compose />
             </div>
           </Col>
         </Row>

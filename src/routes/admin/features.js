@@ -5,6 +5,7 @@ const Tables = lazy(() => import('./table'));
 const FormLayouts = lazy(() => import('../../container/forms/FormLayout'));
 const FormElements = lazy(() => import('../../container/forms/FormElements'));
 const FormComponents = lazy(() => import('../../container/forms/FormComponents'));
+const FormValidation = lazy(() => import('../../container/forms/FormValidation'));
 const Editors = lazy(() => import('../../container/pages/Editor'));
 const Banners = lazy(() => import('../../container/pages/Banners'));
 const Components = lazy(() => import('./components'));
@@ -29,6 +30,7 @@ const FeaturesRoute = () => {
       <Route path={`${path}/form-layout`} component={FormLayouts} />
       <Route path={`${path}/form-elements`} component={FormElements} />
       <Route path={`${path}/form-components`} component={FormComponents} />
+      <Route path={`${path}/form-validation`} component={FormValidation} />
       <Route path={`${path}/testimonials`} component={Testimonials} />
       <Route path={`${path}/importExport/import`} component={Import} />
       <Route path={`${path}/importExport/export`} component={Export} />

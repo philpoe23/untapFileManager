@@ -702,6 +702,26 @@ const Main = Styled.div`
         max-width: 100%;
         margin: 25px 0;
     }
+
+    // Ant Dragger
+    .ant-upload-drag{
+        background-color: #fff !important;
+        border-radius: 10px !important;
+        display: flex;
+        align-items: center;
+        min-height: 100px;
+        border-color: #C6D0DC;
+        &.sDash-uploader-large{
+            min-height: 180px;
+        }
+        .ant-upload-drag-container{
+            .ant-upload-text{
+                margin-bottom: 0;
+                font-size: 15px;
+                color: #9299B8;
+            }
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`

@@ -51,51 +51,47 @@ const MailComposer = ({ onChange, onSend, defaultTag, replay, text }) => {
   return (
     <MailBox>
       <div className="body">
-        {
-          !text && 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
-          <div className="reply-inner" style={{ display: 'flex', alignItems: 'center' }}>
-            {!replay ? null : <span className="reply-title">Replay To</span>}
-            <TagsInput
-              inputProps={{
-                placeholder: replay ? null : 'To',
-              }}
-              value={state.tags}
-              onChange={handleChange}
-            />
+        {!text && (
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="group">
+            <div className="reply-inner" style={{ display: 'flex', alignItems: 'center' }}>
+              {!replay ? null : <span className="reply-title">Replay To</span>}
+              <TagsInput
+                inputProps={{
+                  placeholder: replay ? null : 'To',
+                }}
+                value={state.tags}
+                onChange={handleChange}
+              />
+            </div>
+            <span className="mail-cc">Cc</span>
           </div>
-          <span className="mail-cc">Cc</span>
-        </div>
-        
-        }
+        )}
         <div className="group">
           <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />
         </div>
       </div>
-        {
-          !text && 
-      <div className="footer">
-        <div className="left d-flex align-items-center">
-          <Button size="default" type="primary" onClick={onSubmit} raised>
-            Send
-          </Button>
-          <Link to="#">
-            <Upload {...props}>
-              <FeatherIcon icon="paperclip" size={16} />
-            </Upload>
-          </Link>
-          <Link to="#">
-            <FeatherIcon icon="alert-circle" size={16} />
-          </Link>
+      {!text && (
+        <div className="footer">
+          <div className="left d-flex align-items-center">
+            <Button size="default" type="primary" onClick={onSubmit} raised>
+              Send
+            </Button>
+            <Link to="#">
+              <Upload {...props}>
+                <FeatherIcon icon="paperclip" size={16} />
+              </Upload>
+            </Link>
+            <Link to="#">
+              <FeatherIcon icon="alert-circle" size={16} />
+            </Link>
+          </div>
+          <div className="right">
+            <Link to="#">
+              <FeatherIcon icon="trash-2" size={16} />
+            </Link>
+          </div>
         </div>
-        <div className="right">
-          <Link to="#">
-            <FeatherIcon icon="trash-2" size={16} />
-          </Link>
-        </div>
-      </div>
-    
-        }
+      )}
     </MailBox>
   );
 };
@@ -105,7 +101,7 @@ MailComposer.propTypes = {
   onSend: propTypes.func,
   defaultTag: propTypes.string,
   replay: propTypes.bool,
-  text: propTypes.bool
+  text: propTypes.bool,
 };
 
 export default MailComposer;

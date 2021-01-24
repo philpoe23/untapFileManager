@@ -731,6 +731,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Form Components
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="form-validation">
+          <NavLink onClick={toggleCollapsed} to={`${path}/form-validation`}>
+            Form Validation
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
       <SubMenu key="tables" icon={!topMenu && <FeatherIcon icon="cpu" />} title="Table">
         <Menu.Item key="basic">

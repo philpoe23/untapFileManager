@@ -44,7 +44,7 @@ const Sliders = () => {
   return (
     <>
       <PageHeader
-        ghost 
+        ghost
         title="Sliders"
         buttons={[
           <div key="1" className="page-header-actions">

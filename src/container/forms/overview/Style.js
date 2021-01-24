@@ -98,4 +98,57 @@ const CheckListWrap = Styled.div`
     }
 `;
 
-export { HorizontalFormStyleWrap, VerticalFormStyleWrap, CheckListWrap };
+const DropDownListComponents = Styled.div`
+    .sDash_dropdown-list{
+        .ant-dropdown-trigger{
+            font-size: 14px;
+            font-weight: 400;
+            color: #9299B8;
+            width: 100%;
+            justify-content: flex-start;
+            &:not(:last-child){
+                margin-bottom: 25px;
+            }
+        }
+    }
+`;
+
+const FormComponentsWrap = Styled.div`
+    .sDash_datepicker-list{
+        .ant-picker.ant-picker-range{
+            width: 100%;
+        }
+    }
+    .sDash_editor{
+        border: 1px solid #E3E6EF;
+        border-radius: 4px;
+        .EditorToolbar__root___3_Aqz{
+            padding: 12px 20px 0;
+        }
+        .DraftEditor-root{
+            min-height: 100px;
+            .public-DraftEditorPlaceholder-root{
+                padding: 12px 20px 0;
+            }
+        }
+    }
+    .sDash_slider-list{
+        margin: -25px 0;
+        .ant-slider{
+            margin: 25px 0;
+        }
+    }
+`;
+
+const FormValidationWrap = Styled.div`
+    
+`;
+
+export {
+  HorizontalFormStyleWrap,
+  VerticalFormStyleWrap,
+  CheckListWrap,
+  DropDownListComponents,
+  FormComponentsWrap,
+  FormValidationWrap,
+};
