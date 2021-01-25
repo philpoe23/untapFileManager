@@ -1,14 +1,15 @@
 import React from 'react';
-import { Row, Col, Card, Form, Input, Button } from 'antd';
+import { Row, Col, Form, Input, Button } from 'antd';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { BasicFormWrapper } from '../../styled';
 
 const MultiColumnForm = () => {
   return (
-    <BasicFormWrapper>
-      <Card title="Horizontal Form">
-        <Form name="login" layout="horizontal">
+    <BasicFormWrapper className="mb-25">
+      <Cards title="Multiple Column">
+        <Form name="multi-form" layout="horizontal">
           <Row gutter={30}>
-            <Col lg={12}>
+            <Col sm={12} xs={24} className="mb-25">
               <Form.Item name="sDash_f-name">
                 <Input placeholder="First Name" />
               </Form.Item>
@@ -19,7 +20,7 @@ const MultiColumnForm = () => {
                 <Input placeholder="Company" />
               </Form.Item>
             </Col>
-            <Col lg={12}>
+            <Col sm={12} xs={24} className="mb-25">
               <Form.Item name="sDash_l-name">
                 <Input placeholder="Last Name" />
               </Form.Item>
@@ -32,7 +33,7 @@ const MultiColumnForm = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} className="mt-30">
+            <Col sm={12} xs={24}>
               <div className="sDash_form-action">
                 <Button className="btn-signin" htmlType="submit" type="light" size="large">
                   Cancel
@@ -44,7 +45,7 @@ const MultiColumnForm = () => {
             </Col>
           </Row>
         </Form>
-      </Card>
+      </Cards>
     </BasicFormWrapper>
   );
 };

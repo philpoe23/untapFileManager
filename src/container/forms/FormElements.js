@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Input, Select, Upload, message, Radio, Checkbox, Card } from 'antd';
+import React from 'react';
+import { Row, Col, Form, Input, Button, Select, Upload, message, Radio, Checkbox } from 'antd';
 import { Link } from 'react-router-dom';
+import FeatherIcon from 'feather-icons-react';
 import { GridForm } from './overview/GridForm';
 import { SizedForm } from './overview/SizedForm';
-import { VerticalForm } from './overview/VerticalForm';
-import { VerticalIconForm } from './overview/VerticalIconForm';
 import { InputForm } from './overview/InputForm';
 import { CheckListWrap } from './overview/Style';
 import { Main } from '../styled';
-
+import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
+import { ShareButtonPageHeader } from '../../components/buttons/share-button/share-button';
+import { ExportButtonPageHeader } from '../../components/buttons/export-button/export-button';
+import { CalendarButtonPageHeader } from '../../components/buttons/calendar-button/calendar-button';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -31,26 +33,35 @@ const props = {
   },
 };
 const FormElements = () => {
-  const [state, setState] = useState({
-    checkData: [],
-    checked: null,
-  });
-
-  function onChange(e) {}
+  function onChange() {}
   return (
     <>
-      <PageHeader ghost title="Forms" />
+      <PageHeader
+        ghost
+        title="Form Elements"
+        buttons={[
+          <div key="1" className="page-header-actions">
+            <CalendarButtonPageHeader />
+            <ExportButtonPageHeader />
+            <ShareButtonPageHeader />
+            <Button size="small" type="primary">
+              <FeatherIcon icon="plus" size={14} />
+              Add New
+            </Button>
+          </div>,
+        ]}
+      />
       <Main>
         <Row gutter={25}>
           <Col xs={24}>
             <GridForm />
           </Col>
-          <Col lg={12}>
+          <Col lg={12} xs={24}>
             <SizedForm />
             <InputForm />
           </Col>
-          <Col lg={12}>
-            <Card title="Text Input" className="mb-25">
+          <Col lg={12} xs={24}>
+            <Cards title="Text Input" className="mb-25">
               <Form name="sDash_textarea" layout="vertical">
                 <Form.Item name="basic-textarea" label="Basic Textarea">
                   <TextArea />
@@ -59,8 +70,8 @@ const FormElements = () => {
                   <TextArea className="sDash_unresizable" />
                 </Form.Item>
               </Form>
-            </Card>
-            <Card title="Select" className="mb-25">
+            </Cards>
+            <Cards title="Select" className="mb-25">
               <Form name="sDash_select" layout="vertical">
                 <Form.Item name="basic-select" label="Basic Select">
                   <Select size="large" className="sDash_fullwidth-select">
@@ -97,8 +108,8 @@ const FormElements = () => {
                   </Select>
                 </Form.Item>
               </Form>
-            </Card>
-            <Card title="File Browser" className="sDash_upload-form mb-25">
+            </Cards>
+            <Cards title="File Browser" className="sDash_upload-form mb-25">
               <Form name="sDash_upload" layout="vertical">
                 <Upload className="sDash_upload-basic" {...props}>
                   <span className="sDash_upload-text">Select File</span>
@@ -107,9 +118,9 @@ const FormElements = () => {
                   </Link>
                 </Upload>
               </Form>
-            </Card>
+            </Cards>
             <CheckListWrap className="mb-25">
-              <Card title="Text Input">
+              <Cards title="Checkboxes and Radios">
                 <div className="sDash_check-list-wrap">
                   <ul className="sDash_check-list sDash_check-list--left">
                     <li>
@@ -148,7 +159,7 @@ const FormElements = () => {
                     </li>
                   </ul>
                 </div>
-              </Card>
+              </Cards>
             </CheckListWrap>
           </Col>
         </Row>

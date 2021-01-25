@@ -1,13 +1,14 @@
 import React from 'react';
-import { Card, Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { VerticalFormStyleWrap } from './Style';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { BasicFormWrapper } from '../../styled';
 
 const VerticalForm = () => {
   return (
     <BasicFormWrapper>
       <VerticalFormStyleWrap>
-        <Card title="Vertical Form">
+        <Cards title="Vertical Form">
           <Form name="sDash_vertical-form" layout="vertical">
             <Form.Item name="name" initialValue="Duran Clayton" label="Name">
               <Input />
@@ -27,7 +28,7 @@ const VerticalForm = () => {
               </Button>
             </div>
           </Form>
-        </Card>
+        </Cards>
       </VerticalFormStyleWrap>
     </BasicFormWrapper>
   );

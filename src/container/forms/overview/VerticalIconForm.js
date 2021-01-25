@@ -1,14 +1,15 @@
 import React from 'react';
-import { Card, Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import FeatherIcon from 'feather-icons-react';
 import { VerticalFormStyleWrap } from './Style';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 import { BasicFormWrapper } from '../../styled';
 
 const VerticalIconForm = () => {
   return (
     <BasicFormWrapper>
       <VerticalFormStyleWrap>
-        <Card title="Vertical Form With Icons">
+        <Cards title="Vertical Form With Icons">
           <Form name="login" layout="vertical">
             <Form.Item name="name" initialValue="Duran Clayton" label="Name">
               <Input prefix={<FeatherIcon icon="user" size={14} />} />
@@ -28,7 +29,7 @@ const VerticalIconForm = () => {
               </Button>
             </div>
           </Form>
-        </Card>
+        </Cards>
       </VerticalFormStyleWrap>
     </BasicFormWrapper>
   );

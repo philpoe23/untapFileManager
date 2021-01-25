@@ -722,6 +722,25 @@ const Main = Styled.div`
             }
         }
     }
+
+    // Form Validation
+    .ant-form-item{
+        &.ant-form-item-has-success{
+            .ant-input{
+                border-color: ${({ theme }) => theme['success-color']};
+            }
+            &.ant-form-item-with-help{
+                .ant-form-item-explain{
+                    color: ${({ theme }) => theme['success-color']};
+                }
+            }
+        }
+        &.ant-form-item-with-help{
+            .ant-form-item-explain{
+                margin-top: 6px;
+            }
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
