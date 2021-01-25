@@ -748,6 +748,34 @@ const TopMenu = () => {
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
+                  <FeatherIcon icon="disc" />
+                  Form
+                </Link>
+                <ul className="subMenu">
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/form-layout`}>
+                      Form Layouts
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/form-elements`}>
+                      Form Elements
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/form-components`}>
+                      Form Components
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/form-validation`}>
+                      Form Validation
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
+              <li className="has-subMenu-left">
+                <Link to="#" className="parent">
                   <FeatherIcon icon="cpu" />
                   Tables
                 </Link>

@@ -366,12 +366,12 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
         </NavLink>
       </Menu.Item>
 
-      <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="fileManager">
+      {/* <Menu.Item icon={!topMenu && <FeatherIcon icon="file" />} key="fileManager">
         <NavLink onClick={toggleCollapsed} to={`${path}/app/fileManager`}>
           File Manager
           <span className="badge badge-success">New</span>
         </NavLink>
-      </Menu.Item>
+      </Menu.Item> */}
 
       <Menu.Item
         icon={!topMenu && <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/columns.svg')} />}
