@@ -43,10 +43,10 @@ const InputForm = () => {
             </Row>
             <Row align="middle">
               <Col md={6} xs={24}>
-                <label htmlFor="email">Phone</label>
+                <label htmlFor="input-phone">Phone</label>
               </Col>
               <Col md={18} xs={24}>
-                <Form.Item name="input-url">
+                <Form.Item name="input-phone">
                   <Input placeholder="017123456789" />
                 </Form.Item>
               </Col>
@@ -96,8 +96,8 @@ const InputForm = () => {
                 <label htmlFor="input-time">Time</label>
               </Col>
               <Col md={18} xs={24}>
-                <Form.Item name="input-time">
-                  <TimePicker defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                <Form.Item name="input-time" initialValue={moment('00:00:00', 'HH:mm:ss')}>
+                  <TimePicker />
                 </Form.Item>
               </Col>
             </Row>

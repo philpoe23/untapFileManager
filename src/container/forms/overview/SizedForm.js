@@ -13,10 +13,10 @@ const SizedForm = () => {
               <Form.Item name="size-large" label="Large Input">
                 <Input size="large" placeholder="size='large'" />
               </Form.Item>
-              <Form.Item name="size-large" className="small-input" label="Default Input">
+              <Form.Item name="size-default" className="small-input" label="Default Input">
                 <Input placeholder="size='Default'" />
               </Form.Item>
-              <Form.Item className="mb-25" name="size-large" label="Small Input">
+              <Form.Item className="mb-25" name="size-small" label="Small Input">
                 <Input size="small" placeholder="size='Small'" />
               </Form.Item>
             </Col>

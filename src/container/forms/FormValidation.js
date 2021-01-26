@@ -43,7 +43,7 @@ const FormValidation = () => {
             <FormValidationWrap>
               <VerticalFormStyleWrap>
                 <Cards title="Custom Styles">
-                  <Form name="sDash_vertical-form" form={form} layout="vertical" validateMessages={validateMessages}>
+                  <Form name="sDash_validation-form" form={form} layout="vertical" validateMessages={validateMessages}>
                     <Row gutter={30}>
                       <Col md={8} xs={24}>
                         <Form.Item
