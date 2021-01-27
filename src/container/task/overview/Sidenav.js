@@ -41,7 +41,7 @@ const Sidenav = () => {
     handleCancel();
     const arrayData = [];
     taskData.map(data => {
-      return arrayData.push(data.key);
+      return arrayData.push(data.id);
     });
     const max = Math.max(...arrayData);
     dispatch(
@@ -113,7 +113,7 @@ const Sidenav = () => {
                 <Input.TextArea rows={4} placeholder="Add Description" />
               </Form.Item>
               <div className="sDash-modal-actions">
-                <Button size="small" type="white" key="submit" outlined onClick={handleCancel}>
+                <Button size="small" type="white" key="cancel" outlined onClick={handleCancel}>
                   Cancel
                 </Button>
                 <Button htmlType="submit" size="small" type="primary" key="submit">

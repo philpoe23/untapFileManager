@@ -87,21 +87,15 @@ const FormElements = () => {
                     <Option value="3">3</Option>
                   </Select>
                 </Form.Item>
-                <Form.Item name="multi-select" label="Multiple Select">
-                  <Select size="large" mode="multiple" defaultValue={['1', '2']} className="sDash_fullwidth-select">
+                <Form.Item name="multi-select" initialValue={['1', '2']} label="Multiple Select">
+                  <Select size="large" mode="multiple" className="sDash_fullwidth-select">
                     <Option value="1">1</Option>
                     <Option value="2">2</Option>
                     <Option value="3">3</Option>
                   </Select>
                 </Form.Item>
-                <Form.Item name="disabled-multi-select" label="Disabled Multiple Select">
-                  <Select
-                    size="large"
-                    mode="multiple"
-                    defaultValue={['1', '2']}
-                    className="sDash_fullwidth-select"
-                    disabled
-                  >
+                <Form.Item name="disabled-multi-select" initialValue={['1', '2']} label="Disabled Multiple Select">
+                  <Select size="large" mode="multiple" className="sDash_fullwidth-select" disabled>
                     <Option value="1">1</Option>
                     <Option value="2">2</Option>
                     <Option value="3">3</Option>

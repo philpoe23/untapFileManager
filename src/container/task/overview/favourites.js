@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Checkbox, Input, Form, Modal } from 'antd';
@@ -16,13 +16,15 @@ const Favourite = () => {
   const [state, setState] = useState({
     visible: false,
     taskEditId: '',
+    editableItem: {},
   });
 
-  const showModal = id => {
+  const showModal = (id, item) => {
     setState({
       ...state,
       taskEditId: id,
       visible: true,
+      editableItem: item,
     });
   };
 
@@ -33,7 +35,7 @@ const Favourite = () => {
     });
   };
 
-  const { taskEditId } = state;
+  const { taskEditId, editableItem } = state;
   const handleTaskDelete = id => {
     const value = task.filter(item => item.id !== id);
     dispatch(ontaskDelete(value));
@@ -54,6 +56,9 @@ const Favourite = () => {
     });
     dispatch(ontaskEdit(updatedData));
   };
+  useEffect(() => {
+    form.setFieldsValue(editableItem);
+  }, [form, editableItem]);
   return (
     <TaskListWrap className="mb-30">
       <div className="sDash_tasklist-wrap">
@@ -92,7 +97,7 @@ const Favourite = () => {
                         <Dropdown
                           content={
                             <>
-                              <Link to="#" onClick={() => showModal(value.id)}>
+                              <Link to="#" onClick={() => showModal(value.id, value)}>
                                 <FeatherIcon icon="edit" size={14} />
                                 <span>Edit</span>
                               </Link>

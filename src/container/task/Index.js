@@ -62,7 +62,7 @@ const Task = ({ match }) => {
               <Sidenav />
             ) : (
               <FixedSidebar className={collapsed ? 'show' : 'hide'}>
-                <Link type="link" className="trigger-close" onClick={toggleCollapsed}>
+                <Link to="#" type="link" className="trigger-close" onClick={toggleCollapsed}>
                   <FeatherIcon icon="x" />
                 </Link>
                 <Sidenav />
