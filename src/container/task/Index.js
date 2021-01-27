@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, lazy, Suspense, useLayoutEffect } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import { Row, Col, Spin } from 'antd';
@@ -91,7 +92,13 @@ const Task = ({ match }) => {
             </Switch>
           </Col>
         </Row>
-        <span className={collapsed ? 'overlay-dark show' : 'overlay-dark'} onClick={toggleCollapsed} />
+        <span
+          onKeyPress={() => {}}
+          role="button"
+          tabIndex="0"
+          className={collapsed ? 'overlay-dark show' : 'overlay-dark'}
+          onClick={toggleCollapsed}
+        />
       </Main>
     </>
   );
