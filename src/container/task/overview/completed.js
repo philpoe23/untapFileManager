@@ -35,7 +35,7 @@ const Completed = () => {
     });
   };
 
-  const { taskEditId, editableItem } = state;
+  const { taskEditId, editableItem, visible } = state;
   const handleTaskDelete = id => {
     const value = task.filter(item => item.id !== id);
     dispatch(ontaskDelete(value));
@@ -57,8 +57,10 @@ const Completed = () => {
     dispatch(ontaskEdit(updatedData));
   };
   useEffect(() => {
-    form.setFieldsValue(editableItem);
-  }, [form, editableItem]);
+    if (visible) {
+      form.setFieldsValue(editableItem);
+    }
+  }, [form, editableItem, visible]);
   return (
     <TaskListWrap className="mb-30">
       <div className="sDash_tasklist-wrap">
@@ -69,6 +71,7 @@ const Completed = () => {
           {task.filter(item => item.completed).length > 0 ? (
             <ul className="sDash_tasks">
               {task
+                .sort((a, b) => b.id - a.id)
                 .filter(item => item.completed)
                 .map((value, i) => {
                   return (
@@ -131,6 +134,7 @@ const Completed = () => {
         visible={state.visible}
         footer={null}
         onCancel={handleCancel}
+        forceRender
       >
         <div className="sDash_addTask-modal-inner">
           {task
@@ -140,19 +144,19 @@ const Completed = () => {
                 <BasicFormWrapper key={i}>
                   <Form form={form} name="add-task" onFinish={eData => onEditHandle(eData, value.id)}>
                     <Form.Item hidden="true" name="id" initialValue={value.id} />
-                    <Form.Item
-                      rules={[{ required: true, message: 'Please add a Title' }]}
-                      name="title"
-                      initialValue={value.title}
-                    >
+                    <Form.Item rules={[{ required: true, message: 'Please add a Title' }]} initialValue={value.title}>
                       <Input placeholder="Title" />
                     </Form.Item>
 
-                    <Form.Item name="description" initialValue={value.description}>
+                    <Form.Item initialValue={value.description}>
                       <Input.TextArea rows={4} placeholder="Add Description" />
                     </Form.Item>
-                    <Form.Item hidden="true" name="favourite" initialValue={value.favourite} />
-                    <Form.Item hidden="true" name="completed" initialValue={value.completed} />
+                    <Form.Item hidden="true" name="favourite" initialValue={value.favourite}>
+                      <Input />
+                    </Form.Item>
+                    <Form.Item hidden="true" name="completed" initialValue={value.completed}>
+                      <Input />
+                    </Form.Item>
                     <div className="sDash-modal-actions">
                       <Button size="small" type="white" key="cancel" outlined onClick={handleCancel}>
                         Cancel

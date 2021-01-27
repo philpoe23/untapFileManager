@@ -27,7 +27,7 @@ const FormLayout = ({ onChange }) => {
     setState({ ...state, onChangeValue: value });
   };
 
-  const onChanges = value => {
+  const onTextInput = value => {
     setState({ ...state, value });
     if (onChange) {
       onChange(value.toString('html'));
@@ -143,7 +143,7 @@ const FormLayout = ({ onChange }) => {
               </Cards>
               <Cards title="Text Editor" className="mb-25">
                 <div className="sDash_editor">
-                  <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onChanges} />
+                  <RichTextEditor placeholder="Type your message..." value={state.value} onChange={onTextInput} />
                 </div>
               </Cards>
             </Col>

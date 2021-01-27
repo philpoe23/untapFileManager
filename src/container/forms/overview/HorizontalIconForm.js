@@ -10,7 +10,7 @@ const HorizontalIconForm = () => {
     <BasicFormWrapper>
       <HorizontalFormStyleWrap>
         <Cards title="Horizontal Form With Icons">
-          <Form name="login" layout="horizontal">
+          <Form name="horizontal-icno-from" layout="horizontal">
             <Row align="middle">
               <Col lg={8} md={9} xs={24}>
                 <label htmlFor="name">Name</label>
