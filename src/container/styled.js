@@ -90,7 +90,7 @@ const Main = Styled.div`
     /* // ant Calendar Picker */
     .ant-picker-calendar{
         .ant-badge-status-text{
-            color: ${({ theme }) => theme['gray-color']}
+            color: ${({ theme }) => theme['gray-color']};
         }
     }
     .ant-picker-calendar-header .ant-picker-calendar-year-select{
@@ -702,6 +702,45 @@ const Main = Styled.div`
         max-width: 100%;
         margin: 25px 0;
     }
+
+    // Ant Dragger
+    .ant-upload-drag{
+        background-color: #fff !important;
+        border-radius: 10px !important;
+        display: flex;
+        align-items: center;
+        min-height: 100px;
+        border-color: #C6D0DC;
+        &.sDash-uploader-large{
+            min-height: 180px;
+        }
+        .ant-upload-drag-container{
+            .ant-upload-text{
+                margin-bottom: 0;
+                font-size: 15px;
+                color: #9299B8;
+            }
+        }
+    }
+
+    // Form Validation
+    .ant-form-item{
+        &.ant-form-item-has-success{
+            .ant-input{
+                border-color: ${({ theme }) => theme['success-color']};
+            }
+            &.ant-form-item-with-help{
+                .ant-form-item-explain{
+                    color: ${({ theme }) => theme['success-color']};
+                }
+            }
+        }
+        &.ant-form-item-with-help{
+            .ant-form-item-explain{
+                margin-top: 6px;
+            }
+        }
+    }
 `;
 
 const ButtonsGroupWrapper = Styled.div`
@@ -897,6 +936,16 @@ const BasicFormWrapper = Styled.div`
                 }
             }
         }
+        .ant-input-affix-wrapper > input.ant-input{
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .ant-input-affix-wrapper .ant-input-prefix svg{
+            color: #9299B8;
+        }
+    }
+    .ant-form-item-control-input{
+        min-height: auto !important;
     }
     .ant-form-item{
         flex-flow: column;
@@ -1016,6 +1065,42 @@ const BasicFormWrapper = Styled.div`
     .adTodo-form{
         .btn-adTodo {
             font-size: 14px;
+        }
+    }
+
+    .sDash_form-action{
+        margin: -7.5px;
+        button{
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin: 7.5px;
+            padding: 6.4px 19px;
+            &.ant-btn-light{
+                height: 44px;
+                background-color: #F1F2F6;
+                border-color: #F1F2F6;
+            }
+        }
+        .ant-form-item{
+            margin-bottom: 25px !important;
+        }
+        .ant-btn-light{
+            background-color: #F8F9FB;
+        }
+    }
+    .sDash_color-picker{
+        border: 1px solid #E3E6EF;
+        border-radius: 4px;
+        padding: 11px 14px;
+        input{
+            width: 100%;
+            border: 0 none;
+            background-color: #fff;
+            &::-webkit-color-swatch{
+                min-height: 18px;
+                border: 1px solid #C6D0DC;
+            }
         }
     }
 `;

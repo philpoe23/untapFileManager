@@ -52,8 +52,8 @@ const OverviewSalesCard = Styled.div`
         &.box-success{
             background-color: ${({ theme }) => theme['success-color']}10;
         }
-        &.box-warning{
-            background-color: ${({ theme }) => theme['warning-color']}10;
+        &.box-secondary{
+            background-color: ${({ theme }) => theme['secondary-color']}10;
         }
     }
     .card-chunk{

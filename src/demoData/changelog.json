@@ -1,6 +1,25 @@
 [   {
+        "id": 14,
+        "date": "Jan 28, 2021",
+        "version":"2.3.0",
+        "new":[
+            "Task App",
+            "Form Layouts Pages",
+            "Form Elements Page",
+            "Form Components Page",      
+            "Form Validation Page"   
+        ],
+        "fixed": [
+            "Sidebar Todo page navigation issue",
+            "Recent Order Table Alignment issue"
+        ],
+        "updated": [
+            "Footer Updated"
+        ]
+    },
+    {
         "id": 13,
-        "date": "Jan 05, 2020",
+        "date": "Jan 05, 2021",
         "version":"2.2.0",
         "new":[
             "Kanban Board App",
