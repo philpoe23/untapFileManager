@@ -89,7 +89,7 @@ const FormValidation = () => {
                       </Col>
                     </Row>
                     <div className="sDash_agree-check">
-                      <Form.Item name="checkbox" rules={[{ type: 'checkbox' }]}>
+                      <Form.Item rules={[{ type: 'checkbox' }]}>
                         <Checkbox onChange={onChange}>Agree to terms and conditions</Checkbox>
                       </Form.Item>
                     </div>
@@ -164,7 +164,7 @@ const FormValidation = () => {
                       </Col>
                     </Row>
                     <div className="sDash_agree-check mb-20">
-                      <Form.Item name="checkbox-agree" help="You must agree before submitting." validateStatus="error">
+                      <Form.Item help="You must agree before submitting." validateStatus="error">
                         <Checkbox onChange={onChange}>Agree to terms and conditions</Checkbox>
                       </Form.Item>
                     </div>

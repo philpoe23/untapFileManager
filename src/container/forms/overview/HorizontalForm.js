@@ -9,7 +9,7 @@ const HorizontalForm = () => {
     <BasicFormWrapper>
       <HorizontalFormStyleWrap>
         <Cards title="Horizontal Form">
-          <Form name="login" layout="horizontal">
+          <Form name="horizontal-form" layout="horizontal">
             <Row align="middle">
               <Col lg={8} md={9} xs={24}>
                 <label htmlFor="name">Name</label>

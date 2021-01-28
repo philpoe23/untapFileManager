@@ -19,7 +19,7 @@ const SidebarWrap = Styled.div`
     .sDash_taskApp-sidebar__nav{
         width: calc(100% + 30px);
         position: relative;
-        left: -15px;
+        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: -15px;
         .sDash_taskApp-sidebar__nav--item{
             display: block;
             .sDash_taskApp-sidebar__nav--link{
@@ -51,7 +51,7 @@ const SidebarWrap = Styled.div`
                 }
                 .nav-item-icon{
                     line-height: 1;
-                    margin-right: 12px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                     i,
                     svg{
                         width: 16px;
@@ -99,7 +99,7 @@ const TaskListWrap = Styled.div`
                 margin-bottom: 10px;
                 color: ${({ theme }) => theme['dark-color']};
                 .ant-checkbox + span{
-                    padding-left: 10px;
+                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 10px;
                 }
                 .ant-checkbox-wrapper{
                     &:hover{
@@ -154,7 +154,7 @@ const TaskListWrap = Styled.div`
                 }
                 .task-favourite{
                     line-height: 1;
-                    margin-right: 20px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 20px;
                     &.active{
                         svg,
                         i{
@@ -186,7 +186,7 @@ const TaskListWrap = Styled.div`
 const FixedSidebar = Styled.div`
     position: fixed;
     top: 0;
-    left: 0;
+    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0px;
     width: 280px;
     height: 100vh;
     z-index: 9999;
@@ -202,7 +202,7 @@ const FixedSidebar = Styled.div`
     .trigger-close{
         float: right;
         margin-top: 15px;
-        margin-right: 15px;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         svg,
         i{
             color: ${({ theme }) => theme['danger-color']}; 

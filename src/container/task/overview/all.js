@@ -35,7 +35,7 @@ const All = () => {
     });
   };
 
-  const { taskEditId, editableItem } = state;
+  const { taskEditId, editableItem, visible } = state;
 
   const handleTaskDelete = id => {
     const value = task.filter(item => item.id !== id);
@@ -58,9 +58,10 @@ const All = () => {
     dispatch(ontaskEdit(updatedData));
   };
   useEffect(() => {
-    form.setFieldsValue(editableItem);
-  }, [form, editableItem]);
-  console.log(task);
+    if (visible) {
+      form.setFieldsValue(editableItem);
+    }
+  }, [form, editableItem, visible]);
   return (
     <TaskListWrap className="mb-30">
       <div className="sDash_tasklist-wrap">
@@ -70,50 +71,55 @@ const All = () => {
         <div className="sDash_tasklist-body">
           {task.length > 0 ? (
             <ul className="sDash_tasks">
-              {task.map((item, i) => {
-                return (
-                  <li className="sDash_tasks-item" key={i}>
-                    <div className="sDash_tasks-item__content">
-                      <div className="sDash_tasks-item__title">
-                        <Checkbox checked={!!item.completed} onChange={() => dispatch(onCompleteUpdate(task, item.id))}>
-                          {item.title}
-                        </Checkbox>
+              {task
+                .sort((a, b) => b.id - a.id)
+                .map((item, i) => {
+                  return (
+                    <li className="sDash_tasks-item" key={i}>
+                      <div className="sDash_tasks-item__content">
+                        <div className="sDash_tasks-item__title">
+                          <Checkbox
+                            checked={!!item.completed}
+                            onChange={() => dispatch(onCompleteUpdate(task, item.id))}
+                          >
+                            {item.title}
+                          </Checkbox>
+                        </div>
+                        <div className="sDash_tasks-item__text">
+                          <p>{item.description}</p>
+                        </div>
                       </div>
-                      <div className="sDash_tasks-item__text">
-                        <p>{item.description}</p>
-                      </div>
-                    </div>
-                    {/* task-favourite */}
-                    <div className="sDash_tasks-item__action">
-                      <Link
-                        to="#"
-                        className={`${item.favourite ? 'task-favourite active' : 'task-favourite'}`}
-                        onClick={() => dispatch(onStarUpdate(task, item.id))}
-                      >
-                        <FeatherIcon icon="star" size={14} />
-                      </Link>
-                      <Dropdown
-                        content={
-                          <>
-                            <Link to="#" onClick={() => showModal(item.id, item)}>
-                              <FeatherIcon icon="edit" size={14} />
-                              <span>Edit</span>
-                            </Link>
-                            <Link to="#" onClick={() => handleTaskDelete(item.id)}>
-                              <FeatherIcon icon="trash-2" size={14} />
-                              <span>Delete</span>
-                            </Link>
-                          </>
-                        }
-                      >
-                        <Link to="#">
-                          <FeatherIcon icon="more-vertical" size={18} />
+                      {/* task-favourite */}
+                      <div className="sDash_tasks-item__action">
+                        <Link
+                          to="#"
+                          className={`${item.favourite ? 'task-favourite active' : 'task-favourite'}`}
+                          onClick={() => dispatch(onStarUpdate(task, item.id))}
+                        >
+                          <FeatherIcon icon="star" size={14} />
                         </Link>
-                      </Dropdown>
-                    </div>
-                  </li>
-                );
-              })}
+                        <Dropdown
+                          content={
+                            <>
+                              <Link to="#" onClick={() => showModal(item.id, item)}>
+                                <FeatherIcon icon="edit" size={14} />
+                                <span>Edit</span>
+                              </Link>
+                              <Link to="#" onClick={() => handleTaskDelete(item.id)}>
+                                <FeatherIcon icon="trash-2" size={14} />
+                                <span>Delete</span>
+                              </Link>
+                            </>
+                          }
+                        >
+                          <Link to="#">
+                            <FeatherIcon icon="more-vertical" size={18} />
+                          </Link>
+                        </Dropdown>
+                      </div>
+                    </li>
+                  );
+                })}
             </ul>
           ) : (
             <div className="sDash_empty-task">
@@ -129,9 +135,11 @@ const All = () => {
         visible={state.visible}
         footer={null}
         onCancel={handleCancel}
+        forceRender
       >
         <div className="sDash_addTask-modal-inner">
           {task
+            .sort((a, b) => b.id - a.id)
             .filter(item => item.id === taskEditId)
             .map((value, i) => {
               return (
@@ -148,8 +156,12 @@ const All = () => {
                     <Form.Item name="description" initialValue={value.description}>
                       <Input.TextArea rows={4} placeholder="Add Description" />
                     </Form.Item>
-                    <Form.Item hidden="true" name="favourite" initialValue={value.favourite} />
-                    <Form.Item hidden="true" name="completed" initialValue={value.completed} />
+                    <Form.Item hidden="true" name="favourite" initialValue={value.favourite}>
+                      <Input />
+                    </Form.Item>
+                    <Form.Item hidden="true" name="completed" initialValue={value.completed}>
+                      <Input />
+                    </Form.Item>
                     <div className="sDash-modal-actions">
                       <Button size="small" type="white" key="cancel" outlined onClick={handleCancel}>
                         Cancel

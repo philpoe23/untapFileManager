@@ -41,7 +41,7 @@ const Sales = () => {
           <Col lg={8} xs={24}>
             <Cards headless>
               <OverviewSalesCard>
-                <div className="icon-box box-warning">
+                <div className="icon-box box-secondary">
                   <img src={require('../../static/img/icon/New Customer.svg')} alt="" />
                 </div>
                 <div className="card-chunk">

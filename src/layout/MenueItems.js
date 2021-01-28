@@ -873,11 +873,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Gallery 1
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="two">
+        {/* <Menu.Item key="two">
           <NavLink onClick={toggleCollapsed} to={`${path}/gallery/two`}>
             Gallery 2
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
       </SubMenu>
       <Menu.Item
         icon={
