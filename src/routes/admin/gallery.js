@@ -8,7 +8,7 @@ const GalleryRoute = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route  path={`${path}/two`} component={GalleryTwo} />
+      <Route path={`${path}/two`} component={GalleryTwo} />
       <Route path={`${path}/one`} component={Gallery} />
     </Switch>
   );

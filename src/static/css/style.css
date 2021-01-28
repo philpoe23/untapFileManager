@@ -1599,9 +1599,13 @@ html[dir='rtl'] .sDash_upload-basic .sDash_upload-browse{
   color: #5a5f7d;
 }
 
+.full-width-table .top-seller-table .ant-table-tbody > tr > td {
+  text-align: right;
+}
+
 .full-width-table .top-seller-table th:first-child,
 .full-width-table .top-seller-table td:first-child {
-  text-align: left;
+  text-align: left !important;
 }
 
 /* Table Responsive */
