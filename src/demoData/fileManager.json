@@ -4,12 +4,13 @@
         "name": "Design",
         "path": "Design",     
         "className": "active",
+        "type": "folder",
         "file": [
             {
-                "id": 1,
+                "id": "fd1-fl1",
                 "name": "one",
                 "img": "pdf.png",
-                "type": "png",
+                "type": "file",
                 "size": "1000"
             }
         ],
@@ -19,12 +20,13 @@
                 "name": "StrikingDash",
                 "path": "Design/sDashXd",
                 "className": "",
+                "type": "folder",
                 "folder": [],
                 "file": [
                     {
                         "id": 1,
                         "name": "StrikingDash XD File",
-                        "type": "png",
+                        "type": "file",
                         "size": "1000"
                     }
                 ]
@@ -34,6 +36,7 @@
                 "name": "DRestaurant",
                 "path": "Design/dRestaurantXd",
                 "className": "",
+                "type": "folder",
                 "folder": [],
                 "file": []
             }
@@ -44,11 +47,12 @@
         "name": "Prototypes",
         "path": "Prototypes",
         "className": "",
+        "type": "folder",
         "file": [
             {
                 "id": 1,
                 "name": "hello",
-                "type": "svg",
+                "type": "file",
                 "size": "10000"
             }
         ],
@@ -58,12 +62,13 @@
                 "name": "Prototype Blog",
                 "path": "Prototypes/prototypeBlog",
                 "className": "",
+                "type": "folder",
                 "folder": [],
                 "file": [
                     {
                         "id": 1,
                         "name": "Prototype-blog.png",
-                        "type": "png",
+                        "type": "file",
                         "size": "1000"
                     }
                 ]
@@ -73,6 +78,7 @@
                 "name": "Calendar",
                 "path": "Prototypes/Calendar",
                 "className": "",
+                "type": "folder",
                 "folder": [
                     {
                         "id": 1,
@@ -80,12 +86,13 @@
                         "path": "Prototypes/Calendar/monthView",
                         "img": "zip.png",
                         "className": "",
+                        "type": "folder",
                         "folder": [],
                         "file": [
                             {
                                 "id": 1,
                                 "name": "january.png",
-                                "type": "png",
+                                "type": "file",
                                 "size": "1000"
                             }
                         ]
@@ -96,6 +103,7 @@
                         "path": "Prototypes/Calendar/detailsView",
                         "img": "pdf.png",
                         "className": "",
+                        "type": "folder",
                         "folder": [],
                         "file": []
                     }

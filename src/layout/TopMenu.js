@@ -288,6 +288,12 @@ const TopMenu = () => {
                   Kanban Board
                 </NavLink>
               </li>
+              <li>
+                <NavLink onClick={addParentActive} to={`${path}/app/task/all`}>
+                  <FeatherIcon icon="file" />
+                  Task
+                </NavLink>
+              </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">
                   <ReactSVG className="sDash_menu-item-icon" src={require('../static/img/icon/repeat.svg')} />
@@ -387,6 +393,11 @@ const TopMenu = () => {
               </li>
               <li>
                 <ul>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/changelog`}>
+                      Changelog
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/knowledgebase/plugins`}>
                       Knowledgebase
