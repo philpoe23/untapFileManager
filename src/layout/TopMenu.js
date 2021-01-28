@@ -526,11 +526,6 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink onClick={addParentActive} to={`${path}/components/form`}>
-                      Form
-                    </NavLink>
-                  </li>
-                  <li>
                     <NavLink onClick={addParentActive} to={`${path}/components/grid`}>
                       Grid
                     </NavLink>
@@ -750,12 +745,6 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                 </ul>
-              </li>
-              <li>
-                <NavLink onClick={addParentActive} to={`${path}/forms`}>
-                  <FeatherIcon icon="disc" />
-                  Form
-                </NavLink>
               </li>
               <li className="has-subMenu-left">
                 <Link to="#" className="parent">

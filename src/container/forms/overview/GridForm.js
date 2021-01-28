@@ -54,7 +54,7 @@ const GridForm = () => {
             </Col>
             <Col md={12} xs={24} className="mb-25">
               <Form.Item name="grid-2-2">
-                <Input placeholder="One of Three Columns" label="One of Two Columns" />
+                <Input placeholder="One of Two Columns" label="One of Two Columns" />
               </Form.Item>
             </Col>
           </Row>

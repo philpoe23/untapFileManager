@@ -184,6 +184,11 @@ const FormValidationWrap = Styled.div`
                         &:after{
                             border-color: ${({ theme }) => theme['danger-color']}30;
                         }
+                        .ant-checkbox-inner{
+                            &:after{
+                                border-color: ${({ theme }) => theme['danger-color']};
+                            }
+                        }
                     }
                     .ant-checkbox-inner{
                         border-color: ${({ theme }) => theme['danger-color']}30;

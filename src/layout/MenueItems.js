@@ -504,11 +504,6 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             Empty
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="form">
-          <NavLink onClick={toggleCollapsed} to={`${path}/components/form`}>
-            Form
-          </NavLink>
-        </Menu.Item>
         <Menu.Item key="grid">
           <NavLink onClick={toggleCollapsed} to={`${path}/components/grid`}>
             Grid
