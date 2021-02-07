@@ -179,8 +179,8 @@ const Import = () => {
                           <Form.Item name="f_name">
                             <Input placeholder="File Name" value={fileName} onChange={updateFileName} />
                           </Form.Item>
-                          <Form.Item name="f_type">
-                            <Select defaultValue="CSV" onChange={updateFileType}>
+                          <Form.Item initialValue="CSV" name="f_type">
+                            <Select onChange={updateFileType}>
                               <Option value="csv">CSV</Option>
                               <Option value="xlxs">xlxs</Option>
                             </Select>

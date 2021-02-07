@@ -115,7 +115,7 @@ const Testimonials = () => {
                   <Swiper {...paramsOne}>
                     {users.map((user, index) => {
                       return (
-                        <div className="testimonial-block__single">
+                        <div key={index + 1} className="testimonial-block__single">
                           <figure>
                             <img src={require(`../../${user.img}`)} alt="" />
                             <figcaption>
@@ -134,7 +134,7 @@ const Testimonials = () => {
                   <Swiper {...paramsTwo}>
                     {users.map((user, index) => {
                       return (
-                        <div className="testimonial-block__single">
+                        <div key={index + 1} className="testimonial-block__single">
                           <span className="quotation">
                             <img src={require(`../../static/img/icon/quote.png`)} alt="" />
                           </span>
@@ -163,7 +163,7 @@ const Testimonials = () => {
                     <Swiper {...galleryParams}>
                       {users.map((user, index) => {
                         return (
-                          <div className="testimonial-block__single">
+                          <div key={index + 1} className="testimonial-block__single">
                             <div className="testimonial-block__inner">
                               <div className="testimonial-block__review">
                                 <p>
@@ -190,7 +190,7 @@ const Testimonials = () => {
                   <Swiper {...paramsThree}>
                     {users.map((user, index) => {
                       return (
-                        <div className="testimonial-block__single">
+                        <div key={index + 1} className="testimonial-block__single">
                           <div className="testimonial-block__inner">
                             <div className="testimonial-block__author">
                               <img src={require(`../../${user.img}`)} alt="" />

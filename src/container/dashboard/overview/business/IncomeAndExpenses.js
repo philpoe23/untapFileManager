@@ -66,24 +66,28 @@ const IncomeAndExpenses = () => {
       backgroundColor: '#5F63F250',
       hoverBackgroundColor: '#5F63F2',
       label: 'Total Income',
+      barPercentage: 0.6,
     },
     {
       data: incomeState.sale[1],
       backgroundColor: '#FF69A550',
       hoverBackgroundColor: '#FF69A5',
       label: 'Cost of goods sold',
+      barPercentage: 0.6,
     },
     {
       data: incomeState.expense[1],
       backgroundColor: '#FA8B0C40',
       hoverBackgroundColor: '#FA8B0C',
       label: 'Total expenses',
+      barPercentage: 0.6,
     },
     {
       data: incomeState.profit[1],
       backgroundColor: '#20C99740',
       hoverBackgroundColor: '#20C997',
       label: 'Net profit',
+      barPercentage: 0.6,
     },
   ];
   return (
@@ -234,7 +238,6 @@ const IncomeAndExpenses = () => {
                             color: 'transparent',
                             z: 1,
                           },
-                          barPercentage: 0.6,
                           ticks: {
                             beginAtZero: true,
                             fontSize: 13,
