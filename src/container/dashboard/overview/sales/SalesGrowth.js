@@ -55,7 +55,7 @@ const chartOptions = {
     xAxes: [
       {
         stacked: true,
-        barPercentage: 1,
+
         gridLines: {
           display: false,
         },
@@ -94,6 +94,7 @@ const SalesGrowth = () => {
                     maxBarThickness: 10,
                     barThickness: 12,
                     label: 'Orders',
+                    barPercentage: 1,
                   },
                 ]}
                 options={chartOptions}

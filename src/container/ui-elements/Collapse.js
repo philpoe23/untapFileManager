@@ -60,7 +60,7 @@ const Collapses = () => {
                     welcome guest in many households across the world.
                   </p>
                 </Panel>
-                <Panel header="This is panel header 3" key="3" disabled>
+                <Panel header="This is panel header 3" key="3" collapsible="disabled">
                   <p>
                     A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a
                     welcome guest in many households across the world.

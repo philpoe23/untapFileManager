@@ -940,6 +940,9 @@ const BasicFormWrapper = Styled.div`
             padding-top: 12px;
             padding-bottom: 12px;
         }
+        .ant-input-affix-wrapper .ant-input-prefix svg{
+            color: #9299B8;
+        }
     }
     .ant-form-item-control-input{
         min-height: auto !important;
@@ -1094,6 +1097,10 @@ const BasicFormWrapper = Styled.div`
             width: 100%;
             border: 0 none;
             background-color: #fff;
+            &::-webkit-color-swatch{
+                min-height: 18px;
+                border: 1px solid #C6D0DC;
+            }
         }
     }
 `;

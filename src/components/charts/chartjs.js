@@ -22,10 +22,12 @@ ChartjsBarChart.defaultProps = {
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: '#001737',
+      barPercentage: 0.6,
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: '#1ce1ac',
+      barPercentage: 0.6,
     },
   ],
 
@@ -57,7 +59,6 @@ ChartjsBarChart.defaultProps = {
           gridLines: {
             display: false,
           },
-          barPercentage: 0.6,
           ticks: {
             beginAtZero: true,
             fontSize: 11,
@@ -92,10 +93,12 @@ ChartjsHorizontalChart.defaultProps = {
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: '#001737',
+      barPercentage: 0.6,
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: '#1ce1ac',
+      barPercentage: 0.6,
     },
   ],
 
@@ -126,7 +129,7 @@ ChartjsHorizontalChart.defaultProps = {
           gridLines: {
             color: '#e5e9f2',
           },
-          barPercentage: 0.6,
+
           ticks: {
             beginAtZero: true,
             fontSize: 11,
@@ -163,10 +166,12 @@ ChartjsStackedChart.defaultProps = {
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: '#001737',
+      barPercentage: 0.6,
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: '#1ce1ac',
+      barPercentage: 0.6,
     },
   ],
 
@@ -199,7 +204,7 @@ ChartjsStackedChart.defaultProps = {
           gridLines: {
             display: false,
           },
-          barPercentage: 0.6,
+
           ticks: {
             beginAtZero: true,
             fontSize: 11,
@@ -424,7 +429,7 @@ const ChartjsBarChartTransparent = props => {
     labels,
     datasets,
   };
-  console.log(height);
+
   return (
     <ChartContainer className="parentContainer">
       <Bar
@@ -469,11 +474,13 @@ ChartjsBarChartTransparent.defaultProps = {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: 'rgba(0,23,55, .5)',
       label: 'Profit',
+      barPercentage: 0.6,
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: 'rgba(28,225,172, .5)',
       label: 'Lose',
+      barPercentage: 0.6,
     },
   ],
 
@@ -521,7 +528,7 @@ ChartjsBarChartTransparent.defaultProps = {
           gridLines: {
             display: false,
           },
-          barPercentage: 0.6,
+
           ticks: {
             beginAtZero: true,
             fontSize: 13,
@@ -556,10 +563,12 @@ ChartjsBarChartGrad.defaultProps = {
     {
       data: [20, 60, 50, 45, 50, 60, 70, 40, 45, 35, 25, 30],
       backgroundColor: 'rgba(0,23,55, .5)',
+      barPercentage: 0.6,
     },
     {
       data: [10, 40, 30, 40, 60, 55, 45, 35, 30, 20, 15, 20],
       backgroundColor: 'rgba(28,225,172, .5)',
+      barPercentage: 0.6,
     },
   ],
 
@@ -599,7 +608,7 @@ ChartjsBarChartGrad.defaultProps = {
           gridLines: {
             display: false,
           },
-          barPercentage: 0.6,
+
           ticks: {
             beginAtZero: true,
             fontSize: 11,

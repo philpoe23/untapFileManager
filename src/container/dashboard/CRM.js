@@ -40,7 +40,7 @@ const chartOptions = {
     xAxes: [
       {
         stacked: true,
-        barPercentage: 1,
+
         gridLines: {
           display: false,
         },
@@ -96,6 +96,7 @@ const CRM = () => {
                         backgroundColor: '#EFEFFE',
                         hoverBackgroundColor: '#5F63F2',
                         label: 'Orders',
+                        barPercentage: 1,
                       },
                     ]}
                     options={chartOptions}
@@ -128,6 +129,7 @@ const CRM = () => {
                         backgroundColor: '#FFF0F6',
                         hoverBackgroundColor: '#FF69A5',
                         label: 'Revenue',
+                        barPercentage: 1,
                       },
                     ]}
                     options={chartOptions}
@@ -161,6 +163,7 @@ const CRM = () => {
                         backgroundColor: '#E8FAF4',
                         hoverBackgroundColor: '#20C997',
                         label: 'Avg Orders',
+                        barPercentage: 1,
                       },
                     ]}
                     options={chartOptions}
@@ -193,6 +196,7 @@ const CRM = () => {
                         backgroundColor: '#E9F5FF',
                         hoverBackgroundColor: '#2C99FF',
                         label: 'Visitors',
+                        barPercentage: 1,
                       },
                     ]}
                     options={chartOptions}

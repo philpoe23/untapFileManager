@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Row, Col, Form, Input, DatePicker, TimePicker } from 'antd';
 import moment from 'moment';
@@ -108,7 +109,7 @@ const InputForm = () => {
               <Col md={18} xs={24}>
                 <Form.Item name="input-color">
                   <div className="sDash_color-picker">
-                    <input type="color" />
+                    <Input type="color" value="#5F63F2" />
                   </div>
                 </Form.Item>
               </Col>
