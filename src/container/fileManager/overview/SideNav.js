@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import FeatherIcon from 'feather-icons-react';
 import { Link, NavLink, useRouteMatch } from 'react-router-dom';
-import { Progress, Modal, Form, Input } from 'antd';
+import { Tree, Progress, Modal, Form, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { Cards } from '../../../components/cards/frame/cards-frame';
 import { Dropdown } from '../../../components/dropdown/dropdown';
 import { Button } from '../../../components/buttons/buttons';
 import { fmAddActiveClass, fmReadAllFileFolder } from '../../../redux/fileManager/actionCreator';
 import { SidebarNav } from '../Style';
+
+const { DirectoryTree } = Tree;
 
 const SideNav = () => {
   const dispatch = useDispatch();
@@ -91,6 +93,14 @@ const SideNav = () => {
     folders: PropTypes.array,
   };
 
+  const onExpand = () => {
+    console.log('Trigger Expand');
+  };
+
+  const onSelect = (selectedKeys, info) => {
+    console.log('selected', selectedKeys, info);
+  };
+
   return (
     <SidebarNav>
       <Cards headless>
@@ -141,9 +151,9 @@ const SideNav = () => {
           </Form>
         </Modal>
         <h3 className="sDash_filemanager-title">Files</h3>
-        <ul className="sDash_filemanager-nav">
-          <li className="sDash_filemanager-nav__item active">
-            <NavLink to="#">
+        {/* <ul className="sDash_filemanager-nav">
+          <li className="sDash_filemanager-nav__item active"> */}
+        {/* <NavLink to="#">
               <span className="sDash-dropdown-icon">
                 <FeatherIcon icon="chevron-down" size={14} />
               </span>
@@ -151,31 +161,31 @@ const SideNav = () => {
                 <FeatherIcon icon="file" size={14} />
               </span>
               My files
-            </NavLink>
-            <ul className="sDash_filemanager-nav display">
-              {FileManager.map(item => {
-                return (
-                  <li className={item.className} key={item.id}>
-                    <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
-                      {item.folder.length ? (
-                        <>
-                          <span className="sDash-dropdown-icon">
-                            <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
-                          </span>
-                          <span className="sDash_filemanager-fileicon">
-                            <FeatherIcon icon="folder" size={14} />
-                          </span>
-                        </>
-                      ) : null}
-                      {item.name}
-                    </NavLink>
-                    {item.folder.length ? <Folder folders={item.folder} /> : null}
-                  </li>
-                );
-              })}
-            </ul>
-          </li>
-          <li className="sDash_filemanager-nav__item">
+            </NavLink> */}
+        <ul className="sDash_filemanager-nav">
+          {FileManager.map(item => {
+            return (
+              <li className={item.className} key={item.id}>
+                <NavLink onClick={() => toggleActive(item.path)} to={`${path}/${item.path}`}>
+                  {/* {item.folder.length ? (
+                    <>
+                      <span className="sDash-dropdown-icon">
+                        <FeatherIcon icon={item.className ? 'chevron-down' : 'chevron-right'} size={14} />
+                      </span>
+                      <span className="sDash_filemanager-fileicon">
+                        <FeatherIcon icon="folder" size={14} />
+                      </span>
+                    </>
+                  ) : null}
+                  {item.name} */}
+                </NavLink>
+                {/* {item.folder.length ? <Folder folders={item.folder} /> : null} */}
+              </li>
+            );
+          })}
+        </ul>
+        {/* </li> */}
+        {/* <li className="sDash_filemanager-nav__item">
             <span>
               <span className="sDash_filemanager-fileicon">
                 <FeatherIcon icon="file" size={14} />
@@ -183,7 +193,15 @@ const SideNav = () => {
               My Computer
             </span>
           </li>
-        </ul>
+        </ul> */}
+        <DirectoryTree
+          multiple
+          defaultExpandedKeys={['fd1']}
+          defaultSelectedKeys={['fd1']}
+          onExpand={onExpand}
+          onSelect={onSelect}
+          treeData={FileManager}
+        />
         <div className="sDash_filemanager-bottom">
           <h2 className="sDash_filemanager-bottom__title">STORAGE</h2>
           <Progress percent={80} className="progress-success" />

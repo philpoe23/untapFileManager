@@ -65,7 +65,7 @@ const FileManager = () => {
                 </div>
                 <div className="file-manager-content">
                   <h2 className="file-manager-content__title">Quick Access</h2>
-                  <Row gutter={15}>
+                  {/* <Row gutter={15}>
                     {FileManagerData.length
                       ? FileManagerData[0].folder.map(folder => {
                           return (
@@ -95,7 +95,7 @@ const FileManager = () => {
                           );
                         })
                       : null}
-                  </Row>
+                  </Row> */}
                 </div>
               </Cards>
             </FileManagerContentWrap>
