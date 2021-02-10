@@ -275,6 +275,9 @@ const Div = Styled.div`
 
             .ant-menu{
                 overflow-x: hidden;
+                .ant-menu-sub.ant-menu-inline{
+                    background-color: #fff;
+                }
                 ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                 .ant-menu-submenu, .ant-menu-item{
                     .feather,
@@ -288,7 +291,7 @@ const Div = Styled.div`
                         color: ${({ theme }) => theme['dark-color']};
                         transition: 0.3s ease;
                         a{
-                            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
+                            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px;
                         }
                     }
                     .sDash_menu-item-icon{

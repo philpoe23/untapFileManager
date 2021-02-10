@@ -80,7 +80,7 @@ const KnowledgeBase = ({ match }) => {
               <div className="sDash_popular-article sDash_popular-article-container">
                 <h2 className="sDash_popular-article__title">Popular articles</h2>
                 <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 767: 2, 900: 3 }}>
-                  <Masonry className="sDash_popular-article__box" gutter={15}>
+                  <Masonry className="sDash_popular-article__box" gutter="15px">
                     {articles.map((article, i) => (
                       <div className={`sDash_popular-article__single theme-${article.type}`} key={i}>
                         <h4 className="single-article-title">{article.title}</h4>
