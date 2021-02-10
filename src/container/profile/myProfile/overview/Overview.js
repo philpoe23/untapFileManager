@@ -33,7 +33,6 @@ const chartOptions = {
     xAxes: [
       {
         stacked: true,
-        barPercentage: 1,
         gridLines: {
           display: false,
         },
@@ -194,6 +193,7 @@ const Overview = () => {
                     backgroundColor: '#EFEFFE',
                     hoverBackgroundColor: '#5F63F2',
                     label: 'Orders',
+                    barPercentage: 1,
                   },
                 ]}
                 options={chartOptions}
@@ -226,6 +226,7 @@ const Overview = () => {
                     backgroundColor: '#FFF0F6',
                     hoverBackgroundColor: '#FF69A5',
                     label: 'Revenue',
+                    barPercentage: 1,
                   },
                 ]}
                 options={chartOptions}
@@ -258,6 +259,7 @@ const Overview = () => {
                     backgroundColor: '#E8FAF4',
                     hoverBackgroundColor: '#20C997',
                     label: 'Avg Orders',
+                    barPercentage: 1,
                   },
                 ]}
                 options={chartOptions}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import FeatherIcon from 'feather-icons-react';
+import { CardChartStyle } from './Style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main } from '../styled';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -17,7 +18,6 @@ import IncomeAndExpenses from '../dashboard/overview/business/IncomeAndExpenses'
 import AccountGroup from '../dashboard/overview/business/AccountGroup';
 import SessionsByDevice from '../dashboard/overview/performance/SessionsByDevice';
 import { CardBarChart2, EChartCard } from '../dashboard/style';
-import { CardChartStyle } from './Style';
 import Heading from '../../components/heading/heading';
 import TotalRevenue from '../dashboard/overview/ecommerce/TotalRevenue';
 import RevenueByDevice from '../dashboard/overview/ecommerce/RevenueByDevice';
@@ -44,7 +44,6 @@ const chartOptions = {
     xAxes: [
       {
         stacked: true,
-        barPercentage: 1,
         gridLines: {
           display: false,
         },
@@ -120,6 +119,7 @@ const Widgets = () => {
                               backgroundColor: '#EFEFFE',
                               hoverBackgroundColor: '#5F63F2',
                               label: 'Orders',
+                              barPercentage: 1,
                             },
                           ]}
                           options={chartOptions}
@@ -152,6 +152,7 @@ const Widgets = () => {
                               backgroundColor: '#FFF0F6',
                               hoverBackgroundColor: '#FF69A5',
                               label: 'Revenue',
+                              barPercentage: 1,
                             },
                           ]}
                           options={chartOptions}
@@ -184,6 +185,7 @@ const Widgets = () => {
                               backgroundColor: '#E8FAF4',
                               hoverBackgroundColor: '#20C997',
                               label: 'Avg Orders',
+                              barPercentage: 1,
                             },
                           ]}
                           options={chartOptions}
@@ -216,6 +218,7 @@ const Widgets = () => {
                               backgroundColor: '#E9F5FF',
                               hoverBackgroundColor: '#2C99FF',
                               label: 'Visitors',
+                              barPercentage: 1,
                             },
                           ]}
                           options={chartOptions}
@@ -226,7 +229,7 @@ const Widgets = () => {
                 </Col>
               </Row>
             </Col>
-            
+
             <Col xl={8} md={12} xs={24}>
               <SessionsByDevice />
             </Col>

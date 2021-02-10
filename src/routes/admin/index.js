@@ -22,7 +22,7 @@ const Contact = lazy(() => import('../../container/contact/Contact'));
 const ContactGrid = lazy(() => import('../../container/contact/ContactGrid'));
 const ContactAddNew = lazy(() => import('../../container/contact/AddNew'));
 const Calendar = lazy(() => import('../../container/calendar/Calendar'));
-const FileManager = lazy(() => import('../../container/fileManager/FileManager'));
+// const FileManager = lazy(() => import('../../container/fileManager/FileManager'));
 const Kanban = lazy(() => import('../../container/kanban/Index'));
 const Task = lazy(() => import('../../container/task/Index'));
 
@@ -46,7 +46,7 @@ const Admin = () => {
         <Route path={`${path}/gallery`} component={Gallery} />
         <Route path={`${path}/project`} component={Projects} />
         <Route path={`${path}/calendar`} component={Calendars} />
-        <Route path={`${path}/app/fileManager`} component={FileManager} />
+        {/* <Route path={`${path}/app/fileManager`} component={FileManager} /> */}
         <Route path={`${path}/app/kanban`} component={Kanban} />
         <Route path={`${path}/email/:page`} component={Inbox} />
         <Route path={`${path}/main/chat`} component={Chat} />

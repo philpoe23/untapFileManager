@@ -1139,7 +1139,7 @@ const WizardWrapper = Styled.div`
         color: ${({ theme }) => theme['extra-light-color']};
        }
        .input-message{
-           margin-top: 6px;
+           margin-top: -6px;
            display: inline-block;
            font-size: 13px;
            color: ${({ theme }) => theme['gray-solid']};

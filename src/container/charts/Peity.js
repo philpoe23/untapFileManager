@@ -18,7 +18,7 @@ const Peity = () => {
         element !== null
           ? element.closest('.ant-card-body').clientWidth
           : document.querySelector('.ant-card-body').clientWidth;
-      setState({ responsive: width });
+      setState({ responsive: width - 50 });
     }
     window.addEventListener('resize', updateSize);
     updateSize();
@@ -34,7 +34,7 @@ const Peity = () => {
               <Line
                 values={[5, 3, 9, 6, 5, 9, 7, 3, 5, 2, 5, 3, 9, 6, 5, 9, 7, 3, 5, 2]}
                 height={300}
-                width={responsive - 50}
+                width={responsive}
                 fillColor="none"
               />
             </Cards>
@@ -44,7 +44,7 @@ const Peity = () => {
               <Line
                 values={[5, 3, 9, 6, 5, 9, 7, 3, 5, 2, 5, 3, 9, 6, 5, 9, 7, 3, 5, 2]}
                 height={300}
-                width={responsive - 50}
+                width={responsive}
               />
             </Cards>
           </Col>

@@ -21,18 +21,20 @@ const SingleKnowledgeDetails = () => {
         <h2 className="knowledge-details__title">Switch between accounts</h2>
         <div className="knowledge-details__single--block">
           <h4>
-            <Link>Configuration</Link>
+            <Link to="#">Configuration</Link>
           </h4>
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
             clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet….
           </p>
-          <Link className="btn-more">Read More</Link>
+          <Link to="#" className="btn-more">
+            Read More
+          </Link>
         </div>
         <div className="knowledge-details__single--block">
           <h4>
-            <Link>Research and experiments</Link>
+            <Link to="#">Research and experiments</Link>
           </h4>
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -49,7 +51,7 @@ const SingleKnowledgeDetails = () => {
               <Panel
                 header={
                   <div className="knowledge-details-collapse__title">
-                    <Link>
+                    <Link to="#">
                       <h4>Measuring elevation</h4>
                     </Link>
                   </div>
@@ -62,7 +64,9 @@ const SingleKnowledgeDetails = () => {
                     labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
                     et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet….
                   </p>
-                  <Link className="btn-more">Read More</Link>
+                  <Link to="#" className="btn-more">
+                    Read More
+                  </Link>
                 </div>
               </Panel>
             </Collapse>
@@ -74,7 +78,7 @@ const SingleKnowledgeDetails = () => {
               <Panel
                 header={
                   <div className="knowledge-details-collapse__title">
-                    <Link>
+                    <Link to="#">
                       <h4>Measuring elevation</h4>
                     </Link>
                   </div>
@@ -87,7 +91,9 @@ const SingleKnowledgeDetails = () => {
                     labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
                     et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet….
                   </p>
-                  <Link className="btn-more">Read More</Link>
+                  <Link to="#" className="btn-more">
+                    Read More
+                  </Link>
                 </div>
               </Panel>
             </Collapse>
@@ -113,7 +119,7 @@ const SingleKnowledgeDetails = () => {
         <div className="knowledge-details__bottom">
           <div className="knowledge-details__bottom--left">
             <span>Still need help?</span>
-            <Link>Submit a Request</Link>
+            <Link to="#">Submit a Request</Link>
           </div>
           <div className="knowledge-details__bottom--right">
             <ul className="soical-share">
@@ -121,22 +127,22 @@ const SingleKnowledgeDetails = () => {
                 <span>Share this article:</span>
               </li>
               <li>
-                <Link>
+                <Link to="#">
                   <FontAwesome name="facebook" size="2x" />
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="#">
                   <FontAwesome name="twitter" size="2x" />
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="#">
                   <FontAwesome name="pinterest" size="2x" />
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="#">
                   <FontAwesome name="link" size="2x" />
                 </Link>
               </li>
@@ -146,7 +152,7 @@ const SingleKnowledgeDetails = () => {
         <div className="knowledge-details-pagination">
           <ul>
             <li className="page-next">
-              <Link>
+              <Link to="#">
                 <span className="pagintaion-label">
                   <FontAwesome name="angle-left" size="2x" />
                   <span>Previous article</span>
@@ -155,7 +161,7 @@ const SingleKnowledgeDetails = () => {
               </Link>
             </li>
             <li className="page-previous">
-              <Link>
+              <Link to="#">
                 <span className="pagintaion-label">
                   <span>Next article</span>
                   <FontAwesome name="angle-right" size="2x" />
@@ -170,7 +176,7 @@ const SingleKnowledgeDetails = () => {
         <h4 className="related-article-list__title">Related articles</h4>
         <ul className="related-article">
           <li>
-            <Link className="related-article__single">
+            <Link to="#" className="related-article__single">
               <span className="article-icon">
                 <FontAwesome name="file" size="2x" />
               </span>
@@ -178,7 +184,7 @@ const SingleKnowledgeDetails = () => {
             </Link>
           </li>
           <li>
-            <Link className="related-article__single">
+            <Link to="#" className="related-article__single">
               <span className="article-icon">
                 <FontAwesome name="file" size="2x" />
               </span>
@@ -186,7 +192,7 @@ const SingleKnowledgeDetails = () => {
             </Link>
           </li>
           <li>
-            <Link className="related-article__single">
+            <Link to="#" className="related-article__single">
               <span className="article-icon">
                 <FontAwesome name="file" size="2x" />
               </span>

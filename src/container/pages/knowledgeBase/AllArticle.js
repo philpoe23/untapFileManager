@@ -76,23 +76,23 @@ const AllArticle = () => {
                             <Panel
                               header={
                                 <>
-                                  <Link>Switch between accounts</Link>
+                                  <Link to="#">Switch between accounts</Link>
                                 </>
                               }
                               key="1"
                             >
                               <ul>
                                 <li>
-                                  <Link>Log in and out of Plugins</Link>
+                                  <Link to="#">Log in and out of Plugins</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                                 <li>
-                                  <Link>Reactivate your account</Link>
+                                  <Link to="#">Reactivate your account</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                               </ul>
                             </Panel>
@@ -128,23 +128,23 @@ const AllArticle = () => {
                             <Panel
                               header={
                                 <>
-                                  <Link>Switch between accounts</Link>
+                                  <Link to="#">Switch between accounts</Link>
                                 </>
                               }
                               key="1"
                             >
                               <ul>
                                 <li>
-                                  <Link>Log in and out of Plugins</Link>
+                                  <Link to="#">Log in and out of Plugins</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                                 <li>
-                                  <Link>Reactivate your account</Link>
+                                  <Link to="#">Reactivate your account</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                               </ul>
                             </Panel>
@@ -180,23 +180,23 @@ const AllArticle = () => {
                             <Panel
                               header={
                                 <>
-                                  <Link>Switch between accounts</Link>
+                                  <Link to="#">Switch between accounts</Link>
                                 </>
                               }
                               key="1"
                             >
                               <ul>
                                 <li>
-                                  <Link>Log in and out of Plugins</Link>
+                                  <Link to="#">Log in and out of Plugins</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                                 <li>
-                                  <Link>Reactivate your account</Link>
+                                  <Link to="#">Reactivate your account</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                               </ul>
                             </Panel>
@@ -232,23 +232,23 @@ const AllArticle = () => {
                             <Panel
                               header={
                                 <>
-                                  <Link>Switch between accounts</Link>
+                                  <Link to="#">Switch between accounts</Link>
                                 </>
                               }
                               key="1"
                             >
                               <ul>
                                 <li>
-                                  <Link>Log in and out of Plugins</Link>
+                                  <Link to="#">Log in and out of Plugins</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                                 <li>
-                                  <Link>Reactivate your account</Link>
+                                  <Link to="#">Reactivate your account</Link>
                                 </li>
                                 <li>
-                                  <Link>Change your email</Link>
+                                  <Link to="#">Change your email</Link>
                                 </li>
                               </ul>
                             </Panel>

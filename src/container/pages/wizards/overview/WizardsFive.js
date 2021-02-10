@@ -228,8 +228,8 @@ const WizardsFive = () => {
                                 label="Password"
                               >
                                 <Input.Password placeholder="Password" />
-                                <span className="input-message">Enter a valid password. Min 6 characters long</span>
                               </Form.Item>
+                              <span className="input-message">Enter a valid password. Min 6 characters long</span>
                             </Form>
                           </div>
                         </Col>
