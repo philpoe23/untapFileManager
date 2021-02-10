@@ -1,4 +1,15 @@
 [   {
+        "id": 15,
+        "date": "Feb 10, 2021",
+        "version":"2.4.0",        
+        "fixed": [
+            "Sidebar Color issue"           
+        ],
+        "updated": [
+            "Update NPM Package with latest compatible"
+        ]
+    },
+    {
         "id": 14,
         "date": "Jan 28, 2021",
         "version":"2.3.0",

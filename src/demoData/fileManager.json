@@ -1,114 +1,81 @@
 [
     {
-        "id": 1,
-        "name": "Design",
-        "path": "Design",     
+        "key": "fd1",
+        "title": "Design",
+        "path": "desing",     
         "className": "active",
         "type": "folder",
-        "file": [
+        "children": [
             {
-                "id": "fd1-fl1",
-                "name": "one",
+                "key": "fd1-fd1",
+                "title": "Directorist",
+                "path": "design/directorist",
                 "img": "pdf.png",
-                "type": "file",
-                "size": "1000"
-            }
-        ],
-        "folder": [
-            {
-                "id": 1,
-                "name": "StrikingDash",
-                "path": "Design/sDashXd",
-                "className": "",
                 "type": "folder",
-                "folder": [],
-                "file": [
+                "size": "1000",
+                "children": [
                     {
-                        "id": 1,
-                        "name": "StrikingDash XD File",
+                        "key": "fd1-fd1-fl1",
+                        "title": "directorist.xd",
                         "type": "file",
                         "size": "1000"
                     }
                 ]
             },
             {
-                "id": 2,
-                "name": "DRestaurant",
-                "path": "Design/dRestaurantXd",
+                "key": "fd1-fd2",
+                "title": "StrikingDash",
+                "path": "design/strikingDash",
                 "className": "",
                 "type": "folder",
-                "folder": [],
-                "file": []
+                "children": [
+                    {
+                        "key": "fd1-fd2-fl1",
+                        "title": "strikingDash.xd",
+                        "type": "file",
+                        "size": "1000",
+                        "isLeaf":true
+                    }
+                ]
+            },
+            {
+                "key": "fd1-fd3",
+                "title": "DRestaurant",
+                "path": "Design/dRestaurant",
+                "className": "",
+                "type": "folder",
+                "children": [
+                    {
+                        "key": "fd1-fd3-fl1",
+                        "title": "dRestaurant.xd",
+                        "type": "file",
+                        "size": "1000",
+                        "isLeaf":true
+                    }
+                ]
+            },
+            {
+                "key": "fd1-fd4",
+                "title": "designStrategy.pdf",
+                "className": "",
+                "type": "file",
+                "isLeaf": true
             }
         ]
     },
     {
-        "id": 2,
-        "name": "Prototypes",
+        "key": "fd2",
+        "title": "Prototypes",
         "path": "Prototypes",
         "className": "",
         "type": "folder",
-        "file": [
+        "children": [
             {
-                "id": 1,
-                "name": "hello",
+                "key": "fd2-fl1",
+                "title": "strikingDash.pdf",
                 "type": "file",
-                "size": "10000"
-            }
-        ],
-        "folder": [
-            {
-                "id": 1,
-                "name": "Prototype Blog",
-                "path": "Prototypes/prototypeBlog",
-                "className": "",
-                "type": "folder",
-                "folder": [],
-                "file": [
-                    {
-                        "id": 1,
-                        "name": "Prototype-blog.png",
-                        "type": "file",
-                        "size": "1000"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "Calendar",
-                "path": "Prototypes/Calendar",
-                "className": "",
-                "type": "folder",
-                "folder": [
-                    {
-                        "id": 1,
-                        "name": "Month View",
-                        "path": "Prototypes/Calendar/monthView",
-                        "img": "zip.png",
-                        "className": "",
-                        "type": "folder",
-                        "folder": [],
-                        "file": [
-                            {
-                                "id": 1,
-                                "name": "january.png",
-                                "type": "file",
-                                "size": "1000"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "calendar-details.pdf",
-                        "path": "Prototypes/Calendar/detailsView",
-                        "img": "pdf.png",
-                        "className": "",
-                        "type": "folder",
-                        "folder": [],
-                        "file": []
-                    }
-                ],
-                "file": []
+                "size": "10000",
+                "isLeaf": true
             }
         ]
     }

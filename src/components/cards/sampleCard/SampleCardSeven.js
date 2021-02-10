@@ -119,7 +119,7 @@ const SampleCardSeven = ({ item }) => {
           </div>
           <div className="card-short-actions">
             <div className="content-installed content-action">
-              <Button type="primary" size="small" shape="circle" outlined rounded>
+              <Button type="primary" size="small" shape="circle" outlined>
                 Open
               </Button>
               <div className="more">
@@ -141,7 +141,7 @@ const SampleCardSeven = ({ item }) => {
               </div>
             </div>
             <div className="content-not-installed content-action">
-              <Button type="primary" size="small" shape="circle" raised rounded>
+              <Button type="primary" size="small" shape="circle" raised>
                 Install
               </Button>
               <div className="more">
