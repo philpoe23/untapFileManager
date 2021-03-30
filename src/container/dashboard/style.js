@@ -46,6 +46,9 @@ const OverviewSalesCard = Styled.div`
             height: 60px;
             width: 60px;
         }
+        img{
+            max-width: 35px;
+        }
         &.box-primary{
             background-color: ${({ theme }) => theme['primary-color']}10;
         }

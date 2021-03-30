@@ -593,12 +593,14 @@ const FaqCategoryBox = Styled.div`
   ul{
     li{
       a{
+        width: 100%;
         display: inline-block;
         font-weight: 500;
         position: relative;
         padding: ${({ theme }) => (!theme.rtl ? '12px 0 12px 20px' : '12px 20px 12px 0')};
         transition: all .3s ease;
         color: ${({ theme }) => theme['gray-color']};
+        background-color: #fff;
         &.active{
           padding-left: 28px;
           &:before{

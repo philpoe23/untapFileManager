@@ -8,6 +8,9 @@ const ProfileAuthorBox = Styled.div`
         padding: 0 20px 20px;
         text-align: center;
         border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
+        .info{
+            background-color: transparent;
+        }
     }
     figure{
         position: relative;
@@ -15,7 +18,7 @@ const ProfileAuthorBox = Styled.div`
         margin: 0 auto 18px;
         .ant-upload-select{
             position: absolute;
-        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
             bottom: -2px;
             height: 40px;
             width: 40px;
