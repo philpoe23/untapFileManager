@@ -7,6 +7,10 @@ const Div = Styled.div`
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
         z-index: 999;
 
+        @media print {
+            display: none;
+        }
+
         .ant-btn-link{
             ${({ darkMode }) =>
               darkMode ? `background: #272B41;border-color: #272B41;color: #7D808D !important` : ''};
@@ -87,6 +91,9 @@ const Div = Styled.div`
         box-shadow: 0 10px 15px rgba(#5F63F2,.20);
         &.show{
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 295px;
+        }
+        @media print {
+            display: none;
         }
         svg,
         img{
@@ -250,6 +257,9 @@ const Div = Styled.div`
         box-shadow: 0 0 30px #9299B810;
         @media (max-width: 991px){
             box-shadow: 0 0 10px #00000020;
+        }
+        @media print {
+            display: none;
         }
         &.ant-layout-sider-dark{
             background: ${({ theme }) => theme['dark-color']};
@@ -504,11 +514,17 @@ const Div = Styled.div`
     }
 
     .atbd-main-layout{
-    ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: ${({ theme }) => (theme.topMenu ? 0 : '280px')};
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: ${({ theme }) =>
+  theme.topMenu ? 0 : '280px'};
         margin-top: 64px;
         transition: 0.3s ease;
         @media only screen and (max-width: 1150px){
             ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: auto !important;
+        }
+        @media print {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
@@ -536,6 +552,9 @@ const Div = Styled.div`
         }
     }
     .admin-footer{
+        @media print {
+            display: none;
+        }
         .admin-footer__copyright{
             display: inline-block;
             width: 100%;

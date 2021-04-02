@@ -883,6 +883,10 @@ const ProductTable = Styled.div`
                         border-bottom: 1px solid ${({ theme }) => theme['border-color-light']};
                         color: ${({ theme }) => theme['gray-color']};
                         border-radius: 0 !important;
+                        
+                        @media print {
+                            padding: 6px 16px;
+                        }
                         &:last-child{
                             text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                         }
@@ -903,6 +907,9 @@ const ProductTable = Styled.div`
         }
         .product-info{
             min-width: 300px;
+            @media print {
+                min-width: 200px;
+            }
             .product-info{
                 margin-bottom: 8px;
             }
@@ -1356,6 +1363,9 @@ const InvoiceHeader = Styled.div`
     @media only screen and (max-width: 575px){
         margin: 25px 0;
     }
+    @media print {
+        margin: 0px 0 15px 0;
+    }
     .top-img{
         max-width: 140px;
     }
@@ -1380,6 +1390,20 @@ const InvoiceLetterBox = Styled.div`
         background: #F8F9FB;
         padding: 30px 50px 25px;
         border-radius: 20px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        @media print {
+            padding: 25px;
+        }
+        @media only screen and (max-width: 991px){
+            flex-flow: column;
+        }
         @media only screen and (max-width: 575px){
             padding: 25px;
         }
@@ -1394,6 +1418,9 @@ const InvoiceLetterBox = Styled.div`
             margin-bottom: 16px;
             @media only screen and (max-width: 575px){
                 font-size: 30px;
+            }
+            @media print {
+                font-size: 24px;
             }
         }
         p{
@@ -1415,6 +1442,14 @@ const InvoiceLetterBox = Styled.div`
         }
         .ant-card-body{
             padding: 20px 20px 16px !important;
+            @media print {
+                padding: 15px !important;
+            }
+            img{
+                @media print {
+                    max-width: 180px;
+                }
+            }
         }
         p{
             margin-bottom: 0;
@@ -1449,8 +1484,10 @@ const InvoiceAction = Styled.div`
         margin-top: 50px;
     }
     @media only screen and (max-width: 479px){
-        text-align: center;
         margin-top: 30px;
+    }
+    @media print {
+        display: none;
     }
     .ant-btn-default{
         color: ${({ theme }) => theme['gray-color']};

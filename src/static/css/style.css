@@ -2503,6 +2503,16 @@ html[dir='rtl'] .sDash_task-details .ant-modal-body .sDash_checklist-row .sDash_
   }
 }
 
+/* Invoice Print Style */
+@media print {
+  .invoice-area .ant-page-header {
+    display: none;
+  }
+  .customizer-trigger{
+    display: none;
+  }
+}
+
 /* .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
   color: #fff !important;
 } */

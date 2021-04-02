@@ -101,8 +101,12 @@ const Invoice = () => {
     },
   ];
 
+  const printInvoice = () => {
+    window.print();
+  };
+
   return (
-    <>
+    <div className="invoice-area">
       <PageHeader
         ghost
         title="Invoice"
@@ -122,118 +126,112 @@ const Invoice = () => {
         <Row gutter={15}>
           <Col md={24}>
             <Cards headless>
-              <InvoiceHeader>
-                <Row>
-                  <Col sm={12} xs={24}>
-                    <figure>
-                      <img className="top-img" src={require('../../static/img/Logo_Dark.svg')} alt="logo" />
-                    </figure>
-                  </Col>
-                  <Col sm={12} xs={24}>
-                    <div>
-                      <address className="invoice-info">
-                        Admin Company <br />
-                        795 Folsom Ave, Suite 600 <br />
-                        San Francisco, CA 94107, USA <br />
-                        Reg. number : 245000003513
-                      </address>
-                    </div>
-                  </Col>
-                </Row>
-              </InvoiceHeader>
-              <InvoiceLetterBox>
-                <div className="invoice-letter-inner">
-                  <Row align="middle">
-                    <Col lg={8} xs={24}>
-                      <article className="invoice-author">
-                        <Heading className="invoice-author__title" as="h3">
-                          Invoice
-                        </Heading>
-                        <p>No : #642678</p>
-                        <p>Date : Jan 17, 2020</p>
-                      </article>
+              <div className="invoice-content-wrap" id="print-invoice-content">
+                <InvoiceHeader>
+                  <Row>
+                    <Col sm={12} xs={24}>
+                      <figure>
+                        <img className="top-img" src={require('../../static/img/Logo_Dark.svg')} alt="logo" />
+                      </figure>
                     </Col>
-                    <Col lg={8} xs={24}>
-                      <div className="invoice-barcode">
-                        <Cards headless>
-                          <img style={{ width: '100%' }} src={require('../../static/img/barcode.png')} alt="barcode" />
-                          <p>8364297359912267</p>
-                        </Cards>
+                    <Col sm={12} xs={24}>
+                      <div>
+                        <address className="invoice-info">
+                          Admin Company <br />
+                          795 Folsom Ave, Suite 600 <br />
+                          San Francisco, CA 94107, USA <br />
+                          Reg. number : 245000003513
+                        </address>
                       </div>
                     </Col>
-                    <Col lg={8} xs={24}>
-                      <address className="invoice-customer">
-                        <Heading className="invoice-customer__title" as="h5">
-                          Invoice To:
-                        </Heading>
-                        <p>
-                          Stanley Jones <br />
-                          795 Folsom Ave, Suite 600 <br />
-                          San Francisco, CA 94107, USA
-                        </p>
-                      </address>
-                    </Col>
                   </Row>
-                </div>
-              </InvoiceLetterBox>
-
-              <br />
-              <br />
-              <ProductTable>
-                <div className="table-invoice table-responsive">
-                  <Table dataSource={invoiceTableData} columns={invoiceTableColumns} pagination={false} />
-                </div>
-              </ProductTable>
-
-              <Row justify="end">
-                <Col xxl={4} xl={5} sm={8} xs={14} offset={rtl ? 0 : 10}>
-                  <OrderSummary>
-                    <div className="invoice-summary-inner">
-                      <ul className="summary-list">
-                        <li>
-                          <span className="summary-list-title">Subtotal :</span>
-                          <span className="summary-list-text">{`$${497.32}`}</span>
-                        </li>
-                        <li>
-                          <span className="summary-list-title">Discount :</span>
-                          <span className="summary-list-text">{`$${-20}`}</span>
-                        </li>
-                        <li>
-                          <span className="summary-list-title">Shipping Charge :</span>
-                          <span className="summary-list-text">{`$${30}`}</span>
-                        </li>
-                      </ul>
-                      <Heading className="summary-total" as="h4">
-                        <span className="summary-total-label">Total : </span>
-                        <span className="summary-total-amount">{`$${507.32}`}</span>
+                </InvoiceHeader>
+                <InvoiceLetterBox>
+                  <div className="invoice-letter-inner">
+                    <article className="invoice-author">
+                      <Heading className="invoice-author__title" as="h3">
+                        Invoice
                       </Heading>
+                      <p>No : #642678</p>
+                      <p>Date : Jan 17, 2020</p>
+                    </article>
+                    <div className="invoice-barcode">
+                      <Cards headless>
+                        <img style={{ width: '100%' }} src={require('../../static/img/barcode.png')} alt="barcode" />
+                        <p>8364297359912267</p>
+                      </Cards>
                     </div>
-                  </OrderSummary>
-                </Col>
-              </Row>
-              <Row justify="end">
-                <Col lg={12} md={18} sm={24} offset={0}>
-                  <InvoiceAction>
-                    <Button size="small" shape="round" type="default">
-                      <FeatherIcon icon="printer" size={14} />
-                      Print
-                    </Button>
-                    <Button size="small" shape="round" type="default">
-                      <FeatherIcon icon="send" size={14} />
-                      Send Invoice
-                    </Button>
-                    <Button size="small" shape="round" type="primary">
-                      <FeatherIcon icon="download" size={14} />
-                      Download
-                    </Button>
-                  </InvoiceAction>
-                </Col>
-              </Row>
+                    <address className="invoice-customer">
+                      <Heading className="invoice-customer__title" as="h5">
+                        Invoice To:
+                      </Heading>
+                      <p>
+                        Stanley Jones <br />
+                        795 Folsom Ave, Suite 600 <br />
+                        San Francisco, CA 94107, USA
+                      </p>
+                    </address>
+                  </div>
+                </InvoiceLetterBox>
+
+                <br />
+                <br />
+                <ProductTable>
+                  <div className="table-invoice table-responsive">
+                    <Table dataSource={invoiceTableData} columns={invoiceTableColumns} pagination={false} />
+                  </div>
+                </ProductTable>
+
+                <Row justify="end">
+                  <Col xxl={4} xl={5} sm={8} xs={14} offset={rtl ? 0 : 10}>
+                    <OrderSummary>
+                      <div className="invoice-summary-inner">
+                        <ul className="summary-list">
+                          <li>
+                            <span className="summary-list-title">Subtotal :</span>
+                            <span className="summary-list-text">{`$${497.32}`}</span>
+                          </li>
+                          <li>
+                            <span className="summary-list-title">Discount :</span>
+                            <span className="summary-list-text">{`$${-20}`}</span>
+                          </li>
+                          <li>
+                            <span className="summary-list-title">Shipping Charge :</span>
+                            <span className="summary-list-text">{`$${30}`}</span>
+                          </li>
+                        </ul>
+                        <Heading className="summary-total" as="h4">
+                          <span className="summary-total-label">Total : </span>
+                          <span className="summary-total-amount">{`$${507.32}`}</span>
+                        </Heading>
+                      </div>
+                    </OrderSummary>
+                  </Col>
+                </Row>
+                <Row justify="end">
+                  <Col lg={12} md={18} sm={24} offset={0}>
+                    <InvoiceAction>
+                      <Button size="small" shape="round" type="default" onClick={() => printInvoice()}>
+                        <FeatherIcon icon="printer" size={14} />
+                        Print
+                      </Button>
+                      <Button size="small" shape="round" type="default">
+                        <FeatherIcon icon="send" size={14} />
+                        Send Invoice
+                      </Button>
+                      <Button size="small" shape="round" type="primary">
+                        <FeatherIcon icon="download" size={14} />
+                        Download
+                      </Button>
+                    </InvoiceAction>
+                  </Col>
+                </Row>
+              </div>
             </Cards>
           </Col>
         </Row>
       </Main>
-    </>
+    </div>
   );
 };
 
