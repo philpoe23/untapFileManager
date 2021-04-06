@@ -1366,6 +1366,14 @@ const InvoiceHeader = Styled.div`
     @media print {
         margin: 0px 0 15px 0;
     }
+    .company-logo{
+        @media print {
+            position: absolute;
+            left: 0
+            top: 0;
+            width: 100%;
+        }
+    }
     .top-img{
         max-width: 140px;
     }
@@ -1399,7 +1407,7 @@ const InvoiceLetterBox = Styled.div`
         justify-content: space-around;
         align-items: center;
         @media print {
-            padding: 25px;
+            padding: 20px;
         }
         @media only screen and (max-width: 991px){
             flex-flow: column;
@@ -1411,6 +1419,9 @@ const InvoiceLetterBox = Styled.div`
     .invoice-author{
         @media only screen and (max-width: 991px){
             text-align: center;
+        }
+        @media print {
+            margin-right: 8px;
         }
         .invoice-author__title{
             font-size: 36px;
@@ -1427,6 +1438,9 @@ const InvoiceLetterBox = Styled.div`
             font-size: 15px;
             font-weight: 500;
             margin-bottom: 4px;
+            @media print {
+                font-size: 14px;
+            }
         }
     }
     .invoice-barcode{
@@ -1462,6 +1476,9 @@ const InvoiceLetterBox = Styled.div`
             float: none;
             text-align: center;
         }
+        @media print {
+            margin-left: 8px;
+        }
         .invoice-customer__title{
             font-size: 15px;
             font-weight: 500;
@@ -1473,6 +1490,9 @@ const InvoiceLetterBox = Styled.div`
             font-size: 15px;
             margin-bottom: 0;
             color: ${({ theme }) => theme['gray-color']};
+            @media print {
+                font-size: 14px;
+            }
         }
     }
 `;

@@ -242,6 +242,16 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu, events }) => {
             My Profile
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="profileTimeline">
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/timeline`}>
+            Timeline
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="profileActivity">
+          <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/activity`}>
+            Activity
+          </NavLink>
+        </Menu.Item>
       </SubMenu>
       <SubMenu key="project" icon={!topMenu && <FeatherIcon icon="target" />} title="Project">
         <Menu.Item key="view">

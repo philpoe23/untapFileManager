@@ -167,6 +167,16 @@ const TopMenu = () => {
                       My Profile
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/profile/myProfile/timeline`}>
+                      Timeline
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={addParentActive} to={`${path}/profile/myProfile/activity`}>
+                      Activity
+                    </NavLink>
+                  </li>
                 </ul>
               </li>
               <li className="has-subMenu-left">

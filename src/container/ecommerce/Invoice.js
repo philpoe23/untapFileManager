@@ -130,7 +130,7 @@ const Invoice = () => {
                 <InvoiceHeader>
                   <Row>
                     <Col sm={12} xs={24}>
-                      <figure>
+                      <figure className="company-logo">
                         <img className="top-img" src={require('../../static/img/Logo_Dark.svg')} alt="logo" />
                       </figure>
                     </Col>
