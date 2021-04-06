@@ -1,4 +1,17 @@
-[   {
+[   
+    {
+        "id": 16,
+        "date": "April 6, 2021",
+        "version":"2.5.0",        
+        "fixed": [
+            "Minor Style Issues"           
+        ],
+        "updated": [
+            "Update Invoice Print Button Functionality",
+            "Update Both Side Menu & Top Menu"
+        ]
+    },
+    {
         "id": 15,
         "date": "Feb 11, 2021",
         "version":"2.4.0",        
