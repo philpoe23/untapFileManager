@@ -44,9 +44,94 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       overflowedIndicator={<FeatherIcon icon="more-vertical" />}
       openKeys={openKeys}
     >
-      <Menu.Item key="home">
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}`}>
+              <FeatherIcon icon="home" />
+            </NavLink>
+          )
+        }
+        key="sales"
+      >
         <NavLink onClick={toggleCollapsed} to={`${path}`}>
           Dashboard
+        </NavLink>
+      </Menu.Item>
+      {!topMenu && <p className="sidebar-nav-title">Applications</p>}
+
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/viewAssets`}>
+              <FeatherIcon icon="clipboard" />
+            </NavLink>
+          )
+        }
+        key="assets"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}/viewAssets`}>
+          View Assets
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}`}>
+              <FeatherIcon icon="info" />
+            </NavLink>
+          )
+        }
+        key="info"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}`}>
+          View Information
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}/MTACheckList/view`}>
+              <FeatherIcon icon="check-square" />
+            </NavLink>
+          )
+        }
+        key="checklist"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}/MTACheckList/view`}>
+          MTA Aerodome Inspection
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}`}>
+              <FeatherIcon icon="align-left" />
+            </NavLink>
+          )
+        }
+        key="reports"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}`}>
+          Preview Reports
+        </NavLink>
+      </Menu.Item>
+
+      <Menu.Item
+        icon={
+          !topMenu && (
+            <NavLink className="menuItem-iocn" to={`${path}`}>
+              <FeatherIcon icon="check-circle" />
+            </NavLink>
+          )
+        }
+        key="marked"
+      >
+        <NavLink onClick={toggleCollapsed} to={`${path}`}>
+          Reports Marked
         </NavLink>
       </Menu.Item>
     </Menu>

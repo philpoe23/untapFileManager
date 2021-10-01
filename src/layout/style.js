@@ -81,14 +81,14 @@ const Div = Styled.div`
         width: 50px;
         height: 50px;
         border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')};
-        background-color: #5F63F2;
+        background-color: #ed6642;
         position: fixed;
         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         top: 50%;
         transform: translateY(-50%);
         transition: all .3s ease;
         z-index: 999;
-        box-shadow: 0 10px 15px rgba(#5F63F2,.20);
+        box-shadow: 0 10px 15px rgba(#ed6642,.20);
         &.show{
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 295px;
         }
@@ -175,7 +175,7 @@ const Div = Styled.div`
             }
             &:hover{
                 span{
-                    color: #5F63F2;
+                    color: #ed6642;
                 }
             }
             a{
@@ -558,6 +558,7 @@ const Div = Styled.div`
         .admin-footer__copyright{
             display: inline-block;
             width: 100%;
+            text-align: center;
             color: ${({ theme }) => theme['light-color']};
             @media only screen and (max-width: 767px){
                 text-align: center;
@@ -745,7 +746,7 @@ const TopMenuStyle = Styled.div`
                         }
                         &.active{
                             &:before{
-                                ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #5F63F2')};
+                                ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #ed6642')};
                             }
                         }
                     }
@@ -778,7 +779,7 @@ const TopMenuStyle = Styled.div`
                     font-weight: 500;
                     ${({ theme }) => (theme.darkMode ? `color: #ffffff60;` : 'color: #5A5F7D')};
                     &.active{
-                        ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #5F63F2')};
+                        ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #ed6642')};
                     }
                     svg,
                     img,

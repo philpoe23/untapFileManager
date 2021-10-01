@@ -574,7 +574,7 @@ const Main = Styled.div`
     }
 
     .chart-label .label-dot.dot-info {
-        background: #5f63f2;
+        background: #ed6642;
     }
 
     .chart-label .label-dot.dot-warning {

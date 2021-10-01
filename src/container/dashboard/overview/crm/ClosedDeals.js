@@ -40,8 +40,8 @@ const ClosedDeals = () => {
     },
     {
       data: closeDealState.amount,
-      backgroundColor: '#5F63F280',
-      hoverBackgroundColor: '#5F63F2',
+      backgroundColor: '#ed664280',
+      hoverBackgroundColor: '#ed6642',
       label: 'Amount',
       average: '$28k',
       maxBarThickness: 10,

@@ -29,36 +29,16 @@ const AuthInfo = () => {
     <UserDropDwon>
       <div className="user-dropdwon">
         <figure className="user-dropdwon__info">
-          <img src={require('../../../static/img/avatar/chat-auth.png')} alt="" />
+          <img src={require('../../../static/img/Logo_white.png')} alt="" height={36} />
           <figcaption>
-            <Heading as="h5">Abdullah Bin Talha</Heading>
-            <p>UI Expert</p>
+            <Heading as="h5">Truscott CRM</Heading>
+            <p>Admin</p>
           </figcaption>
         </figure>
         <ul className="user-dropdwon__links">
           <li>
             <Link to="#">
               <FeatherIcon icon="user" /> Profile
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <FeatherIcon icon="settings" /> Settings
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <FeatherIcon icon="dollar-sign" /> Billing
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <FeatherIcon icon="users" /> Activity
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <FeatherIcon icon="bell" /> Help
             </Link>
           </li>
         </ul>
@@ -99,23 +79,12 @@ const AuthInfo = () => {
 
   return (
     <InfoWraper>
-      <Message />
-      <Notification />
-
-      <Settings />
-      <Support />
-      <div className="nav-author">
-        <Dropdown placement="bottomRight" content={country} trigger="click">
-          <Link to="#" className="head-example">
-            <img src={require(`../../../static/img/flag/${flag}.png`)} alt="" />
-          </Link>
-        </Dropdown>
-      </div>
+      <div className="nav-author"></div>
 
       <div className="nav-author">
         <Popover placement="bottomRight" content={userContent} action="click">
           <Link to="#" className="head-example">
-            <Avatar src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png" />
+            <FeatherIcon icon="user" />
           </Link>
         </Popover>
       </div>

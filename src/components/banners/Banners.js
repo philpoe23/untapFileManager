@@ -32,7 +32,7 @@ const Banner1 = () => {
 const Banner2 = () => {
   return (
     <BannerWrapper>
-      <Cards className="mb-70" bodyStyle={{ background: '#5F63F2', borderRadius: '10px', minHeight: '270px' }} headless>
+      <Cards className="mb-70" bodyStyle={{ background: '#ed6642', borderRadius: '10px', minHeight: '270px' }} headless>
         <Figure2>
           <img src={require('../../static/img/banner/1.png')} alt="" />
           <figcaption>
@@ -51,7 +51,7 @@ const Banner2 = () => {
 const Banner3 = () => {
   return (
     <BannerWrapper>
-      <Cards  bodyStyle={{ borderRadius: '10px', minHeight: '270px', background: '#5F63F2' }} headless>
+      <Cards bodyStyle={{ borderRadius: '10px', minHeight: '270px', background: '#ed6642' }} headless>
         <Figure3>
           <img src={require('../../static/img/banner/2.png')} alt="" />
           <figcaption>
@@ -89,13 +89,14 @@ const Banner5 = () => {
   return (
     <BannerWrapper>
       <Cards
-        bodyStyle={{ 
-          background: '#5F63F2',
+        bodyStyle={{
+          background: '#ed6642',
           borderRadius: '10px',
           minHeight: '265px',
           display: 'flex',
-          alignItems: 'center', }}
-          headless
+          alignItems: 'center',
+        }}
+        headless
       >
         <Figure3 className="theme-wide">
           <img src={require('../../static/img/banner/4.png')} alt="" />
@@ -213,7 +214,10 @@ const BannerLong = () => {
 const BannerCard = () => {
   return (
     <BannerCardWrap>
-      <div className="banner-card-inner" style={{backgroundImage: `url("${require('../../static/img/banner/card-banner-1.png')}")`}}>
+      <div
+        className="banner-card-inner"
+        style={{ backgroundImage: `url("${require('../../static/img/banner/card-banner-1.png')}")` }}
+      >
         <h2>Need More Space?</h2>
         <Button size="small" type="white">
           Buy Storage
@@ -226,7 +230,10 @@ const BannerCard = () => {
 const BannerCard2 = () => {
   return (
     <BannerCardWrap>
-      <div className="banner-card-inner theme-2" style={{backgroundImage: `url("${require('../../static/img/banner/card-banner-2.png')}")`}}>
+      <div
+        className="banner-card-inner theme-2"
+        style={{ backgroundImage: `url("${require('../../static/img/banner/card-banner-2.png')}")` }}
+      >
         <h2>Create Sale Report</h2>
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</p>
         <Button size="small" type="white">
@@ -240,7 +247,10 @@ const BannerCard2 = () => {
 const BannerCta = () => {
   return (
     <BannerCtaWrap>
-      <div className="banner-cta align-center-v" style={{backgroundImage: `url("${require('../../static/img/banner/cta-banner-1.png')}")`}}>
+      <div
+        className="banner-cta align-center-v"
+        style={{ backgroundImage: `url("${require('../../static/img/banner/cta-banner-1.png')}")` }}
+      >
         <div className="banner-cta__content">
           <h2>Dedicated Support</h2>
           <Button size="small" type="primary">
@@ -255,7 +265,10 @@ const BannerCta = () => {
 const BannerCta2 = () => {
   return (
     <BannerCtaWrap>
-      <div className="banner-cta align-center-v theme-2" style={{backgroundImage: `url("${require('../../static/img/banner/cta-banner-2.png')}")`}}>
+      <div
+        className="banner-cta align-center-v theme-2"
+        style={{ backgroundImage: `url("${require('../../static/img/banner/cta-banner-2.png')}")` }}
+      >
         <div className="banner-cta__content">
           <h2>Welcome Back Garry Sobars!</h2>
           <p>Lorem ipsum dolor amet, consetetur sadipscing elitr sed diam </p>

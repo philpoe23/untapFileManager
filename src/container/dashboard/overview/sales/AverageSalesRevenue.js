@@ -76,12 +76,12 @@ const AverageSalesRevenue = () => {
   const performanceDatasets = performanceState !== null && [
     {
       data: performanceState[performanceTab][1],
-      borderColor: '#5F63F2',
+      borderColor: '#ed6642',
       borderWidth: 4,
       fill: true,
       backgroundColor: () =>
         chartLinearGradient(document.getElementById('performance'), 300, {
-          start: '#5F63F230',
+          start: '#ed664230',
           end: '#ffffff05',
         }),
       label: 'Current period',
@@ -89,7 +89,7 @@ const AverageSalesRevenue = () => {
       pointRadius: '0',
       hoverRadius: '9',
       pointBorderColor: '#fff',
-      pointBackgroundColor: '#5F63F2',
+      pointBackgroundColor: '#ed6642',
       hoverBorderWidth: 5,
     },
     {

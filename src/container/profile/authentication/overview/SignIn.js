@@ -29,57 +29,27 @@ const SignIn = () => {
 
   return (
     <AuthWrapper>
-      <p className="auth-notice">
-        Don&rsquo;t have an account? <NavLink to="#">Sign up now</NavLink>
-      </p>
       <div className="auth-contents">
         <Form name="login" form={form} onFinish={handleSubmit} layout="vertical">
           <Heading as="h3">
-            Sign in to <span className="color-secondary">Admin</span>
+            Sign in to <span className="color-primary">Truscott</span>
           </Heading>
           <Form.Item
             name="username"
             rules={[{ message: 'Please input your username or Email!', required: true }]}
-            initialValue="name@example.com"
+            initialValue=""
             label="Username or Email Address"
           >
             <Input />
           </Form.Item>
-          <Form.Item name="password" initialValue="123456" label="Password">
+          <Form.Item name="password" initialValue="" label="Password">
             <Input.Password placeholder="Password" />
           </Form.Item>
-          <div className="auth-form-action">
-            <Checkbox onChange={onChange}>Keep me logged in</Checkbox>
-            <NavLink className="forgot-pass-link" to="#">
-              Forgot password?
-            </NavLink>
-          </div>
           <Form.Item>
             <Button className="btn-signin" htmlType="submit" type="primary" size="large">
               {isLoading ? 'Loading...' : 'Sign In'}
             </Button>
           </Form.Item>
-          <p className="form-divider">
-            <span>Or</span>
-          </p>
-          <ul className="social-login">
-            <li>
-              <Link className="google-signup" to="#">
-                <img src={require('../../../../static/img/google.png')} alt="" />
-                <span>Sign in with Google</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="facebook-sign" to="#">
-                <FacebookOutlined />
-              </Link>
-            </li>
-            <li>
-              <Link className="twitter-sign" to="#">
-                <TwitterOutlined />
-              </Link>
-            </li>
-          </ul>
         </Form>
       </div>
     </AuthWrapper>

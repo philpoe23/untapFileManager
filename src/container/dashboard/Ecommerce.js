@@ -93,7 +93,7 @@ const Ecommerce = () => {
                       {
                         data: [20, 60, 50, 45, 50, 60, 70],
                         backgroundColor: '#EFEFFE',
-                        hoverBackgroundColor: '#5F63F2',
+                        hoverBackgroundColor: '#ed6642',
                         label: 'Orders',
                         barPercentage: 1,
                       },

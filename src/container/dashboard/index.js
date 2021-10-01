@@ -12,27 +12,13 @@ import { CalendarButtonPageHeader } from '../../components/buttons/calendar-butt
 const Dashboard = () => {
   return (
     <>
-      <PageHeader
-        ghost
-        title="Sample Page"
-        buttons={[
-          <div key="6" className="page-header-actions">
-            <CalendarButtonPageHeader key="1" />
-            <ExportButtonPageHeader key="2" />
-            <ShareButtonPageHeader key="3" />
-            <Button size="small" key="4" type="primary">
-              <FeatherIcon icon="plus" size={14} />
-              Add New
-            </Button>
-          </div>,
-        ]}
-      />
+      <PageHeader ghost title="Dashboard" />
       <Main>
         <Row gutter={25}>
           <Col lg={24} xs={24}>
             <Cards headless>
               <div style={{ minHeight: 'calc(100vh - 320px)' }}>
-                <h2>Welcome to StrikingDash</h2>
+                <p>Widgets here</p>
               </div>
             </Cards>
           </Col>

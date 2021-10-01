@@ -272,8 +272,8 @@ const AtbdTopDropdwon = Styled.div`
         justify-content: center;
     }
     .atbd-top-dropdwon__content .notification-icon.bg-primary {
-        background: #5F63F215;
-        color: #5F63F2;
+        background: #ed664215;
+        color: #ed6642;
     }
     .atbd-top-dropdwon__content .notification-icon.bg-secondary {
         background: #FF69A515;
@@ -302,7 +302,7 @@ const AtbdTopDropdwon = Styled.div`
     }
 
     .notification-text h1 span {
-        color: #5F63F2;
+        color: #ed6642;
         font-weight: 500;
         ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
     }

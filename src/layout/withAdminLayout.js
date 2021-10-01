@@ -170,57 +170,19 @@ const ThemeLayout = WrappedComponent => {
                     to="/admin"
                   >
                     <img
-                      src={!darkMode ? require(`../static/img/Logo_Dark.svg`) : require(`../static/img/Logo_white.png`)}
+                      src={
+                        !darkMode ? require(`../static/img/Logo_white.png`) : require(`../static/img/Logo_white.png`)
+                      }
                       alt=""
+                      height={56}
                     />
                   </Link>
                 </Col>
 
-                <Col lg={!topMenu ? 14 : 15} md={8} sm={0} xs={0}>
-                  {topMenu && window.innerWidth > 991 ? <TopMenu /> : <HeaderSearch rtl={rtl} darkMode={darkMode} />}
-                </Col>
+                <Col lg={!topMenu ? 14 : 15} md={8} sm={0} xs={0}></Col>
 
-                <Col lg={6} md={10} sm={0} xs={0}>
-                  {topMenu && window.innerWidth > 991 ? (
-                    <TopMenuSearch>
-                      <div className="top-right-wrap d-flex">
-                        <Link
-                          className={`${activeSearch ? 'search-toggle active' : 'search-toggle'}`}
-                          onClick={() => {
-                            toggleSearch();
-                          }}
-                          to="#"
-                        >
-                          <FeatherIcon icon="search" />
-                          <FeatherIcon icon="x" />
-                        </Link>
-                        <div className={`${activeSearch ? 'topMenu-search-form show' : 'topMenu-search-form'}`}>
-                          <form action="">
-                            <span className="search-icon">
-                              <FeatherIcon icon="search" />
-                            </span>
-                            <input type="text" name="search" />
-                          </form>
-                        </div>
-                        <AuthInfo />
-                      </div>
-                    </TopMenuSearch>
-                  ) : (
-                    <AuthInfo />
-                  )}
-                </Col>
-
-                <Col md={0} sm={18} xs={12}>
-                  <>
-                    <div className="mobile-action">
-                      <Link className="btn-search" onClick={handleSearchHide} to="#">
-                        {searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
-                      </Link>
-                      <Link className="btn-auth" onClick={onShowHide} to="#">
-                        <FeatherIcon icon="more-vertical" />
-                      </Link>
-                    </div>
-                  </>
+                <Col lg={6} md={10} sm={18} xs={12}>
+                  <AuthInfo />
                 </Col>
               </Row>
             </Header>
@@ -231,9 +193,6 @@ const ThemeLayout = WrappedComponent => {
                     <SmallScreenSearch hide={searchHide} darkMode={darkMode}>
                       <HeaderSearch rtl={rtl} />
                     </SmallScreenSearch>
-                    <SmallScreenAuthInfo hide={hide} darkMode={darkMode}>
-                      <AuthInfo rtl={rtl} />
-                    </SmallScreenAuthInfo>
                   </div>
                 </Col>
               </Row>
@@ -268,15 +227,10 @@ const ThemeLayout = WrappedComponent => {
                   <WrappedComponent {...this.props} />
                   <Footer className="admin-footer" style={footerStyle}>
                     <Row>
-                      <Col md={12} xs={24}>
-                        <span className="admin-footer__copyright">2021 © SovWare</span>
-                      </Col>
-                      <Col md={12} xs={24}>
-                        <div className="admin-footer__links">
-                          <NavLink to="#">About</NavLink>
-                          <NavLink to="#">Team</NavLink>
-                          <NavLink to="#">Contact</NavLink>
-                        </div>
+                      <Col md={24} xs={24}>
+                        <span className="admin-footer__copyright">
+                          Developed By <img src={require('../static/img/emerald_apps_logo.svg')} height="37" />
+                        </span>
                       </Col>
                     </Row>
                   </Footer>
