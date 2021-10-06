@@ -3,6 +3,7 @@ import { Menu } from 'antd';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import propTypes from 'prop-types';
+import SubMenu from 'antd/lib/menu/SubMenu';
 
 const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
   const { path } = useRouteMatch();
@@ -75,20 +76,28 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         </NavLink>
       </Menu.Item>
 
-      <Menu.Item
-        icon={
-          !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}`}>
-              <FeatherIcon icon="info" />
-            </NavLink>
-          )
-        }
-        key="info"
-      >
-        <NavLink onClick={toggleCollapsed} to={`${path}`}>
-          View Information
-        </NavLink>
-      </Menu.Item>
+      {/* <SubMenu key="info" icon={!topMenu && <FeatherIcon icon="info" />} title="View Information">
+        <Menu.Item key="assetcategories">
+          <NavLink onClick={toggleCollapsed} to={`${path}/viewInformation/assetcategories`}>
+            Asset Categories
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="viewstatus">
+          <NavLink onClick={toggleCollapsed} to={`${path}/viewInformation/status`}>
+            View Status
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="viewlocations">
+          <NavLink onClick={toggleCollapsed} to={`${path}/viewInformation/locations`}>
+            View Locations
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="viewassettypes">
+          <NavLink onClick={toggleCollapsed} to={`${path}/viewInformation/assettypes`}>
+            View Asset Types
+          </NavLink>
+        </Menu.Item>
+      </SubMenu> */}
 
       <Menu.Item
         icon={
@@ -108,30 +117,30 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       <Menu.Item
         icon={
           !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}`}>
+            <NavLink className="menuItem-iocn" to={`${path}/fuellandingrecord/view`}>
               <FeatherIcon icon="align-left" />
             </NavLink>
           )
         }
         key="reports"
       >
-        <NavLink onClick={toggleCollapsed} to={`${path}`}>
-          Preview Reports
+        <NavLink onClick={toggleCollapsed} to={`${path}/fuellandingrecord/view`}>
+          Fuel Issue and Landing Record Docket
         </NavLink>
       </Menu.Item>
 
       <Menu.Item
         icon={
           !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}`}>
-              <FeatherIcon icon="check-circle" />
+            <NavLink className="menuItem-iocn" to={`${path}/dailyReport/view`}>
+              <FeatherIcon icon="calendar" />
             </NavLink>
           )
         }
         key="marked"
       >
-        <NavLink onClick={toggleCollapsed} to={`${path}`}>
-          Reports Marked
+        <NavLink onClick={toggleCollapsed} to={`${path}/dailyReport/view`}>
+          Daily Report
         </NavLink>
       </Menu.Item>
     </Menu>

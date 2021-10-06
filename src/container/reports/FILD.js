@@ -1,17 +1,16 @@
-import { Button, PageHeader, Row, Switch, Table } from 'antd';
+import { Button, PageHeader, Table } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CardToolbox, Main, TableWrapper } from '../../styled';
-import AssetTable from '../../viewAssets/table';
+import { CardToolbox, Main, TableWrapper } from '../styled';
 import FeatherIcon from 'feather-icons-react';
-import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import AssetTable from '../viewInformation/table';
 
-const PrevChecklist = () => {
+const FILD = () => {
   const columns = [
     {
-      title: 'Reporting Officer',
-      dataIndex: 'reporting_officer',
-      key: 'reporting_officer',
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id',
     },
     {
       title: 'Date',
@@ -19,14 +18,14 @@ const PrevChecklist = () => {
       key: 'date',
     },
     {
-      title: 'Time',
-      dataIndex: 'time',
-      key: 'time',
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
     },
     {
-      title: 'Inspection',
-      dataIndex: 'inspection',
-      key: 'inspection',
+      title: 'Arrival Date',
+      dataIndex: 'arrival_date',
+      key: 'arrival_date',
     },
     {
       title: 'Submitted By',
@@ -34,9 +33,9 @@ const PrevChecklist = () => {
       key: 'submitted_by',
     },
     {
-      title: 'Reporting Officer',
-      dataIndex: 'reporting_officer',
-      key: 'reporting_officer',
+      title: 'Airline',
+      dataIndex: 'airline',
+      key: 'airline',
     },
     {
       title: 'Actions',
@@ -50,12 +49,12 @@ const PrevChecklist = () => {
       <CardToolbox>
         <PageHeader
           ghost
-          title="MTA Aerodome Inspection"
+          title="Fuel Issue and Landing Record Docket"
           subTitle={
             <div>
               <Button className="btn-add_new" size="default" key="1" type="primary">
-                <Link to="/admin/MTACheckList/new">
-                  <FeatherIcon icon="plus" size={14} /> New Checklist
+                <Link to="/admin/fuellandingrecord/new">
+                  <FeatherIcon icon="plus" size={14} /> New Docket
                 </Link>
               </Button>
             </div>
@@ -71,4 +70,4 @@ const PrevChecklist = () => {
   );
 };
 
-export default PrevChecklist;
+export default FILD;

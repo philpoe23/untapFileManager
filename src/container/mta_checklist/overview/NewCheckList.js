@@ -93,13 +93,13 @@ const newCheckList = () => {
                           <Input placeholder="Reporting Officer" onChange={handleChangeSiteName} />
                         </Form.Item>
 
-                        <Row>
-                          <Col xl={12}>
+                        <Row sm={24}>
+                          <Col xl={12} sm={12}>
                             <Form.Item name="date" label="Date">
                               <DatePicker picker="date" />
                             </Form.Item>
                           </Col>
-                          <Col xl={12}>
+                          <Col xl={12} sm={12}>
                             <Form.Item name="time" label="Time">
                               <DatePicker picker="time" />
                             </Form.Item>
@@ -117,129 +117,252 @@ const newCheckList = () => {
                         </Row>
                         <Divider dashed={true} />
 
-                        <Row xl={24} className="newChecklist" gutter={24} align="top" justify="center">
-                          <Col xl={12}>
-                            <Divider>Runaway &amp; Taxiway</Divider>
-                            <Form.Item name="Debris" label="Debris">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Markings" label="Markings">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Pavement condition" label="Pavement condition">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Surface water" label="Surface water">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Shoulder erosion" label="Shoulder erosion">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                        {window.innerWidth >= 960 ? (
+                          <Row xl={24} className="newChecklist" gutter={24} align="top" justify="center">
+                            <Col xl={12}>
+                              <Divider>Runaway &amp; Taxiway</Divider>
+                              <Form.Item name="Debris" label="Debris">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markings" label="Markings">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Pavement condition" label="Pavement condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Surface water" label="Surface water">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Shoulder erosion" label="Shoulder erosion">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Runway and Taxiway Strips</Divider>
-                            <Form.Item name="Roughness" label="Roughness">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Obstructions" label="Obstructions">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Grass height" label="Grass height">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Markers" label="Markers">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                              <Divider>Runway and Taxiway Strips</Divider>
+                              <Form.Item name="Roughness" label="Roughness">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Obstructions" label="Obstructions">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Grass height" label="Grass height">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markers" label="Markers">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Apron</Divider>
-                            <Form.Item name="Debris" label="Debris">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Fuel/oil spillage" label="Fuel/oil spillage">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Pavement condition" label="Pavement condition">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Markers/markings" label="Markers/markings">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Parking positions" label="Parking positions">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Ground equipment" label="Ground equipment">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Refuelling ops" label="Refuelling ops">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Vehicle control" label="Vehicle control">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                          </Col>
+                              <Divider>Apron</Divider>
+                              <Form.Item name="Debris" label="Debris">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Fuel/oil spillage" label="Fuel/oil spillage">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Pavement condition" label="Pavement condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markers/markings" label="Markers/markings">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Parking positions" label="Parking positions">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Ground equipment" label="Ground equipment">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Refuelling ops" label="Refuelling ops">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Vehicle control" label="Vehicle control">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                            </Col>
 
-                          <Col xl={12}>
-                            <Divider>Lighting</Divider>
-                            <Form.Item name="PAL activation" label="PAL activation">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Operation" label="Operation">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Condition" label="Condition">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Clear of grass (visibility)" label="Clear of grass (visibility)">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="	Illuminated Wind Indicator" label="	Illuminated Wind Indicator">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Weekly lighting check" label="Weekly lighting check">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                            <Col xl={12}>
+                              <Divider>Lighting</Divider>
+                              <Form.Item name="PAL activation" label="PAL activation">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Operation" label="Operation">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Condition" label="Condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Clear of grass (visibility)" label="Clear of grass (visibility)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="	Illuminated Wind Indicator" label="	Illuminated Wind Indicator">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Weekly lighting check" label="Weekly lighting check">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Hazards</Divider>
-                            <Form.Item name="Birds" label="Birds (Detail Below)">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Animals" label="Aniamls (Detail Below)">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                              <Divider>Hazards</Divider>
+                              <Form.Item name="Birds" label="Birds (Detail Below)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Animals" label="Aniamls (Detail Below)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Fencing</Divider>
-                            <Form.Item name="Security/access" label="Security/access">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Signs" label="Signs">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Gates locked and clear" label="Gates locked and clear">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="	Boundary fence condition" label="	Boundary fence condition">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                              <Divider>Fencing</Divider>
+                              <Form.Item name="Security/access" label="Security/access">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Signs" label="Signs">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Gates locked and clear" label="Gates locked and clear">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="	Boundary fence condition" label="	Boundary fence condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Wind Indicators</Divider>
-                            <Form.Item name="	Condition" label="	Condition">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Circle clear and marked" label="Circle clear and marked">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Spare sleeves" label="Spare sleeves">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
+                              <Divider>Wind Indicators</Divider>
+                              <Form.Item name="	Condition" label="	Condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Spare sleeves" label="Spare sleeves">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
 
-                            <Divider>Signal Area</Divider>
-                            <Form.Item name="Circle clear and marked" label="Circle clear and marked">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                            <Form.Item name="Signals available" label="Signals available">
-                              <CheckboxGroup options={satOptions} />
-                            </Form.Item>
-                          </Col>
-                        </Row>
+                              <Divider>Signal Area</Divider>
+                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Signals available" label="Signals available">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                            </Col>
+                          </Row>
+                        ) : (
+                          <>
+                            <Row xl={24} style={{ display: 'block' }} justify="center">
+                              <Divider style={{ marginTop: '50px' }}>Runaway &amp; Taxiway</Divider>
+                              <Form.Item name="Debris" label="Debris">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markings" label="Markings">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Pavement condition" label="Pavement condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Surface water" label="Surface water">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Shoulder erosion" label="Shoulder erosion">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Runway and Taxiway Strips</Divider>
+                              <Form.Item name="Roughness" label="Roughness">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Obstructions" label="Obstructions">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Grass height" label="Grass height">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markers" label="Markers">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Apron</Divider>
+                              <Form.Item name="Debris" label="Debris">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Fuel/oil spillage" label="Fuel/oil spillage">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Pavement condition" label="Pavement condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Markers/markings" label="Markers/markings">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Parking positions" label="Parking positions">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Ground equipment" label="Ground equipment">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Refuelling ops" label="Refuelling ops">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Vehicle control" label="Vehicle control">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Divider>Lighting</Divider>
+                              <Form.Item name="PAL activation" label="PAL activation">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Operation" label="Operation">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Condition" label="Condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Clear of grass (visibility)" label="Clear of grass (visibility)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="	Illuminated Wind Indicator" label="	Illuminated Wind Indicator">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Weekly lighting check" label="Weekly lighting check">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Hazards</Divider>
+                              <Form.Item name="Birds" label="Birds (Detail Below)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Animals" label="Aniamls (Detail Below)">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Fencing</Divider>
+                              <Form.Item name="Security/access" label="Security/access">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Signs" label="Signs">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Gates locked and clear" label="Gates locked and clear">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="	Boundary fence condition" label="	Boundary fence condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Wind Indicators</Divider>
+                              <Form.Item name="	Condition" label="	Condition">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Spare sleeves" label="Spare sleeves">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+
+                              <Divider style={{ marginTop: '50px' }}>Signal Area</Divider>
+                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                              <Form.Item name="Signals available" label="Signals available">
+                                <CheckboxGroup options={satOptions} />
+                              </Form.Item>
+                            </Row>
+                          </>
+                        )}
 
                         <Divider />
 

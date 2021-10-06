@@ -105,7 +105,7 @@ const RecordFormWrapper = Styled.div`
                 justify-content: center;
                 border-radius: 50%;
                 width: 32px;
-                background: #083643;
+                background: #4b562b;
             }
         }
         .upload-btn{
@@ -150,110 +150,4 @@ const RecordFormWrapper = Styled.div`
         justify-content: center;
     }
 `;
-
-const AddEventWrap = Styled.div`
-    label{
-        font-weight: 400 !important;
-        color: ${({ theme }) => theme['light-color']} !important;
-        margin-bottom: 0 !important;
-    }
-    .ant-form-item{
-        span.label{
-            @media only screen and (max-width: 575px){
-                display: inline-block;
-                margin-bottom: 10px;
-            }
-        }
-    }
-    .ant-form-item-control-input{
-        min-height: 46px;
-        textarea{
-            min-height: 104px;
-            resize: none;
-        }
-        .ant-input{
-            border: 1px solid ${({ theme }) => theme['border-color-light']};
-            &::placeholder{
-                color: ${({ theme }) => theme['gray-color']};
-            }
-        }
-    }
-    .ant-row{
-        flex-flow: row !important;
-        align-items: center;
-        @media only screen and (max-width: 575px){
-            flex-flow: column !important;
-            align-items: flex-start;
-        }
-        &.event-desc{
-            align-items: flex-start;
-        }
-        .ant-form-item-control{
-            @media only screen and (max-width: 575px){
-                width: 100%;
-            }
-        }
-    }
-    
-    .date-time-picker {
-        .ant-picker{
-            min-width: auto;
-            width: 100%;
-            &:not(:last-child){
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
-            }
-        }
-        .ant-picker-input{
-            padding: 0 30px;
-            position: relative;
-            @media only screen and (max-width: 575px){
-                padding: 0 20px 0 25px;
-            }
-            .ant-picker-suffix{
-                position: absolute;
-                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                @media only screen and (max-width: 575px){
-                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
-                }
-                svg{
-                    color: ${({ theme }) => theme['light-color']};
-                }
-            }
-        }
-    }
-    .add-event-footer{
-        .ant-btn-white{
-            color: ${({ theme }) => theme['light-color']} !important;
-        }
-        .btn-save{
-            height: 38px;
-            padding: 0 25px;
-        }
-    }
-
-    .newChecklist {
-        .ant-form-item-control-input-content {
-            position: absolute;
-            right: 0;
-        }
-    }
-
-    .ant-form-item {
-        
-        .ant-form-item-label label {
-            height: -webkit-fit-content;
-            height: -moz-fit-content;
-            height: fit-content;
-            margin-bottom: 6px;
-            color: #000000 !important;
-        }
-    }
-
-    .ant-checkbox-group {
-        float: right;
-    }
-`;
-
-export { RecordViewWrapper, RecordFormWrapper, AddEventWrap };
+export { RecordViewWrapper, RecordFormWrapper };

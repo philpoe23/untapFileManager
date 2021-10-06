@@ -251,8 +251,19 @@ const AddEventWrap = Styled.div`
         }
     }
 
-    .ant-checkbox-group {
-        float: right;
+    .ant-form-item:last-child {
+        margin-Bottom: 24px;
+    }
+
+    .vertical-label {
+        
+    }
+
+
+    .vertical-label .ant-form-item-label label {
+        width: 90px;
+        white-space: pre-wrap;
+        text-align: center;
     }
 `;
 
