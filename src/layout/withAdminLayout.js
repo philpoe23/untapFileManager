@@ -98,7 +98,7 @@ const ThemeLayout = WrappedComponent => {
 
       const SideBarStyle = {
         margin: '63px 0 0 0',
-        padding: '15px 15px 55px 15px',
+        padding: '15px 0px 55px 0px',
         overflowY: 'auto',
         height: '100vh',
         position: 'fixed',
@@ -158,7 +158,7 @@ const ThemeLayout = WrappedComponent => {
                 [!rtl ? 'left' : 'right']: 0,
               }}
             >
-              <Row>
+              <Row style={{ alignItems: 'center' }}>
                 <Col lg={!topMenu ? 4 : 3} sm={6} xs={12} className="align-center-v navbar-brand">
                   {!topMenu || window.innerWidth <= 991 ? (
                     <Button type="link" onClick={toggleCollapsed}>
@@ -225,15 +225,6 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
-                  <Footer className="admin-footer" style={footerStyle}>
-                    <Row>
-                      <Col md={24} xs={24}>
-                        <span className="admin-footer__copyright">
-                          Developed By <img src={require('../static/img/emerald_apps_logo.svg')} height="37" />
-                        </span>
-                      </Col>
-                    </Row>
-                  </Footer>
                 </Content>
               </Layout>
             </Layout>

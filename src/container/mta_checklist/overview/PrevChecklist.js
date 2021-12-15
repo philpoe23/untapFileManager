@@ -1,4 +1,4 @@
-import { Button, PageHeader, Row, Switch, Table } from 'antd';
+import { Button, PageHeader, Row, Switch, Table, List, Avatar } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CardToolbox, Main, TableWrapper } from '../../styled';
@@ -45,6 +45,25 @@ const PrevChecklist = () => {
       width: '90px',
     },
   ];
+
+  const data = [
+    {
+      title: 'Form 4',
+      date: '20/11/2021',
+    },
+    {
+      title: 'Form 3',
+      date: '20/11/2021',
+    },
+    {
+      title: 'Form 2',
+      date: '20/11/2021',
+    },
+    {
+      title: 'Form 1',
+      date: '19/11/2021',
+    },
+  ];
   return (
     <>
       <CardToolbox>
@@ -63,9 +82,18 @@ const PrevChecklist = () => {
         />
       </CardToolbox>
       <Main>
-        <TableWrapper className="table-data-view table-responsive">
-          <Table rowSelection={true} columns={columns} />
-        </TableWrapper>
+        <List
+          itemLayout="horizontal"
+          dataSource={data}
+          renderItem={item => (
+            <List.Item actions={[<a href="#">Download</a>]}>
+              <List.Item.Meta
+                title={<a href="https://ant.design">{item.title}</a>}
+                description={<p>Submitted on: {item.date}</p>}
+              />
+            </List.Item>
+          )}
+        />
       </Main>
     </>
   );

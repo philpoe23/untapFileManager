@@ -278,7 +278,7 @@ const Div = Styled.div`
         }
         
         .ant-layout-sider-children{
-            padding-bottom: 15px;
+            padding-bottom: 0px;
             >.sidebar-nav-title{
                 margin-top: 8px;
             }

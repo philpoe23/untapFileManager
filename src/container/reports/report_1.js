@@ -78,13 +78,13 @@ const report_1 = () => {
 
   return (
     <>
-      <PageHeader title="Fuel Issue and Landing Record Docket" />
+      <PageHeader title="Daily Report" />
       <Main>
         <Row gutter={18}>
           <Col xs={24}>
             <BasicFormWrapper>
               <AddEventWrap>
-                <Row justify="center">
+                <Row justify="center" style={{ display: 'flex', alignItems: 'center' }}>
                   <Col xl={24} md={24} xs={24}>
                     <BasicFormWrapper>
                       <Form
@@ -93,7 +93,7 @@ const report_1 = () => {
                         layout="horizontal"
                         initialValues={{ layout: 'horizontal' }}
                         name="addnew"
-                        handleSubmit={handleSubmit}
+                        onFinish={handleSubmit}
                       >
                         <h1>Contracted Personnel in camp (not paying guests)</h1>
                         <Form.List name="people">
@@ -106,7 +106,6 @@ const report_1 = () => {
                                     name={[name, 'name']}
                                     fieldKey={[fieldKey, 'name']}
                                     rules={[{ required: true, message: 'Missing name' }]}
-                                    style={{ width: '500px' }}
                                   >
                                     <Input placeholder="Name" />
                                   </Form.Item>
@@ -132,8 +131,8 @@ const report_1 = () => {
                         </Form.List>
 
                         <Divider>Fuel on hand at end of day</Divider>
-                        <Row xl={24} gutter={35}>
-                          <Col xl={4} md={6} sm={6} xs={6}>
+                        <Row xl={24} style={{ display: 'block' }}>
+                          <Col xl={4} md={6} sm={12} xs={24}>
                             <p style={{ textAlign: 'center' }}>Stock on hand</p>
                             <Form.Item name="jet" style={{ marginBottom: '0px' }}>
                               <Input placeholder="Jet" />
@@ -145,13 +144,13 @@ const report_1 = () => {
                               <Input placeholder="Diesel" />
                             </Form.Item>
                           </Col>
-                          <Col xl={6} md={6} sm={6} xs={6}>
+                          <Col xl={6} md={6} sm={24} xs={24}>
                             <p style={{ textAlign: 'center' }}>Days since barge</p>
                             <Form.Item name="days_since_barge">
                               <InputNumber />
                             </Form.Item>
                           </Col>
-                          <Col xl={8} md={6} sm={6} xs={6}>
+                          <Col xl={8} md={6} sm={24} xs={24}>
                             <Form.Item name="barge_name" style={{ marginBottom: '0px' }}>
                               <Input placeholder="Barge Name" />
                             </Form.Item>
@@ -159,7 +158,7 @@ const report_1 = () => {
                               <Input placeholder="Delivery Docket Number" />
                             </Form.Item>
                           </Col>
-                          <Col xl={6} md={6} sm={6} xs={6}>
+                          <Col xl={6} md={6} sm={24} xs={24}>
                             <p style={{ textAlign: 'center' }}>Quantity</p>
                             <Form.Item name="q0" style={{ marginBottom: '0px' }}>
                               <InputNumber />
@@ -231,14 +230,19 @@ const report_1 = () => {
 
                         <Divider dashed={true} />
 
-                        <div className="record-form-actions text-right">
-                          <Checkbox>Confirm Daily Report?</Checkbox>
+                        <div className="submit-form">
+                          <Checkbox
+                            onChange={toggleChecked}
+                            style={{ display: 'flex', alignItems: 'center', paddingBottom: 5 }}
+                          >
+                            Confirm All Details are correct?
+                          </Checkbox>
                           <Button
                             size="default"
                             htmlType="submit"
                             type="primary"
                             disabled={checked}
-                            onClick={handleSubmit}
+                            style={{ width: 300 }}
                           >
                             Submit Daily Report
                           </Button>

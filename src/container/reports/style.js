@@ -256,7 +256,8 @@ const AddEventWrap = Styled.div`
     }
 
     .vertical-label {
-        
+        display: flex;
+    justify-content: center;
     }
 
 

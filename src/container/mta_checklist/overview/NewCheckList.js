@@ -26,6 +26,8 @@ import { Button } from '../../../components/buttons/buttons';
 import { Main, BasicFormWrapper } from '../../styled';
 import Heading from '../../../components/heading/heading';
 
+import firebase from '../../../config/api/firebase';
+
 const newCheckList = () => {
   const [siteName, setSiteName] = useState('');
   const [address, setAddress] = useState('');
@@ -65,9 +67,25 @@ const newCheckList = () => {
     }
   };
 
-  const handleSubmit = () => {
-    message.warning('No Database is currently linked');
+  const handleSubmit = values => {
+    message.success('Form Saved');
     console.log('Working');
+    console.log(values);
+
+    const firebaseRef = firebase.database().ref('ServiceabilityInspectionChecklist');
+    const checklist = {
+      weatherConditions: values.weather_conditions,
+    };
+
+    firebaseRef.push(checklist);
+  };
+
+  const centerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   return (
@@ -78,7 +96,7 @@ const newCheckList = () => {
           <Col xs={24}>
             <BasicFormWrapper>
               <AddEventWrap>
-                <Row justify="center">
+                <Row style={centerStyle}>
                   <Col xl={18} md={16} xs={18}>
                     <BasicFormWrapper>
                       <Form
@@ -87,9 +105,9 @@ const newCheckList = () => {
                         layout="horizontal"
                         initialValues={{ layout: 'horizontal' }}
                         name="addnew"
-                        handleSubmit={handleSubmit}
+                        onFinish={handleSubmit}
                       >
-                        <Form.Item name="name" label="Reporting Officer">
+                        <Form.Item name="name" label="ReportingOfficer">
                           <Input placeholder="Reporting Officer" onChange={handleChangeSiteName} />
                         </Form.Item>
 
@@ -127,13 +145,13 @@ const newCheckList = () => {
                               <Form.Item name="Markings" label="Markings">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Pavement condition" label="Pavement condition">
+                              <Form.Item name="Pavementcondition" label="Pavement condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Surface water" label="Surface water">
+                              <Form.Item name="Surfacewater" label="Surface water">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Shoulder erosion" label="Shoulder erosion">
+                              <Form.Item name="Shouldererosion" label="Shoulder erosion">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
@@ -144,7 +162,7 @@ const newCheckList = () => {
                               <Form.Item name="Obstructions" label="Obstructions">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Grass height" label="Grass height">
+                              <Form.Item name="Grassheight" label="Grass height">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                               <Form.Item name="Markers" label="Markers">
@@ -155,25 +173,25 @@ const newCheckList = () => {
                               <Form.Item name="Debris" label="Debris">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Fuel/oil spillage" label="Fuel/oil spillage">
+                              <Form.Item name="Fuel/oilspillage" label="Fuel/oil spillage">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Pavement condition" label="Pavement condition">
+                              <Form.Item name="Pavementcondition" label="Pavement condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                               <Form.Item name="Markers/markings" label="Markers/markings">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Parking positions" label="Parking positions">
+                              <Form.Item name="Parkingpositions" label="Parking positions">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Ground equipment" label="Ground equipment">
+                              <Form.Item name="Groundequipment" label="Ground equipment">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Refuelling ops" label="Refuelling ops">
+                              <Form.Item name="Refuellingops" label="Refuelling ops">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Vehicle control" label="Vehicle control">
+                              <Form.Item name="Vehiclecontrol" label="Vehicle control">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                             </Col>
@@ -214,10 +232,10 @@ const newCheckList = () => {
                               <Form.Item name="Signs" label="Signs">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Gates locked and clear" label="Gates locked and clear">
+                              <Form.Item name="Gateslockedandclear" label="Gates locked and clear">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="	Boundary fence condition" label="	Boundary fence condition">
+                              <Form.Item name="	Boundaryfencecondition" label="	Boundary fence condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
@@ -225,18 +243,18 @@ const newCheckList = () => {
                               <Form.Item name="	Condition" label="	Condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                              <Form.Item name="Circleclearandmarked" label="Circle clear and marked">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Spare sleeves" label="Spare sleeves">
+                              <Form.Item name="Sparesleeves" label="Spare sleeves">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
                               <Divider>Signal Area</Divider>
-                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                              <Form.Item name="Circleclearandmarked" label="Circle clear and marked">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Signals available" label="Signals available">
+                              <Form.Item name="Signalsavailable" label="Signals available">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                             </Col>
@@ -251,13 +269,13 @@ const newCheckList = () => {
                               <Form.Item name="Markings" label="Markings">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Pavement condition" label="Pavement condition">
+                              <Form.Item name="Pavementcondition" label="Pavement condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Surface water" label="Surface water">
+                              <Form.Item name="Surfacewater" label="Surface water">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Shoulder erosion" label="Shoulder erosion">
+                              <Form.Item name="Shouldererosion" label="Shoulder erosion">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
@@ -279,29 +297,29 @@ const newCheckList = () => {
                               <Form.Item name="Debris" label="Debris">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Fuel/oil spillage" label="Fuel/oil spillage">
+                              <Form.Item name="Fuel_oil_spillage" label="Fuel/oil spillage">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Pavement condition" label="Pavement condition">
+                              <Form.Item name="Pavement_condition" label="Pavement condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Markers/markings" label="Markers/markings">
+                              <Form.Item name="Markers_markings" label="Markers/markings">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Parking positions" label="Parking positions">
+                              <Form.Item name="Parking_positions" label="Parking positions">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Ground equipment" label="Ground equipment">
+                              <Form.Item name="Ground_equipment" label="Ground equipment">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Refuelling ops" label="Refuelling ops">
+                              <Form.Item name="Refuelling_ops" label="Refuelling ops">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Vehicle control" label="Vehicle control">
+                              <Form.Item name="Vehicle_control" label="Vehicle control">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                               <Divider>Lighting</Divider>
-                              <Form.Item name="PAL activation" label="PAL activation">
+                              <Form.Item name="PAL_activation" label="PAL activation">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                               <Form.Item name="Operation" label="Operation">
@@ -310,13 +328,13 @@ const newCheckList = () => {
                               <Form.Item name="Condition" label="Condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Clear of grass (visibility)" label="Clear of grass (visibility)">
+                              <Form.Item name="Clear_of_grass" label="Clear of grass (visibility)">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="	Illuminated Wind Indicator" label="	Illuminated Wind Indicator">
+                              <Form.Item name="	Illuminated_Wind_Indicator" label="	Illuminated Wind Indicator">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Weekly lighting check" label="Weekly lighting check">
+                              <Form.Item name="Weekly_lighting_check" label="Weekly lighting check">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
@@ -329,16 +347,16 @@ const newCheckList = () => {
                               </Form.Item>
 
                               <Divider style={{ marginTop: '50px' }}>Fencing</Divider>
-                              <Form.Item name="Security/access" label="Security/access">
+                              <Form.Item name="Security_access" label="Security/access">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                               <Form.Item name="Signs" label="Signs">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Gates locked and clear" label="Gates locked and clear">
+                              <Form.Item name="Gates_locked" label="Gates locked and clear">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="	Boundary fence condition" label="	Boundary fence condition">
+                              <Form.Item name="	Boundary_fence_condition" label="	Boundary fence condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
@@ -346,18 +364,18 @@ const newCheckList = () => {
                               <Form.Item name="	Condition" label="	Condition">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                              <Form.Item name="Wind_Circle_clear" label="Circle clear and marked">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Spare sleeves" label="Spare sleeves">
+                              <Form.Item name="Wind_Spare_sleeves" label="Spare sleeves">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
 
                               <Divider style={{ marginTop: '50px' }}>Signal Area</Divider>
-                              <Form.Item name="Circle clear and marked" label="Circle clear and marked">
+                              <Form.Item name="Signal_Circle_clear" label="Circle clear and marked">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
-                              <Form.Item name="Signals available" label="Signals available">
+                              <Form.Item name="Signals_available" label="Signals available">
                                 <CheckboxGroup options={satOptions} />
                               </Form.Item>
                             </Row>
@@ -400,9 +418,15 @@ const newCheckList = () => {
                           <Input.TextArea />
                         </Form.Item>
 
-                        <div className="record-form-actions text-right">
+                        <div className="record-form-actions submit-form">
                           <Checkbox onChange={toggleChecked}>Confirm Inspection?</Checkbox>
-                          <Button size="default" htmlType="Save" type="primary" disabled={checked}>
+                          <Button
+                            size="default"
+                            htmlType="submit"
+                            type="primary"
+                            disabled={checked}
+                            style={{ width: 300 }}
+                          >
                             Submit Checklist
                           </Button>
                         </div>

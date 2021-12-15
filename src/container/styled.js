@@ -1,7 +1,7 @@
 import Styled from 'styled-components';
 
 const Main = Styled.div`
-    padding: 0px 30px 20px;
+    padding: 0px;
     min-height: 715px;
     background-color: rgb(244, 245, 247);
     &.grid-boxed{
@@ -13,7 +13,7 @@ const Main = Styled.div`
             padding: 0px 50px 20px;
         }
         @media only screen and (max-width: 991px){
-            padding: 0px 30px 20px;
+            padding: 0px;
         }
     }
     .ant-card-rtl .ant-card-extra{
@@ -58,9 +58,6 @@ const Main = Styled.div`
 
     /* progress bars */
     
-    @media only screen and (max-width: 1199px){
-        padding: 0px 15px;
-    }
     @media only screen and (max-width: 991px){
         min-height: 580px;
     }

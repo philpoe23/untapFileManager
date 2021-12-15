@@ -75,6 +75,12 @@ const report_0 = () => {
     form.resetFields();
   };
 
+  const centerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+
   return (
     <>
       <PageHeader title="Fuel Issue and Landing Record Docket" />
@@ -83,8 +89,8 @@ const report_0 = () => {
           <Col xs={24}>
             <BasicFormWrapper>
               <AddEventWrap>
-                <Row justify="center">
-                  <Col xl={18} md={16} xs={18}>
+                <Row style={centerStyle}>
+                  <Col xl={18} md={16} xs={24}>
                     <BasicFormWrapper>
                       <Form
                         className="add-record-form"
@@ -126,7 +132,7 @@ const report_0 = () => {
                           <Row gutter={30} justify="center">
                             <Col xl={6} sm={8}>
                               <Form.Item name="from" label="From">
-                                <Input onChange={handleChangeSiteName} style={{ width: '75%' }} />
+                                <Input onChange={handleChangeSiteName} />
                               </Form.Item>
                             </Col>
                             <Col xl={6} sm={8}>
@@ -145,7 +151,7 @@ const report_0 = () => {
                             <Row gutter={30} justify="center">
                               <Col xl={6} sm={12}>
                                 <Form.Item name="from" label="From">
-                                  <Input onChange={handleChangeSiteName} style={{ width: '75%' }} />
+                                  <Input onChange={handleChangeSiteName} />
                                 </Form.Item>
                               </Col>
                               <Col xl={6} sm={12}>
@@ -272,45 +278,17 @@ const report_0 = () => {
 
                         <Divider dashed={true} />
 
-                        {window.innerWidth >= 990 ? (
-                          <Row xl={24} gutter={25}>
-                            <Col xl={8}>
-                              <Form.Item name="afpi" label="Aircraft Fuel Point Identified">
-                                <Input placeholder="Initials" onChange={handleChangeSiteName} />
-                              </Form.Item>
-                              <Form.Item name="affd" label="After first fueling of day">
-                                <Input placeholder="Initials" onChange={handleChangeSiteName} />
-                              </Form.Item>
-                            </Col>
-                            <Col xl={16}>
-                              <Row xl={24}>
-                                <Col xl={8}>
-                                  <h1 style={{ marginBottom: '24px' }}>Date and Time of refuelling</h1>
-                                </Col>
-                                <Col xl={8}>
-                                  <Form.Item name="refeul_date" style={{ marginBottom: '0px' }}>
-                                    <DatePicker onChange={handleChangeSiteName} />
-                                  </Form.Item>
-                                  <Form.Item name="refeul_time">
-                                    <TimePicker onChange={handleChangeSiteName} />
-                                  </Form.Item>
-                                </Col>
-                              </Row>
-                            </Col>
-                          </Row>
-                        ) : (
-                          <>
-                            <Row xl={24} gutter={25}>
-                              <Form.Item label="Aircraft Fuel Point Identified">
-                                <Input placeholder="Initials" onChange={handleChangeSiteName} />
-                              </Form.Item>
-                            </Row>
-                            <Row xl={24} gutter={25}>
-                              <Form.Item name="affd" label="After first fueling of day">
-                                <Input placeholder="Initials" onChange={handleChangeSiteName} />
-                              </Form.Item>
-                            </Row>
-                            <Row xl={24} gutter={25}>
+                        <Row xl={24} gutter={25}>
+                          <Col xl={8}>
+                            <Form.Item name="afpi" label="Aircraft Fuel Point Identified">
+                              <Input placeholder="Initials" onChange={handleChangeSiteName} />
+                            </Form.Item>
+                            <Form.Item name="affd" label="After first fueling of day">
+                              <Input placeholder="Initials" onChange={handleChangeSiteName} />
+                            </Form.Item>
+                          </Col>
+                          <Col xl={16}>
+                            <Row xl={24}>
                               <Col xl={8}>
                                 <h1 style={{ marginBottom: '24px' }}>Date and Time of refuelling</h1>
                               </Col>
@@ -322,9 +300,9 @@ const report_0 = () => {
                                   <TimePicker onChange={handleChangeSiteName} />
                                 </Form.Item>
                               </Col>
-                            </Row>{' '}
-                          </>
-                        )}
+                            </Row>
+                          </Col>
+                        </Row>
 
                         <Divider>Accommodation and Meals</Divider>
                         <Tooltip title="B = Breakfast; S = Smoke; L = Lunch; N = Night Room; R = Day Room">
@@ -373,16 +351,16 @@ const report_0 = () => {
                           )}
                         </Form.List>
 
-                        <div className="record-form-actions text-right">
+                        <div className="submit-form">
                           <Checkbox onChange={toggleChecked}>Confirm Completed Docket?</Checkbox>
                           <Button
                             size="default"
                             htmlType="submit"
                             type="primary"
                             disabled={checked}
-                            onClick={handleSubmit}
+                            style={{ width: 300 }}
                           >
-                            Submit Checklist
+                            Submit Docket
                           </Button>
                         </div>
                       </Form>
