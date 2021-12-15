@@ -100,7 +100,7 @@ const report_0 = () => {
                         name="addnew"
                         handleSubmit={handleSubmit}
                       >
-                        <Row xl={24} gutter={25}>
+                        <Row xl={24}>
                           <Col xl={4} sm={6}>
                             <Form.Item name="VH" label="VH">
                               <Input onChange={handleChangeSiteName} />

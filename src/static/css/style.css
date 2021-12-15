@@ -2748,3 +2748,11 @@ form#addnew {
   row-gap: 10px;
   padding-right: 0px !important;
 }
+
+.ant-layout-content {
+  padding-left: 15px;
+}
+
+li.ant-menu-item {
+  padding-left: 30px !important;
+}

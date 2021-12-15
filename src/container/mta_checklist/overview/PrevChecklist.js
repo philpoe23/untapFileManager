@@ -5,6 +5,7 @@ import { CardToolbox, Main, TableWrapper } from '../../styled';
 import AssetTable from '../../viewAssets/table';
 import FeatherIcon from 'feather-icons-react';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import { Cards } from '../../../components/cards/frame/cards-frame';
 
 const PrevChecklist = () => {
   const columns = [
@@ -82,27 +83,29 @@ const PrevChecklist = () => {
         />
       </CardToolbox>
       <Main>
-        <List
-          itemLayout="horizontal"
-          dataSource={data}
-          renderItem={item => (
-            <List.Item
-              actions={[
-                <a
-                  href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760"
-                  download
-                >
-                  Download
-                </a>,
-                <a href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760">
-                  View
-                </a>,
-              ]}
-            >
-              <List.Item.Meta title={item.title} description={<p>Submitted on: {item.date}</p>} />
-            </List.Item>
-          )}
-        />
+        <Cards headless>
+          <List
+            itemLayout="horizontal"
+            dataSource={data}
+            renderItem={item => (
+              <List.Item
+                actions={[
+                  <a
+                    href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760"
+                    download
+                  >
+                    Download
+                  </a>,
+                  <a href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760">
+                    View
+                  </a>,
+                ]}
+              >
+                <List.Item.Meta title={item.title} description={<p>Submitted on: {item.date}</p>} />
+              </List.Item>
+            )}
+          />
+        </Cards>
       </Main>
     </>
   );

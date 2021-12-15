@@ -14,7 +14,7 @@ const Dashboard = () => {
     <>
       <PageHeader ghost title="Dashboard" />
       <Main>
-        <Row gutter={25}>
+        <Row>
           <Col lg={24} xs={24}>
             <Cards headless>
               <div style={{ minHeight: 'calc(100vh - 320px)' }}>

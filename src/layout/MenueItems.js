@@ -61,7 +61,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       </Menu.Item>
       {!topMenu && <p className="sidebar-nav-title">Applications</p>}
 
-      <Menu.Item
+      {/* <Menu.Item
         icon={
           !topMenu && (
             <NavLink className="menuItem-iocn" to={`${path}/viewAssets`}>
@@ -74,7 +74,7 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
         <NavLink onClick={toggleCollapsed} to={`${path}/viewAssets`}>
           View Assets
         </NavLink>
-      </Menu.Item>
+      </Menu.Item> */}
 
       {/* <SubMenu key="info" icon={!topMenu && <FeatherIcon icon="info" />} title="View Information">
         <Menu.Item key="assetcategories">
