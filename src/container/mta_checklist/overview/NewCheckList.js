@@ -68,7 +68,7 @@ const newCheckList = () => {
   };
 
   const handleSubmit = values => {
-    message.success('Form Saved');
+    message.success('Form Submitted');
     console.log('Working');
     console.log(values);
 

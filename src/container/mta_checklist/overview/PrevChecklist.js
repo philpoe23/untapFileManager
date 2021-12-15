@@ -86,11 +86,20 @@ const PrevChecklist = () => {
           itemLayout="horizontal"
           dataSource={data}
           renderItem={item => (
-            <List.Item actions={[<a href="#">Download</a>]}>
-              <List.Item.Meta
-                title={<a href="https://ant.design">{item.title}</a>}
-                description={<p>Submitted on: {item.date}</p>}
-              />
+            <List.Item
+              actions={[
+                <a
+                  href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760"
+                  download
+                >
+                  Download
+                </a>,
+                <a href="https://firebasestorage.googleapis.com/v0/b/truscottdev.appspot.com/o/pdf_format.pdf?alt=media&token=4c38a254-3d87-4535-bec7-e1301c1ae760">
+                  View
+                </a>,
+              ]}
+            >
+              <List.Item.Meta title={item.title} description={<p>Submitted on: {item.date}</p>} />
             </List.Item>
           )}
         />
