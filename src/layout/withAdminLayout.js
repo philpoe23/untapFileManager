@@ -167,11 +167,13 @@ const ThemeLayout = WrappedComponent => {
                   ) : null}
                   <Link
                     className={topMenu && window.innerWidth > 991 ? 'striking-logo top-menu' : 'striking-logo'}
-                    to="/admin"
+                    to="/admin/files"
                   >
                     <img
                       src={
-                        !darkMode ? require(`../static/img/Logo_white.png`) : require(`../static/img/Logo_white.png`)
+                        !darkMode
+                          ? require(`../static/img/UntapStrategyFinal-Full.png`)
+                          : require(`../static/img/UntapStrategyFinal-Full.png`)
                       }
                       alt=""
                       height={56}
@@ -225,6 +227,18 @@ const ThemeLayout = WrappedComponent => {
               <Layout className="atbd-main-layout">
                 <Content>
                   <WrappedComponent {...this.props} />
+                  <Footer className="admin-footer" style={footerStyle}>
+                    <Row justify="center">
+                      <Col md={24} xs={24}>
+                        <span className="admin-footer__copyright">
+                          Developed By{' '}
+                          <a href="https://www.emeraldapps.com.au" target="_blank">
+                            <img src={require('../static/img/emerald_apps_logo.png')} height="37" />
+                          </a>
+                        </span>
+                      </Col>
+                    </Row>
+                  </Footer>
                 </Content>
               </Layout>
             </Layout>

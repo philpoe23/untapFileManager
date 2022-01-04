@@ -48,18 +48,17 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
       <Menu.Item
         icon={
           !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}`}>
-              <FeatherIcon icon="home" />
+            <NavLink className="menuItem-iocn" to={`${path}/files`}>
+              <FeatherIcon icon="file-text" />
             </NavLink>
           )
         }
         key="sales"
       >
-        <NavLink onClick={toggleCollapsed} to={`${path}`}>
-          Dashboard
+        <NavLink onClick={toggleCollapsed} to={`${path}/files`}>
+          Files
         </NavLink>
       </Menu.Item>
-      {!topMenu && <p className="sidebar-nav-title">Applications</p>}
 
       {/* <Menu.Item
         icon={
@@ -98,62 +97,11 @@ const MenuItems = ({ darkMode, toggleCollapsed, topMenu }) => {
           </NavLink>
         </Menu.Item>
       </SubMenu> */}
-
-      <Menu.Item
-        icon={
-          !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}/MTACheckList/view`}>
-              <FeatherIcon icon="check-square" />
-            </NavLink>
-          )
-        }
-        key="checklist"
-      >
-        <NavLink onClick={toggleCollapsed} to={`${path}/MTACheckList/view`}>
-          Serviceability Inspection Checklist
-        </NavLink>
-      </Menu.Item>
-
-      <Menu.Item
-        icon={
-          !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}/fuellandingrecord/view`}>
-              <FeatherIcon icon="align-left" />
-            </NavLink>
-          )
-        }
-        key="reports"
-      >
-        <NavLink onClick={toggleCollapsed} to={`${path}/fuellandingrecord/view`}>
-          Fuel and Landing Docket
-        </NavLink>
-      </Menu.Item>
-
-      <Menu.Item
-        icon={
-          !topMenu && (
-            <NavLink className="menuItem-iocn" to={`${path}/dailyReport/view`}>
-              <FeatherIcon icon="calendar" />
-            </NavLink>
-          )
-        }
-        key="marked"
-      >
-        <NavLink onClick={toggleCollapsed} to={`${path}/dailyReport/view`}>
-          Daily Report
-        </NavLink>
-      </Menu.Item>
       <img
         src={require('../static/img/sidebar_graphic.png')}
         height={window.innerHeight < 800 ? 310 : 400}
         style={{ position: 'absolute', bottom: 0, width: 285, zIndex: '-1' }}
       />
-      <div className="sidebar-bottom">
-        <span className="admin-footer__copyright" style={{ paddingBottom: 10, color: '#9a9a9a' }}>
-          Developed By
-        </span>
-        <img src={require('../static/img/emerald_apps_logo.svg')} height={30} />
-      </div>
     </Menu>
   );
 };

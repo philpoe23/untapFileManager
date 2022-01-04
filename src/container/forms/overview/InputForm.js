@@ -109,7 +109,7 @@ const InputForm = () => {
               <Col md={18} xs={24}>
                 <Form.Item name="input-color">
                   <div className="sDash_color-picker">
-                    <Input type="color" value="#ed6642" />
+                    <Input type="color" value="#19305b" />
                   </div>
                 </Form.Item>
               </Col>

@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthLayout from '../container/profile/authentication/Index';
 
-const Login = lazy(() => import('../container/profile/authentication/overview/SignIn'));
+const Login = lazy(() => import('../container/profile/authentication/overview/FbSignIn'));
 
 const NotFound = () => {
   return <Redirect to="/" />;

@@ -149,12 +149,12 @@ const Overview = () => {
   const performanceDatasets = performanceState !== null && [
     {
       data: performanceState.users[1],
-      borderColor: '#ed6642',
+      borderColor: '#19305b',
       borderWidth: 4,
       fill: true,
       backgroundColor: () =>
         chartLinearGradient(document.getElementById('performance'), 300, {
-          start: '#ed664230',
+          start: '#19305b30',
           end: '#ffffff05',
         }),
       label: 'Revenue',
@@ -162,7 +162,7 @@ const Overview = () => {
       pointRadius: '0',
       hoverRadius: '9',
       pointBorderColor: '#fff',
-      pointBackgroundColor: '#ed6642',
+      pointBackgroundColor: '#19305b',
       hoverBorderWidth: 5,
     },
   ];
@@ -191,7 +191,7 @@ const Overview = () => {
                   {
                     data: [20, 60, 50, 45, 50, 60, 70],
                     backgroundColor: '#EFEFFE',
-                    hoverBackgroundColor: '#ed6642',
+                    hoverBackgroundColor: '#19305b',
                     label: 'Orders',
                     barPercentage: 1,
                   },

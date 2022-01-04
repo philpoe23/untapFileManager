@@ -153,7 +153,7 @@ const TopCountriesRevenue = () => {
                   </Geographies>
                   {markers.map(({ name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
-                      <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#ed6642" strokeWidth="6">
+                      <g id="Ellipse_33" data-name="Ellipse 33" fill="#fff" stroke="#19305b" strokeWidth="6">
                         <circle cx="8" cy="8" r="8" stroke="none" />
                         <circle cx="8" cy="8" r="6" fill="none" />
                       </g>

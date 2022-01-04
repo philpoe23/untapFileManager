@@ -8,7 +8,7 @@ const PageHeaderStyle = Styled(PageHeader)`
     width: 12px;
     height: 12px;
     ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 2px;
-    color: #ed6642;
+    color: #19305b;
   }
   i +span, svg +span, img +span {
       ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 6px;

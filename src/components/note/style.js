@@ -30,7 +30,7 @@ const Card = Styled.div`
                 border-radius: 50%;
                ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')} : 8px;
                &.personal{
-                background: #ed6642;
+                background: #19305b;
                }
                &.work{
                 background: #20C997;
@@ -82,9 +82,9 @@ const Card = Styled.div`
         }        
     } 
     &.personal .ant-card .ant-card-body{
-        background: #ed664240;
+        background: #19305b40;
         &:hover{
-            background: #ed664290;
+            background: #19305b90;
         }
     }
     &.work .ant-card .ant-card-body{

@@ -29,9 +29,9 @@ const AuthInfo = () => {
     <UserDropDwon>
       <div className="user-dropdwon">
         <figure className="user-dropdwon__info">
-          <img src={require('../../../static/img/Logo_white.png')} alt="" height={36} />
+          <img src={require('../../../static/img/UntapStrategyFinal-Full.png')} alt="" height={36} />
           <figcaption>
-            <Heading as="h5">Truscott CRM</Heading>
+            <Heading as="h5">Untap Strategy</Heading>
             <p>Admin</p>
           </figcaption>
         </figure>

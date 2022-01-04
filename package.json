@@ -1,5 +1,5 @@
 {
-  "name": "Truscott",
+  "name": "UntapStrategy",
   "version": "2.5.0",
   "private": true,
   "dependencies": {
@@ -33,6 +33,7 @@
     "react-simple-maps": "^2.3.0",
     "react-to-pdf": "^0.0.14",
     "redux": "^4.0.5",
+    "redux-firestore": "^0.15.0",
     "redux-thunk": "^2.3.0",
     "simple-react-lightbox": "^3.3.4-1",
     "styled-components": "^4.4.1"

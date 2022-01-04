@@ -81,14 +81,14 @@ const Div = Styled.div`
         width: 50px;
         height: 50px;
         border-radius: ${({ theme }) => (theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')};
-        background-color: #ed6642;
+        background-color: #19305b;
         position: fixed;
         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         top: 50%;
         transform: translateY(-50%);
         transition: all .3s ease;
         z-index: 999;
-        box-shadow: 0 10px 15px rgba(#ed6642,.20);
+        box-shadow: 0 10px 15px rgba(#19305b,.20);
         &.show{
             ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 295px;
         }
@@ -175,7 +175,7 @@ const Div = Styled.div`
             }
             &:hover{
                 span{
-                    color: #ed6642;
+                    color: #19305b;
                 }
             }
             a{
@@ -746,7 +746,7 @@ const TopMenuStyle = Styled.div`
                         }
                         &.active{
                             &:before{
-                                ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #ed6642')};
+                                ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #19305b')};
                             }
                         }
                     }
@@ -777,9 +777,9 @@ const TopMenuStyle = Styled.div`
                     display: flex;
                     align-items: center;
                     font-weight: 500;
-                    ${({ theme }) => (theme.darkMode ? `color: #ffffff60;` : 'color: #5A5F7D')};
+                    ${({ theme }) => (theme.darkMode ? `color: #e9f4ff;` : 'color: #e9f4ff')};
                     &.active{
-                        ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #ed6642')};
+                        ${({ theme }) => (theme.darkMode ? `color: #fff;` : 'color: #19305b')};
                     }
                     svg,
                     img,

@@ -80,181 +80,183 @@ const report_1 = () => {
     <>
       <PageHeader title="Daily Report" />
       <Main>
-        <Row gutter={18}>
-          <Col xs={24}>
-            <BasicFormWrapper>
-              <AddEventWrap>
-                <Row justify="center" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Col xl={24} md={24} xs={24}>
-                    <BasicFormWrapper>
-                      <Form
-                        className="add-record-form"
-                        style={{ width: '100%' }}
-                        layout="horizontal"
-                        initialValues={{ layout: 'horizontal' }}
-                        name="addnew"
-                        onFinish={handleSubmit}
-                      >
-                        <h1>Contracted Personnel in camp (not paying guests)</h1>
-                        <Form.List name="people">
-                          {(fields, { add, remove }) => (
-                            <>
-                              {fields.map(({ key, name, fieldKey, ...restField }) => (
-                                <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
-                                  <Form.Item
-                                    {...restField}
-                                    name={[name, 'name']}
-                                    fieldKey={[fieldKey, 'name']}
-                                    rules={[{ required: true, message: 'Missing name' }]}
+        <Cards headless>
+          <Row gutter={18}>
+            <Col xs={24}>
+              <BasicFormWrapper>
+                <AddEventWrap>
+                  <Row justify="center" style={{ display: 'flex', alignItems: 'center' }}>
+                    <Col xl={24} md={24} xs={24}>
+                      <BasicFormWrapper>
+                        <Form
+                          className="add-record-form"
+                          style={{ width: '100%' }}
+                          layout="horizontal"
+                          initialValues={{ layout: 'horizontal' }}
+                          name="addnew"
+                          onFinish={handleSubmit}
+                        >
+                          <h1>Contracted Personnel in camp (not paying guests)</h1>
+                          <Form.List name="people">
+                            {(fields, { add, remove }) => (
+                              <>
+                                {fields.map(({ key, name, fieldKey, ...restField }) => (
+                                  <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                                    <Form.Item
+                                      {...restField}
+                                      name={[name, 'name']}
+                                      fieldKey={[fieldKey, 'name']}
+                                      rules={[{ required: true, message: 'Missing name' }]}
+                                    >
+                                      <Input placeholder="Name" />
+                                    </Form.Item>
+                                    <FeatherIcon
+                                      icon="minus-circle"
+                                      onClick={() => remove(name)}
+                                      style={{ cursor: 'pointer' }}
+                                    />
+                                  </Space>
+                                ))}
+                                <Form.Item>
+                                  <Button
+                                    type="dashed"
+                                    onClick={() => add()}
+                                    block
+                                    icon={<FeatherIcon icon="plus-circle" />}
                                   >
-                                    <Input placeholder="Name" />
-                                  </Form.Item>
-                                  <FeatherIcon
-                                    icon="minus-circle"
-                                    onClick={() => remove(name)}
-                                    style={{ cursor: 'pointer' }}
-                                  />
-                                </Space>
-                              ))}
-                              <Form.Item>
-                                <Button
-                                  type="dashed"
-                                  onClick={() => add()}
-                                  block
-                                  icon={<FeatherIcon icon="plus-circle" />}
-                                >
-                                  Add Name
-                                </Button>
-                              </Form.Item>
-                            </>
-                          )}
-                        </Form.List>
+                                    Add Name
+                                  </Button>
+                                </Form.Item>
+                              </>
+                            )}
+                          </Form.List>
 
-                        <Divider>Fuel on hand at end of day</Divider>
-                        <Row xl={24} style={{ display: 'block' }}>
-                          <Col xl={4} md={6} sm={12} xs={24}>
-                            <p style={{ textAlign: 'center' }}>Stock on hand</p>
-                            <Form.Item name="jet" style={{ marginBottom: '0px' }}>
-                              <Input placeholder="Jet" />
-                            </Form.Item>
-                            <Form.Item name="avgas" style={{ marginBottom: '0px' }}>
-                              <Input placeholder="Avgas" />
-                            </Form.Item>
-                            <Form.Item name="diesel">
-                              <Input placeholder="Diesel" />
-                            </Form.Item>
-                          </Col>
-                          <Col xl={6} md={6} sm={24} xs={24}>
-                            <p style={{ textAlign: 'center' }}>Days since barge</p>
-                            <Form.Item name="days_since_barge">
-                              <InputNumber />
-                            </Form.Item>
-                          </Col>
-                          <Col xl={8} md={6} sm={24} xs={24}>
-                            <Form.Item name="barge_name" style={{ marginBottom: '0px' }}>
-                              <Input placeholder="Barge Name" />
-                            </Form.Item>
-                            <Form.Item name="barge_name">
-                              <Input placeholder="Delivery Docket Number" />
-                            </Form.Item>
-                          </Col>
-                          <Col xl={6} md={6} sm={24} xs={24}>
-                            <p style={{ textAlign: 'center' }}>Quantity</p>
-                            <Form.Item name="q0" style={{ marginBottom: '0px' }}>
-                              <InputNumber />
-                            </Form.Item>
-                            <Form.Item name="q1" style={{ marginBottom: '0px' }}>
-                              <InputNumber />
-                            </Form.Item>
-                            <Form.Item name="q2">
-                              <InputNumber />
-                            </Form.Item>
-                          </Col>
-                        </Row>
-                        {window.innerWidth >= 990 ? (
-                          <Row xl={24} gutter={25}>
-                            <Col xl={8}>
-                              <Form.Item name="barge_name" label="Diesel used in plant today">
+                          <Divider>Fuel on hand at end of day</Divider>
+                          <Row xl={24}>
+                            <Col xl={6} md={6} sm={12} xs={24}>
+                              <p style={{ textAlign: 'center' }}>Stock on hand</p>
+                              <Form.Item name="jet" style={{ marginBottom: '0px' }} label="Jet">
+                                <Input placeholder="Jet" />
+                              </Form.Item>
+                              <Form.Item name="avgas" style={{ marginBottom: '0px' }} label="Avgas">
+                                <Input placeholder="Avgas" />
+                              </Form.Item>
+                              <Form.Item name="diesel" label="Diesel">
+                                <Input placeholder="Diesel" />
+                              </Form.Item>
+                            </Col>
+                            <Col xl={6} md={6} sm={24} xs={24}>
+                              <p style={{ textAlign: 'center' }}>Days since barge</p>
+                              <Form.Item name="days_since_barge">
                                 <InputNumber />
                               </Form.Item>
                             </Col>
-                            <Col xl={8}>
-                              <Form.Item name="barge_name" label="Diesel used today by customers">
-                                <InputNumber />
+                            <Col xl={8} md={6} sm={24} xs={24}>
+                              <Form.Item name="barge_name" style={{ marginBottom: '0px' }}>
+                                <Input placeholder="Barge Name" />
+                              </Form.Item>
+                              <Form.Item name="barge_name">
+                                <Input placeholder="Delivery Docket Number" />
                               </Form.Item>
                             </Col>
-                            <Col xl={8}>
-                              <Form.Item name="barge_name" label="Diesel used in generation today">
+                            <Col xl={6} md={6} sm={24} xs={24}>
+                              <p style={{ textAlign: 'center' }}>Quantity</p>
+                              <Form.Item name="q0" style={{ marginBottom: '0px' }}>
+                                <InputNumber />
+                              </Form.Item>
+                              <Form.Item name="q1" style={{ marginBottom: '0px' }}>
+                                <InputNumber />
+                              </Form.Item>
+                              <Form.Item name="q2">
                                 <InputNumber />
                               </Form.Item>
                             </Col>
                           </Row>
-                        ) : (
-                          <>
-                            <Row sm={24} md={24} xs={24}>
-                              <Form.Item name="barge_name" label="Diesel used in plant today">
-                                <InputNumber />
-                              </Form.Item>
+                          {window.innerWidth >= 990 ? (
+                            <Row xl={24} gutter={25}>
+                              <Col xl={8}>
+                                <Form.Item name="barge_name" label="Diesel used in plant today">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Col>
+                              <Col xl={8}>
+                                <Form.Item name="barge_name" label="Diesel used today by customers">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Col>
+                              <Col xl={8}>
+                                <Form.Item name="barge_name" label="Diesel used in generation today">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Col>
                             </Row>
-                            <Row sm={24} md={24} xs={24}>
-                              <Form.Item name="barge_name" label="Diesel used today by customers">
-                                <InputNumber />
-                              </Form.Item>
-                            </Row>
-                            <Row sm={24} md={24} xs={24}>
-                              <Form.Item name="barge_name" label="Diesel used in generation today">
-                                <InputNumber />
-                              </Form.Item>
-                            </Row>
-                          </>
-                        )}
+                          ) : (
+                            <>
+                              <Row sm={24} md={24} xs={24}>
+                                <Form.Item name="barge_name" label="Diesel used in plant today">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Row>
+                              <Row sm={24} md={24} xs={24}>
+                                <Form.Item name="barge_name" label="Diesel used today by customers">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Row>
+                              <Row sm={24} md={24} xs={24}>
+                                <Form.Item name="barge_name" label="Diesel used in generation today">
+                                  <InputNumber />
+                                </Form.Item>
+                              </Row>
+                            </>
+                          )}
 
-                        <Form.Item name="weather" label="Weather" className="vertical-label">
-                          <Input.TextArea className="vertical-label" />
-                        </Form.Item>
-                        <Form.Item name="aircraft_movements" label="Aircraft Movements" className="vertical-label">
-                          <Input.TextArea />
-                        </Form.Item>
-
-                        <Row xl={16} style={{ float: 'right' }}>
-                          <Form.Item name="aircraft_movements" label="Days since last Lost Time Incident">
-                            <InputNumber />
+                          <Form.Item name="weather" label="Weather" className="vertical-label">
+                            <Input.TextArea className="vertical-label" />
                           </Form.Item>
-                        </Row>
+                          <Form.Item name="aircraft_movements" label="Aircraft Movements" className="vertical-label">
+                            <Input.TextArea />
+                          </Form.Item>
 
-                        <Divider>Activities</Divider>
+                          <Row xl={16} style={{ float: 'right' }}>
+                            <Form.Item name="aircraft_movements" label="Days since last Lost Time Incident">
+                              <InputNumber />
+                            </Form.Item>
+                          </Row>
 
-                        <Form.Item>
-                          <Input.TextArea style={{ height: '250px' }} />
-                        </Form.Item>
+                          <Divider>Activities</Divider>
 
-                        <Divider dashed={true} />
+                          <Form.Item>
+                            <Input.TextArea style={{ height: '250px' }} />
+                          </Form.Item>
 
-                        <div className="submit-form">
-                          <Checkbox
-                            onChange={toggleChecked}
-                            style={{ display: 'flex', alignItems: 'center', paddingBottom: 5 }}
-                          >
-                            Confirm All Details are correct?
-                          </Checkbox>
-                          <Button
-                            size="default"
-                            htmlType="submit"
-                            type="primary"
-                            disabled={checked}
-                            style={{ width: 300 }}
-                          >
-                            Submit Daily Report
-                          </Button>
-                        </div>
-                      </Form>
-                    </BasicFormWrapper>
-                  </Col>
-                </Row>
-              </AddEventWrap>
-            </BasicFormWrapper>
-          </Col>
-        </Row>
+                          <Divider dashed={true} />
+
+                          <div className="submit-form">
+                            <Checkbox
+                              onChange={toggleChecked}
+                              style={{ display: 'flex', alignItems: 'center', paddingBottom: 5 }}
+                            >
+                              Confirm All Details are correct?
+                            </Checkbox>
+                            <Button
+                              size="default"
+                              htmlType="submit"
+                              type="primary"
+                              disabled={checked}
+                              style={{ width: 300 }}
+                            >
+                              Submit Daily Report
+                            </Button>
+                          </div>
+                        </Form>
+                      </BasicFormWrapper>
+                    </Col>
+                  </Row>
+                </AddEventWrap>
+              </BasicFormWrapper>
+            </Col>
+          </Row>
+        </Cards>
       </Main>
     </>
   );

@@ -63,8 +63,8 @@ const IncomeAndExpenses = () => {
   const incomeDataset = incomeState !== null && [
     {
       data: incomeState.total[1],
-      backgroundColor: '#ed664250',
-      hoverBackgroundColor: '#ed6642',
+      backgroundColor: '#19305b50',
+      hoverBackgroundColor: '#19305b',
       label: 'Total Income',
       barPercentage: 0.6,
     },
